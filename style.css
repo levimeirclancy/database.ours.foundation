@@ -1,0 +1,174 @@
+body {
+	text-align: left;
+	font-family: Helvetica;
+	font-size: 22px;
+	line-height: 30px;
+	padding: 0;
+	margin: 0; }
+
+a, a:link, a:visited, a:hover {
+	text-decoration: none;
+	color: #000; }
+
+.studies { 
+	font-size: 80%; 
+	margin: 20px auto; 
+	width: auto; 
+	max-width: 700px; }
+
+/* BAR */
+
+.header {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	right: 0;
+	display: block;
+	padding: 0;
+	background: linear-gradient(60deg, rgba(20,20,20,0.3), rgba(20,20,20,0.5));
+	box-shadow: 0 -15px 25px -15px rgba(0,0,0,0.15);
+	z-index: 100000; }
+	
+.header_button {
+	display: block;
+	margin: 10px 15px;
+	font-size: 35px;
+	color: rgba(255,255,255,0.8); }
+	
+.float_left {
+	float: left; }
+	
+.float_right {
+	float: right; }
+
+/* ARTICLE */
+
+header {
+	box-shadow: 0 0 20px 0 rgba(0,0,0,0.2), 0 10px 20px -10px rgba(0,0,0,0.2);
+	margin: 50px 0;
+	padding: 50px 20px; }
+
+h1	{
+	color: rgba(255,255,255,0.95); }
+
+
+/* GENEALOGY INTERSTICE */
+
+.genealogy_interstice { margin: 10px 0 40px; }
+
+.genealogy_interstice p { margin: 3px 0; max-width: none; font-size: 18px; line-height: 22px; }
+
+.genealogy_interstice b { padding: 8px 20px 5px; display: block; }
+
+.genealogy_interstice span { padding: 10px 20px; display: block; }
+
+@media only screen and (max-width: 500px)  {
+	.genealogy_interstice span { padding: 13px 20px; }	
+	}
+
+
+/* SIDEBAR */
+
+#sidebar { 
+	width: 300px; 
+	padding: 20px 30px; 
+	line-height: 30px; 
+	background: white; }
+
+#sidebar .selected { 
+	font-style: italic; }
+
+
+/* FORMS */
+
+select, input, textarea {
+	display: block;
+	width: 300px;
+	margin: 20px 0 70px;
+	padding: 7px 3px 7px 7px;
+	border: 1px solid #aaa;
+	border-radius: 2px;
+	resize: none; }
+
+input:focus, select:focus, textarea:focus {
+	outline-width: 0; }
+
+button {
+	background: rgba(255,255,255,0);
+	border: 0;
+	padding: 0;
+	margin: 0; }
+
+.four_language_inputs {
+	width: 100%;
+	display: block;
+	text-align: center;
+	margin: 0; }
+
+.four_language_inputs input, .four_language_inputs textarea  {
+	display: inline-block;
+	width: 23%;
+	margin: 10px; }
+
+/* MESSENGER CODE */
+
+#messenger-code-image {
+	margin: 30px;
+	text-align: center; }
+
+#messenger-code-image amp-img {
+	width: 80%;
+	max-width: 350px; }
+
+#messenger-flyer-button {
+	position: absolute;
+	top: 0;
+	right: 30px;
+	font-size: 15px;
+	line-height: 15px;
+	color: rgba(50,50,50,0.7); }
+
+/* CORNER HOVERS */
+
+.hover_overlay {
+	z-index: 1000000;
+	display: block;
+	position: fixed;
+	height: 50px;
+	width: 50px;}
+
+.hover_overlay button, .hover_overlay span {
+	display: block;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	font-size: 35px;
+	color: rgba(0,0,0,1); }
+
+.hover_overlay > div {
+	display: none;
+	position: absolute; 
+	right: 0;
+	bottom: 60px; }
+
+.hover_overlay:hover {
+	height: 200px; }
+
+.hover_overlay:hover > div {
+	display: block; }
+
+.hover_bottomleft {
+	bottom: 20px;
+	left: 10px; }
+
+.hover_bottomright {
+	bottom: 20px;
+	right: 23px; }
+
+/* MISCELLANEOUS */
+
+.material-icons {
+	vertical-align: middle; }
+
+.fadeout { 
+	opacity: 0.25; }
