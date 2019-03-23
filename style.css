@@ -74,7 +74,6 @@ h1	{
 	padding: 20px 30px; 
 	line-height: 30px;
 	background: #777;
-	color: #fff;
 	text-align: left;
 	}
 
@@ -82,13 +81,16 @@ h1	{
 	display: block;
 	font-size: 120%;
 	font-weight: 700;
+	color: #fff;
 	}
 
 .navigation-sidebar-item {
 	display: inline-block;
 	padding: 12px 18px;
+	margin: 15px;
 	border: 2px solid #fff;
 	border-radius: 100px;
+	color: #fff;
 	}
 
 .navigation-sidebar-item-selected { 
@@ -100,10 +102,11 @@ h1	{
 	font-style: italic;
 	}
 
-
 .navigation-sidebar-account {
 	display: inline-block;
 	padding: 15px;
+	margin: 15px;
+	color: #fff;
 	font-size: 85%;
 	}
 
