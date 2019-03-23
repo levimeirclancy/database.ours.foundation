@@ -69,15 +69,47 @@ h1	{
 
 /* SIDEBAR */
 
-#sidebar { 
-	width: 300px; 
+#navigation-sidebar { 
+	width: 100%;
 	padding: 20px 30px; 
-	line-height: 30px; 
-	background: white; }
+	line-height: 30px;
+	background: #777;
+	color: #fff;
+	text-align: left;
+	}
 
-#sidebar .selected { 
-	font-style: italic; }
+#navigation-sidebar-home {
+	display: block;
+	font-size: 120%;
+	font-weight: 700;
+	}
 
+.navigation-sidebar-item {
+	display: inline-block;
+	padding: 12px 18px;
+	border: 2px solid #fff;
+	border-radius: 100px;
+	}
+
+.navigation-sidebar-item-selected { 
+	color: #777;
+	background: #ffff;
+	}
+
+.navigation-sidebar-item:hover {
+	font-style: italic;
+	}
+
+
+.navigation-sidebar-account {
+	display: inline-block;
+	padding: 15px;
+	font-size: 85%;
+	}
+
+.navigation-sidebar-account:hover{
+	font-style: italic;
+	}
 
 /* FORMS */
 
