@@ -92,9 +92,6 @@ function amp_header($title=null, $canonical=null) {
 	// for amp-bind
 	echo '<script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>';
 	
-	// for amp-sidebar
-	echo '<script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>';
-
 	// mostly for show-more features
 	echo '<script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>';
 	
@@ -135,15 +132,20 @@ function amp_header($title=null, $canonical=null) {
 		endif;
 	
 	// this is the sidebar
-	echo "<amp-sidebar id='sidebar' layout='nodisplay' side='left'>";
-		echo "<a href='/'><b>".$domain."</b></a><br><br>"; // button to go home
+	echo "<div id='navigation-sidebar'>";
+		echo "<a href='/'><span id='navigation-sidebar-home'>".$domain."</span></a><br><br>"; // button to go home
 		foreach ($header_array as $header_backend => $header_frontend):
-			$selected_temp = null; if ($header_backend == $page_temp): $selected_temp = "class='selected'"; endif;
-			echo "<a href='/$header_backend/' $selected_temp>$header_frontend</a><br>";
+			$selected_temp = null; if ($header_backend == $page_temp): $selected_temp = "navigation-sidebar-item-selected"; endif;
+			echo "<a href='/$header_backend/' class='navigation-sidebar-item $selected_temp'>$header_frontend</span></a><br>";
 			endforeach;
-		if (empty($login)): echo "<a href='/account/'>log in</a>"; // button to go log in
-		else: echo "<a href='/account/'>account</a><br><a href='/logout/'>log out</a>"; endif;
-		echo "</amp-sidebar>";
+		echo "<br><br>";
+		if (empty($login)):
+			echo "<a href='/account/'><span class='navigation-sidebar-account'>Log in</span></a>"; // button to go log in
+		else:
+			echo "<a href='/account/'><span class='navigation-sidebar-account'>Account</span></a>";
+			echo "<a href='/logout/'><span class='navigation-sidebar-account'>Log out</span></a>";
+			endif;
+		echo "</div>";
 
 	echo "<div class='header'>";
 
