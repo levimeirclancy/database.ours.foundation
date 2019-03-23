@@ -136,7 +136,7 @@ function amp_header($title=null, $canonical=null) {
 		echo "<a href='/'><span id='navigation-sidebar-home'>".$domain."</span></a><br><br>"; // button to go home
 		foreach ($header_array as $header_backend => $header_frontend):
 			$selected_temp = null; if ($header_backend == $page_temp): $selected_temp = "navigation-sidebar-item-selected"; endif;
-			echo "<a href='/$header_backend/' class='navigation-sidebar-item $selected_temp'>$header_frontend</span></a><br>";
+			echo "<a href='/$header_backend/' class='navigation-sidebar-item $selected_temp'>$header_frontend</span></a>";
 			endforeach;
 		echo "<br><br>";
 		if (empty($login)):
