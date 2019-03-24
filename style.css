@@ -282,7 +282,7 @@ h2, h3, h4, h5, h6, p, summary, ul, ol, blockquote {
 	text-align: left;
 	font-family: Garamond, 'Times New Roman', Serif; }
 
-h2, h3, h4, h5, h6, p, summary, ul, ol, blockquote, table {
+h2, h3, h4, h5, h6, p, summary, ul, ol, blockquote {
 	border: 0;
 	display: block;
 	clear: both;
@@ -386,7 +386,6 @@ blockquote blockquote::after {
 table {
 	width: auto;
 	max-width: 95%;
-	display: block;
 	table-layout: fixed;
 	border-collapse: collapse; }
 
