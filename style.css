@@ -237,10 +237,6 @@ button {
 .fadeout { 
 	opacity: 0.25; }
 
-table {
-	margin: 100px auto;
-	}
-
 
 /* ARTICLE */
 
@@ -384,7 +380,7 @@ blockquote blockquote::after {
 	font-size: 25px; }
 
 table {
-	width: 100%;
+	width: auto;
 	margin: 100px 20px;
 	box-sizing: border-box;
 	table-layout: fixed;
