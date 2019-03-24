@@ -10,14 +10,15 @@ foreach ($result as $row):
 
 
 if (!(empty($messenger_bot)) && file_exists("messenger/".$entry_info['entry_id'].".png")):
-	echo "<div id='messenger-code-image' amp-fx='parallax' data-parallax-factor='1.3'>";
+	echo "<div id='messenger-code-image'>";
 	echo "<a href='http://m.me/".$messenger_bot."?ref=entry_id=".$page_temp."' target='_blank'><amp-img src='/messenger/".$entry_info['entry_id'].".png' width='200px' height='200px'></amp-img></a></div>";
 	echo "<a href='/".$page_temp."/flyer/' target='_blank'><div id='messenger-flyer-button'>Get flyer</div></a>";
 	endif;
 
 echo "<article><div vocab='http://schema.org/' typeof='Article'>";
 
-echo "<header amp-fx='parallax' data-parallax-factor='1.2'><h1 property='name'><span>" . implode("</span> • <span>", $entry_info['name']) . "</span></h1></header>";
+echo "<header amp-fx='parallax' data-parallax-factor='1.2'>";
+echo "<h1 property='name'><span>" . implode("</span> • <span>", $entry_info['name']) . "</span></h1></header>";
 
 echo "<div class='genealogy_interstice' amp-fx='parallax' data-parallax-factor='1.1'>";
 
