@@ -29,7 +29,7 @@ a, a:link, a:visited, a:hover {
 	
 .header_button {
 	display: block;
-	margin: 10px 15px;
+	margin: 10px 30px 10px 0;
 	font-size: 35px;
 	color: rgba(30,30,30,0.75); }
 	
