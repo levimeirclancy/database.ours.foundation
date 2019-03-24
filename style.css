@@ -79,7 +79,7 @@ h1	{
 	margin: 0;
 	padding: 50px 70px 20px 30px; 
 	line-height: 30px;
-	background: #aaa;
+	background: #888;
 	text-align: left;
 	}
 
@@ -98,7 +98,7 @@ h1	{
 	border: 0 solid #fff;
 	background-image: linear-gradient(45deg, rgba(255,255,255,0.2), rgba(230,230,230,0.7));
 	border-radius: 100px;
-	color: #fff;
+	color: #888;
 	}
 
 .navigation-sidebar-item-selected { 
