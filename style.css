@@ -185,8 +185,8 @@ button {
 	position: absolute;
 	top: 10px;
 	left: 10px;
-	opacity: 1;
-	color: rgba(224,156,150,1);
+	border-radius: 100px;
+	color: rgba(30,30,30,0.8);
 	background: rgba(255,255,255,0.9);
 	line-height: 1em;
 	font-size: 70%;
