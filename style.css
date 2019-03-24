@@ -1,6 +1,6 @@
 body {
 	text-align: left;
-	font-family: Helvetica;
+	font-family: Roboto, Helvetica;
 	font-size: 22px;
 	line-height: 1.3em;
 	padding: 0;
@@ -50,7 +50,7 @@ header {
 	}
 
 h1 {
-	font-family: 'Montserrat Alternates', Helvetica;
+	font-family: 'Roboto', Helvetica;
 	text-align: center;
 	color: rgba(235,178,186,1);
 	margin: 0;
