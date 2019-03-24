@@ -58,7 +58,8 @@ h1 {
 	}
 
 h1 span {
-	font-family: "Montserrat Alternates", Helvetica;
+	display: inline;
+	font-family: 'Montserrat Alternates', Helvetica;
 	color: #444;
 	}
 
