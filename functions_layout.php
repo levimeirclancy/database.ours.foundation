@@ -107,7 +107,7 @@ function amp_header($title=null, $canonical=null) {
 	echo '<script async custom-element="amp-fx-collection" src="https://cdn.ampproject.org/v0/amp-fx-collection-0.1.js"></script>';
 	
 	// font
-	echo '<link href="https://fonts.googleapis.com/css?family=Montserrat+Alternates" rel="stylesheet">';
+	echo '<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">';
 	
 	echo "<title>" . $title . "</title>";
 
@@ -118,7 +118,6 @@ function amp_header($title=null, $canonical=null) {
 
 	echo "<style amp-custom>";
 	include_once('style.css');
-	include_once('style_nesty.css');
 	echo "</style>";
 
 	echo "</head><body>";
