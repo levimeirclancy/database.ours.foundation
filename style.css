@@ -87,14 +87,12 @@ h1 span {
 	margin: 0;
 	padding: 50px 70px 70px 30px;
 	line-height: 30px;
-	background-image: linear-gradient(135deg, #aaa, rgba(235,178,186,1));
 	text-align: left;
-	border-bottom: 8px solid #aaa;
 	}
 
 #navigation-sidebar-home {
 	display: block;
-	font-size: 120%;
+	font-size: 100%;
 	font-weight: 700;
 	text-align: right;
 	color: #fff;
@@ -105,27 +103,27 @@ h1 span {
 	background: none;
 	background-image: none;
 	display: block;
-	margin: 0 auto;
+	margin: 20px auto 60px;
 	}
 
 .navigation-sidebar-item {
 	font-size: 75%;
 	font-weight: 700;
 	display: inline-block;
-	padding: 10px 20px;
+	padding: 9px 20px;
 	line-height: 1em;
-	margin: 30px 30px 0 0;
-	border: 2px solid rgba(255,255,255,0.1);
+	margin: 20px 20px 0 0;
+	border: 2px solid rgba(30,30,30,0.1);
 	background: rgba(20,20,20,0.0);
 	border-radius: 100px;
-	color: rgba(255,255,255,0.8);
+	color: rgba(30,30,30,0.8);
 	}
 
 .navigation-sidebar-item-selected { 
-	color: rgba(224,156,150,1);
-	border: 2px solid rgba(20,20,20,0.0);
+	color: rgba(255,255,255,0.85);
+	border: 2px solid rgba(30,30,30,0.1);
 	border-radius: 100px;
-	background: #ffff;
+	background: rgba(30,30,30,0.1);
 	}
 
 .navigation-sidebar-account {
