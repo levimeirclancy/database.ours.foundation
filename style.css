@@ -91,6 +91,10 @@ h1	{
 	color: #fff;
 	}
 
+.navigation-sidebar-items {
+	max-width: 800px;
+	}
+
 .navigation-sidebar-item {
 	font-size: 80%;
 	display: inline-block;
