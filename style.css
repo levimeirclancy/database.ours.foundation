@@ -93,6 +93,7 @@ h1	{
 
 #navigation-sidebar-items {
 	max-width: 800px;
+	display: block;
 	}
 
 .navigation-sidebar-item {
