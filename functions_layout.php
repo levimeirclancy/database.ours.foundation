@@ -132,7 +132,7 @@ function amp_header($title=null, $canonical=null) {
 		endif;
 	
 	// this is the sidebar
-	echo "<div id='navigation-sidebar'>";
+	echo "<div id='navigation-sidebar' amp-fx='parallax' data-parallax-factor='1.5'>";
 		echo "<a href='/'><span id='navigation-sidebar-home'>".$domain."</span></a><br><br>"; // button to go home
 		foreach ($header_array as $header_backend => $header_frontend):
 			$selected_temp = null; if ($header_backend == $page_temp): $selected_temp = "navigation-sidebar-item-selected"; endif;
