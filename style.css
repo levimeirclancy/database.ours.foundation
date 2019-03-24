@@ -44,9 +44,11 @@ a, a:link, a:visited, a:hover {
 /* ARTICLE */
 
 header {
-	margin: 50px auto;
+	margin: 50px 0;
 	display: block;
-	padding: 50px 20px;
+	padding: 20px;
+	width: 100%;
+	box-sizing: border-box;
 	text-align: center;
 	color: rgba(235,178,186,1);
 	}
@@ -54,7 +56,8 @@ header {
 h1	{
 	display: block;
 	width: 100%;
-	margin: 0 auto;
+	margin: 0;
+	padding: 0;
 	text-align: center;
 	color: rgba(235,178,186,1);
 	}
