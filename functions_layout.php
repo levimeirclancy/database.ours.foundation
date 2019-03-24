@@ -149,9 +149,6 @@ function amp_header($title=null, $canonical=null) {
 
 	echo "<div class='header'>";
 
-	// this is the button to open the sidebar
-	echo "<button on='tap:sidebar.open' class='material-icons menu-button header_button float_left'>dashboard</button>";
-
 	if (!(empty($login))):
 		echo "<a href='/new/' target='_blank'><span class='header_button float_right material-icons'>add_circle</span></a>";
 		endif;
