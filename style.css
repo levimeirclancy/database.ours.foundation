@@ -61,7 +61,6 @@ h1, h1 span {
 	display: block;
 	width: auto;
 	font-family: 'Montserrat Alternates', Helvetica;
-	text-align: center;
 	}
 
 h1 span {
@@ -94,6 +93,7 @@ h1 span {
 	line-height: 30px;
 	background-image: linear-gradient(135deg, #aaa, rgba(235,178,186,1));
 	text-align: left;
+	border-bottom: 8px solid #aaa;
 	}
 
 #navigation-sidebar-home {
