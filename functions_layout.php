@@ -132,7 +132,7 @@ function amp_header($title=null, $canonical=null) {
 		endif;
 	
 	// this is the sidebar
-	echo "<div id='navigation-sidebar' amp-fx='parallax' data-parallax-factor='1.3'>";
+	echo "<div id='navigation-sidebar' amp-fx='parallax' data-parallax-factor='1.15'>";
 		echo "<a href='/'><span id='navigation-sidebar-home' amp-fx='parallax' data-parallax-factor='1.3'>".$domain."</span></a><br><br>"; // button to go home
 		echo "<span id='navigation-sidebar-items' amp-fx='parallax' data-parallax-factor='1.2'>";
 		foreach ($header_array as $header_backend => $header_frontend):
