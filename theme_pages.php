@@ -22,7 +22,7 @@ function print_row_loop ($entry_id=null, $indent_level=0) {
 		echo "<tr><th>Name</th>";
 		if (in_array($page_temp, ["village", "place"])): echo "<th>Map</th>"; endif; // map
 		if (in_array($page_temp, ["location"])): echo "<th>Unit</th>"; endif; // unit
-		echo "</tr>";
+		echo "<th>Nested?</th></tr>";
 		return; endif;
 	
 	if (!(array_key_exists($entry_id, $information_array))):
