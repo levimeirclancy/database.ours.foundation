@@ -85,9 +85,9 @@ h1	{
 	}
 
 .navigation-sidebar-item {
-	font-size: 90%;
+	font-size: 80%;
 	display: inline-block;
-	padding: 12px 18px;
+	padding: 9px 20px;
 	margin: 30px 30px 0 0;
 	border: 2px solid #fff;
 	border-radius: 100px;
@@ -104,7 +104,7 @@ h1	{
 	padding: 15px;
 	margin: 15px;
 	color: #fff;
-	font-size: 80%;
+	font-size: 75%;
 	}
 
 .navigation-sidebar-account:hover{
