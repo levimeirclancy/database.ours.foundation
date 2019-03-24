@@ -104,6 +104,7 @@ h1	{
 
 .navigation-sidebar-item-selected { 
 	color: #777;
+	border-radius: 100px;
 	background: #ffff;
 	}
 
