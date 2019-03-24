@@ -20,20 +20,17 @@ a, a:link, a:visited, a:hover {
 
 .header {
 	position: fixed;
-	left: 0;
 	bottom: 0;
 	right: 0;
 	display: block;
 	padding: 0;
-	background: linear-gradient(60deg, rgba(20,20,20,0.3), rgba(20,20,20,0.5));
-	box-shadow: 0 -15px 25px -15px rgba(0,0,0,0.15);
 	z-index: 100000; }
 	
 .header_button {
 	display: block;
 	margin: 10px 15px;
 	font-size: 35px;
-	color: rgba(255,255,255,0.8); }
+	color: rgba(30,30,30,0.75); }
 	
 .float_left {
 	float: left; }
@@ -186,11 +183,13 @@ button {
 
 #messenger-flyer-button {
 	position: absolute;
-	top: 0;
-	right: 30px;
-	font-size: 15px;
-	line-height: 15px;
-	color: rgba(50,50,50,0.7); }
+	top: 10px;
+	left: 10px;
+	color: #fff;
+	background: #fff;
+	line-height: 1em;
+	font-size: 70%;
+	padding: 7px 15px; }
 
 /* CORNER HOVERS */
 
