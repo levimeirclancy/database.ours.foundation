@@ -141,7 +141,7 @@ function amp_header($title=null, $canonical=null) {
 			endforeach;
 		echo "</span>";
 		echo "<br><br>";
-		echo "<span id='navigation-sidebar-items' amp-fx='parallax' data-parallax-factor='1.1'>";
+		echo "<span id='navigation-sidebar-items' amp-fx='parallax' data-parallax-factor='1.2'>";
 		if (empty($login)):
 			echo "<a href='/account/'><span class='navigation-sidebar-account'>Log in</span></a>"; // button to go log in
 		else:
