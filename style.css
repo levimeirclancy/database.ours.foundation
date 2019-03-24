@@ -380,8 +380,8 @@ blockquote blockquote::after {
 	font-size: 25px; }
 
 table {
-	width: auto;
-	margin: 100px 20px;
+	width: 100%;
+	margin: 100px auto;
 	box-sizing: border-box;
 	table-layout: fixed;
 	border-collapse: collapse; }
