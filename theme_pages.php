@@ -18,14 +18,10 @@ function print_row_loop ($entry_id=null, $indent_level=0) {
 	global $unit_array;
 
 	$colspan_temp = 2;
-	if (in_array($page_temp, ["village", "place"])): $colspan_temp++; endif; // map
-	if (in_array($page_temp, ["location"])): $colspan_temp++; endif; // unit
 	if (empty($entry_id)):
-		echo "<tr>";
-		$count_temp = 0;
-		while ($count_temp < $colspan_temp):
-			echo "<th></th>";
-			$count_temp++; endwhile;
+		echo "<tr><th>Name</th>";
+		if (in_array($page_temp, ["village", "place"])): echo "<th>Map</th>"; endif; // map
+		if (in_array($page_temp, ["location"])): echo "<th>Unit</th>"; endif; // unit
 		echo "</tr>";
 		return; endif;
 	
@@ -62,7 +58,7 @@ function print_row_loop ($entry_id=null, $indent_level=0) {
 	
        	// display names
 	if ($entry_info['type'] !== $page_temp):
-		echo "<td colspan='".$colspan_temp."' class='fadeout'>";
+		echo "<td colspan='all' class='fadeout'>";
 		if (!(empty($login))): echo "<a href='/$entry_id/edit/'><i class='material-icons'>edit</i></a> &nbsp;&nbsp;&nbsp;&nbsp;"; endif;
 		echo $indent_temp . "<a href='/$entry_id/'>".$entry_info['header']."&nbsp;&nbsp;&nbsp;&nbsp;<i>".$entry_info['type']."</i></td></tr>";
 	else:
