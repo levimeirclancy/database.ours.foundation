@@ -58,16 +58,15 @@ h1 {
 	margin: 0;
 	padding: 0;
 	display: block;
-	font-family: "Montserrat Alternates", Helvetica;
 	}
 
 h1 span {
+	font-family: "Montserrat Alternates", Helvetica;
 	text-align: center;
 	display: block;
 	margin: 0 auto;
 	color: #444;
-	}	
-
+	}
 
 /* GENEALOGY INTERSTICE */
 
