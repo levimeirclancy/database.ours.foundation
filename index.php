@@ -126,8 +126,8 @@ if (!(empty($page_temp)) && ($page_temp !== "new") && !(isset($header_array[$pag
 	// generate messenger code
 	if (!(empty($page_access_token))):
 		if (!(is_dir("messenger"))): mkdir("/messenger", 0755, true); endif;
-		if (file_exists("messenger/".$page_temp.".png") && (filemtime("/messenger/".$page_temp.".png") < time("- 1 days")) ): generate_messenger_code($entry_id); endif;
-		if (!(file_exists("messenger/".$page_temp.".png"))): generate_messenger_code($page_temp); endif;
+//		if (file_exists("messenger/".$page_temp.".png") && (filemtime("/messenger/".$page_temp.".png") < time("- 1 days")) ): generate_messenger_code($entry_id); endif;
+//		if (!(file_exists("messenger/".$page_temp.".png"))): generate_messenger_code($page_temp); endif;
 		endif;
 
 	if (($command_temp == "flyer") && !(empty($page_access_token)) && file_exists("messenger/".$page_temp.".png")):
