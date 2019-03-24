@@ -65,8 +65,7 @@ h1, h1 span {
 	}
 
 h1 span {
-	display: block;
-	margin: 0 auto;
+	display: table;
 	color: #444;
 	}
 
