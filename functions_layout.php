@@ -134,14 +134,14 @@ function amp_header($title=null, $canonical=null) {
 	// this is the sidebar
 	echo "<div id='navigation-sidebar' amp-fx='parallax' data-parallax-factor='1.3'>";
 		echo "<a href='/'><span id='navigation-sidebar-home' amp-fx='parallax' data-parallax-factor='1.3'>".$domain."</span></a><br><br>"; // button to go home
-		echo "<span id='navigation-sidebar-items' amp-fx='parallax' data-parallax-factor='1.2'>";
+		echo "<span id='navigation-sidebar-items' amp-fx='parallax' data-parallax-factor='1.5'>";
 		foreach ($header_array as $header_backend => $header_frontend):
 			$selected_temp = null; if ($header_backend == $page_temp): $selected_temp = "navigation-sidebar-item-selected"; endif;
 			echo "<a href='/$header_backend/'><span class='navigation-sidebar-item $selected_temp'>$header_frontend</span></a>";
 			endforeach;
 		echo "</span>";
 		echo "<br><br>";
-		echo "<span id='navigation-sidebar-items' amp-fx='parallax' data-parallax-factor='1.2'>";
+		echo "<span id='navigation-sidebar-items' amp-fx='parallax' data-parallax-factor='1.5'>";
 		if (empty($login)):
 			echo "<a href='/account/'><span class='navigation-sidebar-account'>Log in</span></a>"; // button to go log in
 		else:
