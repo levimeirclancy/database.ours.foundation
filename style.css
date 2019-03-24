@@ -385,6 +385,7 @@ blockquote blockquote::after {
 
 table {
 	max-width: 95%;
+	display: block;
 	table-layout: fixed;
 	border-collapse: collapse; }
 
