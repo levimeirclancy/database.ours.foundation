@@ -17,7 +17,7 @@ if (!(empty($messenger_bot)) && file_exists("messenger/".$entry_info['entry_id']
 
 echo "<article><div vocab='http://schema.org/' typeof='Article'>";
 
-echo "<header class='background_1' amp-fx='parallax' data-parallax-factor='1.2'><h1 property='name' amp-fx='parallax' data-parallax-factor='1.05'><span>" . implode("</span> • <span>", $entry_info['name']) . "</span></h1></header>";
+echo "<header amp-fx='parallax' data-parallax-factor='1.2'><h1 property='name' amp-fx='parallax' data-parallax-factor='1.05'><span>" . implode("</span> • <span>", $entry_info['name']) . "</span></h1></header>";
 
 echo "<div class='genealogy_interstice' amp-fx='parallax' data-parallax-factor='1.1'>";
 
