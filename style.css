@@ -95,6 +95,7 @@ h1 span {
 	font-size: 100%;
 	font-weight: 700;
 	text-align: right;
+	font-family: "Helvetica";
 	color: #555;
 	}
 
@@ -103,7 +104,7 @@ h1 span {
 	background: none;
 	background-image: none;
 	display: block;
-	margin: 20px auto 60px;
+	margin: 30px auto;
 	}
 
 .navigation-sidebar-item {
@@ -182,8 +183,8 @@ button {
 
 #messenger-flyer-button {
 	position: absolute;
-	top: 15px;
-	left: 15px;
+	top: 30px;
+	left: 30px;
 	border-radius: 100px;
 	color: #aaa;
 	font-size: 70%;
