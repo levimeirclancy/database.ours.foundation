@@ -18,7 +18,6 @@
 
 	echo "<style>";
 	include_once('style.css');
-	include_once('style_nesty.css');
 	echo "</style>";
 	
 	// google analytics
