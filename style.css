@@ -54,11 +54,16 @@ h1	{
 	display: block;
 	margin: 0 auto;
 	color: rgba(0,0,0,0.8);
+	rgba(235,178,186,1);
 	}
 
 h1, h1 span {
 	font-family: 'Montserrat Alternates', Helvetica;
 	text-align: center;
+	}
+
+h1 span {
+	color: #444;
 	}
 
 
