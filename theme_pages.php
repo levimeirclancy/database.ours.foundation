@@ -100,6 +100,7 @@ print_row_loop();
 echo "</thead><tbody>";
 foreach ($information_array as $entry_id => $entry_info):
 //	if (array_intersect($entry_info['parents']['hierarchy'], array_keys($information_array))): continue; endif;
+	if (empty($entry_id)): continue; endif;
 	print_row_loop ($entry_id, 0);
 	endforeach;
 echo "</tbody></table>";
