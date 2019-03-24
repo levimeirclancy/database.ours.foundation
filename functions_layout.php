@@ -164,11 +164,6 @@ function amp_header($title=null, $canonical=null) {
 		echo "<a href='/".$page_temp."/edit/' target='_blank'><span class='header_button float_right material-icons'>edit</span></a>";
 		endif;
 
-	global $page_access_token; global $telegram_bot;
-	if ( (!(empty($page_access_token)) || !(empty($telegram_bot))) && !(empty($page_temp)) && !(empty($information_array[$page_temp]))):
-		echo "<a href='/".$page_temp."/flyer/' rel='nofollow'><span class='header_button float_right material-icons'>pages</span></a>";
-		endif;
-
 	echo "</div>";
 
 	}
