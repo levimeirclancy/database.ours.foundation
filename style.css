@@ -52,7 +52,7 @@ header {
 	}
 
 h1	{
-	display: block;
+	display: inline-block;
 	margin: 0 auto;
 	text-align: center;
 	color: rgba(235,178,186,1);
