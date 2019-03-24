@@ -79,7 +79,8 @@ h1	{
 	margin: 0;
 	padding: 50px 70px 20px 30px;
 	line-height: 30px;
-	background-image: linear-gradient(135deg, #555, rgba(235,178,186,1));
+	background-image: linear-gradient(135deg, #aaa, rgba(235,178,186,1));
+	box-shadow: 0 0 40px -1px rgba(30,30,30,0.3);
 	text-align: left;
 	}
 
