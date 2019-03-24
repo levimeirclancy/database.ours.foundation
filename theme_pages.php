@@ -74,7 +74,7 @@ function print_row_loop ($entry_id=null, $indent_level=0) {
  
 		// show unit type
 		if (in_array($page_temp, ["location"])):
-			echo "<td><a href='/".$entry_info['unit_id'][0]."/'>".implode(" - ", $unit_array[$entry_info['unit_id'][0]]['name'])."</a></td>";
+			echo "<td><a href='/".$entry_info['unit_id'][0]."/'>".implode(" - ", $unit_array[$entry_info['unit_id'][0]]['name'])." Map link</a></td>";
 			endif;
 	
 		if (count($entry_info['parents']['hierarchy']) > 1):
