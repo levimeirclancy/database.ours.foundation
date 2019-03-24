@@ -78,7 +78,6 @@ h1	{
 	display: block;
 	margin: 0;
 	padding: 50px 70px 20px 30px;
-	box-shadow: 50px 0 30px -1px rgba(30,30,30,0.3);
 	line-height: 30px;
 	background: #888;
 	text-align: left;
@@ -88,6 +87,7 @@ h1	{
 	display: block;
 	font-size: 120%;
 	font-weight: 700;
+	text-align: right;
 	color: #fff;
 	}
 
