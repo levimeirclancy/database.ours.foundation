@@ -384,8 +384,9 @@ blockquote blockquote::after {
 	font-size: 25px; }
 
 table {
-	width: auto;
-	max-width: 95%;
+	width: 100%;
+	margin: 100px 20px;
+	box-sizing: border-box;
 	table-layout: fixed;
 	border-collapse: collapse; }
 
