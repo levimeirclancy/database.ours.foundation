@@ -55,6 +55,7 @@ h1	{
 	display: block;
 	margin: 0 auto;
 	color: rgba(0,0,0,0.8);
+	text-align: center;
 	rgba(235,178,186,1);
 	}
 
@@ -64,6 +65,7 @@ h1, h1 span {
 	}
 
 h1 span {
+	display: block;
 	color: #444;
 	}
 
