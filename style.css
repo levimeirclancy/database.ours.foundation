@@ -408,12 +408,14 @@ th, td {
 	padding: 10px 35px 10px 20px;
 	vertical-align: top;
 	font-weight: 400;
+	text-align: left;
 	margin: 0; }
 
 th {
 	font-style: italic; }
 
 th + th, td + td {
+	text-align: center;
 	border-left: 2px solid rgba(200,200,200,0.16); }
 
 td p, li p {
