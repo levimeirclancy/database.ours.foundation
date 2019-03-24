@@ -85,7 +85,7 @@ h1 span {
 #navigation-sidebar { 
 	display: block;
 	margin: 0;
-	padding: 50px 70px 70px 30px;
+	padding: 30px;
 	line-height: 30px;
 	text-align: left;
 	}
@@ -182,13 +182,12 @@ button {
 
 #messenger-flyer-button {
 	position: absolute;
-	top: 10px;
-	left: 10px;
+	top: 15px;
+	left: 15px;
 	border-radius: 100px;
-	color: rgba(50,50,50,0.5);
-	background: rgba(255,255,255,0.9);
+	color: #aaa;
+	font-size: 70%;
 	line-height: 1em;
-	font-size: 60%;
 	padding: 7px 17px; }
 
 /* CORNER HOVERS */
