@@ -107,6 +107,9 @@ function amp_header($title=null, $canonical=null) {
 	// for the parallax
 	echo '<script async custom-element="amp-fx-collection" src="https://cdn.ampproject.org/v0/amp-fx-collection-0.1.js"></script>';
 	
+	// font
+	echo '<link href="https://fonts.googleapis.com/css?family=Montserrat+Alternates" rel="stylesheet">';
+	
 	echo "<title>" . $title . "</title>";
 
 	echo '<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">';
