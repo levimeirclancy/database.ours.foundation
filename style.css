@@ -50,16 +50,11 @@ header {
 	}
 
 h1 {
-	width: 100%;
 	text-align: center;
 	color: rgba(235,178,186,1);
 	margin: 0;
 	padding: 0;
 	display: block;
-	}
-
-h1 span {
-	display: inline;
 	font-family: 'Montserrat Alternates', Helvetica;
 	color: #444;
 	}
