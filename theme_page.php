@@ -10,7 +10,7 @@ foreach ($result as $row):
 
 
 if (!(empty($messenger_bot)) && file_exists("messenger/".$entry_info['entry_id'].".png")):
-	echo "<div id='messenger-code-image'>";
+	echo "<div id='messenger-code-image' ". $layout_nodisplay_temp .">";
 	echo "<a href='http://m.me/".$messenger_bot."?ref=entry_id=".$page_temp."' target='_blank'><amp-img src='/messenger/".$entry_info['entry_id'].".png' width='200px' height='200px'></amp-img></a></div>";
 	echo "<a href='/".$page_temp."/flyer/' target='_blank'><div id='messenger-flyer-button'>Get flyer</div></a>";
 	endif;
@@ -21,10 +21,10 @@ echo "<header><h1 property='name'><span>" . implode("</span> &bull; <span>", $en
 
 echo "<div class='genealogy_interstice' amp-fx='parallax' data-parallax-factor='1.1'>";
 
-echo "<p><b>type</b><span>".$entry_info['type']."</span></p>";
+echo "<p ". $layout_nodisplay_temp ."><b>type</b><span>".$entry_info['type']."</span></p>";
 
 if ($entry_info['type'] == "location"):
-	$string_temp = "<b>unit</b><span>{{{".$entry_info['unit_id'][0]."}}}</span>";
+	$string_temp = "<b ". $layout_nodisplay_temp .">unit</b><span>{{{".$entry_info['unit_id'][0]."}}}</span>";
 	echo body_process($string_temp);
 	endif;
 
