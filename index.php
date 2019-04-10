@@ -145,7 +145,7 @@ if (!(empty($page_temp)) && ($page_temp !== "new") && !(isset($header_array[$pag
 		include_once('theme_flyer.php');
 		exit; endif;
 
-	if ($_SERVER['REQUEST_URI'] !== $url_temp): permanent_redirect("https://".$domain.$url_temp); endif;
+	if (!(in_array($_SERVER['REQUEST_URI'], [$url_temp, $url_temp."?view=compact"]))): permanent_redirect("https://".$domain.$url_temp); endif;
 
 	endif;
 
