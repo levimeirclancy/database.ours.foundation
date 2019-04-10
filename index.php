@@ -95,6 +95,9 @@ if (!(empty($page_temp)) && ($page_temp == "new") && !(empty($login))):
 	include_once('admin_page.php');
 	footer(); endif;
 
+$layout_nodisplay_temp = null;
+if (!(empty($_REQUEST['view'])) && ($_REQUEST['view'] == "compact")): $layout_nodisplay_temp = "layout='nodisplay'"; endif;
+
 // if the $page_temp is valid then go ahead and see if it exists
 if (!(empty($page_temp)) && ($page_temp !== "new") && !(isset($header_array[$page_temp]))):
 	$information_array = nesty_page($page_temp);
