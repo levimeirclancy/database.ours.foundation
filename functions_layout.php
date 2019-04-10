@@ -60,6 +60,8 @@ function amp_header($title=null, $canonical=null) {
 	global $header_array;
 	global $information_array;
 	global $login;
+	global $layout_nodisplay_temp;
+	
 	
 	if (empty($title)): $title = $domain; endif;
 
@@ -133,7 +135,7 @@ function amp_header($title=null, $canonical=null) {
 		endif;
 	
 	// this is the sidebar
-	echo "<div id='navigation-sidebar' amp-fx='parallax' data-parallax-factor='1.15'>";
+	echo "<div id='navigation-sidebar' amp-fx='parallax' data-parallax-factor='1.15' ". $layout_nodisplay_temp .">";
 		echo "<a href='/'><span id='navigation-sidebar-home' amp-fx='parallax' data-parallax-factor='1.3'>".$domain."</span></a>"; // button to go home
 		echo "<span id='navigation-sidebar-items' amp-fx='parallax' data-parallax-factor='1.2'>";
 		foreach ($header_array as $header_backend => $header_frontend):
@@ -151,7 +153,7 @@ function amp_header($title=null, $canonical=null) {
 		echo "</span>";
 		echo "</div>";
 
-	echo "<div class='header'>";
+	echo "<div class='header' ". $layout_nodisplay_temp .">";
 
 	if (!(empty($login))):
 		echo "<a href='/new/' target='_blank'><span class='header_button float_right material-icons'>add_circle</span></a>";
