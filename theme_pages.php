@@ -73,8 +73,8 @@ function print_row_loop ($entry_id=null, $indent_level=0) {
 		echo "</td>";
 	
 		echo "<td>";
-		if (count($entry_info['parents']['hierarchy']) > 1):
-			echo "<i class='material-icons'>playlist_add_check</i>";
+		if (count($entry_info['parents']['hierarchy']) > 0):
+			echo number_format(count($entry_info['parents']['hierarchy']));
 			endif;
 		echo "</td>";
 
@@ -95,7 +95,8 @@ function print_row_loop ($entry_id=null, $indent_level=0) {
 <thead><tr>
 	<th>Name</th>
 	<th>Map</th>
-	<th>Unit</th>
+	<th>Type</th>
+	<th>Nests</th>
 	</tr></thead>
 <tbody>
 	
