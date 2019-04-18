@@ -65,19 +65,6 @@ function print_row_loop ($entry_id=null, $indent_level=0) {
     			endif;
 		echo "</td>";
  
-		// show unit type
-		echo "<td>";
-		if (!(empty($unit_array[$entry_info['unit_id'][0]]['name']))):
-			echo "<a href='/".$entry_info['unit_id'][0]."/'>".implode(" - ", $unit_array[$entry_info['unit_id'][0]]['name'])." Map link</a>";
-			endif;
-		echo "</td>";
-	
-		echo "<td>";
-		if (count($entry_info['parents']['hierarchy']) > 0):
-			echo number_format(count($entry_info['parents']['hierarchy']));
-			endif;
-		echo "</td>";
-
 		endif;
 
     	echo "</tr>";
@@ -95,8 +82,6 @@ function print_row_loop ($entry_id=null, $indent_level=0) {
 <thead><tr>
 	<th>Name</th>
 	<th>Map</th>
-	<th>Type</th>
-	<th>Nests</th>
 	</tr></thead>
 <tbody>
 	
