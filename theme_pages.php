@@ -16,14 +16,6 @@ function print_row_loop ($entry_id=null, $indent_level=0) {
 	global $page_temp;
 	global $information_array;
 	global $unit_array;
-
-	$colspan_temp = 2;
-	if (empty($entry_id)):
-		echo "<tr><th>Name</th>";
-		if (in_array($page_temp, ["village", "place"])): echo "<th>Map</th>"; endif; // map
-		if (in_array($page_temp, ["location"])): echo "<th>Unit</th>"; endif; // unit
-		echo "<th>Nest</th></tr>";
-		return; endif;
 	
 	if (!(array_key_exists($entry_id, $information_array))):
 		return; endif;
@@ -67,21 +59,25 @@ function print_row_loop ($entry_id=null, $indent_level=0) {
 		echo $indent_temp . "<a href='/$entry_id/'>" . $entry_info['header'] . "</a></span></td>";
 		
 	    	// display latitude, longitude, and maps
-   		if (in_array($page_temp, ["village", "place"])):
-    			if (empty($entry_info['appendix']['latitude']) || empty($entry_info['appendix']['longitude'])): echo "<td></td>";
-    			else: echo "<td><a href='https://".$domain."/".$entry_id."/map/' target='_blank'><i class='material-icons'>map</i></a></td>"; endif;
+		echo "<td>";
+    		if (!(empty($entry_info['appendix']['latitude'])) && !(empty($entry_info['appendix']['longitude']))):
+ 			echo "<a href='https://".$domain."/".$entry_id."/map/' target='_blank'><i class='material-icons'>map</i></a>";
     			endif;
+		echo "</td>";
  
 		// show unit type
-		if (in_array($page_temp, ["location"])):
-			echo "<td><a href='/".$entry_info['unit_id'][0]."/'>".implode(" - ", $unit_array[$entry_info['unit_id'][0]]['name'])." Map link</a></td>";
+		echo "<td>";
+		if (!(empty($unit_array[$entry_info['unit_id'][0]]['name']))):
+			echo "<a href='/".$entry_info['unit_id'][0]."/'>".implode(" - ", $unit_array[$entry_info['unit_id'][0]]['name'])." Map link</a>";
 			endif;
+		echo "</td>";
 	
+		echo "<td>";
 		if (count($entry_info['parents']['hierarchy']) > 1):
-			echo "<td><i class='material-icons'>playlist_add_check</i></td>";
-		else:
-			echo "<td></td>";
+			echo "<i class='material-icons'>playlist_add_check</i>";
 			endif;
+		echo "</td>";
+
 		endif;
 
     	echo "</tr>";
@@ -93,16 +89,22 @@ function print_row_loop ($entry_id=null, $indent_level=0) {
 			print_row_loop ($child_id, $indent_level);
 			endforeach;
 		endif;
-	}
+	} ?>
 
-echo "<table><thead>";
-print_row_loop();
-echo "</thead><tbody>";
-foreach ($information_array as $entry_id => $entry_info):
+<table>
+<thead><tr>
+	<th>Name</th>
+	<th>Map</th>
+	<th>Unit</th>
+	</tr></thead>
+<tbody>
+	
+<? foreach ($information_array as $entry_id => $entry_info):
 //	if (array_intersect($entry_info['parents']['hierarchy'], array_keys($information_array))): continue; endif;
 	if (empty($entry_id)): continue; endif;
 	print_row_loop ($entry_id, 0);
-	endforeach;
-echo "</tbody></table>";
+	endforeach; ?>
 
-footer(); ?>
+</tbody></table>
+
+<? footer(); ?>
