@@ -86,8 +86,12 @@ $header_array = [
 
 if ($page_temp == "account"):
 	html_header();
-	if (empty($login)): login("must be logged in"); endif;
-	if (!(empty($login))): include_once('admin_account.php'); endif;
+	if (empty($login)):
+		login("must be logged in");
+	elseif (!(empty($login))):
+		echo "<div class='account_button'><a href='/'><i class='material-icons'>home</i></a></div>";
+		echo "<div class='command_button'><a href='/logout/'><i class='material-icons'>cancel</i></a></div>";
+		endif;
 	footer(); endif;
 
 if (!(empty($page_temp)) && ($page_temp == "new") && !(empty($login))):
