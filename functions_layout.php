@@ -152,6 +152,13 @@ function amp_header($title=null, $canonical=null) {
 			endif;
 		echo "</span>";
 		echo "</div>";
+	
+	// this is the login popover
+	echo "<form action='/' method='post'>";
+	echo "<input type='email' name='checkpoint_email' placeholder='email'>"; 
+	echo "<input type='password' name='checkpoint_password' placeholder='password'>"; 
+	echo "<input type='submit' name='submit'>";
+	echo "</form>";
 
 	echo "<div class='header' ". $layout_nodisplay_temp .">";
 
@@ -166,6 +173,34 @@ function amp_header($title=null, $canonical=null) {
 	echo "</div>";
 
 	}
+
+
+function json_result($domain, $result, $redirect, $message) {
+	
+	header("Content-type: application/json");
+	header("Access-Control-Allow-Credentials: true");
+	header("Access-Control-Allow-Origin: https://".$domain);
+	header("AMP-Access-Control-Allow-Source-Origin: https://".$domain);
+	
+	// If there is a failure then report that
+//	if ($result !== "success"):
+//		$result = "failure";
+//		header("HTTP/1.0 412 Precondition Failed", true, 412);
+//		endif;
+
+	if (empty($redirect):
+		header("Access-Control-Expose-Headers: AMP-Access-Control-Allow-Source-Origin");
+		endif;
+
+	if (!(empty($redirect))):	
+		header("AMP-Redirect-To: https://".$domain."/".$redirect);
+		header("Access-Control-Expose-Headers: AMP-Redirect-To, AMP-Access-Control-Allow-Source-Origin");
+	   	endif;
+
+	echo json_encode(["result"=>$result, "message"=>$message]);
+
+	exit; }
+
 
 function generate_messenger_code ($entry_id) {
 	global $page_access_token;
