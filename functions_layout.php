@@ -143,30 +143,28 @@ function amp_header($title=null, $canonical=null) {
 			echo "<a href='/$header_backend/'><span class='navigation-sidebar-item $selected_temp'>$header_frontend</span></a>";
 			endforeach;
 		echo "</span>";
-		echo "<span id='navigation-sidebar-items' amp-fx='parallax' data-parallax-factor='1.05'>";
-		if (empty($login)):
-			echo "<span class='navigation-sidebar-account' role='button' tabindex='0' on='tap:login-popover'>Log in</span>";
-		else:
+		echo "</div>";
+
+	if (empty($login)):
+		echo "<span class='navigation-sidebar-account' role='button' tabindex='0' on='tap:login-popover'>Log in</span>";
+		// this is the login popover
+		echo "<amp-lightbox id='login-popover' layout='nodisplay'>"; ?>
+		<button on='tap:login-popover.close'>Close</button>
+		<form id='login' method='post' action-xhr='/?action=login-xhr' on='submit:submit-login-form.hide;submit-error:submit-login-form.show'>
+		<input type='email' name='checkpoint_email' placeholder='email'>
+		<input type='password' name='checkpoint_password' placeholder='password'>
+		<span class='form-submit-button' id='submit-login-form' role='button' tabindex='0' on='tap:login.submit'>Log in</span>
+		<div class='form-warning'>
+			<div submitting>Submitting...</div>
+			<div submit-error><template type='amp-mustache'>Error. {{{message}}}</template></div>
+			<div submit-success><template type='amp-mustache'>{{{message}}}</template></span>
+			</div>
+		</form>
+		<? echo "</amp-lightbox>";
+	elseif (!(empty($login))):
 			echo "<a href='/account/'><span class='navigation-sidebar-account'>Account</span></a>";
 			echo "<a href='/logout/'><span class='navigation-sidebar-account'>Log out</span></a>";
 			endif;
-		echo "</span>";
-		echo "</div>";
-	
-	// this is the login popover
-	echo "<amp-lightbox id='login-popover' layout='nodisplay'>"; ?>
-	<button on='tap:login-popover.close'>Close</button>
-	<form id='login' method='post' action-xhr='/?action=login-xhr' on='submit:submit-login-form.hide;submit-error:submit-login-form.show'>
-	<input type='email' name='checkpoint_email' placeholder='email'>
-	<input type='password' name='checkpoint_password' placeholder='password'>
-	<span class='form-submit-button' id='submit-login-form' role='button' tabindex='0' on='tap:login.submit'>Log in</span>
-	<div class='form-warning'>
-		<div submitting>Submitting...</div>
-		<div submit-error><template type='amp-mustache'>Error. {{{message}}}</template></div>
-		<div submit-success><template type='amp-mustache'>{{{message}}}</template></span>
-		</div>
-	</form>
-	<? echo "</amp-lightbox>";
 
 	echo "<div class='header' ". $layout_nodisplay_temp .">";
 
