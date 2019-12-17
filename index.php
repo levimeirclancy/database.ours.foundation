@@ -10,6 +10,11 @@ $site_info = ["languages"=>["english", "sorani", "arabic"]];
 	
 $url_temp = $login = $page = $action = null;
 
+$page_temp = $slug_temp = $command_temp = null;
+$url_temp = explode("/",$_SERVER['REQUEST_URI']);
+if (!(empty($url_temp['1']))): $page_temp = $url_temp['1']; endif;
+if (!(empty($url_temp['2']))): $command_temp = $url_temp['2']; endif;
+
 //if the page is set to log out then logout
 if ($page_temp == "logout"):
 	setcookie("cookie", null, time()+2700, '/');
@@ -44,11 +49,6 @@ if (!(empty($_COOKIE['cookie']))):
 		permanent_redirect("https://".$domain);
 		endif;
 	endif;
-
-$page_temp = $slug_temp = $command_temp = null;
-$url_temp = explode("/",$_SERVER['REQUEST_URI']);
-if (!(empty($url_temp['1']))): $page_temp = $url_temp['1']; endif;
-if (!(empty($url_temp['2']))): $command_temp = $url_temp['2']; endif;
 
 if ($page_temp == "api"):
 	if ($command_temp == "coordinate"): include_once('api_coordinate.php');
