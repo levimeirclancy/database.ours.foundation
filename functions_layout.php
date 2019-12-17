@@ -1,52 +1,6 @@
 <? function html_header($title=null) {
-
-	global $login;
-	global $color;
-	global $google_analytics_code;
-	global $domain;
-	
-	if (empty($title)): $title = $domain; endif;
-
-	
-	// these must open the document
-	echo "<!doctype html>" . "<html lang='en'>";
-
-	// open html head
-	echo "<head>" . "<meta charset='utf-8'>";
-
-//	echo "<base href='/' />";
-
-	echo "<style>";
-	include_once('style.css');
-	echo "</style>";
-	
-	// google analytics
-	if (!(empty($google_analytics_code))):
-		echo "<script>"; ?>
-			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-			ga('create', '<? echo $google_analytics_code ?>', 'auto');
-			ga('send', 'pageview');
-		<? echo "</script>";
-		endif;
-
-	echo "<title>" . $title . "</title>";
-
-	echo '<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">';
-	
-	echo "</head><body>";
-	echo "<div id='fb-root'></div>";
-	echo "<script>"; ?>
-		(function(d, s, id) {
-			var js, fjs = d.getElementsByTagName(s)[0];
-			if (d.getElementById(id)) return;
-			js = d.createElement(s); js.id = id;
-			js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=342976929126894";
-			fjs.parentNode.insertBefore(js, fjs);
-			}(document, 'script', 'facebook-jssdk'));
-	<? echo "</script>"; }
+	//
+	}
 
 
 function amp_header($title=null, $canonical=null) {
@@ -157,7 +111,7 @@ function amp_header($title=null, $canonical=null) {
 		<div class='form-warning'>
 			<div submitting>Submitting...</div>
 			<div submit-error><template type='amp-mustache'>Error. {{{message}}}</template></div>
-			<div submit-success><template type='amp-mustache'>{{{message}}}</template></span>
+			<div submit-success><template type='amp-mustache'>{{{message}}}</template></div>
 			</div>
 		</form>
 		<? echo "</amp-lightbox>";
