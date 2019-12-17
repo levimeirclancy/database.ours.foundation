@@ -196,7 +196,7 @@ function json_result($domain, $result, $redirect, $message) {
 		echo json_encode(["result"=>"error", "message"=>$message]);
 		endif;
 
-	if (empty($redirect):
+	if (empty($redirect)):
 		header("Access-Control-Expose-Headers: AMP-Access-Control-Allow-Source-Origin");
 		endif;
 
