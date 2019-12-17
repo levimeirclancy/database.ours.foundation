@@ -10,17 +10,40 @@ $site_info = ["languages"=>["english", "sorani", "arabic"]];
 	
 $url_temp = $login = $page = $action = null;
 
+//if the page is set to log out then logout
+if ($page_temp == "logout"):
+	setcookie("cookie", null, time()+2700, '/');
+	$_COOKIE['cookie'] = $login = $page_temp = null;
+	permanent_redirect("https://".$domain);
+	endif;
+
+// if we are trying to log in, then check the login
 if (isset($_POST['checkpoint_email']) && isset($_POST['checkpoint_password'])):
 	$_POST['checkpoint_email'] = strtolower($_POST['checkpoint_email']);
 	$hash = sha1($_POST['checkpoint_email'].$_POST['checkpoint_password']);
 	foreach ($connection_pdo->query("SELECT * FROM $database.users WHERE `hash`='$hash'") as $row):
 		$login = ["user_id" => $row['user_id'], "email" => $row['email']];
 		endforeach;
-	if (empty($login)): login("login was invalid"); endif;
+	if (empty($login)):
+		json_result($domain, "failure", null, "Login was invalid.");
+		endif;
 	$_COOKIE['cookie'] = $new_cookie = sha1($login['user_id'].time());
 	$cookie_statement = $connection_pdo->prepare("UPDATE $database.users SET cookie='$new_cookie' WHERE user_id='".$login['user_id']."'");
 	$cookie_statement->execute();
-	setcookie("cookie", $new_cookie, time()+86400, '/'); endif;
+	setcookie("cookie", $new_cookie, time()+86400, '/');
+	json_result($domain, "success", "account", "Login was valid.");
+	endif;
+
+// if there is a cookie then double-check it
+if (!(empty($_COOKIE['cookie']))):
+	$login = null;
+	foreach ($connection_pdo->query("SELECT * FROM users WHERE cookie='".$_COOKIE['cookie']."'") as $row):
+		$login = ["user_id" => $row['user_id'], "email" => $row['email']]; endforeach;
+	if (empty($login)):
+		setcookie("cookie", null, time()+2700, '/');
+		permanent_redirect("https://".$domain);
+		endif;
+	endif;
 
 $page_temp = $slug_temp = $command_temp = null;
 $url_temp = explode("/",$_SERVER['REQUEST_URI']);
@@ -46,20 +69,6 @@ if ($page_temp == "sitemap.xml"):
 	echo "</urlset>";
 	exit; endif;
 
-//if the page is set to log out then logout
-if ($page_temp == "logout"):
-	setcookie("cookie", null, time()+2700, '/');
-	$_COOKIE['cookie'] = $login = $page_temp = null;
-	permanent_redirect("https://".$domain);
-	endif;
-
-// if there is a cookie then double-check it
-if (!(empty($_COOKIE['cookie']))):
-	$login = null;
-	foreach ($connection_pdo->query("SELECT * FROM users WHERE cookie='".$_COOKIE['cookie']."'") as $row):
-		$login = ["user_id" => $row['user_id'], "email" => $row['email']]; endforeach;
-	if (empty($login)): login("cookie is invalid"); endif; endif;
-
 // if the user created an entry then save it
 if (!(empty($login)) && !(empty($_POST['create_entry']))):
 	$values_temp = [
@@ -84,14 +93,17 @@ $header_array = [
 	"topic" => "Topics",
 	"article" => "Articles" ];
 
-if ($page_temp == "account"):
-	html_header();
-	if (empty($login)):
-		login("must be logged in");
-	elseif (!(empty($login))):
-		echo "<div class='account_button'><a href='/'><i class='material-icons'>home</i></a></div>";
-		echo "<div class='command_button'><a href='/logout/'><i class='material-icons'>cancel</i></a></div>";
-		endif;
+// If there is no login then we cannot access account management
+if (empty($login) && ($page_temp == "account")):
+	permanent_redirect("https://".$domain); // Redirect to homepage if the login is invalid
+	endif;
+
+// If the login is valid and we are trying to go the account
+if (!(empty($login)) && ($page_temp == "account")):
+	// Sanitize the link if it is invalid
+	if (!(empty($slug_temp)) || !(empty($command_temp))): permanent_redirect("https://".$domain."/account/"); endif;
+	amp_header();
+	include_once('admin_account.php');
 	footer(); endif;
 
 if (!(empty($page_temp)) && ($page_temp == "new") && !(empty($login))):
