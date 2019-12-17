@@ -145,7 +145,7 @@ function amp_header($title=null, $canonical=null) {
 		echo "</span>";
 		echo "<span id='navigation-sidebar-items' amp-fx='parallax' data-parallax-factor='1.05'>";
 		if (empty($login)):
-			echo "<a href='/account/'><span class='navigation-sidebar-account'>Log in</span></a>"; // button to go log in
+			echo "<span class='navigation-sidebar-account' role='button' tabindex='0' on='tap:login-popover'>Log in</span>";
 		else:
 			echo "<a href='/account/'><span class='navigation-sidebar-account'>Account</span></a>";
 			echo "<a href='/logout/'><span class='navigation-sidebar-account'>Log out</span></a>";
@@ -154,11 +154,19 @@ function amp_header($title=null, $canonical=null) {
 		echo "</div>";
 	
 	// this is the login popover
-	echo "<form action='/' method='post'>";
-	echo "<input type='email' name='checkpoint_email' placeholder='email'>"; 
-	echo "<input type='password' name='checkpoint_password' placeholder='password'>"; 
-	echo "<input type='submit' name='submit'>";
-	echo "</form>";
+	echo "<amp-lightbox id='login-popover' layout='nodisplay'>"; ?>
+	<button on='tap:login-popover.close'>Close</button>
+	<form id='login' method='post' action-xhr='/?action=login-xhr' on='submit:submit-login-form.hide;submit-error:submit-login-form.show'>
+	<input type='email' name='checkpoint_email' placeholder='email'>
+	<input type='password' name='checkpoint_password' placeholder='password'>
+	<span class='form-submit-button' id='submit-login-form' role='button' tabindex='0' on='tap:login.submit'>Log in</span>
+	<div class='form-warning'>
+		<div submitting>Submitting...</div>
+		<div submit-error><template type='amp-mustache'>Error. {{{message}}}</template></div>
+		<div submit-success><template type='amp-mustache'>{{{message}}}</template></span>
+		</div>
+	</form>
+	<? echo "</amp-lightbox>";
 
 	echo "<div class='header' ". $layout_nodisplay_temp .">";
 
@@ -182,11 +190,11 @@ function json_result($domain, $result, $redirect, $message) {
 	header("Access-Control-Allow-Origin: https://".$domain);
 	header("AMP-Access-Control-Allow-Source-Origin: https://".$domain);
 	
-	// If there is a failure then report that
-//	if ($result !== "success"):
-//		$result = "failure";
+	// Immediately handle any error message, with no redirect
+	if ($result !== "success"):
 //		header("HTTP/1.0 412 Precondition Failed", true, 412);
-//		endif;
+		echo json_encode(["result"=>"error", "message"=>$message]);
+		endif;
 
 	if (empty($redirect):
 		header("Access-Control-Expose-Headers: AMP-Access-Control-Allow-Source-Origin");
@@ -197,7 +205,7 @@ function json_result($domain, $result, $redirect, $message) {
 		header("Access-Control-Expose-Headers: AMP-Redirect-To, AMP-Access-Control-Allow-Source-Origin");
 	   	endif;
 
-	echo json_encode(["result"=>$result, "message"=>$message]);
+	echo json_encode(["result"=>"success", "message"=>$message]);
 
 	exit; }
 
