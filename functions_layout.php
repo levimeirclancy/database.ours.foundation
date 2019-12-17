@@ -167,18 +167,6 @@ function amp_header($title=null, $canonical=null) {
 
 	}
 
-
-function login ($disclaimer=null) {
-	echo "<div class='account_button'><a href='/'><i class='material-icons'>home</i></a></div>";
-	if (!(empty($disclaimer))): echo $disclaimer; endif;
-	echo "<form action='/' method='post'>";
-	echo "<input type='email' name='checkpoint_email' placeholder='email'>"; 
-	echo "<input type='password' name='checkpoint_password' placeholder='password'>"; 
-	echo "<input type='submit' name='submit'>";
-	echo "</form>";
-	footer(); }
-
-
 function generate_messenger_code ($entry_id) {
 	global $page_access_token;
 	if (empty($entry_id)): return null; endif;
