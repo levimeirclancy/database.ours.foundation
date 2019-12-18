@@ -209,7 +209,7 @@ function generate_messenger_code ($entry_id) {
 
 
 function notfound() {
-	echo "404ed";
+	echo "<p>404ed</p>";
 	footer(); }
 
 
