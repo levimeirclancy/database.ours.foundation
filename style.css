@@ -108,7 +108,7 @@ h1 span {
 	}
 
 .popover-close {
-	right: -20px;
+	right: -10px;
 	top: 20px;
 	position: absolute;
 	background: rgba(30,30,30,0.8);
@@ -117,6 +117,8 @@ h1 span {
 	border-radius: 150px;
 	box-shadow: 0 0 20px 0 rgba(30,30,30,0.2);
 	padding: 8px;
+	font-size: 16px;
+	line-height: 16px;
 	}
 
 .navigation-sitemap-item {
