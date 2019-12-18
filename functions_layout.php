@@ -227,6 +227,7 @@ function json_result($domain, $result, $redirect, $message) {
 	if ($result !== "success"):
 //		header("HTTP/1.0 412 Precondition Failed", true, 412);
 		echo json_encode(["result"=>"error", "message"=>$message]);
+		exit;
 		endif;
 	
 	if (!(empty($redirect))):	
