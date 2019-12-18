@@ -90,7 +90,7 @@ function amp_header($title=null, $canonical=null) {
 	echo "<div id='navigation-header'>";
 
 	// The domain name, to go home ...
-	echo "<a href='/'><span class='navigation-header-item'>&#x2742; Sitemap</span></a>";
+	echo "<span  role='button' tabindex='0' on='tap:sitemap-popover' class='navigation-header-item'>&#x2742; Sitemap</span>";
 	
 	// ... then to toggle the search popover ...
 	echo "<span role='button' tabindex='0' on='tap:search-popover' class='navigation-header-item'>&#x272A; Search</span>";
@@ -128,13 +128,12 @@ function amp_header($title=null, $canonical=null) {
 	// No need to show the index if we are editing
 	if ($command_temp == "edit"): return; endif;
 	
-	
-	echo "<div id='navigation-index'>";
+	echo "<amp-lightbox id='sitemap-popover' layout='nodisplay'>"; ?>
+	echo "<a href='/'><div class='navigation-sitemap-item'>". $domain ."</div></a>";
 	foreach ($header_array as $header_backend => $header_frontend):
-		$selected_temp = null; if ($header_backend == $page_temp): $selected_temp = "navigation-index-item-selected"; endif;
-		echo "<a href='/". $header_backend ."'><div class='navigation-index-item $selected_temp'>". $header_frontend ."</div></a>";
+		echo "<a href='/". $header_backend ."'><div class='navigation-sitemap-item>". $header_frontend ."</div></a>";
 		endforeach;
-	echo "</div>";
+	echo "</amp-lightbox>";
 
 	}
 
