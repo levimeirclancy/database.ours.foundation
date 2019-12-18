@@ -88,25 +88,22 @@ function amp_header($title=null, $canonical=null) {
 	
 	echo "<div id='navigation-header'>";
 
-	// First of all, the home button
-	echo "<a href='/'><span id='navigation-header-home'>".$domain."</span></a>";
-
-	// Do not show the index if we are editing an article or our account
-	if (!(array_intersect( [$page_temp, $command_temp], ["edit", "account"] ))):
-		echo "<div class='navigation-header-item'>";
-		echo "<span class='navigation-header-item-title'>Index &#x2767;</span>";
-		echo "<div class='navigation-header-item-dropdown'>";
-		foreach ($header_array as $header_backend => $header_frontend):
-		$selected_temp = null; if ($header_backend == $page_temp): $selected_temp = "selected"; endif;
-		echo "<a href='/". $header_backend ."'><div class='navigation-header-item-dropdown-option'>". $header_frontend ."</div></a>";
-		endforeach;
-		echo "</div></div>";
-		endif;
-
-	// The search popover
+	// The navigation backbone
 	echo "<div class='navigation-header-item'>";
-	echo "<span role='button' tabindex='0' on='tap:search-popover' class='navigation-header-item-title'>Search</span>";
+	
+	// The domain name, to go home ...
+	echo "<a href='/'><span class='navigation-header-item-title'>".$domain."</span></a>";
+	
+	// ... then to toggle the search popover ...
+	echo "<span role='button' tabindex='0' on='tap:search-popover' class='navigation-header-item-option'>Search</span>";
+	foreach ($header_array as $header_backend => $header_frontend):
+		$selected_temp = null; if ($header_backend == $page_temp): $selected_temp = "selected"; endif;
+		echo "<a href='/". $header_backend ."'><div class='navigation-header-item-option'>". $header_frontend ."</div></a>";
+		endforeach;
+
+	// ... and close out the navigation backbone
 	echo "</div>";
+
 
 	// If we are not signed in ...
 	if (empty($login)):
@@ -135,19 +132,14 @@ function amp_header($title=null, $canonical=null) {
 	
 		// Account options
 		echo "<div class='navigation-header-item'>";
-		echo "<span class='navigation-header-item-title'>My account &#x2767;</span>";
-		echo "<div class='navigation-header-item-dropdown'>";
-		echo "<a href='/account/'><span class='navigation-header-item-dropdown-option'>Settings</span></a>";
-		echo "<a href='/logout/'><span class='navigation-header-item-dropdown-option'>&#x2716; Log out</span></a>";
-		echo "</div></div>";
-
-		// Create new article
-		echo "<a href='/new/' target='_blank'><span class='navigation-action-button'>&#x271A; New article</span></a>";
-	
-		// Edit existing article, if we are on an article and not already in edit mode
+		echo "<span class='navigation-header-item-title'>d". $login['user_id'] ."</span>";
+		echo "<a href='/logout/'><span class='navigation-header-item-option'>&#x2716; Log out</span></a>";
+		echo "<a href='/account/'><span class='navigation-header-item-option'>Settings</span></a>";
+		echo "<a href='/new/' target='_blank'><span class='navigation-action-button'>New article</span></a>";
 		if (!(empty($page_temp)) && !(empty($information_array[$page_temp])) && ($command_temp !== "edit")):
-			echo "<a href='/".$page_temp."/edit/' target='_blank'><span class='navigation-action-button'>&#10033; Edit article</span></a>";
+			echo "<a href='/".$page_temp."/edit/' target='_blank'><span class='navigation-header-item-option'>&#10033; Edit article</span></a>";
 			endif;
+		echo "</div>";
 	
 		endif;
 
