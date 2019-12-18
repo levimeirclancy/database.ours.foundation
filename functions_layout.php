@@ -118,6 +118,8 @@ function amp_header($title=null, $canonical=null) {
 			logout-popover-tryagain-submit.hide,
 			settings-popover-launch.hide,
 			add-popover-launch.hide,
+			login.clear,
+			logout.clear,
 			AMP.setState({'loginStatus': 'loggedout'})
 		\">";
 	echo "<div role='button' tabindex='0' class='navigation-header-item' id='logout-popover-submit' on='tap:logout.submit' [class]=\"loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" $logout_hidden>&#x2716; Log out</div>";
@@ -160,6 +162,8 @@ function amp_header($title=null, $canonical=null) {
 			logout-popover-submit.show,
 			settings-popover-launch.show,
 			add-popover-launch.show,
+			login.clear,
+			logout.clear,
 			AMP.setState({'loginStatus': 'loggedin'})
 		\">";
 
