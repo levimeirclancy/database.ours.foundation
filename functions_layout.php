@@ -90,7 +90,7 @@ function amp_header($title=null, $canonical=null) {
 	echo "<div id='navigation-header'>";
 
 	// The domain name, to go home ...
-	echo "<a href='/'><span class='navigation-header-item'>&#x2B1F; Sitemap</span></a>";
+	echo "<a href='/'><span class='navigation-header-item'>&#x2593; Sitemap</span></a>";
 	
 	// ... then to toggle the search popover ...
 	echo "<span role='button' tabindex='0' on='tap:search-popover' class='navigation-header-item'>&#x2742; Search</span>";
