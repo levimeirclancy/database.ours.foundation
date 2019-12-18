@@ -137,13 +137,13 @@ function amp_header($title=null, $canonical=null) {
 
 	echo "<form id='login' method='post' action-xhr='/?action=login-xhr' on='submit:submit-login-form.hide;submit-error:submit-login-form.show'>";
 
-	echo "<span id='login-popover-description'>E-mail address</span>";
+	echo "<span class='login-popover-description'>E-mail address</span>";
 	echo "<input type='email' name='checkpoint_email' placeholder='E-mail address'>";
 
-	echo "<span id='login-popover-description'>Password</span>";
+	echo "<span class='login-popover-description'>Password</span>";
 	echo "<input type='password' name='checkpoint_password' placeholder='Password'>";
 
-	echo "<span class='form-submit-button' id='submit-login-form' role='button' tabindex='0' on='tap:login.submit'>Log in</span>";
+	echo "<span id='login-popover-submit' role='button' tabindex='0' on='tap:login.submit'>Log in</span>";
 	echo "<div class='form-warning'>";
 		echo "<div submitting>Submitting...</div>";
 		echo "<div submit-error><template type='amp-mustache'>Error. {{{message}}}</template></div>";
