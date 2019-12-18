@@ -135,8 +135,8 @@ h1 span {
 
 /* Make the input and description same width and placement */
 .login-popover-description, #login-popover input {
-	display: inline-block;
-	margin: 10px 0;
+	display: block;
+	margin: 15px 0 0;
 	text-align: left;
 	border: 0;
 	color: rgba(100,100,100,0.8);
@@ -147,7 +147,7 @@ h1 span {
 /* Just different margin, padding, size */
 .login-popover-description {
 	font-size: 70%;
-	padding: 5px 20px;
+	padding: 0 20px;
 	}
 
 /* Set margin, padding, size, but also backgorund and shadow */
