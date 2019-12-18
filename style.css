@@ -107,6 +107,17 @@ h1 span {
 	text-align: center;
 	}
 
+.popover-close {
+	right: 20px;
+	top: 20px;
+	position: absolute;
+	background: rgba(30,30,30,0.8);
+	color: #fff;
+	opacity: 0.9;
+	border-radius: 100px;
+	padding: 8px;
+	}
+
 .navigation-sitemap-item {
 	margin: 30px 20px;
 	display: block;
