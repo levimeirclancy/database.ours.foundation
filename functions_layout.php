@@ -89,18 +89,18 @@ function amp_header($title=null, $canonical=null) {
 	echo "<div id='navigation-header'>";
 
 	// The domain name, to go home ...
-	echo "<span  role='button' tabindex='0' on='tap:categories-popover' class='navigation-header-item'>&#x2742; Categories</span>";
+	echo "<span  role='button' tabindex='0' on='tap:categories-popover' class='navigation-header-item' layout='intrinsic'>&#x2742; Categories</span>";
 	
 	// ... then to toggle the search popover ...
-	echo "<span role='button' tabindex='0' on='tap:search-popover' class='navigation-header-item'>&#x272A; Search</span>";
+	echo "<span role='button' tabindex='0' on='tap:search-popover' class='navigation-header-item' layout='intrinsic'>&#x272A; Search</span>";
 
 	// To display the login or logout buttons
-	$loggedin_nodisplay = "nodisplay"; $loggedout_nodisplay = null; // If we are signed in ...
-	if (empty($login)): $loggedin_nodisplay = null; $loggedout_nodisplay = "nodisplay"; endif; // ... or if we are not signed in
+	$loggedin_nodisplay = "nodisplay"; $loggedout_nodisplay = "intrinsic"; // If we are signed in ...
+	if (empty($login)): $loggedin_nodisplay = "intrinsic"; $loggedout_nodisplay = "nodisplay"; endif; // ... or if we are not signed in
 	
 	// If we are signed in ...
 	echo "<span role='button' tabindex='0' on='tap:settings-popover' class='navigation-header-item' layout='". $loggedout_nodisplay ."'>&#x2699; Settings</span>";
-	echo "<a href='/new/' target='_blank'><span class='navigation-header-item' layout='". $loggedout_nodisplay ."'>&#x271A; Add entry</span></a>";	
+	echo "<span class='navigation-header-item' layout='". $loggedout_nodisplay ."'>&#x271A; Add entry</span>";	
 
 	// This is the login button ...
 	echo "<span role='button' tabindex='0' on='tap:login-popover' class='navigation-header-item' id='login-popover-launch' layout='". $loggedin_nodisplay ."'>&#x2731; Log in</span>";
