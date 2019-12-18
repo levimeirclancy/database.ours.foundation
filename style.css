@@ -135,7 +135,7 @@ h1 span {
 
 /* Make the input and description same width and placement */
 .login-popover-description, #login-popover input {
-	display: block;
+	display: table;
 	margin: 5px auto;
 	max-width: 350px;
 	text-align: left;
@@ -752,40 +752,6 @@ button.floating-action-button {
 
 amp-lightbox .floating-action-button {
 	z-index: 100000; }
-
-/* BACKGROUNDS */
-
-<? $angle_array = [ "15deg", "30deg", "45deg", "60deg", "75deg", "-15deg", "-30deg", "-45deg", "-60deg", "-75deg" ]; shuffle ($angle_array); ?>
-
-.background_1 {
-	background: linear-gradient(<? echo $angle_array[0] ?>, <? echo $color ?>, rgba(<? echo hexdec(substr($color,-6,2)) ?>, <? echo hexdec(substr($color,-4,2)) ?>, <? echo hexdec(substr($color,-2)) ?>, 0.5)); }
-
-.background_2 {
-	background: linear-gradient(<? echo $angle_array[1] ?>, <? echo $color ?>, rgba(<? echo hexdec(substr($color,-6,2)) ?>, <? echo hexdec(substr($color,-4,2)) ?>, <? echo hexdec(substr($color,-2)) ?>, 0.5)); }
-
-.background_3 {
-	background: linear-gradient(<? echo $angle_array[2] ?>, <? echo $color ?>, rgba(<? echo hexdec(substr($color,-6,2)) ?>, <? echo hexdec(substr($color,-4,2)) ?>, <? echo hexdec(substr($color,-2)) ?>, 0.5)); }
-
-.background_4 {
-	background: linear-gradient(<? echo $angle_array[3] ?>, <? echo $color ?>, rgba(<? echo hexdec(substr($color,-6,2)) ?>, <? echo hexdec(substr($color,-4,2)) ?>, <? echo hexdec(substr($color,-2)) ?>, 0.5)); }
-
-.background_5 {
-	background: linear-gradient(<? echo $angle_array[4] ?>, <? echo $color ?>, rgba(<? echo hexdec(substr($color,-6,2)) ?>, <? echo hexdec(substr($color,-4,2)) ?>, <? echo hexdec(substr($color,-2)) ?>, 0.5)); }
-
-.background_6 {
-	background: linear-gradient(<? echo $angle_array[5] ?>, <? echo $color ?>, rgba(<? echo hexdec(substr($color,-6,2)) ?>, <? echo hexdec(substr($color,-4,2)) ?>, <? echo hexdec(substr($color,-2)) ?>, 0.5)); }
-
-.background_7 {
-	background: linear-gradient(<? echo $angle_array[6] ?>, <? echo $color ?>, rgba(<? echo hexdec(substr($color,-6,2)) ?>, <? echo hexdec(substr($color,-4,2)) ?>, <? echo hexdec(substr($color,-2)) ?>, 0.5)); }
-
-.background_8 {
-	background: linear-gradient(<? echo $angle_array[7] ?>, <? echo $color ?>, rgba(<? echo hexdec(substr($color,-6,2)) ?>, <? echo hexdec(substr($color,-4,2)) ?>, <? echo hexdec(substr($color,-2)) ?>, 0.5)); }
-
-.background_9 {
-	background: linear-gradient(<? echo $angle_array[8] ?>, <? echo $color ?>, rgba(<? echo hexdec(substr($color,-6,2)) ?>, <? echo hexdec(substr($color,-4,2)) ?>, <? echo hexdec(substr($color,-2)) ?>, 0.5)); }
-
-.background_10 {
-	background: linear-gradient(<? echo $angle_array[9] ?>, <? echo $color ?>, rgba(<? echo hexdec(substr($color,-6,2)) ?>, <? echo hexdec(substr($color,-4,2)) ?>, <? echo hexdec(substr($color,-2)) ?>, 0.5)); }
 
 @media only screen and (max-width: 500px)  {
 	blockquote cite { width: 100%; }
