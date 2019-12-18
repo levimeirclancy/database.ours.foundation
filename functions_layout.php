@@ -144,13 +144,13 @@ function amp_header($title=null, $canonical=null) {
 	echo "<input type='password' name='checkpoint_password' placeholder='Password'>";
 
 	echo "<span class='form-submit-button' id='submit-login-form' role='button' tabindex='0' on='tap:login.submit'>Log in</span>";
-	<div class='form-warning'>
-		<div submitting>Submitting...</div>
-		<div submit-error><template type='amp-mustache'>Error. {{{message}}}</template></div>
-		<div submit-success><template type='amp-mustache'>{{{message}}}</template></div>
-		</div>
-	</form>
-	<? echo "</amp-lightbox>";
+	echo "<div class='form-warning'>";
+		echo "<div submitting>Submitting...</div>";
+		echo "<div submit-error><template type='amp-mustache'>Error. {{{message}}}</template></div>";
+		echo "<div submit-success><template type='amp-mustache'>{{{message}}}</template></div>";
+		echo "</div>";
+	echo "</form>";
+	echo "</amp-lightbox>";
 
 	}
 
