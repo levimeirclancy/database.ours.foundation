@@ -218,19 +218,20 @@ function json_result($domain, $result, $redirect, $message) {
 	header("Access-Control-Allow-Origin: https://".$domain);
 	header("AMP-Access-Control-Allow-Source-Origin: https://".$domain);
 
-	if (empty($redirect)):
+	// No redirect if it was a failure
+	if (empty($redirect) || ($result !== "success")):
 		header("Access-Control-Expose-Headers: AMP-Access-Control-Allow-Source-Origin");
-		endif;
-
-	if (!(empty($redirect))):	
-		header("AMP-Redirect-To: https://".$domain."/".$redirect);
-		header("Access-Control-Expose-Headers: AMP-Redirect-To, AMP-Access-Control-Allow-Source-Origin");
 		endif;
 
 	// Immediately handle any error message, with no redirect
 	if ($result !== "success"):
 //		header("HTTP/1.0 412 Precondition Failed", true, 412);
 		echo json_encode(["result"=>"error", "message"=>$message]);
+		endif;
+	
+	if (!(empty($redirect))):	
+		header("AMP-Redirect-To: https://".$domain."/".$redirect);
+		header("Access-Control-Expose-Headers: AMP-Redirect-To, AMP-Access-Control-Allow-Source-Origin");
 		endif;
 
 	echo json_encode(["result"=>"success", "message"=>$message]);
