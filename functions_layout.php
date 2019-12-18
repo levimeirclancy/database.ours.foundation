@@ -133,18 +133,23 @@ function amp_header($title=null, $canonical=null) {
 	
 	// If we are signed in ...
 	elseif (!(empty($login))):
-			echo "<div class='navigation-header-item'>";
-		echo "<span class='navigation-header-item-title'>". $publisher ."</span>";
-			echo "<div class='navigation-header-item-dropdown'>";
-				echo "<a href='/account/'><div class='navigation-header-item-dropdown-option'>My account</div></a>";
-				echo "<a href='/logout/'><div class='navigation-header-item-dropdown-option'>Log out</div></a>";
-				echo "</div></div>";
-
-	echo "<a href='/new/' target='_blank'><span class='navigation-action-button'>New article</span></a>"; // Create new
 	
-	// Edit existing article, if we are on an article and not already in edit mode
-	if (!(empty($page_temp)) && !(empty($information_array[$page_temp])) && ($command_temp !== "edit")):
-		echo "<a href='/".$page_temp."/edit/' target='_blank'><span class='navigation-action-button'>Edit</span></a>";
+		// Account options
+		echo "<div class='navigation-header-item'>";
+		echo "<span class='navigation-header-item-title'>". $publisher ."</span>";
+		echo "<div class='navigation-header-item-dropdown'>";
+		echo "<a href='/account/'><div class='navigation-header-item-dropdown-option'>My account</div></a>";
+		echo "<a href='/logout/'><div class='navigation-header-item-dropdown-option'>Log out</div></a>";
+		echo "</div></div>";
+
+		// Create new article
+		echo "<a href='/new/' target='_blank'><span class='navigation-action-button'>New article</span></a>";
+	
+		// Edit existing article, if we are on an article and not already in edit mode
+		if (!(empty($page_temp)) && !(empty($information_array[$page_temp])) && ($command_temp !== "edit")):
+			echo "<a href='/".$page_temp."/edit/' target='_blank'><span class='navigation-action-button'>Edit</span></a>";
+			endif;
+	
 		endif;
 
 	// Close out the navigation-header
