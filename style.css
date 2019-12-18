@@ -132,6 +132,34 @@ h1 span {
 	font-size: 80%;
 	}
 
+.login-popover-description {
+	width: 250px;
+	text-align: left;
+	display: block;
+	margin: 15px auto;
+	padding: 5px;
+	}
+
+#login-popover input {
+	width: 250px;
+	padding: 5px;
+	border: 0;
+	background: rgba(150,150,150,0.5);
+	border-radius: 100px;
+	display: block;
+	margin: 5px auto;
+	color: rgba(255,255,255,1);
+	}
+
+#login-popover-submit {
+	display: inline-block;
+	margin: 10px 0 0 100px;
+	width: 150px;
+	padding: 5px;
+	background: rgba(200,200,200,0.5);
+	color: rgba(255,255,255,1);
+	}
+
 
 /* FORMS */
 
