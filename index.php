@@ -102,8 +102,8 @@ if (empty($login) && ($page_temp == "account")):
 if (!(empty($login)) && ($page_temp == "account")):
 	// Sanitize the link if it is invalid
 	if (!(empty($slug_temp)) || !(empty($command_temp))): permanent_redirect("https://".$domain."/account/"); endif;
-	amp_header();
-	include_once('admin_account.php');
+	amp_header("Settings");
+	include_once('admin_settings.php');
 	footer(); endif;
 
 if (!(empty($page_temp)) && ($page_temp == "new") && !(empty($login))):
