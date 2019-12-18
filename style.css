@@ -137,20 +137,20 @@ h1 span {
 	text-align: left;
 	display: block;
 	margin: 10px auto 0;
-	padding: 10px;
+	padding: 10px 30px;
 	font-size: 70%;
 	}
 
 #login-popover input {
 	max-width: 250px;
-	padding: 10px;
+	padding: 10px 30px;
 	border: 0;
 	background: rgba(150,150,150,0.5);
 	border-radius: 100px;
 	display: block;
-	margin: 5px auto 15px;
+	margin: 0 auto 15px;
 	color: rgba(255,255,255,1);
-	font-size: 100%;
+	font-size: 90%;
 	}
 
 #login-popover input:-webkit-autofill {
