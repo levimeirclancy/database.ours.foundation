@@ -1,4 +1,4 @@
-<? echo "<br><br><br><br><p>Welcome to ". ucfirst($domain) ."</p>";
+<? echo "<p>Welcome to ". ucfirst($domain) ."</p>";
 
 $result_temp = file_get_contents("https://".$domain."/api/sitemap/?order=english");
 $information_array = json_decode($result_temp, true);
