@@ -111,7 +111,7 @@ h1 span {
 	vertical-align: top;
 	}
 
-#categories-popover, #search-popover, #login-popover, #settings-popover {
+#categories-popover, #search-popover, #login-popover, #settings-popover, #add-popover {
 	margin: 0 10px;
 	padding: 60px 0 30px;
 	background: rgba(255,255,255,1);
