@@ -138,7 +138,7 @@ function amp_header($title=null, $canonical=null) {
 	echo "<div id='navigation-header' amp-fx='parallax' data-parallax-factor='1.15'>";
 		echo "<span id='navigation-header-items' amp-fx='parallax' data-parallax-factor='1.2'>";
 		foreach ($header_array as $header_backend => $header_frontend):
-			$selected_temp = null; if ($header_backend == $page_temp): $selected_temp = "navigation-sidebar-item-selected"; endif;
+			$selected_temp = null; if ($header_backend == $page_temp): $selected_temp = "navigation-header-item-selected"; endif;
 			echo "<a href='/$header_backend/'><span class='navigation-header-item $selected_temp'>$header_frontend</span></a>";
 			endforeach;
 		echo "</span>";
