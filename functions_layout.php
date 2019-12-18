@@ -131,74 +131,82 @@ function amp_header($title=null, $canonical=null) {
 	// ... close out the navigation backbone
 	echo "</div>";
 	
+	// This is the popover for the categories / sitemap ...
 	echo "<amp-lightbox id='categories-popover' layout='nodisplay'>";
-	echo "<div role='button' tabindex='0' on='tap:categories-popover.close' class='popover-close'>Back</div>";
-	echo "<a href='/'><div class='navigation-categories-item'>". ucfirst($domain) ."</div></a><br>";
-	foreach ($header_array as $header_backend => $header_frontend):
-		echo "<a href='/". $header_backend ."'><div class='navigation-categories-item'>". $header_frontend ."</div></a>";
-		endforeach;
-	echo "</amp-lightbox>";
+		echo "<div role='button' tabindex='0' on='tap:categories-popover.close' class='popover-close'>Back</div>";
+		echo "<a href='/'><div class='navigation-categories-item'>". ucfirst($domain) ."</div></a><br>";
+		foreach ($header_array as $header_backend => $header_frontend):
+			echo "<a href='/". $header_backend ."'><div class='navigation-categories-item'>". $header_frontend ."</div></a>";
+			endforeach;
+		echo "</amp-lightbox>";
 	
+	// This is the popover to search ...
 	echo "<amp-lightbox id='search-popover' layout='nodisplay'>";
-	echo "<span role='button' tabindex='0' on='tap:search-popover.close' class='popover-close'>Back</span>";
-	echo "Search input coming soon";
-	echo "</amp-lightbox>";
-
+		echo "<span role='button' tabindex='0' on='tap:search-popover.close' class='popover-close'>Back</span>";
+		echo "Search input coming soon";
+		echo "</amp-lightbox>";
 	
-	// Only add the login popover if not logged in ...
-
+	// This is the popover to log in ...
 	echo "<amp-lightbox id='login-popover' layout='nodisplay'>";
 
-	echo "<span role='button' tabindex='0' on='tap:login-popover.close' class='popover-close'>Back</span>";
+		echo "<span role='button' tabindex='0' on='tap:login-popover.close' class='popover-close'>Back</span>";
 
-	echo "<form id='login' method='post' action-xhr='/login-xhr/' target='_blank' on=\"
-		submit:
-			login-popover-submit.hide;
-		submit-error:
-			login-popover-submit.show;
-		submit-success:
-			login-popover.hide,
-			login-popover-launch.hide,
-			login-popover-submit.show,
-			logout-popover-submit.show,
-			settings-popover-launch.show,
-			add-popover-launch.show,
-			login.clear,
-			logout.clear,
-			AMP.setState({'loginStatus': 'loggedin'})
-		\">";
+		echo "<form id='login' method='post' action-xhr='/login-xhr/' target='_blank' on=\"
+			submit:
+				login-popover-submit.hide;
+			submit-error:
+				login-popover-submit.show;
+			submit-success:
+				login-popover.hide,
+				login-popover-launch.hide,
+				login-popover-submit.show,
+				logout-popover-submit.show,
+				settings-popover-launch.show,
+				add-popover-launch.show,
+				login.clear,
+				logout.clear,
+				AMP.setState({'loginStatus': 'loggedin'})
+			\">";
 
-	echo "<label for='checkpoint_email'>E-mail address</label>";
-	echo "<input type='email' name='checkpoint_email' placeholder='E-mail address'>";
+		echo "<label for='checkpoint_email'>E-mail address</label>";
+		echo "<input type='email' name='checkpoint_email' placeholder='E-mail address'>";
 
-	echo "<label for='checkpoint_email'>Password</label>";
-	echo "<input type='password' name='checkpoint_password' placeholder='Password'>";
+		echo "<label for='checkpoint_email'>Password</label>";
+		echo "<input type='password' name='checkpoint_password' placeholder='Password'>";
 
-	echo "<br><span id='login-popover-submit' role='button' tabindex='0' on='tap:login.submit'>Log in</span>";
-	
-	echo "<br><div class='form-warning'>";
+		echo "<br><span id='login-popover-submit' role='button' tabindex='0' on='tap:login.submit'>Log in</span><br>";
+
 		echo "<div submitting>Submitting...</div>";
 		echo "<div submit-error><template type='amp-mustache'>Error. {{{message}}}</template></div>";
 		echo "<div submit-success><template type='amp-mustache'>{{{message}}}</template></div>";
-		echo "</div>";
-	echo "</form>";
-	echo "</amp-lightbox>";
-		
+		echo "</form>";
+		echo "</amp-lightbox>";
+	
+	// This is the popover for settings ...
 	echo "<amp-lightbox id='settings-popover' layout='nodisplay'>";
 
-	echo "<span role='button' tabindex='0' on='tap:settings-popover.close' class='popover-close'>Back</span>";
+		echo "<span role='button' tabindex='0' on='tap:settings-popover.close' class='popover-close'>Back</span>";
 
-	echo "<p>Settings coming soon: password change, account management.</p>";
+		echo "<p>Settings coming soon: password change, account management.</p>";
 	
-	echo "</amp-lightbox>";
+		echo "<label>Enter new e-mail address</label>";
+		echo "<input name='checkpoint_newemail'>";
+		echo "update email";
+
+		echo "<label>Enter new password</label>";
+		echo "<input name='checkpoint_newpassword'>";
+		echo "<input name='checkpoint_newpassword'>";
+		echo "update password";	
+	
+		echo "</amp-lightbox>";
 
 	echo "<amp-lightbox id='add-popover' layout='nodisplay'>";
 
-	echo "<span role='button' tabindex='0' on='tap:add-popover.close' class='popover-close'>Back</span>";
+		echo "<span role='button' tabindex='0' on='tap:add-popover.close' class='popover-close'>Back</span>";
 
-	echo "<p>Add new entry: coming soon.</p>";
+		echo "<p>Add new entry: coming soon.</p>";
 	
-	echo "</amp-lightbox>";
+		echo "</amp-lightbox>";
 
 	}
 
