@@ -135,7 +135,7 @@ h1 span {
 	color: rgba(30,30,30,0.8);
 	}
 
-.navigation-header-item:before { 
+.navigation-header-item::before { 
 	width: 10px;
 	height: 10px;
 	display: inline;
@@ -147,7 +147,7 @@ h1 span {
 	opacity: 1;
 	}
 	
-.navigation-header-item-selected:before { 
+.navigation-header-item-selected::before { 
 	background: rgba(50,50,255,1);
 	}
 
