@@ -109,7 +109,7 @@ function amp_header($title=null, $canonical=null) {
 	echo "<span role='button' tabindex='0' on='tap:logout.submit' class='navigation-header-item' id='logout-popover-submit'>&#x2716; Log out</span>";
 	echo "<span role='button' tabindex='0' on='tap:logout.submit' class='navigation-header-item' submitting>&#x25cf; Logging out...</span>";
 	echo "<span role='button' tabindex='0' on='tap:logout.submit' class='navigation-header-item' id='logout-popover-tryagain-submit' submit-error>&#x2716; Try logging out again</span>";
-//	echo "<span role='button' tabindex='0' on='tap:logout.submit' class='navigation-header-item' submit-success>&#x2713; Logged out</span>";
+	echo "<span role='button' tabindex='0' on='tap:logout.submit' class='navigation-header-item' submit-success>&#x2713; Logged out</span>";
 	echo "</form>";
 	
 	// ... close out the navigation backbone
