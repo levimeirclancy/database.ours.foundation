@@ -30,7 +30,7 @@ if ($page_temp == "logout-xhr"):
 	endif;
 
 // if we are trying to log in, then check the login
-if ($page_temp == "action-xhr"):
+if ($page_temp == "login-xhr"):
 
 	// Validate that e-mail address is not empty
 	$_POST['checkpoint_email'] = trim($_POST['checkpoint_email']);
