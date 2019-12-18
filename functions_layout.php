@@ -103,12 +103,14 @@ function amp_header($title=null, $canonical=null) {
 		echo "<span role='button' tabindex='0' on='tap:settings-popover' class='navigation-header-item'>&#x2699; Settings</span>";
 		echo "<a href='/new/' target='_blank'><span class='navigation-header-item'>&#x271A; Add entry</span></a>";	
 		endif;
-
+	
+	// This is the logout feature
+	echo "<form id='logout' method='post' action-xhr='/logout-xhr/' on='submit:login-popover-submit.hide>";
 	echo "<span role='button' tabindex='0' on='tap:logout.submit' class='navigation-header-item'>&#x2716; Log out</span>";
 	echo "<span role='button' tabindex='0' on='tap:logout.submit' class='navigation-header-item' submitting>&#x2716; Logging out...</span>";
-	echo "<span role='button' tabindex='0' on='tap:logout.submit' class='navigation-header-item' submit-error><template type='amp-mustache'>&#x2716; Try logging out again</template></span>";
-	echo "<span role='button' tabindex='0' on='tap:logout.submit' class='navigation-header-item' submit-success><template type='amp-mustache'>&#x2716; Logged out</template></span>";
-
+	echo "<span role='button' tabindex='0' on='tap:logout.submit' class='navigation-header-item' submit-error>&#x2716; Try logging out again</span>";
+	echo "<span role='button' tabindex='0' on='tap:logout.submit' class='navigation-header-item' submit-success>&#x2716; Logged out</span>";
+	echo "</form>";
 	
 	// ... close out the navigation backbone
 	echo "</div>";
@@ -125,10 +127,6 @@ function amp_header($title=null, $canonical=null) {
 	echo "<span role='button' tabindex='0' on='tap:search-popover.close' class='popover-close'>Back</span>";
 	echo "Search input coming soon";
 	echo "</amp-lightbox>";
-	
-	// This is the logout form
-	echo "<form id='logout' method='post' action-xhr='/logout-xhr/' on='submit:login-popover-submit.hide>";
-	echo "</form>";
 
 	
 	// Only add the login popover if not logged in ...
