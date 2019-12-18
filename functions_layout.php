@@ -86,7 +86,6 @@ function amp_header($title=null, $canonical=null) {
 		echo '</script></amp-analytics>';
 		endif;
 	
-	// These are the actions like log in, log out, etc plus the home button
 	echo "<div id='navigation-header'>";
 
 	// First of all, the home button
@@ -95,7 +94,7 @@ function amp_header($title=null, $canonical=null) {
 	// Do not show the index if we are editing an article or our account
 	if (!(array_intersect( [$page_temp, $command_temp], ["edit", "account"] ))):
 		echo "<div class='navigation-header-item'>";
-		echo "<span class='navigation-header-item-title'>Index</span>";
+		echo "<span class='navigation-header-item-title'>Index &#x2767;</span>";
 		echo "<div class='navigation-header-item-dropdown'>";
 		foreach ($header_array as $header_backend => $header_frontend):
 		$selected_temp = null; if ($header_backend == $page_temp): $selected_temp = "selected"; endif;
@@ -136,18 +135,18 @@ function amp_header($title=null, $canonical=null) {
 	
 		// Account options
 		echo "<div class='navigation-header-item'>";
-		echo "<span class='navigation-header-item-title'>". $publisher ."</span>";
+		echo "<span class='navigation-header-item-title'>". $publisher ." &#x2767;</span>";
 		echo "<div class='navigation-header-item-dropdown'>";
 		echo "<a href='/account/'><div class='navigation-header-item-dropdown-option'>My account</div></a>";
-		echo "<a href='/logout/'><div class='navigation-header-item-dropdown-option'>Log out</div></a>";
+		echo "<a href='/logout/'><div class='navigation-header-item-dropdown-option'>&#x2716; Log out</div></a>";
 		echo "</div></div>";
 
 		// Create new article
-		echo "<a href='/new/' target='_blank'><span class='navigation-action-button'>New article</span></a>";
+		echo "<a href='/new/' target='_blank'><span class='navigation-action-button'>&#x271A; New article</span></a>";
 	
 		// Edit existing article, if we are on an article and not already in edit mode
 		if (!(empty($page_temp)) && !(empty($information_array[$page_temp])) && ($command_temp !== "edit")):
-			echo "<a href='/".$page_temp."/edit/' target='_blank'><span class='navigation-action-button'>Edit</span></a>";
+			echo "<a href='/".$page_temp."/edit/' target='_blank'><span class='navigation-action-button'>&#10033; Edit article</span></a>";
 			endif;
 	
 		endif;
