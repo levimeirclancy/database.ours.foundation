@@ -113,7 +113,7 @@ function amp_header($title=null, $canonical=null) {
 		
 		echo "<div class='navigation-header-item'>";
 		echo "<span role='button' tabindex='0' on='tap:login-popover' class='navigation-header-item-title'>Log in</span>";
-			echo "</div>";
+		echo "</div>";
 
 		// this is the login popover
 		echo "<amp-lightbox id='login-popover' layout='nodisplay'>"; ?>
@@ -137,8 +137,8 @@ function amp_header($title=null, $canonical=null) {
 		echo "<div class='navigation-header-item'>";
 		echo "<span class='navigation-header-item-title'>My account &#x2767;</span>";
 		echo "<div class='navigation-header-item-dropdown'>";
-		echo "<a href='/account/'><div class='navigation-header-item-dropdown-option'>Settings</div></a>";
-		echo "<a href='/logout/'><div class='navigation-header-item-dropdown-option'>&#x2716; Log out</div></a>";
+		echo "<a href='/account/'><span class='navigation-header-item-dropdown-option'>Settings</span></a>";
+		echo "<a href='/logout/'><span class='navigation-header-item-dropdown-option'>&#x2716; Log out</span></a>";
 		echo "</div></div>";
 
 		// Create new article
