@@ -17,26 +17,58 @@ if (!(empty($url_temp['2']))): $command_temp = $url_temp['2']; endif;
 
 //if the page is set to log out then logout
 if ($page_temp == "logout"):
+
+	// Clear cookie in the browser
 	setcookie("cookie", null, time()+2700, '/');
+
+	// Sanitize the variables
 	$_COOKIE['cookie'] = $login = $page_temp = null;
-	permanent_redirect("https://".$domain);
+
+	// Echo that it worked
+	json_result($domain, "success", null, "Logout was valid.");
+
 	endif;
 
 // if we are trying to log in, then check the login
-if (isset($_POST['checkpoint_email']) && isset($_POST['checkpoint_password'])):
+if ($page_temp == "action-xhr"):
+
+	// Validate that e-mail address is not empty
+	$_POST['checkpoint_email'] = trim($_POST['checkpoint_email']);
+	if (empty($_POST['checkpoint_email'])): json_result($domain, "error", null, "E-mail address cannot be empty."); endif;
+
+	// Validate that password is not empty
+	$_POST['checkpoint_password'] = trim($_POST['checkpoint_password']);
+	if (empty($_POST['checkpoint_password'])): json_result($domain, "error", null, "Password cannot be empty."); endif;
+
+	// Make lower-case for consistency
 	$_POST['checkpoint_email'] = strtolower($_POST['checkpoint_email']);
+
+	// Build the SHA1 hash of e-mail and password
 	$hash = sha1($_POST['checkpoint_email'].$_POST['checkpoint_password']);
+
+	// Ping the database
 	foreach ($connection_pdo->query("SELECT * FROM $database.users WHERE `hash`='$hash'") as $row):
 		$login = ["user_id" => $row['user_id'], "email" => $row['email']];
 		endforeach;
-	if (empty($login)):
-		json_result($domain, "error", null, "Login was invalid.");
-		endif;
+
+	// There were no results and so it failed	
+	if (empty($login)): json_result($domain, "error", null, "Login was invalid."); endif;
+
+	// There was a result, so generate a cookie hash
 	$_COOKIE['cookie'] = $new_cookie = sha1($login['user_id'].time());
-	$cookie_statement = $connection_pdo->prepare("UPDATE $database.users SET cookie='$new_cookie' WHERE user_id='".$login['user_id']."'");
+
+	// We will need to prepare this query instead ...
+	$cookie_statement = $connection_pdo->prepare("UPDATE $database.users SET cookie='". $new_cookie ."' WHERE user_id='".$login['user_id']."'");
+
+	// Set the cookie in the database ...
 	$cookie_statement->execute();
+
+	// ... det the cookie in the browser ...
 	setcookie("cookie", $new_cookie, time()+86400, '/');
+
+	// ... and tell the login form that it worked
 	json_result($domain, "success", null, "Login was valid.");
+
 	endif;
 
 // if there is a cookie then double-check it
