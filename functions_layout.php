@@ -48,9 +48,6 @@ function amp_header($title=null, $canonical=null) {
 	// for lightbox search feature
 	echo '<script async custom-element="amp-lightbox" src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js"></script>';
 
-	// for youtube
-	echo '<script async custom-element="amp-youtube" src="https://cdn.ampproject.org/v0/amp-youtube-0.1.js"></script>';
-	
 	// for fitting text
 	echo '<script async custom-element="amp-fit-text" src="https://cdn.ampproject.org/v0/amp-fit-text-0.1.js"></script>';	
 
@@ -60,12 +57,14 @@ function amp_header($title=null, $canonical=null) {
 	// for the amp-selector
 	echo '<script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>';
 	
-	// font
+	// loading fonts
 	echo '<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">';
+	echo '<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">';
 	
 	echo "<title>" . $title . "</title>";
 
-	echo '<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">';
+	// Theme color for browser bar
+	echo "<meta name='theme-color' content="#ffffff">";
 	
 //	echo "<base href='/' />";
 	echo "<meta name='viewport' content='width=device-width,minimum-scale=1,initial-scale=1'>"; // must define viewport for amp
@@ -108,12 +107,6 @@ function amp_header($title=null, $canonical=null) {
 
 	// ... close out the navigation backbone
 	echo "</div>";
-	
-	// No need to show the index if we are on account settings
-	if ($page_temp == "account"): return; endif;
-	
-	// No need to show the index if we are editing
-	if ($command_temp == "edit"): return; endif;
 	
 	echo "<amp-lightbox id='search-popover' layout='nodisplay'>";
 	echo "<span role='button' tabindex='0' on='tap:search-popover.close' class='popover-close'>Back</span>";
