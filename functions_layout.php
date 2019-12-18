@@ -95,15 +95,15 @@ function amp_header($title=null, $canonical=null) {
 	echo "<div role='button' tabindex='0' class='navigation-header-item' on='tap:search-popover'>&#x272A; Search</div>";
 
 	// To display the login or logout buttons
-	$loggedin_layout = "nodisplay"; $loggedout_layout = null; // If we are signed in ...
-	if (empty($login)): $loggedin_layout = null; $loggedout_layout = "nodisplay"; endif; // ... or if we are not signed in
+	$login_hidden = $logout_hidden = "hidden";
+	if (empty($login)): $logout_hidden = null; endif; // if we are not logged in
 	
 	// This is the login button ...
-	echo "<div role='button' tabindex='0' class='navigation-header-item' id='login-popover-launch' on='tap:login-popover' layout='$loggedin_layout' [layout]='loggedin_layout'>&#x2731; Log in</div>";
+	echo "<div role='button' tabindex='0' class='navigation-header-item' id='login-popover-launch' on='tap:login-popover' [class]=\"loginStatus == 'loggedin' ? 'hide' : ''\" $login_hidden>&#x2731; Log in</div>";
 		
 	// If you are signed in ...
-	echo "<div role='button' tabindex='0' class='navigation-header-item' id='settings-popover-launch' on='tap:settings-popover' layout='$loggedout_layout' [layout]='loggedout_layout'>&#x2699; Settings</div>";
-	echo "<div role='button' tabindex='0' class='navigation-header-item' id='add-popover-launch' on='tap:add-popover' layout='$loggedout_layout' [layout]='loggedout_layout'>&#x271A; Add entry</div>";	
+	echo "<div role='button' tabindex='0' class='navigation-header-item' id='settings-popover-launch' on='tap:settings-popover' [class]=\"loginStatus == 'loggedin' ? '' : 'hide'\" $logout_hidden>&#x2699; Settings</div>";
+	echo "<div role='button' tabindex='0' class='navigation-header-item' id='add-popover-launch' on='tap:add-popover' [class]=\"loginStatus == 'loggedin' ? '' : 'hide'\" $logout_hidden>&#x271A; Add entry</div>";	
 
 	echo "<form id='logout' method='post' action-xhr='/logout-xhr/' target='_blank' on='
 		submit:
@@ -114,9 +114,9 @@ function amp_header($title=null, $canonical=null) {
 		submit-success:
 			logout-popover-submit.hide,
 			logout-popover-tryagain-submit.hide,
-			AMP.setState({'loggedout_layout': 'display', 'loggedout_layout': ''})
+			AMP.setState({'loginStatus': 'loggedout'})
 		'>";
-	echo "<div role='button' tabindex='0' class='navigation-header-item' id='logout-popover-submit' on='tap:logout.submit' layout='$loggedout_layout' [layout]='loggedout_layout'>&#x2716; Log out</div>";
+	echo "<div role='button' tabindex='0' class='navigation-header-item' id='logout-popover-submit' on='tap:logout.submit' [class]=\"loginStatus == 'loggedin' ? '' : 'hide'\" $logout_hidden>&#x2716; Log out</div>";
 	echo "<div role='button' tabindex='0' class='navigation-header-item' submitting>&#x25cf; Logging out...</div>";
 	echo "<div role='button' tabindex='0' class='navigation-header-item' on='tap:logout.submit' id='logout-popover-tryagain-submit' submit-error>&#x2716; Try logging out again</div>";
 //	echo "<div role='button' tabindex='0' class='navigation-header-item' on='tap:logout.submit' submit-success>&#x2713; Logged out</div>";
@@ -153,7 +153,7 @@ function amp_header($title=null, $canonical=null) {
 		submit-success:
 			login-popover.hide,
 			login-popover-launch.hide,
-			AMP.setState({'loggedout_layout': '', 'loggedout_layout': 'nodisplay'})
+			AMP.setState({'loginStatus': 'loggedin'})
 
 		'>";
 
