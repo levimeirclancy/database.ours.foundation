@@ -122,7 +122,7 @@ function amp_header($title=null, $canonical=null) {
 
 	echo "<amp-lightbox id='categories-popover' layout='nodisplay'>";
 	echo "<span role='button' tabindex='0' on='tap:categories-popover.close' class='popover-close'>Back</span>";
-	echo "<a href='/'><div class='navigation-categories-item'>". ucfirst($domain) ."</div></a>";
+	echo "<a href='/'><div class='navigation-categories-item'>". ucfirst($domain) ."</div></a><br>";
 	foreach ($header_array as $header_backend => $header_frontend):
 		echo "<a href='/". $header_backend ."'><div class='navigation-categories-item'>". $header_frontend ."</div></a>";
 		endforeach;
