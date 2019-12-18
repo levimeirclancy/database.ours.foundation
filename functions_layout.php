@@ -90,7 +90,7 @@ function amp_header($title=null, $canonical=null) {
 	echo "<div id='navigation-header'>";
 
 	// The domain name, to go home ...
-	echo "<span  role='button' tabindex='0' on='tap:sitemap-popover' class='navigation-header-item'>&#x2742; Sitemap</span>";
+	echo "<span  role='button' tabindex='0' on='tap:categories-popover' class='navigation-header-item'>&#x2742; Categories</span>";
 	
 	// ... then to toggle the search popover ...
 	echo "<span role='button' tabindex='0' on='tap:search-popover' class='navigation-header-item'>&#x272A; Search</span>";
@@ -133,11 +133,11 @@ function amp_header($title=null, $canonical=null) {
 	echo "Search input coming soon";
 	echo "</amp-lightbox>";
 
-	echo "<amp-lightbox id='sitemap-popover' layout='nodisplay'>";
-	echo "<span role='button' tabindex='0' on='tap:sitemap-popover.close' class='popover-close'>Back</span>";
-	echo "<a href='/'><div class='navigation-sitemap-item'>". ucfirst($domain) ."</div></a>";
+	echo "<amp-lightbox id='categories-popover' layout='nodisplay'>";
+	echo "<span role='button' tabindex='0' on='tap:categories-popover.close' class='popover-close'>Back</span>";
+	echo "<a href='/'><div class='navigation-categories-item'>". ucfirst($domain) ."</div></a>";
 	foreach ($header_array as $header_backend => $header_frontend):
-		echo "<a href='/". $header_backend ."'><div class='navigation-sitemap-item'>". $header_frontend ."</div></a>";
+		echo "<a href='/". $header_backend ."'><div class='navigation-categories-item'>". $header_frontend ."</div></a>";
 		endforeach;
 	echo "</amp-lightbox>";
 
