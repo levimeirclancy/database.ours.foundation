@@ -1,6 +1,6 @@
 <?
 
-echo "More options will be available soon.";
+echo "<p>More options will be available soon.</p>";
 
 // Change password
 
