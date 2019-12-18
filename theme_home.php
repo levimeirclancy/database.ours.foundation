@@ -10,12 +10,12 @@ if (empty($information_array)): footer(); endif;
 echo "<p>";
 
 // How many total entries are there ...
-echo "<b>". number_format(count($information_array)) ." total entries.</b><br>";
+echo "<b>". number_format(count($information_array)) ." total entries.</b><br><br>";
 
 $type_counts_array = [];
 $coordinate_counts = 0;
 foreach ($information_array as $entry_id => $entry_info):
-  if (empty($type_counts_array[$entry_info['type']])): $type_counts_array[$entry_info['type']] = 0; endif;
+	if (empty($type_counts_array[$entry_info['type']])): $type_counts_array[$entry_info['type']] = 0; endif;
 	$type_counts_array[$entry_info['type']]++;
 	if (empty($entry_info['appendix']['latitude']) || empty($entry_info['appendix']['longitude'])): continue; endif;
 	$coordinate_counts++;
@@ -27,7 +27,7 @@ foreach ($header_array as $header_backend => $header_frontend):
 	endforeach;
 
 // Display how many have GPS coordinates ...
-if (!(empty($coordinate_counts))): echo number_format($coordinate_counts)." entries with GPS coordinates.<br>"; endif;
+if (!(empty($coordinate_counts))): echo "<br>". number_format($coordinate_counts)." entries with GPS coordinates.<br>"; endif;
 
 echo "</p>";
 		
