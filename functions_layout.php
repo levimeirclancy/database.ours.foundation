@@ -134,15 +134,19 @@ function amp_header($title=null, $canonical=null) {
 	// The search form
 	echo "<input id='navigation-search-input' type='text'>";
 	
-	// This is the navigation header if we are enot editing
-	echo "<div id='navigation-header' amp-fx='parallax' data-parallax-factor='1.15'>";
-		echo "<span id='navigation-header-items' amp-fx='parallax' data-parallax-factor='1.2'>";
-		foreach ($header_array as $header_backend => $header_frontend):
-			$selected_temp = null; if ($header_backend == $page_temp): $selected_temp = "navigation-header-item-selected"; endif;
-			echo "<a href='/$header_backend/'><span class='navigation-header-item $selected_temp'>$header_frontend</span></a>";
-			endforeach;
-		echo "</span>";
-		echo "</div>";
+	// This is the navigation header if we are not editing
+	echo "Index";
+	echo "<amp-selector 
+		layout='container' 
+		class='radio-selector' 
+		on='select: AMP.setState({ selectedOption: event.targetOption,  allSelectedOptions: event.selectedOptions })' 
+		amp-fx='parallax' data-parallax-factor='1.15'>";
+	foreach ($header_array as $header_backend => $header_frontend):
+		$selected_temp = null; if ($header_backend == $page_temp): $selected_temp = "selected"; endif;
+		echo "<div ". $selected_temp .">". $header_frontend ."</div>";
+		endforeach;
+//	echo '<a href="/" [href]="selectedOption"><code [text]="selectedOption"></code></a>';
+	echo '<a href="/" [href]="selectedOption">Launch</a>';	
 
 	}
 
