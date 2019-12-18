@@ -89,37 +89,37 @@ function amp_header($title=null, $canonical=null) {
 	echo "<div id='navigation-header'>";
 
 	// The domain name, to go home ...
-	echo "<span role='button' tabindex='0' class='navigation-header-item' height='20' layout='fixed-height' on='tap:categories-popover'>&#x2742; Categories</span>";
+	echo "<div role='button' tabindex='0' class='navigation-header-item' height='20' layout='fixed-height' on='tap:categories-popover'>&#x2742; Categories</div>";
 	
 	// ... then to toggle the search popover ...
-	echo "<span role='button' tabindex='0' class='navigation-header-item' height='20' layout='fixed-height' on='tap:search-popover'>&#x272A; Search</span>";
+	echo "<div role='button' tabindex='0' class='navigation-header-item' height='20' layout='fixed-height' on='tap:search-popover'>&#x272A; Search</div>";
 
 	// To display the login or logout buttons
 	$loggedin_layout = "nodisplay"; $loggedout_layout = "fixed-height"; // If we are signed in ...
 	if (empty($login)): $loggedin_layout = "fixed-height"; $loggedout_layout = "nodisplay"; endif; // ... or if we are not signed in
 	
 	// This is the login button ...
-	echo "<span role='button' tabindex='0' class='navigation-header-item' height='20' id='login-popover-launch' on='tap:login-popover' layout='". $loggedin_layout ."'>&#x2731; Log in</span>";
+	echo "<div role='button' tabindex='0' class='navigation-header-item' height='20' id='login-popover-launch' on='tap:login-popover' layout='". $loggedin_layout ."'>&#x2731; Log in</div>";
 		
 	// If we are signed in ...
-	echo "<span role='button' tabindex='0' class='navigation-header-item' height='20' on='tap:settings-popover' layout='". $loggedout_layout ."'>&#x2699; Settings</span>";
-	echo "<span role='button' tabindex='0' class='navigation-header-item' height='20' on='tap:add-popover' layout='". $loggedout_layout ."'>&#x271A; Add entry</span>";	
+	echo "<div role='button' tabindex='0' class='navigation-header-item' height='20' on='tap:settings-popover' layout='". $loggedout_layout ."'>&#x2699; Settings</div>";
+	echo "<div role='button' tabindex='0' class='navigation-header-item' height='20' on='tap:add-popover' layout='". $loggedout_layout ."'>&#x271A; Add entry</div>";	
 	echo "<form id='logout' method='post' action-xhr='/logout-xhr/' target='_blank' on='
 		submit:logout-popover-submit.hide,logout-popover-tryagain-submit.hide;
 		submit-error:login-popover-launch.hide;
 		submit-success:logout-popover-submit.hide,logout-popover-tryagain-submit.hide,login-popover-launch.show
 		'>";
-	echo "<span role='button' tabindex='0' class='navigation-header-item' height='20' on='tap:logout.submit' id='logout-popover-submit' layout='". $loggedout_layout ."'>&#x2716; Log out</span>";
-	echo "<span role='button' tabindex='0' class='navigation-header-item' height='20' submitting>&#x25cf; Logging out...</span>";
-	echo "<span role='button' tabindex='0' class='navigation-header-item' height='20' on='tap:logout.submit' id='logout-popover-tryagain-submit' submit-error>&#x2716; Try logging out again</span>";
-//	echo "<span role='button' tabindex='0' class='navigation-header-item' height='20' on='tap:logout.submit' submit-success>&#x2713; Logged out</span>";
+	echo "<div role='button' tabindex='0' class='navigation-header-item' height='20' on='tap:logout.submit' id='logout-popover-submit' layout='". $loggedout_layout ."'>&#x2716; Log out</div>";
+	echo "<div role='button' tabindex='0' class='navigation-header-item' height='20' submitting>&#x25cf; Logging out...</div>";
+	echo "<div role='button' tabindex='0' class='navigation-header-item' height='20' on='tap:logout.submit' id='logout-popover-tryagain-submit' submit-error>&#x2716; Try logging out again</div>";
+//	echo "<div role='button' tabindex='0' class='navigation-header-item' height='20' on='tap:logout.submit' submit-success>&#x2713; Logged out</div>";
 	echo "</form>";
 	
 	// ... close out the navigation backbone
 	echo "</div>";
 	
 	echo "<amp-lightbox id='categories-popover' layout='nodisplay'>";
-	echo "<span role='button' tabindex='0' on='tap:categories-popover.close' class='popover-close'>Back</span>";
+	echo "<div role='button' tabindex='0' on='tap:categories-popover.close' class='popover-close'>Back</div>";
 	echo "<a href='/'><div class='navigation-categories-item'>". ucfirst($domain) ."</div></a><br>";
 	foreach ($header_array as $header_backend => $header_frontend):
 		echo "<a href='/". $header_backend ."'><div class='navigation-categories-item'>". $header_frontend ."</div></a>";
