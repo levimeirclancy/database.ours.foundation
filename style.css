@@ -114,8 +114,8 @@ h1 span {
 	color: rgba(50,50,50,0.8);
 	opacity: 0.9;
 	padding: 8px;
-	font-size: 16px;
-	line-height: 16px;
+	font-weight: 700;
+	font-family: Sans Serif;
 	}
 
 .navigation-sitemap-item {
