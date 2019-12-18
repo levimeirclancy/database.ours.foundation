@@ -105,9 +105,17 @@ function amp_header($title=null, $canonical=null) {
 	echo "<div role='button' tabindex='0' class='navigation-header-item' id='settings-popover-launch' on='tap:settings-popover' $loggedout_layout>&#x2699; Settings</div>";
 	echo "<div role='button' tabindex='0' class='navigation-header-item' id='add-popover-launch' on='tap:add-popover' $loggedout_layout>&#x271A; Add entry</div>";	
 	echo "<form id='logout' method='post' action-xhr='/logout-xhr/' target='_blank' on='
-		submit:logout-popover-submit.hide,logout-popover-tryagain-submit.hide;
-		submit-error:login-popover-launch.hide;
-		submit-success:logout-popover-submit.hide,logout-popover-tryagain-submit.hide,login-popover-launch.show
+		submit:
+			logout-popover-submit.hide,
+			logout-popover-tryagain-submit.hide;
+		submit-error:
+			login-popover-launch.hide;
+		submit-success:
+			logout-popover-submit.hide,
+			logout-popover-tryagain-submit.hide,
+			login-popover-launch.show,
+			settings-popover-launch.hide,
+			add-popover-launch.hide
 		'>";
 	echo "<div role='button' tabindex='0' class='navigation-header-item' id='logout-popover-submit' on='tap:logout.submit' $loggedout_layout>&#x2716; Log out</div>";
 	echo "<div role='button' tabindex='0' class='navigation-header-item' submitting>&#x25cf; Logging out...</div>";
@@ -139,9 +147,16 @@ function amp_header($title=null, $canonical=null) {
 	echo "<span role='button' tabindex='0' on='tap:login-popover.close' class='popover-close'>Back</span>";
 
 	echo "<form id='login' method='post' action-xhr='/login-xhr/' target='_blank' on='
-		submit:login-popover-submit.hide;
-		submit-error:login-popover-submit.show;
-		submit-success:login-popover.hide,login-popover-launch.hide,settings-popover-launch.show,add-popover-launch.show,logout-popover-submit.show
+		submit:
+			login-popover-submit.hide;
+		submit-error:
+			login-popover-submit.show;
+		submit-success:
+			login-popover.hide,
+			login-popover-launch.hide,
+			settings-popover-launch.show,
+			add-popover-launch.show,
+			logout-popover-submit.show
 		'>";
 
 	echo "<label for='checkpoint_email'>E-mail address</label>";
