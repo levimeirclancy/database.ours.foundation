@@ -137,7 +137,8 @@ h1 span {
 .login-popover-description, #login-popover input {
 	display: table;
 	margin: 5px auto;
-	max-width: 350px;
+	max-width: 400px;
+	width: auto;
 	text-align: left;
 	border: 0;
 	color: rgba(100,100,100,0.8);
@@ -155,7 +156,7 @@ h1 span {
 #login-popover input {
 	font-size: 80%;
 	padding: 15px 20px;
-	background-image: linear-gradient(300deg, rgba(250,250,250,1), rgba(235,235,235,1));
+	border: 3px solid rgba(235,235,235,1);
 	box-shadow: 3px 10px 15px -8px rgba(50,50,50,0.2);
 	}
 
