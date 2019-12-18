@@ -150,7 +150,7 @@ function amp_header($title=null, $canonical=null) {
 	
 		echo "<amp-lightbox id='settings-popover' layout='nodisplay'>";
 
-		echo "<span role='button' tabindex='0' on='tap:login-popover.close' class='popover-close'>Back</span>";
+		echo "<span role='button' tabindex='0' on='tap:settings-popover.close' class='popover-close'>Back</span>";
 
 		echo "<p>Settings coming soon: password change, account management</p>";
 	
