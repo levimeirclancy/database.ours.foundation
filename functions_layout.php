@@ -94,22 +94,27 @@ function amp_header($title=null, $canonical=null) {
 	// ... then to toggle the search popover ...
 	echo "<span role='button' tabindex='0' on='tap:search-popover' class='navigation-header-item'>&#x272A; Search</span>";
 
-	// If we are not signed in ...
-	if (empty($login)):
-		echo "<span role='button' tabindex='0' on='tap:login-popover' class='navigation-header-item'>&#x2731; Log in</span>";
+	// To display the login or logout buttons
+	$loggedin_nodisplay = "nodisplay"; $loggedout_nodisplay = null; // If we are signed in ...
+	if (empty($login)): $loggedin_nodisplay = null; $loggedout_nodisplay = "display"; endif; // ... or if we are not signed in
 	
 	// If we are signed in ...
-	elseif (!(empty($login))):
-		echo "<span role='button' tabindex='0' on='tap:settings-popover' class='navigation-header-item'>&#x2699; Settings</span>";
-		echo "<a href='/new/' target='_blank'><span class='navigation-header-item'>&#x271A; Add entry</span></a>";	
-		endif;
+	echo "<span role='button' tabindex='0' on='tap:settings-popover' class='navigation-header-item' $loggedout_nodisplay>&#x2699; Settings</span>";
+	echo "<a href='/new/' target='_blank'><span class='navigation-header-item' $loggedout_nodisplay>&#x271A; Add entry</span></a>";	
+
+	// This is the login button ...
+	echo "<span role='button' tabindex='0' on='tap:login-popover' class='navigation-header-item' id='login-popover-launch' $loggedin_nodisplay>&#x2731; Log in</span>";
 	
 	// This is the logout feature
-	echo "<form id='logout' method='post' action-xhr='/logout-xhr/' target='_blank' on='submit:logout-popover-submit.hide,logout-popover-tryagain-submit.hide;submit-success:logout-popover-submit.hide,logout-popover-tryagain-submit.hide'>";
-	echo "<span role='button' tabindex='0' on='tap:logout.submit' class='navigation-header-item' id='logout-popover-submit'>&#x2716; Log out</span>";
+	echo "<form id='logout' method='post' action-xhr='/logout-xhr/' target='_blank' on='
+		submit:logout-popover-submit.hide,logout-popover-tryagain-submit.hide;
+		submit-error:login-popover-launch.hide;
+		submit-success:logout-popover-submit.hide,logout-popover-tryagain-submit.hide,login-popover-launch.show
+		'>";
+	echo "<span role='button' tabindex='0' on='tap:logout.submit' class='navigation-header-item' id='logout-popover-submit' $loggedout_nodisplay>&#x2716; Log out</span>";
 	echo "<span role='button' tabindex='0' on='tap:logout.submit' class='navigation-header-item' submitting>&#x25cf; Logging out...</span>";
 	echo "<span role='button' tabindex='0' on='tap:logout.submit' class='navigation-header-item' id='logout-popover-tryagain-submit' submit-error>&#x2716; Try logging out again</span>";
-	echo "<span role='button' tabindex='0' on='tap:logout.submit' class='navigation-header-item' submit-success>&#x2713; Logged out</span>";
+//	echo "<span role='button' tabindex='0' on='tap:logout.submit' class='navigation-header-item' submit-success>&#x2713; Logged out</span>";
 	echo "</form>";
 	
 	// ... close out the navigation backbone
