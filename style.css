@@ -109,7 +109,7 @@ h1 span {
 
 .popover-close {
 	right: 10px;
-	top: 5px;
+	top: 0;
 	position: absolute;
 	color: rgba(50,50,50,0.8);
 	opacity: 0.9;
@@ -121,7 +121,7 @@ h1 span {
 
 .popover-close:before {
 	content: '\293A';
-	padding-bottom: 2px;
+	margin-bottom: 3px;
 	display: inline; }
 
 .navigation-sitemap-item {
