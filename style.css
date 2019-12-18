@@ -92,6 +92,7 @@ h1 span {
 	box-shadow: 0 0 40px -10px rgba(50,50,50,0.3);
 	font-size: 70%;
 	padding: 10px;
+	z-index: 100;
 	}
 
 .navigation-header-item {
@@ -103,6 +104,7 @@ h1 span {
 .navigation-header-item::first-letter {
 	vertical-align: middle;
 	padding-bottom: 1px;
+	margin-bottom: 1px;
 	}
 
 #categories-popover, #search-popover, #login-popover {
