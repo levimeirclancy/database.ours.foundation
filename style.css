@@ -90,33 +90,27 @@ h1 span {
 	width: 100%;
 	background: rgba(255,255,255,0.8);
 	box-shadow: 0 0 30px 0 rgba(50,50,50,0.2);
-	font-size: 90%;
-	}
-
-#navigation-header-home {
-	font-weight: 700;
-	opacity: 0.8;
+	font-size: 70%;
 	}
 
 .navigation-header-item {
 	margin: 5px 10px;
 	position: relative;
 	display: inline-block;
+	text-transform: uppercase;
 	}
 
-.navigation-header-item-dropdown {
-	display: none;
+#navigation-index {
+	margin: 100px 20px;
 	}
 
-.navigation-header-item-title:hover + .navigation-header-item-dropdown {
-	display: inline-block;
-	background: rgba(255,255,255,0.8);
-	box-shadow: 0 0 20px 0 rgba(50,50,50,0.2);
-	postion: fixed;
-	left: 30px;
-	top: 30px;
+.navigation-index-item {
+	background: rgba(200,200,200,0.5);
+	box-shadow: 0 0 10px 0 rgba(50,50,50,0.2);
 	}
 
+.navigation-index-item-selected {
+	}
 	
 
 
