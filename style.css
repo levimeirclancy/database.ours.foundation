@@ -1,6 +1,6 @@
 body {
 	text-align: left;
-	font-family: Roboto, Helvetica;
+	font-family: Georgia, Times New Roman, Serif;
 	font-size: 22px;
 	line-height: 1.3em;
 	padding: 0;
@@ -82,15 +82,15 @@ h1 span {
 
 /* SIDEBAR */
 
-#navigation-sidebar { 
+#navigation-action { 
 	display: block;
 	margin: 0;
 	padding: 30px 40px;
 	line-height: 30px;
-	text-align: left;
+	text-align: center;
 	}
 
-#navigation-sidebar-home {
+#navigation-action-home {
 	display: block;
 	font-size: 100%;
 	font-weight: 700;
@@ -99,36 +99,7 @@ h1 span {
 	color: #555;
 	}
 
-#navigation-sidebar-items {
-	max-width: 800px;
-	background: none;
-	background-image: none;
-	display: block;
-	margin: 30px auto;
-	}
-
-.navigation-sidebar-item {
-	font-size: 75%;
-	font-weight: 700;
-	display: inline-block;
-	padding: 9px 20px;
-	line-height: 1em;
-	margin: 20px 20px 0 0;
-	border-radius: 100px;
-	opacity: 0.5;
-	border: 3px solid rgba(30,30,30,0.7);
-	background: rgba(255,255,255,1);
-	color: rgba(30,30,30,0.8);
-	}
-
-.navigation-sidebar-item-selected { 
-	opacity: 0.8;
-	border: 3px solid rgba(30,30,30,1);
-	background: rgba(30,30,30,1);
-	color: rgba(255,255,255,1);
-	}
-
-.navigation-sidebar-account {
+.navigation-action-button {
 	display: inline-block;
 	padding: 9px 20px;
 	margin: 10px 10px 0 0;
@@ -136,8 +107,48 @@ h1 span {
 	font-size: 75%;
 	}
 
-.navigation-sidebar-account:hover{
+.navigation-action-button:hover {
 	font-style: italic;
+	}
+
+#navigation-search-input {
+	max-width: 200px;
+	}
+
+#navigation-header-items {
+	max-width: 800px;
+	background: none;
+	background-image: none;
+	display: block;
+	margin: 30px auto;
+	}
+
+.navigation-header-item {
+	font-size: 75%;
+	font-weight: 700;
+	display: block;
+	padding: 9px 20px;
+	line-height: 1em;
+	margin: 10px;
+	opacity: 0.85;
+	background: rgba(255,255,255,1);
+	color: rgba(30,30,30,0.8);
+	}
+
+.navigation-header-item:before { 
+	width: 10px;
+	height: 10px;
+	display: inline;
+	border-radius: 100px;
+	margin: 0 5px;
+	}
+
+.navigation-header-item-selected {
+	opacity: 1;
+	}
+	
+.navigation-header-item-selected:before { 
+	background: rgba(50,50,255,1);
 	}
 
 /* FORMS */
