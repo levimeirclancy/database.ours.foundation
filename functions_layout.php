@@ -105,7 +105,7 @@ function amp_header($title=null, $canonical=null) {
 		endif;
 	
 	// This is the logout feature
-	echo "<form id='logout' method='post' action-xhr='/logout-xhr/' on='submit:logout-popover-submit.hide,logout-popover-tryagain-submit.hide;submit-success:logout-popover-submit.hide,logout-popover-tryagain-submit.hide'>";
+	echo "<form id='logout' method='post' action-xhr='/logout-xhr/' target='_blank' on='submit:logout-popover-submit.hide,logout-popover-tryagain-submit.hide;submit-success:logout-popover-submit.hide,logout-popover-tryagain-submit.hide'>";
 	echo "<span role='button' tabindex='0' on='tap:logout.submit' class='navigation-header-item' id='logout-popover-submit'>&#x2716; Log out</span>";
 	echo "<span role='button' tabindex='0' on='tap:logout.submit' class='navigation-header-item' submitting>&#x25cf; Logging out...</span>";
 	echo "<span role='button' tabindex='0' on='tap:logout.submit' class='navigation-header-item' id='logout-popover-tryagain-submit' submit-error>&#x2716; Try logging out again</span>";
@@ -136,7 +136,7 @@ function amp_header($title=null, $canonical=null) {
 
 		echo "<span role='button' tabindex='0' on='tap:login-popover.close' class='popover-close'>Back</span>";
 
-		echo "<form id='login' method='post' action-xhr='/login-xhr/' on='submit:login-popover-submit.hide;submit-error:login-popover-submit.show'>";
+		echo "<form id='login' method='post' action-xhr='/login-xhr/' target='_blank' on='submit:login-popover-submit.hide;submit-error:login-popover-submit.show'>";
 
 		echo "<label for='checkpoint_email'>E-mail address</label>";
 		echo "<input type='email' name='checkpoint_email' placeholder='E-mail address'>";
