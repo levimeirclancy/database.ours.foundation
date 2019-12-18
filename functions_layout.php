@@ -64,7 +64,7 @@ function amp_header($title=null, $canonical=null) {
 	echo "<title>" . $title . "</title>";
 
 	// Theme color for browser bar
-	echo "<meta name='theme-color' content="#ffffff">";
+	echo "<meta name='theme-color' content='#ffffff'>";
 	
 //	echo "<base href='/' />";
 	echo "<meta name='viewport' content='width=device-width,minimum-scale=1,initial-scale=1'>"; // must define viewport for amp
