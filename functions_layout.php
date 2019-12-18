@@ -87,7 +87,7 @@ function amp_header($title=null, $canonical=null) {
 		endif;
 	
 	// The navigation backbone...
-	echo "<div class='navigation-header'>";
+	echo "<div id='navigation-header'>";
 
 	// The domain name, to go home ...
 	echo "<a href='/'><span class='navigation-header-item'>".$domain."</span></a>";
