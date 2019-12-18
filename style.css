@@ -104,6 +104,7 @@ h1 span {
 	padding: 0;
 	display: inline-block;
 	cursor: pointer;
+	float: left;
 	color: rgba(0,0,0,1);
 	}
 
