@@ -166,7 +166,8 @@ h1 span {
 	}
 
 #login-popover-submit {
-	max-width: none;
+	display: inline-block;
+	max-width: 250px;
 	margin: 30px auto;
 	padding: 10px 60px;
 	background: rgba(50,50,550,0.5);
