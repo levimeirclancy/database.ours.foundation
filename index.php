@@ -27,7 +27,7 @@ if (isset($_POST['checkpoint_email']) && isset($_POST['checkpoint_password'])):
 	$_POST['checkpoint_email'] = strtolower($_POST['checkpoint_email']);
 	$hash = sha1($_POST['checkpoint_email'].$_POST['checkpoint_password']);
 	foreach ($connection_pdo->query("SELECT * FROM $database.users WHERE `hash`='$hash'") as $row):
-		$login = ["user_id" => $row['user_id'], "email" => $row['email']];
+		$loginn = ["user_id" => $row['user_id'], "email" => $row['email']];
 		endforeach;
 	if (empty($login)):
 		json_result($domain, "failure", null, "Login was invalid.");
@@ -92,19 +92,6 @@ $header_array = [
 	"event" => "Events",	
 	"topic" => "Topics",
 	"article" => "Articles" ];
-
-// If there is no login then we cannot access account management
-if (empty($login) && ($page_temp == "account")):
-	permanent_redirect("https://".$domain); // Redirect to homepage if the login is invalid
-	endif;
-
-// If the login is valid and we are trying to go the account
-if (!(empty($login)) && ($page_temp == "account")):
-	// Sanitize the link if it is invalid
-	if (!(empty($slug_temp)) || !(empty($command_temp))): permanent_redirect("https://".$domain."/account/"); endif;
-	amp_header("Settings");
-	include_once('admin_settings.php');
-	footer(); endif;
 
 if (!(empty($page_temp)) && ($page_temp == "new") && !(empty($login))):
 	html_header();
