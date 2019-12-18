@@ -121,8 +121,9 @@ h1 span {
 
 .popover-close:before {
 	content: '\293A';
+	font-size: 110%;
 	margin-bottom: 3px;
-	display: inline; }
+	display: inline-block; }
 
 .navigation-sitemap-item {
 	margin: 30px 20px;
