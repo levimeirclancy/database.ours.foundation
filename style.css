@@ -16,6 +16,10 @@ a, a:link, a:visited, a:hover {
 	width: auto; 
 	max-width: 700px; }
 
+.hide {
+	display: none;
+	}
+
 /* BAR */
 
 .header {
