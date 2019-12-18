@@ -88,7 +88,7 @@ h1 span {
 	top: 0;
 	right: 0;
 	width: 100%;
-	background: rgba(255,255,255,0.95);
+	background: rgba(255,255,255,1);
 	box-shadow: 0 0 40px -10px rgba(50,50,50,0.3);
 	font-size: 70%;
 	padding: 10px;
