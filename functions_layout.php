@@ -129,12 +129,12 @@ function amp_header($title=null, $canonical=null) {
 	if ($command_temp == "edit"): return; endif;
 	
 	echo "<amp-lightbox id='search-popover' layout='nodisplay'>";
-	echo "<span role='button' tabindex='0' on='tap:login-popover.close' class='popover-close'>Back</span>";
+	echo "<span role='button' tabindex='0' on='tap:search-popover.close' class='popover-close'>Back</span>";
 	echo "Search input coming soon";
 	echo "</amp-lightbox>";
 
 	echo "<amp-lightbox id='sitemap-popover' layout='nodisplay'>";
-	echo "<span role='button' tabindex='0' on='tap:login-popover.close' class='popover-close'>Back</span>";
+	echo "<span role='button' tabindex='0' on='tap:sitemap-popover.close' class='popover-close'>Back</span>";
 	echo "<a href='/'><div class='navigation-sitemap-item'>". $domain ."</div></a>";
 	foreach ($header_array as $header_backend => $header_frontend):
 		echo "<a href='/". $header_backend ."'><div class='navigation-sitemap-item>". $header_frontend ."</div></a>";
