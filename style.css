@@ -108,8 +108,8 @@ h1 span {
 	padding: 10px 20px;
 	display: inline-block;
 	cursor: pointer;
-	float: left;
 	color: rgba(0,0,0,1);
+	z-index: 101;
 	}
 
 .navigation-header-item::first-letter {
