@@ -146,6 +146,7 @@ h1 span {
 	padding: 10px 30px;
 	border: 0;
 	background: rgba(150,150,150,0.5);
+	background-image: linear-gradient(200deg, rgba(150,150,150,0.5), rgba(200,200,200,0.5));
 	border-radius: 100px;
 	display: block;
 	margin: 0 auto 15px;
@@ -161,11 +162,15 @@ h1 span {
 
 #login-popover input::-webkit-autofill {
 	background: rgba(150,150,150,0.5);
+	background-image: linear-gradient(200deg, rgba(150,150,150,0.5), rgba(200,200,200,0.5));
 	}
 
 #login-popover-submit {
+	max-width: none;
 	margin: 30px auto;
-	background: rgba(50,50,50,0.5);
+	padding: 10px 60px;
+	background: rgba(50,50,550,0.5);
+	background-image: linear-gradient(200deg, rgba(50,50,50,0.5), rgba(20,20,20,0.5));
 	}
 
 
