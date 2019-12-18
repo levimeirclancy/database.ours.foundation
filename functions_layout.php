@@ -128,6 +128,10 @@ function amp_header($title=null, $canonical=null) {
 	// No need to show the index if we are editing
 	if ($command_temp == "edit"): return; endif;
 	
+	echo "<amp-lightbox id='search-popover' layout='nodisplay'>";
+	echo "Search input coming soon";
+	echo "</amp-lightbox>";
+
 	echo "<amp-lightbox id='sitemap-popover' layout='nodisplay'>";
 	echo "<a href='/'><div class='navigation-sitemap-item'>". $domain ."</div></a>";
 	foreach ($header_array as $header_backend => $header_frontend):
