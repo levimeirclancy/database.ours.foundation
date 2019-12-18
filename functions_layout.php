@@ -89,21 +89,21 @@ function amp_header($title=null, $canonical=null) {
 	echo "<div id='navigation-header'>";
 
 	// The domain name, to go home ...
-	echo "<span  role='button' tabindex='0' on='tap:categories-popover' class='navigation-header-item' layout='intrinsic'>&#x2742; Categories</span>";
+	echo "<span  role='button' tabindex='0' on='tap:categories-popover' class='navigation-header-item' layout='container'>&#x2742; Categories</span>";
 	
 	// ... then to toggle the search popover ...
-	echo "<span role='button' tabindex='0' on='tap:search-popover' class='navigation-header-item' layout='intrinsic'>&#x272A; Search</span>";
+	echo "<span role='button' tabindex='0' on='tap:search-popover' class='navigation-header-item' layout='container'>&#x272A; Search</span>";
 
 	// To display the login or logout buttons
-	$loggedin_nodisplay = "nodisplay"; $loggedout_nodisplay = "intrinsic"; // If we are signed in ...
-	if (empty($login)): $loggedin_nodisplay = "intrinsic"; $loggedout_nodisplay = "nodisplay"; endif; // ... or if we are not signed in
+	$loggedin_layout = "nodisplay"; $loggedout_layout = "container"; // If we are signed in ...
+	if (empty($login)): $loggedin_layout = "container"; $loggedout_layout = "nodisplay"; endif; // ... or if we are not signed in
 	
 	// If we are signed in ...
-	echo "<span role='button' tabindex='0' on='tap:settings-popover' class='navigation-header-item' layout='". $loggedout_nodisplay ."'>&#x2699; Settings</span>";
-	echo "<span class='navigation-header-item' layout='". $loggedout_nodisplay ."'>&#x271A; Add entry</span>";	
+	echo "<span role='button' tabindex='0' on='tap:settings-popover' class='navigation-header-item' layout='". $loggedout_layout ."'>&#x2699; Settings</span>";
+	echo "<span class='navigation-header-item' layout='". $loggedout_layout ."'>&#x271A; Add entry</span>";	
 
 	// This is the login button ...
-	echo "<span role='button' tabindex='0' on='tap:login-popover' class='navigation-header-item' id='login-popover-launch' layout='". $loggedin_nodisplay ."'>&#x2731; Log in</span>";
+	echo "<span role='button' tabindex='0' on='tap:login-popover' class='navigation-header-item' id='login-popover-launch' layout='". $loggedin_layout ."'>&#x2731; Log in</span>";
 	
 	// This is the logout feature
 	echo "<form id='logout' method='post' action-xhr='/logout-xhr/' target='_blank' on='
@@ -111,7 +111,7 @@ function amp_header($title=null, $canonical=null) {
 		submit-error:login-popover-launch.hide;
 		submit-success:logout-popover-submit.hide,logout-popover-tryagain-submit.hide,login-popover-launch.show
 		'>";
-	echo "<span role='button' tabindex='0' on='tap:logout.submit' class='navigation-header-item' id='logout-popover-submit' layout='". $loggedout_nodisplay ."'>&#x2716; Log out</span>";
+	echo "<span role='button' tabindex='0' on='tap:logout.submit' class='navigation-header-item' id='logout-popover-submit' layout='". $loggedout_layout ."'>&#x2716; Log out</span>";
 	echo "<span role='button' tabindex='0' on='tap:logout.submit' class='navigation-header-item' submitting>&#x25cf; Logging out...</span>";
 	echo "<span role='button' tabindex='0' on='tap:logout.submit' class='navigation-header-item' id='logout-popover-tryagain-submit' submit-error>&#x2716; Try logging out again</span>";
 //	echo "<span role='button' tabindex='0' on='tap:logout.submit' class='navigation-header-item' submit-success>&#x2713; Logged out</span>";
