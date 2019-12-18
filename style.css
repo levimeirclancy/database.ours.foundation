@@ -101,14 +101,15 @@ h1 span {
 	}
 
 #sitemap-popover, #login-popover {
-	left: 20px;
-	right: 20px;
-	background: rgba(255,255,255,0.9);
-	box-shadow: 0 0 30px 0 rgba(50,50,50,0.2);
+	margin: 0 30px;
+	background: rgba(30,30,30,0.4);
+	text-align: center;
+	color: #fff;
 	}
 
 .navigation-sitemap-item {
 	margin: 30px 20px;
+	display: block;
 	}
 
 
@@ -123,7 +124,7 @@ select, input, textarea {
 	border-radius: 2px;
 	resize: none; }
 
-input:focus, select:focus, textarea:focus {
+input:focus, select:focus, textarea:focus, span:focus, div:focus {
 	outline-width: 0; }
 
 button {
