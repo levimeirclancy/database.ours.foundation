@@ -129,7 +129,7 @@ function amp_header($title=null, $canonical=null) {
 	if ($command_temp == "edit"): return; endif;
 	
 	
-	echo "<div class='navigation-index'>";
+	echo "<div id='navigation-index'>";
 	foreach ($header_array as $header_backend => $header_frontend):
 		$selected_temp = null; if ($header_backend == $page_temp): $selected_temp = "navigation-index-item-selected"; endif;
 		echo "<a href='/". $header_backend ."'><div class='navigation-index-item $selected_temp'>". $header_frontend ."</div></a>";
