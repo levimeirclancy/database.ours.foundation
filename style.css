@@ -100,8 +100,9 @@ h1 span {
 	display: inline-block;
 	}
 
-#sitemap-popover, #search-popover, #login-popover {
+#categories-popover, #search-popover, #login-popover {
 	margin: 0 30px;
+	padding: 0 30px;
 	background: rgba(255,255,255,1);
 	box-shadow: 0 0 30px 0 rgba(30,30,30,0.3);
 	text-align: center;
@@ -125,9 +126,16 @@ h1 span {
 	margin: 0 5px 0 0;
 	display: inline-block; }
 
-.navigation-sitemap-item {
-	margin: 30px 20px;
-	display: block;
+
+#categories-popover {
+	column-count: 3;
+	column-gap: 40px;
+	column-rule: 1px solid rgba(30,30,30,0.3);
+	}
+
+.navigation-categories-item {
+	margin: 20px 20px 40px;
+	display: inline-block;
 	background: rgba(0,0,0,0);
 	}
 
