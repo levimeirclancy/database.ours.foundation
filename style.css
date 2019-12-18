@@ -108,13 +108,14 @@ h1 span {
 	}
 
 .popover-close {
-	right: 20px;
+	right: -20px;
 	top: 20px;
 	position: absolute;
 	background: rgba(30,30,30,0.8);
 	color: #fff;
 	opacity: 0.9;
-	border-radius: 100px;
+	border-radius: 150px;
+	box-shadow: 0 0 20px 0 rgba(30,30,30,0.2);
 	padding: 8px;
 	}
 
