@@ -109,7 +109,7 @@ h1 span {
 
 .popover-close {
 	right: 10px;
-	top: 8px;
+	top: 5px;
 	position: absolute;
 	color: rgba(50,50,50,0.8);
 	opacity: 0.9;
