@@ -154,9 +154,10 @@ h1 span {
 
 /* Set margin, padding, size, but also backgorund and shadow */
 #login-popover input {
-	font-size: 80%;
+	font-size: 75%;
 	padding: 15px 20px;
 	background: rgba(235,235,235,1);
+	border-bottom: 1px solid rgba(255,255,255,0.9);
 	box-shadow: 3px 12px 15px -9px rgba(50,50,50,0.2);
 	}
 
