@@ -185,34 +185,8 @@ h1 span {
 
 /* FORMS */
 
-select, input, textarea {
-	display: block;
-	width: 300px;
-	margin: 20px 0 70px;
-	padding: 7px 3px 7px 7px;
-	border: 1px solid #aaa;
-	border-radius: 2px;
-	resize: none; }
-
 input:focus, select:focus, textarea:focus, span:focus, div:focus {
 	outline-width: 0; }
-
-button {
-	background: rgba(255,255,255,0);
-	border: 0;
-	padding: 0;
-	margin: 0; }
-
-.four_language_inputs {
-	width: 100%;
-	display: block;
-	text-align: center;
-	margin: 0; }
-
-.four_language_inputs input, .four_language_inputs textarea  {
-	display: inline-block;
-	width: 23%;
-	margin: 10px; }
 
 
 /* MESSENGER CODE */
