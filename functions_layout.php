@@ -87,7 +87,7 @@ function amp_header($title=null, $canonical=null) {
 		endif;
 	
 	// These are the actions like log in, log out, etc plus the home button
-	echo "<div id='navigation-header' amp-fx='parallax' data-parallax-factor='1.15'>";
+	echo "<div id='navigation-header'>";
 
 	// First of all, the home button
 	echo "<a href='/'><span id='navigation-header-home'>".$domain."</span></a>";
