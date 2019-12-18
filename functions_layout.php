@@ -143,8 +143,9 @@ function amp_header($title=null, $canonical=null) {
 	echo "<span class='login-popover-description'>Password</span>";
 	echo "<input type='password' name='checkpoint_password' placeholder='Password'>";
 
-	echo "<span id='login-popover-submit' role='button' tabindex='0' on='tap:login.submit'>Log in</span>";
-	echo "<div class='form-warning'>";
+	echo "<br><span id='login-popover-submit' role='button' tabindex='0' on='tap:login.submit'>Log in</span>";
+	
+	echo "<br><div class='form-warning'>";
 		echo "<div submitting>Submitting...</div>";
 		echo "<div submit-error><template type='amp-mustache'>Error. {{{message}}}</template></div>";
 		echo "<div submit-success><template type='amp-mustache'>{{{message}}}</template></div>";
