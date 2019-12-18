@@ -133,33 +133,38 @@ h1 span {
 	}
 
 .login-popover-description {
-	width: 250px;
+	max-width: 250px;
 	text-align: left;
 	display: block;
-	margin: 15px auto;
+	margin: 10px auto 0;
 	padding: 10px;
 	font-size: 70%;
 	}
 
 #login-popover input {
-	width: 250px;
+	max-width: 250px;
 	padding: 10px;
 	border: 0;
 	background: rgba(150,150,150,0.5);
 	border-radius: 100px;
 	display: block;
-	margin: 5px auto;
+	margin: 5px auto 15px;
 	color: rgba(255,255,255,1);
-	font-size: 130%;
+	font-size: 100%;
+	}
+
+#login-popover input:-webkit-autofill {
+	background: rgba(150,150,150,0.5);
 	}
 
 #login-popover-submit {
 	display: inline-block;
-	margin: 10px 0 0 100px;
-	width: 150px;
+	margin: 30px 0 0 100px;
+	max-width: 150px;
 	padding: 10px;
-	background: rgba(200,200,200,0.5);
+	background: rgba(100,100,100,0.5);
 	color: rgba(255,255,255,1);
+	border-radius: 100px;
 	}
 
 
