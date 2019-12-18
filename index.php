@@ -27,16 +27,16 @@ if (isset($_POST['checkpoint_email']) && isset($_POST['checkpoint_password'])):
 	$_POST['checkpoint_email'] = strtolower($_POST['checkpoint_email']);
 	$hash = sha1($_POST['checkpoint_email'].$_POST['checkpoint_password']);
 	foreach ($connection_pdo->query("SELECT * FROM $database.users WHERE `hash`='$hash'") as $row):
-		$loginn = ["user_id" => $row['user_id'], "email" => $row['email']];
+		$login = ["user_id" => $row['user_id'], "email" => $row['email']];
 		endforeach;
 	if (empty($login)):
-		json_result($domain, "failure", null, "Login was invalid.");
+		json_result($domain, "error", null, "Login was invalid.");
 		endif;
 	$_COOKIE['cookie'] = $new_cookie = sha1($login['user_id'].time());
 	$cookie_statement = $connection_pdo->prepare("UPDATE $database.users SET cookie='$new_cookie' WHERE user_id='".$login['user_id']."'");
 	$cookie_statement->execute();
 	setcookie("cookie", $new_cookie, time()+86400, '/');
-	json_result($domain, "success", "account", "Login was valid.");
+	json_result($domain, "success", null, "Login was valid.");
 	endif;
 
 // if there is a cookie then double-check it
