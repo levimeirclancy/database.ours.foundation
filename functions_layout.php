@@ -99,7 +99,7 @@ function amp_header($title=null, $canonical=null) {
 	if (empty($login)):
 		echo "<span role='button' tabindex='0' on='tap:login-popover' class='navigation-header-item'>&#x2731; Log in</span>";
 		echo "<amp-lightbox id='login-popover' layout='nodisplay'>"; ?>
-		<button on='tap:login-popover.close' class='popover-close'>&#x2717;</button>
+		<button on='tap:login-popover.close' class='popover-close'>&#x2717; Close</button>
 		<form id='login' method='post' action-xhr='/?action=login-xhr' on='submit:submit-login-form.hide;submit-error:submit-login-form.show'>
 		<input type='email' name='checkpoint_email' placeholder='email'>
 		<input type='password' name='checkpoint_password' placeholder='password'>
@@ -129,12 +129,12 @@ function amp_header($title=null, $canonical=null) {
 	if ($command_temp == "edit"): return; endif;
 	
 	echo "<amp-lightbox id='search-popover' layout='nodisplay'>";
-	echo "<button on='tap:login-popover.close' class='popover-close'>&#x2717;</button>";
+	echo "<button on='tap:login-popover.close' class='popover-close'>&#x2717; Close</button>";
 	echo "Search input coming soon";
 	echo "</amp-lightbox>";
 
 	echo "<amp-lightbox id='sitemap-popover' layout='nodisplay'>";
-	echo "<button on='tap:login-popover.close' class='popover-close'>&#x2717;</button>";
+	echo "<button on='tap:login-popover.close' class='popover-close'>&#x2717; Close</button>";
 	echo "<a href='/'><div class='navigation-sitemap-item'>". $domain ."</div></a>";
 	foreach ($header_array as $header_backend => $header_frontend):
 		echo "<a href='/". $header_backend ."'><div class='navigation-sitemap-item>". $header_frontend ."</div></a>";
