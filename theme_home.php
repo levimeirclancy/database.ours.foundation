@@ -22,7 +22,7 @@ foreach ($information_array as $entry_id => $entry_info):
 
 foreach ($header_array as $header_backend => $header_frontend):
 	if (empty($type_counts_array[$header_backend])): continue; endif;
-	echo "<a href='/". $header_backend ."'>". $header_frontend ." — ".number_format($type_counts_array[$header_backend])." entries</a>.<br>";
+	echo "<a href='/". $header_backend ."/'>". $header_frontend ." — ".number_format($type_counts_array[$header_backend])." entries</a>.<br>";
 	endforeach;
 
 // Display how many have GPS coordinates ...
