@@ -16,7 +16,7 @@ if (!(empty($url_temp['1']))): $page_temp = $url_temp['1']; endif;
 if (!(empty($url_temp['2']))): $command_temp = $url_temp['2']; endif;
 
 //if the page is set to log out then logout
-if ($page_temp == "logout"):
+if ($page_temp == "logout-xhr"):
 
 	// Clear cookie in the browser
 	setcookie("cookie", null, time()+2700, '/');
