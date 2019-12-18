@@ -105,7 +105,7 @@ function amp_header($title=null, $canonical=null) {
 	echo "<div role='button' tabindex='0' class='navigation-header-item' id='settings-popover-launch' on='tap:settings-popover' [class]=\"loginStatus == 'loggedin' ? '' : 'hide'\" $logout_hidden>&#x2699; Settings</div>";
 	echo "<div role='button' tabindex='0' class='navigation-header-item' id='add-popover-launch' on='tap:add-popover' [class]=\"loginStatus == 'loggedin' ? '' : 'hide'\" $logout_hidden>&#x271A; Add entry</div>";	
 
-	echo "<form id='logout' method='post' action-xhr='/logout-xhr/' target='_blank' on='
+	echo "<form id='logout' method='post' action-xhr='/logout-xhr/' target='_blank' on=\"
 		submit:
 			logout-popover-submit.hide,
 			logout-popover-tryagain-submit.hide;
@@ -118,7 +118,7 @@ function amp_header($title=null, $canonical=null) {
 			settings-popover-launch.hide,
 			add-popover-launch.hide,
 			AMP.setState({'loginStatus': 'loggedout'})
-		'>";
+		\">";
 	echo "<div role='button' tabindex='0' class='navigation-header-item' id='logout-popover-submit' on='tap:logout.submit' [class]=\"loginStatus == 'loggedin' ? '' : 'hide'\" $logout_hidden>&#x2716; Log out</div>";
 	echo "<div role='button' tabindex='0' class='navigation-header-item' submitting>&#x25cf; Logging out...</div>";
 	echo "<div role='button' tabindex='0' class='navigation-header-item' on='tap:logout.submit' id='logout-popover-tryagain-submit' submit-error>&#x2716; Try logging out again</div>";
@@ -148,7 +148,7 @@ function amp_header($title=null, $canonical=null) {
 
 	echo "<span role='button' tabindex='0' on='tap:login-popover.close' class='popover-close'>Back</span>";
 
-	echo "<form id='login' method='post' action-xhr='/login-xhr/' target='_blank' on='
+	echo "<form id='login' method='post' action-xhr='/login-xhr/' target='_blank' on=\"
 		submit:
 			login-popover-submit.hide;
 		submit-error:
@@ -158,7 +158,7 @@ function amp_header($title=null, $canonical=null) {
 			login-popover-launch.hide,
 			AMP.setState({'loginStatus': 'loggedin'})
 
-		'>";
+		\">";
 
 	echo "<label for='checkpoint_email'>E-mail address</label>";
 	echo "<input type='email' name='checkpoint_email' placeholder='E-mail address'>";
