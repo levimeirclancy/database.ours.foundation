@@ -20,6 +20,10 @@ a, a:link, a:visited, a:hover {
 	display: none;
 	}
 
+.show {
+	display: none;
+	}
+
 /* BAR */
 
 .header {
@@ -101,7 +105,7 @@ h1 span {
 
 .navigation-header-item {
 	margin: 0;
-	padding: 20px 30px;
+	padding: 10px 20px;
 	display: block;
 	cursor: pointer;
 	float: left;
