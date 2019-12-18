@@ -95,8 +95,8 @@ function amp_header($title=null, $canonical=null) {
 	echo "<div role='button' tabindex='0' class='navigation-header-item' on='tap:search-popover'>&#x272A; Search</div>";
 
 	// To display the login or logout buttons
-	$login_hidden = $logout_hidden = "hidden";
-	if (empty($login)): $logout_hidden = null; endif; // if we are not logged in
+	$login_hidden = $logout_hidden = null;
+	if (empty($login)): $logout_hidden = "hidden"; endif; // if we are not logged in
 	
 	// This is the login button ...
 	echo "<div role='button' tabindex='0' class='navigation-header-item' id='login-popover-launch' on='tap:login-popover' [class]=\"loginStatus == 'loggedin' ? '' : 'hide'\" $login_hidden>&#x2731; Log in</div>";
