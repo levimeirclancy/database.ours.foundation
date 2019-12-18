@@ -100,6 +100,11 @@ h1 span {
 	display: inline-block;
 	}
 
+.navigation-header-item::first-letter {
+	vertical-align: middle;
+	padding-bottom: 1px;
+	}
+
 #categories-popover, #search-popover, #login-popover {
 	margin: 0 30px;
 	padding: 60px 0 30px;
