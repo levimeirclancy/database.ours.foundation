@@ -143,10 +143,10 @@ function amp_header($title=null, $canonical=null) {
 		amp-fx='parallax' data-parallax-factor='1.15'>";
 	foreach ($header_array as $header_backend => $header_frontend):
 		$selected_temp = null; if ($header_backend == $page_temp): $selected_temp = "selected"; endif;
-		echo "<div option='". $header_frontend ."' ". $selected_temp .">". $header_frontend ."</div>";
+		echo "<div option='". $header_backend ."' ". $selected_temp .">". $header_frontend ."</div>";
 		endforeach;
 //	echo '<a href="/" [href]="selectedOption"><code [text]="selectedOption"></code></a>';
-	echo '<a href="/" [href]="selectedOption">Launch</a>';	
+	echo '<a href="/" [href]="'/' + selectedOption">Launch</a>';	
 
 	}
 
