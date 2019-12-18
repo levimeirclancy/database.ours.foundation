@@ -135,10 +135,10 @@ h1 span {
 
 .login-popover-description {
 	max-width: 300px;
+	width: auto;
 	text-align: left;
 	display: block;
 	margin: 10px auto 0;
-	background: rgba(255,255,255,1);
 	padding: 10px 30px;
 	font-size: 70%;
 	}
@@ -150,7 +150,7 @@ h1 span {
 	border: 0;
 	background-image: linear-gradient(350deg, rgba(250,250,250,1), rgba(230,230,230,1));
 	color: rgba(100,100,100,0.8);
-	box-shadow: 3px 3px 25px 0 rgba(50,50,50,0.2);
+	box-shadow: 3px 3px 15px -2px rgba(50,50,50,0.2);
 	border-radius: 100px;
 	display: block;
 	margin: 0 auto 15px;
