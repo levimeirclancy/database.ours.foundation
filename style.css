@@ -104,8 +104,8 @@ h1 span {
 
 .navigation-header-item::first-letter {
 	vertical-align: middle;
-	padding-bottom: 1px;
-	margin-bottom: 1px;
+	padding-bottom: 2px;
+	margin-bottom: 2px;
 	}
 
 #categories-popover, #search-popover, #login-popover {
