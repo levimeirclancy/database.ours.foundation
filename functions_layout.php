@@ -135,9 +135,9 @@ function amp_header($title=null, $canonical=null) {
 	
 		// Account options
 		echo "<div class='navigation-header-item'>";
-		echo "<span class='navigation-header-item-title'>". $publisher ." &#x2767;</span>";
+		echo "<span class='navigation-header-item-title'>My account &#x2767;</span>";
 		echo "<div class='navigation-header-item-dropdown'>";
-		echo "<a href='/account/'><div class='navigation-header-item-dropdown-option'>My account</div></a>";
+		echo "<a href='/account/'><div class='navigation-header-item-dropdown-option'>Settings</div></a>";
 		echo "<a href='/logout/'><div class='navigation-header-item-dropdown-option'>&#x2716; Log out</div></a>";
 		echo "</div></div>";
 
