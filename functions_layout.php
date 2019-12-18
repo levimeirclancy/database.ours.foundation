@@ -95,8 +95,8 @@ function amp_header($title=null, $canonical=null) {
 	echo "<div role='button' tabindex='0' class='navigation-header-item' on='tap:search-popover'>&#x272A; Search</div>";
 
 	// To display the login or logout buttons
-	$loggedin_layout = "nodisplay"; $loggedout_layout = "fixed-height"; // If we are signed in ...
-	if (empty($login)): $loggedin_layout = "fixed-height"; $loggedout_layout = "nodisplay"; endif; // ... or if we are not signed in
+	$loggedin_layout = "nodisplay"; $loggedout_layout = null; // If we are signed in ...
+	if (empty($login)): $loggedin_layout = null; $loggedout_layout = "nodisplay"; endif; // ... or if we are not signed in
 	
 	// This is the login button ...
 	echo "<div role='button' tabindex='0' class='navigation-header-item' id='login-popover-launch' on='tap:login-popover' layout='". $loggedin_layout ."'>&#x2731; Log in</div>";
