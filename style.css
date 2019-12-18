@@ -140,6 +140,7 @@ h1 span {
 	margin: 10px auto 0;
 	padding: 10px 30px;
 	font-size: 70%;
+	box-sizing: border-box;
 	}
 
 #login-popover input {
@@ -156,6 +157,7 @@ h1 span {
 	font-size: 90%;
 	overflow: hidden;
 	text-overflow: ellipsis;
+	box-sizing: border-box;
 	}
 
 #login-popover input::placeholder {
