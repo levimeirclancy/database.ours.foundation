@@ -93,7 +93,7 @@ function amp_header($title=null, $canonical=null) {
 	echo "<a href='/'><span class='navigation-header-item'>&#x2742; Sitemap</span></a>";
 	
 	// ... then to toggle the search popover ...
-	echo "<span role='button' tabindex='0' on='tap:search-popover' class='navigation-header-item'>&#2729; Search</span>";
+	echo "<span role='button' tabindex='0' on='tap:search-popover' class='navigation-header-item'>&#272A; Search</span>";
 
 	// If we are not signed in ...
 	if (empty($login)):
