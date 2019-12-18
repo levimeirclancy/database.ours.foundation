@@ -89,7 +89,7 @@ function amp_header($title=null, $canonical=null) {
 	echo "<div id='navigation-header'>";
 
 	// The domain name, to go home ...
-	echo "<span  role='button' tabindex='0' on='tap:categories-popover' class='navigation-header-item' layout='container'>&#x2742; Categories</span>";
+	echo "<span role='button' tabindex='0' on='tap:categories-popover' class='navigation-header-item' layout='container'>&#x2742; Categories</span>";
 	
 	// ... then to toggle the search popover ...
 	echo "<span role='button' tabindex='0' on='tap:search-popover' class='navigation-header-item' layout='container'>&#x272A; Search</span>";
@@ -106,7 +106,7 @@ function amp_header($title=null, $canonical=null) {
 	echo "<span role='button' tabindex='0' on='tap:login-popover' class='navigation-header-item' id='login-popover-launch' layout='". $loggedin_layout ."'>&#x2731; Log in</span>";
 	
 	// This is the logout feature
-	echo "<form id='logout' method='post' action-xhr='/logout-xhr/' target='_blank' on='
+	echo "<form id='logout' method='post' action-xhr='logout-xhr' target='_blank' on='
 		submit:logout-popover-submit.hide,logout-popover-tryagain-submit.hide;
 		submit-error:login-popover-launch.hide;
 		submit-success:logout-popover-submit.hide,logout-popover-tryagain-submit.hide,login-popover-launch.show
@@ -141,7 +141,7 @@ function amp_header($title=null, $canonical=null) {
 
 		echo "<span role='button' tabindex='0' on='tap:login-popover.close' class='popover-close'>Back</span>";
 
-		echo "<form id='login' method='post' action-xhr='/login-xhr/' target='_blank' on='submit:login-popover-submit.hide;submit-error:login-popover-submit.show'>";
+		echo "<form id='login' method='post' action-xhr='login-xhr' target='_blank' on='submit:login-popover-submit.hide;submit-error:login-popover-submit.show'>";
 
 		echo "<label for='checkpoint_email'>E-mail address</label>";
 		echo "<input type='email' name='checkpoint_email' placeholder='E-mail address'>";
