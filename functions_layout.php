@@ -97,6 +97,7 @@ function amp_header($title=null, $canonical=null) {
 	// To display the login or logout buttons
 	$login_hidden = $logout_hidden = null;
 	if (empty($login)): $logout_hidden = "hidden"; endif; // if we are not logged in
+	if (empty($login)): $login_hidden = "hidden"; endif; // if we are logged in
 	
 	// This is the login button ...
 	echo "<div role='button' tabindex='0' class='navigation-header-item' id='login-popover-launch' on='tap:login-popover' [class]=\"loginStatus == 'loggedin' ? '' : 'hide'\" $login_hidden>&#x2731; Log in</div>";
