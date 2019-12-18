@@ -90,14 +90,14 @@ function amp_header($title=null, $canonical=null) {
 	echo "<div id='navigation-header'>";
 
 	// The domain name, to go home ...
-	echo "<a href='/'><span class='navigation-header-item'>&#x2742; Sitemap</span></a>";
+	echo "<a href='/'><span class='navigation-header-item'>&#x2B1F; Sitemap</span></a>";
 	
 	// ... then to toggle the search popover ...
-	echo "<span role='button' tabindex='0' on='tap:search-popover' class='navigation-header-item'>Search</span>";
+	echo "<span role='button' tabindex='0' on='tap:search-popover' class='navigation-header-item'>&#x2742; Search</span>";
 
 	// If we are not signed in ...
 	if (empty($login)):
-		echo "<span role='button' tabindex='0' on='tap:login-popover' class='navigation-header-item'>Log in</span>";
+		echo "<span role='button' tabindex='0' on='tap:login-popover' class='navigation-header-item'>&#x2731; Log in</span>";
 		echo "<amp-lightbox id='login-popover' layout='nodisplay'>"; ?>
 		<button on='tap:login-popover.close'>Close</button>
 		<form id='login' method='post' action-xhr='/?action=login-xhr' on='submit:submit-login-form.hide;submit-error:submit-login-form.show'>
