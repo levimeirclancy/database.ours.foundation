@@ -121,7 +121,7 @@ function amp_header($title=null, $canonical=null) {
 			AMP.setState({'loginStatus': 'loggedout'})
 		\">";
 	echo "<div role='button' tabindex='0' class='navigation-header-item' id='logout-popover-submit' on='tap:logout.submit' [class]=\"loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" $logout_hidden>&#x2716; Log out</div>";
-	echo "<div role='button' tabindex='0' class='navigation-header-item' submitting>&#x25cf; Logging out...</div>";
+	echo "<div class='navigation-header-item' submitting>&#x25cf; Logging out...</div>";
 	echo "<div role='button' tabindex='0' class='navigation-header-item' on='tap:logout.submit' id='logout-popover-tryagain-submit' submit-error>&#x2716; Try logging out again</div>";
 //	echo "<div role='button' tabindex='0' class='navigation-header-item' on='tap:logout.submit' submit-success>&#x2713; Logged out</div>";
 	echo "</form>";
@@ -161,7 +161,6 @@ function amp_header($title=null, $canonical=null) {
 			settings-popover-launch.show,
 			add-popover-launch.show,
 			AMP.setState({'loginStatus': 'loggedin'})
-
 		\">";
 
 	echo "<label for='checkpoint_email'>E-mail address</label>";
