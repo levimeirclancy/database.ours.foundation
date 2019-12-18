@@ -133,31 +133,34 @@ h1 span {
 	font-size: 80%;
 	}
 
-.login-popover-description {
-	display: inline-block;
+/* Make the input and description same width and placement */
+.login-popover-description, #login-popover input {
+	display: block;
 	width: auto;
 	text-align: left;
-	margin: 10px auto 0;
-	padding: 10px 30px;
-	font-size: 70%;
 	box-sizing: border-box;
-	}
-
-#login-popover input {
-	display: inline-block;
-	width: auto;
-	text-align: left;
-	padding: 15px 30px;
 	border: 0;
-	background-image: linear-gradient(300deg, rgba(250,250,250,1), rgba(230,230,230,1));
 	color: rgba(100,100,100,0.8);
-	box-shadow: 3px 3px 15px -2px rgba(50,50,50,0.2);
+	box-sizing: border-box;
 	border-radius: 100px;
-	margin: 0 auto 15px;
-	font-size: 90%;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	box-sizing: border-box;
+	}
+
+/* Just different margin, padding, size */
+.login-popover-description {
+	margin: 30px auto 0;
+	padding: 10px 30px;
+	font-size: 70%;
+	}
+
+/* Set margin, padding, size, but also backgorund and shadow */
+#login-popover input {
+	margin: 0 auto 0;
+	padding: 15px 30px;
+	font-size: 90%;
+	background-image: linear-gradient(300deg, rgba(250,250,250,1), rgba(235,235,235,1));
+	box-shadow: 3px 3px 15px -2px rgba(50,50,50,0.2);
 	}
 
 #login-popover input::placeholder {
