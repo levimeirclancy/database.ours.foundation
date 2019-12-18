@@ -98,19 +98,6 @@ function amp_header($title=null, $canonical=null) {
 	// If we are not signed in ...
 	if (empty($login)):
 		echo "<span role='button' tabindex='0' on='tap:login-popover' class='navigation-header-item'>&#x2731; Log in</span>";
-		echo "<amp-lightbox id='login-popover' layout='nodisplay'>"; ?>
-		<span role='button' tabindex='0' on='tap:login-popover.close' class='popover-close'>Back</span>
-		<form id='login' method='post' action-xhr='/?action=login-xhr' on='submit:submit-login-form.hide;submit-error:submit-login-form.show'>
-		<input type='email' name='checkpoint_email' placeholder='email'>
-		<input type='password' name='checkpoint_password' placeholder='password'>
-		<span class='form-submit-button' id='submit-login-form' role='button' tabindex='0' on='tap:login.submit'>Log in</span>
-		<div class='form-warning'>
-			<div submitting>Submitting...</div>
-			<div submit-error><template type='amp-mustache'>Error. {{{message}}}</template></div>
-			<div submit-success><template type='amp-mustache'>{{{message}}}</template></div>
-			</div>
-		</form>
-		<? echo "</amp-lightbox>";
 	
 	// If we are signed in ...
 	elseif (!(empty($login))):
@@ -140,6 +127,23 @@ function amp_header($title=null, $canonical=null) {
 		echo "<a href='/". $header_backend ."'><div class='navigation-categories-item'>". $header_frontend ."</div></a>";
 		endforeach;
 	echo "</amp-lightbox>";
+	
+	// Only add the login popover if not logged in ...
+	if (!(empty($login))): return; endif;
+	
+	echo "<amp-lightbox id='login-popover' layout='nodisplay'>"; ?>
+	<span role='button' tabindex='0' on='tap:login-popover.close' class='popover-close'>Back</span>
+	<form id='login' method='post' action-xhr='/?action=login-xhr' on='submit:submit-login-form.hide;submit-error:submit-login-form.show'>
+	<input type='email' name='checkpoint_email' placeholder='email'>
+	<input type='password' name='checkpoint_password' placeholder='password'>
+	<span class='form-submit-button' id='submit-login-form' role='button' tabindex='0' on='tap:login.submit'>Log in</span>
+	<div class='form-warning'>
+		<div submitting>Submitting...</div>
+		<div submit-error><template type='amp-mustache'>Error. {{{message}}}</template></div>
+		<div submit-success><template type='amp-mustache'>{{{message}}}</template></div>
+		</div>
+	</form>
+	<? echo "</amp-lightbox>";
 
 	}
 
