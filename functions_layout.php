@@ -96,7 +96,7 @@ function amp_header($title=null, $canonical=null) {
 
 	// To display the login or logout buttons
 	$loggedin_nodisplay = "nodisplay"; $loggedout_nodisplay = null; // If we are signed in ...
-	if (empty($login)): $loggedin_nodisplay = null; $loggedout_nodisplay = "display"; endif; // ... or if we are not signed in
+	if (empty($login)): $loggedin_nodisplay = null; $loggedout_nodisplay = "nodisplay"; endif; // ... or if we are not signed in
 	
 	// If we are signed in ...
 	echo "<span role='button' tabindex='0' on='tap:settings-popover' class='navigation-header-item' layout='". $loggedout_nodisplay ."'>&#x2699; Settings</span>";
