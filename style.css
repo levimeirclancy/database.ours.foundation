@@ -126,10 +126,10 @@ h1 span {
 	margin: 0 5px 0 0;
 	display: inline-block; }
 
-
 .navigation-categories-item {
-	margin: 0 15px 30px 15px;
-	display: inline-block;
+	margin: 15px;
+	display: block;
+	font-size: 80%;
 	}
 
 
