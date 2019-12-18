@@ -199,6 +199,11 @@ input:focus, select:focus, textarea:focus, span:focus, div:focus {
 	outline-width: 0; }
 
 
+form {
+	display: inline;
+	}
+
+
 /* MESSENGER CODE */
 
 #messenger-code-image {
