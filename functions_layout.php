@@ -87,14 +87,35 @@ function amp_header($title=null, $canonical=null) {
 		endif;
 	
 	// These are the actions like log in, log out, etc plus the home button
-	echo "<div id='navigation-action' amp-fx='parallax' data-parallax-factor='1.15'>";
+	echo "<div id='navigation-header' amp-fx='parallax' data-parallax-factor='1.15'>";
 
 	// First of all, the home button
-	echo "<a href='/'><span id='navigation-action-home' amp-fx='parallax' data-parallax-factor='1.3'>".$domain."</span></a>"; // button to go home
+	echo "<a href='/'><span id='navigation-header-home'>".$domain."</span></a>";
+
+	// Do not show the index if we are editing an article or our account
+	if (!(array_intersect( [$page_temp, $command_temp], ["edit", "account"] )):
+		echo "<div class='navigation-header-item'>";
+		echo "<span class='navigation-header-item-title'>Index</span>";
+		echo "<div class='navigation-header-item-dropdown'>";
+		foreach ($header_array as $header_backend => $header_frontend):
+		$selected_temp = null; if ($header_backend == $page_temp): $selected_temp = "selected"; endif;
+		echo "<a href='/". $header_backend ."'><div class='navigation-header-item-dropdown-option'>". $header_frontend ."</div></a>";
+		endforeach;
+		echo "</div></div>";
+		endif;
+
+	// The search popover
+	echo "<div class='navigation-header-item'>";
+	echo "<span role='button' tabindex='0' on='tap:search-popover' class='navigation-header-item-title'>Search</span>";
+	echo "</div>";
 
 	// If we are not signed in ...
 	if (empty($login)):
-		echo "<span class='navigation-action-button' role='button' tabindex='0' on='tap:login-popover'>Log in</span>";
+		
+		echo "<div class='navigation-header-item'>";
+		echo "<span role='button' tabindex='0' on='tap:login-popover' class='navigation-header-item-title'>Log in</span>";
+			echo "</div>";
+
 		// this is the login popover
 		echo "<amp-lightbox id='login-popover' layout='nodisplay'>"; ?>
 		<button on='tap:login-popover.close'>Close</button>
@@ -112,41 +133,22 @@ function amp_header($title=null, $canonical=null) {
 	
 	// If we are signed in ...
 	elseif (!(empty($login))):
-		echo "<a href='/account/'><span class='navigation-action-button'>Account</span></a>"; // Account management
-		echo "<a href='/logout/'><span class='navigation-action-button'>Log out</span></a>"; // Log out
-		echo "<a href='/new/' target='_blank'><span class='navigation-action-button'>New article</span></a>"; // Create new
-	
-		// Edit existing article, if we are on an article and not already in edit mode
-		if (!(empty($page_temp)) && !(empty($information_array[$page_temp])) && ($command_temp !== "edit")):
-			echo "<a href='/".$page_temp."/edit/' target='_blank'><span class='navigation-action-button'>Edit</span></a>";
-			endif;
-		endif;
-	
-	// Close out the action buttons
-	echo "</div>";
-	
-	// Do not show anything more if we are editing an article
-	if ($command_temp == "edit"): return; endif;
+			echo "<div class='navigation-header-item'>";
+		echo "<span class='navigation-header-item-title'>". $publisher ."</span>";
+			echo "<div class='navigation-header-item-dropdown'>";
+				echo "<a href='/account/'><div class='navigation-header-item-dropdown-option'>My account</div></a>";
+				echo "<a href='/logout/'><div class='navigation-header-item-dropdown-option'>Log out</div></a>";
+				echo "</div></div>";
 
-	// Do not show anything more if we are editing our account info
-	if ($page_temp == "account"): return; endif;
+	echo "<a href='/new/' target='_blank'><span class='navigation-action-button'>New article</span></a>"; // Create new
 	
-	// The search form
-	echo "<input id='navigation-search-input' type='text'>";
-	
-	// This is the navigation header if we are not editing
-	echo "Index";
-	echo "<amp-selector 
-		layout='container' 
-		class='radio-selector' 
-		on='select: AMP.setState({ selectedOption: event.targetOption,  allSelectedOptions: event.selectedOptions })' 
-		amp-fx='parallax' data-parallax-factor='1.15'>";
-	foreach ($header_array as $header_backend => $header_frontend):
-		$selected_temp = null; if ($header_backend == $page_temp): $selected_temp = "selected"; endif;
-		echo "<div option='/". $header_backend ."' ". $selected_temp .">". $header_frontend ."</div>";
-		endforeach;
-//	echo '<a href="/" [href]="selectedOption"><code [text]="selectedOption"></code></a>';
-	echo '<a href="/" [href]="selectedOption">Launch</a>';	
+	// Edit existing article, if we are on an article and not already in edit mode
+	if (!(empty($page_temp)) && !(empty($information_array[$page_temp])) && ($command_temp !== "edit")):
+		echo "<a href='/".$page_temp."/edit/' target='_blank'><span class='navigation-action-button'>Edit</span></a>";
+		endif;
+
+	// Close out the navigation-header
+	echo "</div>";
 
 	}
 
@@ -171,7 +173,7 @@ function json_result($domain, $result, $redirect, $message) {
 	if (!(empty($redirect))):	
 		header("AMP-Redirect-To: https://".$domain."/".$redirect);
 		header("Access-Control-Expose-Headers: AMP-Redirect-To, AMP-Access-Control-Allow-Source-Origin");
-	   	endif;
+			endif;
 
 	echo json_encode(["result"=>"success", "message"=>$message]);
 
@@ -188,7 +190,7 @@ function generate_messenger_code ($entry_id) {
 		"data"		=> ["ref"=>"entry_id=".$entry_id]
 		];
 	$opts = ["http" => ["method"=>"POST", "header"=>"Content-type: application/json", "content"=>http_build_query($postdata)]];
-	$context  = stream_context_create($opts);
+	$context = stream_context_create($opts);
 	$result = file_get_contents("https://graph.facebook.com/v3.0/me/messenger_codes?access_token=".$page_access_token, false, $context);
 	$json_decoded = json_decode($result, true);
 	if (empty($json_decoded['uri'])): return null; endif;
