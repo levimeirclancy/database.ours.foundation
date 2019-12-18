@@ -141,7 +141,7 @@ h1 span {
 	font-size: 70%;
 	}
 
-#login-popover input {
+#login-popover input, #login-popover-submit {
 	max-width: 250px;
 	padding: 10px 30px;
 	border: 0;
@@ -151,20 +151,21 @@ h1 span {
 	margin: 0 auto 15px;
 	color: rgba(255,255,255,1);
 	font-size: 90%;
+	overflow: hidden;
+	text-overflow: ellipsis;
 	}
 
-#login-popover input:-webkit-autofill {
+#login-popover input::placeholder {
+	color: rgba(255,255,255,1);
+	}
+
+#login-popover input::-webkit-autofill {
 	background: rgba(150,150,150,0.5);
 	}
 
 #login-popover-submit {
-	display: block;
-	margin: 30px auto 0 100px;
-	max-width: 150px;
-	padding: 10px;
-	background: rgba(100,100,100,0.5);
-	color: rgba(255,255,255,1);
-	border-radius: 100px;
+	margin: 30px auto;
+	background: rgba(50,50,50,0.5);
 	}
 
 
@@ -198,6 +199,7 @@ button {
 	display: inline-block;
 	width: 23%;
 	margin: 10px; }
+
 
 /* MESSENGER CODE */
 
