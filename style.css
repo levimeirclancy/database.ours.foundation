@@ -108,8 +108,8 @@ h1 span {
 	margin-bottom: 2px;
 	}
 
-#categories-popover, #search-popover, #login-popover {
-	margin: 0 30px;
+#categories-popover, #search-popover, #login-popover, #settings-popover {
+	margin: 0 10px;
 	padding: 60px 0 30px;
 	background: rgba(255,255,255,1);
 	box-shadow: 0 0 30px 0 rgba(30,30,30,0.3);
