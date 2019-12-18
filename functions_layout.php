@@ -114,6 +114,8 @@ function amp_header($title=null, $canonical=null) {
 		submit-success:
 			logout-popover-submit.hide,
 			logout-popover-tryagain-submit.hide,
+			settings-popover-launch.hide,
+			add-popover-launch.hide,
 			AMP.setState({'loginStatus': 'loggedout'})
 		'>";
 	echo "<div role='button' tabindex='0' class='navigation-header-item' id='logout-popover-submit' on='tap:logout.submit' [class]=\"loginStatus == 'loggedin' ? '' : 'hide'\" $logout_hidden>&#x2716; Log out</div>";
