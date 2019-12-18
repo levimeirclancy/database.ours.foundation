@@ -13,9 +13,7 @@ function amp_header($title=null, $canonical=null) {
 	global $command_temp;
 	global $header_array;
 	global $information_array;
-	global $login;
-	global $layout_nodisplay_temp;
-	
+	global $login;	
 	
 	if (empty($title)): $title = $domain; endif;
 
@@ -46,10 +44,7 @@ function amp_header($title=null, $canonical=null) {
 
 	// for amp-bind
 	echo '<script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>';
-	
-	// mostly for show-more features
-	echo '<script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>';
-	
+		
 	// for lightbox search feature
 	echo '<script async custom-element="amp-lightbox" src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js"></script>';
 
@@ -61,6 +56,9 @@ function amp_header($title=null, $canonical=null) {
 
 	// for the parallax
 	echo '<script async custom-element="amp-fx-collection" src="https://cdn.ampproject.org/v0/amp-fx-collection-0.1.js"></script>';
+	
+	// for the amp-selector
+	echo '<script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>';
 	
 	// font
 	echo '<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">';
@@ -88,19 +86,15 @@ function amp_header($title=null, $canonical=null) {
 		echo '</script></amp-analytics>';
 		endif;
 	
-	// this is the sidebar
-	echo "<div id='navigation-sidebar' amp-fx='parallax' data-parallax-factor='1.15' ". $layout_nodisplay_temp .">";
-		echo "<a href='/'><span id='navigation-sidebar-home' amp-fx='parallax' data-parallax-factor='1.3'>".$domain."</span></a>"; // button to go home
-		echo "<span id='navigation-sidebar-items' amp-fx='parallax' data-parallax-factor='1.2'>";
-		foreach ($header_array as $header_backend => $header_frontend):
-			$selected_temp = null; if ($header_backend == $page_temp): $selected_temp = "navigation-sidebar-item-selected"; endif;
-			echo "<a href='/$header_backend/'><span class='navigation-sidebar-item $selected_temp'>$header_frontend</span></a>";
-			endforeach;
-		echo "</span>";
-		echo "</div>";
+	// These are the actions like log in, log out, etc plus the home button
+	echo "<div id='navigation-action' amp-fx='parallax' data-parallax-factor='1.15'>";
 
+	// First of all, the home button
+	echo "<a href='/'><span id='navigation-action-home' amp-fx='parallax' data-parallax-factor='1.3'>".$domain."</span></a>"; // button to go home
+
+	// If we are not signed in ...
 	if (empty($login)):
-		echo "<span class='navigation-sidebar-account' role='button' tabindex='0' on='tap:login-popover'>Log in</span>";
+		echo "<span class='navigation-action-button' role='button' tabindex='0' on='tap:login-popover'>Log in</span>";
 		// this is the login popover
 		echo "<amp-lightbox id='login-popover' layout='nodisplay'>"; ?>
 		<button on='tap:login-popover.close'>Close</button>
@@ -115,22 +109,40 @@ function amp_header($title=null, $canonical=null) {
 			</div>
 		</form>
 		<? echo "</amp-lightbox>";
+	
+	// If we are signed in ...
 	elseif (!(empty($login))):
-			echo "<a href='/account/'><span class='navigation-sidebar-account'>Account</span></a>";
-			echo "<a href='/logout/'><span class='navigation-sidebar-account'>Log out</span></a>";
+		echo "<a href='/account/'><span class='navigation-action-button'>Account</span></a>"; // Account management
+		echo "<a href='/logout/'><span class='navigation-action-button'>Log out</span></a>"; // Log out
+		echo "<a href='/new/' target='_blank'><span class='navigation-action-button'>New article</span></a>"; // Create new
+	
+		// Edit existing article, if we are on an article and not already in edit mode
+		if (!(empty($page_temp)) && !(empty($information_array[$page_temp])) && ($command_temp !== "edit")):
+			echo "<a href='/".$page_temp."/edit/' target='_blank'><span class='navigation-action-button'>Edit</span></a>";
 			endif;
-
-	echo "<div class='header' ". $layout_nodisplay_temp .">";
-
-	if (!(empty($login))):
-		echo "<a href='/new/' target='_blank'><span class='header_button float_right material-icons'>add_circle</span></a>";
 		endif;
-
-	if (!(empty($login)) && !(empty($page_temp)) && !(empty($information_array[$page_temp]))):
-		echo "<a href='/".$page_temp."/edit/' target='_blank'><span class='header_button float_right material-icons'>edit</span></a>";
-		endif;
-
+	
+	// Close out the action buttons
 	echo "</div>";
+	
+	// Do not show anything more if we are editing an article
+	if ($command_temp == "edit"): return; endif;
+
+	// Do not show anything more if we are editing our account info
+	if ($page_temp == "account"): return; endif;
+	
+	// The search form
+	echo "<input id='navigation-search-input' type='text'>";
+	
+	// This is the navigation header if we are enot editing
+	echo "<div id='navigation-header' amp-fx='parallax' data-parallax-factor='1.15'>";
+		echo "<span id='navigation-header-items' amp-fx='parallax' data-parallax-factor='1.2'>";
+		foreach ($header_array as $header_backend => $header_frontend):
+			$selected_temp = null; if ($header_backend == $page_temp): $selected_temp = "navigation-sidebar-item-selected"; endif;
+			echo "<a href='/$header_backend/'><span class='navigation-header-item $selected_temp'>$header_frontend</span></a>";
+			endforeach;
+		echo "</span>";
+		echo "</div>";
 
 	}
 
