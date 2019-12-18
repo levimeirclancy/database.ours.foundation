@@ -100,12 +100,11 @@ h1 span {
 	padding: 0;
 	display: inline-block;
 	cursor: pointer;
+	color: rgba(0,0,0,1);
 	}
 
 .navigation-header-item::first-letter {
-	vertical-align: middle;
-	padding-bottom: 2px;
-	margin-bottom: 2px;
+	vertical-align: top;
 	}
 
 #categories-popover, #search-popover, #login-popover, #settings-popover {
