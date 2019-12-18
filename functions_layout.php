@@ -100,7 +100,7 @@ function amp_header($title=null, $canonical=null) {
 	
 	// If we are signed in ...
 	elseif (!(empty($login))):
-		echo "<a href='/account/'><span class='navigation-header-item'>&#x2699; Settings</span></a>";
+		echo "<span role='button' tabindex='0' on='tap:settings-popover' class='navigation-header-item'>&#x2699; Settings</span>";
 		echo "<a href='/new/' target='_blank'><span class='navigation-header-item'>&#x271A; Add entry</span></a>";	
 		echo "<a href='/logout/'><span class='navigation-header-item'>&#x2716; Log out</span></a>";
 		endif;
@@ -108,11 +108,6 @@ function amp_header($title=null, $canonical=null) {
 	// ... close out the navigation backbone
 	echo "</div>";
 	
-	echo "<amp-lightbox id='search-popover' layout='nodisplay'>";
-	echo "<span role='button' tabindex='0' on='tap:search-popover.close' class='popover-close'>Back</span>";
-	echo "Search input coming soon";
-	echo "</amp-lightbox>";
-
 	echo "<amp-lightbox id='categories-popover' layout='nodisplay'>";
 	echo "<span role='button' tabindex='0' on='tap:categories-popover.close' class='popover-close'>Back</span>";
 	echo "<a href='/'><div class='navigation-categories-item'>". ucfirst($domain) ."</div></a><br>";
@@ -121,30 +116,47 @@ function amp_header($title=null, $canonical=null) {
 		endforeach;
 	echo "</amp-lightbox>";
 	
-	// Only add the login popover if not logged in ...
-	if (!(empty($login))): return; endif;
-	
-	echo "<amp-lightbox id='login-popover' layout='nodisplay'>";
-
-	echo "<span role='button' tabindex='0' on='tap:login-popover.close' class='popover-close'>Back</span>";
-
-	echo "<form id='login' method='post' action-xhr='/?action=login-xhr' on='submit:login-popover-submit.hide;submit-error:login-popover-submit.show'>";
-
-	echo "<label for='checkpoint_email'>E-mail address</label>";
-	echo "<input type='email' name='checkpoint_email' placeholder='E-mail address'>";
-
-	echo "<label for='checkpoint_email'>Password</label>";
-	echo "<input type='password' name='checkpoint_password' placeholder='Password'>";
-
-	echo "<br><span id='login-popover-submit' role='button' tabindex='0' on='tap:login.submit'>Log in</span>";
-	
-	echo "<br><div class='form-warning'>";
-		echo "<div submitting>Submitting...</div>";
-		echo "<div submit-error><template type='amp-mustache'>Error. {{{message}}}</template></div>";
-		echo "<div submit-success><template type='amp-mustache'>{{{message}}}</template></div>";
-		echo "</div>";
-	echo "</form>";
+	echo "<amp-lightbox id='search-popover' layout='nodisplay'>";
+	echo "<span role='button' tabindex='0' on='tap:search-popover.close' class='popover-close'>Back</span>";
+	echo "Search input coming soon";
 	echo "</amp-lightbox>";
+	
+	// Only add the login popover if not logged in ...
+	if (empty($login)):
+
+		echo "<amp-lightbox id='login-popover' layout='nodisplay'>";
+
+		echo "<span role='button' tabindex='0' on='tap:login-popover.close' class='popover-close'>Back</span>";
+
+		echo "<form id='login' method='post' action-xhr='/?action=login-xhr' on='submit:login-popover-submit.hide;submit-error:login-popover-submit.show'>";
+
+		echo "<label for='checkpoint_email'>E-mail address</label>";
+		echo "<input type='email' name='checkpoint_email' placeholder='E-mail address'>";
+
+		echo "<label for='checkpoint_email'>Password</label>";
+		echo "<input type='password' name='checkpoint_password' placeholder='Password'>";
+
+		echo "<br><span id='login-popover-submit' role='button' tabindex='0' on='tap:login.submit'>Log in</span>";
+	
+		echo "<br><div class='form-warning'>";
+			echo "<div submitting>Submitting...</div>";
+			echo "<div submit-error><template type='amp-mustache'>Error. {{{message}}}</template></div>";
+			echo "<div submit-success><template type='amp-mustache'>{{{message}}}</template></div>";
+			echo "</div>";
+		echo "</form>";
+		echo "</amp-lightbox>";
+	
+	elseif (!(empty($login))):
+	
+		echo "<amp-lightbox id='settings-popover' layout='nodisplay'>";
+
+		echo "<span role='button' tabindex='0' on='tap:login-popover.close' class='popover-close'>Back</span>";
+
+		echo "<p>Settings coming soon: password change, account management</p>";
+	
+		echo "</amp-lightbox>";
+	
+		endif;
 
 	}
 
