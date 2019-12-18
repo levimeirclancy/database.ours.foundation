@@ -93,7 +93,7 @@ function amp_header($title=null, $canonical=null) {
 	echo "<a href='/'><span id='navigation-header-home'>".$domain."</span></a>";
 
 	// Do not show the index if we are editing an article or our account
-	if (!(array_intersect( [$page_temp, $command_temp], ["edit", "account"] )):
+	if (!(array_intersect( [$page_temp, $command_temp], ["edit", "account"] ))):
 		echo "<div class='navigation-header-item'>";
 		echo "<span class='navigation-header-item-title'>Index</span>";
 		echo "<div class='navigation-header-item-dropdown'>";
