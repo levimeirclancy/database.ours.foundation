@@ -86,33 +86,18 @@ function amp_header($title=null, $canonical=null) {
 		echo '</script></amp-analytics>';
 		endif;
 	
-	echo "<div id='navigation-header'>";
+	// The navigation backbone...
+	echo "<div class='navigation-header'>";
 
-	// The navigation backbone
-	echo "<div class='navigation-header-item'>";
-	
 	// The domain name, to go home ...
-	echo "<a href='/'><span class='navigation-header-item-title'>".$domain."</span></a>";
+	echo "<a href='/'><span class='navigation-header-item'>".$domain."</span></a>";
 	
 	// ... then to toggle the search popover ...
-	echo "<span role='button' tabindex='0' on='tap:search-popover' class='navigation-header-item-option'>Search</span>";
-	foreach ($header_array as $header_backend => $header_frontend):
-		$selected_temp = null; if ($header_backend == $page_temp): $selected_temp = "selected"; endif;
-		echo "<a href='/". $header_backend ."'><div class='navigation-header-item-option'>". $header_frontend ."</div></a>";
-		endforeach;
-
-	// ... and close out the navigation backbone
-	echo "</div>";
-
+	echo "<span role='button' tabindex='0' on='tap:search-popover' class='navigation-header-item'>Search</span>";
 
 	// If we are not signed in ...
 	if (empty($login)):
-		
-		echo "<div class='navigation-header-item'>";
-		echo "<span role='button' tabindex='0' on='tap:login-popover' class='navigation-header-item-title'>Log in</span>";
-		echo "</div>";
-
-		// this is the login popover
+		echo "<span role='button' tabindex='0' on='tap:login-popover' class='navigation-header-item'>Log in</span>";
 		echo "<amp-lightbox id='login-popover' layout='nodisplay'>"; ?>
 		<button on='tap:login-popover.close'>Close</button>
 		<form id='login' method='post' action-xhr='/?action=login-xhr' on='submit:submit-login-form.hide;submit-error:submit-login-form.show'>
@@ -129,21 +114,26 @@ function amp_header($title=null, $canonical=null) {
 	
 	// If we are signed in ...
 	elseif (!(empty($login))):
-	
-		// Account options
-		echo "<div class='navigation-header-item'>";
-		echo "<span class='navigation-header-item-title'>". $login['email'] ."</span>";
 		echo "<a href='/logout/'><span class='navigation-header-item-option'>&#x2716; Log out</span></a>";
 		echo "<a href='/account/'><span class='navigation-header-item-option'>Settings</span></a>";
-		echo "<a href='/new/' target='_blank'><span class='navigation-action-button'>New article</span></a>";
-		if (!(empty($page_temp)) && !(empty($information_array[$page_temp])) && ($command_temp !== "edit")):
-			echo "<a href='/".$page_temp."/edit/' target='_blank'><span class='navigation-header-item-option'>&#10033; Edit article</span></a>";
-			endif;
-		echo "</div>";
-	
+		echo "<a href='/new/' target='_blank'><span class='navigation-action-button'>New article</span></a>";	
 		endif;
 
-	// Close out the navigation-header
+	// ... close out the navigation backbone
+	echo "</div>";
+	
+	// No need to show the index if we are on account settings
+	if ($page_temp == "account"): return; endif;
+	
+	// No need to show the index if we are editing
+	if ($command_temp == "edit"): return; endif;
+	
+	
+	echo "<div class='navigation-index'>";
+	foreach ($header_array as $header_backend => $header_frontend):
+		$selected_temp = null; if ($header_backend == $page_temp): $selected_temp = "navigation-index-item-selected"; endif;
+		echo "<a href='/". $header_backend ."'><div class='navigation-index-item $selected_temp'>". $header_frontend ."</div></a>";
+		endforeach;
 	echo "</div>";
 
 	}
