@@ -121,7 +121,7 @@ h1 span {
 
 .popover-close:before {
 	content: '\293A';
-	font-size: 110%;
+	font-size: 130%;
 	margin: 0 5px 0 0;
 	padding: 0 0 5px 0;
 	display: inline-block; }
