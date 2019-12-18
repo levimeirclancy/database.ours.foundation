@@ -1,8 +1,4 @@
-<? function html_header($title=null) {
-	//
-	}
-
-
+<? // Full-featured header
 function amp_header($title=null, $canonical=null) {
 	global $domain;
 	global $publisher;
@@ -157,7 +153,7 @@ function amp_header($title=null, $canonical=null) {
 			submit-error:
 				login-popover-submit.show;
 			submit-success:
-				login-popover.hide,
+				login-popover.close,
 				login-popover-launch.hide,
 				login-popover-submit.show,
 				logout-popover-submit.show,
