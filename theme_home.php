@@ -27,7 +27,7 @@ foreach ($header_array as $header_backend => $header_frontend):
 	endforeach;
 
 // Display how many have GPS coordinates ...
-if (!(empty($coordinate_counts)): echo number_format($coordinate_counts)." entries with GPS coordinates.<br>"; endif;
+if (!(empty($coordinate_counts))): echo number_format($coordinate_counts)." entries with GPS coordinates.<br>"; endif;
 
 echo "</p>";
 		
