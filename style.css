@@ -91,10 +91,11 @@ h1 span {
 	background: rgba(255,255,255,0.8);
 	box-shadow: 0 0 30px 0 rgba(50,50,50,0.2);
 	font-size: 70%;
+	padding-right: 40px;
 	}
 
 .navigation-header-item {
-	margin: 5px 10px;
+	margin: 10px;
 	position: relative;
 	display: inline-block;
 	}
