@@ -102,8 +102,11 @@ function amp_header($title=null, $canonical=null) {
 	elseif (!(empty($login))):
 		echo "<span role='button' tabindex='0' on='tap:settings-popover' class='navigation-header-item'>&#x2699; Settings</span>";
 		echo "<a href='/new/' target='_blank'><span class='navigation-header-item'>&#x271A; Add entry</span></a>";	
-		echo "<a href='/logout/'><span class='navigation-header-item'>&#x2716; Log out</span></a>";
 		endif;
+
+	echo "<form id='logout' method='post' action-xhr='/logout-xhr/'>";
+	echo "<span role='button' tabindex='0' on='tap:logout.submit' class='navigation-header-item'>&#x2716; Log out</span>";
+	echo "</form>";
 
 	// ... close out the navigation backbone
 	echo "</div>";
