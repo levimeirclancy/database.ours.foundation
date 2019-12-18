@@ -115,7 +115,7 @@ function amp_header($title=null, $canonical=null) {
 	// If we are signed in ...
 	elseif (!(empty($login))):
 		echo "<a href='/account/'><span class='navigation-header-item'>Settings</span></a>";
-		echo "<a href='/new/' target='_blank'><span class='navigation-header-item'>&#x2795; New article</span></a>";	
+		echo "<a href='/new/' target='_blank'><span class='navigation-header-item'>&#x271A; New article</span></a>";	
 		echo "<a href='/logout/'><span class='navigation-header-item'>&#x2716; Log out</span></a>";
 		endif;
 
