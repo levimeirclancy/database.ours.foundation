@@ -25,7 +25,7 @@ if ($page_temp == "logout"):
 	$_COOKIE['cookie'] = $login = $page_temp = null;
 
 	// Echo that it worked
-	json_result($domain, "success", null, "Logout was valid.");
+	json_result($domain, "success", "/", "Logout was valid.");
 
 	endif;
 
