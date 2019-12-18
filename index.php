@@ -81,7 +81,7 @@ if (!(empty($login)) && !(empty($_POST['create_entry']))):
 
 // this is the header index
 $header_array = [
-	"location" => "Location Areas",
+	"location" => "Regions",
 	"village" => "Villages",
 	"place" => "Places",
 	"person" => "People",
