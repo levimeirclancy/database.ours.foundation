@@ -105,7 +105,7 @@ function amp_header($title=null, $canonical=null) {
 		endif;
 	
 	// This is the logout feature
-	echo "<form id='logout' method='post' action-xhr='/logout-xhr/' on='submit:login-popover-submit.hide>";
+	echo "<form id='logout' method='post' action-xhr='/logout-xhr/' on='submit:login-popover-submit.hide'>";
 	echo "<span role='button' tabindex='0' on='tap:logout.submit' class='navigation-header-item'>&#x2716; Log out</span>";
 	echo "<span role='button' tabindex='0' on='tap:logout.submit' class='navigation-header-item' submitting>&#x2716; Logging out...</span>";
 	echo "<span role='button' tabindex='0' on='tap:logout.submit' class='navigation-header-item' submit-error>&#x2716; Try logging out again</span>";
