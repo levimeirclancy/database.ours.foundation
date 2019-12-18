@@ -127,10 +127,10 @@ h1 span {
 	font-size: 75%;
 	font-weight: 700;
 	display: block;
-	padding: 9px 20px;
+	padding: 5px 10px;
 	line-height: 1em;
 	margin: 10px;
-	opacity: 0.85;
+	opacity: 0.7;
 	background: rgba(255,255,255,1);
 	color: rgba(30,30,30,0.8);
 	}
@@ -140,15 +140,26 @@ h1 span {
 	height: 10px;
 	display: inline;
 	border-radius: 100px;
+	padding: 5px;
 	margin: 0 5px;
+	background: rgba(50,50,255,1);
+	opacity: 0;
+	}
+
+.navigation-header-item:hover { 
+	opacity: 0.9;
+	}
+
+.navigation-header-item:hover::before { 
+	opacity: 0.5;
 	}
 
 .navigation-header-item-selected {
 	opacity: 1;
 	}
-	
+
 .navigation-header-item-selected::before { 
-	background: rgba(50,50,255,1);
+	opacity: 1;
 	}
 
 /* FORMS */
