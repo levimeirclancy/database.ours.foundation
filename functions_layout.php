@@ -128,7 +128,7 @@ function amp_header($title=null, $canonical=null) {
 
 		echo "<span role='button' tabindex='0' on='tap:login-popover.close' class='popover-close'>Back</span>";
 
-		echo "<form id='login' method='post' action-xhr='/?action=login-xhr' on='submit:login-popover-submit.hide;submit-error:login-popover-submit.show'>";
+		echo "<form id='login' method='post' action-xhr='/login-xhr/' on='submit:login-popover-submit.hide;submit-error:login-popover-submit.show'>";
 
 		echo "<label for='checkpoint_email'>E-mail address</label>";
 		echo "<input type='email' name='checkpoint_email' placeholder='E-mail address'>";
