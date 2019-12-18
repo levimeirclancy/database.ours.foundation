@@ -136,7 +136,8 @@ h1 span {
 	max-width: 250px;
 	text-align: left;
 	display: block;
-	margin: 10px auto 0;
+	margin: 10px auto -20px;
+	background: rgba(255,255,255,1);
 	padding: 10px 30px;
 	font-size: 70%;
 	}
@@ -145,32 +146,33 @@ h1 span {
 	max-width: 250px;
 	padding: 10px 30px;
 	border: 0;
-	background: rgba(150,150,150,0.5);
-	background-image: linear-gradient(200deg, rgba(150,150,150,0.5), rgba(200,200,200,0.5));
+	border: 3px solid rgba(100,100,100,0.8);
+	color: rgba(100,100,100,0.8);
+	background: none;
 	border-radius: 100px;
 	display: block;
 	margin: 0 auto 15px;
-	color: rgba(255,255,255,1);
 	font-size: 90%;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	}
 
 #login-popover input::placeholder {
-	color: rgba(255,255,255,1);
+	color: rgba(100,100,100,0.8);
+	background: none;
 	}
 
 #login-popover input::-webkit-autofill {
-	background: rgba(150,150,150,0.5);
-	background-image: linear-gradient(200deg, rgba(150,150,150,0.5), rgba(200,200,200,0.5));
+	color: rgba(100,100,100,0.8);
+	background: none;
 	}
 
 #login-popover-submit {
+	font-size: 90%;
 	display: inline-block;
 	max-width: 250px;
 	margin: 30px auto;
 	padding: 10px 60px;
-	background: rgba(50,50,550,0.5);
 	background-image: linear-gradient(80deg, rgba(50,50,50,0.5), rgba(20,20,20,0.5));
 	}
 
