@@ -96,7 +96,7 @@ function amp_header($title=null, $canonical=null) {
 
 	// To display the login or logout buttons
 	$login_hidden = $logout_hidden = null;
-	if (empty($login)): $logout_hidden = "hidden"; endif; // if we are not logged in
+	if (empty($login)): $logout_hidden = "hidden"; // if we are not logged in
 	elseif (!(empty($login))): $login_hidden = "hidden"; endif; // if we are logged in
 	
 	// This is the login button ...
