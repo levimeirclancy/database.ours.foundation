@@ -169,10 +169,10 @@ function amp_header($title=null, $canonical=null) {
 			\">";
 
 		echo "<label for='checkpoint_email'>E-mail address</label>";
-		echo "<input type='email' name='checkpoint_email' placeholder='E-mail address'>";
+		echo "<input type='email' name='checkpoint_email' placeholder='E-mail address' required>";
 
 		echo "<label for='checkpoint_email'>Password</label>";
-		echo "<input type='password' name='checkpoint_password' placeholder='Password'>";
+		echo "<input type='password' name='checkpoint_password' placeholder='Password' required>";
 
 		echo "<br><span id='login-popover-submit' role='button' tabindex='0' on='tap:login.submit'>Log in</span><br>";
 
@@ -217,12 +217,6 @@ function json_result($domain, $result, $redirect, $message) {
 	header("Access-Control-Allow-Credentials: true");
 	header("Access-Control-Allow-Origin: https://".$domain);
 	header("AMP-Access-Control-Allow-Source-Origin: https://".$domain);
-	
-	// Immediately handle any error message, with no redirect
-	if ($result !== "success"):
-//		header("HTTP/1.0 412 Precondition Failed", true, 412);
-		echo json_encode(["result"=>"error", "message"=>$message]);
-		endif;
 
 	if (empty($redirect)):
 		header("Access-Control-Expose-Headers: AMP-Access-Control-Allow-Source-Origin");
@@ -231,7 +225,13 @@ function json_result($domain, $result, $redirect, $message) {
 	if (!(empty($redirect))):	
 		header("AMP-Redirect-To: https://".$domain."/".$redirect);
 		header("Access-Control-Expose-Headers: AMP-Redirect-To, AMP-Access-Control-Allow-Source-Origin");
-			endif;
+		endif;
+
+	// Immediately handle any error message, with no redirect
+	if ($result !== "success"):
+//		header("HTTP/1.0 412 Precondition Failed", true, 412);
+		echo json_encode(["result"=>"error", "message"=>$message]);
+		endif;
 
 	echo json_encode(["result"=>"success", "message"=>$message]);
 
