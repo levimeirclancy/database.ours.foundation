@@ -132,7 +132,7 @@ function amp_header($title=null, $canonical=null) {
 	
 		// Account options
 		echo "<div class='navigation-header-item'>";
-		echo "<span class='navigation-header-item-title'>d". $login['user_id'] ."</span>";
+		echo "<span class='navigation-header-item-title'>d". $login['email'] ."</span>";
 		echo "<a href='/logout/'><span class='navigation-header-item-option'>&#x2716; Log out</span></a>";
 		echo "<a href='/account/'><span class='navigation-header-item-option'>Settings</span></a>";
 		echo "<a href='/new/' target='_blank'><span class='navigation-action-button'>New article</span></a>";
