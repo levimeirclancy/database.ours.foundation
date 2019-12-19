@@ -114,7 +114,7 @@ h1 span {
 	vertical-align: top;
 	}
 
-#categories-popover, #search-popover, #login-popover, #settings-popover, #add-popover {
+#categories-popover, #search-popover, #login-popover, #settings-popover, #new-popover {
 	margin: 0 10px;
 	padding: 60px 0 30px;
 	background: rgba(255,255,255,1);
@@ -752,7 +752,7 @@ div.amp-lightbox-media-id {
 
 /* EDIT */
 
-#admin-page-add-entry, #admin-page-delete, #admin-page-log-out {
+#admin-page-new-entry, #admin-page-delete, #admin-page-log-out {
 	font-size: 70%;
 	position: absolute;
 	background-image: linear-gradient(300deg, rgba(250,250,250,1), rgba(240,240,240,1));
@@ -761,18 +761,18 @@ div.amp-lightbox-media-id {
 	border-radius: 100px;
 	}
 
-#admin-page-add-entry {
+#admin-page-new-entry {
 	top: 140px;
 	left: 10px;
 	}
 
 #admin-page-delete {
-	top: 140px;
-	right: 10px;
+	top: 180px;
+	left: 10px;
 	}
 
 #admin-page-log-out {
-	top: 180px;
+	top: 140px;
 	right: 10px;
 	}
 
