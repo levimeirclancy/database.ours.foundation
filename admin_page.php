@@ -1,9 +1,44 @@
 <? $entry_info = nesty_page($page_temp);
 $entry_info = $entry_info[$page_temp];
 
-echo "<br><br>";
+// When tap, then also close the amp-lightbox
 
-if (isset($_POST['delete_entry']) && ($_POST['delete_entry'] == "delete") && ($_POST['entry_id'] == $page_temp)):
+echo "<div>Navigation</div>";
+
+echo "<amp-lightbox id='navigation-lightbox'>";
+	
+	echo "<div on='tap:navigation-lightbox.close'><a href='#name'>Short Name</div>";
+	echo "<div>Long Name</div>";
+	echo "<div>Summary</div>";
+	echo "<div>Body</div>";
+	echo "<div>Studies</div>";
+	echo "<div>Relationships</div>";
+	echo "<div>Appendix</div>";
+	echo "<div>Type</div>";
+	
+	echo "</amp-lightbox>";
+
+// Add a little footer thing to track what's happening...
+echo "<div>";
+
+// Ticket
+
+// Save button
+
+echo "</div>";
+
+// Put it on the left ...
+echo "Add entry";
+
+// Put it on the right ...
+echo "Delete";
+
+// Put it on the right ...
+echo "Log out";
+
+// Do a delete popover ... redirect if deletion works ...
+
+echo "<amp-lightbox nodisplay>";
 
 	echo "<p>Do you really want to delete this page?<br>";
 	echo "<a href='https://".$domain."/".$_POST['entry_id']."/'>https://".$domain."/".$_POST['entry_id']."/</a></p>";
@@ -20,141 +55,7 @@ if (isset($_POST['delete_entry']) && ($_POST['delete_entry'] == "delete") && ($_
 
 	echo "</form>";
 
-	footer();
-
-	endif;
-
-
-if (isset($_POST['delete_entry']) && ($_POST['delete_entry'] == $page_temp) && ($_POST['entry_id'] == $page_temp)):
-
-	$sql_temp = "DELETE FROM ".$database.".information_paths WHERE (parent_id=:parent_id) OR (child_id=:child_id)";
-	$paths_delete_statement = $connection_pdo->prepare($sql_temp);
-	$paths_delete_statement->execute(["parent_id"=>$page_temp, "child_id"=>$page_temp]);
-	execute_checkup($paths_delete_statement->errorInfo(), "deleting ".$_POST['entry_id']." in information_paths");
-
-	$sql_temp = "DELETE FROM ".$database.".information_directory WHERE entry_id=:entry_id";
-	$directory_delete_statement = $connection_pdo->prepare($sql_temp);
-	$directory_delete_statement->execute(["entry_id"=>$page_temp]);
-	execute_checkup($directory_delete_statement->errorInfo(), "deleting ".$_POST['entry_id']." in information_directory");
-
-	replace_redirect("https://".$domain."/".$page_temp."/");
-
-	endif;
-
-
-if (isset($_POST['save_changes']) && ($_POST['entry_id'] == $page_temp)):
-
-	if (($page_temp == "new") && ($_POST['entry_id'] = $page_temp)): $_POST['entry_id'] = random_code(7); endif;
-
-	function clean_empty_array($array_temp) {
-		if (ctype_space($array_temp)): return null; endif;
-		foreach ($array_temp as $key_temp => $value_temp):
-			if (empty($value_temp)): unset($array_temp[$key_temp]); continue; endif;
-			if (is_array($value_temp)): $array_temp[$key_temp] = clean_empty_array($value_temp);
-			else:
-				$value_temp = str_replace("[[[", "\n\n[[[", $value_temp);
-				$value_temp = str_replace("]]]", "]]]\n\n", $value_temp);
-				$value_temp = preg_replace("/\r\n/", "\n", $value_temp);
-				$value_temp = preg_replace('/(?:(?:\r\n|\r|\n)\s*){2}/s', "\n\n", $value_temp);
-				$value_temp = trim($value_temp);
-				if (ctype_space($value_temp)): $value_temp = null; endif;		
-				$array_temp[$key_temp] = htmlspecialchars($value_temp);
-				endif;
-			endforeach;
-		return $array_temp; }
-
-	$values_temp = [
-		"entry_id" => $_POST['entry_id'],
-		"type" => $_POST['type'],
-		"name" => $_POST['name'],
-		"alternate_name" => $_POST['alternate_name'],
-		"summary" => $_POST['summary'],
-		"body" => $_POST['body'],
-		"studies" => $_POST['studies'],
-		"appendix" => $_POST['appendix'] ];
-
-	$values_temp = clean_empty_array($values_temp);
-
-	foreach ($values_temp as $key_temp => $value_temp):
-		if (empty($value_temp) || !(is_array($value_temp))): continue; endif;
-		$values_temp[$key_temp] = json_encode($value_temp);
-		endforeach;
-
-	// prepare statement
-	$sql_temp = sql_setup($values_temp, $database.".information_directory");
-	$information_directory_statement = $connection_pdo->prepare($sql_temp);
-	$information_directory_statement->execute($values_temp);
-
-	execute_checkup($information_directory_statement->errorInfo(), "updating ".$_POST['entry_id']." in information_directory");
-
-	$values_temp = [
-		"path_id" => null,
-		"parent_id" => null,
-		"path_type" => null,
-		"child_id" => null ];
-	$sql_temp = sql_setup($values_temp, "information_paths");
-	$information_paths_statement = $connection_pdo->prepare($sql_temp);
-
-	$sql_temp = "DELETE FROM ".$database.".information_paths WHERE (path_id=:path_id) OR (parent_id=:parent_id AND path_type=:path_type AND child_id=:child_id)";
-	$information_paths_remove_statement = $connection_pdo->prepare($sql_temp);
-
-	$path_types_check_array = array_merge(
-		(array)array_keys($_POST['parents']),
-		(array)array_keys($entry_info['parents']),
-		(array)array_keys($_POST['children']),
-		(array)array_keys($entry_info['children']) );
-
-	function paths_check($relationship_type, $parent_id, $path_type, $child_id, $query_id) {
-		global $entry_info;
-		global $_POST;
-		global $connection_pdo;
-		global $information_paths_remove_statement;
-		global $information_paths_statement;
-		$values_temp = [
-			"path_id" => $parent_id."_".$child_id."_".$path_type,
-			"parent_id" => $parent_id,
-			"path_type" => $path_type,
-			"child_id" => $child_id ];
-		if (in_array("clear_selection", $_POST[$relationship_type][$path_type])): $_POST[$relationship_type][$path_type] = []; endif;
-		if (in_array($query_id, $entry_info[$relationship_type][$path_type]) && !(in_array($query_id, $_POST[$relationship_type][$path_type]))):
-			$information_paths_remove_statement->execute($values_temp);
-			execute_checkup($information_paths_remove_statement->errorInfo(), "removing path in information_paths");
-		elseif (!(in_array($query_id, $entry_info[$relationship_type][$path_type])) && in_array($query_id, $_POST[$relationship_type][$path_type])):
-			$information_paths_statement->execute($values_temp);
-			execute_checkup($information_paths_statement->errorInfo(), "adding path in information_paths");
-			endif; }
-
-	foreach ((array)$path_types_check_array as $path_type):
-
-		if (is_int($path_type)): continue; endif;
-
-		if (empty($_POST['parents'][$path_type])): $_POST['parents'][$path_type] = []; endif;
-		if (empty($_POST['children'][$path_type])): $_POST['children'][$path_type] = []; endif;
-		if (empty($entry_info['parents'][$path_type])): $entry_info['parents'][$path_type] = []; endif;
-		if (empty($entry_info['children'][$path_type])): $entry_info['children'][$path_type] = []; endif;
-		$_POST['parents'][$path_type] = (array)$_POST['parents'][$path_type];
-		$_POST['children'][$path_type] = (array)$_POST['children'][$path_type];
-		$entry_info['parents'][$path_type] = (array)$entry_info['parents'][$path_type];
-		$entry_info['children'][$path_type] = (array)$entry_info['children'][$path_type];
-
-		$parents_temp = array_merge($_POST['parents'][$path_type], $entry_info['parents'][$path_type]);
-		foreach($parents_temp as $path_temp):
-			paths_check ("parents", $path_temp, $path_type, $_POST['entry_id'], $path_temp);
-			endforeach;
-
-		$children_temp = array_merge($_POST['children'][$path_type], $entry_info['children'][$path_type]);
-		foreach($children_temp as $path_temp):
-			paths_check ("children", $_POST['entry_id'], $path_type, $path_temp, $path_temp);
-			endforeach;
-
-		endforeach;
-
-	if ($page_temp == "new"): replace_redirect("https://".$domain."/".$_POST['entry_id']."/edit/"); endif;
-
-	$entry_info = nesty_page($page_temp);
-	$entry_info = $entry_info[$page_temp];
-
-	endif;
+	echo "</amp-lightbox>";
 
 $retrieve_page->execute(["page_id"=>$page_temp]);
 $result = $retrieve_page->fetchAll();
@@ -163,103 +64,6 @@ foreach ($result as $row):
 	$entry_info['body'] = json_decode($row['body'], true);
 	$entry_info['studies'] = $row['studies'];
 	endforeach;
-
-?><style>
-
-hr {
-	margin: 60px auto; }
-
-h2 {
-	display: block;
-	text-align: center;
-	margin: 0 auto;
-	padding: 120px 0 30px 0; }
-	
-h6 {
-	margin: 30px auto 10px;
-	min-width: 630px;
-	max-width: 630px;
-	width: 630px;
-	display: block;
-	padding: 0;
-	font-size: 14px;
-	text-align: center;
-	text-transform: uppercase;
-	font-weight: 700;
-	letter-spacing: 1px;
-	opacity: 0.5; }
-
-input, textarea, select {
-	width: 600px;
-	border: 2px solid #eee;
-	border-radius: 0;
-	margin: 10px auto 40px;
-	display: block;
-	border-radius: 5px; }
-
-input {
-	font-size: 16px;
-	padding: 15px; }
-
-textarea {
-	font-size: 13px;
-	line-height: 16px;
-	padding: 15px; }
-
-select {
-	font-size: 14px; }
-
-option {
-	padding: 10px 7px;
-	margin: 0 0 4px 0; }
-
-table {
-	width: 850px; }
-	
-.link_list {
-	padding: 0;
-	margin: 5px;
-	display: block;
-	font-size: 15px;
-	line-height: 15px; }
-
-.link_sublist {
-	width: 150px;
-	padding: 0 0 0 10px;
-	margin: 0 5px 5px;
-	display: block;
-	font-size: 13px;
-	line-height: 13px; }
-
-.link_sublist .material-icons {
-	font-size: 14px;
-	opacity: 0.4;
-	float: right;
-	margin-top: 4px }
-
-.edit_bar {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
-	margin: 0;
-	padding: 0 0 15px 0;
-	display: block;
-	text-align: center;
-	background: #fff;
-	box-shadow: 0 0 20px 0 rgba(100,100,100,0.2);
-	z-index: 1000; }
-
-.edit_bar span {
-	display: inline-block;
-	margin: 15px 25px 0 25px; }
-	
-.edit_bar .button {
-	position: absolute;
-	left: 2px;
-	top: 0px; }
-
-</style><?
 
 $appendix_array = [];
 if ($entry_info['type'] == "location"): $appendix_array = [ "unit_id"=>"unit", "parent_id"=>"location" ]; endif;
@@ -478,4 +282,4 @@ exit;
 	elseif (in_array($input_temp, [ "website", "facebook", "twitter" ])):
 		echo "<input type='website' name='$input_temp' value='".$entry_info[$input_temp][0]."'>";
 
-	endif;?>
+	endif; ?>
