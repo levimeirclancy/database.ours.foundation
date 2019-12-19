@@ -203,6 +203,17 @@ function amp_header($title=null, $canonical=null) {
 
 		echo "<p>Add new entry: coming soon.</p>";
 	
+		echo "<form>";
+	
+		echo "<label>Type</label>";
+		echo "<select name='type' size='12' required>";
+		foreach (array_keys($header_array) as $value_temp):
+			echo "<option value='".$value_temp."'>".$value_temp."</option>";
+			endforeach;
+		echo "</select>";
+
+		echo "</form>";
+
 		echo "</amp-lightbox>";
 
 	}
