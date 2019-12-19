@@ -111,6 +111,7 @@ function amp_header($title=null, $canonical=null) {
 			logout-popover-tryagain-submit.hide,
 			settings-popover-launch.hide,
 			add-popover-launch.hide,
+			edit-entry.hide,
 			login.clear,
 			logout.clear,
 			AMP.setState({'loginStatus': 'loggedout'})
@@ -156,6 +157,7 @@ function amp_header($title=null, $canonical=null) {
 				logout-popover-submit.show,
 				settings-popover-launch.show,
 				add-popover-launch.show,
+				edit-entry.show,
 				login.clear,
 				logout.clear,
 				AMP.setState({'loginStatus': 'loggedin'})
