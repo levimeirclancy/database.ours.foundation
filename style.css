@@ -77,11 +77,11 @@ h1 span {
 
 .genealogy_interstice { margin: 10px 0 40px; }
 
-.genealogy_interstice p { margin: 3px 0; max-width: none; }
+.genealogy_interstice p { margin: 0; padding: 0; max-width: none; }
 
-.genealogy_interstice b { padding: 8px 10px 5px; display: block; font-size: 80%; }
+.genealogy_interstice b { padding: 4px 10px 1px; display: block; font-size: 80%; }
 
-.genealogy_interstice span { padding: 8px 10px; display: block; font-size: 80%; }
+.genealogy_interstice span { padding: 4px 10px; display: block; font-size: 80%; }
 
 
 /* HEADER */
