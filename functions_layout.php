@@ -99,7 +99,7 @@ function amp_header($title=null, $canonical=null) {
 		
 	// If you are signed in ...
 	echo "<div role='button' tabindex='0' class='navigation-header-item' id='settings-popover-launch' on='tap:settings-popover' [class]=\"loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" $logout_hidden>&#x2699; Settings</div>";
-	echo "<div role='button' tabindex='0' class='navigation-header-item' id='add-popover-launch' on='tap:add-popover' [class]=\"loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" $logout_hidden>&#x271A; Add entry</div>";	
+	echo "<div role='button' tabindex='0' class='navigation-header-item' id='new-popover-launch' on='tap:new-popover' [class]=\"loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" $logout_hidden>&#x271A; New entry</div>";	
 
 	echo "<form id='logout' method='post' action-xhr='/logout-xhr/' target='_blank' on=\"
 		submit:
@@ -112,7 +112,7 @@ function amp_header($title=null, $canonical=null) {
 			logout-popover-submit.hide,
 			logout-popover-tryagain-submit.hide,
 			settings-popover-launch.hide,
-			add-popover-launch.hide,
+			new-popover-launch.hide,
 			edit-entry.hide,
 			login.clear,
 			logout.clear,
@@ -158,7 +158,7 @@ function amp_header($title=null, $canonical=null) {
 				login-popover-submit.show,
 				logout-popover-submit.show,
 				settings-popover-launch.show,
-				add-popover-launch.show,
+				new-popover-launch.show,
 				edit-entry.show,
 				login.clear,
 				logout.clear,
@@ -197,11 +197,11 @@ function amp_header($title=null, $canonical=null) {
 	
 		echo "</amp-lightbox>";
 
-	echo "<amp-lightbox id='add-popover' layout='nodisplay'>";
+	echo "<amp-lightbox id='new-popover' layout='nodisplay'>";
 
-		echo "<span role='button' tabindex='0' on='tap:add-popover.close' class='popover-close'>Back</span>";
+		echo "<span role='button' tabindex='0' on='tap:new-popover.close' class='popover-close'>Back</span>";
 
-		echo "<p>Add new entry: coming soon.</p>";
+		echo "<p>New entry: coming soon.</p>";
 	
 		echo "<form>";
 	
