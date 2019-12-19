@@ -29,7 +29,7 @@ echo "<div id='navigation-header'>";
 	echo "<a href='#body'><div class='navigation-header-item'>Body</div></a>";
 	echo "<a href='#studies'><div class='navigation-header-item'>Studies</div></a>";
 	echo "<a href='#hierarchy'><div class='navigation-header-item'>Hierarchy</div></a>";
-	echo "<a href='#more'><div class='navigation-header-item'>More...</div></a>";
+	echo "<a href='#more'><div class='navigation-header-item'>&#x2756; More...</div></a>";
 
 	echo "</div>";
 
