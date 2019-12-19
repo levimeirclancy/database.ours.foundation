@@ -100,6 +100,7 @@ h1 span {
 	}
 
 .navigation-header-item {
+	font-size: 80%;
 	margin: 5px 10px 5px 0;
 	padding: 5px 10px;
 	display: inline-block;
@@ -748,10 +749,29 @@ div.amp-lightbox-media-id {
 	border-radius: 0;
 	margin: 0; }
 
-/* */
 
-.edit-header {
-	padding-top: 150px;
+/* EDIT */
+
+#admin-page-add-entry, #admin-page-delete, #admin-page-log-out {
+	font-size: 80%;
+	position: absolute;
+	background: rgba(50,50,50,0.4);
+	color: rgba(255,255,255,1);
+	}
+
+#admin-page-add-entry {
+	top: 140px;
+	left: 10px;
+	}
+
+#admin-page-delete {
+	top: 140px;
+	right: 10px;
+	}
+
+#admin-page-log-out {
+	top: 180px;
+	left: 10px;
 	}
 
 
