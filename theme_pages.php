@@ -16,6 +16,7 @@ function print_row_loop ($entry_id=null, $indent_level=0) {
 	global $page_temp;
 	global $information_array;
 	global $unit_array;
+	global $logout_hidden;
 	
 	if (!(array_key_exists($entry_id, $information_array))):
 		return; endif;
