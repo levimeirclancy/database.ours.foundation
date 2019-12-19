@@ -212,16 +212,17 @@ h1 span {
 	}
 
 .categories-item-title {
-	font-size: 100%;
+	font-size: 80%;
 	display: block;
 	}
 
 .categories-item-button {
 	font-family: 'Roboto', Helvetica, 'Sans Serif';
-	font-size: 60%;
+	font-size: 80%;
 	background: rgba(200,200,200,1);
 	color: rgba(255,255,255,1);
-	padding: 3px 8px;
+	font-weight: 700;
+	padding: 3px 13px;
 	margin: 3px 16px 3px 0;
 	border-radius: 100px;
 	display: inline-block;
