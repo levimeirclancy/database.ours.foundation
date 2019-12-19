@@ -82,6 +82,12 @@ if (!(empty($_COOKIE['cookie']))):
 		endif;
 	endif;
 
+// To display the login or logout buttons
+$login_hidden = $logout_hidden = null;
+if (empty($login)): $logout_hidden = "hidden"; // if we are not logged in
+elseif (!(empty($login))): $login_hidden = "hidden"; endif; // if we are logged in
+
+
 if (($page_temp == "add-xhr") && !(empty($login))):
 
 	// Add new entry
