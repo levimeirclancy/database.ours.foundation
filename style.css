@@ -777,14 +777,14 @@ div.amp-lightbox-media-id {
 	right: 10px;
 	}
 
-.admin-page-form label, .admin-page-form input {
+.admin-page-form label, .admin-page-form input, .admin-page-form textarea {
 	display: block;
 	margin: 5px auto;
-	max-width: 400px;
+	max-width: 600px;
 	width: 95%;
 	text-align: left;
 	border: 0;
-	border-radius: 0;
+	border-radius: 6px;
 	box-sizing: border-box;
 	}
 
@@ -806,13 +806,9 @@ div.amp-lightbox-media-id {
 .admin-page-form textarea {
 	font-size: 70%;
 	margin: 5px auto;
-	padding: 30px 20px 0;
-	display: block;
-	max-width: 600px;
-	width: 95%;
+	padding: 10px 20px;
 	text-align: left;
 	border: 1px solid rgba(200,200,200,0.8);
-	border-radius: 7px;
 	box-sizing: border-box;
 	}
 
