@@ -247,6 +247,7 @@ h1 span {
 	display: block;
 	height: 100%;
 	width: 30px;
+	height: 30px;
 	}
 
 .categories-item-indent::before {
