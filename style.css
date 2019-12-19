@@ -79,13 +79,9 @@ h1 span {
 
 .genealogy_interstice p { margin: 3px 0; max-width: none; font-size: 18px; line-height: 22px; }
 
-.genealogy_interstice b { padding: 8px 15px 5px; display: block; }
+.genealogy_interstice b { padding: 8px 10px 5px; display: block; }
 
-.genealogy_interstice span { padding: 10px 15px; display: block; }
-
-@media only screen and (max-width: 500px)  {
-	.genealogy_interstice span { padding: 13px 20px; }	
-	}
+.genealogy_interstice span { padding: 10px 10px; display: block; }
 
 
 /* HEADER */
