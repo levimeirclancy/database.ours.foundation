@@ -92,12 +92,12 @@ echo "<h2>Title</h2>";
 echo "<p>The title should be shorter and easier to comprehend compared to the full name.</p>";
 
 foreach ($entry_info['name'] as $language_temp => $value_temp):
-	echo "<label for='name[".$language_temp."]'>Title / ".$language_temp."</label>";
+	echo "<label for='name[".$language_temp."]'>Title / ".ucfirst($language_temp)."</label>";
 	echo "<input name='name[".$language_temp."]' value='".htmlspecialchars($value_temp, ENT_QUOTES)."' maxlength='70'>";
 	endforeach;
 foreach($site_info['languages'] as $language_temp):
 	if (isset($entry_info['name'][$language_temp])): continue; endif;
-	echo "<h6>Title / ".$language_temp."</h6>";
+	echo "<label for='name[".$language_temp."]'>Title / ".ucfirst($language_temp)."</label>";
 	echo "<input name='name[".$language_temp."]' maxlength='70'>";
 	endforeach;
 
@@ -105,12 +105,12 @@ echo "<span id='full_name'></span>";
 echo "<h2>Full name</h2>";
 
 foreach ($entry_info['alternate_name'] as $language_temp => $value_temp):
-	echo "<h6>alternate name / ".$language_temp."</h6>";
+	echo "<label for='alternate_name[".$language_temp."]'>alternate name / ".ucfirst($language_temp)."</label>";
 	echo "<input name='alternate_name[".$language_temp."]' value='".htmlspecialchars($value_temp, ENT_QUOTES)."' maxlength='70'>";
 	endforeach;
 foreach($site_info['languages'] as $language_temp):
 	if (isset($entry_info['alternate_name'][$language_temp])): continue; endif;
-	echo "<h6>alternate name / ".$language_temp."</h6>";
+	echo "<label for='alternate_name[".$language_temp."]'>alternate name / ".ucfirst($language_temp)."</label>";
 	echo "<input name='alternate_name[".$language_temp."]' maxlength='70'>";
 	endforeach;
 
@@ -119,12 +119,12 @@ echo "<h2>Summary</h2>";
 echo "<p>This short summary may get used for short-form content like stories, messages, and previews. It can contain multiple short paragraphs with images.</p>";
 
 foreach ($entry_info['summary'] as $language_temp => $value_temp):
-	echo "<label for='summary[".$language_temp."]'>summary / ".$language_temp."</label>";
+	echo "<label for='summary[".$language_temp."]'>summary / ".ucfirst($language_temp)."</label>";
 	echo "<textarea style='height: 250px;' name='summary[".$language_temp."]' maxlength='1000'>".$value_temp."</textarea>";
 	endforeach;
 foreach($site_info['languages'] as $language_temp):
 	if (isset($entry_info['summary'][$language_temp])): continue; endif;
-	echo "<label for='summary[".$language_temp."]'>summary / ".$language_temp."</label>";
+	echo "<label for='summary[".$language_temp."]'>summary / ".ucfirst($language_temp)."</label>";
 	echo "<textarea style='height: 250px;' name='summary[".$language_temp."]' maxlength='1000'></textarea>";
 	endforeach;
 
@@ -133,12 +133,12 @@ echo "<h2>Body</h2>";
 echo "<p>The body can be as long as wanted, and is long-form content.</p>";
 
 foreach ($entry_info['body'] as $language_temp => $value_temp):
-	echo "<h6>body / ".$language_temp."</h6>";
+	echo "<label for='body[".$language_temp."]'>body / ".ucfirst($language_temp)."</label>";
 	echo "<textarea style='height: 500px; max-height: none;' name='body[".$language_temp."]'>".$value_temp."</textarea>";
 	endforeach;
 foreach($site_info['languages'] as $language_temp):
 	if (isset($entry_info['body'][$language_temp])): continue; endif;
-	echo "<h6>body / ".$language_temp."</h6>";
+	echo "<label for='body[".$language_temp."]'>body / ".ucfirst($language_temp)."</label>";
 	echo "<textarea style='height: 500px; max-height: none;' name='body[".$language_temp."]'></textarea>";
 	endforeach;
 
