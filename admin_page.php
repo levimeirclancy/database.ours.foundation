@@ -22,7 +22,7 @@ if ($page_temp == "new"): $new_page = "yes"; endif;
 
 echo "<div>Navigation</div>";
 
-echo "<amp-lightbox id='navigation-lightbox'>";
+echo "<amp-lightbox id='navigation-lightbox' layout='nodisplay'>";
 	echo "<div on='tap:navigation-lightbox.close'><a href='#name'>Short Name</div>";
 	echo "<span><a href='#name'>Name</a></span>";
 	echo "<span><a href='#alternate_name'>Alternate name</a></span>";
