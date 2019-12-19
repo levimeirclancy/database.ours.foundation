@@ -42,7 +42,7 @@ function print_row_loop ($entry_id=null, $indent_level=0) {
 	
 	$count_temp = 0; $indent_temp = null;
 	while ($count_temp < $indent_level):
-		$indent_temp .= "&#x2B91;";
+		$indent_temp .= " &nbsp;&nbsp;&nbsp;&nbsp; ";
 		$count_temp++;
 		endwhile;
 	
