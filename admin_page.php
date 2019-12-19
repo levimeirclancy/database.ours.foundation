@@ -24,7 +24,7 @@ if ($page_temp == "new"): $new_page = "yes"; endif;
 echo "<div id='navigation-header'>";
 
 	echo "<a href='#title'><div class='navigation-header-item'>Title</div></a>";
-	echo "<a href='#full_name'><div class='navigation-header-item'>Full name</div></a>";
+	echo "<a href='#full-name'><div class='navigation-header-item'>Full name</div></a>";
 	echo "<a href='#summary'><div class='navigation-header-item'>Summary</div></a>";
 	echo "<a href='#body'><div class='navigation-header-item'>Body</div></a>";
 	echo "<a href='#studies'><div class='navigation-header-item'>Studies</div></a>";
@@ -93,7 +93,7 @@ foreach($site_info['languages'] as $language_temp):
 	echo "<input name='name[".$language_temp."]' placeholder='". $placeholder_temp ."' maxlength='70'>";
 	endforeach;
 
-echo "<span id='full_name'></span>";
+echo "<span id='full-name'></span>";
 echo "<h2>Full name</h2>";
 
 foreach ($entry_info['alternate_name'] as $language_temp => $value_temp):
