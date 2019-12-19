@@ -228,6 +228,16 @@ h1 span {
 	display: inline-block;
 	}
 
+.categories-item-indent {
+	display: inline;
+	height: 5px;
+	width: 30px;
+	}
+
+.categories-item-indent:before {
+	content: ' ';
+	}
+
 
 /* FORMS */
 
