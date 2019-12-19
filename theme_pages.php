@@ -58,14 +58,13 @@ function print_row_loop ($entry_id=null, $indent_level=0) {
 	// Add the link to the article
 	echo $indent_temp . "<a href='/$entry_id/'><span class='categories-item-title'>". $entry_info['header'] ."</span></a>";
 	
-	// Add the edit link
-	echo "<a href='/$entry_id/edit/'>";
-	echo "<span class='categories-item-button' [class]=\"loginStatus == 'loggedin' ? 'categories-item-button' : 'hide'\">Edit</span></a>";
+	// Add the edit link ... we are going to remove this since it is not toggling gracefully with login/logout
+//	echo "<a href='/$entry_id/edit/'>";
+//	echo "<span class='categories-item-button' $logout_hidden>Edit</span></a>";
 	
 	// Display maps link
     	if (!(empty($entry_info['appendix']['latitude'])) && !(empty($entry_info['appendix']['longitude']))): 
- 		echo "<a href='/".$entry_id."/map/' target='_blank'>";
-		echo "<span class='categories-item-button'>Map</span></a>";
+ 		echo "<br>". $indent_temp ."<a href='/".$entry_id."/map/' target='_blank'><span class='categories-item-button'>Map</span></a>";
     		endif;
 	
 	// Close the row
