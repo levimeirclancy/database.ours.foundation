@@ -65,7 +65,7 @@ function print_row_loop ($entry_id=null, $indent_level=0) {
 	
 	// Add the edit link
 	echo "<a href='/$entry_id/edit/'>";
-	echo "<span class='categories-item-button' [class]=\"loginStatus == 'loggedin' ? 'categories-item-button' : 'hide'\" $login_hidden>Edit</span></a>";
+	echo "<span class='categories-item-button' [class]=\"loginStatus == 'loggedin' ? 'categories-item-button' : 'hide'\" $logout_hidden>Edit</span></a>";
 	
 	// Close the row
 	echo "</span>";
