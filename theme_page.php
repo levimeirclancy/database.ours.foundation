@@ -23,7 +23,7 @@ echo "<header><h1 property='name'><span>" . implode("</span> &bull; <span>", $en
 
 echo "<div class='genealogy_interstice' amp-fx='parallax' data-parallax-factor='1.1'>";
 
-echo "<p ". $layout_nodisplay_temp ."><b>Type</b><span>".$entry_info['type']."</span></p>";
+echo "<p ". $layout_nodisplay_temp ."><b>Type</b><span>".$header_array[$entry_info['type']]."</span></p>";
 
 if ($entry_info['type'] == "location"):
 	$string_temp = "<b ". $layout_nodisplay_temp .">Unit</b><span>{{{".$entry_info['unit_id'][0]."}}}</span>";
