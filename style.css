@@ -148,7 +148,7 @@ amp-lightbox {
 	}
 
 /* Make the input and description same width and placement */
-#login-popover div, #login-popover input, #login-popover input {
+#login-popover label, #login-popover input {
 	display: block;
 	margin: 5px auto;
 	max-width: 400px;
@@ -197,6 +197,13 @@ amp-lightbox {
 	color: rgba(255,255,255,1);
 	box-shadow: 0;
 	box-sizing: border-box;
+	}
+
+#login-popover div {
+	display: table;
+	margin: 30px auto;
+	padding: 10px;
+	text-align: center;
 	}
 
 
