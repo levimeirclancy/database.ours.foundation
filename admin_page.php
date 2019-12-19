@@ -146,7 +146,7 @@ echo "<p>This is the list of references and notes.</p>";
 
 $placeholder_temp = "Studies";
 echo "<label for='studies'>". $placeholder_temp ."</label>";
-echo "<textarea style='height: 400px;' name='studies' placeholder='". $placeholder_temp ."'>".$entry_info['studies']."</textarea>";
+echo "<textarea name='studies' placeholder='". $placeholder_temp ."' class='admin-page-form-body'>".$entry_info['studies']."</textarea>";
 
 echo "<span id='hierarchy'></span>";
 echo "<h2>Hierarchy</h2>";
