@@ -48,20 +48,39 @@ echo "<div id='admin-page-delete' on='tap:delete-popover'>&#x2B19; Delete entry<
 echo "<div id='admin-page-log-out' on='tap:logout-popover'>&#x2716; Log out</div>";
 echo "</div>";
 
-// Do a delete popover ... redirect if deletion works ...
+// Add a new popover ... residrect if adding it works ...
+echo "<amp-lightbox id='new-popover' layout='nodisplay'>";
 
-echo "<amp-lightbox id='delete-popover' layout='nodisplay'>";
-
-	echo "<p>Do you really want to delete this page?<br>";
-	echo "<a href='https://".$domain."/".$_POST['entry_id']."/'>https://".$domain."/".$_POST['entry_id']."/</a></p>";
+	echo "<p>Do you really want to add a new entry? You will lose any unsaved work.</p>";
 
 	echo "<form action='' method='post'>";
-
 	echo "<input type='hidden' name='entry_id' value='".$page_temp."'>";
+	echo "<label>Choose type</label>";
+	// Put dropdown of types
+	echo "<button type='submit' name='new_entry' value='".$page_temp."'>New entry</button></div>";
+	echo "</form>";
 
-	echo "<div class='hover_overlay hover_bottomleft'>";
-	echo "<button type='submit' name='delete_entry' value='".$page_temp."'>Delete</button></div>";
+	echo "</amp-lightbox>";
 
+// Do a delete popover ... redirect if deletion works ...
+echo "<amp-lightbox id='delete-popover' layout='nodisplay'>";
+
+	echo "<p>Do you really want to delete this entry?</p>";
+
+	echo "<form action='' method='post'>";
+	echo "<input type='hidden' name='entry_id' value='".$page_temp."'>";
+	echo "<button type='submit' name='delete_entry' value='".$page_temp."'>Delete</button>";
+	echo "</form>";
+
+	echo "</amp-lightbox>";
+
+// Do you really want to log out? You will lose unsaved work
+echo "<amp-lightbox id='logout-popover' layout='nodisplay'>";
+
+	echo "<p>Do you really want to log out? You will lose any unsaved work.</p>";
+
+	echo "<form action='' method='post'>";
+	echo "<button type='submit' name='logout_entry' value='".$page_temp."'>Log out</button></div>";
 	echo "</form>";
 
 	echo "</amp-lightbox>";
@@ -73,7 +92,7 @@ $additional_array = json_decode($result_temp, true);
 
 echo "<input type='hidden' name='entry_id' value='$page_temp'>";
 
-echo "<p><span on='tap:leave-popover'>".$domain."/".$page_temp."</span></p>";
+echo "<p><a href='https://".$domain."/".$page_temp."' target='_blank'>".$domain."/".$page_temp."</a>.</p>";
 
 echo "<span id='title'></span>";
 echo "<h2>Title</h2>";
