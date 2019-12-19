@@ -77,10 +77,10 @@ $additional_array = json_decode($result_temp, true);
 
 echo "<input type='hidden' name='entry_id' value='$page_temp'>";
 
-echo "<br><br><span id='title'></span>";
+echo "<br><span id='title'></span><br>";
 echo "<h2>Title</h2>";
 
-echo "<p>The title should be shorter and easier to comprehend compared to the full name.</p>";
+echo "<p>The title should be shorter than the full name, and easier to comprehend as well.</p>";
 
 foreach ($entry_info['name'] as $language_temp => $value_temp):
 	echo "<label for='name[".$language_temp."]'>Title / ".ucfirst($language_temp)."</label>";
