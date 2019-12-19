@@ -799,7 +799,7 @@ div.amp-lightbox-media-id {
 	font-size: 75%;
 	padding: 15px 20px;
 	background: rgba(235,235,235,1);
-	border-bottom: 1px solid rgba(255,255,255,0.4);
+	border-bottom: 1px solid rgba(255,255,255,0.7);
 	box-shadow: 3px 12px 12px -9px rgba(50,50,50,0.2);
 	}
 
@@ -810,6 +810,15 @@ div.amp-lightbox-media-id {
 	text-align: left;
 	border: 1px solid rgba(200,200,200,0.8);
 	box-sizing: border-box;
+	}
+
+.admin-page-form-summary {
+	height: 250px;
+	}
+
+.admin-page-form-body {
+	height: 600px;
+	max-height: none;
 	}
 
 
