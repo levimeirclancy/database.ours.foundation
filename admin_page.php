@@ -43,14 +43,14 @@ echo "<div>";
 echo "</div>";
 
 echo "<div id='admin-page-actions'>";
-echo "<div id='admin-page-new-entry'>&#x271A; New entry</div>";
-echo "<div id='admin-page-delete'>&#x2B19; Delete entry</div>";
-echo "<div id='admin-page-log-out'>&#x2716; Log out</div>";
+echo "<div id='admin-page-new-entry' on='tap:new-popover'>&#x271A; New entry</div>";
+echo "<div id='admin-page-delete' on='tap:delete-popover'>&#x2B19; Delete entry</div>";
+echo "<div id='admin-page-log-out' on='tap:logout-popover'>&#x2716; Log out</div>";
 echo "</div>";
 
 // Do a delete popover ... redirect if deletion works ...
 
-echo "<amp-lightbox layout='nodisplay'>";
+echo "<amp-lightbox id='delete-popover' layout='nodisplay'>";
 
 	echo "<p>Do you really want to delete this page?<br>";
 	echo "<a href='https://".$domain."/".$_POST['entry_id']."/'>https://".$domain."/".$_POST['entry_id']."/</a></p>";
@@ -73,7 +73,7 @@ $additional_array = json_decode($result_temp, true);
 
 echo "<input type='hidden' name='entry_id' value='$page_temp'>";
 
-echo "<p><a href='https://".$domain."/".$page_temp."'>https://".$domain."/".$page_temp."</a></p>";
+echo "<p><span on='tap:leave-popover'>".$domain."/".$page_temp."</span></p>";
 
 echo "<span id='title'></span>";
 echo "<h2>Title</h2>";
