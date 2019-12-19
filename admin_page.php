@@ -69,7 +69,7 @@ echo "<amp-lightbox layout='nodisplay'>";
 
 	echo "</amp-lightbox>";
 
-echo "<form action='' method='post'>";
+echo "<form action='' method='post' class='admin-page-form'>";
 
 $result_temp = file_get_contents("https://".$domain."/api/sitemap/");
 $additional_array = json_decode($result_temp, true);
