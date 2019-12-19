@@ -16,7 +16,7 @@ foreach ($result as $row):
 //	endif;
 
 if (!(empty($login))):
-	echo "<a href='/".$page_temp."/edit/' target='_blank'><span class='navigation-header-item-option'>&#10033; Edit article</span></a>";
+	echo "<a href='/".$page_temp."/edit/' target='_blank'><span id='edit-article'>&#10033; Edit article</span></a>";
 	endif;
 
 echo "<article><div vocab='http://schema.org/' typeof='Article'>";
