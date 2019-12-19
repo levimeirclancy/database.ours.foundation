@@ -155,19 +155,20 @@ h1 span {
 	width: 95%;
 	text-align: left;
 	border: 0;
-	color: rgba(100,100,100,0.8);
 	border-radius: 0;
 	box-sizing: border-box;
 	}
 
 /* Just different margin, padding, size */
 #login-popover label {
+	color: rgba(100,100,100,0.8);
 	font-size: 70%;
 	padding: 30px 20px 0;
 	}
 
 /* Set margin, padding, size, but also backgorund and shadow */
 #login-popover input {
+	color: rgba(0,0,0,1);
 	font-size: 75%;
 	padding: 15px 20px;
 	background: rgba(235,235,235,1);
@@ -783,17 +784,18 @@ div.amp-lightbox-media-id {
 	width: 95%;
 	text-align: left;
 	border: 0;
-	color: rgba(100,100,100,0.8);
 	border-radius: 0;
 	box-sizing: border-box;
 	}
 
 .admin-page-form label {
+	color: rgba(100,100,100,0.8);
 	font-size: 70%;
 	padding: 30px 20px 0;
 	}
 
 .admin-page-form input {
+	color: rgba(0,0,0,1);
 	font-size: 75%;
 	padding: 15px 20px;
 	background: rgba(235,235,235,1);
