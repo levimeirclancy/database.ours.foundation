@@ -109,6 +109,7 @@ function amp_header($title=null, $canonical=null) {
 			login-popover-launch.hide;
 		submit-success:
 			login-popover-launch.show,
+			login-popover-submit.show,
 			logout-popover-submit.hide,
 			logout-popover-tryagain-submit.hide,
 			settings-popover-launch.hide,
@@ -155,7 +156,6 @@ function amp_header($title=null, $canonical=null) {
 			submit-success:
 				login-popover.close,
 				login-popover-launch.hide,
-				login-popover-submit.show,
 				logout-popover-submit.show,
 				settings-popover-launch.show,
 				new-popover-launch.show,
