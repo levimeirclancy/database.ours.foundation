@@ -1,7 +1,7 @@
 <? $result_temp = file_get_contents("https://".$domain."/api/sitemap/?order=english");
 $information_array = json_decode($result_temp, true);
 
-echo "<p><b>".$header_array[$page_temp]."</b></p>";
+echo "<h1>".$header_array[$page_temp]."</h1>";
 
 if (empty($information_array)): echo "<p>Empty. Consider adding an article.</p>"; footer(); endif;
 
