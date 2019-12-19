@@ -805,8 +805,15 @@ div.amp-lightbox-media-id {
 
 .admin-page-form textarea {
 	font-size: 70%;
+	margin: 5px auto;
 	padding: 30px 20px 0;
 	display: block;
+	max-width: 600px;
+	width: 95%;
+	text-align: left;
+	border: 1px solid rgba(200,200,200,0.8);
+	border-radius: 7px;
+	box-sizing: border-box;
 	}
 
 
