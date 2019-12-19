@@ -82,6 +82,14 @@ if (!(empty($_COOKIE['cookie']))):
 		endif;
 	endif;
 
+if (($page_temp == "add-xhr") && !(empty($login))):
+
+	// Add new entry
+
+	// And redirect to it
+
+	endif;
+
 if ($page_temp == "api"):
 	if ($command_temp == "coordinate"): include_once('api_coordinate.php');
 	elseif ($command_temp == "sitemap"): include_once('api_sitemap.php'); endif;
@@ -125,11 +133,6 @@ $header_array = [
 	"topic" => "Topics",
 	"article" => "Articles" ];
 
-if (!(empty($page_temp)) && ($page_temp == "new") && !(empty($login))):
-	html_header();
-	include_once('admin_page.php');
-	footer(); endif;
-
 $layout_nodisplay_temp = null;
 if (!(empty($_REQUEST['view'])) && ($_REQUEST['view'] == "compact")): $layout_nodisplay_temp = "layout='nodisplay'"; endif;
 
@@ -153,7 +156,7 @@ if (!(empty($page_temp)) && ($page_temp !== "new") && !(isset($header_array[$pag
 	if (($command_temp == "edit") && !(empty($login))):
 		$url_temp .= "edit/";
 		if ($_SERVER['REQUEST_URI'] !== $url_temp): permanent_redirect("https://".$domain.$url_temp); endif;
-	    	html_header();
+	    	amp_header();
 		include_once('admin_page.php');
 		footer(); endif;
 
