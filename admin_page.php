@@ -86,12 +86,13 @@ if ($new_page == "yes"):
 	echo "</form>";
 	footer(); endif;
 
-echo "<h2 class='edit-header' id='title'>Title</h2>";
+echo "<span id='title'></span>";
+echo "<h2>Title</h2>";
 
 echo "<p>The title should be shorter and easier to comprehend compared to the full name.</p>";
 
 foreach ($entry_info['name'] as $language_temp => $value_temp):
-	echo "<h6>Title / ".$language_temp."</h6>";
+	echo "<label for='name[".$language_temp."]'>Title / ".$language_temp."</label>";
 	echo "<input name='name[".$language_temp."]' value='".htmlspecialchars($value_temp, ENT_QUOTES)."' maxlength='70'>";
 	endforeach;
 foreach($site_info['languages'] as $language_temp):
@@ -100,7 +101,8 @@ foreach($site_info['languages'] as $language_temp):
 	echo "<input name='name[".$language_temp."]' maxlength='70'>";
 	endforeach;
 
-echo "<h2 id='full_name'>Full name</h2>";
+echo "<span id='full_name'></span>";
+echo "<h2>Full name</h2>";
 
 foreach ($entry_info['alternate_name'] as $language_temp => $value_temp):
 	echo "<h6>alternate name / ".$language_temp."</h6>";
@@ -112,19 +114,23 @@ foreach($site_info['languages'] as $language_temp):
 	echo "<input name='alternate_name[".$language_temp."]' maxlength='70'>";
 	endforeach;
 
-echo "<h2 id='summary'>Summary</h2>";
+echo "<span id='summary'></span>";
+echo "<h2>Summary</h2>";
+echo "<p>This short summary may get used for short-form content like stories, messages, and previews. It can contain multiple short paragraphs with images.</p>";
 
 foreach ($entry_info['summary'] as $language_temp => $value_temp):
-	echo "<h6>summary / ".$language_temp."</h6>";
+	echo "<label for='summary[".$language_temp."]'>summary / ".$language_temp."</label>";
 	echo "<textarea style='height: 250px;' name='summary[".$language_temp."]' maxlength='1000'>".$value_temp."</textarea>";
 	endforeach;
 foreach($site_info['languages'] as $language_temp):
 	if (isset($entry_info['summary'][$language_temp])): continue; endif;
-	echo "<h6>summary / ".$language_temp."</h6>";
+	echo "<label for='summary[".$language_temp."]'>summary / ".$language_temp."</label>";
 	echo "<textarea style='height: 250px;' name='summary[".$language_temp."]' maxlength='1000'></textarea>";
 	endforeach;
 
-echo "<h2 id='body'>Body</h2>";
+echo "<span id='body'></span>";
+echo "<h2>Body</h2>";
+echo "<p>The body can be as long as wanted, and is long-form content.</p>";
 
 foreach ($entry_info['body'] as $language_temp => $value_temp):
 	echo "<h6>body / ".$language_temp."</h6>";
@@ -136,12 +142,16 @@ foreach($site_info['languages'] as $language_temp):
 	echo "<textarea style='height: 500px; max-height: none;' name='body[".$language_temp."]'></textarea>";
 	endforeach;
 
-echo "<h2 id='studies'>Studies</h2>";
+echo "<span id='studies'></span>";
+echo "<h2>Studies</h2>";
+echo "<p>This is the list of references and notes.</p>";
 
-echo "<h6>studies</h6>";
+echo "<label for='studies'>Studies</label>";
 echo "<textarea style='height: 400px;' name='studies'>".$entry_info['studies']."</textarea>";
 
-echo "<h2 id='relationships'>Relationships</h2>";
+
+echo "<span id='relationships'></span>";
+echo "<h2>Relationships</h2>";
 			
 echo "<input type='hidden' name='parents[]'>";
 echo "<input type='hidden' name='children[]'>";
@@ -149,7 +159,7 @@ echo "<input type='hidden' name='children[]'>";
 function relationships_edit ($relationship_orientation, $relationship_name, $possible_array=[], $multiple=null) {
 	global $page_temp;
 	global $entry_info;
-	echo "<h6>".ucwords($relationship_orientation).": ".str_replace("_", " ", $relationship_name)."</h6>";
+	echo "<label for='".$relationship_orientation."[".$relationship_name."][]'>".ucwords($relationship_orientation).": ".str_replace("_", " ", $relationship_name)."</label>";
 	echo "<select name='".$relationship_orientation."[".$relationship_name."][]' size='8' $multiple>";
 	if (empty($entry_info[$relationship_orientation][$relationship_name])): $entry_info[$relationship_orientation][$relationship_name] = []; endif;
 	if (!(empty($entry_info[$relationship_orientation][$relationship_name]))): echo "<option value='clear_selection' style='font-style: italic;'>clear selection</option>"; endif;
@@ -187,7 +197,7 @@ if (!(empty($appendix_array))):
 	echo "<h2 id='appendix'>Appendix</h2>";
 
 	foreach ($appendix_array as $appendix_key => $appendix_type):
-		echo "<h6>".str_replace("_", " ", $appendix_key)."</h6>";
+		echo "<label for='appendix[".$appendix_key."]'>".str_replace("_", " ", $appendix_key)."</label>";
 		if ($appendix_type == "string"):
 			echo "<input type='text' name='appendix[".$appendix_key."]' value='".htmlspecialchars($entry_info['appendix'][$appendix_key], ENT_QUOTES)."'>";
 		elseif ($appendix_type == "checkbox"):
@@ -200,6 +210,7 @@ if (!(empty($appendix_array))):
 
 echo "<h2 id='type'>Type</h2>";
 
+echo "<label for='type'>Type</label>";
 echo "<select name='type' size='12' required>";
 echo "<option value='".$entry_info['type']."' selected>".$entry_info['type']."</option>";
 foreach (array_keys($header_array) as $value_temp):
