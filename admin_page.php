@@ -42,14 +42,11 @@ echo "<div>";
 
 echo "</div>";
 
-// Put it on the left ...
+echo "<div id='admin-page-actions'>";
 echo "<div id='admin-page-new-entry'>&#x271A; New entry</div>";
-
-// Put it on the right ...
 echo "<div id='admin-page-delete'>&#x2B19; Delete entry</div>";
-
-// Put it on the right ...
 echo "<div id='admin-page-log-out'>&#x2716; Log out</div>";
+echo "</div>";
 
 // Do a delete popover ... redirect if deletion works ...
 
@@ -76,7 +73,9 @@ $additional_array = json_decode($result_temp, true);
 
 echo "<input type='hidden' name='entry_id' value='$page_temp'>";
 
-echo "<br><span id='title'></span>";
+echo "<p><a href='https://".$domain."/".$page_temp."'>https://".$domain."/".$page_temp."</a></p>";
+
+echo "<span id='title'></span>";
 echo "<h2>Title</h2>";
 echo "<p>The title should be shorter than the full name, and easier to comprehend as well. For example, <i>Sagrada Familia</i>.</p>";
 
