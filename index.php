@@ -78,7 +78,7 @@ if (!(empty($_COOKIE['cookie']))):
 		$login = ["user_id" => $row['user_id'], "email" => $row['email']]; endforeach;
 	if (empty($login)):
 		setcookie("cookie", null, time()+2700, '/');
-		permanent_redirect("https://".$domain);
+		permanent_redirect("https://".$domain."/".$page_temp);
 		endif;
 	endif;
 
