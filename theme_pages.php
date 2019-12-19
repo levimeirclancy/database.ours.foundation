@@ -5,7 +5,7 @@ echo "<p><b>".$header_array[$page_temp]."</b></p>";
 
 if (empty($information_array)): echo "<p>Empty. Consider adding an article.</p>"; footer(); endif;
 
-echo "<br><br>";
+echo "<br>";
 
 $unit_array = [];
 if (in_array($page_temp, ["location"])):
