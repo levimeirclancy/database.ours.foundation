@@ -298,7 +298,7 @@ form {
 /* ARTICLE */
 
 body, article {
-	background: rgba(255,255,255,1); }
+	}
 
 span, div {
 	background: inherit; }
@@ -329,8 +329,8 @@ hr + hr {
 
 article, th, td,
 h2, h3, h4, h5, h6, p, summary, ul, ol, blockquote {
-	font-size: 20px;
-	line-height: 1.5;
+	font-size: 100%;
+	line-height: 130%;
 	font-weight: 400;
 	text-align: left;
 	font-family: Georgia, 'Times New Roman', Serif; }
@@ -364,7 +364,7 @@ h5, h6 {
 	margin-top: 50px; }
 
 h5, h6, p {
-	width: 80%;
+	width: auto;
 	max-width: 1000px; }
 
 blockquote {
