@@ -1,21 +1,37 @@
 <? $entry_info = nesty_page($page_temp);
 $entry_info = $entry_info[$page_temp];
 
+$retrieve_page->execute(["page_id"=>$page_temp]);
+$result = $retrieve_page->fetchAll();
+foreach ($result as $row):
+	$entry_info['summary'] = json_decode($row['summary'], true);
+	$entry_info['body'] = json_decode($row['body'], true);
+	$entry_info['studies'] = $row['studies'];
+	endforeach;
+
+$appendix_array = [];
+if ($entry_info['type'] == "location"): $appendix_array = [ "unit_id"=>"unit", "parent_id"=>"location" ]; endif;
+if ($entry_info['type'] == "place"): $appendix_array = ["latitude"=>"string", "longitude"=>"string", "priority"=>"checkbox" ]; endif;
+if ($entry_info['type'] == "village"): $appendix_array = ["latitude"=>"string", "longitude"=>"string"]; endif;
+if ($entry_info['type'] == "person"): $appendix_array = [ "birthday"=>"date", "email"=>"string", "telephone"=>"string", "website"=>"string", "facebook"=>"string", "twitter"=>"string" ]; endif;
+
+$new_page = null;
+if ($page_temp == "new"): $new_page = "yes"; endif;
+
 // When tap, then also close the amp-lightbox
 
 echo "<div>Navigation</div>";
 
 echo "<amp-lightbox id='navigation-lightbox'>";
-	
 	echo "<div on='tap:navigation-lightbox.close'><a href='#name'>Short Name</div>";
-	echo "<div>Long Name</div>";
-	echo "<div>Summary</div>";
-	echo "<div>Body</div>";
-	echo "<div>Studies</div>";
-	echo "<div>Relationships</div>";
-	echo "<div>Appendix</div>";
-	echo "<div>Type</div>";
-	
+	echo "<span><a href='#name'>Name</a></span>";
+	echo "<span><a href='#alternate_name'>Alternate name</a></span>";
+	echo "<span><a href='#summary'>Summary</a></span>";
+	echo "<span><a href='#body'>Body</a></span>";
+	echo "<span><a href='#studies'>Studies</a></span>";
+	echo "<span><a href='#relationships'>Relationships</a></span>";
+	if (!(empty($appendix_array))): echo "<span><a href='#appendix'>Appendix</a></span>"; endif;
+	echo "<span><a href='#type'>Type</a></span>";
 	echo "</amp-lightbox>";
 
 // Add a little footer thing to track what's happening...
@@ -57,23 +73,6 @@ echo "<amp-lightbox nodisplay>";
 
 	echo "</amp-lightbox>";
 
-$retrieve_page->execute(["page_id"=>$page_temp]);
-$result = $retrieve_page->fetchAll();
-foreach ($result as $row):
-	$entry_info['summary'] = json_decode($row['summary'], true);
-	$entry_info['body'] = json_decode($row['body'], true);
-	$entry_info['studies'] = $row['studies'];
-	endforeach;
-
-$appendix_array = [];
-if ($entry_info['type'] == "location"): $appendix_array = [ "unit_id"=>"unit", "parent_id"=>"location" ]; endif;
-if ($entry_info['type'] == "place"): $appendix_array = ["latitude"=>"string", "longitude"=>"string", "priority"=>"checkbox" ]; endif;
-if ($entry_info['type'] == "village"): $appendix_array = ["latitude"=>"string", "longitude"=>"string"]; endif;
-if ($entry_info['type'] == "person"): $appendix_array = [ "birthday"=>"date", "email"=>"string", "telephone"=>"string", "website"=>"string", "facebook"=>"string", "twitter"=>"string" ]; endif;
-
-$new_page = null;
-if ($page_temp == "new"): $new_page = "yes"; endif;
-
 echo "<form action='' method='post'>";
 
 $result_temp = file_get_contents("https://".$domain."/api/sitemap/");
@@ -99,18 +98,6 @@ if ($new_page == "yes"):
 	echo "</select>";
 	echo "</form>";
 	footer(); endif;
-
-echo "<div class='edit_bar'>";
-echo "<a href='/".$entry_info['type']."/' target='_blank'><span class='button material-icons'>view_list</span></a>";
-echo "<span><a href='#name'>Name</a></span>";
-echo "<span><a href='#alternate_name'>Alternate name</a></span>";
-echo "<span><a href='#summary'>Summary</a></span>";
-echo "<span><a href='#body'>Body</a></span>";
-echo "<span><a href='#studies'>Studies</a></span>";
-echo "<span><a href='#relationships'>Relationships</a></span>";
-if (!(empty($appendix_array))): echo "<span><a href='#appendix'>Appendix</a></span>"; endif;
-echo "<span><a href='#type'>Type</a></span>";
-echo "</div>";
 
 echo "<h2 id='name'>Name</h2>";
 
