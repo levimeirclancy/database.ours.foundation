@@ -82,26 +82,30 @@ echo "<h2>Title</h2>";
 echo "<p>The title should be shorter than the full name, and easier to comprehend as well.</p>";
 
 foreach ($entry_info['name'] as $language_temp => $value_temp):
-	echo "<label for='name[".$language_temp."]'>Title / ".ucfirst($language_temp)."</label>";
-	echo "<input name='name[".$language_temp."]' value='".htmlspecialchars($value_temp, ENT_QUOTES)."' maxlength='70'>";
+	$placeholder_temp = "Title / ". ucfirst($language_temp);
+	echo "<label for='name[".$language_temp."]'>". $placeholder_temp ."</label>";
+	echo "<input name='name[".$language_temp."]' placeholder='". $placeholder_temp ."' value='".htmlspecialchars($value_temp, ENT_QUOTES)."' maxlength='70'>";
 	endforeach;
 foreach($site_info['languages'] as $language_temp):
 	if (isset($entry_info['name'][$language_temp])): continue; endif;
-	echo "<label for='name[".$language_temp."]'>Title / ".ucfirst($language_temp)."</label>";
-	echo "<input name='name[".$language_temp."]' maxlength='70'>";
+	$placeholder_temp = "Title / ". ucfirst($language_temp);
+	echo "<label for='name[".$language_temp."]'>". $placeholder_temp ."</label>";
+	echo "<input name='name[".$language_temp."]' placeholder='". $placeholder_temp ."' maxlength='70'>";
 	endforeach;
 
 echo "<span id='full_name'></span>";
 echo "<h2>Full name</h2>";
 
 foreach ($entry_info['alternate_name'] as $language_temp => $value_temp):
-	echo "<label for='alternate_name[".$language_temp."]'>alternate name / ".ucfirst($language_temp)."</label>";
-	echo "<input name='alternate_name[".$language_temp."]' value='".htmlspecialchars($value_temp, ENT_QUOTES)."' maxlength='70'>";
+	$placeholder_temp = "Full name / ".ucfirst($language_temp);
+	echo "<label for='alternate_name[".$language_temp."]'>". $placeholder_temp ."</label>";
+	echo "<input name='alternate_name[".$language_temp."]' placeholder='". $placeholder_temp ."' value='".htmlspecialchars($value_temp, ENT_QUOTES)."' maxlength='70'>";
 	endforeach;
 foreach($site_info['languages'] as $language_temp):
 	if (isset($entry_info['alternate_name'][$language_temp])): continue; endif;
-	echo "<label for='alternate_name[".$language_temp."]'>alternate name / ".ucfirst($language_temp)."</label>";
-	echo "<input name='alternate_name[".$language_temp."]' maxlength='70'>";
+	$placeholder_temp = "Full name / ". ucfirst($language_temp);
+	echo "<label for='alternate_name[".$language_temp."]'>". $placeholder_temp ."</label>";
+	echo "<input name='alternate_name[".$language_temp."]' placeholder='". $placeholder_temp ."' maxlength='70'>";
 	endforeach;
 
 echo "<span id='summary'></span>";
@@ -109,13 +113,15 @@ echo "<h2>Summary</h2>";
 echo "<p>This short summary may get used for short-form content like stories, messages, and previews. It can contain multiple short paragraphs with images.</p>";
 
 foreach ($entry_info['summary'] as $language_temp => $value_temp):
-	echo "<label for='summary[".$language_temp."]'>summary / ".ucfirst($language_temp)."</label>";
-	echo "<textarea style='height: 250px;' name='summary[".$language_temp."]' maxlength='1000'>".$value_temp."</textarea>";
+	$placeholder_temp = "Summary / ". ucfirst($language_temp);
+	echo "<label for='summary[".$language_temp."]'>". $placeholder_temp ."</label>";
+	echo "<textarea style='height: 250px;' name='summary[".$language_temp."]' placeholder='". $placeholder_temp ."' maxlength='1000'>".$value_temp."</textarea>";
 	endforeach;
 foreach($site_info['languages'] as $language_temp):
 	if (isset($entry_info['summary'][$language_temp])): continue; endif;
-	echo "<label for='summary[".$language_temp."]'>summary / ".ucfirst($language_temp)."</label>";
-	echo "<textarea style='height: 250px;' name='summary[".$language_temp."]' maxlength='1000'></textarea>";
+	$placeholder_temp = "Summary / ". ucfirst($language_temp);
+	echo "<label for='summary[".$language_temp."]'>". $placeholder_temp ."</label>";
+	echo "<textarea style='height: 250px;' name='summary[".$language_temp."]' placeholder='". $placeholder_temp ."' maxlength='1000'></textarea>";
 	endforeach;
 
 echo "<span id='body'></span>";
@@ -123,22 +129,24 @@ echo "<h2>Body</h2>";
 echo "<p>The body can be as long as wanted, and is long-form content.</p>";
 
 foreach ($entry_info['body'] as $language_temp => $value_temp):
-	echo "<label for='body[".$language_temp."]'>body / ".ucfirst($language_temp)."</label>";
-	echo "<textarea style='height: 500px; max-height: none;' name='body[".$language_temp."]'>".$value_temp."</textarea>";
+	$placeholder_temp = "Body / ". ucfirst($language_temp);
+	echo "<label for='body[".$language_temp."]'>". $placeholder_temp ."</label>";
+	echo "<textarea style='height: 500px; max-height: none;' name='body[".$language_temp."]' placeholder='". $placeholder_temp ."'>".$value_temp."</textarea>";
 	endforeach;
 foreach($site_info['languages'] as $language_temp):
 	if (isset($entry_info['body'][$language_temp])): continue; endif;
-	echo "<label for='body[".$language_temp."]'>body / ".ucfirst($language_temp)."</label>";
-	echo "<textarea style='height: 500px; max-height: none;' name='body[".$language_temp."]'></textarea>";
+	$placeholder_temp = "Body / ". ucfirst($language_temp);
+	echo "<label for='body[".$language_temp."]'>". $placeholder_temp ."</label>";
+	echo "<textarea style='height: 500px; max-height: none;' name='body[".$language_temp."]' placeholder='". $placeholder_temp ."'></textarea>";
 	endforeach;
 
 echo "<span id='studies'></span>";
 echo "<h2>Studies</h2>";
 echo "<p>This is the list of references and notes.</p>";
 
-echo "<label for='studies'>Studies</label>";
-echo "<textarea style='height: 400px;' name='studies'>".$entry_info['studies']."</textarea>";
-
+$placeholder_temp = "Studies";
+echo "<label for='studies'>". $placeholder_temp ."</label>";
+echo "<textarea style='height: 400px;' name='studies' placeholder='". $placeholder_temp ."'>".$entry_info['studies']."</textarea>";
 
 echo "<span id='hierarchy'></span>";
 echo "<h2>Hierarchy</h2>";
@@ -185,9 +193,10 @@ foreach ($entry_info['children'] as $relationship_name => $discard):
 echo "<h2 id='more'>More...</h2>";
 
 foreach ($appendix_array as $appendix_key => $appendix_type):
-	echo "<label for='appendix[".$appendix_key."]'>".str_replace("_", " ", $appendix_key)."</label>";
+	$placeholder_temp = str_replace("_", " ", $appendix_key);
+	echo "<label for='appendix[".$appendix_key."]'>". $placeholder_temp ."</label>";
 	if ($appendix_type == "string"):
-		echo "<input type='text' name='appendix[".$appendix_key."]' value='".htmlspecialchars($entry_info['appendix'][$appendix_key], ENT_QUOTES)."'>";
+		echo "<input type='text' name='appendix[".$appendix_key."]' placeholder='". $placeholder_temp ."' value='".htmlspecialchars($entry_info['appendix'][$appendix_key], ENT_QUOTES)."'>";
 	elseif ($appendix_type == "checkbox"):
 		$checked_temp = null;
 		if ($entry_info['appendix'][$appendix_key] == $appendix_key): $checked_temp = "checked"; endif;
