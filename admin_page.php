@@ -44,13 +44,13 @@ echo "<div>";
 echo "</div>";
 
 // Put it on the left ...
-echo "Add entry";
+echo "<div id='admin-page-add-entry'>Add entry</div>";
 
 // Put it on the right ...
-echo "Delete";
+echo "<div id='admin-page-delete'>Delete</div>";
 
 // Put it on the right ...
-echo "Log out";
+echo "<div id='admin-page-log-out'>Log out</div>";
 
 // Do a delete popover ... redirect if deletion works ...
 
