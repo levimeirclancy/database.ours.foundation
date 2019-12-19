@@ -211,6 +211,10 @@ h1 span {
 	border-bottom: 2px solid rgba(200,200,200,0.8);
 	}
 
+.categories-item-fadeout {
+	opacity: 0.7;
+	}
+
 .categories-item-title {
 	font-size: 80%;
 	display: inline-block;
