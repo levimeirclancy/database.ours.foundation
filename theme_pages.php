@@ -52,20 +52,20 @@ function print_row_loop ($entry_id=null, $indent_level=0) {
 		endif;
 
 	 // Launch the row and indent
-	echo "<span class='categories-item $fadeout_temp'>". $indent_temp;
+	echo "<span class='categories-item $fadeout_temp'>";
 
 	// Add the link to the article
-	echo "<a href='/$entry_id/'><span class='categories-item-title'>". $entry_info['header'] ."</span></a>";
+	echo $indent_temp . "<a href='/$entry_id/'><span class='categories-item-title'>". $entry_info['header'] ."</span></a>";
+	
+	// Add the edit link
+	echo "<a href='/$entry_id/edit/'>";
+	echo "<span class='categories-item-button' [class]=\"loginStatus == 'loggedin' ? 'categories-item-button' : 'hide'\" $logout_hidden>$indent_temp; Edit</span></a>";
 	
 	// Display maps link
     	if (!(empty($entry_info['appendix']['latitude'])) && !(empty($entry_info['appendix']['longitude']))): 
  		echo "<a href='/".$entry_id."/map/' target='_blank'>";
 		echo "<span class='categories-item-button'>Map</span></a>";
     		endif;
-	
-	// Add the edit link
-	echo "<a href='/$entry_id/edit/'>";
-	echo "<span class='categories-item-button' [class]=\"loginStatus == 'loggedin' ? 'categories-item-button' : 'hide'\" $logout_hidden>Edit</span></a>";
 	
 	// Close the row
 	echo "</span>";
