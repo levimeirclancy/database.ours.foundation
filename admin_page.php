@@ -78,8 +78,7 @@ echo "<input type='hidden' name='entry_id' value='$page_temp'>";
 
 echo "<br><span id='title'></span><br><br>";
 echo "<h2>Title</h2>";
-
-echo "<p>The title should be shorter than the full name, and easier to comprehend as well.</p>";
+echo "<p>The title should be shorter than the full name, and easier to comprehend as well. For example, <i>Sagrada Familia</i>.</p>";
 
 foreach ($entry_info['name'] as $language_temp => $value_temp):
 	$placeholder_temp = "Title / ". ucfirst($language_temp);
@@ -95,6 +94,7 @@ foreach($site_info['languages'] as $language_temp):
 
 echo "<span id='full-name'></span>";
 echo "<h2>Full name</h2>";
+echo "<p>The full name of a person should include middle, last, and family names. Places may also have full names, such as <i>Basílica de la Sagrada Familia</i>.</p>";
 
 foreach ($entry_info['alternate_name'] as $language_temp => $value_temp):
 	$placeholder_temp = "Full name / ".ucfirst($language_temp);
@@ -150,6 +150,7 @@ echo "<textarea name='studies' placeholder='". $placeholder_temp ."' class='admi
 
 echo "<span id='hierarchy'></span>";
 echo "<h2>Hierarchy</h2>";
+echo "<p>The hierarchy is the entry's position downstream and upstream of other entries.</p>";
 			
 echo "<input type='hidden' name='parents[]'>";
 echo "<input type='hidden' name='children[]'>";
@@ -203,6 +204,8 @@ foreach ($appendix_array as $appendix_key => $appendix_type):
 		echo "<input type='checkbox' name='appendix[".$appendix_key."].' value='".$appendix_key."' $checked_temp>";
 		endif;
 	endforeach;
+
+echo "<p>An entry's type is its most important organizational component. They are largely self-explanatory, except for 'articles' which are intended to be less research-oriented and more consumption-oriented.</p>";
 
 echo "<label for='type'>Type</label>";
 echo "<select name='type' size='12' required>";
