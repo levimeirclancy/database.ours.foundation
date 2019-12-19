@@ -20,19 +20,19 @@ if ($page_temp == "new"): $new_page = "yes"; endif;
 
 // When tap, then also close the amp-lightbox
 
-echo "<div>Navigation</div>";
+// The navigation backbone...
+echo "<div id='navigation-header'>";
 
-echo "<amp-lightbox id='navigation-lightbox' layout='nodisplay'>";
-	echo "<div on='tap:navigation-lightbox.close'><a href='#name'>Short Name</div>";
-	echo "<span><a href='#name'>Name</a></span>";
-	echo "<span><a href='#alternate_name'>Alternate name</a></span>";
-	echo "<span><a href='#summary'>Summary</a></span>";
-	echo "<span><a href='#body'>Body</a></span>";
-	echo "<span><a href='#studies'>Studies</a></span>";
-	echo "<span><a href='#relationships'>Relationships</a></span>";
-	if (!(empty($appendix_array))): echo "<span><a href='#appendix'>Appendix</a></span>"; endif;
-	echo "<span><a href='#type'>Type</a></span>";
-	echo "</amp-lightbox>";
+	echo "<a href='#name'><div class='navigation-header-item'>Short name</div></a>";
+	echo "<a href='#alternate_name'><div class='navigation-header-item'>Long name</div></a>";
+	echo "<a href='#summary'><div class='navigation-header-item'>Summary</div></a>";
+	echo "<a href='#body'><div class='navigation-header-item'>Body</div></a>";
+	echo "<a href='#studies'><div class='navigation-header-item'>Studies</div></a>";
+	echo "<a href='#relationships'><div class='navigation-header-item'>Relationships</div></a>";
+	if (!(empty($appendix_array))): echo "<a href='#appendix'><div class='navigation-header-item'>Appendix</div></a>"; endif;
+	echo "<a href='#type'><div class='navigation-header-item'>Type</div></a>";
+
+	echo "</div>";
 
 // Add a little footer thing to track what's happening...
 echo "<div>";
