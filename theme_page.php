@@ -15,9 +15,7 @@ foreach ($result as $row):
 //	echo "<a href='/".$page_temp."/flyer/' target='_blank'><div id='messenger-flyer-button' ". $layout_nodisplay_temp .">Get flyer</div></a>";
 //	endif;
 
-if (!(empty($login))):
-	echo "<a href='/".$page_temp."/edit/' target='_blank'><span id='edit-article'>&#10033; Edit article</span></a>";
-	endif;
+echo "<a href='/".$page_temp."/edit/' target='_blank'><span id='edit-entry' $logout_hidden>&#10033; Edit entry</span></a>";
 
 echo "<article><div vocab='http://schema.org/' typeof='Article'>";
 
