@@ -244,8 +244,8 @@ h1 span {
 
 .categories-item-indent {
 	float: left;
-	display: inline;
-	height: 5px;
+	display: table;
+	height: auto;
 	width: 30px;
 	}
 
