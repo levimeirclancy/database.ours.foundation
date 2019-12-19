@@ -93,7 +93,7 @@ h1 span {
 	right: 0;
 	width: 100%;
 	background: rgba(255,255,255,1);
-	box-shadow: 0 0 40px -10px rgba(50,50,50,0.3);
+	box-shadow: 0 5px 40px -13px rgba(50,50,50,0.3);
 	font-size: 80%;
 	padding: 10px;
 	font-size: 80%;
@@ -755,8 +755,8 @@ div.amp-lightbox-media-id {
 #admin-page-add-entry, #admin-page-delete, #admin-page-log-out {
 	font-size: 80%;
 	position: absolute;
-	background: rgba(50,50,50,0.5);
-	color: rgba(255,255,255,1);
+	background-image: linear-gradient(300deg, rgba(250,250,250,1), rgba(240,240,240,1));
+	color: rgba(0,0,0,1);
 	padding: 3px 8px;
 	border-radius: 100px;
 	}
