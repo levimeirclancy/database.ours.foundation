@@ -76,7 +76,7 @@ $additional_array = json_decode($result_temp, true);
 
 echo "<input type='hidden' name='entry_id' value='$page_temp'>";
 
-echo "<br><span id='title'></span><br><br>";
+echo "<br><span id='title'></span><br>";
 echo "<h2>Title</h2>";
 echo "<p>The title should be shorter than the full name, and easier to comprehend as well. For example, <i>Sagrada Familia</i>.</p>";
 
