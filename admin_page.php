@@ -44,7 +44,7 @@ echo "<div>";
 echo "</div>";
 
 // Put it on the left ...
-echo "<div id='admin-page-add-entry'>&#x271A; Add entry</div>";
+echo "<div id='admin-page-new-entry'>&#x271A; New entry</div>";
 
 // Put it on the right ...
 echo "<div id='admin-page-delete'>&#x2B19; Delete entry</div>";
