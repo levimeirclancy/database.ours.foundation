@@ -10,10 +10,11 @@ $site_info = ["languages"=>["english", "sorani", "arabic"]];
 	
 $url_temp = $login = $page = $action = null;
 
-$page_temp = $slug_temp = $command_temp = null;
+$page_temp = $command_temp = null;
 $url_temp = explode("/",$_SERVER['REQUEST_URI']);
 if (!(empty($url_temp['1']))): $page_temp = $url_temp['1']; endif;
 if (!(empty($url_temp['2']))): $command_temp = $url_temp['2']; endif;
+
 
 //if the page is set to log out then logout
 if ($page_temp == "logout-xhr"):
@@ -28,6 +29,7 @@ if ($page_temp == "logout-xhr"):
 	json_result($domain, "success", "/", "Logout was valid.");
 
 	endif;
+
 
 // if we are trying to log in, then check the login
 if ($page_temp == "login-xhr"):
@@ -71,6 +73,7 @@ if ($page_temp == "login-xhr"):
 
 	endif;
 
+
 // if there is a cookie then double-check it
 if (!(empty($_COOKIE['cookie']))):
 	$login = null;
@@ -80,6 +83,160 @@ if (!(empty($_COOKIE['cookie']))):
 		setcookie("cookie", null, time()+2700, '/');
 		permanent_redirect("https://".$domain."/".$page_temp);
 		endif;
+	endif;
+
+
+// if it is delete-xhr
+if ($command_temp == "delete-xhr"):
+
+	// Delete this ...
+	$sql_temp = "DELETE FROM ".$database.".information_paths WHERE (parent_id=:parent_id) OR (child_id=:child_id)";
+	$paths_delete_statement = $connection_pdo->prepare($sql_temp);
+	$paths_delete_statement->execute(["parent_id"=>$page_temp, "child_id"=>$page_temp]);
+	execute_checkup($paths_delete_statement->errorInfo(), "deleting ".$_POST['entry_id']." in information_paths");
+
+	$sql_temp = "DELETE FROM ".$database.".information_directory WHERE entry_id=:entry_id";
+	$directory_delete_statement = $connection_pdo->prepare($sql_temp);
+	$directory_delete_statement->execute(["entry_id"=>$page_temp]);
+	execute_checkup($directory_delete_statement->errorInfo(), "deleting ".$_POST['entry_id']." in information_directory");
+
+	// Then redirect ...
+
+	exit;
+
+	endif;
+
+
+// if it is edit-xhr
+if ($command_temp == "edit-xhr"):
+
+	// Save the latest edits ...
+	if (($page_temp == "new") && ($_POST['entry_id'] = $page_temp)): $_POST['entry_id'] = random_code(7); endif;
+
+	function clean_empty_array($array_temp) {
+		if (ctype_space($array_temp)): return null; endif;
+		foreach ($array_temp as $key_temp => $value_temp):
+			if (empty($value_temp)): unset($array_temp[$key_temp]); continue; endif;
+			if (is_array($value_temp)): $array_temp[$key_temp] = clean_empty_array($value_temp);
+			else:
+				$value_temp = str_replace("[[[", "\n\n[[[", $value_temp);
+				$value_temp = str_replace("]]]", "]]]\n\n", $value_temp);
+				$value_temp = preg_replace("/\r\n/", "\n", $value_temp);
+				$value_temp = preg_replace('/(?:(?:\r\n|\r|\n)\s*){2}/s', "\n\n", $value_temp);
+				$value_temp = trim($value_temp);
+				if (ctype_space($value_temp)): $value_temp = null; endif;		
+				$array_temp[$key_temp] = htmlspecialchars($value_temp);
+				endif;
+			endforeach;
+		return $array_temp; }
+
+	$values_temp = [
+		"entry_id" => $_POST['entry_id'],
+		"type" => $_POST['type'],
+		"name" => $_POST['name'],
+		"alternate_name" => $_POST['alternate_name'],
+		"summary" => $_POST['summary'],
+		"body" => $_POST['body'],
+		"studies" => $_POST['studies'],
+		"appendix" => $_POST['appendix'] ];
+
+	$values_temp = clean_empty_array($values_temp);
+
+	foreach ($values_temp as $key_temp => $value_temp):
+		if (empty($value_temp) || !(is_array($value_temp))): continue; endif;
+		$values_temp[$key_temp] = json_encode($value_temp);
+		endforeach;
+
+	// prepare statement
+	$sql_temp = sql_setup($values_temp, $database.".information_directory");
+	$information_directory_statement = $connection_pdo->prepare($sql_temp);
+	$information_directory_statement->execute($values_temp);
+
+	execute_checkup($information_directory_statement->errorInfo(), "updating ".$_POST['entry_id']." in information_directory");
+
+	$values_temp = [
+		"path_id" => null,
+		"parent_id" => null,
+		"path_type" => null,
+		"child_id" => null ];
+	$sql_temp = sql_setup($values_temp, "information_paths");
+	$information_paths_statement = $connection_pdo->prepare($sql_temp);
+
+	$sql_temp = "DELETE FROM ".$database.".information_paths WHERE (path_id=:path_id) OR (parent_id=:parent_id AND path_type=:path_type AND child_id=:child_id)";
+	$information_paths_remove_statement = $connection_pdo->prepare($sql_temp);
+
+	$path_types_check_array = array_merge(
+		(array)array_keys($_POST['parents']),
+		(array)array_keys($entry_info['parents']),
+		(array)array_keys($_POST['children']),
+		(array)array_keys($entry_info['children']) );
+
+	function paths_check($relationship_type, $parent_id, $path_type, $child_id, $query_id) {
+		global $entry_info;
+		global $_POST;
+		global $connection_pdo;
+		global $information_paths_remove_statement;
+		global $information_paths_statement;
+		$values_temp = [
+			"path_id" => $parent_id."_".$child_id."_".$path_type,
+			"parent_id" => $parent_id,
+			"path_type" => $path_type,
+			"child_id" => $child_id ];
+		if (in_array("clear_selection", $_POST[$relationship_type][$path_type])): $_POST[$relationship_type][$path_type] = []; endif;
+		if (in_array($query_id, $entry_info[$relationship_type][$path_type]) && !(in_array($query_id, $_POST[$relationship_type][$path_type]))):
+			$information_paths_remove_statement->execute($values_temp);
+			execute_checkup($information_paths_remove_statement->errorInfo(), "removing path in information_paths");
+		elseif (!(in_array($query_id, $entry_info[$relationship_type][$path_type])) && in_array($query_id, $_POST[$relationship_type][$path_type])):
+			$information_paths_statement->execute($values_temp);
+			execute_checkup($information_paths_statement->errorInfo(), "adding path in information_paths");
+			endif; }
+
+	foreach ((array)$path_types_check_array as $path_type):
+
+		if (is_int($path_type)): continue; endif;
+
+		if (empty($_POST['parents'][$path_type])): $_POST['parents'][$path_type] = []; endif;
+		if (empty($_POST['children'][$path_type])): $_POST['children'][$path_type] = []; endif;
+		if (empty($entry_info['parents'][$path_type])): $entry_info['parents'][$path_type] = []; endif;
+		if (empty($entry_info['children'][$path_type])): $entry_info['children'][$path_type] = []; endif;
+		$_POST['parents'][$path_type] = (array)$_POST['parents'][$path_type];
+		$_POST['children'][$path_type] = (array)$_POST['children'][$path_type];
+		$entry_info['parents'][$path_type] = (array)$entry_info['parents'][$path_type];
+		$entry_info['children'][$path_type] = (array)$entry_info['children'][$path_type];
+
+		$parents_temp = array_merge($_POST['parents'][$path_type], $entry_info['parents'][$path_type]);
+		foreach($parents_temp as $path_temp):
+			paths_check ("parents", $path_temp, $path_type, $_POST['entry_id'], $path_temp);
+			endforeach;
+
+		$children_temp = array_merge($_POST['children'][$path_type], $entry_info['children'][$path_type]);
+		foreach($children_temp as $path_temp):
+			paths_check ("children", $_POST['entry_id'], $path_type, $path_temp, $path_temp);
+			endforeach;
+
+		endforeach;
+
+	if ($page_temp == "new"): replace_redirect("https://".$domain."/".$_POST['entry_id']."/edit/"); endif;
+
+	$entry_info = nesty_page($page_temp);
+	$entry_info = $entry_info[$page_temp];
+
+	// Give what saved ...
+
+	exit;
+
+	endif;
+
+
+// if it is add-xhr
+if ($command_temp == "add-xhr"):
+
+	// Add an entry ...
+
+	// Redirect to the edit ...
+
+	exit;
+
 	endif;
 
 // To display the login or logout buttons
