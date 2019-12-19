@@ -755,8 +755,10 @@ div.amp-lightbox-media-id {
 #admin-page-add-entry, #admin-page-delete, #admin-page-log-out {
 	font-size: 80%;
 	position: absolute;
-	background: rgba(50,50,50,0.4);
+	background: rgba(50,50,50,0.5);
 	color: rgba(255,255,255,1);
+	padding: 3px 8px;
+	border-radius: 100px;
 	}
 
 #admin-page-add-entry {
