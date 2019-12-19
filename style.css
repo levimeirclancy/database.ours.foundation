@@ -208,7 +208,7 @@ h1 span {
 	display: block;
 	margin: 10px;
 	padding: 5px 0 10px;
-	border-bottom: 2px solid rgba(200,200,200,0.8);
+	border-top: 2px solid rgba(200,200,200,0.8);
 	}
 
 .categories-item-fadeout {
