@@ -753,11 +753,11 @@ div.amp-lightbox-media-id {
 /* EDIT */
 
 #admin-page-add-entry, #admin-page-delete, #admin-page-log-out {
-	font-size: 80%;
+	font-size: 70%;
 	position: absolute;
 	background-image: linear-gradient(300deg, rgba(250,250,250,1), rgba(240,240,240,1));
 	color: rgba(0,0,0,1);
-	padding: 3px 8px;
+	padding: 5px 10px;
 	border-radius: 100px;
 	}
 
