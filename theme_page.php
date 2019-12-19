@@ -9,11 +9,11 @@ foreach ($result as $row):
 	endforeach;
 
 
-if (!(empty($messenger_bot)) && file_exists("messenger/".$entry_info['entry_id'].".png")):
-	echo "<div id='messenger-code-image' ". $layout_nodisplay_temp .">";
-	echo "<a href='http://m.me/".$messenger_bot."?ref=entry_id=".$page_temp."' target='_blank'><amp-img src='/messenger/".$entry_info['entry_id'].".png' width='200px' height='200px'></amp-img></a></div>";
-	echo "<a href='/".$page_temp."/flyer/' target='_blank'><div id='messenger-flyer-button' ". $layout_nodisplay_temp .">Get flyer</div></a>";
-	endif;
+// if (!(empty($messenger_bot)) && file_exists("messenger/".$entry_info['entry_id'].".png")):
+//	echo "<div id='messenger-code-image' ". $layout_nodisplay_temp .">";
+//	echo "<a href='http://m.me/".$messenger_bot."?ref=entry_id=".$page_temp."' target='_blank'><amp-img src='/messenger/".$entry_info['entry_id'].".png' width='200px' height='200px'></amp-img></a></div>";
+//	echo "<a href='/".$page_temp."/flyer/' target='_blank'><div id='messenger-flyer-button' ". $layout_nodisplay_temp .">Get flyer</div></a>";
+//	endif;
 
 if (!(empty($login))):
 	echo "<a href='/".$page_temp."/edit/' target='_blank'><span class='navigation-header-item-option'>&#10033; Edit article</span></a>";
