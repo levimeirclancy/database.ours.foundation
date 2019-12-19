@@ -5,6 +5,8 @@ echo "<p><b>".$header_array[$page_temp]."</b></p>";
 
 if (empty($information_array)): echo "<p>Empty. Consider adding an article.</p>"; footer(); endif;
 
+echo "<br><br>";
+
 $unit_array = [];
 if (in_array($page_temp, ["location"])):
 	$result_temp = file_get_contents("https://".$domain."/api/sitemap/?type=unit");
