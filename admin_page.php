@@ -23,7 +23,7 @@ if ($page_temp == "new"): $new_page = "yes"; endif;
 // The navigation backbone...
 echo "<div id='navigation-header'>";
 
-	echo "<a href='#name'><div class='navigation-header-item'>Short name</div></a>";
+	echo "<a href='#name'><div class='navigation-header-item'>Name</div></a>";
 	echo "<a href='#alternate_name'><div class='navigation-header-item'>Long name</div></a>";
 	echo "<a href='#summary'><div class='navigation-header-item'>Summary</div></a>";
 	echo "<a href='#body'><div class='navigation-header-item'>Body</div></a>";
