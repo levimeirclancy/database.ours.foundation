@@ -83,6 +83,8 @@ function amp_header($title=null, $canonical=null) {
 		echo '</script></amp-analytics>';
 		endif;
 	
+	if ($command_temp == "edit"): return; endif;
+	
 	// The navigation backbone...
 	echo "<div id='navigation-header'>";
 
