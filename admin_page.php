@@ -77,15 +77,6 @@ $additional_array = json_decode($result_temp, true);
 
 echo "<input type='hidden' name='entry_id' value='$page_temp'>";
 
-if ($new_page == "yes"):
-	echo "<select name='type' size='12' required>";
-	foreach (array_keys($header_array) as $value_temp):
-		echo "<option value='".$value_temp."'>".$value_temp."</option>";
-		endforeach;
-	echo "</select>";
-	echo "</form>";
-	footer(); endif;
-
 echo "<span id='title'></span>";
 echo "<h2>Title</h2>";
 
