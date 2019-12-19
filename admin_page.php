@@ -54,7 +54,7 @@ echo "Log out";
 
 // Do a delete popover ... redirect if deletion works ...
 
-echo "<amp-lightbox nodisplay>";
+echo "<amp-lightbox layout='nodisplay'>";
 
 	echo "<p>Do you really want to delete this page?<br>";
 	echo "<a href='https://".$domain."/".$_POST['entry_id']."/'>https://".$domain."/".$_POST['entry_id']."/</a></p>";
