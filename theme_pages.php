@@ -42,33 +42,26 @@ function print_row_loop ($entry_id=null, $indent_level=0) {
 	
 	$count_temp = 0; $indent_temp = null;
 	while ($count_temp < $indent_level):
-		$indent_temp .= "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+		$indent_temp .= "&#x2B91;";
 		$count_temp++;
 		endwhile;
 	
-	echo "<tr id='$entry_id'>";
-	
-       	// display names
-	if ($entry_info['type'] !== $page_temp):
-		echo "<td colspan='all' class='fadeout'>";
-		if (!(empty($login))): echo "<a href='/$entry_id/edit/'><i class='material-icons'>edit</i></a> &nbsp;&nbsp;&nbsp;&nbsp;"; endif;
-		echo $indent_temp . "<a href='/$entry_id/'>".$entry_info['header']."&nbsp;&nbsp;&nbsp;&nbsp;<i>".$entry_info['type']."</i></td></tr>";
+       	// Display names
+	if ($entry_info['type'] !== $page_temp): // add italic
+		echo $indent_temp . "<a href='/$entry_id/'>". $entry_info['header'] ."&nbsp;&nbsp;&nbsp;&nbsp;<i>".$entry_info['type']."</i>";
 	else:
-		echo "<td>";
-		if (!(empty($login))): echo "<a href='/$entry_id/edit/'><i class='material-icons fadeout'>edit</i></a> &nbsp;&nbsp;&nbsp;&nbsp;"; endif;
-		echo $indent_temp . "<a href='/$entry_id/'>" . $entry_info['header'] . "</a></span></td>";
-		
-	    	// display latitude, longitude, and maps
-		echo "<td>";
-    		if (!(empty($entry_info['appendix']['latitude'])) && !(empty($entry_info['appendix']['longitude']))):
- 			echo "<a href='https://".$domain."/".$entry_id."/map/' target='_blank'><i class='material-icons'>map</i></a>";
-    			endif;
-		echo "</td>";
- 
+		echo $indent_temp . "<a href='/$entry_id/'>" . $entry_info['header'] . "</a>";
 		endif;
 
-    	echo "</tr>";
+	echo "<a href='/$entry_id/edit/' [class]><i class='material-icons' [class]=\"loginStatus == 'loggedin' ? '' : 'hide'\">edit</i></a>";
 
+	// Display maps link
+    	if (!(empty($entry_info['appendix']['latitude'])) && !(empty($entry_info['appendix']['longitude']))):
+ 		echo "<a href='https://".$domain."/".$entry_id."/map/' target='_blank'><i class='material-icons'>map</i></a>";
+    		endif;
+	
+	echo "<hr>";
+	 
 	if (!(empty($entry_info['children']['hierarchy']))):
 		$indent_level++;
 		$children_temp = array_intersect(array_keys($information_array), $entry_info['children']['hierarchy']); // sets the ordering
@@ -76,21 +69,12 @@ function print_row_loop ($entry_id=null, $indent_level=0) {
 			print_row_loop ($child_id, $indent_level);
 			endforeach;
 		endif;
-	} ?>
+	}
 
-<table>
-<thead><tr>
-	<th>Name</th>
-	<th>Map</th>
-	</tr></thead>
-<tbody>
-	
-<? foreach ($information_array as $entry_id => $entry_info):
+foreach ($information_array as $entry_id => $entry_info):
 //	if (array_intersect($entry_info['parents']['hierarchy'], array_keys($information_array))): continue; endif;
 	if (empty($entry_id)): continue; endif;
 	print_row_loop ($entry_id, 0);
-	endforeach; ?>
+	endforeach;
 
-</tbody></table>
-
-<? footer(); ?>
+footer();
