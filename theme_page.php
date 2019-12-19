@@ -68,8 +68,8 @@ if (!(empty($entry_info['summary']))): $languages_temp = array_merge($languages_
 if (!(empty($entry_info['body']))): $languages_temp = array_merge($languages_temp, array_keys($entry_info['body'])); endif;
 if (!(empty($languages_temp))): $languages_temp = array_unique($languages_temp); endif;
 if (count($languages_temp) > 1):
-	echo "<p><b>languages</b>";
-	foreach($languages_temp as $language_temp): echo "<a href='#".$language_temp."'><span>".$language_temp."</span></a>"; endforeach;
+	echo "<p><b>Languages</b>";
+	foreach($languages_temp as $language_temp): echo "<a href='#".$language_temp."'><span>".ucfirst($language_temp)."</span></a>"; endforeach;
 	echo "</p>";
 	endif;
 
