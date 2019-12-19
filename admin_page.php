@@ -29,8 +29,7 @@ echo "<div id='navigation-header'>";
 	echo "<a href='#body'><div class='navigation-header-item'>Body</div></a>";
 	echo "<a href='#studies'><div class='navigation-header-item'>Studies</div></a>";
 	echo "<a href='#relationships'><div class='navigation-header-item'>Relationships</div></a>";
-	if (!(empty($appendix_array))): echo "<a href='#appendix'><div class='navigation-header-item'>Appendix</div></a>"; endif;
-	echo "<a href='#type'><div class='navigation-header-item'>Type</div></a>";
+	echo "<a href='#more'><div class='navigation-header-item'>More...</div></a>";
 
 	echo "</div>";
 
@@ -183,23 +182,18 @@ foreach ($entry_info['children'] as $relationship_name => $discard):
 	relationships_edit("children", $relationship_name, $additional_array, "multiple");
 	endforeach;
 
-if (!(empty($appendix_array))):
+echo "<h2 id='more'>More...</h2>";
 
-	echo "<h2 id='appendix'>Appendix</h2>";
-
-	foreach ($appendix_array as $appendix_key => $appendix_type):
-		echo "<label for='appendix[".$appendix_key."]'>".str_replace("_", " ", $appendix_key)."</label>";
-		if ($appendix_type == "string"):
-			echo "<input type='text' name='appendix[".$appendix_key."]' value='".htmlspecialchars($entry_info['appendix'][$appendix_key], ENT_QUOTES)."'>";
-		elseif ($appendix_type == "checkbox"):
-			$checked_temp = null;
-			if ($entry_info['appendix'][$appendix_key] == $appendix_key): $checked_temp = "checked"; endif;
-			echo "<input type='checkbox' name='appendix[".$appendix_key."].' value='".$appendix_key."' $checked_temp>";
-			endif;
-		endforeach;
-	endif;
-
-echo "<h2 id='type'>Type</h2>";
+foreach ($appendix_array as $appendix_key => $appendix_type):
+	echo "<label for='appendix[".$appendix_key."]'>".str_replace("_", " ", $appendix_key)."</label>";
+	if ($appendix_type == "string"):
+		echo "<input type='text' name='appendix[".$appendix_key."]' value='".htmlspecialchars($entry_info['appendix'][$appendix_key], ENT_QUOTES)."'>";
+	elseif ($appendix_type == "checkbox"):
+		$checked_temp = null;
+		if ($entry_info['appendix'][$appendix_key] == $appendix_key): $checked_temp = "checked"; endif;
+		echo "<input type='checkbox' name='appendix[".$appendix_key."].' value='".$appendix_key."' $checked_temp>";
+		endif;
+	endforeach;
 
 echo "<label for='type'>Type</label>";
 echo "<select name='type' size='12' required>";
