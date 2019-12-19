@@ -28,7 +28,7 @@ echo "<div id='navigation-header'>";
 	echo "<a href='#summary'><div class='navigation-header-item'>Summary</div></a>";
 	echo "<a href='#body'><div class='navigation-header-item'>Body</div></a>";
 	echo "<a href='#studies'><div class='navigation-header-item'>Studies</div></a>";
-	echo "<a href='#relationships'><div class='navigation-header-item'>Relationships</div></a>";
+	echo "<a href='#hierarchy'><div class='navigation-header-item'>Hierarchy</div></a>";
 	echo "<a href='#more'><div class='navigation-header-item'>More...</div></a>";
 
 	echo "</div>";
@@ -140,8 +140,8 @@ echo "<label for='studies'>Studies</label>";
 echo "<textarea style='height: 400px;' name='studies'>".$entry_info['studies']."</textarea>";
 
 
-echo "<span id='relationships'></span>";
-echo "<h2>Relationships</h2>";
+echo "<span id='hierarchy'></span>";
+echo "<h2>Hierarchy</h2>";
 			
 echo "<input type='hidden' name='parents[]'>";
 echo "<input type='hidden' name='children[]'>";
