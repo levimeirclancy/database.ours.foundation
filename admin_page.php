@@ -205,7 +205,7 @@ foreach ($appendix_array as $appendix_key => $appendix_type):
 		endif;
 	endforeach;
 
-echo "<p>An entry's type is its most important organizational component. They are largely self-explanatory, except for 'articles' which are intended to be less research-oriented and more consumption-oriented.</p>";
+echo "<p>An entry's type is its most important organizational component. Types are largely self-explanatory, except for 'articles' which are intended to be less research-oriented and more consumption-oriented.</p>";
 
 echo "<label for='type'>Type</label>";
 echo "<select name='type' size='12' required>";
