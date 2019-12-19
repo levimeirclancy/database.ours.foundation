@@ -776,6 +776,37 @@ div.amp-lightbox-media-id {
 	right: 10px;
 	}
 
+.admin-page-form label, .admin-page-form input {
+	display: block;
+	margin: 5px auto;
+	max-width: 400px;
+	width: 95%;
+	text-align: left;
+	border: 0;
+	color: rgba(100,100,100,0.8);
+	border-radius: 0;
+	box-sizing: border-box;
+	}
+
+.admin-page-form label {
+	font-size: 70%;
+	padding: 30px 20px 0;
+	}
+
+.admin-page-form input {
+	font-size: 75%;
+	padding: 15px 20px;
+	background: rgba(235,235,235,1);
+	border-bottom: 1px solid rgba(255,255,255,0.4);
+	box-shadow: 3px 12px 12px -9px rgba(50,50,50,0.2);
+	}
+
+.admin-page-form textarea {
+	font-size: 70%;
+	padding: 30px 20px 0;
+	display: block;
+	}
+
 
 /* Table breaks for mobile */
 
