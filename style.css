@@ -214,6 +214,8 @@ h1 span {
 .categories-item-title {
 	font-size: 80%;
 	display: inline-block;
+	padding: 3px 13px;
+	margin: 3px 16px 3px 0;
 	}
 
 .categories-item-button {
