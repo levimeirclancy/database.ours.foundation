@@ -23,15 +23,15 @@ echo "<header><h1 property='name'><span>" . implode("</span> &bull; <span>", $en
 
 echo "<div class='genealogy_interstice' amp-fx='parallax' data-parallax-factor='1.1'>";
 
-echo "<p ". $layout_nodisplay_temp ."><b>type</b><span>".$entry_info['type']."</span></p>";
+echo "<p ". $layout_nodisplay_temp ."><b>Type</b><span>".$entry_info['type']."</span></p>";
 
 if ($entry_info['type'] == "location"):
-	$string_temp = "<b ". $layout_nodisplay_temp .">unit</b><span>{{{".$entry_info['unit_id'][0]."}}}</span>";
+	$string_temp = "<b ". $layout_nodisplay_temp .">Unit</b><span>{{{".$entry_info['unit_id'][0]."}}}</span>";
 	echo body_process($string_temp);
 	endif;
 
 if (!(empty($entry_info['appendix']['latitude'])) && !(empty($entry_info['appendix']['longitude']))):
-	echo "<p><b>map</b>";
+	echo "<p><b>Map</b>";
 	echo "<a href='https://".$domain."/".$entry_info['entry_id']."/map/' target='_blank'><span>";
 	echo substr($entry_info['appendix']['latitude'],0,6).", ".substr($entry_info['appendix']['longitude'],0,6);
 	echo "</span></a></p>";
@@ -45,7 +45,7 @@ if (!(empty($entry_info['parents']['hierarchy']))):
 		$entry_array[] = "{{{".$parent_id."}}}";
 		endforeach;
 	if (!(empty($entry_array))):
-		$entry_array = "<b>parents</b><span>".implode("</span><span>", $entry_array)."</span>";
+		$entry_array = "<b>Parents</b><span>".implode("</span><span>", $entry_array)."</span>";
 		echo body_process($entry_array);
 		endif;
 	endif;
@@ -58,7 +58,7 @@ if (!(empty($entry_info['children']['hierarchy']))):
 		$entry_array[] = "{{{".$child_id."}}}";
 		endforeach;
 	if (!(empty($entry_array))):
-		$entry_array = "<b>subpages</b><span>".implode("</span><span>", $entry_array)."</span>";
+		$entry_array = "<b>Subpages</b><span>".implode("</span><span>", $entry_array)."</span>";
 		echo body_process($entry_array);
 		endif;
 	endif;
