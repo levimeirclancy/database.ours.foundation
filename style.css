@@ -314,8 +314,7 @@ hr {
 	display: block;
 	clear: both;
 	text-align: center;
-	margin: 90px 30px 110px;
-	width: 90%;
+	margin: 90px 20px 110px;
 	max-width: 1200px;
 	height: 5px;
 	background: rgba(200,200,200,0.5);
