@@ -62,7 +62,7 @@ header {
 h1 {
 	text-align: center;
 	color: rgba(50,50,50,1);
-	margin: 0 auto 20px;
+	margin: 20px auto 0;
 	padding: 0;
 	display: block;
 	font-size: 130%;
@@ -545,7 +545,7 @@ ol ol ol {
 	}
 
 @media only screen and (max-width: 531px)  {
-	#edit-entry { top: 140px; }
+	#edit-entry { top: 150px; }
 	}
 
 
