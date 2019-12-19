@@ -115,13 +115,13 @@ echo "<p>This short summary may get used for short-form content like stories, me
 foreach ($entry_info['summary'] as $language_temp => $value_temp):
 	$placeholder_temp = "Summary / ". ucfirst($language_temp);
 	echo "<label for='summary[".$language_temp."]'>". $placeholder_temp ."</label>";
-	echo "<textarea style='height: 250px;' name='summary[".$language_temp."]' placeholder='". $placeholder_temp ."' maxlength='1000'>".$value_temp."</textarea>";
+	echo "<textarea name='summary[".$language_temp."]' placeholder='". $placeholder_temp ."' class='admin-page-form-summary' maxlength='1000'>".$value_temp."</textarea>";
 	endforeach;
 foreach($site_info['languages'] as $language_temp):
 	if (isset($entry_info['summary'][$language_temp])): continue; endif;
 	$placeholder_temp = "Summary / ". ucfirst($language_temp);
 	echo "<label for='summary[".$language_temp."]'>". $placeholder_temp ."</label>";
-	echo "<textarea style='height: 250px;' name='summary[".$language_temp."]' placeholder='". $placeholder_temp ."' maxlength='1000'></textarea>";
+	echo "<textarea name='summary[".$language_temp."]' placeholder='". $placeholder_temp ."' class='admin-page-form-summary' maxlength='1000'></textarea>";
 	endforeach;
 
 echo "<span id='body'></span>";
@@ -131,13 +131,13 @@ echo "<p>The body can be as long as wanted, and is long-form content.</p>";
 foreach ($entry_info['body'] as $language_temp => $value_temp):
 	$placeholder_temp = "Body / ". ucfirst($language_temp);
 	echo "<label for='body[".$language_temp."]'>". $placeholder_temp ."</label>";
-	echo "<textarea style='height: 500px; max-height: none;' name='body[".$language_temp."]' placeholder='". $placeholder_temp ."'>".$value_temp."</textarea>";
+	echo "<textarea name='body[".$language_temp."]' placeholder='". $placeholder_temp ."' class='admin-page-form-body'>".$value_temp."</textarea>";
 	endforeach;
 foreach($site_info['languages'] as $language_temp):
 	if (isset($entry_info['body'][$language_temp])): continue; endif;
 	$placeholder_temp = "Body / ". ucfirst($language_temp);
 	echo "<label for='body[".$language_temp."]'>". $placeholder_temp ."</label>";
-	echo "<textarea style='height: 500px; max-height: none;' name='body[".$language_temp."]' placeholder='". $placeholder_temp ."'></textarea>";
+	echo "<textarea name='body[".$language_temp."]' placeholder='". $placeholder_temp ."' class='admin-page-form-body'></textarea>";
 	endforeach;
 
 echo "<span id='studies'></span>";
