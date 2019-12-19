@@ -187,8 +187,8 @@ amp-lightbox {
 
 #login-popover-submit {
 	font-size: 80%;
-	display: inline-block;
-	max-width: 300px;
+	display: table;
+	max-width: 200px;
 	margin: 30px auto;
 	padding: 10px 60px;
 	border: 0;
