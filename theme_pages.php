@@ -60,7 +60,7 @@ function print_row_loop ($entry_id=null, $indent_level=0) {
 	
 	// Add the edit link
 	echo "<a href='/$entry_id/edit/'>";
-	echo "<span class='categories-item-button' [class]=\"loginStatus == 'loggedin' ? 'hide' : 'categories-item-button'\" $logout_hidden>$indent_temp Edit</span></a>";
+	echo "<span class='categories-item-button' [class]=\"loginStatus == 'loggedin' ? 'hide' : 'categories-item-button'\" $logout_hidden>Edit</span></a>";
 	
 	// Display maps link
     	if (!(empty($entry_info['appendix']['latitude'])) && !(empty($entry_info['appendix']['longitude']))): 
