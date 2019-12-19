@@ -114,7 +114,7 @@ h1 span {
 	vertical-align: top;
 	}
 
-#categories-popover, #search-popover, #login-popover, #settings-popover, #new-popover {
+amp-lightbox {
 	margin: 0 10px;
 	padding: 60px 0 30px;
 	background: rgba(255,255,255,1);
