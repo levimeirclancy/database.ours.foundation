@@ -64,10 +64,7 @@ echo "<amp-lightbox layout='nodisplay'>";
 	echo "<input type='hidden' name='entry_id' value='".$page_temp."'>";
 
 	echo "<div class='hover_overlay hover_bottomleft'>";
-	echo "<button type='submit' name='delete_entry' value='".$page_temp."' class='material-icons'>delete</button></div>";
-
-	echo "<div class='hover_overlay hover_bottomright'>";
-	echo "<a href='/".$_POST['entry_id']."/edit/'><span class='button material-icons'>undo</span></a></div>";
+	echo "<button type='submit' name='delete_entry' value='".$page_temp."'>Delete</button></div>";
 
 	echo "</form>";
 
@@ -77,16 +74,6 @@ echo "<form action='' method='post'>";
 
 $result_temp = file_get_contents("https://".$domain."/api/sitemap/");
 $additional_array = json_decode($result_temp, true);
-
-echo "<div class='hover_overlay hover_bottomright'>";
-echo "<button type='submit' name='save_changes' value='save' class='material-icons'>save</button>";
-if ($new_page !== "yes"):
-	echo "<div><button type='submit' name='delete_entry' value='delete' class='material-icons'>delete</button></div></div>";
-	echo "<a href='/new/' target='_blank'><div class='hover_overlay hover_bottomleft material-icons'><span>add_circle</span></div></a>";
-else:
-	echo "</div>";
-	endif;
-
 
 echo "<input type='hidden' name='entry_id' value='$page_temp'>";
 
