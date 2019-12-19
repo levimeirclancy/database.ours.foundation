@@ -24,7 +24,7 @@ if ($page_temp == "new"): $new_page = "yes"; endif;
 echo "<div id='navigation-header'>";
 
 	echo "<a href='#title'><div class='navigation-header-item'>Title</div></a>";
-	echo "<a href='#alternate_name'><div class='navigation-header-item'>Long name</div></a>";
+	echo "<a href='#full_name'><div class='navigation-header-item'>Full name</div></a>";
 	echo "<a href='#summary'><div class='navigation-header-item'>Summary</div></a>";
 	echo "<a href='#body'><div class='navigation-header-item'>Body</div></a>";
 	echo "<a href='#studies'><div class='navigation-header-item'>Studies</div></a>";
@@ -86,7 +86,9 @@ if ($new_page == "yes"):
 	echo "</form>";
 	footer(); endif;
 
-echo "<h2 id='title'>Title</h2>";
+echo "<h2 class='edit-header' id='title'>Title</h2>";
+
+echo "<p>The title should be shorter and easier to comprehend compared to the full name.</p>";
 
 foreach ($entry_info['name'] as $language_temp => $value_temp):
 	echo "<h6>Title / ".$language_temp."</h6>";
@@ -98,7 +100,7 @@ foreach($site_info['languages'] as $language_temp):
 	echo "<input name='name[".$language_temp."]' maxlength='70'>";
 	endforeach;
 
-echo "<h2 id='alternate_name'>Alternate name</h2>";
+echo "<h2 id='full_name'>Full name</h2>";
 
 foreach ($entry_info['alternate_name'] as $language_temp => $value_temp):
 	echo "<h6>alternate name / ".$language_temp."</h6>";
