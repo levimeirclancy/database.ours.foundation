@@ -64,7 +64,7 @@ function print_row_loop ($entry_id=null, $indent_level=0) {
 	
 	// Display maps link
     	if (!(empty($entry_info['appendix']['latitude'])) && !(empty($entry_info['appendix']['longitude']))): 
- 		echo "<br>". $indent_temp ."<a href='/".$entry_id."/map/' target='_blank'><span class='categories-item-button'>Map</span></a>";
+ 		echo "<a href='/".$entry_id."/map/' target='_blank'><span class='categories-item-button'>Map</span></a>";
     		endif;
 	
 	// Close the row
