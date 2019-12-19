@@ -23,7 +23,7 @@ if ($page_temp == "new"): $new_page = "yes"; endif;
 // The navigation backbone...
 echo "<div id='navigation-header'>";
 
-	echo "<a href='#name'><div class='navigation-header-item'>Name</div></a>";
+	echo "<a href='#title'><div class='navigation-header-item'>Title</div></a>";
 	echo "<a href='#alternate_name'><div class='navigation-header-item'>Long name</div></a>";
 	echo "<a href='#summary'><div class='navigation-header-item'>Summary</div></a>";
 	echo "<a href='#body'><div class='navigation-header-item'>Body</div></a>";
@@ -86,15 +86,15 @@ if ($new_page == "yes"):
 	echo "</form>";
 	footer(); endif;
 
-echo "<h2 id='name'>Name</h2>";
+echo "<h2 id='title'>Title</h2>";
 
 foreach ($entry_info['name'] as $language_temp => $value_temp):
-	echo "<h6>name / ".$language_temp."</h6>";
+	echo "<h6>Title / ".$language_temp."</h6>";
 	echo "<input name='name[".$language_temp."]' value='".htmlspecialchars($value_temp, ENT_QUOTES)."' maxlength='70'>";
 	endforeach;
 foreach($site_info['languages'] as $language_temp):
 	if (isset($entry_info['name'][$language_temp])): continue; endif;
-	echo "<h6>name / ".$language_temp."</h6>";
+	echo "<h6>Title / ".$language_temp."</h6>";
 	echo "<input name='name[".$language_temp."]' maxlength='70'>";
 	endforeach;
 
