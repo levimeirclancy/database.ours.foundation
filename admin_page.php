@@ -92,7 +92,7 @@ $additional_array = json_decode($result_temp, true);
 
 echo "<input type='hidden' name='entry_id' value='$page_temp'>";
 
-echo "<p><a href='https://".$domain."/".$page_temp."' target='_blank'>".$domain."/".$page_temp."</a>.</p>";
+echo "<h1><a href='https://".$domain."/".$page_temp."' target='_blank'>".$domain."/".$page_temp."</a></h1>";
 
 echo "<span id='title'></span>";
 echo "<h2>Title</h2>";
