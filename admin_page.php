@@ -92,7 +92,7 @@ $additional_array = json_decode($result_temp, true);
 
 echo "<input type='hidden' name='entry_id' value='$page_temp'>";
 
-echo "<h1><a href='https://".$domain."/".$page_temp."' target='_blank'>".$domain."/".$page_temp."</a></h1>";
+echo "<h1><a href='https://".$domain."/".$page_temp."/' target='_blank'>".$domain."/".$page_temp."/</a></h1>";
 
 echo "<span id='title'></span>";
 echo "<h2>Title</h2>";
@@ -233,6 +233,8 @@ foreach (array_keys($header_array) as $value_temp):
 	echo "<option value='".$value_temp."'>".$value_temp."</option>";
 	endforeach;
 echo "</select>";
+
+echo "<span id='admin-page-form-submit'>Save</span>";
 
 echo "</form>";
 
