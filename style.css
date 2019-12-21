@@ -855,7 +855,6 @@ div.amp-lightbox-media-id {
 	right: 0;
 	padding: 8px 90px 8px 10px;
 	background: rgba(240,240,240,1);
-	border-top: 3px solid rgba(130,130,130,1);
 	color: rgba(50,50,50,1);
 	box-shadow: 0 0 25px 0 rgba(50,50,50,0.2);
 	font-size: 80%;
@@ -863,15 +862,14 @@ div.amp-lightbox-media-id {
 
 #admin-page-form-submit {
 	position: fixed;
-	bottom: 12px;
-	right: 15px;
+	bottom: 0;
+	right: 0;
 	background: rgba(130,130,130,1);
 	color: rgba(255,255,255,1);
 	padding: 8px 20px;
-	box-shadow: 0 0 25px 0 rgba(50,50,50,0.3);
-	border-radius: 150px;
+	border-radius: 0;
 	font-size: 90%;
-	border-bottom: 1px solid rgba(255,255,255,0.6);
+	border-left: 5px solid rgba(255,255,255,0.6);
 	}
 
 
