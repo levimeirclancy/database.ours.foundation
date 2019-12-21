@@ -42,7 +42,7 @@ echo "<div>";
 
 echo "</div>";
 
-echo "<div id='admin-page-actions'>";
+echo "<div id='admin-page-actions' amp-fx='parallax' data-parallax-factor='1.2'>";
 echo "<div id='admin-page-new-entry' on='tap:new-popover'>&#x271A; New entry</div>";
 echo "<div id='admin-page-delete' on='tap:delete-popover'>&#x2B19; Delete entry</div>";
 echo "<div id='admin-page-log-out' on='tap:logout-popover'>&#x2716; Log out</div>";
@@ -234,7 +234,9 @@ foreach (array_keys($header_array) as $value_temp):
 	endforeach;
 echo "</select>";
 
-echo "<span id='admin-page-form-submit'>Save</span>";
+echo "<div id='admin-page-form-snackbar'>...</div>";
+
+echo "<div id='admin-page-form-submit'>Save</div>";
 
 echo "</form>";
 
