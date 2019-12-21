@@ -862,12 +862,12 @@ div.amp-lightbox-media-id {
 
 #admin-page-form-submit {
 	position: fixed;
-	bottom: 10px;
-	right: 10px;
+	bottom: 12px;
+	right: 15px;
 	background-image: linear-gradient(300deg, rgba(100,100,100,1), rgba(130,130,130,1));
 	color: rgba(255,255,255,1);
 	padding: 8px 17px;
-	box-shadow: 0 0 25px -1px rgba(50,50,50,0.2);
+	box-shadow: 0 0 25px -1px rgba(50,50,50,0.3);
 	border-radius: 150px;
 	font-size: 90%;
 	}
