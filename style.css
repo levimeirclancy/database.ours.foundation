@@ -854,9 +854,9 @@ div.amp-lightbox-media-id {
 	left: 0;
 	right: 0;
 	padding: 8px 90px 8px 10px;
-	background-image: linear-gradient(300deg, rgba(225,225,225,1), rgba(245,245,245,1));
+	background-image: linear-gradient(140deg, rgba(225,225,225,1), rgba(245,245,245,1));
 	color: rgba(50,50,50,1);
-	box-shadow: 0 0 25px 0 rgba(50,50,50,0.2);
+	box-shadow: 0 0 25px 0 rgba(50,50,50,0.3);
 	font-size: 80%;
 	}
 
@@ -867,7 +867,7 @@ div.amp-lightbox-media-id {
 	background-image: linear-gradient(300deg, rgba(100,100,100,1), rgba(130,130,130,1));
 	color: rgba(255,255,255,1);
 	padding: 8px 20px;
-	box-shadow: 0 0 20px 0 rgba(40,40,40,0.4);
+	box-shadow: 0 0 25px 0 rgba(50,50,50,0.3);
 	border-radius: 150px;
 	font-size: 90%;
 	border-bottom: 1px solid rgba(255,255,255,0.6);
