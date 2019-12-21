@@ -848,6 +848,24 @@ div.amp-lightbox-media-id {
 	max-height: none;
 	}
 
+#admin-page-form-snackbar {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 60px;
+	background-image: linear-gradient(300deg, rgba(245,245,245,1), rgba(255,255,255,1));
+	color: rgba(50,50,50,1);
+	}
+
+#admin-page-form-submit {
+	position: fixed;
+	bottom: 0;
+	right: 0;
+	background-image: linear-gradient(300deg, rgba(100,100,100,1), rgba(130,130,130,1));
+	color: rgba(255,255,255,1);
+	padding: 8px 12px;
+	}
+
 
 /* Table breaks for mobile */
 
