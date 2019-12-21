@@ -203,7 +203,7 @@ function amp_header($title=null, $canonical=null) {
 
 		echo "<p>New entry: coming soon.</p>";
 	
-		echo "<form>";
+		echo "<form method='post' action-xhr='/add-xhr/' target='_blank'>";
 	
 		echo "<label>Type</label>";
 		echo "<select name='type' size='12' required>";
