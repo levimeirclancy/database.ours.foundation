@@ -856,7 +856,8 @@ div.amp-lightbox-media-id {
 	padding: 8px 80px 8px 10px;
 	background-image: linear-gradient(300deg, rgba(235,235,235,1), rgba(255,255,255,1));
 	color: rgba(50,50,50,1);
-	box-shadow: 0 0 20px 0 rgba(50,50,50,0.4);
+	box-shadow: 0 0 25px 0 rgba(50,50,50,0.3);
+	font-size: 80%;
 	}
 
 #admin-page-form-submit {
@@ -865,8 +866,10 @@ div.amp-lightbox-media-id {
 	right: 10px;
 	background-image: linear-gradient(300deg, rgba(100,100,100,1), rgba(130,130,130,1));
 	color: rgba(255,255,255,1);
-	padding: 8px 12px;
+	padding: 8px 17px;
 	box-shadow: 0 0 25px -1px rgba(50,50,50,0.2);
+	border-radius: 150px;
+	font-size: 90%;
 	}
 
 
