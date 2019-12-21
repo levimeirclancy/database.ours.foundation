@@ -852,18 +852,21 @@ div.amp-lightbox-media-id {
 	position: fixed;
 	bottom: 0;
 	left: 0;
-	right: 60px;
-	background-image: linear-gradient(300deg, rgba(245,245,245,1), rgba(255,255,255,1));
+	right: 0;
+	padding: 8px 80px 8px 10px;
+	background-image: linear-gradient(300deg, rgba(235,235,235,1), rgba(255,255,255,1));
 	color: rgba(50,50,50,1);
+	box-shadow: 0 0 20px 0 rgba(50,50,50,0.4);
 	}
 
 #admin-page-form-submit {
 	position: fixed;
-	bottom: 0;
-	right: 0;
+	bottom: 10px;
+	right: 10px;
 	background-image: linear-gradient(300deg, rgba(100,100,100,1), rgba(130,130,130,1));
 	color: rgba(255,255,255,1);
 	padding: 8px 12px;
+	box-shadow: 0 0 25px -1px rgba(50,50,50,0.2);
 	}
 
 
