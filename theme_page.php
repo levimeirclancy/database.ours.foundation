@@ -15,13 +15,13 @@ foreach ($result as $row):
 //	echo "<a href='/".$page_temp."/flyer/' target='_blank'><div id='messenger-flyer-button' ". $layout_nodisplay_temp .">Get flyer</div></a>";
 //	endif;
 
-echo "<a href='/".$page_temp."/edit/'><span id='edit-entry' amp-fx='parallax' data-parallax-factor='1.2' $logout_hidden>&#10033; Edit</span></a>";
+echo "<a href='/".$page_temp."/edit/'><span id='edit-entry' amp-fx='parallax' data-parallax-factor='1.3' $logout_hidden>&#10033; Edit</span></a>";
 
 echo "<article><div vocab='http://schema.org/' typeof='Article'>";
 
 echo "<header><h1 property='name' amp-fx='parallax' data-parallax-factor='1.2'><span>" . implode("</span> &bull; <span>", $entry_info['name']) . "</span></h1></header>";
 
-echo "<div class='genealogy_interstice' amp-fx='parallax' data-parallax-factor='1.1'>";
+echo "<div class='genealogy_interstice' amp-fx='parallax' data-parallax-factor='1.05'>";
 
 echo "<p ". $layout_nodisplay_temp ."><b>Type</b><span>".$header_array[$entry_info['type']]."</span></p>";
 
