@@ -55,6 +55,9 @@ function amp_header($title=null, $canonical=null) {
 	// for the amp-selector
 	echo '<script async custom-element="amp-selector" src="https://cdn.ampproject.org/v0/amp-selector-0.1.js"></script>';
 	
+	// for the parallax
+	echo '<script async custom-element="amp-fx-collection" src="https://cdn.ampproject.org/v0/amp-fx-collection-0.1.js"></script>';
+	
 	// loading fonts
 	echo '<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">';
 	echo '<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">';
