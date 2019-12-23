@@ -51,8 +51,6 @@ echo "</div>";
 // Add a new popover ... residrect if adding it works ...
 echo "<amp-lightbox id='new-popover' layout='nodisplay'>";
 
-	echo "<p>Do you really want to add a new entry?</p>";
-
 	echo "<form action-xhr='/new-xhr/' method='post' target='_blank' id='new' class='admin-page-form' on=\"
 		submit:
 			new-popover-submit.hide;
@@ -62,6 +60,8 @@ echo "<amp-lightbox id='new-popover' layout='nodisplay'>";
 			new-popover-submit.show
 			new-popover.close,
 		\">";
+
+	echo "<p>Do you really want to add a new entry?</p>";
 
 	// Create selector ...
 	echo "<label for='type'>Type</label>";
