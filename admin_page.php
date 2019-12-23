@@ -236,6 +236,8 @@ foreach ($header_array as $header_backend => $header_frontend):
 	endforeach;
 echo "</select>";
 
+echo "<br><br><br><br><br>";
+
 echo "<div id='admin-page-form-snackbar'>...</div>";
 
 echo "<div id='admin-page-form-save'>Save</div>";
