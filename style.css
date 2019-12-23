@@ -862,6 +862,7 @@ div.amp-lightbox-media-id {
 .admin-page-form option, .new-page-form option  {
 	text-overflow: ellipsis;
 	padding: 15px;
+	margin: 5px;
 	display: block;
 	white-space: nowrap;
 	overflow: hidden;
@@ -870,6 +871,7 @@ div.amp-lightbox-media-id {
 .admin-page-form option:checked, .new-page-form option:checked {
 	background: rgba(100,100,100,1);
 	color: rgba(255,255,255,1);
+	border-radius: 100px;
 	}
 
 .admin-page-form option:disabled, .new-page-form option:disabled {
