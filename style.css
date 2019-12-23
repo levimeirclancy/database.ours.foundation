@@ -802,7 +802,7 @@ div.amp-lightbox-media-id {
 .admin-page-form p {
 	max-width: 600px;
 	margin: 0 auto;
-	padding: 30px 20px;
+	padding: 60px 20px 0;
 	}
 
 .admin-page-form label, .admin-page-form input, .admin-page-form textarea, .admin-page-form amp-selector {
@@ -819,7 +819,7 @@ div.amp-lightbox-media-id {
 .admin-page-form label {
 	color: rgba(100,100,100,0.8);
 	font-size: 70%;
-	padding: 30px 20px 0;
+	padding: 20px 20px 5px;
 	}
 
 .admin-page-form input {
