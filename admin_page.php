@@ -84,9 +84,24 @@ echo "<amp-lightbox id='delete-popover' layout='nodisplay'>";
 
 	echo "<p>Do you really want to delete this entry?</p>";
 
-	echo "<form action='/delete-xhr/' method='post'>";
+	echo "<form action-xhr='/delete-xhr/' method='post' id='delete' target='_top' class='admin-page-form' on=\"
+		submit:
+			delete-popover-submit.hide;
+		submit-error:
+			delete-popover-submit.show
+		\">";
+
 	echo "<input type='hidden' name='entry_id' value='".$page_temp."'>";
-	echo "<button type='submit' name='delete_entry' value='".$page_temp."'>Delete</button>";
+
+	echo "<p>Do you really want to delete this entry?</p>";
+
+	// Submit button ...
+	echo "<br><span id='delete-popover-submit' role='button' tabindex='0' on='tap:delete.submit'>Delete</span>";
+
+	echo "<div class='form-feedback' submitting>Submitting...</div>";
+	echo "<div class='form-feedback' submit-error><template type='amp-mustache'>Error. {{{message}}}</template></div>";
+	echo "<div class='form-feedback' submit-success><template type='amp-mustache'>{{{message}}}</template></div>";
+
 	echo "</form>";
 
 	echo "</amp-lightbox>";
