@@ -9,7 +9,7 @@ function amp_header($title=null, $canonical=null) {
 	global $command_temp;
 	global $header_array;
 	global $information_array;
-	global $login;	
+	global $login;
 	global $login_hidden;
 	global $logout_hidden;
 	
@@ -207,10 +207,7 @@ function amp_header($title=null, $canonical=null) {
 			submit:
 				new-popover-submit.hide;
 			submit-error:
-				new-popover-submit.show;
-			submit-success:
-				new-popover-submit.show,
-				new-popover.close
+				new-popover-submit.show
 			\">";
 
 		echo "<p>Do you really want to add a new entry?</p>";
