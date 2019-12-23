@@ -184,14 +184,14 @@ function hierarchy_selector ($relationship_name, $possible_array=[]) {
 		if (empty($possible_array[$entry_id_temp]['name'])): continue; endif;
 		if ($page_temp == $entry_id_temp): continue; endif;
 		echo "<span option='".$entry_id_temp."' selected>";
-		echo $possible_array[$entry_id_temp]['header'] . "(". $possible_array[$entry_id_temp]['type'] .")";
+		echo $possible_array[$entry_id_temp]['header'] . " •". $possible_array[$entry_id_temp]['type'];
 		echo "</span>"; endforeach;
 	foreach ($possible_array as $entry_id_temp => $entry_info_temp):
 		if ($page_temp == $entry_id_temp): continue; endif;
 		if (empty($possible_array[$entry_id_temp]['name'])): continue; endif;
 		if (in_array($entry_id_temp, $entry_info[$relationship_orientation][$relationship_name])): continue; endif;
 		echo "<span option='".$entry_id_temp."'>";
-		echo $possible_array[$entry_id_temp]['header'] . "(". $possible_array[$entry_id_temp]['type'] .")";
+		echo $possible_array[$entry_id_temp]['header'] . " •". $possible_array[$entry_id_temp]['type'];
 		echo "</span>";
 		endforeach;
 	echo "</div></amp-selector>"; }
