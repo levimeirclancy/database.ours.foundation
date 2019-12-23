@@ -177,28 +177,29 @@ function relationships_edit ($relationship_orientation, $relationship_name, $pos
 	global $page_temp;
 	global $entry_info;
 	echo "<label for='".$relationship_orientation."[".$relationship_name."][]'>".ucwords($relationship_orientation).": ".str_replace("_", " ", $relationship_name)."</label>";
-	echo "<select name='".$relationship_orientation."[".$relationship_name."][]' size='8' $multiple>";
+	echo "<amp-selector layout='container' name='".$relationship_orientation."[".$relationship_name."][]' $multiple><div>";
+
 	if (empty($entry_info[$relationship_orientation][$relationship_name])): $entry_info[$relationship_orientation][$relationship_name] = []; endif;
-	if (!(empty($entry_info[$relationship_orientation][$relationship_name]))): echo "<option value='clear_selection' style='font-style: italic;'>clear selection</option>"; endif;
+	if (!(empty($entry_info[$relationship_orientation][$relationship_name]))): echo "<span option='clear_selection' style='font-style: italic;'>Clear selection</span>"; endif;
 
 	foreach ($entry_info[$relationship_orientation][$relationship_name] as $entry_id_temp):
 		if (empty($possible_array[$entry_id_temp])): continue; endif;
 		if (empty($possible_array[$entry_id_temp]['name'])): continue; endif;
 		if ($page_temp == $entry_id_temp): continue; endif;
-		echo "<option value='".$entry_id_temp."' selected>";
+		echo "<span option='".$entry_id_temp."' selected>";
 		echo $possible_array[$entry_id_temp]['header'];
 		echo "&nbsp; <i>".$possible_array[$entry_id_temp]['type']."</i>";
-		echo "</option>"; endforeach;
+		echo "</span>"; endforeach;
 	foreach ($possible_array as $entry_id_temp => $entry_info_temp):
 		if ($page_temp == $entry_id_temp): continue; endif;
 		if (empty($possible_array[$entry_id_temp]['name'])): continue; endif;
 		if (in_array($entry_id_temp, $entry_info[$relationship_orientation][$relationship_name])): continue; endif;
-		echo "<option value='".$entry_id_temp."'>";
+		echo "<span option='".$entry_id_temp."'>";
 		echo implode(" &nbsp;&nbsp; ", $entry_info_temp['name']);
 		echo "&nbsp;&nbsp;&nbsp; (".$possible_array[$entry_id_temp]['type'].")";
-		echo "</option>";
+		echo "</span>";
 		endforeach;
-	echo "</select>"; }
+	echo "</div></amp-selector>"; }
 
 relationships_edit("parents", "hierarchy", $additional_array, "multiple");
 foreach ($entry_info['parents'] as $relationship_name => $discard):
@@ -226,7 +227,7 @@ foreach ($appendix_array as $appendix_key => $appendix_type):
 echo "<p>An entry's type is its most important organizational component. Types are largely self-explanatory, except for 'articles' which are intended to be less research-oriented and more consumption-oriented.</p>";
 
 echo "<label for='type'>Type</label>";
-echo "<amp-selector layout='container' name='type'required><div>";
+echo "<amp-selector layout='container' name='type' required><div>";
 if (isset($header_array[$entry_info['type']])):
 	echo "<span option='".$entry_info['type']."' selected>".$header_array[$entry_info['type']]."</span>";
 	endif;
