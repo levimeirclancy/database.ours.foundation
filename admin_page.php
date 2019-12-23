@@ -173,8 +173,8 @@ echo "<p>The hierarchy is the entry's position downstream and upstream of other 
 function hierarchy_selector ($relationship_name, $possible_array=[]) {
 	global $page_temp;
 	global $entry_info;
-	echo "<label for='". $relationship_name[] ."'>".ucwords($relationship_name)."</label>";
-	echo "<amp-selector layout='container' name='". $relationship_name ."][]' multiple><div>";
+	echo "<label for='". $relationship_name ."[]'>".ucwords($relationship_name)."</label>";
+	echo "<amp-selector layout='container' name='". $relationship_name ."[]' multiple><div>";
 
 	if (!(empty($entry_info['hierarchy'][$relationship_name]))): echo "<span option='clear_selection' style='font-style: italic;'>Clear selection</span>";
 	else: $entry_info['hierarchy'][$relationship_name] = []; endif;
