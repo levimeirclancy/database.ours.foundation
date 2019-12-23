@@ -854,6 +854,7 @@ div.amp-lightbox-media-id {
 	overflow-x: none;
 	padding: 0 50px 0 0;
 	font-size: 70%;
+	border-radius: 6px;
 	background: rgba(235,235,235,1);
 	border-bottom: 1px solid rgba(255,255,255,0.7);
 	box-shadow: 3px 12px 12px -9px rgba(50,50,50,0.2);
