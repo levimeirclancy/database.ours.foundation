@@ -874,11 +874,11 @@ div.amp-lightbox-media-id {
 	}
 
 .admin-page-form amp-selector span:first-child {
-	padding-top: 12px;
+	padding-top: 10px;
 	}
 
 .admin-page-form amp-selector span:last-child {
-	padding-bottom: 12px;
+	padding-bottom: 10px;
 	}
 
 .admin-page-form amp-selector span[selected] {
