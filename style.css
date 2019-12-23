@@ -804,7 +804,8 @@ div.amp-lightbox-media-id {
 	padding: 30px 20px;
 	}
 
-.admin-page-form label, .admin-page-form input, .admin-page-form textarea {
+.admin-page-form label, .admin-page-form input, .admin-page-form textarea, 
+.admin-page-form select, .new-page-form select {
 	display: block;
 	margin: 5px auto;
 	max-width: 600px;
@@ -853,10 +854,6 @@ div.amp-lightbox-media-id {
 	overflow-x: none;
 	padding: 10px;
 	font-size: 70%;
-	margin: 5px auto;
-	text-align: left;
-	border: 1px solid rgba(200,200,200,0.8);
-	box-sizing: border-box;
 	}
 
 .admin-page-form option, .new-page-form option  {
