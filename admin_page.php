@@ -227,16 +227,18 @@ echo "<p>An entry's type is its most important organizational component. Types a
 
 echo "<label for='type'>Type</label>";
 echo "<select name='type' size='12' required>";
-echo "<option value='".$entry_info['type']."' selected>".$entry_info['type']."</option>";
-foreach (array_keys($header_array) as $value_temp):
-	if ($value_temp == $entry_info['type']): continue; endif;
-	echo "<option value='".$value_temp."'>".$value_temp."</option>";
+if (isset($header_array[$entry_info['type']])):
+	echo "<option value='".$entry_info['type']."' selected>".$header_array[$entry_info['type']]."</option>";
+	endif;
+foreach ($header_array as $header_backend => $header_frontend):
+	if ($header_backend == $entry_info['type']): continue; endif;
+	echo "<option value='".$header_backend."'>".$header_frontend."</option>";
 	endforeach;
 echo "</select>";
 
 echo "<div id='admin-page-form-snackbar'>...</div>";
 
-echo "<div id='admin-page-form-submit'>Save</div>";
+echo "<div id='admin-page-form-save'>Save</div>";
 
 echo "</form>";
 
