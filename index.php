@@ -245,8 +245,8 @@ if ($command_temp == "edit-xhr"):
 	endif;
 
 
-// if it is add-xhr
-if ($command_temp == "add-xhr"):
+// if it is new-xhr
+if ($command_temp == "new-xhr"):
 
 	if (empty($login)): json_result($domain, "error", null, "Not logged in."); endif;
 
