@@ -185,7 +185,7 @@ amp-lightbox {
 	color: rgba(100,100,100,0.8);
 	}
 
-#login-popover-submit {
+#login-popover-submit, #new-popover-submit {
 	font-size: 80%;
 	display: table;
 	max-width: 300px;
