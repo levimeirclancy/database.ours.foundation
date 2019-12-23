@@ -203,13 +203,33 @@ function amp_header($title=null, $canonical=null) {
 	// Add a new popover ... residrect if adding it works ...
 	echo "<amp-lightbox id='new-popover' layout='nodisplay'>";
 
+		echo "<form action-xhr='/new-xhr/' method='post' id='new' target='_top' class='admin-page-form' on=\"
+			submit:
+				new-popover-submit.hide;
+			submit-error:
+				new-popover-submit.show;
+			submit-success:
+				new-popover-submit.show,
+				new-popover.close
+			\">";
+
 		echo "<p>Do you really want to add a new entry?</p>";
 
-		echo "<form action='/new-xhr/' method='post' target='_blank'>";
-		echo "<input type='hidden' name='entry_id' value='".$page_temp."'>";
-		echo "<label>Choose type</label>";
-		// Put dropdown of types
-		echo "<button type='submit' name='new_entry' value='".$page_temp."'>New entry</button></div>";
+		// Create selector ...
+		echo "<label for='type'>Type</label>";
+		echo "<amp-selector layout='container' name='type' required><div>";
+		foreach ($header_array as $header_backend => $header_frontend):
+			echo "<span option='".$header_backend."'>".$header_frontend."</span>";
+			endforeach;
+		echo "</div></amp-selector>";
+
+		// Submit button ...
+		echo "<br><span id='new-popover-submit' role='button' tabindex='0' on='tap:new.submit'>Create new</span><br>";
+
+		echo "<div submitting>Submitting...</div>";
+		echo "<div submit-error><template type='amp-mustache'>Error. {{{message}}}</template></div>";
+		echo "<div submit-success><template type='amp-mustache'>{{{message}}}</template></div>";
+
 		echo "</form>";
 
 		echo "</amp-lightbox>";
