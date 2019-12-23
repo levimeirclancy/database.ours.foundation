@@ -869,11 +869,11 @@ div.amp-lightbox-media-id {
 	font-family: Verdana, Helvetica, 'Sans Serif';
 	}
 
-.admin-page-form amp-selector span::first-child {
+.admin-page-form amp-selector span:first-child {
 	padding-top: 11px;
 	}
 
-.admin-page-form amp-selector span::last-child {
+.admin-page-form amp-selector span:last-child {
 	padding-bottom: 11px;
 	}
 
