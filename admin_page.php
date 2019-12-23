@@ -53,7 +53,7 @@ echo "<amp-lightbox id='new-popover' layout='nodisplay'>";
 
 	echo "<p>Do you really want to add a new entry?</p>";
 
-	echo "<form action='/new-xhr/' method='post' target='_blank' id='new' on=\"
+	echo "<form action='/new-xhr/' method='post' target='_blank' id='new' class='admin-page-form' on=\"
 		submit:
 			new-popover-submit.hide;
 		submit-error:
