@@ -51,7 +51,7 @@ echo "</div>";
 // Add a new popover ... residrect if adding it works ...
 echo "<amp-lightbox id='new-popover' layout='nodisplay'>";
 
-	echo "<form action-xhr='/new-xhr/' method='post' target='_blank' id='new' class='admin-page-form' on=\"
+	echo "<form action-xhr='/new-xhr/' method='post' id='new' class='admin-page-form' on=\"
 		submit:
 			new-popover-submit.hide;
 		submit-error:
@@ -61,7 +61,7 @@ echo "<amp-lightbox id='new-popover' layout='nodisplay'>";
 			new-popover.close,
 		\">";
 
-	echo "<p>Do you really want to add a new entry?</p>";
+	echo "<p>Do you really want to add a new entry? This will redirect to a new page, and you will lose unsaved work.</p>";
 
 	// Create selector ...
 	echo "<label for='type'>Type</label>";
