@@ -199,8 +199,8 @@ amp-lightbox {
 	box-sizing: border-box;
 	}
 
-#login-popover div {
-	margin: 30px auto;
+.form-feedback div {
+	margin: 15px auto 15px;
 	padding: 10px;
 	text-align: center;
 	}
