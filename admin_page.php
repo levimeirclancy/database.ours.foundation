@@ -69,7 +69,7 @@ echo "<amp-lightbox id='new-popover' layout='nodisplay'>";
 	echo "</div></amp-selector>";
 
 	// Submit button ...
-	echo "<br><span id='new-popover-submit' role='button' tabindex='0' on='tap:new.submit'>Create new</span><br>";
+	echo "<br><span id='new-popover-submit' role='button' tabindex='0' on='tap:new.submit'>Create new</span>";
 
 	echo "<div class='form-feedback' submitting>Submitting...</div>";
 	echo "<div class='form-feedback' submit-error><template type='amp-mustache'>Error. {{{message}}}</template></div>";
