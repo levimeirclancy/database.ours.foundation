@@ -848,6 +848,47 @@ div.amp-lightbox-media-id {
 	max-height: none;
 	}
 
+.admin-page-form select, .new-page-form select {
+	overflow-y: auto;
+	overflow-x: none;
+	padding: 10px;
+	font-size: 70%;
+	margin: 5px auto;
+	text-align: left;
+	border: 1px solid rgba(200,200,200,0.8);
+	box-sizing: border-box;
+	}
+
+.admin-page-form option, .new-page-form option  {
+	text-overflow: ellipsis;
+	padding: 10px 15px;
+	display: block;
+	white-space: nowrap;
+	overflow: hidden;
+	}
+
+.admin-page-form option:checked, .new-page-form option:checked {
+	background: #ddd;
+	}
+
+.admin-page-form option:disabled, .new-page-form option:disabled {
+	font-weight: 700;
+	padding: 10px 10px 5px 13px;
+	color: #bbb; }
+
+.admin-page-form optgroup, .new-page-form optgroup {
+	font-weight: 400;
+	padding: 7px 10px 0 10px;
+	font-style: italic;
+	color: #bbb; }
+
+.admin-page-form optgroup option, .new-page-form optgroup option {
+	font-style: normal;
+	color: #333; }
+
+.admin-page-form optgroup option:first-child, .new-page-form optgroup option:first-child {
+	margin-top: 5px; }
+
 #admin-page-form-snackbar {
 	position: fixed;
 	bottom: 0;
