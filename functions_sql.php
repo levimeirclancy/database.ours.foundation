@@ -35,5 +35,5 @@ function temporary_table($column_name,$array) {
   
 
 function execute_checkup ($errorinfo, $statement, $depth=null) {
-	if ($errorinfo[0] == "0000"): if ($depth == "full"): echo "<br><span class='positive'>success $statement</span><br>"; endif; return "success";
-	else: echo "<br><span class='negative'>failure $statement: ".$errorinfo[2]."</span><br>"; return "failure"; endif; } ?>
+	if ($errorinfo[0] == "0000"): if ($depth == "full"): return "success";
+	else: return $errorinfo[2]; endif; } ?>
