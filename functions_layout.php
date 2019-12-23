@@ -174,11 +174,11 @@ function amp_header($title=null, $canonical=null) {
 		echo "<label for='checkpoint_email'>Password</label>";
 		echo "<input type='password' name='checkpoint_password' placeholder='Password' required>";
 
-		echo "<br><span id='login-popover-submit' role='button' tabindex='0' on='tap:login.submit'>Log in</span><br>";
+		echo "<br><span id='login-popover-submit' role='button' tabindex='0' on='tap:login.submit'>Log in</span>";
 
-		echo "<div submitting>Submitting...</div>";
-		echo "<div submit-error><template type='amp-mustache'>Error. {{{message}}}</template></div>";
-		echo "<div submit-success><template type='amp-mustache'>{{{message}}}</template></div>";
+		echo "<div class='form-feedback' submitting>Submitting...</div>";
+		echo "<div class='form-feedback' submit-error><template type='amp-mustache'>Error. {{{message}}}</template></div>";
+		echo "<div class='form-feedback' submit-success><template type='amp-mustache'>{{{message}}}</template></div>";
 		echo "</form>";
 		echo "</amp-lightbox>";
 	
@@ -221,11 +221,11 @@ function amp_header($title=null, $canonical=null) {
 		echo "</div></amp-selector>";
 
 		// Submit button ...
-		echo "<br><span id='new-popover-submit' role='button' tabindex='0' on='tap:new.submit'>Create new</span><br>";
+		echo "<br><span id='new-popover-submit' role='button' tabindex='0' on='tap:new.submit'>Create new</span>";
 
-		echo "<div submitting>Submitting...</div>";
-		echo "<div submit-error><template type='amp-mustache'>Error. {{{message}}}</template></div>";
-		echo "<div submit-success><template type='amp-mustache'>{{{message}}}</template></div>";
+		echo "<div class='form-feedback' submitting>Submitting...</div>";
+		echo "<div class='form-feedback' submit-error><template type='amp-mustache'>Error. {{{message}}}</template></div>";
+		echo "<div class='form-feedback' submit-success><template type='amp-mustache'>{{{message}}}</template></div>";
 
 		echo "</form>";
 
