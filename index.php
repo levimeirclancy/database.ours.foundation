@@ -257,7 +257,7 @@ if ($command_temp == "add-xhr"):
 	$result_temp = file_get_contents("https://".$domain."/api/sitemap/?order=english");
 	$information_array = json_decode($result_temp, true);
 
-	while (isset($information_array[$entry_id])): $entry_id = random_code(7); endif;
+	while (isset($information_array[$entry_id])): $entry_id = random_code(7); endwhile;
 
 	// Redirect to the edit ...
 	$values_temp = [
