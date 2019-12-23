@@ -55,10 +55,7 @@ echo "<amp-lightbox id='new-popover' layout='nodisplay'>";
 		submit:
 			new-popover-submit.hide;
 		submit-error:
-			new-popover-submit.show;
-		submit-success:
-			new-popover-submit.show,
-			new-popover.close
+			new-popover-submit.show
 		\">";
 
 	echo "<p>Do you really want to add a new entry? This will redirect to a new page, and you will lose unsaved work.</p>";
