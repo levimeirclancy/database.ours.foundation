@@ -51,9 +51,9 @@ echo "</div>";
 // Add a new popover ... residrect if adding it works ...
 echo "<amp-lightbox id='new-popover' layout='nodisplay'>";
 
-	echo "<p>Do you really want to add a new entry? You will lose any unsaved work.</p>";
+	echo "<p>Do you really want to add a new entry?</p>";
 
-	echo "<form action='' method='post'>";
+	echo "<form action='/new-xhr/' method='post' target='_blank'>";
 	echo "<input type='hidden' name='entry_id' value='".$page_temp."'>";
 	echo "<label>Choose type</label>";
 	// Put dropdown of types
@@ -67,7 +67,7 @@ echo "<amp-lightbox id='delete-popover' layout='nodisplay'>";
 
 	echo "<p>Do you really want to delete this entry?</p>";
 
-	echo "<form action='' method='post'>";
+	echo "<form action='/delete-xhr/' method='post'>";
 	echo "<input type='hidden' name='entry_id' value='".$page_temp."'>";
 	echo "<button type='submit' name='delete_entry' value='".$page_temp."'>Delete</button>";
 	echo "</form>";
@@ -85,7 +85,7 @@ echo "<amp-lightbox id='logout-popover' layout='nodisplay'>";
 
 	echo "</amp-lightbox>";
 
-echo "<form action='' method='post' class='admin-page-form'>";
+echo "<form action='/edit-xhr/' method='post' class='admin-page-form'>";
 
 $result_temp = file_get_contents("https://".$domain."/api/sitemap/");
 $additional_array = json_decode($result_temp, true);
