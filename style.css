@@ -851,11 +851,12 @@ div.amp-lightbox-media-id {
 
 .admin-page-form amp-selector {
 	max-height: 200px;
+	overflow-y: auto;
+	overflow-x: none;
 	}
 
 .admin-page-form amp-selector div {
-	overflow-y: auto;
-	overflow-x: none;
+
 	padding: 0;
 	margin: 0 100px 0 0;
 	font-size: 70%;
