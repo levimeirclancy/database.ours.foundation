@@ -854,8 +854,9 @@ div.amp-lightbox-media-id {
 	overflow-x: none;
 	padding: 0;
 	font-size: 70%;
-	border: 1px solid rgba(200,200,200,0.8);
-	background: rgba(255,255,255,1);
+	background: rgba(235,235,235,1);
+	border-bottom: 1px solid rgba(255,255,255,0.7);
+	box-shadow: 3px 12px 12px -9px rgba(50,50,50,0.2);
 	}
 
 .admin-page-form amp-selector span {
@@ -870,11 +871,11 @@ div.amp-lightbox-media-id {
 	}
 
 .admin-page-form amp-selector span:first-child {
-	padding-top: 11px;
+	padding-top: 9px;
 	}
 
 .admin-page-form amp-selector span:last-child {
-	padding-bottom: 11px;
+	padding-bottom: 9px;
 	}
 
 .admin-page-form amp-selector span[selected] {
