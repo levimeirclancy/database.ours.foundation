@@ -248,6 +248,8 @@ if ($command_temp == "edit-xhr"):
 // if it is add-xhr
 if ($command_temp == "add-xhr"):
 
+	if (empty($login)): json_result($domain, "error", null, "Not logged in."); endif;
+
 	if (empty($_POST['type'])): json_result($domain, "error", null, "Needs type."); endif;
 	if (empty($header_array[$_POST['type']])): json_result($domain, "error", null, "Type is not valid."); endif;
 
@@ -275,14 +277,6 @@ if ($command_temp == "add-xhr"):
 	if ($result_temp !== "success"): json_result($domain, "error", null, $result_temp); endif;
 
 	json_result($domain, "success", "/".$entry_id."/edit/", "Successfully added.");
-
-	endif;
-
-if (($page_temp == "new-xhr") && !(empty($login))):
-
-	// Add new entry
-
-	// And redirect to it
 
 	endif;
 
