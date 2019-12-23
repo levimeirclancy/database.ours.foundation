@@ -805,7 +805,7 @@ div.amp-lightbox-media-id {
 	padding: 30px 20px;
 	}
 
-.admin-page-form label, .admin-page-form input, .admin-page-form textarea, .admin-page-form amp-selector ul {
+.admin-page-form label, .admin-page-form input, .admin-page-form textarea, .admin-page-form amp-selector {
 	display: block;
 	margin: 5px auto;
 	max-width: 600px;
@@ -849,14 +849,14 @@ div.amp-lightbox-media-id {
 	max-height: none;
 	}
 
-.admin-page-form amp-selector ul {
+.admin-page-form amp-selector {
 	overflow-y: auto;
 	overflow-x: none;
 	padding: 10px;
 	font-size: 70%;
 	}
 
-.admin-page-form amp-selector li {
+.admin-page-form amp-selector span {
 	text-overflow: ellipsis;
 	padding: 15px;
 	margin: 5px;
@@ -866,12 +866,12 @@ div.amp-lightbox-media-id {
 	border-radius: 100px;
 	}
 
-.admin-page-form amp-selector li:checked {
+.admin-page-form amp-selector span:checked {
 	background: rgba(100,100,100,1);
 	color: rgba(255,255,255,1);
 	}
 
-.admin-page-form amp-selector option:disabled {
+.admin-page-form amp-selector span:disabled {
 	font-weight: 400;
 	color: rgba(200,200,200,1);
 	opacity: 0.9;
