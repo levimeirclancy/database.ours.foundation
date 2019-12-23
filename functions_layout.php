@@ -200,21 +200,16 @@ function amp_header($title=null, $canonical=null) {
 	
 		echo "</amp-lightbox>";
 
+	// Add a new popover ... residrect if adding it works ...
 	echo "<amp-lightbox id='new-popover' layout='nodisplay'>";
 
-		echo "<span role='button' tabindex='0' on='tap:new-popover.close' class='popover-close'>Back</span>";
+		echo "<p>Do you really want to add a new entry?</p>";
 
-		echo "<p>New entry: coming soon.</p>";
-	
-		echo "<form method='post' action-xhr='/add-xhr/' target='_blank'>";
-	
-		echo "<label>Type</label>";
-		echo "<select name='type' size='12' required>";
-		foreach (array_keys($header_array) as $value_temp):
-			echo "<option value='".$value_temp."'>".$value_temp."</option>";
-			endforeach;
-		echo "</select>";
-
+		echo "<form action='/new-xhr/' method='post' target='_blank'>";
+		echo "<input type='hidden' name='entry_id' value='".$page_temp."'>";
+		echo "<label>Choose type</label>";
+		// Put dropdown of types
+		echo "<button type='submit' name='new_entry' value='".$page_temp."'>New entry</button></div>";
 		echo "</form>";
 
 		echo "</amp-lightbox>";
@@ -242,7 +237,7 @@ function json_result($domain, $result, $redirect, $message) {
 		endif;
 	
 	if (!(empty($redirect))):	
-		header("AMP-Redirect-To: https://".$domain."/".$redirect);
+		header("AMP-Redirect-To: https://".$domain.$redirect);
 		header("Access-Control-Expose-Headers: AMP-Redirect-To, AMP-Access-Control-Allow-Source-Origin");
 		endif;
 
