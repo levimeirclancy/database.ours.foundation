@@ -226,7 +226,7 @@ foreach ($appendix_array as $appendix_key => $appendix_type):
 echo "<p>An entry's type is its most important organizational component. Types are largely self-explanatory, except for 'articles' which are intended to be less research-oriented and more consumption-oriented.</p>";
 
 echo "<label for='type'>Type</label>";
-echo "<amp-selector layout='container' name='type'required>";
+echo "<amp-selector layout='container' name='type'required><div>";
 if (isset($header_array[$entry_info['type']])):
 	echo "<span option='".$entry_info['type']."' selected>".$header_array[$entry_info['type']]."</span>";
 	endif;
@@ -234,7 +234,7 @@ foreach ($header_array as $header_backend => $header_frontend):
 	if ($header_backend == $entry_info['type']): continue; endif;
 	echo "<span option='".$header_backend."'>".$header_frontend."</span>";
 	endforeach;
-echo "</amp-selector>";
+echo "</div></amp-selector>";
 
 echo "<br><br><br><br><br>";
 
