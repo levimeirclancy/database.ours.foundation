@@ -53,7 +53,7 @@ echo "<amp-lightbox id='new-popover' layout='nodisplay'>";
 
 	echo "<p>Do you really want to add a new entry?</p>";
 
-	echo "<form action='/new-xhr/' method='post' target='_blank' id='new' class='admin-page-form' on=\"
+	echo "<form action-xhr='/new-xhr/' method='post' target='_blank' id='new' class='admin-page-form' on=\"
 		submit:
 			new-popover-submit.hide;
 		submit-error:
@@ -66,11 +66,7 @@ echo "<amp-lightbox id='new-popover' layout='nodisplay'>";
 	// Create selector ...
 	echo "<label for='type'>Type</label>";
 	echo "<amp-selector layout='container' name='type' required><div>";
-	if (isset($header_array[$entry_info['type']])):
-		echo "<span option='".$entry_info['type']."' selected>".$header_array[$entry_info['type']]."</span>";
-		endif;
 	foreach ($header_array as $header_backend => $header_frontend):
-		if ($header_backend == $entry_info['type']): continue; endif;
 		echo "<span option='".$header_backend."'>".$header_frontend."</span>";
 		endforeach;
 	echo "</div></amp-selector>";
