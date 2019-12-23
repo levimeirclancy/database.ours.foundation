@@ -173,11 +173,11 @@ echo "<p>The hierarchy is the entry's position downstream and upstream of other 
 echo "<input type='hidden' name='parents[]'>";
 echo "<input type='hidden' name='children[]'>";
 
-function relationships_edit ($relationship_orientation, $relationship_name, $possible_array=[], $multiple=null) {
+function relationships_edit ($relationship_orientation, $relationship_name, $possible_array=[]) {
 	global $page_temp;
 	global $entry_info;
 	echo "<label for='".$relationship_orientation."[".$relationship_name."][]'>".ucwords($relationship_orientation).": ".str_replace("_", " ", $relationship_name)."</label>";
-	echo "<amp-selector layout='container' name='".$relationship_orientation."[".$relationship_name."][]' $multiple><div>";
+	echo "<amp-selector layout='container' name='".$relationship_orientation."[".$relationship_name."][]' multiple><div>";
 
 	if (empty($entry_info[$relationship_orientation][$relationship_name])): $entry_info[$relationship_orientation][$relationship_name] = []; endif;
 	if (!(empty($entry_info[$relationship_orientation][$relationship_name]))): echo "<span option='clear_selection' style='font-style: italic;'>Clear selection</span>"; endif;
@@ -201,13 +201,12 @@ function relationships_edit ($relationship_orientation, $relationship_name, $pos
 		endforeach;
 	echo "</div></amp-selector>"; }
 
-relationships_edit("parents", "hierarchy", $additional_array, "multiple");
 foreach ($entry_info['parents'] as $relationship_name => $discard):
 	if ($relationship_name == "hierarchy"): continue; endif;
-	relationships_edit("parents", $relationship_name, $additional_array, "multiple");
+	relationships_edit("parents", $relationship_name, $additional_array);
 	endforeach;
 foreach ($entry_info['children'] as $relationship_name => $discard):
-	relationships_edit("children", $relationship_name, $additional_array, "multiple");
+	relationships_edit("children", $relationship_name, $additional_array);
 	endforeach;
 
 echo "<h2 id='more'>More...</h2>";
