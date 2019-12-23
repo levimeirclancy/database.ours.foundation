@@ -860,13 +860,13 @@ div.amp-lightbox-media-id {
 	font-size: 80%;
 	}
 
-#admin-page-form-submit {
+#admin-page-form-save {
 	position: fixed;
 	bottom: 0;
 	right: 0;
-	background: rgba(245,245,245,1);
-	color: rgba(50,50,50,1);
-	padding: 10px 20px;
+	background: rgba(150,150,150,1);
+	color: rgba(255,255,255,1);
+	padding: 10px 25px;
 	border-radius: 0;
 	font-size: 80%;
 	}
