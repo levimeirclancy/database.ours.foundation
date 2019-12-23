@@ -85,6 +85,26 @@ if (!(empty($_COOKIE['cookie']))):
 		endif;
 	endif;
 
+// To display the login or logout buttons
+$login_hidden = $logout_hidden = null;
+if (empty($login)): $logout_hidden = "hidden"; // if we are not logged in
+elseif (!(empty($login))): $login_hidden = "hidden"; endif; // if we are logged in
+
+
+// this is the header index
+$header_array = [
+	"location" => "Regions",
+	"village" => "Villages",
+	"place" => "Places",
+	"person" => "People",
+	"party" => "Parties",
+	"position" => "Positions",
+	"demographic" => "Demographics",
+	"term" => "Terms",
+	"event" => "Events",	
+	"topic" => "Topics",
+	"article" => "Articles" ];
+
 
 // if it is delete-xhr
 if ($command_temp == "delete-xhr"):
@@ -107,11 +127,10 @@ if ($command_temp == "delete-xhr"):
 	endif;
 
 
+
+
 // if it is edit-xhr
 if ($command_temp == "edit-xhr"):
-
-	// Save the latest edits ...
-	if (($page_temp == "new") && ($_POST['entry_id'] = $page_temp)): $_POST['entry_id'] = random_code(7); endif;
 
 	function clean_empty_array($array_temp) {
 		if (ctype_space($array_temp)): return null; endif;
@@ -216,8 +235,6 @@ if ($command_temp == "edit-xhr"):
 
 		endforeach;
 
-	if ($page_temp == "new"): replace_redirect("https://".$domain."/".$_POST['entry_id']."/edit/"); endif;
-
 	$entry_info = nesty_page($page_temp);
 	$entry_info = $entry_info[$page_temp];
 
@@ -231,21 +248,37 @@ if ($command_temp == "edit-xhr"):
 // if it is add-xhr
 if ($command_temp == "add-xhr"):
 
-	// Add an entry ...
+	if (empty($_POST['type'])): json_result($domain, "error", null, "Needs type."); endif;
+	if (empty($header_array[$_POST['type']])): json_result($domain, "error", null, "Type is not valid."); endif;
+
+	// Create a unique entry_id
+	$entry_id = random_code(7);
+
+	$result_temp = file_get_contents("https://".$domain."/api/sitemap/?order=english");
+	$information_array = json_decode($result_temp, true);
+
+	while (isset($information_array[$entry_id])): $entry_id = random_code(7); endif;
 
 	// Redirect to the edit ...
+	$values_temp = [
+		"entry_id" =>	$entry_id,
+		"type" =>	$_POST['type'],
+		];
 
-	exit;
+	// prepare statement
+	$sql_temp = sql_setup($values_temp, $database.".information_directory");
+	$information_directory_statement = $connection_pdo->prepare($sql_temp);
+	$information_directory_statement->execute($values_temp);
+
+	$result_temp = execute_checkup($information_directory_statement->errorInfo());
+
+	if ($result_temp !== "success"): json_result($domain, "error", null, $result_temp); endif;
+
+	json_result($domain, "success", "/".$entry_id."/edit/", "Successfully added.");
 
 	endif;
 
-// To display the login or logout buttons
-$login_hidden = $logout_hidden = null;
-if (empty($login)): $logout_hidden = "hidden"; // if we are not logged in
-elseif (!(empty($login))): $login_hidden = "hidden"; endif; // if we are logged in
-
-
-if (($page_temp == "add-xhr") && !(empty($login))):
+if (($page_temp == "new-xhr") && !(empty($login))):
 
 	// Add new entry
 
@@ -281,20 +314,6 @@ if (!(empty($login)) && !(empty($_POST['create_entry']))):
 	$create_entry_statement = $connection_pdo->prepare($sql_temp); $create_entry_statement->execute($values_temp);
 	execute_checkup($create_entry_statement->errorInfo(), "creating entry ".$_POST['entry_id']);
 	endif;
-
-// this is the header index
-$header_array = [
-	"location" => "Regions",
-	"village" => "Villages",
-	"place" => "Places",
-	"person" => "People",
-	"party" => "Parties",
-	"position" => "Positions",
-	"demographic" => "Demographics",
-	"term" => "Terms",
-	"event" => "Events",	
-	"topic" => "Topics",
-	"article" => "Articles" ];
 
 $layout_nodisplay_temp = null;
 if (!(empty($_REQUEST['view'])) && ($_REQUEST['view'] == "compact")): $layout_nodisplay_temp = "layout='nodisplay'"; endif;
