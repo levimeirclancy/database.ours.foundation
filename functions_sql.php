@@ -34,6 +34,6 @@ function temporary_table($column_name,$array) {
 	return $table_name; }
   
 
-function execute_checkup ($errorinfo, $statement, $depth=null) {
-	if ($errorinfo[0] == "0000"): if ($depth == "full"): return "success";
-	else: return $errorinfo[2]; endif; } ?>
+function execute_checkup ($error_info) {
+	if ($error_info[0] == "0000"): return "success";
+	else: return $error_info[2]; endif; } ?>
