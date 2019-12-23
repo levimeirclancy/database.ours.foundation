@@ -51,13 +51,13 @@ echo "</div>";
 // Add a new popover ... residrect if adding it works ...
 echo "<amp-lightbox id='new-popover' layout='nodisplay'>";
 
-	echo "<form action-xhr='/new-xhr/' method='post' id='new' class='admin-page-form' on=\"
+	echo "<form action-xhr='/new-xhr/' method='post' id='new' target='_top' class='admin-page-form' on=\"
 		submit:
 			new-popover-submit.hide;
 		submit-error:
 			new-popover-submit.show;
 		submit-success:
-			new-popover-submit.show
+			new-popover-submit.show,
 			new-popover.close,
 		\">";
 
