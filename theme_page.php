@@ -51,14 +51,16 @@ echo "<header><h1 property='name' amp-fx='parallax' data-parallax-factor='1.2'><
 if (empty($entry_info['parents']['hierarchy'])): $entry_info['parents']['hierarchy'] = []; endif;
 $parents_array = array_filter($entry_info['parents']['hierarchy']);
 $parents_array = array_unique($entry_info['parents']['hierarchy']);
+
+foreach ($parents_array as $key_temp => $parent_id_temp):
+	unset($parents_array[$key_temp]);
+	$contents_temp = body_process("{{{". $parent_id_temp ."}}}");
+	if (empty($contents_temp)): continue; endif;
+	// Add a random code in case two entries have the same name
+	$parents_array[strip_tags($contents_temp).random_code(5)] = $contents_temp;
+	endforeach;
+
 if (!(empty($parents_array))):
-	foreach ($parents_array as $key_temp => $parent_id_temp):
-		unset($parents_array[$key_temp]);
-		$contents_temp = body_process("{{{". $parent_id_temp ."}}}");
-		if (empty($contents_temp)): continue; endif;
-		// Add a random code in case two entries have the same name
-		$parents_array[strip_tags($contents_temp).random_code(5)] = $contents_temp;
-		endforeach;
 
 	ksort($parents_array);
 
@@ -71,15 +73,17 @@ if (!(empty($parents_array))):
 if (empty($entry_info['children']['hierarchy'])): $entry_info['children']['hierarchy'] = []; endif;
 $children_array = array_filter($entry_info['children']['hierarchy']);
 $children_array = array_unique($entry_info['children']['hierarchy']);
+
+$plural_temp = null; if (count($children_array) > 1): $plural_temp = "s"; endif;
+foreach ($children_array as $key_temp => $child_id_temp):
+	unset($children_array[$key_temp]);
+	$contents_temp = body_process("{{{". $child_id_temp ."}}}");
+	if (empty($contents_temp)): continue; endif;
+	// Add a random code in case two entries have the same name
+	$children_array[strip_tags($contents_temp).random_code(5)] = $contents_temp;
+	endforeach;
+
 if (!(empty($children_array))):
-	$plural_temp = null; if (count($children_array) > 1): $plural_temp = "s"; endif;
-	foreach ($children_array as $key_temp => $child_id_temp):
-		unset($children_array[$key_temp]);
-		$contents_temp = body_process("{{{". $child_id_temp ."}}}");
-		if (empty($contents_temp)): continue; endif;
-		// Add a random code in case two entries have the same name
-		$children_array[strip_tags($contents_temp).random_code(5)] = $contents_temp;
-		endforeach;
 
 	ksort($children_array);
 
