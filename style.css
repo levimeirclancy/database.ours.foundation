@@ -75,7 +75,12 @@ h1 span {
 
 /* GENEALOGY INTERSTICE */
 
-.genealogy_interstice { margin: 0 0 20px; font-size: 75%; vertical-align: top; }
+.genealogy_interstice {
+	margin: 0 0 20px;
+	padding: 0;
+	font-size: 75%;
+	vertical-align: top;
+	}
 
 @media only screen and (max-width: 531px)  {
 	.genealogy_interstice { margin-top: 30px; }
@@ -83,7 +88,7 @@ h1 span {
 
 .genealogy_interstice p { margin: 0 20px 10px; display: block; padding: 0; max-width: none; font-size: 100%; }
 
-.genealogy_interstice b { padding: 4px 5px 0 0; display: inline; font-size: 100%; }
+.genealogy_interstice b { padding: 0 5px 0 0; display: inline; font-size: 100%; }
 
 .genealogy_interstice span { padding: 4px 5px 3px 0; display: block; font-size: 80%; font-size: 100%; }
 
