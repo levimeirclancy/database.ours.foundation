@@ -899,7 +899,6 @@ div.amp-lightbox-media-id {
 	left: 0;
 	right: 0;
 	padding: 10px 90px 10px 10px;
-	height: 40px;
 	vertical-align: middle;
 	background: rgba(255,255,255,1);
 	color: rgba(50,50,50,1);
@@ -914,7 +913,6 @@ div.amp-lightbox-media-id {
 	background: rgba(150,150,150,1);
 	color: rgba(255,255,255,1);
 	padding: 10px 25px;
-	height: 40px;
 	vertical-align: middle;
 	border-radius: 0;
 	font-size: 80%;
