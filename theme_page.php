@@ -31,6 +31,16 @@ echo "<div id='article-breadcrumbs' amp-fx='parallax' data-parallax-factor='1.3'
 		echo substr($entry_info['appendix']['latitude'],0,6).", ".substr($entry_info['appendix']['longitude'],0,6);
 		echo " (GPS)</a>";
 		endif;
+
+	$languages_temp = [];
+	if (!(empty($entry_info['summary']))): $languages_temp = array_merge($languages_temp, array_keys($entry_info['summary'])); endif;
+	if (!(empty($entry_info['body']))): $languages_temp = array_merge($languages_temp, array_keys($entry_info['body'])); endif;
+	if (!(empty($languages_temp))): $languages_temp = array_unique($languages_temp); endif;
+	if (count($languages_temp) > 1):
+		echo "<br><b>Languages</b> ";
+		foreach($languages_temp as $language_temp): echo " &nbsp;&nbsp;|&nbsp;&nbsp; <a href='#".$language_temp."'>".ucfirst($language_temp)."</a>"; endforeach;
+		endif;
+
 	echo "</div>";
 
 echo "<article><div vocab='http://schema.org/' typeof='Article'>";
@@ -68,18 +78,6 @@ if (!(empty($children_array))):
 	ksort($children_array);
 	echo "<div class='article-genealogy' amp-fx='parallax' data-parallax-factor='1.2'><b>Subpage". $plural_temp ." (". count($children_array) .")</b>".implode(null, $children_array)."</div>";
 	endif;
-
-$languages_temp = [];
-if (!(empty($entry_info['summary']))): $languages_temp = array_merge($languages_temp, array_keys($entry_info['summary'])); endif;
-if (!(empty($entry_info['body']))): $languages_temp = array_merge($languages_temp, array_keys($entry_info['body'])); endif;
-if (!(empty($languages_temp))): $languages_temp = array_unique($languages_temp); endif;
-if (count($languages_temp) > 1):
-	echo "<p><b>Languages</b>";
-	foreach($languages_temp as $language_temp): echo "<a href='#".$language_temp."'><span>".ucfirst($language_temp)."</span></a>"; endforeach;
-	echo "</p>";
-	endif;
-
-echo "</div>";
 
 echo "<span property='articleBody'>";
 
