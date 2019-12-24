@@ -232,7 +232,7 @@ if ($page_temp == "edit-xhr"):
 
 	// Check if they match	
 
-	json_result($domain, "success", "/".$entry_id."/edit/", "Successfully updated.");
+	json_result($domain, "success", null, "Successfully updated.");
 
 	endif;
 
