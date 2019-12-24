@@ -127,7 +127,7 @@ echo "<amp-lightbox id='logout-popover' layout='nodisplay'>";
 
 	echo "</amp-lightbox>";
 
-echo "<form action='/edit-xhr/' method='post' class='admin-page-form'>";
+echo "<form action='/edit-xhr/' method='post' class='admin-page-form' id='save'>";
 
 $result_temp = file_get_contents("https://".$domain."/api/sitemap/");
 $additional_array = json_decode($result_temp, true);
@@ -280,7 +280,7 @@ echo "<div id='admin-page-form-snackbar'>";
 	echo "<div submit-success><template type='amp-mustache'>{{{message}}}</template></div>";
 	echo "</div>";
 
-echo "<div id='admin-page-form-save'>Save</div>";
+echo "<div id='admin-page-form-save' role='button' tabindex='0' on='tap:save.submit'>Save</div>";
 
 echo "</form>";
 
