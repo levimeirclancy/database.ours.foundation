@@ -45,6 +45,7 @@ if (!(empty($parents_array))):
 	foreach ($parents_array as $key_temp => $parent_id_temp):
 		unset($parents_array[$key_temp]);
 		$contents_temp = body_process("{{{". $parent_id_temp ."}}}");
+		if (empty($contents_temp)): continue; endif;
 		// Add a random code in case two entries have the same name
 		$parents_array[strip_tags($contents_temp).random_code(5)] = $contents_temp;
 		endforeach;
@@ -60,6 +61,7 @@ if (!(empty($children_array))):
 	foreach ($children_array as $key_temp => $child_id_temp):
 		unset($children_array[$key_temp]);
 		$contents_temp = body_process("{{{". $child_id_temp ."}}}");
+		if (empty($contents_temp)): continue; endif;
 		// Add a random code in case two entries have the same name
 		$children_array[strip_tags($contents_temp).random_code(5)] = $contents_temp;
 		endforeach;
