@@ -20,14 +20,16 @@ echo "<a href='/".$page_temp."/edit/'><span id='edit-entry' amp-fx='parallax' da
 echo "<article><div vocab='http://schema.org/' typeof='Article'>";
 
 echo "<p><a href='/'>".$domain."</a>";
-echo " / <a href='/". $entry_info['type'] ."/'>".$header_array[$entry_info['type']]."</a>";
+echo " > <a href='/". $entry_info['type'] ."/'>".strtolower($header_array[$entry_info['type']])."</a>";
 
 if ($entry_info['type'] == "location"):
-	echo " / <a href='/". $entry_info['unit_id'][0] ."/'>". body_process("{{{".$entry_info['unit_id'][0]."}}}") ."</a>";
+	echo " > <a href='/". $entry_info['unit_id'][0] ."/'>";
+	body_process("{{{".$entry_info['unit_id'][0]."}}}");
+	echo "</a>";
 	endif;
 
 if (!(empty($entry_info['appendix']['latitude'])) && !(empty($entry_info['appendix']['longitude']))):
-	echo " / <a href='https://".$domain."/".$entry_info['entry_id']."/map/' target='_blank'>";
+	echo "<br><a href='https://".$domain."/".$entry_info['entry_id']."/map/' target='_blank'>";
 	echo substr($entry_info['appendix']['latitude'],0,6).", ".substr($entry_info['appendix']['longitude'],0,6);
 	echo " (GPS)</a>";
 	endif;
