@@ -75,7 +75,7 @@ h1 span {
 
 /* GENEALOGY INTERSTICE */
 
-.genealogy_interstice { margin: 25px 0 20px; font-size: 80%; }
+.genealogy_interstice { margin: 25px 0 20px; font-size: 75%; }
 
 .genealogy_interstice p { margin: 20px 20px 10px; display: block; padding: 0; max-width: none; font-size: 100%; }
 
@@ -549,7 +549,7 @@ ol ol ol {
 	right: 20px;
 	top: 195px;
 	position: absolute;
-	font-size: 70%;
+	font-size: 75%;
 	opacity: 0.6;
 	}
 
