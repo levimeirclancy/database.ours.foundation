@@ -82,8 +82,6 @@ echo "<amp-lightbox id='new-popover' layout='nodisplay'>";
 // Do a delete popover ... redirect if deletion works ...
 echo "<amp-lightbox id='delete-popover' layout='nodisplay'>";
 
-	echo "<p>Do you really want to delete this entry?</p>";
-
 	echo "<form action-xhr='/delete-xhr/' method='post' id='delete' target='_top' class='admin-page-form' on=\"
 		submit:
 			delete-popover-submit.hide;
