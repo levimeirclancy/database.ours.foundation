@@ -107,7 +107,7 @@ echo "<amp-lightbox id='delete-popover' layout='nodisplay'>";
 // Do you really want to log out? You will lose unsaved work
 echo "<amp-lightbox id='logout-popover' layout='nodisplay'>";
 
-	echo "<form action='/logout-xhr/redirect/' method='post' id='logout' target='_top' class='admin-page-form' on=\"
+	echo "<form action-xhr='/logout-xhr/redirect/' method='post' id='logout' target='_top' class='admin-page-form' on=\"
 		submit:
 			logout-popover-submit.hide;
 		submit-error:
