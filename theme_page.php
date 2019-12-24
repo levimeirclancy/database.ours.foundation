@@ -40,18 +40,14 @@ echo "<header><h1 property='name' amp-fx='parallax' data-parallax-factor='1.2'><
 echo "<div id='article-genealogy' amp-fx='parallax' data-parallax-factor='1.2'>";
 
 if (empty($entry_info['parents']['hierarchy'])): $entry_info['parents']['hierarchy'] = []; endif;
-
-print_r($entry_info['parents']['hierarchy']);
-print_r(array_keys($information_array));
-$parents_array = array_intersect(array_keys($information_array), $entry_info['parents']['hierarchy']);
-print_r($parents_array);
+$parents_array = array_filter($entry_info['parents']['hierarchy']);
 if (!(empty($parents_array))):
 	$plural_temp = null; if (count($parents_array) > 1): $plural_temp = "s"; endif;
 	echo body_process("<b>Parent". $plural_temp ."</b><span>{{{".implode("}}}</span><span>{{{", $parents_array)."}}}</span>");
 	endif;
 
 if (empty($entry_info['children']['hierarchy'])): $entry_info['children']['hierarchy'] = []; endif;
-$parents_array = array_intersect(array_keys($information_array), $entry_info['children']['hierarchy']);
+$children_array = array_filter($entry_info['children']['hierarchy']);
 if (!(empty($children_array))):
 	$plural_temp = null; if (count($children_array) > 1): $plural_temp = "s"; endif;
 	echo body_process("<b>Subpage". $plural_temp ."</b><span>{{{".implode("}}}</span><span>{{{", $children_array)."}}}</span>");
