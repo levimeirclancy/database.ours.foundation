@@ -49,7 +49,7 @@ if (!(empty($parents_array))):
 		// Add a random code in case two entries have the same name
 		$parents_array[strip_tags($contents_temp).random_code(5)] = $contents_temp;
 		endforeach;
-	asort($parents_array);
+	ksort($parents_array);
 	echo "<b>Parent". $plural_temp ."</b><span>".implode("</span><span>", $parents_array)."</span>";
 	endif;
 
@@ -63,7 +63,7 @@ if (!(empty($children_array))):
 		// Add a random code in case two entries have the same name
 		$children_array[strip_tags($contents_temp).random_code(5)] = $contents_temp;
 		endforeach;
-	asort($children_array);
+	ksort($children_array);
 	echo "<b>Subpage". $plural_temp ."</b><span>".implode("</span><span>", $children_array)."</span>";
 	endif;
 
