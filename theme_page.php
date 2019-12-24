@@ -31,7 +31,7 @@ if ($entry_info['type'] == "location"):
 	endif;
 
 if (!(empty($entry_info['appendix']['latitude'])) && !(empty($entry_info['appendix']['longitude']))):
-	echo "<p><b>Map</b>: <a href='https://".$domain."/".$entry_info['entry_id']."/map/' target='_blank'>";
+	echo "<p><b>Map: </b> <a href='https://".$domain."/".$entry_info['entry_id']."/map/' target='_blank'>";
 	echo substr($entry_info['appendix']['latitude'],0,6).", ".substr($entry_info['appendix']['longitude'],0,6);
 	echo "</a></p>";
 	endif;
