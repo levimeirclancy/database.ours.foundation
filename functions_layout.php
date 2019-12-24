@@ -106,15 +106,15 @@ function amp_header($title=null, $canonical=null) {
 
 	echo "<form id='logout' method='post' action-xhr='/logout-xhr/' target='_blank' on=\"
 		submit:
-			logout-popover-submit.hide,
-			logout-popover-tryagain-submit.hide;
+			logout-submit.hide,
+			logout-tryagain-submit.hide;
 		submit-error:
 			login-popover-launch.hide;
 		submit-success:
 			login-popover-launch.show,
 			login-popover-submit.show,
-			logout-popover-submit.hide,
-			logout-popover-tryagain-submit.hide,
+			logout-submit.hide,
+			logout-tryagain-submit.hide,
 			settings-popover-launch.hide,
 			new-popover-launch.hide,
 			edit-entry.hide,
@@ -122,9 +122,9 @@ function amp_header($title=null, $canonical=null) {
 			logout.clear,
 			AMP.setState({'loginStatus': 'loggedout'})
 		\">";
-	echo "<div role='button' tabindex='0' class='navigation-header-item' id='logout-popover-submit' on='tap:logout.submit' [class]=\"loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" $logout_hidden>&#x2716; Log out</div>";
+	echo "<div role='button' tabindex='0' class='navigation-header-item' id='logout-submit' on='tap:logout.submit' [class]=\"loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" $logout_hidden>&#x2716; Log out</div>";
 	echo "<div class='navigation-header-item' submitting>&#x25cf; Logging out...</div>";
-	echo "<div role='button' tabindex='0' class='navigation-header-item' on='tap:logout.submit' id='logout-popover-tryagain-submit' submit-error>&#x2716; Try logging out again</div>";
+	echo "<div role='button' tabindex='0' class='navigation-header-item' on='tap:logout.submit' id='logout-tryagain-submit' submit-error>&#x2716; Try logging out again</div>";
 //	echo "<div role='button' tabindex='0' class='navigation-header-item' on='tap:logout.submit' submit-success>&#x2713; Logged out</div>";
 	echo "</form>";
 	
@@ -159,7 +159,7 @@ function amp_header($title=null, $canonical=null) {
 			submit-success:
 				login-popover.close,
 				login-popover-launch.hide,
-				logout-popover-submit.show,
+				logout-submit.show,
 				settings-popover-launch.show,
 				new-popover-launch.show,
 				edit-entry.show,
