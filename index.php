@@ -237,7 +237,8 @@ if ($page_temp == "new-xhr"):
 	$result_temp = file_get_contents("https://".$domain."/api/sitemap/?order=english");
 	$information_array = json_decode($result_temp, true);
 
-	while (isset($information_array[$entry_id])): $entry_id = random_code(7); endwhile;
+	// While the entry_id already exists, or is in use in the header array
+	while (isset($information_array[$entry_id]) || isset($header_array[$entry_id])): $entry_id = random_code(7); endwhile;
 
 	// Redirect to the edit ...
 	$values_temp = [
@@ -320,9 +321,10 @@ $layout_nodisplay_temp = null;
 if (!(empty($_REQUEST['view'])) && ($_REQUEST['view'] == "compact")): $layout_nodisplay_temp = "layout='nodisplay'"; endif;
 
 // if the $page_temp is valid then go ahead and see if it exists
-if (!(empty($page_temp)) && ($page_temp !== "new") && !(isset($header_array[$page_temp]))):
+if (!(empty($page_temp)) && !(isset($header_array[$page_temp]))):
 	$information_array = nesty_page($page_temp);
 	if (!(isset($information_array[$page_temp]))):
+		$command_temp = null; // To avoid showing edit options
 		amp_header();
 		notfound(); endif;
 	$url_temp = "/".$page_temp."/";
