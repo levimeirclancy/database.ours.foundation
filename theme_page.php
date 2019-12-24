@@ -21,8 +21,8 @@ echo "<article><div vocab='http://schema.org/' typeof='Article'>";
 
 echo "<div class='genealogy_interstice' amp-fx='parallax' data-parallax-factor='1.2'>";
 
-echo "<p><a href='/'>".$domain."</a>";
-echo " > <a href='/". $entry_info['type'] ."/'>".strtolower($header_array[$entry_info['type']])."</a>";
+echo "<p><a href='/'>".ucfirst($domain)."</a>";
+echo " > <a href='/". $entry_info['type'] ."/'>".$header_array[$entry_info['type']]."</a>";
 
 if ($entry_info['type'] == "location"):
 	echo " > <a href='/". $entry_info['unit_id'][0] ."/'>";
