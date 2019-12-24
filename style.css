@@ -105,16 +105,22 @@ h1 span {
 	text-align: left;
 	}
 
-.article-genealogy b, .article-genealogy p {
+.article-genealogy b {
+	display: block;
+	column-span: all;
 	padding: 5px;
 	margin: 0;
-	display: inline-block;
 	font-size: 100%;
 	}
 
-.article-genealogy b {
-	column-span: all;
+
+.article-genealogy p {
+	display: inline-block;
+	padding: 5px;
+	margin: 0;
+	font-size: 100%;
 	}
+
 
 
 /* HEADER */
