@@ -19,7 +19,7 @@ echo "<a href='/".$page_temp."/edit/'><span id='edit-entry' amp-fx='parallax' da
 
 echo "<article><div vocab='http://schema.org/' typeof='Article'>";
 
-echo "<div class='genealogy_interstice' amp-fx='parallax' data-parallax-factor='1.05'>";
+echo "<div class='genealogy_interstice' amp-fx='parallax' data-parallax-factor='1.2'>";
 
 echo "<p><a href='/'>".$domain."</a>";
 echo " > <a href='/". $entry_info['type'] ."/'>".strtolower($header_array[$entry_info['type']])."</a>";
