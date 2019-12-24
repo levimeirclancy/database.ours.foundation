@@ -35,7 +35,7 @@ echo "<div id='article-breadcrumbs' amp-fx='parallax' data-parallax-factor='1.3'
 
 echo "<article><div vocab='http://schema.org/' typeof='Article'>";
 
-echo "<header><h1 property='name' amp-fx='parallax' data-parallax-factor='1.2'><span>" . implode("</span> &bull; <span>", $entry_info['name']) . "</span></h1></header>";
+echo "<header><h1 property='name' amp-fx='parallax' data-parallax-factor='1.25'><span>" . implode("</span> &bull; <span>", $entry_info['name']) . "</span></h1></header>";
 
 if (empty($entry_info['parents']['hierarchy'])): $entry_info['parents']['hierarchy'] = []; endif;
 $parents_array = array_filter($entry_info['parents']['hierarchy']);
