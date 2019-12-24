@@ -39,32 +39,18 @@ echo "<header><h1 property='name' amp-fx='parallax' data-parallax-factor='1.2'><
 
 echo "<div id='article-genealogy' amp-fx='parallax' data-parallax-factor='1.2'>";
 
-if (!(empty($entry_info['parents']['hierarchy']))):
-	$entry_info['parents']['hierarchy'] = array_unique($entry_info['parents']['hierarchy']);
-	$entry_array = [];
-	foreach ($entry_info['parents']['hierarchy'] as $parent_id):
-		if ($parent_id == $entry_info['entry_id']): continue; endif;
-		$entry_array[] = "{{{".$parent_id."}}}";
-		endforeach;
-	if (!(empty($entry_array))):
-		$plural_temp = null; if (count($entry_array) > 1): $plural_temp = "s"; endif;
-		$entry_array = "<b>Parent". $plural_temp ."</b><span>".implode("</span><span>", $entry_array)."</span>";
-		echo body_process($entry_array);
-		endif;
+if (empty($entry_info['parents']['hierarchy'])): $entry_info['parents']['hierarchy'] = []; endif;
+$parents_array = array_intersect(array_keys($information_array), $entry_info['parents']['hierarchy']);
+if (!(empty($parents_array))):
+	$plural_temp = null; if (count($parents_array) > 1): $plural_temp = "s"; endif;
+	echo body_process("<b>Parent". $plural_temp ."</b><span>{{{".implode("}}}</span><span>{{{", $parents_array)."}}}</span>");
 	endif;
 
-if (!(empty($entry_info['children']['hierarchy']))):
-	$entry_info['children']['hierarchy'] = array_unique($entry_info['children']['hierarchy']);
-	$entry_array = [];
-	foreach ($entry_info['children']['hierarchy'] as $child_id):
-		if ($child_id == $entry_info['entry_id']): continue; endif;
-		$entry_array[] = "{{{".$child_id."}}}";
-		endforeach;
-	if (!(empty($entry_array))):
-		$plural_temp = null; if (count($entry_array) > 1): $plural_temp = "s"; endif;
-		$entry_array = "<b>Subpage". $plural_temp ."</b><span>".implode("</span><span>", $entry_array)."</span>";
-		echo body_process($entry_array);
-		endif;
+if (empty($entry_info['children']['hierarchy'])): $entry_info['children']['hierarchy'] = []; endif;
+$parents_array = array_intersect(array_keys($information_array), $entry_info['children']['hierarchy']);
+if (!(empty($children_array))):
+	$plural_temp = null; if (count($children_array) > 1): $plural_temp = "s"; endif;
+	echo body_process("<b>Subpage". $plural_temp ."</b><span>{{{".implode("}}}</span><span>{{{", $children_array)."}}}</span>");
 	endif;
 
 $languages_temp = [];
