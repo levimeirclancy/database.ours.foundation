@@ -214,14 +214,14 @@ if ($page_temp == "edit-xhr"):
 	if (empty($_POST['parents'])):
 		$sql_temp = "DELETE FROM ".$database.".information_paths WHERE child_id=:child_id AND path_type='hierarchy'";
 		$information_parents_clear_statement = $connection_pdo->prepare($sql_temp);
-		$information_parents_clear_statement->execute(["child_id" => $_POST['entry_id']);
+		$information_parents_clear_statement->execute(["child_id" => $_POST['entry_id']]);
 		endif;
 
 	// If there are no children, remove all that have this as parent
 	if (empty($_POST['children'])):
 		$sql_temp = "DELETE FROM ".$database.".information_paths WHERE parent_id=:parent_id AND path_type='hierarchy'";
 		$information_children_clear_statement = $connection_pdo->prepare($sql_temp);
-		$information_children_clear_statement->execute(["parent_id" => $_POST['entry_id']);
+		$information_children_clear_statement->execute(["parent_id" => $_POST['entry_id']]);
 		endif;
 
 	// And add in any parents there are...
