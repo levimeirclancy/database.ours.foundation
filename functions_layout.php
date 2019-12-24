@@ -214,7 +214,7 @@ function amp_header($title=null, $canonical=null) {
 
 		// Create selector ...
 		echo "<label for='type'>Type</label>";
-		echo "<amp-selector layout='container' name='type' required><div>";
+		echo "<amp-selector layout='container' name='type'><div>";
 		foreach ($header_array as $header_backend => $header_frontend):
 			echo "<span option='".$header_backend."'>".$header_frontend."</span>";
 			endforeach;
