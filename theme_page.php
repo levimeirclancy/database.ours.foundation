@@ -37,8 +37,6 @@ echo "<article><div vocab='http://schema.org/' typeof='Article'>";
 
 echo "<header><h1 property='name' amp-fx='parallax' data-parallax-factor='1.2'><span>" . implode("</span> &bull; <span>", $entry_info['name']) . "</span></h1></header>";
 
-echo "<div id='article-genealogy' amp-fx='parallax' data-parallax-factor='1.2'>";
-
 if (empty($entry_info['parents']['hierarchy'])): $entry_info['parents']['hierarchy'] = []; endif;
 $parents_array = array_filter($entry_info['parents']['hierarchy']);
 if (!(empty($parents_array))):
@@ -50,7 +48,7 @@ if (!(empty($parents_array))):
 		$parents_array[strip_tags($contents_temp).random_code(5)] = $contents_temp;
 		endforeach;
 	ksort($parents_array);
-	echo "<b>Parent". $plural_temp ."</b>".implode(null, $parents_array);
+	echo "<div class='article-genealogy' amp-fx='parallax' data-parallax-factor='1.2'><b>Parent". $plural_temp ."</b>".implode(null, $parents_array)."</div>;
 	endif;
 
 if (empty($entry_info['children']['hierarchy'])): $entry_info['children']['hierarchy'] = []; endif;
@@ -64,7 +62,7 @@ if (!(empty($children_array))):
 		$children_array[strip_tags($contents_temp).random_code(5)] = $contents_temp;
 		endforeach;
 	ksort($children_array);
-	echo "<b>Subpage". $plural_temp ."</b>".implode(null, $children_array);
+	echo "<div class='article-genealogy' amp-fx='parallax' data-parallax-factor='1.2'><b>Subpage". $plural_temp ."</b>".implode(null, $children_array)."</div>;
 	endif;
 
 $languages_temp = [];
