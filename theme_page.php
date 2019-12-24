@@ -39,6 +39,7 @@ echo "<header><h1 property='name' amp-fx='parallax' data-parallax-factor='1.2'><
 
 if (empty($entry_info['parents']['hierarchy'])): $entry_info['parents']['hierarchy'] = []; endif;
 $parents_array = array_filter($entry_info['parents']['hierarchy']);
+$parents_array = array_unique($entry_info['parents']['hierarchy']);
 if (!(empty($parents_array))):
 	$plural_temp = null; if (count($parents_array) > 1): $plural_temp = "s"; endif;
 	foreach ($parents_array as $key_temp => $parent_id_temp):
@@ -53,6 +54,7 @@ if (!(empty($parents_array))):
 
 if (empty($entry_info['children']['hierarchy'])): $entry_info['children']['hierarchy'] = []; endif;
 $children_array = array_filter($entry_info['children']['hierarchy']);
+$children_array = array_unique($entry_info['children']['hierarchy']);
 if (!(empty($children_array))):
 	$plural_temp = null; if (count($children_array) > 1): $plural_temp = "s"; endif;
 	foreach ($children_array as $key_temp => $child_id_temp):
