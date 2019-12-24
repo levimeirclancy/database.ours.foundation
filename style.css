@@ -115,7 +115,9 @@ h1 span {
 
 
 .article-genealogy p {
-	display: block;
+	display: inline-block;
+	width: 300px;
+	box-sizing: border-box;
 	padding: 5px;
 	margin: 0;
 	font-size: 100%;
