@@ -17,12 +17,12 @@ foreach ($result as $row):
 
 echo "<a href='/".$page_temp."/edit/'><span id='edit-entry' amp-fx='parallax' data-parallax-factor='1.3' $logout_hidden>&#10033; Edit</span></a>";
 
+echo "<p><a href='/'>".ucfirst($domain)."</a>";
+echo " > <a href='/". $entry_info['type'] ."/'>".$header_array[$entry_info['type']]."</a>";
+
 echo "<article><div vocab='http://schema.org/' typeof='Article'>";
 
 echo "<div class='genealogy_interstice' amp-fx='parallax' data-parallax-factor='1.2'>";
-
-echo "<p><a href='/'>".ucfirst($domain)."</a>";
-echo " > <a href='/". $entry_info['type'] ."/'>".$header_array[$entry_info['type']]."</a>";
 
 if ( ($entry_info['type'] == "location") && !(empty($entry_info['unit_id'])) ):
 	echo " > <a href='/". $entry_info['unit_id'] ."/'>";
