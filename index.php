@@ -106,28 +106,6 @@ $header_array = [
 	"article" => "Articles" ];
 
 
-// if it is delete-xhr
-if ($command_temp == "delete-xhr"):
-
-	// Delete this ...
-	$sql_temp = "DELETE FROM ".$database.".information_paths WHERE (parent_id=:parent_id) OR (child_id=:child_id)";
-	$paths_delete_statement = $connection_pdo->prepare($sql_temp);
-	$paths_delete_statement->execute(["parent_id"=>$page_temp, "child_id"=>$page_temp]);
-	execute_checkup($paths_delete_statement->errorInfo(), "deleting ".$_POST['entry_id']." in information_paths");
-
-	$sql_temp = "DELETE FROM ".$database.".information_directory WHERE entry_id=:entry_id";
-	$directory_delete_statement = $connection_pdo->prepare($sql_temp);
-	$directory_delete_statement->execute(["entry_id"=>$page_temp]);
-	execute_checkup($directory_delete_statement->errorInfo(), "deleting ".$_POST['entry_id']." in information_directory");
-
-	// Then redirect ...
-
-	exit;
-
-	endif;
-
-
-
 
 // if it is edit-xhr
 if ($command_temp == "edit-xhr"):
@@ -279,6 +257,35 @@ if ($page_temp == "new-xhr"):
 	json_result($domain, "success", "/".$entry_id."/edit/", "Successfully added.");
 
 	endif;
+
+
+// if it is delete-xhr
+if ($page_temp == "delete-xhr"):
+
+	if (empty($login)): json_result($domain, "error", null, "Not logged in."); endif;
+
+	if (empty($_POST['entry_id'])): json_result($domain, "error", null, "No entry id."); endif;
+
+	// Delete the paths ...
+	$sql_temp = "DELETE FROM ".$database.".information_paths WHERE (parent_id=:parent_id) OR (child_id=:child_id)";
+	$paths_delete_statement = $connection_pdo->prepare($sql_temp);
+	$paths_delete_statement->execute(["parent_id"=>$_POST['entry_id'], "child_id"=>$_POST['entry_id']]);
+	$result_temp = execute_checkup($paths_delete_statement->errorInfo());
+
+	if ($result_temp !== "success"): json_result($domain, "error", null, $result_temp); endif;
+
+	// Delete the paths ...
+	$sql_temp = "DELETE FROM ".$database.".information_directory WHERE entry_id=:entry_id";
+	$directory_delete_statement = $connection_pdo->prepare($sql_temp);
+	$directory_delete_statement->execute(["entry_id"=>$_POST['entry_id']]);
+	$result_temp = execute_checkup($directory_delete_statement->errorInfo());
+
+	if ($result_temp !== "success"): json_result($domain, "error", null, $result_temp); endif;
+
+	json_result($domain, "success", "/".$_POST['entry_id']."/", "Successfully deleted.");
+
+	endif;
+
 
 if ($page_temp == "api"):
 	if ($command_temp == "coordinate"): include_once('api_coordinate.php');
