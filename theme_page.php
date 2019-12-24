@@ -23,18 +23,17 @@ echo "<header><h1 property='name' amp-fx='parallax' data-parallax-factor='1.2'><
 
 echo "<div class='genealogy_interstice' amp-fx='parallax' data-parallax-factor='1.05'>";
 
-echo "<p ". $layout_nodisplay_temp ."><b>Type</b><span>".$header_array[$entry_info['type']]."</span></p>";
+echo "<p><b>Type: </b> ".$header_array[$entry_info['type']]."</p>";
 
 if ($entry_info['type'] == "location"):
-	$string_temp = "<b ". $layout_nodisplay_temp .">Unit</b><span>{{{".$entry_info['unit_id'][0]."}}}</span>";
+	$string_temp = "<p><b>Unit: </b> <span>{{{".$entry_info['unit_id'][0]."}}}</p>";
 	echo body_process($string_temp);
 	endif;
 
 if (!(empty($entry_info['appendix']['latitude'])) && !(empty($entry_info['appendix']['longitude']))):
-	echo "<p><b>Map</b>";
-	echo "<a href='https://".$domain."/".$entry_info['entry_id']."/map/' target='_blank'><span>";
+	echo "<p><b>Map</b>: <a href='https://".$domain."/".$entry_info['entry_id']."/map/' target='_blank'>";
 	echo substr($entry_info['appendix']['latitude'],0,6).", ".substr($entry_info['appendix']['longitude'],0,6);
-	echo "</span></a></p>";
+	echo "</a></p>";
 	endif;
 
 if (!(empty($entry_info['parents']['hierarchy']))):
