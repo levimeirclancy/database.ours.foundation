@@ -182,7 +182,7 @@ if ($page_temp == "edit-xhr"):
 		global $information_paths_remove_statement;
 		global $information_paths_statement;
 		
-		// This clears out any bad path id's or duplicate relationships
+		// This clears out any bad path keys or duplicate relationships
 		$values_temp = [
 			"path_id" => $parent_id."_".$child_id."_".$path_type,
 			"parent_id" => $parent_id,
@@ -210,34 +210,25 @@ if ($page_temp == "edit-xhr"):
 	// Remove any parents from the children
 	$_POST['children'] = array_diff($_POST['children'], $_POST['parents']);
 
-	// If there are no parents, remove all that have this as child
-	if (empty($_POST['parents'])):
-		$sql_temp = "DELETE FROM ".$database.".information_paths WHERE child_id=:child_id AND path_type='hierarchy'";
-		$information_parents_clear_statement = $connection_pdo->prepare($sql_temp);
-		$information_parents_clear_statement->execute(["child_id" => $_POST['entry_id']]);
-		endif;
+	// Clear out all of its parents
+	$sql_temp = "DELETE FROM ".$database.".information_paths WHERE child_id=:child_id AND path_type='hierarchy'";
+	$information_parents_clear_statement = $connection_pdo->prepare($sql_temp);
+	$information_parents_clear_statement->execute(["child_id" => $_POST['entry_id']]);
 
-	// If there are no children, remove all that have this as parent
-	if (empty($_POST['children'])):
-		$sql_temp = "DELETE FROM ".$database.".information_paths WHERE parent_id=:parent_id AND path_type='hierarchy'";
-		$information_children_clear_statement = $connection_pdo->prepare($sql_temp);
-		$information_children_clear_statement->execute(["parent_id" => $_POST['entry_id']]);
-		endif;
-
-	// And add in any parents there are...
+	// And add back any parents that were selected...
 	foreach($_POST['parents'] as $path_temp):
 		paths_check ($path_temp, "hierarchy", $_POST['entry_id']);
 		endforeach;
 
-	// And any children, too
+	// Clear out all of its children
+	$sql_temp = "DELETE FROM ".$database.".information_paths WHERE parent_id=:parent_id AND path_type='hierarchy'";
+	$information_children_clear_statement = $connection_pdo->prepare($sql_temp);
+	$information_children_clear_statement->execute(["parent_id" => $_POST['entry_id']]);
+
+	// And back any children that were selected, too
 	foreach($_POST['children'] as $path_temp):
 		paths_check ($_POST['entry_id'], "hierarchy", $path_temp);
 		endforeach;
-
-	$entry_info = nesty_page($page_temp);
-	$entry_info = $entry_info[$page_temp];
-
-	// Check if they match	
 
 	json_result($domain, "success", null, "Successfully updated.");
 
