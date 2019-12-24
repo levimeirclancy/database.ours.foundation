@@ -147,7 +147,7 @@ echo "<h1 amp-fx='parallax' data-parallax-factor='1.05'><a href='https://".$doma
 
 echo "<span id='title'></span>";
 echo "<h2>Title</h2>";
-echo "<p>The title should be shorter than the full name, and easier to comprehend as well. For example, <i>Sagrada Familia</i>.</p>";
+echo "<p>The title should be shorter than the full name, and easier to comprehend as well. For example, <i>Sagrada Familia</i>. It may also contain bracketed elements for sorting, e.g. <i>[01] Sagrada Familia</i>.</p>";
 
 foreach ($entry_info['name'] as $language_temp => $value_temp):
 	$placeholder_temp = "Title / ". ucfirst($language_temp);
@@ -163,7 +163,7 @@ foreach($site_info['languages'] as $language_temp):
 
 echo "<span id='full-name'></span>";
 echo "<h2>Full name</h2>";
-echo "<p>The full name of a person should include middle, last, and family names. Places may also have full names, such as <i>Basílica de la Sagrada Familia</i>.</p>";
+echo "<p>The full name of a person should include middle, last, and family names. Places may also have full names, such as <i>Basílica de la Sagrada Familia</i>. It should not be depended on for sorting.</p>";
 
 foreach ($entry_info['alternate_name'] as $language_temp => $value_temp):
 	$placeholder_temp = "Full name / ".ucfirst($language_temp);
