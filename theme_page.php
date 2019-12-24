@@ -40,9 +40,9 @@ echo "<header><h1 property='name' amp-fx='parallax' data-parallax-factor='1.2'><
 echo "<div id='article-genealogy' amp-fx='parallax' data-parallax-factor='1.2'>";
 
 if (empty($entry_info['parents']['hierarchy'])): $entry_info['parents']['hierarchy'] = []; endif;
-$parents_array = array_intersect(array_keys($information_array), $entry_info['parents']['hierarchy']);
 
-print_r($parents_array);
+print_r($entry_info['parents']['hierarchy']);
+$parents_array = array_intersect(array_keys($information_array), $entry_info['parents']['hierarchy']);
 if (!(empty($parents_array))):
 	$plural_temp = null; if (count($parents_array) > 1): $plural_temp = "s"; endif;
 	echo body_process("<b>Parent". $plural_temp ."</b><span>{{{".implode("}}}</span><span>{{{", $parents_array)."}}}</span>");
