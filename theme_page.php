@@ -49,7 +49,7 @@ if (!(empty($parents_array))):
 		$parents_array[strip_tags($contents_temp).random_code(5)] = $contents_temp;
 		endforeach;
 	ksort($parents_array);
-	echo "<div class='article-genealogy' amp-fx='parallax' data-parallax-factor='1.25'><b>Parent". $plural_temp ." (". count($children_array) .")</b>".implode(null, $parents_array)."</div>";
+	echo "<div class='article-genealogy' amp-fx='parallax' data-parallax-factor='1.25'><b>Parent". $plural_temp ." (". count($parents_array) .")</b>".implode(null, $parents_array)."</div>";
 	endif;
 
 if (empty($entry_info['children']['hierarchy'])): $entry_info['children']['hierarchy'] = []; endif;
