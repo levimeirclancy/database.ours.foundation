@@ -62,7 +62,7 @@ echo "<amp-lightbox id='new-popover' layout='nodisplay'>";
 
 	// Create selector ...
 	echo "<label for='type'>Type</label>";
-	echo "<amp-selector layout='container' name='type' required><div>";
+	echo "<amp-selector layout='container' name='type'><div>";
 	foreach ($header_array as $header_backend => $header_frontend):
 		echo "<span option='".$header_backend."'>".$header_frontend."</span>";
 		endforeach;
@@ -271,7 +271,7 @@ foreach ($appendix_array as $appendix_key => $appendix_type):
 echo "<p>An entry's type is its most important organizational component. Types are largely self-explanatory, except for 'articles' which are intended to be less research-oriented and more consumption-oriented.</p>";
 
 echo "<label for='type'>Type</label>";
-echo "<amp-selector layout='container' name='type' required><div>";
+echo "<amp-selector layout='container' name='type'><div>";
 if (isset($header_array[$entry_info['type']])):
 	echo "<span option='".$entry_info['type']."' selected>".$header_array[$entry_info['type']]."</span>";
 	endif;
