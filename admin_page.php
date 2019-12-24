@@ -284,7 +284,7 @@ echo "</div></amp-selector>";
 echo "<br><br><br><br><br>";
 
 echo "<div id='admin-page-form-snackbar'>";
-	echo "<div id='admin-page-form-snackbar-ready'>Submitting...</div>";
+	echo "<div id='admin-page-form-snackbar-ready'>Ready ...</div>";
 	echo "<div submitting>Submitting...</div>";
 	echo "<div submit-error><template type='amp-mustache'>Error. {{{message}}}</template></div>";
 	echo "<div submit-success><template type='amp-mustache'>{{{message}}}</template></div>";
