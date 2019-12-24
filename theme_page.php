@@ -18,7 +18,7 @@ foreach ($result as $row):
 echo "<a href='/".$page_temp."/edit/'><span id='edit-entry' amp-fx='parallax' data-parallax-factor='1.3' $logout_hidden>&#10033; Edit</span></a>";
 
 // Crumbs and GPS ...
-echo "<div class='genealogy_interstice' amp-fx='parallax' data-parallax-factor='1.2'>";
+echo "<div class='article-breadcrumbs' amp-fx='parallax' data-parallax-factor='1.2'>";
 	echo "<p><a href='/'>".ucfirst($domain)."</a>";
 	echo " > <a href='/". $entry_info['type'] ."/'>".$header_array[$entry_info['type']]."</a>";
 	if ( ($entry_info['type'] == "location") && !(empty($entry_info['unit_id'])) ):
@@ -37,7 +37,7 @@ echo "<article><div vocab='http://schema.org/' typeof='Article'>";
 
 echo "<header><h1 property='name' amp-fx='parallax' data-parallax-factor='1.2'><span>" . implode("</span> &bull; <span>", $entry_info['name']) . "</span></h1></header>";
 
-echo "<div class='genealogy_interstice' amp-fx='parallax' data-parallax-factor='1.05'>";
+echo "<div class='article-genealogy' amp-fx='parallax' data-parallax-factor='1.05'>";
 
 if (!(empty($entry_info['parents']['hierarchy']))):
 	$entry_info['parents']['hierarchy'] = array_unique($entry_info['parents']['hierarchy']);
@@ -47,7 +47,8 @@ if (!(empty($entry_info['parents']['hierarchy']))):
 		$entry_array[] = "{{{".$parent_id."}}}";
 		endforeach;
 	if (!(empty($entry_array))):
-		$entry_array = "<b>Parents</b><span>".implode("</span><span>", $entry_array)."</span>";
+		$plural_temp = null; if (count($entry_array) > 1)): $plural_temp = "s"; endif;
+		$entry_array = "<b>Parent". $plural_temp ."</b><span>".implode("</span><span>", $entry_array)."</span>";
 		echo body_process($entry_array);
 		endif;
 	endif;
@@ -60,7 +61,8 @@ if (!(empty($entry_info['children']['hierarchy']))):
 		$entry_array[] = "{{{".$child_id."}}}";
 		endforeach;
 	if (!(empty($entry_array))):
-		$entry_array = "<b>Subpages</b><span>".implode("</span><span>", $entry_array)."</span>";
+		$plural_temp = null; if (count($entry_array) > 1)): $plural_temp = "s"; endif;
+		$entry_array = "<b>Subpage". $plural_temp ."</b><span>".implode("</span><span>", $entry_array)."</span>";
 		echo body_process($entry_array);
 		endif;
 	endif;
