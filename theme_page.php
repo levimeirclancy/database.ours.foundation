@@ -44,7 +44,7 @@ $parents_array = array_filter($entry_info['parents']['hierarchy']);
 if (!(empty($parents_array))):
 	$plural_temp = null; if (count($parents_array) > 1): $plural_temp = "s"; endif;
 	foreach ($parents_array as $key_temp => $parent_id_temp):
-		$parents_array[$key_temp] = body_process("{{{", $parent_id_temp)."}}}");
+		$parents_array[$key_temp] = body_process("{{{". $parent_id_temp ."}}}");
 		endforeach;
 	asort($parents_array);
 	echo body_process("<b>Parent". $plural_temp ."</b><span>".implode("</span><span>", $parents_array)."</span>";
@@ -55,7 +55,7 @@ $children_array = array_filter($entry_info['children']['hierarchy']);
 if (!(empty($children_array))):
 	$plural_temp = null; if (count($children_array) > 1): $plural_temp = "s"; endif;
 	foreach ($children_array as $key_temp => $child_id_temp):
-		$children_array[$key_temp] = body_process("{{{", $child_id_temp)."}}}");
+		$children_array[$key_temp] = body_process("{{{". $child_id_temp ."}}}");
 		endforeach;
 	asort($children_array);
 	echo body_process("<b>Parent". $plural_temp ."</b><span>".implode("</span><span>", $children_array)."</span>";
