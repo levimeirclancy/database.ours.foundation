@@ -102,6 +102,7 @@ h1 span {
 	column-count: auto;
 	column-gap: 30px;
 	clear: both;
+	text-align: left;
 	}
 
 .article-genealogy b, .article-genealogy p {
@@ -109,6 +110,10 @@ h1 span {
 	margin: 0;
 	display: block;
 	font-size: 100%;
+	}
+
+.article-genealogy b {
+	column-span: all;
 	}
 
 
