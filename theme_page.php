@@ -51,7 +51,7 @@ if (!(empty($entry_info['parents']['hierarchy']))):
 		$entry_array[] = "{{{".$parent_id."}}}";
 		endforeach;
 	if (!(empty($entry_array))):
-		$entry_array = "<b>Parents: </b> <span>".implode("</span><span>", $entry_array)."</span>";
+		$entry_array = "<b>Parents</b><span>".implode("</span><span>", $entry_array)."</span>";
 		echo body_process($entry_array);
 		endif;
 	endif;
@@ -64,7 +64,7 @@ if (!(empty($entry_info['children']['hierarchy']))):
 		$entry_array[] = "{{{".$child_id."}}}";
 		endforeach;
 	if (!(empty($entry_array))):
-		$entry_array = "<b>Subpages: </b> <span>".implode("</span><span>", $entry_array)."</span>";
+		$entry_array = "<b>Subpages</b><span>".implode("</span><span>", $entry_array)."</span>";
 		echo body_process($entry_array);
 		endif;
 	endif;
