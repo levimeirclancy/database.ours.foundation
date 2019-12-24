@@ -38,7 +38,7 @@ echo "<div id='article-breadcrumbs' amp-fx='parallax' data-parallax-factor='1.3'
 	if (!(empty($languages_temp))): $languages_temp = array_unique($languages_temp); endif;
 	if (count($languages_temp) > 1):
 		foreach($languages_temp as $key_temp => $language_temp): $languages_temp[$key_temp] = "<a href='#".$language_temp."'>".ucfirst($language_temp)."</a>"; endforeach;
-		echo "<br>Toggle languages > ". implode("&nbsp;&nbsp;|&nbsp;&nbsp;", $languages_temp);
+		echo "<br>Languages > ". implode("&nbsp;&nbsp;|&nbsp;&nbsp;", $languages_temp);
 		endif;
 
 	echo "</div>";
