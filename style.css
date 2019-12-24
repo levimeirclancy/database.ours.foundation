@@ -3,7 +3,7 @@ body {
 	font-family: Georgia, 'Times New Roman', Serif;
 	font-size: 20px;
 	line-height: 1.3;
-	padding: 120px 0 0 0;
+	padding: 100px 0 0 0;
 	background: rgba(250,250,250,1);
 	margin: 0; }
 
@@ -76,14 +76,14 @@ h1 span {
 /* GENEALOGY INTERSTICE */
 
 .genealogy_interstice {
-	margin: -20px 100px 20px 0;
+	margin: 0 100px 20px 0;
 	padding: 0;
-	font-size: 75%;
+	font-size: 70%;
 	vertical-align: top;
 	}
 
 @media only screen and (max-width: 531px)  {
-	.genealogy_interstice { margin-top: 30px; }
+	.genealogy_interstice { margin-top: 50px; }
 	}
 
 .genealogy_interstice p { margin: 0 20px 10px; display: block; padding: 0; max-width: none; font-size: 100%; }
@@ -558,7 +558,7 @@ ol ol ol {
 	right: 20px;
 	top: 100px;
 	position: absolute;
-	font-size: 75%;
+	font-size: 70%;
 	opacity: 0.6;
 	}
 
