@@ -47,7 +47,7 @@ if (!(empty($entry_info['parents']['hierarchy']))):
 		$entry_array[] = "{{{".$parent_id."}}}";
 		endforeach;
 	if (!(empty($entry_array))):
-		$plural_temp = null; if (count($entry_array) > 1)): $plural_temp = "s"; endif;
+		$plural_temp = null; if (count($entry_array) > 1): $plural_temp = "s"; endif;
 		$entry_array = "<b>Parent". $plural_temp ."</b><span>".implode("</span><span>", $entry_array)."</span>";
 		echo body_process($entry_array);
 		endif;
