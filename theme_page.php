@@ -52,7 +52,6 @@ if (empty($entry_info['parents']['hierarchy'])): $entry_info['parents']['hierarc
 $parents_array = array_filter($entry_info['parents']['hierarchy']);
 $parents_array = array_unique($entry_info['parents']['hierarchy']);
 if (!(empty($parents_array))):
-	$plural_temp = null; if (count($parents_array) > 1): $plural_temp = "s"; endif;
 	foreach ($parents_array as $key_temp => $parent_id_temp):
 		unset($parents_array[$key_temp]);
 		$contents_temp = body_process("{{{". $parent_id_temp ."}}}");
@@ -60,8 +59,13 @@ if (!(empty($parents_array))):
 		// Add a random code in case two entries have the same name
 		$parents_array[strip_tags($contents_temp).random_code(5)] = $contents_temp;
 		endforeach;
+
 	ksort($parents_array);
-	echo "<div class='article-genealogy' amp-fx='parallax' data-parallax-factor='1.25'><b>Parent". $plural_temp ." (". count($parents_array) .")</b>".implode(null, $parents_array)."</div>";
+
+	$plural_temp = "Parent";
+	if (count($parents_array) > 1): $plural_temp .= "s (". count($parents_array) ."); endif;
+
+	echo "<div class='article-genealogy' amp-fx='parallax' data-parallax-factor='1.25'><b>". $plural_temp ."</b>".implode(null, $parents_array)."</div>";
 	endif;
 
 if (empty($entry_info['children']['hierarchy'])): $entry_info['children']['hierarchy'] = []; endif;
@@ -76,8 +80,13 @@ if (!(empty($children_array))):
 		// Add a random code in case two entries have the same name
 		$children_array[strip_tags($contents_temp).random_code(5)] = $contents_temp;
 		endforeach;
+
 	ksort($children_array);
-	echo "<div class='article-genealogy' amp-fx='parallax' data-parallax-factor='1.2'><b>Subpage". $plural_temp ." (". count($children_array) .")</b>".implode(null, $children_array)."</div>";
+
+	$plural_temp = "Subpage";
+	if (count($children_array) > 1): $plural_temp .= "s (". count($children_array) ."); endif;
+
+	echo "<div class='article-genealogy' amp-fx='parallax' data-parallax-factor='1.2'><b>". $plural_temp ."</b>".implode(null, $children_array)."</div>";
 	endif;
 
 echo "<span property='articleBody'>";
