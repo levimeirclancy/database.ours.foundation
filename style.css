@@ -62,7 +62,7 @@ header {
 h1 {
 	text-align: center;
 	color: rgba(50,50,50,1);
-	margin: 50px auto 0;
+	margin: 10px auto 0;
 	padding: 0;
 	display: block;
 	font-size: 130%;
@@ -75,7 +75,7 @@ h1 span {
 
 /* GENEALOGY INTERSTICE */
 
-.genealogy_interstice { margin: 50px 0 20px; font-size: 80%; }
+.genealogy_interstice { margin: 100px 0 20px; font-size: 80%; }
 
 .genealogy_interstice p { margin: 20px 20px 10px; display: block; padding: 0; max-width: none; font-size: 100%; }
 
