@@ -50,7 +50,7 @@ if (!(empty($parents_array))):
 		$parents_array[strip_tags($contents_temp).random_code(5)] = $contents_temp;
 		endforeach;
 	ksort($parents_array);
-	echo "<b>Parent". $plural_temp ."</b><span>".implode("</span><span>", $parents_array)."</span>";
+	echo "<b>Parent". $plural_temp ."</b>".implode(null, $parents_array);
 	endif;
 
 if (empty($entry_info['children']['hierarchy'])): $entry_info['children']['hierarchy'] = []; endif;
@@ -64,7 +64,7 @@ if (!(empty($children_array))):
 		$children_array[strip_tags($contents_temp).random_code(5)] = $contents_temp;
 		endforeach;
 	ksort($children_array);
-	echo "<b>Subpage". $plural_temp ."</b><span>".implode("</span><span>", $children_array)."</span>";
+	echo "<b>Subpage". $plural_temp ."</b>".implode(null, $children_array);
 	endif;
 
 $languages_temp = [];
