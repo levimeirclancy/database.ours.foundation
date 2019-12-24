@@ -108,7 +108,14 @@ $header_array = [
 
 
 // if it is edit-xhr
-if ($command_temp == "edit-xhr"):
+if ($page_temp == "edit-xhr"):
+
+	if (empty($login)): json_result($domain, "error", null, "Not logged in."); endif;
+
+	if (empty($_POST['entry_id'])): json_result($domain, "error", null, "Needs entry."); endif;
+
+	if (empty($_POST['type'])): json_result($domain, "error", null, "Needs type."); endif;
+	if (empty($header_array[$_POST['type']])): json_result($domain, "error", null, "Type is not valid."); endif;
 
 	function clean_empty_array($array_temp) {
 		if (ctype_space($array_temp)): return null; endif;
@@ -149,7 +156,9 @@ if ($command_temp == "edit-xhr"):
 	$information_directory_statement = $connection_pdo->prepare($sql_temp);
 	$information_directory_statement->execute($values_temp);
 
-	execute_checkup($information_directory_statement->errorInfo(), "updating ".$_POST['entry_id']." in information_directory");
+	$result_temp = execute_checkup($information_directory_statement->errorInfo());
+
+	if ($result_temp !== "success"): json_result($domain, "error", null, $result_temp); endif;
 
 	$values_temp = [
 		"path_id" => null,
@@ -182,10 +191,12 @@ if ($command_temp == "edit-xhr"):
 		if (in_array("clear_selection", $_POST[$relationship_type][$path_type])): $_POST[$relationship_type][$path_type] = []; endif;
 		if (in_array($query_id, $entry_info[$relationship_type][$path_type]) && !(in_array($query_id, $_POST[$relationship_type][$path_type]))):
 			$information_paths_remove_statement->execute($values_temp);
-			execute_checkup($information_paths_remove_statement->errorInfo(), "removing path in information_paths");
+			$result_temp = execute_checkup($information_paths_remove_statement->errorInfo());
+			if ($result_temp !== "success"): json_result($domain, "error", null, "Error removing paths: ".$result_temp); endif;
 		elseif (!(in_array($query_id, $entry_info[$relationship_type][$path_type])) && in_array($query_id, $_POST[$relationship_type][$path_type])):
 			$information_paths_statement->execute($values_temp);
-			execute_checkup($information_paths_statement->errorInfo(), "adding path in information_paths");
+			$result_temp = execute_checkup($information_paths_statement->errorInfo());
+			if ($result_temp !== "success"): json_result($domain, "error", null, "Error adding paths: ".$result_temp); endif;
 			endif; }
 
 	foreach ((array)$path_types_check_array as $path_type):
@@ -216,9 +227,9 @@ if ($command_temp == "edit-xhr"):
 	$entry_info = nesty_page($page_temp);
 	$entry_info = $entry_info[$page_temp];
 
-	// Give what saved ...
+	// Check if they match	
 
-	exit;
+	json_result($domain, "success", "/".$entry_id."/edit/", "Successfully updated.");
 
 	endif;
 
