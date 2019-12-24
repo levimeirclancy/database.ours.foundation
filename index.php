@@ -171,41 +171,67 @@ if ($page_temp == "edit-xhr"):
 	$sql_temp = sql_setup($values_temp, "information_paths");
 	$information_paths_statement = $connection_pdo->prepare($sql_temp);
 
-	$sql_temp = "DELETE FROM ".$database.".information_paths WHERE (path_id=:path_id) OR (parent_id=:parent_id AND path_type=:path_type AND child_id=:child_id)";
+	$sql_temp = "DELETE FROM ".$database.".information_paths WHERE (path_id=:path_id) OR (parent_id=:parent_id AND child_id=:child_id)";
 	$information_paths_remove_statement = $connection_pdo->prepare($sql_temp);
 
-	function paths_check($relationship_type, $parent_id, $path_type, $child_id, $query_id) {
+	function paths_check($parent_id, $path_type, $child_id) {
+		
 		global $entry_info;
 		global $_POST;
 		global $connection_pdo;
 		global $information_paths_remove_statement;
 		global $information_paths_statement;
+		
+		// This clears out any bad path id's or duplicate relationships
+		$values_temp = [
+			"path_id" => $parent_id."_".$child_id."_".$path_type,
+			"parent_id" => $parent_id,
+			"child_id" => $child_id ];
+		$information_paths_remove_statement->execute($values_temp);
+		$result_temp = execute_checkup($information_paths_remove_statement->errorInfo());
+		if ($result_temp !== "success"): json_result($domain, "error", null, "Error removing paths: ".$result_temp); endif;
+
+		// And this adds in the correct one
 		$values_temp = [
 			"path_id" => $parent_id."_".$child_id."_".$path_type,
 			"parent_id" => $parent_id,
 			"path_type" => $path_type,
 			"child_id" => $child_id ];
-		if (in_array("clear_selection", $_POST[$relationship_type][$path_type])): $_POST[$relationship_type][$path_type] = []; endif;
-		if (in_array($query_id, $entry_info[$relationship_type][$path_type]) && !(in_array($query_id, $_POST[$relationship_type][$path_type]))):
-			$information_paths_remove_statement->execute($values_temp);
-			$result_temp = execute_checkup($information_paths_remove_statement->errorInfo());
-			if ($result_temp !== "success"): json_result($domain, "error", null, "Error removing paths: ".$result_temp); endif;
-		elseif (!(in_array($query_id, $entry_info[$relationship_type][$path_type])) && in_array($query_id, $_POST[$relationship_type][$path_type])):
-			$information_paths_statement->execute($values_temp);
-			$result_temp = execute_checkup($information_paths_statement->errorInfo());
-			if ($result_temp !== "success"): json_result($domain, "error", null, "Error adding paths: ".$result_temp); endif;
-			endif; }
+		$information_paths_statement->execute($values_temp);
+		$result_temp = execute_checkup($information_paths_statement->errorInfo());
+		if ($result_temp !== "success"): json_result($domain, "error", null, "Error adding paths: ".$result_temp); endif;
+		}
 
+	
+	// Initialize these values
 	if (empty($_POST['parents'])): $_POST['parents'] = []; endif;
 	if (empty($_POST['children'])): $_POST['children'] = []; endif;
 
+	// Remove any parents from the children
+	$_POST['children'] = array_diff($_POST['children'], $_POST['parents']);
+
+	// If there are no parents, remove all that have this as child
+	if (empty($_POST['parents'])):
+		$sql_temp = "DELETE FROM ".$database.".information_paths WHERE child_id=:child_id AND path_type='hierarchy'";
+		$information_parents_clear_statement = $connection_pdo->prepare($sql_temp);
+		$information_parents_clear_statement->execute(["child_id" => $_POST['entry_id']);
+		endif;
+
+	// If there are no children, remove all that have this as parent
+	if (empty($_POST['children'])):
+		$sql_temp = "DELETE FROM ".$database.".information_paths WHERE parent_id=:parent_id AND path_type='hierarchy'";
+		$information_children_clear_statement = $connection_pdo->prepare($sql_temp);
+		$information_children_clear_statement->execute(["parent_id" => $_POST['entry_id']);
+		endif;
+
+	// And add in any parents there are...
 	foreach($_POST['parents'] as $path_temp):
-		paths_check ("parents", $path_temp, "hierarchy", $_POST['entry_id']);
+		paths_check ($path_temp, "hierarchy", $_POST['entry_id']);
 		endforeach;
 
+	// And any children, too
 	foreach($_POST['children'] as $path_temp):
-		if (in_array($path_temp, $_POST['parents'])): continue; endif;
-		paths_check ("children", $path_temp, "hierarchy", $_POST['entry_id']);
+		paths_check ($_POST['entry_id'], "hierarchy", $path_temp);
 		endforeach;
 
 	$entry_info = nesty_page($page_temp);
