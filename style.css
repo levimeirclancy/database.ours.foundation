@@ -150,7 +150,7 @@ amp-lightbox {
 /* Make the input and description same width and placement */
 #login-popover label, #login-popover input {
 	display: block;
-	margin: 5px auto;
+	margin: 15px auto 5px;
 	max-width: 400px;
 	width: 95%;
 	text-align: left;
@@ -819,7 +819,7 @@ div.amp-lightbox-media-id {
 .admin-page-form label {
 	color: rgba(100,100,100,0.8);
 	font-size: 70%;
-	padding: 20px 20px 5px;
+	padding: 30px 20px 5px;
 	}
 
 .admin-page-form input {
