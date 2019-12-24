@@ -102,7 +102,7 @@ h1 span {
 #article-genealogy b {
 	padding: 20px 5px 0;
 	margin: 0;
-	display: inline;
+	display: block;
 	font-size: 100%;
 	}
 
