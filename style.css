@@ -99,16 +99,17 @@ h1 span {
 	font-size: 75%;
 	}
 
-#article-genealogy p {
-	margin: 0 0 10px;
+#article-genealogy b {
+	padding: 10px 5px 0 0;
+	display: inline;
+	font-size: 100%;
+	}
+
+#article-genealogy span {
+	padding: 2px 5px 3px 0;
 	display: block;
-	padding: 0;
-	max-width: none;
-	font-size: 100%; }
-
-#article-genealogy b { padding: 0 5px 0 0; display: inline; font-size: 100%; }
-
-#article-genealogy span { padding: 4px 5px 3px 0; display: block; font-size: 100%; }
+	font-size: 100%;
+	}
 
 
 /* HEADER */
