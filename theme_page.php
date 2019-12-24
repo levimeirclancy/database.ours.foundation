@@ -44,9 +44,12 @@ $parents_array = array_filter($entry_info['parents']['hierarchy']);
 if (!(empty($parents_array))):
 	$plural_temp = null; if (count($parents_array) > 1): $plural_temp = "s"; endif;
 	foreach ($parents_array as $key_temp => $parent_id_temp):
-		$parents_array[$key_temp] = body_process("{{{". $parent_id_temp ."}}}");
+		unset($parents_array[$key_temp]);
+		$contents_temp = body_process("{{{". $parent_id_temp ."}}}");
+		// Add a random code in case two entries have the same name
+		$parents_array[strip_tags($contents_temp).random_code(5)] = $contents_temp;
 		endforeach;
-	sort($parents_array);
+	asort($parents_array);
 	echo "<b>Parent". $plural_temp ."</b><span>".implode("</span><span>", $parents_array)."</span>";
 	endif;
 
@@ -55,9 +58,12 @@ $children_array = array_filter($entry_info['children']['hierarchy']);
 if (!(empty($children_array))):
 	$plural_temp = null; if (count($children_array) > 1): $plural_temp = "s"; endif;
 	foreach ($children_array as $key_temp => $child_id_temp):
-		$children_array[$key_temp] = body_process("{{{". $child_id_temp ."}}}");
+		unset($children_array[$key_temp]);
+		$contents_temp = body_process("{{{". $child_id_temp ."}}}");
+		// Add a random code in case two entries have the same name
+		$children_array[strip_tags($contents_temp).random_code(5)] = $contents_temp;
 		endforeach;
-	sort($children_array);
+	asort($children_array);
 	echo "<b>Subpage". $plural_temp ."</b><span>".implode("</span><span>", $children_array)."</span>";
 	endif;
 
