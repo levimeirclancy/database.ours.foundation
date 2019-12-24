@@ -63,7 +63,7 @@ if (!(empty($parents_array))):
 	ksort($parents_array);
 
 	$plural_temp = "Parent";
-	if (count($parents_array) > 1): $plural_temp .= "s (". count($parents_array) ."); endif;
+	if (count($parents_array) > 1): $plural_temp .= "s (". count($parents_array) .")"; endif;
 
 	echo "<div class='article-genealogy' amp-fx='parallax' data-parallax-factor='1.25'><b>". $plural_temp ."</b>".implode(null, $parents_array)."</div>";
 	endif;
@@ -84,7 +84,7 @@ if (!(empty($children_array))):
 	ksort($children_array);
 
 	$plural_temp = "Subpage";
-	if (count($children_array) > 1): $plural_temp .= "s (". count($children_array) ."); endif;
+	if (count($children_array) > 1): $plural_temp .= "s (". count($children_array) .")"; endif;
 
 	echo "<div class='article-genealogy' amp-fx='parallax' data-parallax-factor='1.2'><b>". $plural_temp ."</b>".implode(null, $children_array)."</div>";
 	endif;
