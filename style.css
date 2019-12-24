@@ -97,6 +97,7 @@ h1 span {
 	margin: 15px;
 	padding: 0;
 	font-size: 75%;
+	display: block;
 	column-width: 250px;
 	column-count: auto;
 	column-gap: 30px;
