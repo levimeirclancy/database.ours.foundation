@@ -117,7 +117,7 @@ echo "<amp-lightbox id='logout-popover' layout='nodisplay'>";
 	echo "<p>Do you really want to log out? You will lose any unsaved work.</p>";
 
 	// Submit button ...
-	echo "<br><span id='logout-popover-submit' role='button' tabindex='0' on='tap:logout.submit'>Delete</span>";
+	echo "<br><span id='logout-popover-submit' role='button' tabindex='0' on='tap:logout.submit'>Log out</span>";
 
 	echo "<div class='form-feedback' submitting>Logging out...</div>";
 	echo "<div class='form-feedback' submit-error><template type='amp-mustache'>Error. {{{message}}}</template></div>";
