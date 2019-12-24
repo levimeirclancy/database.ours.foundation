@@ -46,7 +46,7 @@ if (!(empty($parents_array))):
 	foreach ($parents_array as $key_temp => $parent_id_temp):
 		$parents_array[$key_temp] = body_process("{{{". $parent_id_temp ."}}}");
 		endforeach;
-	asort($parents_array);
+	sort($parents_array);
 	echo "<b>Parent". $plural_temp ."</b><span>".implode("</span><span>", $parents_array)."</span>";
 	endif;
 
@@ -57,8 +57,8 @@ if (!(empty($children_array))):
 	foreach ($children_array as $key_temp => $child_id_temp):
 		$children_array[$key_temp] = body_process("{{{". $child_id_temp ."}}}");
 		endforeach;
-	asort($children_array);
-	echo "<b>Parent". $plural_temp ."</b><span>".implode("</span><span>", $children_array)."</span>";
+	sort($children_array);
+	echo "<b>Subpage". $plural_temp ."</b><span>".implode("</span><span>", $children_array)."</span>";
 	endif;
 
 $languages_temp = [];
