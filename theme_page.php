@@ -24,9 +24,9 @@ echo "<div class='genealogy_interstice' amp-fx='parallax' data-parallax-factor='
 echo "<p><a href='/'>".ucfirst($domain)."</a>";
 echo " > <a href='/". $entry_info['type'] ."/'>".$header_array[$entry_info['type']]."</a>";
 
-if ($entry_info['type'] == "location"):
-	echo " > <a href='/". $entry_info['unit_id'][0] ."/'>";
-	body_process("{{{".$entry_info['unit_id'][0]."}}}");
+if ( ($entry_info['type'] == "location") && !(empty($entry_info['unit_id'])) ):
+	echo " > <a href='/". $entry_info['unit_id'] ."/'>";
+	body_process("{{{".$entry_info['unit_id']."}}}");
 	echo "</a>";
 	endif;
 
