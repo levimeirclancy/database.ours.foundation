@@ -274,7 +274,11 @@ echo "</div></amp-selector>";
 
 echo "<br><br><br><br><br>";
 
-echo "<div id='admin-page-form-snackbar'>...</div>";
+echo "<div id='admin-page-form-snackbar'>";
+	echo "<div submitting>Submitting...</div>";
+	echo "<div submit-error><template type='amp-mustache'>Error. {{{message}}}</template></div>";
+	echo "<div submit-success><template type='amp-mustache'>{{{message}}}</template></div>";
+	echo "</div>";
 
 echo "<div id='admin-page-form-save'>Save</div>";
 
