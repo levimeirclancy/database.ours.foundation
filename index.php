@@ -174,12 +174,6 @@ if ($page_temp == "edit-xhr"):
 	$sql_temp = "DELETE FROM ".$database.".information_paths WHERE (path_id=:path_id) OR (parent_id=:parent_id AND path_type=:path_type AND child_id=:child_id)";
 	$information_paths_remove_statement = $connection_pdo->prepare($sql_temp);
 
-	$path_types_check_array = array_merge(
-		(array)array_keys($_POST['parents']),
-		(array)array_keys($entry_info['parents']),
-		(array)array_keys($_POST['children']),
-		(array)array_keys($entry_info['children']) );
-
 	function paths_check($relationship_type, $parent_id, $path_type, $child_id, $query_id) {
 		global $entry_info;
 		global $_POST;
@@ -202,29 +196,16 @@ if ($page_temp == "edit-xhr"):
 			if ($result_temp !== "success"): json_result($domain, "error", null, "Error adding paths: ".$result_temp); endif;
 			endif; }
 
-	foreach ((array)$path_types_check_array as $path_type):
+	if (empty($_POST['parents'])): $_POST['parents'] = []; endif;
+	if (empty($_POST['children'])): $_POST['children'] = []; endif;
 
-		if (is_int($path_type)): continue; endif;
+	foreach($_POST['parents'] as $path_temp):
+		paths_check ("parents", $path_temp, "hierarchy", $_POST['entry_id']);
+		endforeach;
 
-		if (empty($_POST['parents'][$path_type])): $_POST['parents'][$path_type] = []; endif;
-		if (empty($_POST['children'][$path_type])): $_POST['children'][$path_type] = []; endif;
-		if (empty($entry_info['parents'][$path_type])): $entry_info['parents'][$path_type] = []; endif;
-		if (empty($entry_info['children'][$path_type])): $entry_info['children'][$path_type] = []; endif;
-		$_POST['parents'][$path_type] = (array)$_POST['parents'][$path_type];
-		$_POST['children'][$path_type] = (array)$_POST['children'][$path_type];
-		$entry_info['parents'][$path_type] = (array)$entry_info['parents'][$path_type];
-		$entry_info['children'][$path_type] = (array)$entry_info['children'][$path_type];
-
-		$parents_temp = array_merge($_POST['parents'][$path_type], $entry_info['parents'][$path_type]);
-		foreach($parents_temp as $path_temp):
-			paths_check ("parents", $path_temp, $path_type, $_POST['entry_id'], $path_temp);
-			endforeach;
-
-		$children_temp = array_merge($_POST['children'][$path_type], $entry_info['children'][$path_type]);
-		foreach($children_temp as $path_temp):
-			paths_check ("children", $_POST['entry_id'], $path_type, $path_temp, $path_temp);
-			endforeach;
-
+	foreach($_POST['children'] as $path_temp):
+		if (in_array($path_temp, $_POST['parents'])): continue; endif;
+		paths_check ("children", $path_temp, "hierarchy", $_POST['entry_id']);
 		endforeach;
 
 	$entry_info = nesty_page($page_temp);
