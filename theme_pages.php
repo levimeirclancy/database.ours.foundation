@@ -3,7 +3,7 @@ $information_array = json_decode($result_temp, true);
 
 echo "<h1>".$header_array[$page_temp]."</h1>";
 
-if (empty($information_array)): echo "<p>Empty. Consider adding an article.</p>"; footer(); endif;
+if (empty($information_array)): echo "<p>Empty. Consider creating a new entry.</p>"; footer(); endif;
 
 echo "<br>";
 
