@@ -81,7 +81,7 @@ h1 span {
 
 .genealogy_interstice b { padding: 4px 7px 0; display: inline; font-size: 100%; }
 
-.genealogy_interstice span { padding: 4px 10px 3px; display: block; font-size: 80%; font-size: 100%; }
+.genealogy_interstice span { padding: 4px 20px 3px 0; display: block; font-size: 80%; font-size: 100%; }
 
 
 /* HEADER */
