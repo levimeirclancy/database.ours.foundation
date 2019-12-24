@@ -107,10 +107,22 @@ echo "<amp-lightbox id='delete-popover' layout='nodisplay'>";
 // Do you really want to log out? You will lose unsaved work
 echo "<amp-lightbox id='logout-popover' layout='nodisplay'>";
 
+	echo "<form action='/logout-xhr/redirect/' method='post' id='logout' target='_top' class='admin-page-form' on=\"
+		submit:
+			logout-popover-submit.hide;
+		submit-error:
+			logout-popover-submit.show
+		\">";
+
 	echo "<p>Do you really want to log out? You will lose any unsaved work.</p>";
 
-	echo "<form action='' method='post'>";
-	echo "<button type='submit' name='logout_entry' value='".$page_temp."'>Log out</button></div>";
+	// Submit button ...
+	echo "<br><span id='logout-popover-submit' role='button' tabindex='0' on='tap:logout.submit'>Delete</span>";
+
+	echo "<div class='form-feedback' submitting>Logging out...</div>";
+	echo "<div class='form-feedback' submit-error><template type='amp-mustache'>Error. {{{message}}}</template></div>";
+	echo "<div class='form-feedback' submit-success><template type='amp-mustache'>{{{message}}}</template></div>";
+
 	echo "</form>";
 
 	echo "</amp-lightbox>";
