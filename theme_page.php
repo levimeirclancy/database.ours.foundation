@@ -19,22 +19,25 @@ echo "<a href='/".$page_temp."/edit/'><span id='edit-entry' amp-fx='parallax' da
 
 echo "<article><div vocab='http://schema.org/' typeof='Article'>";
 
-echo "<header><h1 property='name' amp-fx='parallax' data-parallax-factor='1.2'><span>" . implode("</span> &bull; <span>", $entry_info['name']) . "</span></h1></header>";
-
-echo "<div class='genealogy_interstice' amp-fx='parallax' data-parallax-factor='1.05'>";
-
-echo "<p><b>Type: </b> ".$header_array[$entry_info['type']]."</p>";
+echo "<p><a href='/'>".$domain."</a>";
+echo " / <a href='/". $entry_info['type'] ."/'>".$header_array[$entry_info['type']]."</a>";
 
 if ($entry_info['type'] == "location"):
-	$string_temp = "<p><b>Unit: </b> <span>{{{".$entry_info['unit_id'][0]."}}}</p>";
-	echo body_process($string_temp);
+	echo " / <a href='/". $entry_info['unit_id'][0] ."/'>". body_process("{{{".$entry_info['unit_id'][0]."}}}") ."</a>";
 	endif;
 
 if (!(empty($entry_info['appendix']['latitude'])) && !(empty($entry_info['appendix']['longitude']))):
-	echo "<p><b>Map: </b> <a href='https://".$domain."/".$entry_info['entry_id']."/map/' target='_blank'>";
+	echo " / <a href='https://".$domain."/".$entry_info['entry_id']."/map/' target='_blank'>";
 	echo substr($entry_info['appendix']['latitude'],0,6).", ".substr($entry_info['appendix']['longitude'],0,6);
-	echo "</a></p>";
+	echo " (GPS)</a>";
 	endif;
+
+echo "</p>";
+
+
+echo "<header><h1 property='name' amp-fx='parallax' data-parallax-factor='1.2'><span>" . implode("</span> &bull; <span>", $entry_info['name']) . "</span></h1></header>";
+
+echo "<div class='genealogy_interstice' amp-fx='parallax' data-parallax-factor='1.05'>";
 
 if (!(empty($entry_info['parents']['hierarchy']))):
 	$entry_info['parents']['hierarchy'] = array_unique($entry_info['parents']['hierarchy']);
