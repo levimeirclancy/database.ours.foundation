@@ -73,24 +73,37 @@ h1 span {
 	display: block;
 	}
 
-/* GENEALOGY INTERSTICE */
-
-.genealogy_interstice {
-	margin: 0 100px 20px 0;
-	padding: 0;
+#article-breadcrumbs, #edit-entry {
+	top: 100px;
+	position: absolute;
 	font-size: 75%;
-	vertical-align: top;
+	opacity: 0.6;
+	}
+
+#article-breadcrumbs {
+	left: 20px;
+	margin-right: 100px;
+	}
+
+#edit-entry {
+	right: 20px;
 	}
 
 @media only screen and (max-width: 531px)  {
-	.genealogy_interstice { margin-top: 50px; }
+	#article-breadcrumbs, #edit-entry { top: 150px; }
 	}
 
-.genealogy_interstice p { margin: 0 20px 10px; display: block; padding: 0; max-width: none; font-size: 100%; }
+#article-genealogy {
+	margin: 20px;
+	padding: 0;
+	font-size: 75%;
+	}
 
-.genealogy_interstice b { padding: 0 5px 0 0; display: inline; font-size: 100%; }
+#article-genealogy p { margin: 0 20px 10px; display: block; padding: 0; max-width: none; font-size: 100%; }
 
-.genealogy_interstice span { padding: 4px 5px 3px 0; display: block; font-size: 80%; font-size: 100%; }
+#article-genealogy b { padding: 0 5px 0 0; display: inline; font-size: 100%; }
+
+#article-genealogy span { padding: 4px 5px 3px 0; display: block; font-size: 80%; font-size: 100%; }
 
 
 /* HEADER */
@@ -554,17 +567,7 @@ ol ol {
 ol ol ol {
 	list-style-type: lower-alpha; }
 
-#edit-entry {
-	right: 20px;
-	top: 100px;
-	position: absolute;
-	font-size: 75%;
-	opacity: 0.6;
-	}
 
-@media only screen and (max-width: 531px)  {
-	#edit-entry { top: 150px; }
-	}
 
 
 /* LINK TILES */
