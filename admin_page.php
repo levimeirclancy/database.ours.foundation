@@ -232,7 +232,7 @@ function hierarchy_selector ($relationship_name, $possible_array=[]) {
 	if (!(empty($entry_info['hierarchy'][$relationship_name]))): echo "<span option='clear_selection' style='font-style: italic;'>Clear selection</span>";
 	else: $entry_info['hierarchy'][$relationship_name] = []; endif;
 
-	foreach ($entry_info['hierarchy'][$relationship_name] as $entry_id_temp):
+	foreach ($entry_info[$relationship_name]['hierarchy'] as $entry_id_temp):
 		if (empty($possible_array[$entry_id_temp])): continue; endif;
 		if (empty($possible_array[$entry_id_temp]['name'])): continue; endif;
 		if ($page_temp == $entry_id_temp): continue; endif;
