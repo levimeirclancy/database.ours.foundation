@@ -112,9 +112,9 @@ if ($login == 0):
 	echo "<hr>";
 	echo "<h1>Create login</h1>";
 	echo "<form action='' method='post'>";
-	echo "<input type='email' name='email' placeholder='email' required><br>";
-	echo "<input type='password' name='password1' placeholder='password' required><br>";
-	echo "<input type='password' name='password2' placeholder='password' required><br>";
+	echo "<input type='email' name='email' placeholder='E-mail' required><br>";
+	echo "<input type='password' name='password1' placeholder='Password' required><br>";
+	echo "<input type='password' name='password2' placeholder='Password (confirm)' required><br>";
 	echo "<input type='submit' name='submit' value='create'>";
 	echo "</form>";
 	exit; endif; ?>
