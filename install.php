@@ -148,12 +148,12 @@ if ($login == 0):
 1) Run this command: <i>sudo a2enmod rewrite</i>
 2) Locate your Apache config file, usually in /etc/apache2/sites-available/
 3) Update your Apache config file by adding the follow chunk at the bottom outside virtualhosts,
-<i><Directory /var/www/[DIRECTORY]/>
+<i>&lt;Directory /var/www/[DIRECTORY]/&gt;
 RewriteEngine on
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule . /index.php [L]
-</Directory></i>
+&lt;/Directory&gt;</i>
 4) Run this command to restart Apache: <i>sudo service apache2 restart</i>
 
 </pre>
