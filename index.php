@@ -4,6 +4,8 @@ mb_http_output('UTF-8');
 include_once('config.php');
 $connection_pdo = new PDO("mysql:host=$server;dbname=$database;charset=utf8mb4", $username, $password);
 
+if (empty($connection_pdo)): echo "did not connect"; exit; endif;
+
 include_once('functions.php');
 
 $site_info = ["languages"=>["english", "sorani", "arabic"]];
