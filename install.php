@@ -5,8 +5,8 @@
 <? include_once('config.php');
 
 function execute_checkup ($error_info, $message) {
-	if ($error_info[0] == "0000"): echo "<p>Succcess ".$message."</p>";
-	else: echo "<p>Failure ".$message.".<br>".$error_info[2]."</p>"; exit; endif; }
+	if ($error_info[0] == "0000"): echo "Succcess ".$message."<hr>";
+	else: echo "Failure ".$message.".<br>".$error_info[2]."<hr>"; exit; endif; }
 
 // make connection without database
 $connection_pdo = new PDO(
@@ -45,7 +45,7 @@ execute_checkup($run_statement->errorInfo(), "creating users table");
 
 if (!(empty($_POST['submit']))):
 	if (empty($_POST['email']) || empty($_POST['password1'])):
-		echo "<br><i style='color: red;'>user information incomplete</i><br>";
+		echo "<i style='color: red;'>User information incomplete</i><hr>";
 	elseif ($_POST['password1'] == $_POST['password2']):
 		$values_temp = [
 			"user_id"=>random_code(10),
@@ -56,7 +56,7 @@ if (!(empty($_POST['submit']))):
 		$run_statement->execute($values_temp);
 		execute_checkup($run_statement->errorInfo(), "creating account login");
 	else:
-		echo "<br><i style='color: red;'>passwords did not match</i><br>";
+		echo "<i style='color: red;'>Passwords did not match</i><hr>";
 		endif;
 	endif;
 
