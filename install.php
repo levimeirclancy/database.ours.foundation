@@ -8,6 +8,22 @@ function execute_checkup ($error_info, $message) {
 	if ($error_info[0] == "0000"): echo "Succcess ".$message."<hr>";
 	else: echo "Failure ".$message.".<br>".$error_info[2]."<hr>"; exit; endif; }
 
+function random_code($length=16) {
+	$characters = [
+		"2", "3", "4", "5", "6", "7",
+//		"Q", "W", "E", "R". "T", "Y", "U", "I", "O", "P", 
+		"Q", "W", "R". "T", "Y", "P", // remove vowels
+//		"A", "S", "D", "F", "G", "H", "J", "K", "L", 
+		"S", "D", "F", "G", "H", "J", "K", "L", // remove vowels
+//		"Z", "X", "C", "V", "B", "N", "M"
+		"Z", "C", "V", "B", "N", "M" // remove 'x' for vulgar use
+		];
+	if (!(is_int($length))): $length = 16; endif;
+	if ($length < 1): $length = 16; endif;
+	$key_temp = null;
+	while (strlen($key_temp) < $length): $key_temp .= $characters[rand(0,31)]; endwhile;
+	return $key_temp; }
+
 // make connection without database
 $connection_pdo = new PDO(
 	"mysql:host=$server;charset=utf8mb4", 
@@ -44,6 +60,7 @@ $run_statement->execute();
 execute_checkup($run_statement->errorInfo(), "creating users table");
 
 if (!(empty($_POST['submit']))):
+
 	if (empty($_POST['email']) || empty($_POST['password1'])):
 		echo "<i style='color: red;'>User information incomplete</i><hr>";
 	elseif ($_POST['password1'] == $_POST['password2']):
