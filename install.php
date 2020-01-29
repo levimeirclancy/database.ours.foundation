@@ -62,18 +62,25 @@ execute_checkup($run_statement->errorInfo(), "creating users table");
 if (!(empty($_POST['submit']))):
 
 	if (empty($_POST['email']) || empty($_POST['password1'])):
-		echo "<i style='color: red;'>User information incomplete</i><hr>";
+		echo "<b style='color: red;'>User information incomplete</b><hr>";
 	elseif ($_POST['password1'] == $_POST['password2']):
+
+		// Prepare statement
+		$sql_temp = "INSERT INTO $database.users (`user_id`, `email`, `hash`) VALUES (:user_id, :email, :hash) ON DUPLICATE KEY UPDATE `user_id`=VALUES(`user_id`), `email`=VALUES(`email`), `hash`=VALUES(`hash`)";
+		$run_statement = $connection_pdo->prepare($sql_temp);
+
+		// Set up values
 		$values_temp = [
 			"user_id"=>random_code(10),
 			"email"=>$_POST['email'],
 			"hash"=>sha1($_POST['email'].$_POST['password1']) ];
-		$sql_temp = sql_setup($values_temp, "$database.users");
-		$run_statement = $connection_pdo->prepare($sql_temp);
+
+		// Execute and check
 		$run_statement->execute($values_temp);
 		execute_checkup($run_statement->errorInfo(), "creating account login");
+
 	else:
-		echo "<i style='color: red;'>Passwords did not match</i><hr>";
+		echo "<b style='color: red;'>Passwords did not match</b><hr>";
 		endif;
 	endif;
 
