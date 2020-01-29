@@ -4,14 +4,21 @@
 
 <? include_once('config.php');
 
-echo "test"; exit;
-
 function execute_checkup ($error_info, $message) {
 	if ($error_info[0] == "0000"): echo "succcess ".$message;
 	else: echo "failure ".$message."<br>".$error_info[2]; exit; endif; }
 
 // make connection without database
-$connection_pdo = new PDO("mysql:host=$server;charset=utf8mb4", $username, $password);
+$connection_pdo = new PDO(
+	"mysql:host=$server;charset=utf8mb4", 
+	$username, 
+	$password,
+	array(
+		PDO::ATTR_TIMEOUT => 3, // in seconds
+		PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+		)
+	);
+
 
 // create database
 $sql_temp = "CREATE DATABASE IF NOT EXISTS $database CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;";
@@ -20,7 +27,15 @@ $run_statement->execute();
 execute_checkup($run_statement->errorInfo(), "creating database $database");
 
 // make connection with database now that it certainly exists
-$connection_pdo = new PDO("mysql:host=$server;dbname=$database;charset=utf8mb4", $username, $password);
+$connection_pdo = new PDO(
+	"mysql:host=$server;dbname=$database;charset=utf8mb4", 
+	$username, 
+	$password,
+	array(
+		PDO::ATTR_TIMEOUT => 3, // in seconds
+		PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+		)
+	);
 
 // create users table
 $sql_temp = "CREATE TABLE IF NOT EXISTS $database.users (`user_id` VARCHAR(100), `status` VARCHAR(100), `email` VARCHAR(100), `name` VARCHAR(100), `hash` VARCHAR(400), `authenticator` VARCHAR(100), `cookie` VARCHAR(100),  timestamp TIMESTAMP, PRIMARY KEY (`user_id`)) DEFAULT CHARSET=utf8mb4;";
