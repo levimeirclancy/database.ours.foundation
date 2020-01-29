@@ -13,10 +13,10 @@ $connection_pdo = new PDO(
 	"mysql:host=$server;charset=utf8mb4", 
 	$username, 
 	$password,
-//	array(
-//		PDO::ATTR_TIMEOUT => 3, // in seconds
-//		PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
-//		)
+	array(
+		PDO::ATTR_TIMEOUT => 3, // in seconds
+		PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+		)
 	);
 
 
