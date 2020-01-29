@@ -82,6 +82,8 @@ foreach ($information_array as $entry_id => $entry_info):
 	$count_temp += $result_temp;
 	endforeach;
 
-if (empty($count_temp)): echo "<p>Empty. Consider creating a new entry.</p>"; endif;
+if (empty($count_temp)): echo "<p>Empty. Consider creating a new entry.</p>"; footer(); endif;
+
+echo "<hr>";
 
 footer();
