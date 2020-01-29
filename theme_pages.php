@@ -9,6 +9,8 @@ function print_row_loop ($entry_id=null, $indent_level=0) {
 	global $information_array;
 	global $logout_hidden;
 	
+	echo "test3"; exit;
+	
 	if (!(array_key_exists($entry_id, $information_array))):
 		return; endif;
 	
@@ -74,8 +76,6 @@ echo "<h1>".$header_array[$page_temp]."</h1><br>";
 
 $count_temp = 0;
 foreach ($information_array as $entry_id => $entry_info):
-echo "test2"; exit;
-
 	if ($entry_info['type'] !== $page_temp): continue; endif;
 	print_row_loop ($entry_id, 0);
 	$count_temp++;
