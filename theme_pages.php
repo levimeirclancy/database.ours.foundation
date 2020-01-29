@@ -84,6 +84,6 @@ foreach ($information_array as $entry_id => $entry_info):
 
 if (empty($count_temp)): echo "<p>Empty. Consider creating a new entry.</p>"; footer(); endif;
 
-echo "<hr>";
+echo "<span class='categories-item'></span>";
 
 footer();
