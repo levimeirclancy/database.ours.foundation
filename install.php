@@ -5,8 +5,8 @@
 <? include_once('config.php');
 
 function execute_checkup ($error_info, $message) {
-	if ($error_info[0] == "0000"): echo "succcess ".$message;
-	else: echo "failure ".$message."<br>".$error_info[2]; exit; endif; }
+	if ($error_info[0] == "0000"): echo "<p>Succcess ".$message."</p>";
+	else: echo "<p>Failure ".$message.".<br>".$error_info[2]."</p>"; exit; endif; }
 
 // make connection without database
 $connection_pdo = new PDO(
