@@ -9,29 +9,29 @@ function print_row_loop ($entry_id=null, $indent_level=0) {
 	global $information_array;
 	global $logout_hidden;
 	
-	echo "test3"; exit;
-	
 	if (!(array_key_exists($entry_id, $information_array))):
-		return; endif;
+		return 0; endif;
+	
+	echo "test4";
 	
 	$entry_info = $information_array[$entry_id];
 
 	if ( ($entry_info['type'] == $page_temp) && !(empty($entry_info['parents']['hierarchy'])) && ($indent_level == 0)):
-		return; endif;
+		return 0; endif;
 	
 	if ($entry_info['type'] !== $page_temp):
-		if (empty($entry_info['children']['hierarchy'])): return; endif;
+		if (empty($entry_info['children']['hierarchy'])): return 0; endif;
 		$skip_temp = 1;
 		foreach ($entry_info['children']['hierarchy'] as $child_temp):
 			foreach ($information_array[$child_temp]['parents']['hierarchy'] as $parent_temp):
 				if ($information_array[$parent_temp]['type'] == $page_temp):
-					return; endif;
+					return 0; endif;
 				endforeach;
 			if ($information_array[$child_temp]['type'] == $page_temp):
 				$skip_temp = 0;
 				break; endif;
 			endforeach;
-		if ($skip_temp == 1): return; endif;
+		if ($skip_temp == 1): return 0; endif;
 		endif;
 	
 	$count_temp = 0; $indent_temp = null;
@@ -70,6 +70,9 @@ function print_row_loop ($entry_id=null, $indent_level=0) {
 			print_row_loop ($child_id, $indent_level);
 			endforeach;
 		endif;
+	
+	return 1;
+	
 	}
 
 echo "<h1>".$header_array[$page_temp]."</h1><br>";
@@ -77,8 +80,8 @@ echo "<h1>".$header_array[$page_temp]."</h1><br>";
 $count_temp = 0;
 foreach ($information_array as $entry_id => $entry_info):
 	if ($entry_info['type'] !== $page_temp): continue; endif;
-	print_row_loop ($entry_id, 0);
-	$count_temp++;
+	$result_temp = print_row_loop ($entry_id, 0);
+	$count_temp += $result_temp;
 	endforeach;
 
 if (empty($count_temp)): echo "<p>Empty. Consider creating a new entry.</p>"; endif;
