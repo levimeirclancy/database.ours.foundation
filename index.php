@@ -7,7 +7,7 @@ $connection_pdo = new PDO(
 	$username, 
 	$password,
 	array(
-		PDO::ATTR_TIMEOUT => 5, // in seconds
+		PDO::ATTR_TIMEOUT => 3, // in seconds
 		PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
 		)
 	);
