@@ -302,7 +302,7 @@ exit;
 
 	if (in_array($input_temp, [ "term" ])):
 		$terms_array = get_terms(["person_id"=>$page_temp]);
-		if (empty($terms_array)): continue; endif;
+//		if (empty($terms_array)): continue; endif;
 		echo "<table><thead><tr><th>term</th><th>person</th><th>position</th><th>for</th><th>party</th><th>start</th><th>end</th><th>vote</th></tr></thead><tbody>";
 		foreach($terms_array as $term_id => $term_info):
 			$information_array = get_entries(["entry_id"=>$term_info]);
