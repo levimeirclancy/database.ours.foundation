@@ -3,9 +3,10 @@
 <h1>Setting up database schema</h1>
 
 <? include_once('config.php');
-include_once('functions_sql.php');
 
-echo "test"; exit;
+function execute_checkup ($error_info, $message) {
+	if ($error_info[0] == "0000"): echo "succcess ".$message;
+	else: echo "failure ".$message."<br>".$error_info[2]; exit; endif; }
 
 // make connection without database
 $connection_pdo = new PDO("mysql:host=$server;charset=utf8mb4", $username, $password);
@@ -14,7 +15,7 @@ $connection_pdo = new PDO("mysql:host=$server;charset=utf8mb4", $username, $pass
 $sql_temp = "CREATE DATABASE IF NOT EXISTS $database CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;";
 $run_statement = $connection_pdo->prepare($sql_temp);
 $run_statement->execute();
-$result = execute_checkup($run_statement->errorInfo(), "creating database $database", "full");
+execute_checkup($run_statement->errorInfo(), "creating database $database");
 
 // make connection with database now that it certainly exists
 $connection_pdo = new PDO("mysql:host=$server;dbname=$database;charset=utf8mb4", $username, $password);
@@ -23,7 +24,7 @@ $connection_pdo = new PDO("mysql:host=$server;dbname=$database;charset=utf8mb4",
 $sql_temp = "CREATE TABLE IF NOT EXISTS $database.users (`user_id` VARCHAR(100), `status` VARCHAR(100), `email` VARCHAR(100), `name` VARCHAR(100), `hash` VARCHAR(400), `authenticator` VARCHAR(100), `cookie` VARCHAR(100),  timestamp TIMESTAMP, PRIMARY KEY (`user_id`)) DEFAULT CHARSET=utf8mb4;";
 $run_statement = $connection_pdo->prepare($sql_temp);
 $run_statement->execute();
-$result = execute_checkup($run_statement->errorInfo(), "creating users table", "full");
+execute_checkup($run_statement->errorInfo(), "creating users table");
 
 if (!(empty($_POST['submit']))):
 	if (empty($_POST['email']) || empty($_POST['password1'])):
@@ -46,7 +47,7 @@ if (!(empty($_POST['submit']))):
 $sql_temp = "CREATE TABLE IF NOT EXISTS $database.locations_shapes (`line_id` VARCHAR(10), `shape_id` VARCHAR(10), `entry_id` VARCHAR(10), `start_latitude` DECIMAL(16,13), `start_longitude` DECIMAL(16,13), `end_latitude` DECIMAL(16,13), `end_longitude` DECIMAL(16,13), `timestamp` TIMESTAMP, PRIMARY KEY (`line_id`)) DEFAULT CHARSET=utf8mb4";
 $run_statement = $connection_pdo->prepare($sql_temp);
 $run_statement->execute();
-execute_checkup($run_statement->errorInfo(), "creating locations_shapes table", "full");
+execute_checkup($run_statement->errorInfo(), "creating locations_shapes table");
 
 // create entries directory table
 $columns_temp = [
@@ -63,25 +64,25 @@ $columns_temp = [
 $sql_temp = "CREATE TABLE IF NOT EXISTS $database.information_directory (".implode(", ", $columns_temp).") DEFAULT CHARSET=utf8mb4";
 $run_statement = $connection_pdo->prepare($sql_temp);
 $run_statement->execute();
-execute_checkup($run_statement->errorInfo(), "creating information_directory table", "full");
+execute_checkup($run_statement->errorInfo(), "creating information_directory table");
 
 // create paths table
 $sql_temp = "CREATE TABLE IF NOT EXISTS $database.information_paths (`path_id` VARCHAR(100), `parent_id` VARCHAR(100), `path_type` VARCHAR(100), `child_id` VARCHAR(100), timestamp TIMESTAMP, PRIMARY KEY (`path_id`)) DEFAULT CHARSET=utf8mb4;";
 $run_statement = $connection_pdo->prepare($sql_temp);
 $run_statement->execute();
-$result = execute_checkup($run_statement->errorInfo(), "creating information_paths table", "full");
+execute_checkup($run_statement->errorInfo(), "creating information_paths table");
 			
 // create archived information table
 $sql_temp = "CREATE TABLE IF NOT EXISTS $database.information_history (`information_id` VARCHAR(10), `entry_id` VARCHAR(10), `information_name` VARCHAR(100), `information_value` TEXT, `timestamp` TIMESTAMP, PRIMARY KEY (`information_id`)) DEFAULT CHARSET=utf8mb4";
 $run_statement = $connection_pdo->prepare($sql_temp);
 $run_statement->execute();
-execute_checkup($run_statement->errorInfo(), "creating information_history table", "full");
+execute_checkup($run_statement->errorInfo(), "creating information_history table");
 
 // create site info table
 $sql_temp = "CREATE TABLE IF NOT EXISTS $database.siteinfo (`key` VARCHAR(100), `value` TEXT, timestamp TIMESTAMP, PRIMARY KEY (`key`)) DEFAULT CHARSET=utf8mb4;";
 $run_statement = $connection_pdo->prepare($sql_temp);
 $run_statement->execute();
-$result = execute_checkup($run_statement->errorInfo(), "creating siteinfo table", "full");
+execute_checkup($run_statement->errorInfo(), "creating siteinfo table");
 
 // select users from table and if it is empty then create a user
 $sql_temp = "SELECT * FROM $database.users";
