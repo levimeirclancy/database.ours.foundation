@@ -4,6 +4,8 @@
 
 <? include_once('config.php');
 
+echo "test"; exit;
+
 function execute_checkup ($error_info, $message) {
 	if ($error_info[0] == "0000"): echo "succcess ".$message;
 	else: echo "failure ".$message."<br>".$error_info[2]; exit; endif; }
