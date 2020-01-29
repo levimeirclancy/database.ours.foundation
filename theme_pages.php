@@ -72,17 +72,15 @@ function print_row_loop ($entry_id=null, $indent_level=0) {
 
 echo "<h1>".$header_array[$page_temp]."</h1><br>";
 
-echo "test1"; exit;
-
 $count_temp = 0;
 foreach ($information_array as $entry_id => $entry_info):
+echo "test2"; exit;
+
 	if ($entry_info['type'] !== $page_temp): continue; endif;
 	print_row_loop ($entry_id, 0);
 	$count_temp++;
 	endforeach;
 
-
-
-if (empty($count_temp)): echo "<p>Empty. Consider creating a new entry.</p>"; footer(); endif;
+if (empty($count_temp)): echo "<p>Empty. Consider creating a new entry.</p>"; endif;
 
 footer();
