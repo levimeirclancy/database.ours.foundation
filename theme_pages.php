@@ -13,12 +13,12 @@ function print_row_loop ($entry_id=null, $indent_level=0) {
 		return 0; endif;
 		
 	$entry_info = $information_array[$entry_id];
+	
+	print_r($entry_info['parents']['hierarchy']);
 
 	if ( ($entry_info['type'] == $page_temp) && !(empty($entry_info['parents']['hierarchy'])) && ($indent_level == 0)):
 		return 0; endif;
 
-	echo "test7";
-	
 	if ($entry_info['type'] !== $page_temp):
 		if (empty($entry_info['children']['hierarchy'])): return 0; endif;
 		$skip_temp = 1;
