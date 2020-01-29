@@ -1,25 +1,12 @@
 <? $result_temp = file_get_contents("https://".$domain."/api/sitemap/?order=english");
 $information_array = json_decode($result_temp, true);
 
-echo "<h1>".$header_array[$page_temp]."</h1>";
-
-if (empty($information_array)): echo "<p>Empty. Consider creating a new entry.</p>"; footer(); endif;
-
-echo "<br>";
-
-$unit_array = [];
-if (in_array($page_temp, ["location"])):
-	$result_temp = file_get_contents("https://".$domain."/api/sitemap/?type=unit");
-	$unit_array = json_decode($result_temp, true);
-	endif;
-
 function print_row_loop ($entry_id=null, $indent_level=0) {
 	
 	global $login;
 	global $domain;
 	global $page_temp;
 	global $information_array;
-	global $unit_array;
 	global $logout_hidden;
 	
 	if (!(array_key_exists($entry_id, $information_array))):
@@ -83,10 +70,15 @@ function print_row_loop ($entry_id=null, $indent_level=0) {
 		endif;
 	}
 
+echo "<h1>".$header_array[$page_temp]."</h1><br>";
+
+$count_temp = 0;
 foreach ($information_array as $entry_id => $entry_info):
-//	if (array_intersect($entry_info['parents']['hierarchy'], array_keys($information_array))): continue; endif;
-	if (empty($entry_id)): continue; endif;
+	if ($entry_info['type'] !== $page_temp): continue; endif;
 	print_row_loop ($entry_id, 0);
+	$count_temp++;
 	endforeach;
+
+if (empty($count_temp)): echo "<p>Empty. Consider creating a new entry.</p>"; footer(); endif;
 
 footer();
