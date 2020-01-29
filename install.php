@@ -5,6 +5,8 @@
 <? include_once('config.php');
 include_once('functions_sql.php');
 
+echo "test"; exit;
+
 // make connection without database
 $connection_pdo = new PDO("mysql:host=$server;charset=utf8mb4", $username, $password);
 
