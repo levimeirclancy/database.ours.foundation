@@ -143,8 +143,6 @@ if ($login == 0):
 	echo "</form>";
 	exit; endif; ?>
 
-<hr>
-
 <h1>Configure Apache</h1>
 
 1) Run this command: <i>sudo a2enmod rewrite</i>
