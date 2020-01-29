@@ -2,11 +2,17 @@
 mb_internal_encoding('UTF-8');
 mb_http_output('UTF-8');
 include_once('config.php');
-$connection_pdo = new PDO("mysql:host=$server;dbname=$database;charset=utf8mb4", $username, $password);
+$connection_pdo = new PDO(
+	"mysql:host=$server;dbname=$database;charset=utf8mb4", 
+	$username, 
+	$password,
+	array(
+		PDO::ATTR_TIMEOUT => 5, // in seconds
+		PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+		)
+	);
 
-echo "testing"; exit;
-
-if (empty($connection_pdo)): echo "did not connect"; exit; endif;
+if (empty($connection_pdo)): echo "Could not connect to mySQL."; exit; endif;
 
 include_once('functions.php');
 
