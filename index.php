@@ -398,16 +398,18 @@ if (!(empty($page_temp)) && !(isset($header_array[$page_temp]))):
 if (isset($header_array[$page_temp])):
 	$url_temp = "/".$page_temp."/";
 	if ($_SERVER['REQUEST_URI'] !== $url_temp): permanent_redirect("https://".$domain.$url_temp); endif;
-	amp_header($page_temp." list | ".$domain, $domain."/".$page_temp."/");
+	amp_header($page_temp." list", $domain."/".$page_temp."/");
 	include_once('theme_pages.php');
 	footer(); endif;
 
 if (!(empty($page_temp)) && isset($information_array[$page_temp])):
-	amp_header(implode(" • ", $information_array[$page_temp]['name'])." | ".$domain, $domain."/".$page_temp."/");
+	amp_header(implode(" • ", $information_array[$page_temp]['name']), $domain."/".$page_temp."/");
 	include_once('theme_page.php');
 	footer(); endif;
 
-if (!(empty($_SERVER['REQUEST_URI'])) && ($_SERVER['REQUEST_URI'] !== "/")): permanent_redirect("https://".$domain); endif;
-amp_header($domain, $domain."/".$page_temp."/");
+if (!(empty($_SERVER['REQUEST_URI'])) && ($_SERVER['REQUEST_URI'] !== "/")):
+	permanent_redirect("https://".$domain); endif;
+
+amp_header($domain, $domain);
 include_once('theme_home.php');
 footer(); ?>
