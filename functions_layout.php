@@ -147,16 +147,15 @@ function amp_header($title=null, $canonical=null) {
 	$layout_temp = "nodisplay";
 	if (empty($page_temp)): $layout_temp = null; endif;
 
-	
 	// This is the popover for the categories / sitemap ...
 	echo "<amp-lightbox id='categories-popover' layout='". $layout_temp ."'>";
 		echo "<div role='button' tabindex='0' on='tap:categories-popover.close' class='popover-close'>Back</div>";
 
-		echo "<div class='categories-popover-button'>". ucfirst($domain) ."</div>";
+		echo "<div class='categories-popover-button' on='tap:categories-list-popover-main'>". ucfirst($domain) ."</div>";
 
 		foreach ($header_array as $header_backend => $header_frontend):
 			if (empty($type_counts_array[$header_backend])): continue; endif;
-			echo "<div class='categories-popover-button' id='". $header_backend ."'>". $header_frontend ." — ".number_format($type_counts_array[$header_backend])." entries</div>";
+			echo "<div class='categories-popover-button' on='tap:categories-list-popover-". $header_backend ."'>". $header_frontend ." — ".number_format($type_counts_array[$header_backend])." entries</div>";
 			endforeach;
 	
 		echo "</amp-lightbox>";
