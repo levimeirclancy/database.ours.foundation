@@ -165,11 +165,13 @@ function amp_header($title=null, $canonical=null) {
 	echo "<amp-lightbox class='categories-list-popover' id='categories-list-popover-main' layout='". $layout_temp ."'>";
 
 		// How many total entries are there ...
-		echo "<b>". number_format(count($information_array)) ." total entries.</b><br><br>";
+		echo "<b>". number_format(count($information_array)) ." total entries.</b>";
 
 		// Display how many have GPS coordinates ...
 		if (!(empty($coordinate_counts))): echo "<br>". number_format($coordinate_counts)." entries with GPS coordinates.<br>"; endif;
 
+		// List of recently edited posts...
+	
 		echo "</amp-lightbox>";
 
 	foreach ($header_array as $header_backend => $header_frontend):
