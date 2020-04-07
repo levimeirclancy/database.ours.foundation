@@ -175,7 +175,7 @@ function amp_header($title=null, $canonical=null) {
 	foreach ($header_array as $header_backend => $header_frontend):
 		if (empty($type_counts_array[$header_backend])): continue; endif;
 
-		echo "<amp-lightbox class='categories-list-popover' id='categories-list-popover-main-"..$header_backend."' layout='nodisplay'>";
+		echo "<amp-lightbox class='categories-list-popover' id='categories-list-popover-main-".$header_backend."' layout='nodisplay'>";
 
 			echo "<h1>".$header_frontend."</h1><br>";
 
