@@ -188,6 +188,14 @@ amp-lightbox {
 	font-size: 80%;
 	}
 
+#categories-popover {
+	max-width: 300px;
+	}
+
+.categories-list-popover {
+	left: 350px;
+	}
+
 /* Make the input and description same width and placement */
 #login-popover label, #login-popover input {
 	display: block;
