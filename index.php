@@ -408,5 +408,4 @@ if (!(empty($_SERVER['REQUEST_URI'])) && ($_SERVER['REQUEST_URI'] !== "/")):
 	permanent_redirect("https://".$domain); endif;
 
 amp_header($domain, $domain);
-include_once('theme_home.php');
 footer(); ?>
