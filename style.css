@@ -193,7 +193,11 @@ amp-lightbox {
 	}
 
 .categories-list-popover {
+	position: fixed;
 	left: 350px;
+	top: 0;
+	display: block;
+	width: auto;
 	}
 
 /* Make the input and description same width and placement */
