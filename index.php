@@ -396,10 +396,7 @@ if (!(empty($page_temp)) && !(isset($header_array[$page_temp]))):
 
 // view entries lists
 if (isset($header_array[$page_temp])):
-	$url_temp = "/".$page_temp."/";
-	if ($_SERVER['REQUEST_URI'] !== $url_temp): permanent_redirect("https://".$domain.$url_temp); endif;
-	amp_header($page_temp." list", $domain."/".$page_temp."/");
-	include_once('theme_pages.php');
+	permanent_redirect("https://".$domain."/");
 	footer(); endif;
 
 if (!(empty($page_temp)) && isset($information_array[$page_temp])):
