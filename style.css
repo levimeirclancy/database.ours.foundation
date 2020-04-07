@@ -189,11 +189,14 @@ amp-lightbox {
 	}
 
 #categories-popover {
+	margin: 0;
+	padding: 60px 20px;
+	line-height: 2em;
 	z-index: 90;
 	max-width: 300px;
 	}
 
-.categories-list-popover {
+.categories-list-popover-thread {
 	position: fixed;
 	left: 350px;
 	top: 0;
