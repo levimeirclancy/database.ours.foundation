@@ -1,6 +1,11 @@
 <? $result_temp = file_get_contents("https://".$domain."/api/sitemap/?order=english");
 $information_array = json_decode($result_temp, true);
 
+// If there is nothing to proceed with ...
+if (empty($information_array)):
+	echo "<p>No posts yet.</p>";
+	footer(); endif;
+
 $type_counts_array = [];
 $coordinate_counts = 0;
 foreach ($information_array as $entry_id => $entry_info):
@@ -20,10 +25,6 @@ echo "<div id='navigation-threads'>";
 		endforeach;
 
 	echo "</div>";
-
-// If there is nothing to proceed with ...
-if (empty($information_array)):
-	footer(); endif;
 
 echo "<amp-lightbox class='navigation-threads-lightbox' id='navigation-threads-lightbox-main'>";
 
