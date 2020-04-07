@@ -189,6 +189,7 @@ amp-lightbox {
 	}
 
 #categories-popover {
+	z-index: 90;
 	max-width: 300px;
 	}
 
@@ -196,6 +197,7 @@ amp-lightbox {
 	position: fixed;
 	left: 350px;
 	top: 0;
+	z-index: 80;
 	display: block;
 	width: auto;
 	}
