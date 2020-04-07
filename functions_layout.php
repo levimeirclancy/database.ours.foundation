@@ -142,9 +142,14 @@ function amp_header($title=null, $canonical=null) {
 		if (empty($entry_info['appendix']['latitude']) || empty($entry_info['appendix']['longitude'])): continue; endif;
 		$coordinate_counts++;
 		endforeach;
+
+	// If it is the homepage then display two lightboxes by default...
+	$layout_temp = "nodisplay";
+	if (empty($page_temp)): $layout_temp = null; endif;
+
 	
 	// This is the popover for the categories / sitemap ...
-	echo "<amp-lightbox id='categories-popover' layout='nodisplay'>";
+	echo "<amp-lightbox id='categories-popover' layout='". $layout_temp ."'>";
 		echo "<div role='button' tabindex='0' on='tap:categories-popover.close' class='popover-close'>Back</div>";
 		echo "<a href='/'><div class='navigation-categories-item'>". ucfirst($domain) ."</div></a><br>";
 
@@ -157,9 +162,7 @@ function amp_header($title=null, $canonical=null) {
 	
 		echo "</amp-lightbox>";
 
-	$layout_temp = "nodisplay";
-	if (empty($page_temp)): $layout_temp = null; endif;
-	echo "<amp-lightbox class='navigation-threads-lightbox' id='navigation-threads-lightbox-main' layout='". $layout_temp ."'>";
+	echo "<amp-lightbox class='categories-list-popover' id='categories-list-popover-main' layout='". $layout_temp ."'>";
 
 		// How many total entries are there ...
 		echo "<b>". number_format(count($information_array)) ." total entries.</b><br><br>";
@@ -169,16 +172,10 @@ function amp_header($title=null, $canonical=null) {
 
 		echo "</amp-lightbox>";
 
-	echo "<amp-lightbox class='navigation-threads-lightbox' id='navigation-threads-lightbox-latest' layout='nodisplay'>";
-
-		// Show latest edits
-
-		echo "</amp-lightbox>";
-
 	foreach ($header_array as $header_backend => $header_frontend):
 		if (empty($type_counts_array[$header_backend])): continue; endif;
 
-		echo "<amp-lightbox class='navigation-threads-lightbox' id='navigation-threads-lightbox-".$header_backend."' layout='nodisplay'>";
+		echo "<amp-lightbox class='categories-list-popover' id='categories-list-popover-main-"..$header_backend."' layout='nodisplay'>";
 
 			echo "<h1>".$header_frontend."</h1><br>";
 
