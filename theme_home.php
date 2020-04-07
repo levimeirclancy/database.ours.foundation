@@ -21,7 +21,7 @@ echo "<div id='navigation-threads'>";
 
 	foreach ($header_array as $header_backend => $header_frontend):
 		if (empty($type_counts_array[$header_backend])): continue; endif;
-		echo "<div class='navigation-threads-button'". . $header_backend .">". $header_frontend ." — ".number_format($type_counts_array[$header_backend])." entries</div>";
+		echo "<div class='navigation-threads-button'". $header_backend .">". $header_frontend ." — ".number_format($type_counts_array[$header_backend])." entries</div>";
 		endforeach;
 
 	echo "</div>";
