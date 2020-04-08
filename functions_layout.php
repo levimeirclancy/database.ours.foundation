@@ -102,7 +102,7 @@ function amp_header($title=null, $canonical=null) {
 	if ($command_temp == "edit"): return; endif;
 	
 	// The navigation backbone...
-	echo "<div id='navigation-header' amp-fx='parallax' data-parallax-factor='1.3'>";
+	echo "<div id='navigation-header' amp-fx='parallax' data-parallax-factor='1.4'>";
 
 	// The domain name, to go home ...
 	echo "<div role='button' tabindex='0' class='navigation-header-item' on='tap:categories-popover'>&#x2742; Search</div>";
