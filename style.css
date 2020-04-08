@@ -205,8 +205,9 @@ amp-lightbox {
 	}
 
 .categories-popover-button {
-	font-size: 80%;
+	font-size: 90%;
 	line-height: 1em;
+	margin: 20px 0;
 	}
 
 #categories-popover input {
