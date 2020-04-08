@@ -215,6 +215,7 @@ amp-lightbox {
 @media only screen and (max-width: 700px) {
 	.categories-list-popover-thread {
 		margin: 0;
+		z-index: 95;
 		}
 	}
 
