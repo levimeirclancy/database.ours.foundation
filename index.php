@@ -350,7 +350,7 @@ if (!(empty($page_temp))):
 	if ($command_temp == "ping"):
 		$url_temp .= "ping/";
 		if ($_SERVER['REQUEST_URI'] !== $url_temp): permanent_redirect("https://".$domain.$url_temp); endif;
-		echo json_encode([$page_temp = $information_array[$page_temp]]$);
+		echo json_encode([$page_temp = $information_array[$page_temp]]);
 		exit; endif;
 
 	if (($command_temp == "map") && !(empty($information_array[$page_temp]['appendix']['latitude'])) && !(empty($information_array[$page_temp]['appendix']['longitude']))):
