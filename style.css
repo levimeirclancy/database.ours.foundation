@@ -168,7 +168,7 @@ amp-lightbox {
 .popover-close {
 	right: 15px;
 	bottom: 15px;
-	position: fixed;
+	position: absolute;
 	color: rgba(50,50,50,0.8);
 	background: rgba(240,240,240,0.8);
 	opacity: 1;
