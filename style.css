@@ -129,7 +129,7 @@ h1 span {
 /* HEADER */
 
 #navigation-header {
-	position: fixed;
+	position: absolute;
 	left: 0;
 	top: 0;
 	right: 0;
@@ -210,13 +210,13 @@ amp-lightbox {
 	margin: 15px 0;
 	}
 
-#categories-popover input {
+#categories-popover-search-input {
 	background: rgba(255,255,255,1);
 	border: 1px solid rgba(50,50,50,1);
 	border-radius: 100px;
 	}
 
-#categories-popover input {
+#categories-popover-search-button {
 	background: rgba(255,255,255,1);
 	border: 1px solid rgba(50,50,50,1);
 	border-radius: 100px;
