@@ -157,8 +157,8 @@ function amp_header($title=null, $canonical=null) {
 	
 		echo "<div id='categories-popover-close' role='button' tabindex='0' on='tap:".implode(", ", $tap_temp)."' class='popover-close'>Back</div>";
 
-		echo "<input type='text'>";
-		echo "Button";
+		echo "<input type='text' id='categories-popover-search-input'>";
+		echo "<div id='categories-popover-search-button' role='button' tabindex='0' on='tap:settheamplist,showtheamplightbox'>Search</div>";
 	
 		foreach ($header_array_temp as $header_backend => $header_frontend):
 			if (empty($type_counts_array[$header_backend]) && ($header_backend !== "main")): continue; endif;
