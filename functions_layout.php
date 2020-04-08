@@ -130,9 +130,6 @@ function amp_header($title=null, $canonical=null) {
 	
 	// ... close out the navigation backbone
 	echo "</div>";
-	
-	$result_temp = file_get_contents("https://".$domain."/api/sitemap/?order=english");
-	$information_array = json_decode($result_temp, true);
 
 	$type_counts_array = [];
 	$coordinate_counts = 0;
@@ -143,18 +140,26 @@ function amp_header($title=null, $canonical=null) {
 		$coordinate_counts++;
 		endforeach;
 
-	// If it is the homepage then display two lightboxes by default...
-	$layout_temp = "nodisplay";
-	if (empty($page_temp)): $layout_temp = null; endif;
-
 	// This is the popover for the categories ...
-	echo "<amp-lightbox id='categories-popover' layout='". $layout_temp ."'>";
+	echo "<amp-lightbox id='categories-popover' layout='nodisplay'>";
 	
-		echo "<div role='button' tabindex='0' on='tap:categories-popover.close' class='popover-close'>Back</div>";
+		$header_array_temp = array_merge(["main" => $domain], $header_array);
+	
+		// No 
+		if (!(empty($page_temp))):
+	
+			$tap_temp = [];
+			foreach (array_keys($header_array_temp) as $header_backend_temp):
+				$tap_temp[] = "categories-list-popover-thread-". $header_backend_temp .".close";
+				endforeach;
+			$tap_temp[] = categories-popover.close";
+	
+			echo "<div role='button' tabindex='0' on='tap:' class='popover-close'>Back</div>";
+			
+			endif;
 
 		echo "<br>";
 	
-		$header_array_temp = array_merge(["main" => $domain], $header_array);
 	
 		foreach ($header_array_temp as $header_backend => $header_frontend):
 			if (empty($type_counts_array[$header_backend]) && ($header_backend !== "main")): continue; endif;
@@ -169,7 +174,7 @@ function amp_header($title=null, $canonical=null) {
 	
 		echo "</amp-lightbox>";
 
-	echo "<amp-lightbox class='categories-list-popover-thread' id='categories-list-popover-thread-main' layout='". $layout_temp ."' scrollable>";
+	echo "<amp-lightbox class='categories-list-popover-thread' id='categories-list-popover-thread-main' layout='nodisplay' scrollable>";
 
 		// How many total entries are there ...
 		echo "<p>". number_format(count($information_array)) ." total entries.</p>";
