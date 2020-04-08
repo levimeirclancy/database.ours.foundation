@@ -95,10 +95,10 @@ function amp_header($title=null, $canonical=null) {
 	echo "<div id='navigation-header'>";
 
 	// The domain name, to go home ...
-	echo "<div role='button' tabindex='0' class='navigation-header-item' on='tap:categories-popover'>&#x2742; Navigation</div>";
+	echo "<div role='button' tabindex='0' class='navigation-header-item' on='tap:categories-popover'>&#x2742; Search</div>";
 	
-	// ... then to toggle the search popover ...
-	echo "<div role='button' tabindex='0' class='navigation-header-item' on='tap:search-popover'>&#x272A; Search</div>";
+//	// ... then to toggle the search popover ...
+//	echo "<div role='button' tabindex='0' class='navigation-header-item' on='tap:search-popover'>&#x272A; Search</div>";
 	
 	// This is the login button ...
 	echo "<div role='button' tabindex='0' class='navigation-header-item' id='login-popover-launch' on='tap:login-popover' [class]=\"loginStatus == 'loggedin' ? 'hide' : 'navigation-header-item'\" $login_hidden>&#x2731; Log in</div>";
@@ -144,7 +144,7 @@ function amp_header($title=null, $canonical=null) {
 		endforeach;
 
 	// This is the popover for the categories ...
-	echo "<amp-lightbox id='categories-popover' layout='nodisplay'>";
+	echo "<amp-lightbox id='categories-popover' layout='nodisplay' scrollable>";
 	
 		$header_array_temp = array_merge(["main" => $domain], $header_array);
 	
@@ -156,6 +156,9 @@ function amp_header($title=null, $canonical=null) {
 	
 		echo "<div role='button' tabindex='0' on='tap:".implode(", ", $tap_temp)."' class='popover-close'>Back</div>";
 
+		echo "<input type='text'>";
+		echo "Button";
+	
 		foreach ($header_array_temp as $header_backend => $header_frontend):
 			if (empty($type_counts_array[$header_backend]) && ($header_backend !== "main")): continue; endif;
 			$tap_temp = [];
@@ -207,13 +210,7 @@ function amp_header($title=null, $canonical=null) {
 			echo "</amp-lightbox>";
 
 		endforeach;
-	
-	// This is the popover to search ...
-	echo "<amp-lightbox id='search-popover' layout='nodisplay'>";
-		echo "<span role='button' tabindex='0' on='tap:search-popover.close' class='popover-close'>Back</span>";
-		echo "Search input coming soon";
-		echo "</amp-lightbox>";
-	
+		
 	// This is the popover to log in ...
 	echo "<amp-lightbox id='login-popover' layout='nodisplay'>";
 
