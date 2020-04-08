@@ -308,12 +308,12 @@ function print_row_loop ($entry_id=null, $indent_level=0) {
 	global $logout_hidden;
 	
 	if (!(array_key_exists($entry_id, $information_array))):
-		echo "test1";
 		return 0; endif;
 		
 	$entry_info = $information_array[$entry_id];
 	
 	if ( ($entry_info['type'] == $header_backend) && !(empty($entry_info['parents']['hierarchy'])) && ($indent_level == 0)):
+		echo "test2";
 		return 0; endif;
 
 	if ($entry_info['type'] !== $header_backend):
