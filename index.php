@@ -106,18 +106,18 @@ elseif (!(empty($login))): $login_hidden = "hidden"; endif; // if we are logged 
 
 // this is the header index
 $header_array = [
-	"location" => "Regions",
-	"village" => "Villages",
-	"place" => "Places",
-	"person" => "People",
-	"party" => "Parties",
-	"position" => "Positions",
-	"demographic" => "Demographics",
-	"term" => "Terms",
-	"event" => "Events",	
-	"topic" => "Topics",
-	"article" => "Articles" ];
-
+	"location"	=> "Regions",
+	"village"	=> "Villages",
+	"place"		=> "Places",
+	"person"	=> "People",
+	"party"		=> "Parties",
+	"position"	=> "Positions",
+	"demographic"	=> "Demographics",
+	"term"		=> "Terms",
+	"event"		=> "Events",	
+	"topic"		=> "Topics",
+	"article"	=> "Articles",
+	];
 
 
 // if it is edit-xhr
