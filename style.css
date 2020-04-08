@@ -394,10 +394,11 @@ form {
 
 .home-carousel-slide {
 	text-align: center;
+	vertical-align: middle;
 	font-weight: 700;
 	font-size: 200%;
-	width: 450px;
-	height: 300px;
+	width: 400px;
+	height: 400px;
 	display: block;
 	}
 
