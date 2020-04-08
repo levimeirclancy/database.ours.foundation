@@ -154,7 +154,7 @@ function amp_header($title=null, $canonical=null) {
 			endforeach;
 		$tap_temp[] = "categories-popover.close";
 	
-		echo "<div role='button' tabindex='0' on='tap:".implode(", ", $tap_temp)."' class='popover-close'>Back</div>";
+		echo "<div id='categories-popover-close' role='button' tabindex='0' on='tap:".implode(", ", $tap_temp)."' class='popover-close'>Back</div>";
 
 		echo "<input type='text'>";
 		echo "Button";
@@ -172,7 +172,7 @@ function amp_header($title=null, $canonical=null) {
 	
 		echo "</amp-lightbox>";
 
-	echo "<amp-lightbox class='categories-list-popover-thread' id='categories-list-popover-thread-main' layout='nodisplay' scrollable>";
+	echo "<amp-lightbox class='categories-list-popover-thread' id='categories-list-popover-thread-main' on='lightboxClose:categories-popover-close.show;lightboxOpen:categories-popover-close.hide' layout='nodisplay' scrollable>";
 
 		echo "<div role='button' tabindex='0' on='tap:categories-list-popover-thread-main.close' class='popover-close'>Back</div>";
 
@@ -190,7 +190,7 @@ function amp_header($title=null, $canonical=null) {
 		
 		if (empty($type_counts_array[$header_backend])): continue; endif;
 
-		echo "<amp-lightbox class='categories-list-popover-thread' id='categories-list-popover-thread-".$header_backend."' layout='nodisplay' scrollable>";
+		echo "<amp-lightbox class='categories-list-popover-thread' id='categories-list-popover-thread-".$header_backend."' on='lightboxClose:categories-popover-close.show;lightboxOpen:categories-popover-close.hide' layout='nodisplay' scrollable>";
 
 			echo "<div role='button' tabindex='0' on='tap:categories-list-popover-thread-".$header_backend.".close' class='popover-close'>Back</div>";	
 	
