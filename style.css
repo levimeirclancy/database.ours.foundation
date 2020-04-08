@@ -90,7 +90,7 @@ h1 span {
 	opacity: 0.6;
 	}
 
-@media only screen and (max-width: 414px)  {
+@media only screen and (max-width: 413px)  {
 	#article-breadcrumbs, #edit-entry { top: 150px; }
 	}
 
