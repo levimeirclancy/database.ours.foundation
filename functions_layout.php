@@ -173,10 +173,10 @@ function amp_header($title=null, $canonical=null) {
 		echo "<div role='button' tabindex='0' on='tap:categories-list-popover-thread-main.close' class='popover-close'>Back</div>";
 
 		// How many total entries are there ...
-		echo "<b>". number_format(count($information_array)) ." total entries.</b>";
+		echo "<p>". number_format(count($information_array)) ." total entries.</p>";
 
 		// Display how many have GPS coordinates ...
-		if (!(empty($coordinate_counts))): echo "<br>". number_format($coordinate_counts)." entries with GPS coordinates.<br>"; endif;
+		if (!(empty($coordinate_counts))): echo "<p>". number_format($coordinate_counts)." entries with GPS coordinates.</p>"; endif;
 
 		// List of recently edited posts...
 
@@ -190,7 +190,7 @@ function amp_header($title=null, $canonical=null) {
 
 			echo "<div role='button' tabindex='0' on='tap:categories-list-popover-thread-".$header_backend.".close' class='popover-close'>Back</div>";
 
-			echo "<h1>".number_format($type_counts_array[$header_backend])." ".$header_frontend."</h1>";
+			echo "<p>".number_format($type_counts_array[$header_backend])." ".$header_frontend."</p>";
 	
 			$count_temp = 0;
 			foreach ($information_array as $entry_id => $entry_info):
