@@ -164,7 +164,7 @@ function amp_header($title=null, $canonical=null) {
 				$tap_temp[] = "categories-list-popover-thread-". $header_backend_temp .".close";
 				endforeach;
 			$tap_temp[] = "categories-list-popover-thread-". $header_backend .".open";
-			echo "<div class='categories-popover-button' on='tap:". implode(",",$tap_temp) ."'>". $header_frontend ."</div>";
+			echo "<div class='categories-popover-button' on='tap:". implode(",",$tap_temp) ."'>". ucfirst($header_frontend) ."</div>";
 			endforeach;
 	
 		echo "</amp-lightbox>";
