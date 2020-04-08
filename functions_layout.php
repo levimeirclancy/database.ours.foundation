@@ -310,12 +310,12 @@ function print_row_loop ($entry_id=null, $indent_level=0) {
 	if (!(array_key_exists($entry_id, $information_array))):
 		return 0; endif;
 		
-			echo "tester2";
 	$entry_info = $information_array[$entry_id];
 	
 	if ( ($entry_info['type'] == $header_backend) && !(empty($entry_info['parents']['hierarchy'])) && ($indent_level == 0)):
 		return 0; endif;
 
+			echo "tester3";
 	if ($entry_info['type'] !== $header_backend):
 		if (empty($entry_info['children']['hierarchy'])): return 0; endif;
 		$skip_temp = 1;
