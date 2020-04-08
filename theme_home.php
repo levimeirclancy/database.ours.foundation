@@ -1,6 +1,6 @@
 <? echo "<br><br><br>";
 
-echo "<amp-carousel id='home-carousel' type='slides' width='450' heifght='300' layout='responsive' loop autoplay delay='2000'>";
+echo "<amp-carousel id='home-carousel' type='slides' width='450' heifght='300' layout='fixed-height' loop autoplay delay='2000'>";
 
 echo "<span>".count($information_array)." entries</span>";
 
