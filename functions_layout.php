@@ -212,7 +212,7 @@ function amp_header($title=null, $canonical=null) {
 		endforeach;
 		
 	// This is the popover to log in ...
-	echo "<amp-lightbox id='login-popover' layout='nodisplay'>";
+	echo "<amp-lightbox id='login-popover' on='lightboxClose:navigation-header.show;lightboxOpen:navigation-header.hide' layout='nodisplay'>";
 
 		echo "<span role='button' tabindex='0' on='tap:login-popover.close' class='popover-close'>Back</span>";
 
@@ -248,7 +248,7 @@ function amp_header($title=null, $canonical=null) {
 		echo "</amp-lightbox>";
 	
 	// This is the popover for settings ...
-	echo "<amp-lightbox id='settings-popover' layout='nodisplay'>";
+	echo "<amp-lightbox id='settings-popover' on='lightboxClose:navigation-header.show;lightboxOpen:navigation-header.hide' layout='nodisplay'>";
 
 		echo "<span role='button' tabindex='0' on='tap:settings-popover.close' class='popover-close'>Back</span>";
 
@@ -266,7 +266,7 @@ function amp_header($title=null, $canonical=null) {
 		echo "</amp-lightbox>";
 
 	// Add a new popover ... residrect if adding it works ...
-	echo "<amp-lightbox id='new-popover' layout='nodisplay'>";
+	echo "<amp-lightbox id='new-popover' on='lightboxClose:navigation-header.show;lightboxOpen:navigation-header.hide' layout='nodisplay'>";
 
 		echo "<div role='button' tabindex='0' on='tap:new-popover.close' class='popover-close'>Back</div>";
 
