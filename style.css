@@ -240,7 +240,7 @@ amp-lightbox {
 		}
 
 	#categories-popover {
-		max-width: auto;
+		max-width: none;
 		}
 	
 	.categories-list-popover-thread {
