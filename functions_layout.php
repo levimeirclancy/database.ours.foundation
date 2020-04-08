@@ -192,7 +192,7 @@ function amp_header($title=null, $canonical=null) {
 
 		$count_temp = 0;
 		foreach ($information_array as $entry_id => $entry_info):
-			if ($entry_info['type'] !== $page_temp): continue; endif;
+			if ($entry_info['type'] !== $header_backend): continue; endif;
 			$result_temp = print_row_loop ($entry_id, 0);
 			$count_temp += $result_temp;
 			endforeach;
@@ -321,15 +321,13 @@ function print_row_loop ($entry_id=null, $indent_level=0) {
 		foreach ($entry_info['children']['hierarchy'] as $child_temp):
 			foreach ($information_array[$child_temp]['parents']['hierarchy'] as $parent_temp):
 				if ($information_array[$parent_temp]['type'] == $header_backend):
-		echo "test3";
 					return 0; endif;
 				endforeach;
 			if ($information_array[$child_temp]['type'] == $header_backend):
 				$skip_temp = 0;
 				break; endif;
 			endforeach;
-		if ($skip_temp == 1):		echo "test4";
- return 0; endif;
+		if ($skip_temp == 1): return 0; endif;
 		endif;
 	
 	$count_temp = 0; $indent_temp = null;
