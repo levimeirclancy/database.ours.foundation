@@ -197,7 +197,7 @@ amp-lightbox {
 
 #categories-popover {
 	margin: 0;
-	padding: 20px 20px 50px;
+	padding: 20px;
 	z-index: 90;
 	max-width: 300px;
 	background: rgba(255,255,255,1);
@@ -205,7 +205,7 @@ amp-lightbox {
 
 .categories-popover-button {
 	font-size: 80%;
-	line-height: 2em;
+	line-height: 1em;
 	}
 
 #categories-popover input {
@@ -221,13 +221,17 @@ amp-lightbox {
 
 .categories-list-popover-thread {
 	position: fixed;
-	padding: 0 20px 50px;
+	padding: 20px;
 	margin: 0 0 0 300px;
 	top: 0;
 	z-index: 80;
 	display: block;
 	width: auto;
 	}
+
+.categories-list-popover-thread p {
+	margin: 0 0 50px 0;
+}
 
 @media only screen and (max-width: 700px) {
 	.categories-list-popover-thread {
