@@ -144,7 +144,7 @@ function amp_header($title=null, $canonical=null) {
 		endforeach;
 
 	// This is the popover for the categories ...;
-	echo "<amp-lightbox id='categories-popover' layout='nodisplay' on='lightboxClose:navigation-header.show;lightboxClose:navigation-header.hide' scrollable>";
+	echo "<amp-lightbox id='categories-popover' layout='nodisplay' on='lightboxClose:navigation-header.show;lightboxOpen:navigation-header.hide' scrollable>";
 	
 		$header_array_temp = array_merge(["main" => $domain], $header_array);
 	
