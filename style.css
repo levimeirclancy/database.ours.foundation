@@ -168,8 +168,10 @@ amp-lightbox {
 .popover-close {
 	right: 15px;
 	bottom: 15px;
-	position: absolute;
+	position: fixed;
 	color: rgba(50,50,50,0.8);
+	background: rgba(255,255,255,1);
+	box-shadow: 10px 10px 25px -5px rgba(40,40,40,0.5); 
 	opacity: 1;
 	padding: 3px 6px;
 	border-radius: 100px;
@@ -200,6 +202,11 @@ amp-lightbox {
 	z-index: 90;
 	max-width: 300px;
 	background: rgba(255,255,255,1);
+	}
+
+#categories-popover .popover-close {
+	left: 290px;
+	right: auto;
 	}
 
 .categories-list-popover-thread {
