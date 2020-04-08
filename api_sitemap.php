@@ -46,6 +46,7 @@ foreach($connection_pdo->query($sql_temp) as $row):
 		"type" => $row['type'],
 		"name" => json_decode($row['name'], true),
 		"alternate_name" => json_decode($row['alternate_name'], true),
+		"header" => null,
 		"summary" => [],
 		"appendix" => $appendix_temp,
 		"parents" => [],
