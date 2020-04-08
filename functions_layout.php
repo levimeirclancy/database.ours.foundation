@@ -179,14 +179,17 @@ function amp_header($title=null, $canonical=null) {
 
 		echo "</amp-lightbox>";
 	
+	print_r($header_array);
+	
 	foreach ($header_array as $header_backend => $header_frontend):
+		
 		if (empty($type_counts_array[$header_backend])): continue; endif;
 
 		echo "<amp-lightbox class='categories-list-popover-thread' id='categories-list-popover-thread-".$header_backend."' layout='nodisplay'>";
 
 		echo "<h1>".$header_frontend."</h1><br>";
 	
-	 	echo number_format($type_counts_array[$header_backend])." entries";
+	 	echo "<p>".number_format($type_counts_array[$header_backend])." entries.</p>";
 
 		$count_temp = 0;
 		foreach ($information_array as $entry_id => $entry_info):
