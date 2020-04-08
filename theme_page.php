@@ -19,13 +19,9 @@ echo "<a href='/".$page_temp."/edit/'><span id='edit-entry' amp-fx='parallax' da
 
 // Crumbs and GPS ...
 echo "<div id='article-breadcrumbs' amp-fx='parallax' data-parallax-factor='1.3'>";
-	echo "<a href='/'>".ucfirst($domain)."</a>";
-	echo " > <a href='/". $entry_info['type'] ."/'>".$header_array[$entry_info['type']]."</a>";
-	if ( ($entry_info['type'] == "location") && !(empty($entry_info['unit_id'])) ):
-		echo " > <a href='/". $entry_info['unit_id'] ."/'>";
-		body_process("{{{".$entry_info['unit_id']."}}}");
-		echo "</a>";
-		endif;
+
+	echo "<span role='button' tabindex='0' on='tap:categories-popover.open,categories-list-popover-thread-".$entry_info['type'].".open'>".$header_array[$entry_info['type']]."</span>";
+
 	if (!(empty($entry_info['appendix']['latitude'])) && !(empty($entry_info['appendix']['longitude']))):
 		echo "<br><a href='https://".$domain."/".$entry_info['entry_id']."/map/' target='_blank'>";
 		echo substr($entry_info['appendix']['latitude'],0,6).", ".substr($entry_info['appendix']['longitude'],0,6);
