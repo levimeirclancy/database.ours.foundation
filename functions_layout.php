@@ -157,11 +157,12 @@ function amp_header($title=null, $canonical=null) {
 	
 		foreach ($header_array_temp as $header_backend => $header_frontend):
 			if (empty($type_counts_array[$header_backend]) && ($header_backend !== "main")): continue; endif;
-			$tap_temp = [ "categories-list-popover-thread-". $header_backend .".open" ];
+			$tap_temp = [];
 			foreach (array_keys($header_array_temp) as $header_backend_temp):
 				if ($header_backend == $header_backend_temp): continue; endif;
 				$tap_temp[] = "categories-list-popover-thread-". $header_backend_temp .".close";
 				endforeach;
+			$tap_temp[] = "categories-list-popover-thread-". $header_backend .".open";
 			echo "<div class='categories-popover-button' on='tap:". implode(",",$tap_temp) ."'>". $header_frontend ."</div>";
 			endforeach;
 	
@@ -179,7 +180,7 @@ function amp_header($title=null, $canonical=null) {
 
 		echo "</amp-lightbox>";
 	
-	print_r($header_array);
+	print_r($type_counts_array);
 	
 	foreach ($header_array as $header_backend => $header_frontend):
 		
