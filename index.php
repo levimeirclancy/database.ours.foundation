@@ -119,6 +119,8 @@ $header_array = [
 	"article"	=> "Articles",
 	];
 
+$result_temp = file_get_contents("https://".$domain."/api/sitemap/?order=english");
+$information_array = json_decode($result_temp, true);
 
 // if it is edit-xhr
 if ($page_temp == "edit-xhr"):
@@ -256,9 +258,6 @@ if ($page_temp == "new-xhr"):
 	// Create a unique entry_id
 	$entry_id = random_code(7);
 
-	$result_temp = file_get_contents("https://".$domain."/api/sitemap/?order=english");
-	$information_array = json_decode($result_temp, true);
-
 	// While the entry_id already exists, or is in use in the header array
 	while (isset($information_array[$entry_id]) || isset($header_array[$entry_id])): $entry_id = random_code(7); endwhile;
 
@@ -318,8 +317,6 @@ if ($page_temp == "api"):
 if ($page_temp == "sitemap.xml"):
 	$url_temp = "/sitemap.xml";
 	if ($_SERVER['REQUEST_URI'] !== $url_temp): permanent_redirect("https://".$domain.$url_temp); endif;
-	$result_temp = file_get_contents("https://".$domain."/api/sitemap/?order=english");
-	$information_array = json_decode($result_temp, true);
 	echo "<?xml version='1.0' encoding='UTF-8'?>";
 	echo "<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>";
 	foreach ($information_array as $entry_id => $entry_info):
@@ -343,17 +340,17 @@ $layout_nodisplay_temp = null;
 if (!(empty($_REQUEST['view'])) && ($_REQUEST['view'] == "compact")): $layout_nodisplay_temp = "layout='nodisplay'"; endif;
 
 // if the $page_temp is valid then go ahead and see if it exists
-if (!(empty($page_temp)) && !(isset($header_array[$page_temp]))):
-	$information_array = nesty_page($page_temp);
+if (!(empty($page_temp))):
 	if (!(isset($information_array[$page_temp]))):
 		$command_temp = null; // To avoid showing edit options
 		amp_header();
 		notfound(); endif;
+
 	$url_temp = "/".$page_temp."/";
 	if ($command_temp == "ping"):
 		$url_temp .= "ping/";
 		if ($_SERVER['REQUEST_URI'] !== $url_temp): permanent_redirect("https://".$domain.$url_temp); endif;
-		echo json_encode($information_array);
+		echo json_encode([$page_temp = $information_array[$page_temp]]$);
 		exit; endif;
 
 	if (($command_temp == "map") && !(empty($information_array[$page_temp]['appendix']['latitude'])) && !(empty($information_array[$page_temp]['appendix']['longitude']))):
@@ -370,25 +367,6 @@ if (!(empty($page_temp)) && !(isset($header_array[$page_temp]))):
 	if (($command_temp == "edit") && empty($login)):
 		permanent_redirect("https://".$domain.$url_temp);
 		endif;
-
-	// generate messenger code
-	if (!(empty($page_access_token))):
-		if (!(is_dir("messenger"))): mkdir("/messenger", 0755, true); endif;
-		if (file_exists("messenger/".$page_temp.".png") && (filemtime("/messenger/".$page_temp.".png") < time("- 1 days")) ): generate_messenger_code($entry_id); endif;
-		if (!(file_exists("messenger/".$page_temp.".png"))): generate_messenger_code($page_temp); endif;
-		endif;
-
-	if (($command_temp == "flyer") && !(empty($page_access_token)) && file_exists("messenger/".$page_temp.".png")):
-		$url_temp .= "flyer/";
-		if ($_SERVER['REQUEST_URI'] !== $url_temp): permanent_redirect("https://".$domain.$url_temp); endif;
-		include_once('theme_flyer.php');
-		exit; endif;
-
-	if (($command_temp == "flyer") && !(empty($telegram_bot))):
-		$url_temp .= "flyer/";
-		if ($_SERVER['REQUEST_URI'] !== $url_temp): permanent_redirect("https://".$domain.$url_temp); endif;
-		include_once('theme_flyer.php');
-		exit; endif;
 
 	if (!(in_array($_SERVER['REQUEST_URI'], [$url_temp, $url_temp."?view=compact"]))): permanent_redirect("https://".$domain.$url_temp); endif;
 
