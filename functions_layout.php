@@ -181,7 +181,7 @@ function amp_header($title=null, $canonical=null) {
 		echo "<p>". number_format(count($information_array)) ." total entries.</p>";
 
 		// Display how many have GPS coordinates ...
-		if (!(empty($coordinate_counts))): echo "<p>". number_format($coordinate_counts)." entries with GPS coordinates.</p>"; endif;
+		if (!(empty($coordinate_counts))): echo "<p>". number_format($coordinate_counts)." map points.</p>"; endif;
 
 		// List of recently edited posts...
 
