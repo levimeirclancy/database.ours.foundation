@@ -154,7 +154,7 @@ function amp_header($title=null, $canonical=null) {
 			endforeach;
 		$tap_temp[] = "categories-popover.close";
 	
-		echo "<div role='button' tabindex='0' on='tap:' class='popover-close'>Back</div>";
+		echo "<div role='button' tabindex='0' on='tap:".implode(", ", $tap_temp)."' class='popover-close'>Back</div>";
 			
 		echo "<br>";
 
