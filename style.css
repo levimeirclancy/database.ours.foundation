@@ -398,6 +398,9 @@ form {
 	display: block;
 	}
 
+#home-carousel .amp-carousel-button {
+	visibility: hidden;
+	}
 
 
 /* ARTICLE */
