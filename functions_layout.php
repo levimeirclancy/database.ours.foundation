@@ -193,7 +193,7 @@ function amp_header($title=null, $canonical=null) {
 		$count_temp = 0;
 		foreach ($information_array as $entry_id => $entry_info):
 			if ($entry_info['type'] !== $header_backend): continue; endif;
-			$result_temp = print_row_loop ($entry_id, 0);
+			$result_temp = print_row_loop ($header_backend, $entry_id, 0);
 			$count_temp += $result_temp;
 			endforeach;
 
@@ -299,11 +299,10 @@ function amp_header($title=null, $canonical=null) {
 	}
 
 
-function print_row_loop ($entry_id=null, $indent_level=0) {
+function print_row_loop ($header_backend, $entry_id=null, $indent_level=0) {
 	
 	global $login;
 	global $domain;
-	global $header_backend;
 	global $information_array;
 	global $logout_hidden;
 	
@@ -314,8 +313,6 @@ function print_row_loop ($entry_id=null, $indent_level=0) {
 	
 	if ( ($entry_info['type'] == $header_backend) && !(empty($entry_info['parents']['hierarchy'])) && ($indent_level == 0)):
 		return 0; endif;
-	
-	echo "$header_backend <br>";
 
 	if ($entry_info['type'] !== $header_backend):
 		if (empty($entry_info['children']['hierarchy'])): return 0; endif;
@@ -365,7 +362,7 @@ function print_row_loop ($entry_id=null, $indent_level=0) {
 		$indent_level++;
 		$children_temp = array_intersect(array_keys($information_array), $entry_info['children']['hierarchy']); // sets the ordering
 		foreach($children_temp as $child_id):
-			print_row_loop ($child_id, $indent_level);
+			print_row_loop ($header_backend, $child_id, $indent_level);
 			endforeach;
 		endif;
 	
