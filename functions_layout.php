@@ -1,14 +1,24 @@
 <? // Full-featured header
 function amp_header($title=null, $canonical=null) {
+
+	// Via config.php
 	global $domain;
 	global $publisher;
 	global $google_analytics_code;
 	global $color;
+
+	// URL information
 	global $page_temp;
 	global $slug_temp;
 	global $command_temp;
+
+	// Database contents
 	global $header_array;
 	global $information_array;
+	global $type_counts_array;
+	global $coordinate_counts;
+	
+	// Login status
 	global $login;
 	global $login_hidden;
 	global $logout_hidden;
@@ -133,15 +143,6 @@ function amp_header($title=null, $canonical=null) {
 	
 	// ... close out the navigation backbone
 	echo "</div>";
-
-	$type_counts_array = [];
-	$coordinate_counts = 0;
-	foreach ($information_array as $entry_id => $entry_info):
-		if (empty($type_counts_array[$entry_info['type']])): $type_counts_array[$entry_info['type']] = 0; endif;
-		$type_counts_array[$entry_info['type']]++;
-		if (empty($entry_info['appendix']['latitude']) || empty($entry_info['appendix']['longitude'])): continue; endif;
-		$coordinate_counts++;
-		endforeach;
 
 	// This is the popover for the categories ...;
 	echo "<amp-lightbox id='categories-popover' layout='nodisplay' on='lightboxClose:navigation-header.show;lightboxOpen:navigation-header.hide' scrollable>";
