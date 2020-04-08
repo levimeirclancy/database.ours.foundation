@@ -269,6 +269,8 @@ function amp_header($title=null, $canonical=null) {
 	// Add a new popover ... residrect if adding it works ...
 	echo "<amp-lightbox id='new-popover' layout='nodisplay'>";
 
+		echo "<div role='button' tabindex='0' on='tap:new-popover.close' class='popover-close'>Back</div>";
+
 		echo "<form action-xhr='/new-xhr/' method='post' id='new' target='_top' class='admin-page-form' on=\"
 			submit:
 				new-popover-submit.hide;
