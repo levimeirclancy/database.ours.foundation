@@ -148,22 +148,16 @@ function amp_header($title=null, $canonical=null) {
 	
 		$header_array_temp = array_merge(["main" => $domain], $header_array);
 	
-		// No 
-		if (!(empty($page_temp))):
+		$tap_temp = [];
+		foreach (array_keys($header_array_temp) as $header_backend_temp):
+			$tap_temp[] = "categories-list-popover-thread-". $header_backend_temp .".close";
+			endforeach;
+		$tap_temp[] = "categories-popover.close";
 	
-			$tap_temp = [];
-			foreach (array_keys($header_array_temp) as $header_backend_temp):
-				$tap_temp[] = "categories-list-popover-thread-". $header_backend_temp .".close";
-				endforeach;
-			$tap_temp[] = categories-popover.close";
-	
-			echo "<div role='button' tabindex='0' on='tap:' class='popover-close'>Back</div>";
+		echo "<div role='button' tabindex='0' on='tap:' class='popover-close'>Back</div>";
 			
-			endif;
-
 		echo "<br>";
-	
-	
+
 		foreach ($header_array_temp as $header_backend => $header_frontend):
 			if (empty($type_counts_array[$header_backend]) && ($header_backend !== "main")): continue; endif;
 			$tap_temp = [];
