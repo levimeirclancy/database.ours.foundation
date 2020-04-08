@@ -162,7 +162,7 @@ function amp_header($title=null, $canonical=null) {
 			$tap_temp = [ "categories-list-popover-thread-". $header_backend .".show" ];
 			foreach (array_keys($header_array_temp) as $header_backend_temp):
 				if ($header_backend == $header_backend_temp): continue; endif;
-				$tap_temp[] = "categories-list-popover-thread-". $header_backend .".hide";
+				$tap_temp[] = "categories-list-popover-thread-". $header_backend_temp .".hide";
 				endforeach;
 			echo "<div class='categories-popover-button' on='tap:". implode(",",$tap_temp) ."'>". $header_frontend ." — ".number_format($type_counts_array[$header_backend])." entries</div>";
 			endforeach;
