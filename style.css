@@ -90,7 +90,7 @@ h1 span {
 	opacity: 0.6;
 	}
 
-@media only screen and (max-width: 531px)  {
+@media only screen and (max-width: 414px)  {
 	#article-breadcrumbs, #edit-entry { top: 150px; }
 	}
 
@@ -207,7 +207,13 @@ amp-lightbox {
 .categories-popover-button {
 	font-size: 90%;
 	line-height: 1em;
-	margin: 20px 0;
+	margin: 15px 0;
+	}
+
+#categories-popover input {
+	background: rgba(255,255,255,1);
+	border: 1px solid rgba(50,50,50,1);
+	border-radius: 100px;
 	}
 
 #categories-popover input {
