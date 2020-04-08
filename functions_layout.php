@@ -155,9 +155,16 @@ function amp_header($title=null, $canonical=null) {
 	
 		echo "<div class='categories-popover-button' on='tap:categories-list-popover-thread-main'>". ucfirst($domain) ."</div>";
 
-		foreach ($header_array as $header_backend => $header_frontend):
-			if (empty($type_counts_array[$header_backend])): continue; endif;
-			echo "<div class='categories-popover-button' on='tap:categories-list-popover-thread-". $header_backend ."'>". $header_frontend ." — ".number_format($type_counts_array[$header_backend])." entries</div>";
+		$header_array_temp = array_merge(["main" => $domain], $header_array);
+	
+		foreach ($header_array_temp as $header_backend => $header_frontend):
+			if (empty($type_counts_array[$header_backend]) && ($header_backend !== "main")): continue; endif;
+			$tap_temp = [ "categories-list-popover-thread-". $header_backend .".show" ];
+			foreach (array_keys($header_array_temp) as $header_backend_temp):
+				if ($header_backend == $header_backend_temp): continue; endif;
+				$tap_temp[] = "categories-list-popover-thread-". $header_backend .".hide";
+				endforeach;
+			echo "<div class='categories-popover-button' on='tap:". implode(",",$tap_temp) ."'>". $header_frontend ." — ".number_format($type_counts_array[$header_backend])." entries</div>";
 			endforeach;
 	
 		echo "</amp-lightbox>";
@@ -171,28 +178,28 @@ function amp_header($title=null, $canonical=null) {
 		if (!(empty($coordinate_counts))): echo "<br>". number_format($coordinate_counts)." entries with GPS coordinates.<br>"; endif;
 
 		// List of recently edited posts...
-	
-		echo "</amp-lightbox>";
 
+		echo "</amp-lightbox>";
+	
 	foreach ($header_array as $header_backend => $header_frontend):
 		if (empty($type_counts_array[$header_backend])): continue; endif;
 
 		echo "<amp-lightbox class='categories-list-popover-thread' id='categories-list-popover-thread-".$header_backend."' layout='nodisplay'>";
 
-			echo "<h1>".$header_frontend."</h1><br>";
+		echo "<h1>".$header_frontend."</h1><br>";
 
-			$count_temp = 0;
-			foreach ($information_array as $entry_id => $entry_info):
-				if ($entry_info['type'] !== $page_temp): continue; endif;
-				$result_temp = print_row_loop ($entry_id, 0);
-				$count_temp += $result_temp;
-				endforeach;
+		$count_temp = 0;
+		foreach ($information_array as $entry_id => $entry_info):
+			if ($entry_info['type'] !== $page_temp): continue; endif;
+			$result_temp = print_row_loop ($entry_id, 0);
+			$count_temp += $result_temp;
+			endforeach;
 
-			if (empty($count_temp)): echo "<p>Empty. Consider creating a new entry.</p>"; footer(); endif;
+		if (empty($count_temp)): echo "<p>Empty. Consider creating a new entry.</p>"; footer(); endif;
 
-			echo "<span class='categories-item'></span>";
+		echo "<span class='categories-item'></span>";
 
-			echo "</amp-lightbox>";
+		echo "</amp-lightbox>";
 
 		endforeach;
 	
