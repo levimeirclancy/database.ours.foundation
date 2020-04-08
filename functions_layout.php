@@ -197,7 +197,7 @@ function amp_header($title=null, $canonical=null) {
 			$count_temp += $result_temp;
 			endforeach;
 
-		if (empty($count_temp)): echo "<p>Empty. Consider creating a new entry.</p>"; footer(); endif;
+		if (empty($count_temp)): echo "<p>Empty. Consider creating a new entry.</p>"; endif;
 
 		echo "<span class='categories-item'></span>";
 
