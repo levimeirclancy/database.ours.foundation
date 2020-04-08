@@ -191,22 +191,31 @@ amp-lightbox {
 	font-size: 80%;
 	}
 
+
+
 #categories-popover {
 	margin: 0;
 	padding: 60px 20px;
 	line-height: 2em;
 	z-index: 90;
 	max-width: 300px;
+	background: rgba(255,255,255,1);
 	}
 
 .categories-list-popover-thread {
 	position: fixed;
-	padding: 60px 30px;
+	padding: 90px 20px 60px;
 	margin: 0 0 0 300px;
 	top: 0;
 	z-index: 80;
 	display: block;
 	width: auto;
+	}
+
+@media only screen and (max-width: 700px) {
+	.categories-list-popover-thread {
+		margin: 0;
+		}
 	}
 
 /* Make the input and description same width and placement */
