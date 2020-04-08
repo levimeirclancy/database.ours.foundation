@@ -162,15 +162,17 @@ amp-lightbox {
 	box-shadow: 0 0 30px 0 rgba(30,30,30,0.3);
 	text-align: center;
 	box-sizing: border-box;
+	position: relative;
 	}
 
 .popover-close {
-	right: 14px;
-	top: 0;
+	right: 15px;
+	bottom: 15px;
 	position: absolute;
 	color: rgba(50,50,50,0.8);
-	opacity: 0.9;
-	padding: 8px;
+	background: rgba(240,240,240,0.8);
+	opacity: 1;
+	padding: 8px 10px;
 	font-weight: 700;
 	font-size: 70%;
 	font-family: Arial, Helvetica, Sans Serif;
@@ -198,7 +200,8 @@ amp-lightbox {
 
 .categories-list-popover-thread {
 	position: fixed;
-	left: 350px;
+	left: 330px;
+	padding: 0 30px;
 	margin-left: 400px;
 	top: 0;
 	z-index: 80;
