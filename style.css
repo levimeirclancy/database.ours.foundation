@@ -168,13 +168,15 @@ amp-lightbox {
 .popover-close {
 	right: 15px;
 	bottom: 15px;
-	position: absolute;
+	position: fixed;
 	color: rgba(50,50,50,0.8);
 	background: rgba(240,240,240,0.8);
 	opacity: 1;
-	padding: 8px 10px;
+	padding: 3px 6px;
+	border-radius: 100px;
 	font-weight: 700;
 	font-size: 70%;
+	line-height: 1em;
 	font-family: Arial, Helvetica, Sans Serif;
 	}
 
