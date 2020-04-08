@@ -170,6 +170,8 @@ function amp_header($title=null, $canonical=null) {
 
 	echo "<amp-lightbox class='categories-list-popover-thread' id='categories-list-popover-thread-main' layout='". $layout_temp ."' scrollable>";
 
+		echo "<div role='button' tabindex='0' on='tap:categories-list-popover-thread-main.close' class='popover-close'>Back</div>";
+
 		// How many total entries are there ...
 		echo "<b>". number_format(count($information_array)) ." total entries.</b>";
 
@@ -185,6 +187,8 @@ function amp_header($title=null, $canonical=null) {
 		if (empty($type_counts_array[$header_backend])): continue; endif;
 
 		echo "<amp-lightbox class='categories-list-popover-thread' id='categories-list-popover-thread-".$header_backend."' layout='nodisplay' scrollable>";
+
+			echo "<div role='button' tabindex='0' on='tap:categories-list-popover-thread-".$header_backend.".close' class='popover-close'>Back</div>";
 
 			echo "<h1>".number_format($type_counts_array[$header_backend])." ".$header_frontend."</h1>";
 	
