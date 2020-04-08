@@ -314,11 +314,12 @@ function print_row_loop ($entry_id=null, $indent_level=0) {
 	
 	if ( ($entry_info['type'] == $header_backend) && !(empty($entry_info['parents']['hierarchy'])) && ($indent_level == 0)):
 		return 0; endif;
+	
+	echo "$header_backend <br>";
 
 	if ($entry_info['type'] !== $header_backend):
 		if (empty($entry_info['children']['hierarchy'])): return 0; endif;
 		$skip_temp = 1;
-			echo "tester4";
 		foreach ($entry_info['children']['hierarchy'] as $child_temp):
 			foreach ($information_array[$child_temp]['parents']['hierarchy'] as $parent_temp):
 				if ($information_array[$parent_temp]['type'] == $header_backend):
@@ -328,9 +329,7 @@ function print_row_loop ($entry_id=null, $indent_level=0) {
 				$skip_temp = 0;
 				break; endif;
 			endforeach;
-			echo "tester6";
 		if ($skip_temp == 1): return 0; endif;
-			echo "tester7";
 		endif;
 	
 	$count_temp = 0; $indent_temp = null;
