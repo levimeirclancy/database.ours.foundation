@@ -59,7 +59,7 @@ foreach($connection_pdo->query($sql_temp) as $row):
 			endforeach;
 		endif;
 
-	$information_array[$row['entry_id']]['header'] = implode(" • ", $information_array[$row['entry_id']]['name']);
+	$information_array[$row['entry_id']]['header'] = implode(" • ", (array)$information_array[$row['entry_id']]['name']);
 
 	$order_array[$row['entry_id']] = null;
 	if (isset($order_language) && isset($information_array[$row['entry_id']]['name'][$order_language])): $order_array[$row['entry_id']] = $information_array[$row['entry_id']]['name'][$order_language];
