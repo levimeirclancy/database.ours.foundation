@@ -193,6 +193,7 @@ function amp_header($title=null, $canonical=null) {
 		$count_temp = 0;
 		foreach ($information_array as $entry_id => $entry_info):
 			if ($entry_info['type'] !== $header_backend): continue; endif;
+			echo "tester1";
 			$result_temp = print_row_loop ($entry_id, 0);
 			$count_temp += $result_temp;
 			endforeach;
