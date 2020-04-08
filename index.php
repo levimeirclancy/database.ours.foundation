@@ -136,6 +136,10 @@ foreach ($_REQUEST as $appendix_key => $appendix_value):
 	$_REQUEST[$appendix_key] = $appendix_value;
 	endforeach;
 
+// These counts are used for the navigation sidebar and the home page
+$type_counts_array = [];
+$coordinate_counts = 0;
+
 $sql_temp = "SELECT * FROM " . $database . ".information_directory";
 foreach($connection_pdo->query($sql_temp) as $row):
 
@@ -174,6 +178,11 @@ foreach($connection_pdo->query($sql_temp) as $row):
 		"appendix" => $appendix_temp,
 		"parents" => [],
 		"children" => [] ];
+
+	// These counts are used for the navigation sidebar and the home page
+	if (empty($type_counts_array[$row['type']])): $type_counts_array[$row['type']] = 0; endif;
+	$type_counts_array[$row['type']]++;
+	if (!(empty($row['appendix']['latitude'])) && !(empty($row['appendix']['longitude']))): $coordinate_counts++; endif;
 
 	if (isset($_REQUEST['summary']) && ($_REQUEST['summary'] == ["true"])):
 		$summary_temp = json_decode($row['summary'], true);
