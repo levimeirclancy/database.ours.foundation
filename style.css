@@ -195,7 +195,7 @@ amp-lightbox {
 
 #categories-popover {
 	margin: 0;
-	padding: 60px 20px;
+	padding: 70px 20px 50px;
 	line-height: 2em;
 	z-index: 90;
 	max-width: 300px;
@@ -204,7 +204,7 @@ amp-lightbox {
 
 .categories-list-popover-thread {
 	position: fixed;
-	padding: 75px 20px 60px;
+	padding: 70px 20px 50px;
 	margin: 0 0 0 300px;
 	top: 0;
 	z-index: 80;
