@@ -153,18 +153,16 @@ function amp_header($title=null, $canonical=null) {
 
 		echo "<br>";
 	
-		echo "<div class='categories-popover-button' on='tap:categories-list-popover-thread-main'>". ucfirst($domain) ."</div>";
-
 		$header_array_temp = array_merge(["main" => $domain], $header_array);
 	
 		foreach ($header_array_temp as $header_backend => $header_frontend):
-			if (empty($type_counts_array[$header_backend]) && ($header_backend !== "main")): continue; endif;
+			if (empty($type_counts_array[$header_backend]) || ($header_backend == "main")): continue; endif;
 			$tap_temp = [ "categories-list-popover-thread-". $header_backend .".show" ];
 			foreach (array_keys($header_array_temp) as $header_backend_temp):
 				if ($header_backend == $header_backend_temp): continue; endif;
 				$tap_temp[] = "categories-list-popover-thread-". $header_backend_temp .".hide";
 				endforeach;
-			echo "<div class='categories-popover-button' on='tap:". implode(",",$tap_temp) ."'>". $header_frontend ." — ".number_format($type_counts_array[$header_backend])." entries</div>";
+			echo "<div class='categories-popover-button' on='tap:". implode(",",$tap_temp) ."'>". $header_frontend ."</div>";
 			endforeach;
 	
 		echo "</amp-lightbox>";
@@ -187,6 +185,8 @@ function amp_header($title=null, $canonical=null) {
 		echo "<amp-lightbox class='categories-list-popover-thread' id='categories-list-popover-thread-".$header_backend."' layout='nodisplay'>";
 
 		echo "<h1>".$header_frontend."</h1><br>";
+	
+	 	echo number_format($type_counts_array[$header_backend])." entries";
 
 		$count_temp = 0;
 		foreach ($information_array as $entry_id => $entry_info):
