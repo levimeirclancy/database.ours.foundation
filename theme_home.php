@@ -1,4 +1,8 @@
-<? echo "<amp-carousel id='home-carousel' type='slides' width='400' heifght='400' layout='responsive' loop autoplay delay='2000'>";
+<? 
+
+echo "<h1>".ucfirst($domain).</h1>";
+
+echo "<amp-carousel id='home-carousel' type='slides' width='400' heifght='400' layout='responsive' loop autoplay delay='2000'>";
 
 echo "<span class='home-carousel-slide'>".count($information_array)." entries</span>";
 
