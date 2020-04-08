@@ -168,7 +168,7 @@ function amp_header($title=null, $canonical=null) {
 	
 		echo "</amp-lightbox>";
 
-	echo "<amp-lightbox class='categories-list-popover-thread' id='categories-list-popover-thread-main' layout='". $layout_temp ."'>";
+	echo "<amp-lightbox class='categories-list-popover-thread' id='categories-list-popover-thread-main' layout='". $layout_temp ."' scrollable>";
 
 		// How many total entries are there ...
 		echo "<b>". number_format(count($information_array)) ." total entries.</b>";
@@ -184,24 +184,22 @@ function amp_header($title=null, $canonical=null) {
 		
 		if (empty($type_counts_array[$header_backend])): continue; endif;
 
-		echo "<amp-lightbox class='categories-list-popover-thread' id='categories-list-popover-thread-".$header_backend."' layout='nodisplay'>";
+		echo "<amp-lightbox class='categories-list-popover-thread' id='categories-list-popover-thread-".$header_backend."' layout='nodisplay' scrollable>";
 
-		echo "<h1>".$header_frontend."</h1><br>";
+			echo "<h1>".number_format($type_counts_array[$header_backend])." ".$header_frontend."</h1>";
 	
-	 	echo "<p>".number_format($type_counts_array[$header_backend])." entries.</p>";
+			$count_temp = 0;
+			foreach ($information_array as $entry_id => $entry_info):
+				if ($entry_info['type'] !== $header_backend): continue; endif;
+				$result_temp = print_row_loop ($header_backend, $entry_id, 0);
+				$count_temp += $result_temp;
+				endforeach;
 
-		$count_temp = 0;
-		foreach ($information_array as $entry_id => $entry_info):
-			if ($entry_info['type'] !== $header_backend): continue; endif;
-			$result_temp = print_row_loop ($header_backend, $entry_id, 0);
-			$count_temp += $result_temp;
-			endforeach;
+			if (empty($count_temp)): echo "<p>Empty. Consider creating a new entry.</p>"; endif;
 
-		if (empty($count_temp)): echo "<p>Empty. Consider creating a new entry.</p>"; endif;
+			echo "<span class='categories-item'></span>";
 
-		echo "<span class='categories-item'></span>";
-
-		echo "</amp-lightbox>";
+			echo "</amp-lightbox>";
 
 		endforeach;
 	
