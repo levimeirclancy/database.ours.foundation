@@ -43,6 +43,9 @@ function amp_header($title=null, $canonical=null) {
 	// for amp-bind
 	echo '<script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>';
 		
+	// for carousels
+	echo '<script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.2.js"></script>';
+	
 	// for lightbox search feature
 	echo '<script async custom-element="amp-lightbox" src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js"></script>';
 
