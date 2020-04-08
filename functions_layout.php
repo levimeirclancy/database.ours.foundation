@@ -156,7 +156,7 @@ function amp_header($title=null, $canonical=null) {
 		$header_array_temp = array_merge(["main" => $domain], $header_array);
 	
 		foreach ($header_array_temp as $header_backend => $header_frontend):
-			if (empty($type_counts_array[$header_backend]) || ($header_backend == "main")): continue; endif;
+			if (empty($type_counts_array[$header_backend]) && ($header_backend !== "main")): continue; endif;
 			$tap_temp = [ "categories-list-popover-thread-". $header_backend .".show" ];
 			foreach (array_keys($header_array_temp) as $header_backend_temp):
 				if ($header_backend == $header_backend_temp): continue; endif;
