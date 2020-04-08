@@ -305,7 +305,7 @@ function print_row_loop ($entry_id=null, $indent_level=0) {
 	
 	global $login;
 	global $domain;
-	global $page_temp;
+	global $header_backend;
 	global $information_array;
 	global $logout_hidden;
 	
