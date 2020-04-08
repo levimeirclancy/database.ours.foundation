@@ -322,14 +322,15 @@ function print_row_loop ($entry_id=null, $indent_level=0) {
 		foreach ($entry_info['children']['hierarchy'] as $child_temp):
 			foreach ($information_array[$child_temp]['parents']['hierarchy'] as $parent_temp):
 				if ($information_array[$parent_temp]['type'] == $header_backend):
-			echo "tester5";
 					return 0; endif;
 				endforeach;
 			if ($information_array[$child_temp]['type'] == $header_backend):
 				$skip_temp = 0;
 				break; endif;
 			endforeach;
+			echo "tester6";
 		if ($skip_temp == 1): return 0; endif;
+			echo "tester7";
 		endif;
 	
 	$count_temp = 0; $indent_temp = null;
