@@ -91,8 +91,8 @@ function amp_header($title=null, $canonical=null) {
 	echo "</head><body>";
 	
 	$login_hidden = $logout_hidden = null; // We will control how to display the login or logout buttons
-//	if (empty($login)): $logout_hidden = "hidden"; // If we are not logged in
-//	elseif (!(empty($login))): $login_hidden = "hidden"; endif; // If we are logged in
+	if (empty($login)): $logout_hidden = "hidden"; // If we are not logged in
+	elseif (!(empty($login))): $login_hidden = "hidden"; endif; // If we are logged in
 
 	echo "<amp-state id='pageState' src='/api/login/'></script></amp-state>";
 	
