@@ -178,8 +178,8 @@ function amp_header($title=null, $canonical=null) {
 
 		echo "<p [text]=\"searchState.searchTemp == '' || searchState.searchTemp == ' ' || searchState.searchTemp == null ? 'Search term cannot be empty.' : 'Search results for: ' + searchState.searchTerm\">Search results</p>";
 	
-		echo "<amp-list id='sidebar-navigation-lightbox-search-list' layout='container' width='800' height='800' [height]=\"edit-work-list.length * 1000\" items='.' max-items='100' binding='refresh' reset-on-refresh='always' [src]=\"'https://".$domain."/api/sitemap/?search=' + searchState.searchTerm\">";
-			echo "<span class='amp-list-fallback' [text]=\"'/api/sitemap/?search=' + searchState.searchTerm\" fallback>No search results.</span>";
+		echo "<amp-list id='sidebar-navigation-lightbox-search-list' layout='container' width='800' height='800' [height]=\"edit-work-list.length * 1000\" items='.' max-items='100' binding='refresh' reset-on-refresh='always' [src]=\"'https://".$domain."/api/search/?search=' + searchState.searchTerm\">";
+			echo "<span class='amp-list-fallback' [text]=\"'/api/search/?search=' + searchState.searchTerm\" fallback>No search results.</span>";
 			echo "<span class='amp-list-fallback' placeholder>Loading search results...</span>";
 			echo "<span class='amp-list-fallback' overflow>Show more.</span>";
 
