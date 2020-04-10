@@ -176,7 +176,7 @@ function amp_header($title=null, $canonical=null) {
 
 	echo "<amp-lightbox class='sidebar-navigation-lightbox' id='sidebar-navigation-lightbox-search' on='lightboxClose:sidebar-navigation-close.show;lightboxOpen:sidebar-navigation-close.hide' layout='nodisplay' scrollable>";
 
-		echo "<p [text]=\"'Hello with ' + searchTerm\">Hello before search</p>";
+		echo "<p [text]=\"'Hello with ' + searchState.searchTerm\">Hello before search</p>";
 	
 		// amp-list
 //		<amp-list id="sidebar-navigation-lightbox-search-list" layout="container" width="800" height="100" [height]="edit-work-list.length * 1000" items="message.work" max-items="100" binding="refresh" reset-on-refresh="always" src="/api/sitemap/?search=_" items="items">
