@@ -183,6 +183,8 @@ function amp_header($title=null, $canonical=null) {
 
 	echo "<amp-lightbox class='sidebar-navigation-lightbox' id='sidebar-navigation-lightbox-search' on='lightboxClose:sidebar-navigation-close.show;lightboxOpen:sidebar-navigation-close.hide' layout='nodisplay' scrollable>";
 
+		echo "<div role='button' tabindex='0' on='".implode(", ", $tap_temp)."' class='popover-close'>Back</div>";
+
 		echo "<p [text]=\"pageState.searchTerm == '' || pageState.searchTerm == ' ' || pageState.searchTerm == null ? 'Search term cannot be empty.' : 'Search results for: ' + pageState.searchTerm\">Search term not received.</p>";
 	
 		echo "<amp-list id='sidebar-navigation-lightbox-search-list' layout='container' width='800' height='800' [height]=\"edit-work-list.length * 1000\" items='.' max-items='100' binding='refresh' reset-on-refresh='always' [src]=\"'/api/search/?search=' + pageState.searchTerm\">";
@@ -198,7 +200,7 @@ function amp_header($title=null, $canonical=null) {
 	
 	echo "<amp-lightbox class='sidebar-navigation-lightbox' id='sidebar-navigation-lightbox-main' on='lightboxClose:sidebar-navigation-close.show;lightboxOpen:sidebar-navigation-close.hide' layout='nodisplay' scrollable>";
 
-		echo "<div role='button' tabindex='0' on='tap:sidebar-navigation-lightbox-main.close' class='popover-close'>Back</div>";
+		echo "<div role='button' tabindex='0' on='tap:".implode(", ", $tap_temp)."' class='popover-close'>Back</div>";
 
 		// How many total entries are there ...
 		echo "<p>". number_format(count($information_array)) ." total entries.</p>";
@@ -216,7 +218,7 @@ function amp_header($title=null, $canonical=null) {
 
 		echo "<amp-lightbox class='sidebar-navigation-lightbox' id='sidebar-navigation-lightbox-".$header_backend."' on='lightboxClose:sidebar-navigation-close.show;lightboxOpen:sidebar-navigation-close.hide' layout='nodisplay' scrollable>";
 
-			echo "<div role='button' tabindex='0' on='tap:sidebar-navigation-lightbox-".$header_backend.".close' class='popover-close'>Back</div>";	
+			echo "<div role='button' tabindex='0' on='tap:".implode(", ", $tap_temp)."' class='popover-close'>Back</div>";	
 	
 			echo "<p>".number_format($type_counts_array[$header_backend])." ".$header_frontend."</p>";
 	
