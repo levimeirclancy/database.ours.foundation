@@ -8,6 +8,8 @@ foreach ($result as $row):
 	$entry_info['studies'] = $row['studies'];
 	endforeach;
 
+empty($login) ? $login_hidden = "hide" : $login_hidden = "navigation-header-item";
+echo "<a href='/".$page_temp."/edit/'><span amp-fx='parallax' data-parallax-factor='1.3' [class]=\"pageState.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='$login_hidden'>&#10033; Edit</span></a>";
 
 // if (!(empty($messenger_bot)) && file_exists("messenger/".$entry_info['entry_id'].".png")):
 //	echo "<div id='messenger-code-image' ". $layout_nodisplay_temp .">";
@@ -15,8 +17,6 @@ foreach ($result as $row):
 //	echo "<a href='/".$page_temp."/flyer/' target='_blank'><div id='messenger-flyer-button' ". $layout_nodisplay_temp .">Get flyer</div></a>";
 //	endif;
 
-(empty($login) ? $login_hidden = "hide" : $login_hidden = "navigation-header-item");
-echo "<a href='/".$page_temp."/edit/'><span amp-fx='parallax' data-parallax-factor='1.3' [class]=\"pageState.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='$login_hidden'>&#10033; Edit</span></a>";
 
 // Crumbs and GPS ...
 echo "<div id='article-breadcrumbs' amp-fx='parallax' data-parallax-factor='1.3'>";
