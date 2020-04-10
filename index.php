@@ -34,9 +34,6 @@ if ($page_temp == "logout-xhr"):
 	// Sanitize the variables
 	$_COOKIE['cookie'] = $login = $page_temp = null;
 
-	// Include a redirect if ordered ...
-	if ($command_temp == "redirect"): json_result($domain, "success", "//", "Logout was valid."); endif;
-
 	// Echo that it worked
 	json_result($domain, "success", null, "Logout was valid.");
 
