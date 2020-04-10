@@ -158,8 +158,8 @@ function amp_header($title=null, $canonical=null) {
 		echo "<div id='sidebar-navigation-close' role='button' tabindex='0' on='tap:".implode(", ", $tap_temp)."' class='popover-close'>Back</div>";
 
 		echo "<amp-state id='searchState'><script type='application/json'>{'searchTerm': 'default' }</script></amp-state>";
-		echo "<input type='text' id='sidebar-navigation-search-input'>";
-		echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on=\"tap:AMP.pushState({searchState:{searchTerm: sidebar-navigation-search-input.value}}),sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search.open\">Search</div>";
+		echo "<input type='text' id='sidebar-navigation-search-input' on=\"change:AMP.pushState({searchState:{searchTerm: event.value}})\">";
+		echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on=\"tap:sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search.open\">Search</div>";
 	
 		foreach ($header_array_temp as $header_backend => $header_frontend):
 			if (empty($type_counts_array[$header_backend]) && ($header_backend !== "main")): continue; endif;
