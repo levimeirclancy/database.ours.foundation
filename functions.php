@@ -25,10 +25,11 @@ function random_code($length=16) {
 //		"Z", "X", "C", "V", "B", "N", "M"
 		"Z", "C", "V", "B", "N", "M" // remove 'x' for vulgar use
 		];
+	$upper_offset = count($characters)-1;
 	if (!(is_int($length))): $length = 16; endif;
 	if ($length < 1): $length = 16; endif;
 	$key_temp = null;
-	while (empty($key_temp) || (strlen($key_temp) < $length)): $key_temp .= $characters[rand(0,31)]; endwhile;
+	while (strlen($key_temp) < $length): $key_temp .= $characters[rand(0,$upper_offset)]; endwhile;
 	return $key_temp; }
 
 function print_terms($terms_array) {
