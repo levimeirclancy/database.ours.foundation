@@ -161,14 +161,13 @@ foreach($connection_pdo->query($sql_temp) as $row):
 				endforeach;
 			if ($result_temp == 0): continue; endif;
 			endif;
-		endif;
 
 	$appendix_temp = json_decode($row['appendix'], true);
-	foreach ($_REQUEST as $appendix_key => $appendix_value):
-		if (in_array($appendix_key, [ "entry_id", "type", "search", "summary" ])): continue; endif;
-		if (!(isset($appendix_temp[$appendix_key]))): continue 2; endif;
-		if (!(array_intersect($appendix_temp[$appendix_key], $appendix_value))): continue 2; endif;
-		endforeach;
+//	foreach ($_REQUEST as $appendix_key => $appendix_value):
+//		if (in_array($appendix_key, [ "entry_id", "type", "search", "summary" ])): continue; endif;
+//		if (!(isset($appendix_temp[$appendix_key]))): continue 2; endif;
+//		if (!(array_intersect($appendix_temp[$appendix_key], $appendix_value))): continue 2; endif;
+//		endforeach;
 
 	$information_array[$row['entry_id']] = [
 		"entry_id" => $row['entry_id'],
@@ -246,7 +245,7 @@ if ($page_temp == "edit-xhr"):
 
 	if (empty($_POST['entry_id'])): json_result($domain, "error", null, "Needs entry."); endif;
 
-	if (!(array_key_exists($_POST['entry_id'],$information_array))): json_result($domain, "error", null, "Entry ".$_POST['entry_id']." does not exist.".count($information_array)); endif;
+	if (!(array_key_exists($_POST['entry_id'],$information_array))): json_result($domain, "error", null, "Entry does not exist."; endif;
 
 	if (empty($_POST['type'])): json_result($domain, "error", null, "Needs type."); endif;
 	if (empty($header_array[$_POST['type']])): json_result($domain, "error", null, "Type is not valid."); endif;
