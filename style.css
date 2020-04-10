@@ -143,10 +143,10 @@ h1 span {
 	}
 
 .navigation-header-item {
-	margin: 3px 10px 5px 0;
+	margin: 3px 20px 5px 0;
 	padding: 8px 15px 7px;
 	border-radius: 100px;
-	background: #999;
+	background: #888;
 	display: inline-block;
 	cursor: pointer;
 	float: left;
