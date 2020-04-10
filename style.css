@@ -144,15 +144,16 @@ h1 span {
 
 .navigation-header-item {
 	margin: 5px 10px;
+	float: left;
+	z-index: 101;
 	padding: 8px 20px 7px;
 	border-radius: 100px;
 	background: #fff;
 	display: inline-block;
 	border: 1px solid #555;
 	cursor: pointer;
-	float: left;
+	text-align: center;
 	color: #333;
-	z-index: 101;
 	font-size: 70%;
 	font-weight: 700;
 	font-family: Arial, Helvetica, Sans Serif;
@@ -223,20 +224,20 @@ amp-lightbox {
 	}
 
 #sidebar-navigation-search-button {
-	color: rgba(50,50,50,0.8);
-	background: rgba(255,255,255,1);
-	box-shadow: 3px 3px 20px -5px rgba(40,40,40,0.5); 
-	opacity: 1;
-	padding: 9px 15px;
-	border-radius: 100px;
 	display: inline-block;
 	margin: 10px 0 20px 0;
-	text-align: center;
-	font-weight: 700;
-	font-size: 75%;
-	line-height: 1em;
-	font-family: Arial, Helvetica, Sans Serif;
+	padding: 8px 20px 7px;
+	border-radius: 100px;
+	background: #fff;
+	display: inline-block;
+	border: 1px solid #555;
 	cursor: pointer;
+	color: #333;
+	font-size: 70%;
+	line-height: 1em;
+	font-weight: 700;
+	text-align: center;
+	font-family: Arial, Helvetica, Sans Serif;
 	}
 
 /* #sidebar-navigation-search-button:before {
