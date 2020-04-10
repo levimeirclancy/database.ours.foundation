@@ -180,6 +180,8 @@ amp-lightbox {
 	font-size: 70%;
 	line-height: 1em;
 	font-family: Arial, Helvetica, Sans Serif;
+	z-index: 10000;
+	cursor: pointer;
 	}
 
 .popover-close:before {
