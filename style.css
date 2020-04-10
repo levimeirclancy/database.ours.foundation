@@ -397,18 +397,13 @@ form {
 
 #home-carousel {
 	margin: 100px 0 0;
-	display: inline-block;
 	}
 
 .home-carousel-slide {
 	text-align: center;
-	vertical-align: middle;
 	font-weight: 400;
 	font-style: italic;
 	font-size: 170%;
-	width: 400px;
-	height: 400px;
-	display: block;
 	}
 
 #home-carousel .amp-carousel-button {
