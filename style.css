@@ -188,15 +188,8 @@ amp-lightbox {
 	margin: 0 5px 0 0;
 	display: inline-block; }
 
-.navigation-categories-item {
-	margin: 15px;
-	display: block;
-	font-size: 80%;
-	}
 
-
-
-#categories-popover {
+#sidebar-navigation {
 	margin: 0;
 	padding: 20px;
 	z-index: 90;
@@ -204,30 +197,30 @@ amp-lightbox {
 	background: rgba(255,255,255,1);
 	}
 
-.categories-popover-button {
+.sidebar-navigation-button {
 	font-size: 90%;
 	line-height: 1em;
 	margin: 15px 0;
 	}
 
-#categories-popover-search-input {
+#sidebar-navigation-search-input {
 	background: rgba(255,255,255,1);
 	border: 1px solid rgba(50,50,50,1);
 	border-radius: 100px;
 	}
 
-#categories-popover-search-button {
+#sidebar-navigation-search-button {
 	background: rgba(255,255,255,1);
 	border: 1px solid rgba(50,50,50,1);
 	border-radius: 100px;
 	}
 
-#categories-popover-close {
+#sidebar-navigation-close {
 	left: 205px;
 	right: auto;
 	}
 
-.categories-list-popover-thread {
+.sidebar-navigation-lightbox {
 	position: fixed;
 	padding: 20px;
 	margin: 0 0 0 300px;
@@ -237,21 +230,21 @@ amp-lightbox {
 	width: auto;
 	}
 
-.categories-list-popover-thread p {
+.sidebar-navigation-lightbox p {
 	margin: 0 0 50px 0;
 }
 
 @media only screen and (max-width: 700px) {
-	#categories-popover-close {
+	#sidebar-navigation-close {
 		left: auto;
 		right: 15px;
 		}
 
-	#categories-popover {
+	#sidebar-navigation {
 		max-width: none;
 		}
 	
-	.categories-list-popover-thread {
+	.sidebar-navigation-sublightbox {
 		margin: 0;
 		z-index: 95;
 		}
