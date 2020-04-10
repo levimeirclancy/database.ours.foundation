@@ -158,7 +158,7 @@ function amp_header($title=null, $canonical=null) {
 		echo "<div id='sidebar-navigation-close' role='button' tabindex='0' on='tap:".implode(", ", $tap_temp)."' class='popover-close'>Back</div>";
 
 		echo "<input type='text' id='sidebar-navigation-search-input'>";
-		echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on='tap:AMP.setState({ searchterm: sidebar-navigation-search-input.value }),sidebar-navigation-lightbox.refresh'>Search</div>";
+		echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on='tap:AMP.setState({ searchterm: sidebar-navigation-search-input.value }),sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search.open'>Search</div>";
 	
 		foreach ($header_array_temp as $header_backend => $header_frontend):
 			if (empty($type_counts_array[$header_backend]) && ($header_backend !== "main")): continue; endif;
@@ -178,7 +178,7 @@ function amp_header($title=null, $canonical=null) {
 		echo "<p [text]=\"'Hello with ' + searchterm\">Hello before search</p>";
 	
 		// amp-list
-//		<amp-list id="sidebar-navigation-lightbox" layout="container" width="800" height="100" [height]="edit-work-list.length * 1000" items="message.work" max-items="100" binding="refresh" reset-on-refresh="always" src="/api/sitemap/?search=_" items="items">
+//		<amp-list id="sidebar-navigation-lightbox-search-list" layout="container" width="800" height="100" [height]="edit-work-list.length * 1000" items="message.work" max-items="100" binding="refresh" reset-on-refresh="always" src="/api/sitemap/?search=_" items="items">
 //		<span class='amp-list-fallback' fallback>Failed to load work history.</span>
 //		<span class='amp-list-fallback' placeholder>Loading work history...</span>
 //		<span class='amp-list-fallback' overflow>Show more.</span>
