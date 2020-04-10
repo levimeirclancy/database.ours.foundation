@@ -21,7 +21,7 @@ if ($page_temp == "new"): $new_page = "yes"; endif;
 // When tap, then also close the amp-lightbox
 
 // The navigation backbone...
-echo "<div id='navigation-header'>";
+echo "<div id='edit-header'>";
 
 	echo "<a href='#title'><div class='navigation-header-item'>Title</div></a>";
 	echo "<a href='#full-name'><div class='navigation-header-item'>Full name</div></a>";
@@ -43,41 +43,10 @@ echo "<div>";
 echo "</div>";
 
 echo "<div id='admin-page-actions' amp-fx='parallax' data-parallax-factor='1.2'>";
-echo "<div id='admin-page-new-entry' on='tap:new-popover'>&#x271A; New entry</div>";
+// echo "<div id='admin-page-new-entry' on='tap:new-popover'>&#x271A; New entry</div>";
 echo "<div id='admin-page-delete' on='tap:delete-popover'>&#x2B19; Delete entry</div>";
 echo "<div id='admin-page-log-out' on='tap:logout-popover'>&#x2716; Log out</div>";
 echo "</div>";
-
-// Add a new popover ... residrect if adding it works ...
-echo "<amp-lightbox id='new-popover' layout='nodisplay'>";
-
-	echo "<form action-xhr='/new-xhr/' method='post' id='new' target='_top' class='admin-page-form' on=\"
-		submit:
-			new-popover-submit.hide;
-		submit-error:
-			new-popover-submit.show
-		\">";
-
-	echo "<p>Do you really want to add a new entry? This will redirect to a new page, and you will lose unsaved work.</p>";
-
-	// Create selector ...
-	echo "<label for='type'>Type</label>";
-	echo "<amp-selector layout='container' name='type'><div>";
-	foreach ($header_array as $header_backend => $header_frontend):
-		echo "<span option='".$header_backend."'>".$header_frontend."</span>";
-		endforeach;
-	echo "</div></amp-selector>";
-
-	// Submit button ...
-	echo "<br><span id='new-popover-submit' role='button' tabindex='0' on='tap:new.submit'>Create new</span>";
-
-	echo "<div class='form-feedback' submitting>Submitting...</div>";
-	echo "<div class='form-feedback' submit-error><template type='amp-mustache'>Error. {{{message}}}</template></div>";
-	echo "<div class='form-feedback' submit-success><template type='amp-mustache'>{{{message}}}</template></div>";
-
-	echo "</form>";
-
-	echo "</amp-lightbox>";
 
 // Do a delete popover ... redirect if deletion works ...
 echo "<amp-lightbox id='delete-popover' layout='nodisplay'>";
@@ -97,29 +66,6 @@ echo "<amp-lightbox id='delete-popover' layout='nodisplay'>";
 	echo "<br><span id='delete-popover-submit' role='button' tabindex='0' on='tap:delete.submit'>Delete</span>";
 
 	echo "<div class='form-feedback' submitting>Submitting...</div>";
-	echo "<div class='form-feedback' submit-error><template type='amp-mustache'>Error. {{{message}}}</template></div>";
-	echo "<div class='form-feedback' submit-success><template type='amp-mustache'>{{{message}}}</template></div>";
-
-	echo "</form>";
-
-	echo "</amp-lightbox>";
-
-// Do you really want to log out? You will lose unsaved work
-echo "<amp-lightbox id='logout-popover' layout='nodisplay'>";
-
-	echo "<form action-xhr='/logout-xhr/redirect/' method='post' id='logout' target='_top' class='admin-page-form' on=\"
-		submit:
-			logout-popover-submit.hide;
-		submit-error:
-			logout-popover-submit.show
-		\">";
-
-	echo "<p>Do you really want to log out? You will lose any unsaved work.</p>";
-
-	// Submit button ...
-	echo "<br><span id='logout-popover-submit' role='button' tabindex='0' on='tap:logout.submit'>Log out</span>";
-
-	echo "<div class='form-feedback' submitting>Logging out...</div>";
 	echo "<div class='form-feedback' submit-error><template type='amp-mustache'>Error. {{{message}}}</template></div>";
 	echo "<div class='form-feedback' submit-success><template type='amp-mustache'>{{{message}}}</template></div>";
 
@@ -290,7 +236,7 @@ echo "<div id='admin-page-form-snackbar'>";
 	echo "<div submit-success><template type='amp-mustache'>{{{message}}}</template></div>";
 	echo "</div>";
 
-echo "<div id='admin-page-form-save' role='button' tabindex='0' on='tap:save.submit'>Save</div>";
+echo "<div id='admin-page-form-save' role='button' tabindex='0' on='tap:pageState.refresh,save.submit'>Save</div>";
 
 echo "</form>";
 
