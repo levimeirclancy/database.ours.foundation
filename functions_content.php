@@ -451,6 +451,8 @@ function body_process($body_incoming) {
 	$body_final .= implode(null, $image_lightbox_array);
 	$body_final = str_replace("\n", "<br>", $body_final);
 	$body_final = str_replace("><br>", ">", $body_final);
+	
+	str_replace("&#039;", "'", $body_final);
 
 	return $body_final; }
 
