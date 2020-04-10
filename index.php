@@ -77,8 +77,11 @@ if ($page_temp == "login-xhr"):
 	// Set the cookie in the database ...
 	$cookie_statement->execute();
 
-	// ... det the cookie in the browser ...
+	// ... Set the cookie in the browser ...
 	setcookie("cookie", $new_cookie, time()+86400, '/');
+
+	// ... And make the cookie expiration time available
+	setcookie("cookie_time", time()+86400, time()+86400, '/');
 
 	// ... and tell the login form that it worked
 	json_result($domain, "success", null, "Login was valid.");
@@ -93,10 +96,15 @@ if (!(empty($_COOKIE['cookie']))):
 		$login = ["user_id" => $row['user_id'], "email" => $row['email']]; endforeach;
 	if (empty($login)):
 		setcookie("cookie", null, time()+2700, '/');
+		setcookie("cookie_time", null, time()+2700, '/');
 		permanent_redirect("https://".$domain."/".$page_temp);
 		endif;
 	endif;
 
+if ([$page_temp,$command_temp] == ["api", "login"]):
+	if (empty($login)): json_output(["loginStatus"=>"loggedout", "login"=>null, "countdown"=>null, ]); endif;
+	if (!(empty($login))): json_output(["loginStatus"=>"loggedin", "login"=>$login['user_id'], "countdown"=>$_COOKIE['cookie_time']-time(), ]); endif;
+	endif;
 
 // this is the header index
 $header_array = [
