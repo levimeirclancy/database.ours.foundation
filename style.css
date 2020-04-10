@@ -230,6 +230,7 @@ amp-lightbox {
 	font-size: 80%;
 	line-height: 1em;
 	font-family: Arial, Helvetica, Sans Serif;
+	cursor: pointer;
 	}
 
 /* #sidebar-navigation-search-button:before {
