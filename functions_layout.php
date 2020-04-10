@@ -137,7 +137,7 @@ function amp_header($title=null, $canonical=null) {
 			AMP.setState({pageState:{loginStatus: 'loggedout'}})
 		\">";
 	echo "<div role='button' tabindex='0' id='logout-submit' on='tap:logout.submit' [class]=\"pageState.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='".$logout_hidden."'>&#x2716; Log out</div>";
-	echo "<div class='navigation-header-item' submitting>&#x25cf; Logging out...</div>";
+//	echo "<div class='navigation-header-item' submitting>&#x25cf; Logging out...</div>";
 	echo "<div role='button' tabindex='0' class='navigation-header-item' on='tap:logout.submit' id='logout-tryagain-submit' submit-error>&#x2716; Try logging out again</div>";
 //	echo "<div role='button' tabindex='0' class='navigation-header-item' on='tap:logout.submit' submit-success>&#x2713; Logged out</div>";
 	echo "</form>";
