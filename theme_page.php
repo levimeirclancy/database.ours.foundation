@@ -15,7 +15,7 @@ foreach ($result as $row):
 //	echo "<a href='/".$page_temp."/flyer/' target='_blank'><div id='messenger-flyer-button' ". $layout_nodisplay_temp .">Get flyer</div></a>";
 //	endif;
 
-echo "<a href='/".$page_temp."/edit/'><span id='edit-entry' amp-fx='parallax' data-parallax-factor='1.3' $logout_hidden>&#10033; Edit</span></a>";
+echo "<a href='/".$page_temp."/edit/'><span id='edit-entry' amp-fx='parallax' data-parallax-factor='1.3' [class]=\"pageState.loginStatus == 'loggedin' ? 'hide' : 'navigation-header-item'\" class='$logout_hidden'>&#10033; Edit</span></a>";
 
 // Crumbs and GPS ...
 echo "<div id='article-breadcrumbs' amp-fx='parallax' data-parallax-factor='1.3'>";
