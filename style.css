@@ -145,10 +145,11 @@ h1 span {
 .navigation-header-item {
 	margin: 5px 10px 5px 0;
 	padding: 5px 10px;
+	background: #666;
 	display: inline-block;
 	cursor: pointer;
 	float: left;
-	color: rgba(0,0,0,1);
+	color: rgba(255,255,255,1);
 	z-index: 101;
 	}
 
