@@ -145,23 +145,19 @@ foreach($connection_pdo->query($sql_temp) as $row):
 
 	$row['type'] = str_replace('"', null, $row['type']);
 
-	// requesting a specific entry id takes precedence over everything
-	if (!(in_array($page_temp, ["edit-xhr", "new-xhr", "delete-xhr"]))):
+	// Only get the specific entry_id
+	if (isset($_REQUEST['entry_id']) && !(in_array($row['entry_id'], $_REQUEST['entry_id']))): continue; endif;
 
-		if (isset($_REQUEST['entry_id']) && !(in_array($row['entry_id'], $_REQUEST['entry_id']))): continue; endif;
+	if (isset($_REQUEST['type']) && !(in_array($row['type'], $_REQUEST['type']))): continue; endif;
 
-		if (isset($_REQUEST['type']) && !(in_array($row['type'], $_REQUEST['type']))): continue; endif;
-
-		if (isset($_REQUEST['search'])):
-			$result_temp = 0;
-			foreach ($_REQUEST['search'] as $search_temp):
-				$blob_temp = "*".strtolower(implode(" ", $row));
-				$search_temp = strtolower($search_temp);
-				if (strpos($blob_temp, $search_temp)): $result_temp = 1; break; endif;
-				endforeach;
-			if ($result_temp == 0): continue; endif;
-			endif;
-
+	if (isset($_REQUEST['search'])):
+		$result_temp = 0;
+		foreach ($_REQUEST['search'] as $search_temp):
+			$blob_temp = "*".strtolower(implode(" ", $row));
+			$search_temp = strtolower($search_temp);
+			if (strpos($blob_temp, $search_temp)): $result_temp = 1; break; endif;
+			endforeach;
+		if ($result_temp == 0): continue; endif;
 		endif;
 
 	$appendix_temp = json_decode($row['appendix'], true);
