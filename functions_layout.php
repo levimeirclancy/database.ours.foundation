@@ -90,13 +90,11 @@ function amp_header($title=null, $canonical=null) {
 
 	echo "</head><body>";
 	
-	// Prepare the AMP state
-	$amp_state_temp = [];
-	$amp_state_temp = [ "searchTerm" => "null", "searchTemp" => "null" ]; // First we will set the search terms to blank
 	$login_hidden = $logout_hidden = null; // We will control how to display the login or logout buttons
-	if (empty($login)): $amp_state_temp["loginStatus"] = "loggedin"; $logout_hidden = "hidden"; // If we are not logged in
-	elseif (!(empty($login))): $amp_state_temp["loginStatus"] = "loggedout"; $login_hidden = "hidden"; endif; // If we are logged in
-	echo "<amp-state id='pageState'><script type='application/json'>".json_encode($amp_state_temp)."</script></amp-state>";
+//	if (empty($login)): $logout_hidden = "hidden"; // If we are not logged in
+//	elseif (!(empty($login))): $login_hidden = "hidden"; endif; // If we are logged in
+
+	echo "<amp-state id='pageState' src='/api/login/'></script></amp-state>";
 	
 	if (!(empty($google_analytics_code))):
 		echo '<amp-analytics type="googleanalytics">';
@@ -151,7 +149,7 @@ function amp_header($title=null, $canonical=null) {
 	echo "</div>";
 
 	// This is the popover for the categories ...;
-	echo "<amp-lightbox id='sidebar-navigation' layout='nodisplay' on='lightboxClose:navigation-header.show;lightboxOpen:navigation-header.hide' scrollable>";
+	echo "<amp-lightbox id='sidebar-navigation' layout='nodisplay' on='lightboxClose:pageState.refresh,navigation-header.show;lightboxOpen:navigation-header.hide' scrollable>";
 	
 		$header_array_temp = array_merge(["main" => $domain], $header_array);
 	
@@ -161,7 +159,7 @@ function amp_header($title=null, $canonical=null) {
 			$tap_temp[] = "sidebar-navigation-lightbox-". $header_backend_temp .".close";
 			endforeach;
 	
-		echo "<input type='text' id='sidebar-navigation-search-input' placeholder='&#128270;' on=\"input-throttled:AMP.setState({pageState:{loginStatus: pageState.loginStatus}}),AMP.setState({pageState:{searchTerm: event.value.replace('  ',' ').replace('  ',' ').replace('?',' ').replace(',',' ').replace('&',' ')}}),sidebar-navigation-lightbox-search.close\">";
+		echo "<input type='text' id='sidebar-navigation-search-input' placeholder='&#128270;' on=\"input-throttled:AMP.setState({pageState:{searchTerm: event.value.replace('  ',' ').replace('  ',' ').replace('?',' ').replace(',',' ').replace('&',' ')}}),sidebar-navigation-lightbox-search.close\">";
 		echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on='tap:". implode(",", $tap_temp) .",sidebar-navigation-lightbox-search.open,sidebar-navigation-lightbox-search-list.refresh'>Search</div>";
 	
 		$tap_temp[] = "sidebar-navigation-lightbox-search.close";
