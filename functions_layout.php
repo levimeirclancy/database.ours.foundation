@@ -50,6 +50,9 @@ function amp_header($title=null, $canonical=null) {
 	// for amp-form
 	echo '<script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>';
 
+	// for amp-list
+	echo '<script async custom-element="amp-list" src="https://cdn.ampproject.org/v0/amp-list-0.1.js"></script>'
+
 	// for amp-bind
 	echo '<script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>';
 		
@@ -155,7 +158,7 @@ function amp_header($title=null, $canonical=null) {
 		echo "<div id='sidebar-navigation-close' role='button' tabindex='0' on='tap:".implode(", ", $tap_temp)."' class='popover-close'>Back</div>";
 
 		echo "<input type='text' id='sidebar-navigation-search-input'>";
-		echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on='tap:settheamplist,showtheamplightbox'>Search</div>";
+		echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on='tap:AMP.setState({ searchterm: sidebar-navigation-search-input.value }),sidebar-navigation-lightbox.refresh'>Search</div>";
 	
 		foreach ($header_array_temp as $header_backend => $header_frontend):
 			if (empty($type_counts_array[$header_backend]) && ($header_backend !== "main")): continue; endif;
@@ -172,7 +175,28 @@ function amp_header($title=null, $canonical=null) {
 
 	echo "<amp-lightbox class='sidebar-navigation-lightbox' id='sidebar-navigation-lightbox-search' on='lightboxClose:sidebar-navigation-close.show;lightboxOpen:sidebar-navigation-close.hide' layout='nodisplay' scrollable>";
 
+		echo "<p [text]="'Hello with ' + searchterm">Hello before search</p>";
 	
+		// amp-list
+//		<amp-list id="sidebar-navigation-lightbox" layout="container" width="800" height="100" [height]="edit-work-list.length * 1000" items="message.work" max-items="100" binding="refresh" reset-on-refresh="always" src="/api/sitemap/?search=_" items="items">
+//		<span class='amp-list-fallback' fallback>Failed to load work history.</span>
+//		<span class='amp-list-fallback' placeholder>Loading work history...</span>
+//		<span class='amp-list-fallback' overflow>Show more.</span>
+//
+//		<template type='amp-mustache'>
+//			
+//			<div class='amp-list-item-alignment' id='amp-list-item-{{content_id}}'>
+//
+//			<div class='amp-list-item' id='amp-list-item-{{content_id}}'>
+//
+//			<span class='amp-list-item-completion-alignment'>
+//				<span class='amp-list-item-completion-incomplete' id='incomplete-{{content_id}}' {{hidden_incomplete}}></span>
+//				<span class='amp-list-item-completion-complete' id='complete-{{content_id}}' {{hidden_complete}}></span>
+//				<span class='amp-list-item-completion-changed' id='changed-{{content_id}}' hidden></span>
+//				</span>
+//				
+//			</template></amp-list>
+
 		echo "</amp-lightbox>";
 	
 	echo "<amp-lightbox class='sidebar-navigation-lightbox' id='sidebar-navigation-lightbox-main' on='lightboxClose:sidebar-navigation-close.show;lightboxOpen:sidebar-navigation-close.hide' layout='nodisplay' scrollable>";
