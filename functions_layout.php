@@ -149,7 +149,7 @@ function amp_header($title=null, $canonical=null) {
 	
 		$header_array_temp = array_merge(["main" => $domain], $header_array);
 	
-		$tap_temp = ["sidebar-navigation-lightbox-search"];
+		$tap_temp = ["sidebar-navigation-lightbox-search.close"];
 		foreach (array_keys($header_array_temp) as $header_backend_temp):
 			$tap_temp[] = "lightbox-navigation-lightbox-". $header_backend_temp .".close";
 			endforeach;
@@ -159,7 +159,7 @@ function amp_header($title=null, $canonical=null) {
 
 		echo "<amp-state id='searchState'><script type='application/json'>{'searchTemp': '','searchTerm': ''}</script></amp-state>";
 		echo "<input type='text' id='sidebar-navigation-search-input' on=\"input-throttled:AMP.setState({searchState:{searchTemp: event.value.replace('  ',' ').replace('  ',' ').replace('?',' ').replace(',',' ').replace('&',' ')}})\">";
-		echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on=\"tap:AMP.pushState({searchState:{searchTerm: searchState.searchTemp}}),sidebar-navigation-lightbox-search-list.refresh,".implode(",",$tap_temp).",sidebar-navigation-lightbox-search.open\">Search</div>";
+		echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on=\"tap:AMP.pushState({searchState:{searchTerm: searchState.searchTemp}}),".implode(",",$tap_temp).",sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search.open\">Search</div>";
 	
 		foreach ($header_array_temp as $header_backend => $header_frontend):
 			if (empty($type_counts_array[$header_backend]) && ($header_backend !== "main")): continue; endif;
