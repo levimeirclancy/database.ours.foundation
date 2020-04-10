@@ -110,13 +110,13 @@ function amp_header($title=null, $canonical=null) {
 	echo "<div id='navigation-header' amp-fx='parallax' data-parallax-factor='1.4'>";
 
 	// The domain name, to go home ...
-	echo "<div role='button' tabindex='0' class='navigation-header-item' on='tap:sidebar-navigation'>&#x2742; Navigation</div>";
+	echo "<div role='button' tabindex='0' class='navigation-header-item' on='tap:sidebar-navigation'>Navigation</div>";
 	
 	// This is the login button ...
 	echo "<div role='button' tabindex='0' id='login-popover-launch' on='tap:login-popover' [class]=\"pageState.loginStatus == 'loggedin' ? 'hide' : 'navigation-header-item'\" class='".$login_hidden."' >&#x2731; Log in</div>";
 		
 	// If you are signed in ...
-	echo "<div role='button' tabindex='0' id='settings-popover-launch' on='tap:settings-popover' [class]=\"pageState.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='".$logout_hidden."'>&#x2699; Settings</div>";
+	echo "<div role='button' tabindex='0' id='settings-popover-launch' on='tap:settings-popover' [class]=\"pageState.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='".$logout_hidden."'>Settings</div>";
 	echo "<div role='button' tabindex='0' id='new-popover-launch' on='tap:new-popover' [class]=\"pageState.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='".$logout_hidden."'>&#x271A; New entry</div>";	
 
 	echo "<form id='logout' method='post' action-xhr='/logout-xhr/' target='_blank' on=\"
