@@ -170,13 +170,7 @@ function amp_header($title=null, $canonical=null) {
 	
 		foreach ($header_array_temp as $header_backend => $header_frontend):
 			if (empty($type_counts_array[$header_backend]) && ($header_backend !== "main")): continue; endif;
-			$tap_temp = [];
-			foreach (array_keys($header_array_temp) as $header_backend_temp):
-				if ($header_backend == $header_backend_temp): continue; endif;
-				$tap_temp[] = "sidebar-navigation-lightbox-". $header_backend_temp .".close";
-				endforeach;
-			$tap_temp[] = "sidebar-navigation-lightbox-". $header_backend .".open";
-			echo "<div class='sidebar-navigation-button' role='button' tabindex='0' on='tap:". implode(",",$tap_temp) ."'>". ucfirst($header_frontend) ."</div>";
+			echo "<div class='sidebar-navigation-button' role='button' tabindex='0' on='tap:". implode(",",$tap_temp) .",sidebar-navigation-lightbox-". $header_backend .".open'>". ucfirst($header_frontend) ."</div>";
 			endforeach;
 	
 		echo "</amp-lightbox>";
