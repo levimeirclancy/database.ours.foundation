@@ -163,8 +163,8 @@ function amp_header($title=null, $canonical=null) {
 	
 		echo "<div id='sidebar-navigation-close' role='button' tabindex='0' on='tap:".implode(", ", $tap_temp)."' class='popover-close'>Back</div>";
 
-		echo "<input type='text' id='sidebar-navigation-search-input' placeholder='&#128270;' on=\"input-throttled:AMP.setState({searchState{searchTemp: event.value.replace('  ',' ').replace('  ',' ').replace('?',' ').replace(',',' ').replace('&',' ')}}),sidebar-navigation-lightbox-search.close\">";
-		echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on='tap:AMP.setState({searchState:{SearchTerm:searchState.searchTemp}}),". implode(",", $tap_temp) .",sidebar-navigation-lightbox-search.open,sidebar-navigation-lightbox-search-list.refresh'>Search</div>";
+		echo "<input type='text' id='sidebar-navigation-search-input' placeholder='&#128270;' on=\"input-throttled:AMP.setState({searchTerm: event.value.replace('  ',' ').replace('  ',' ').replace('?',' ').replace(',',' ').replace('&',' ')}}),sidebar-navigation-lightbox-search.close\">";
+		echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on='tap:". implode(",", $tap_temp) .",sidebar-navigation-lightbox-search.open,sidebar-navigation-lightbox-search-list.refresh'>Search</div>";
 	
 		$tap_temp[] = "sidebar-navigation-lightbox-search.close";
 	
@@ -183,9 +183,9 @@ function amp_header($title=null, $canonical=null) {
 
 	echo "<amp-lightbox class='sidebar-navigation-lightbox' id='sidebar-navigation-lightbox-search' on='lightboxClose:sidebar-navigation-close.show;lightboxOpen:sidebar-navigation-close.hide' layout='nodisplay' scrollable>";
 
-		echo "<p [text]=\"searchState.searchTerm == '' || searchState.searchTerm == ' ' || searchState.searchTerm == null ? 'Search term cannot be empty.' : 'Search results for: ' + searchState.searchTerm\">Search results</p>";
+		echo "<p [text]=\"searchTerm == '' || searchTerm == ' ' || searchTerm == null ? 'Search term cannot be empty.' : 'Search results for: ' + searchTerm\">Search results</p>";
 	
-		echo "<amp-list id='sidebar-navigation-lightbox-search-list' layout='container' width='800' height='800' [height]=\"edit-work-list.length * 1000\" items='.' max-items='100' binding='refresh' reset-on-refresh='always' [src]=\"'/api/search/?search=' + searchState.searchTerm\">";
+		echo "<amp-list id='sidebar-navigation-lightbox-search-list' layout='container' width='800' height='800' [height]=\"edit-work-list.length * 1000\" items='.' max-items='100' binding='refresh' reset-on-refresh='always' [src]=\"'/api/search/?search=' + searchTerm\">";
 			echo "<p class='amp-list-fallback' fallback>No search results.</p>";
 			echo "<p class='amp-list-fallback' placeholder>Loading search results...</p>";
 //			echo "<p class='amp-list-fallback' overflow>Show more.</p>";
