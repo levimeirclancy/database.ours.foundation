@@ -91,7 +91,7 @@ function amp_header($title=null, $canonical=null) {
 	echo "</head><body>";
 	
 	// Prepare the AMP state
-	$amp_state_temp = [ "searchTemp" => null, "searchTerm" => null, ]; // First we will set the search terms to blank
+	$amp_state_temp = [ "searchTemp" => "", "searchTerm" => "", ]; // First we will set the search terms to blank
 	$login_hidden = $logout_hidden = null; // We will control how to display the login or logout buttons
 	if (empty($login)): $amp_state_temp["loginStatus"] = "loggedin"; $logout_hidden = "hidden"; // If we are not logged in
 	elseif (!(empty($login))): $amp_state_temp["loginStatus"] = "loggedout"; $login_hidden = "hidden"; endif; // If we are logged in
