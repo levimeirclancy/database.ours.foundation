@@ -144,7 +144,7 @@ $sql_temp = "SELECT * FROM " . $database . ".information_directory";
 foreach($connection_pdo->query($sql_temp) as $row):
 
 	// requesting a specific entry id takes precedence over everything
-	if (isset($_REQUEST['entry_id']) && !(in_array($row['entry_id'], $_REQUEST['entry_id']))): continue; endif;
+	if (!(in_array($page_temp, ["edit-xhr", "new-xhr", "delete-xhr"])) && isset($_REQUEST['entry_id']) && !(in_array($row['entry_id'], $_REQUEST['entry_id']))): continue; endif;
 
 	$row['type'] = str_replace('"', null, $row['type']);
 
