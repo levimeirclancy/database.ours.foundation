@@ -404,6 +404,8 @@ form {
 	font-weight: 400;
 	font-style: italic;
 	font-size: 170%;
+	width: 400px;
+	height: 400px;
 	}
 
 #home-carousel .amp-carousel-button {
