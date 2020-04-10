@@ -105,9 +105,7 @@ function amp_header($title=null, $canonical=null) {
 		echo json_encode($google_analytics_array);
 		echo '</script></amp-analytics>';
 		endif;
-	
-	if ($command_temp == "edit"): return; endif;
-	
+		
 	// The navigation backbone...
 	echo "<div id='navigation-header' amp-fx='parallax' data-parallax-factor='1.4'>";
 
