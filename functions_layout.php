@@ -20,8 +20,6 @@ function amp_header($title=null, $canonical=null) {
 	
 	// Login status
 	global $login;
-	global $login_hidden;
-	global $logout_hidden;
 	
 	if (empty($title)): $title = $domain; endif;
 
@@ -92,6 +90,13 @@ function amp_header($title=null, $canonical=null) {
 
 	echo "</head><body>";
 	
+	// Prepare the AMP state
+	$amp_state_temp = [ "searchTemp" => null, "searchTerm" => null, ]; // First we will set the search terms to blank
+	$login_hidden = $logout_hidden = null; // We will control how to display the login or logout buttons
+	if (empty($login)): $logout_hidden = "hidden"; // If we are not logged in
+	elseif (!(empty($login))): $login_hidden = "hidden"; $amp_state_temp["loginStatus"] = null; endif; // If we are logged in
+	echo "<amp-state id='pageState'><script type='application/json'>".json_encode($amp_state_temp)."</script></amp-state>";
+	
 	if (!(empty($google_analytics_code))):
 		echo '<amp-analytics type="googleanalytics">';
 		echo '<script type="application/json">';
@@ -111,11 +116,11 @@ function amp_header($title=null, $canonical=null) {
 	echo "<div role='button' tabindex='0' class='navigation-header-item' on='tap:sidebar-navigation'>&#x2742; Navigation</div>";
 	
 	// This is the login button ...
-	echo "<div role='button' tabindex='0' class='navigation-header-item' id='login-popover-launch' on='tap:login-popover' [class]=\"loginStatus == 'loggedin' ? 'hide' : 'navigation-header-item'\" $login_hidden>&#x2731; Log in</div>";
+	echo "<div role='button' tabindex='0' class='navigation-header-item' id='login-popover-launch' on='tap:login-popover' [class]=\"pageState.loginStatus == 'loggedin' ? 'hide' : 'navigation-header-item'\" $login_hidden>&#x2731; Log in</div>";
 		
 	// If you are signed in ...
-	echo "<div role='button' tabindex='0' class='navigation-header-item' id='settings-popover-launch' on='tap:settings-popover' [class]=\"loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" $logout_hidden>&#x2699; Settings</div>";
-	echo "<div role='button' tabindex='0' class='navigation-header-item' id='new-popover-launch' on='tap:new-popover' [class]=\"loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" $logout_hidden>&#x271A; New entry</div>";	
+	echo "<div role='button' tabindex='0' class='navigation-header-item' id='settings-popover-launch' on='tap:settings-popover' [class]=\"pageState.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" $logout_hidden>&#x2699; Settings</div>";
+	echo "<div role='button' tabindex='0' class='navigation-header-item' id='new-popover-launch' on='tap:new-popover' [class]=\"pageState.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" $logout_hidden>&#x271A; New entry</div>";	
 
 	echo "<form id='logout' method='post' action-xhr='/logout-xhr/' target='_blank' on=\"
 		submit:
@@ -133,9 +138,9 @@ function amp_header($title=null, $canonical=null) {
 			edit-entry.hide,
 			login.clear,
 			logout.clear,
-			AMP.setState({'loginStatus': 'loggedout'})
+			AMP.setState({pageState {'loginStatus': 'loggedout'}})
 		\">";
-	echo "<div role='button' tabindex='0' class='navigation-header-item' id='logout-submit' on='tap:logout.submit' [class]=\"loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" $logout_hidden>&#x2716; Log out</div>";
+	echo "<div role='button' tabindex='0' class='navigation-header-item' id='logout-submit' on='tap:logout.submit' [class]=\"pageState.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" $logout_hidden>&#x2716; Log out</div>";
 	echo "<div class='navigation-header-item' submitting>&#x25cf; Logging out...</div>";
 	echo "<div role='button' tabindex='0' class='navigation-header-item' on='tap:logout.submit' id='logout-tryagain-submit' submit-error>&#x2716; Try logging out again</div>";
 //	echo "<div role='button' tabindex='0' class='navigation-header-item' on='tap:logout.submit' submit-success>&#x2713; Logged out</div>";
@@ -157,11 +162,8 @@ function amp_header($title=null, $canonical=null) {
 	
 		echo "<div id='sidebar-navigation-close' role='button' tabindex='0' on='tap:".implode(", ", $tap_temp)."' class='popover-close'>Back</div>";
 
-//		echo "<amp-state id='searchState'><script type='application/json'>{'searchTemp': '','searchTerm': ''}</script></amp-state>";
-//		echo "<input type='text' id='sidebar-navigation-search-input' placeholder='&#128270;' on=\"input-throttled:AMP.setState({searchState:{searchTemp: event.value.replace('  ',' ').replace('  ',' ').replace('?',' ').replace(',',' ').replace('&',' ')}})\">";
-		echo "<input type='text' id='sidebar-navigation-search-input' placeholder='&#128270;' on=\"input-throttled:AMP.setState({searchTemp: event.value.replace('  ',' ').replace('  ',' ').replace('?',' ').replace(',',' ').replace('&',' ')})\">";
-//		echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on=\"tap:AMP.setState({searchState:{searchTerm: searchState.searchTemp}}),".implode(",",$tap_temp).",sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search.open\">Search</div>";
-		echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on=\"tap:AMP.setState({searchTerm: searchTemp}),".implode(",",$tap_temp).",sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search.open\">Search</div>";
+		echo "<input type='text' id='sidebar-navigation-search-input' placeholder='&#128270;' on=\"input-throttled:AMP.setState({pageState:{searchTemp: event.value.replace('  ',' ').replace('  ',' ').replace('?',' ').replace(',',' ').replace('&',' ')}})\">";
+		echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on=\"tap:AMP.setState({pageState:{searchTerm: pageState.searchTemp}}),".implode(",",$tap_temp).",sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search.open\">Search</div>";
 	
 		$tap_temp[] = "sidebar-navigation-lightbox-search.close";
 	
@@ -180,11 +182,10 @@ function amp_header($title=null, $canonical=null) {
 
 	echo "<amp-lightbox class='sidebar-navigation-lightbox' id='sidebar-navigation-lightbox-search' on='lightboxClose:sidebar-navigation-close.show;lightboxOpen:sidebar-navigation-close.hide' layout='nodisplay' scrollable>";
 
-		echo "<p [text]=\"searchState.searchTerm == '' || searchState.searchTerm == ' ' || searchState.searchTerm == null ? 'Search term cannot be empty.' : 'Search results for: ' + searchState.searchTerm\">Search results</p>";
+		echo "<p [text]=\"pageState.searchTerm == '' || pageState.searchTerm == ' ' || pageState.searchTerm == null ? 'Search term cannot be empty.' : 'Search results for: ' + pageState.searchTerm\">Search results</p>";
 	
-//		echo "<amp-list id='sidebar-navigation-lightbox-search-list' layout='container' width='800' height='800' [height]=\"edit-work-list.length * 1000\" items='.' max-items='100' binding='refresh' reset-on-refresh='always' [src]=\"'/api/search/?search=' + searchState.searchTerm\">";
-		echo "<amp-list id='sidebar-navigation-lightbox-search-list' layout='container' width='800' height='800' [height]=\"edit-work-list.length * 1000\" items='.' max-items='100' binding='refresh' reset-on-refresh='always' [src]=\"'/api/search/?search=' + searchTerm\">";
-			echo "<p class='amp-list-fallback' [text]=\"'/api/search/?search=' + searchState.searchTerm\" fallback>No search results.</p>";
+		echo "<amp-list id='sidebar-navigation-lightbox-search-list' layout='container' width='800' height='800' [height]=\"edit-work-list.length * 1000\" items='.' max-items='100' binding='refresh' reset-on-refresh='always' [src]=\"'/api/search/?search=' + pageState.searchTerm\">";
+			echo "<p class='amp-list-fallback' [text]=\"'/api/search/?search=' + pageState.searchTerm\" fallback>No search results.</p>";
 			echo "<p class='amp-list-fallback' placeholder>Loading search results...</p>";
 //			echo "<p class='amp-list-fallback' overflow>Show more.</p>";
 
@@ -252,7 +253,7 @@ function amp_header($title=null, $canonical=null) {
 				edit-entry.show,
 				login.clear,
 				logout.clear,
-				AMP.setState({'loginStatus': 'loggedin'})
+				AMP.setState({pageState {'loginStatus': 'loggedin'}})
 			\">";
 
 		echo "<label for='checkpoint_email'>E-mail address</label>";
