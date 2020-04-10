@@ -478,4 +478,45 @@ function number_condense($n, $decimals=1) {
 	elseif ($n < 1000000000): $n_format = number_format($n / 1000000, $decimals); $suffix_temp = "m";
 	else: $n_format = number_format($n / 1000000000, $decimals); $suffix_temp = "b"; endif;
 	if (strlen($n_format) - strripos($n_format,".0") == 2): $n_format = str_replace(".0", null, $n_format); endif;
-	return $negative.$n_format.$suffix_temp; } ?>
+	return $negative.$n_format.$suffix_temp; }
+
+function json_output ($json_array) {
+	
+	global $domain;
+	
+	header("Content-type: application/json");
+	header("Access-Control-Allow-Credentials: true");
+	header("Access-Control-Allow-Origin: https://".$domain);
+	header("AMP-Access-Control-Allow-Source-Origin: https://".$domain);
+	header("Access-Control-Expose-Headers: AMP-Access-Control-Allow-Source-Origin");
+
+	echo json_encode($json_array);
+	       
+	exit; }
+
+function json_status ($status, $message=null, $redirect=null) {
+	
+	global $domain;
+	
+	header("Content-type: application/json");
+	header("Access-Control-Allow-Credentials: true");
+	header("Access-Control-Allow-Origin: https://".$domain);
+	header("AMP-Access-Control-Allow-Source-Origin: https://".$domain);
+		
+	if (($status !== "success") || empty($message)):
+	       $status = "error";
+	       header("HTTP/1.0 412 Precondition Failed", true, 412);
+	else:
+	       header("Access-Control-Expose-Headers: AMP-Access-Control-Allow-Source-Origin");
+	       endif;
+	
+	if (($status == "success") && !(empty($redirect))):
+		header("AMP-Redirect-To: https://".$domain.$redirect);
+		header("Access-Control-Expose-Headers: AMP-Redirect-To, AMP-Access-Control-Allow-Source-Origin");
+		endif;
+	
+	echo json_encode(["status"=>$status, "message"=>trim($message)]);
+	       
+	exit; }
+
+?>
