@@ -151,11 +151,11 @@ foreach($connection_pdo->query($sql_temp) as $row):
 		if (isset($_REQUEST['type']) && !(in_array($row['type'], $_REQUEST['type']))): continue; endif;
 
 		if (isset($_REQUEST['search'])):
+			if (!(is_array($_REQUEST['search']))): $_REQUEST['search'] = [ $_REQUEST['search'] ]; endif;
 			$result_temp = 0;
 			foreach ($_REQUEST['search'] as $search_temp):
 				$blob_temp = "*".strtolower(implode(" ", $row));
-				$search_temp = strtolower($search_temp);
-				if (strpos($blob_temp, $search_temp)): $result_temp = 1; break; endif;
+				if (strpos($blob_temp, strtolower($search_temp))): $result_temp = 1; break; endif;
 				endforeach;
 			if ($result_temp == 0): continue; endif;
 			endif;
@@ -430,6 +430,7 @@ if ($page_temp == "delete-xhr"):
 if ($page_temp == "api"):
 	if ($command_temp == "coordinate"): include_once('api_coordinate.php');
 	elseif ($command_temp == "sitemap"): echo json_encode($information_array); endif;
+	elseif ($command_temp == "search"): echo json_encode($information_array); endif;
 	exit; endif;
 
 
