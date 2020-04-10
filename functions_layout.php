@@ -105,7 +105,7 @@ function amp_header($title=null, $canonical=null) {
 	echo "<div id='navigation-header' amp-fx='parallax' data-parallax-factor='1.4'>";
 
 	// The domain name, to go home ...
-	echo "<div role='button' tabindex='0' class='navigation-header-item' on='tap:categories-popover'>&#x2742; Search</div>";
+	echo "<div role='button' tabindex='0' class='navigation-header-item' on='tap:sidebar-navigation'>&#x2742; Navigation</div>";
 	
 	// This is the login button ...
 	echo "<div role='button' tabindex='0' class='navigation-header-item' id='login-popover-launch' on='tap:login-popover' [class]=\"loginStatus == 'loggedin' ? 'hide' : 'navigation-header-item'\" $login_hidden>&#x2731; Log in</div>";
@@ -142,37 +142,42 @@ function amp_header($title=null, $canonical=null) {
 	echo "</div>";
 
 	// This is the popover for the categories ...;
-	echo "<amp-lightbox id='categories-popover' layout='nodisplay' on='lightboxClose:navigation-header.show;lightboxOpen:navigation-header.hide' scrollable>";
+	echo "<amp-lightbox id='sidebar-navigation' layout='nodisplay' on='lightboxClose:navigation-header.show;lightboxOpen:navigation-header.hide' scrollable>";
 	
 		$header_array_temp = array_merge(["main" => $domain], $header_array);
 	
-		$tap_temp = [];
+		$tap_temp = ["sidebar-navigation-lightbox-search"];
 		foreach (array_keys($header_array_temp) as $header_backend_temp):
-			$tap_temp[] = "categories-list-popover-thread-". $header_backend_temp .".close";
+			$tap_temp[] = "lightbox-navigation-lightbox-". $header_backend_temp .".close";
 			endforeach;
-		$tap_temp[] = "categories-popover.close";
+		$tap_temp[] = "sidebar-navigation.close";
 	
-		echo "<div id='categories-popover-close' role='button' tabindex='0' on='tap:".implode(", ", $tap_temp)."' class='popover-close'>Back</div>";
+		echo "<div id='sidebar-navigation-close' role='button' tabindex='0' on='tap:".implode(", ", $tap_temp)."' class='popover-close'>Back</div>";
 
-		echo "<input type='text' id='categories-popover-search-input'>";
-		echo "<div id='categories-popover-search-button' role='button' tabindex='0' on='tap:settheamplist,showtheamplightbox'>Search</div>";
+		echo "<input type='text' id='sidebar-navigation-search-input'>";
+		echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on='tap:settheamplist,showtheamplightbox'>Search</div>";
 	
 		foreach ($header_array_temp as $header_backend => $header_frontend):
 			if (empty($type_counts_array[$header_backend]) && ($header_backend !== "main")): continue; endif;
 			$tap_temp = [];
 			foreach (array_keys($header_array_temp) as $header_backend_temp):
 				if ($header_backend == $header_backend_temp): continue; endif;
-				$tap_temp[] = "categories-list-popover-thread-". $header_backend_temp .".close";
+				$tap_temp[] = "sidebar-navigation-lightbox-". $header_backend_temp .".close";
 				endforeach;
-			$tap_temp[] = "categories-list-popover-thread-". $header_backend .".open";
-			echo "<div class='categories-popover-button' role='button' tabindex='1' on='tap:". implode(",",$tap_temp) ."'>". ucfirst($header_frontend) ."</div>";
+			$tap_temp[] = "sidebar-navigation-lightbox-". $header_backend .".open";
+			echo "<div class='sidebar-navigation-button' role='button' tabindex='1' on='tap:". implode(",",$tap_temp) ."'>". ucfirst($header_frontend) ."</div>";
 			endforeach;
 	
 		echo "</amp-lightbox>";
 
-	echo "<amp-lightbox class='categories-list-popover-thread' id='categories-list-popover-thread-main' on='lightboxClose:categories-popover-close.show;lightboxOpen:categories-popover-close.hide' layout='nodisplay' scrollable>";
+	echo "<amp-lightbox class='sidebar-navigation-lightbox' id='sidebar-navigation-lightbox-search' on='lightboxClose:sidebar-navigation-close.show;lightboxOpen:sidebar-navigation-close.hide' layout='nodisplay' scrollable>";
 
-		echo "<div role='button' tabindex='0' on='tap:categories-list-popover-thread-main.close' class='popover-close'>Back</div>";
+	
+		echo "</amp-lightbox>";
+	
+	echo "<amp-lightbox class='sidebar-navigation-lightbox' id='sidebar-navigation-lightbox-main' on='lightboxClose:sidebar-navigation-close.show;lightboxOpen:sidebar-navigation-close.hide' layout='nodisplay' scrollable>";
+
+		echo "<div role='button' tabindex='0' on='tap:sidebar-navigation-lightbox-main.close' class='popover-close'>Back</div>";
 
 		// How many total entries are there ...
 		echo "<p>". number_format(count($information_array)) ." total entries.</p>";
@@ -188,9 +193,9 @@ function amp_header($title=null, $canonical=null) {
 		
 		if (empty($type_counts_array[$header_backend])): continue; endif;
 
-		echo "<amp-lightbox class='categories-list-popover-thread' id='categories-list-popover-thread-".$header_backend."' on='lightboxClose:categories-popover-close.show;lightboxOpen:categories-popover-close.hide' layout='nodisplay' scrollable>";
+		echo "<amp-lightbox class='sidebar-navigation-lightbox' id='sidebar-navigation-lightbox-".$header_backend."' on='lightboxClose:sidebar-navigation-close.show;lightboxOpen:sidebar-navigation-close.hide' layout='nodisplay' scrollable>";
 
-			echo "<div role='button' tabindex='0' on='tap:categories-list-popover-thread-".$header_backend.".close' class='popover-close'>Back</div>";	
+			echo "<div role='button' tabindex='0' on='tap:sidebar-navigation-lightbox-".$header_backend.".close' class='popover-close'>Back</div>";	
 	
 			echo "<p>".number_format($type_counts_array[$header_backend])." ".$header_frontend."</p>";
 	
