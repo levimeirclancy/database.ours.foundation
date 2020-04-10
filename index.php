@@ -428,9 +428,14 @@ if ($page_temp == "delete-xhr"):
 
 
 if ($page_temp == "api"):
-	if ($command_temp == "coordinate"): include_once('api_coordinate.php');
-	elseif ($command_temp == "sitemap"): json_output($information_array);
-	elseif ($command_temp == "search"): json_output(array_values($information_array)); endif;
+	if ($command_temp == "coordinate"):
+		include_once('api_coordinate.php');
+	elseif ($command_temp == "sitemap"):
+		json_output($information_array);
+	elseif ($command_temp == "search"):
+		if (empty($information_array)): json_status("error", "No results.");
+		else: json_output(array_values($information_array)); endif;
+		endif;
 	exit; endif;
 
 
