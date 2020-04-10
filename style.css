@@ -269,6 +269,13 @@ amp-lightbox {
 
 	}
 
+.sidebar-navigation-lightbox-search-list-item {
+	margin-top: 10px;
+	margin-bottom: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	}
+
 /* Make the input and description same width and placement */
 #login-popover label, #login-popover input {
 	display: block;
