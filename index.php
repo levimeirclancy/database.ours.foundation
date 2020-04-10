@@ -247,7 +247,7 @@ if ($page_temp == "edit-xhr"):
 
 	if (empty($_POST['entry_id'])): json_result($domain, "error", null, "Needs entry."); endif;
 
-	if (!(array_key_exists($_POST['entry_id'],$information_array))): json_result($domain, "error", null, "Entry does not exist."; endif;
+	if (!(array_key_exists($_POST['entry_id'], $information_array))): json_result($domain, "error", null, "Entry does not exist."); endif;
 
 	if (empty($_POST['type'])): json_result($domain, "error", null, "Needs type."); endif;
 	if (empty($header_array[$_POST['type']])): json_result($domain, "error", null, "Type is not valid."); endif;
