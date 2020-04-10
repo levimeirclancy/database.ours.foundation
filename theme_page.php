@@ -9,7 +9,7 @@ foreach ($result as $row):
 	endforeach;
 
 empty($login) ? $login_hidden = "hide" : $login_hidden = "navigation-header-item";
-echo "<a href='/".$page_temp."/edit/'><span amp-fx='parallax' data-parallax-factor='1.3' [class]=\"pageState.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='$login_hidden'>&#10033; Edit</span></a>";
+echo "<a href='/".$page_temp."/edit/'><span id='edit-entry' amp-fx='parallax' data-parallax-factor='1.3' [class]=\"pageState.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='$login_hidden'>&#10033; Edit</span></a>";
 
 // if (!(empty($messenger_bot)) && file_exists("messenger/".$entry_info['entry_id'].".png")):
 //	echo "<div id='messenger-code-image' ". $layout_nodisplay_temp .">";
