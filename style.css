@@ -217,7 +217,7 @@ amp-lightbox {
 #sidebar-navigation-search-button {
 	color: rgba(50,50,50,0.8);
 	background: rgba(255,255,255,1);
-	box-shadow: 5px 5px 25px -5px rgba(40,40,40,0.5); 
+	box-shadow: 3px 3px 20px -5px rgba(40,40,40,0.5); 
 	opacity: 1;
 	padding: 9px 15px;
 	border-radius: 100px;
