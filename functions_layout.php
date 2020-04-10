@@ -91,8 +91,7 @@ function amp_header($title=null, $canonical=null) {
 	echo "</head><body>";
 	
 	$login_hidden = $logout_hidden = "navigation-header-item"; // This would mean that buttons to login AND logout are shown
-	if (empty($login)): $logout_hidden = "hide"; // If we are not logged in
-	elseif (!(empty($login))): $login_hidden = "hide"; endif; // If we are logged in
+	(empty($login) ? $logout_hidden = "hide" : $login_hidden = "hide");
 
 	echo "<amp-state id='pageState' src='/api/login/'></script></amp-state>";
 	
