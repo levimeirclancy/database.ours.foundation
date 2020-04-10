@@ -153,6 +153,8 @@ h1 span {
 	float: left;
 	color: #333;
 	z-index: 101;
+	font-size: 70%;
+	font-weight: 700;
 	font-family: Arial, Helvetica, Sans Serif;
 	}
 
