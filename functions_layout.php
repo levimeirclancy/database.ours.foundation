@@ -190,6 +190,7 @@ function amp_header($title=null, $canonical=null) {
 				echo "</span>";
 				echo "</template>";
 			echo "</amp-list>";
+		echo "<span class='categories-item'></span>";
 		echo "</amp-lightbox>";
 	
 	echo "<amp-lightbox class='sidebar-navigation-lightbox' id='sidebar-navigation-lightbox-main' on='lightboxClose:sidebar-navigation-close.show;lightboxOpen:sidebar-navigation-close.hide' layout='nodisplay' scrollable>";
