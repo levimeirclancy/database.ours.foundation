@@ -429,8 +429,8 @@ if ($page_temp == "delete-xhr"):
 
 if ($page_temp == "api"):
 	if ($command_temp == "coordinate"): include_once('api_coordinate.php');
-	elseif ($command_temp == "sitemap"): echo json_encode($information_array);
-	elseif ($command_temp == "search"): echo json_encode($information_array); endif;
+	elseif ($command_temp == "sitemap"): json_output($information_array);
+	elseif ($command_temp == "search"): json_output($information_array); endif;
 	exit; endif;
 
 
@@ -470,7 +470,7 @@ if (!(empty($page_temp))):
 	if ($command_temp == "ping"):
 		$url_temp .= "ping/";
 		if ($_SERVER['REQUEST_URI'] !== $url_temp): permanent_redirect("https://".$domain.$url_temp); endif;
-		echo json_encode([$page_temp = $information_array[$page_temp]]);
+		json_output([$page_temp = $information_array[$page_temp]]);
 		exit; endif;
 
 	if (($command_temp == "map") && !(empty($information_array[$page_temp]['appendix']['latitude'])) && !(empty($information_array[$page_temp]['appendix']['longitude']))):
