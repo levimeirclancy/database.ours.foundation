@@ -231,8 +231,6 @@ if (!(empty($order_array))):
 
 $information_array = htmlspecialchars_array($information_array);
 
-print_r($information_array);
-
 function htmlspecialchars_array($array_temp) {
 	if (!(is_array($array_temp))): return html_entity_decode($array_temp); endif;
 	foreach ($array_temp as $key_temp => $value_temp): $array_temp[$key_temp] = htmlspecialchars_array($value_temp); endforeach;
@@ -246,7 +244,7 @@ if ($page_temp == "edit-xhr"):
 
 	if (empty($_POST['entry_id'])): json_result($domain, "error", null, "Needs entry."); endif;
 
-	if (empty($information_array[$_POST['entry_id']])): json_result($domain, "error", null, "Entry ".$_POST['entry_id']." does not exist."); endif;
+	if (empty($information_array[(string)$_POST['entry_id']])): json_result($domain, "error", null, "Entry ".$_POST['entry_id']." does not exist."); endif;
 
 	if (empty($_POST['type'])): json_result($domain, "error", null, "Needs type."); endif;
 	if (empty($header_array[$_POST['type']])): json_result($domain, "error", null, "Type is not valid."); endif;
