@@ -220,6 +220,10 @@ function body_process($body_incoming) {
 		$link_string = $link_type = null;
 	
 		$temp_array = explode("}{", $match_temp."}{");
+	
+		if (empty($temp_array[0])): $temp_array[0] = null; endif;
+		if (empty($temp_array[1])): $temp_array[1] = null; endif;
+		if (empty($temp_array[2])): $temp_array[2] = null; endif;
 
 		$anchor_temp = null;
 		if (strpos($temp_array[0], "#") !== FALSE):
