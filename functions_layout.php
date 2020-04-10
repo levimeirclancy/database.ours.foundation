@@ -158,7 +158,7 @@ function amp_header($title=null, $canonical=null) {
 		echo "<div id='sidebar-navigation-close' role='button' tabindex='0' on='tap:".implode(", ", $tap_temp)."' class='popover-close'>Back</div>";
 
 		echo "<amp-state id='searchState'><script type='application/json'>{'searchTemp': '','searchTerm': ''}</script></amp-state>";
-		echo "<input type='text' id='sidebar-navigation-search-input' on=\"input-throttled:AMP.setState({searchState:{searchTemp: event.value}})\">";
+		echo "<input type='text' id='sidebar-navigation-search-input' on=\"input-throttled:AMP.setState({searchState:{searchTemp: event.value.replace(/\s/g, '')}})\">";
 		echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on=\"tap:AMP.pushState({searchState:{searchTerm: searchState.searchTemp}}),sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search.open\">Search</div>";
 	
 		foreach ($header_array_temp as $header_backend => $header_frontend):
@@ -176,7 +176,7 @@ function amp_header($title=null, $canonical=null) {
 
 	echo "<amp-lightbox class='sidebar-navigation-lightbox' id='sidebar-navigation-lightbox-search' on='lightboxClose:sidebar-navigation-close.show;lightboxOpen:sidebar-navigation-close.hide' layout='nodisplay' scrollable>";
 
-//		echo "<p [text]=\"'Hello with ' + searchState.searchTerm\">Hello before search</p>";
+		echo "<p [text]=\"'Hello with ..' + searchState.searchTerm + '..'\">Hello before search</p>";
 	
 		echo "<amp-list id='sidebar-navigation-lightbox-search-list' layout='container' width='800' height='800' [height]=\"edit-work-list.length * 1000\" items='.' max-items='100' binding='refresh' reset-on-refresh='always' [src]=\"'/api/sitemap/?search=' + searchState.searchTerm\" src='/api/sitemap/?search='>";
 			echo "<span class='amp-list-fallback' fallback>Failed to load work history.</span>";
