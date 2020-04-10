@@ -138,13 +138,13 @@ h1 span {
 	box-shadow: 0 5px 40px -13px rgba(50,50,50,0.3);
 	font-size: 80%;
 	padding: 10px;
-	font-size: 80%;
+	font-size: 100%;
 	z-index: 100;
 	}
 
 .navigation-header-item {
 	margin: 5px 20px 5px 0;
-	padding: 10px 20px 9px;
+	padding: 8px 20px 7px;
 	border-radius: 100px;
 	background: #fff;
 	display: inline-block;
