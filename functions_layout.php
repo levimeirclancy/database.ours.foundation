@@ -161,13 +161,13 @@ function amp_header($title=null, $canonical=null) {
 			$tap_temp[] = "sidebar-navigation-lightbox-". $header_backend_temp .".close";
 			endforeach;
 	
-		echo "<div id='sidebar-navigation-close' role='button' tabindex='0' on='tap:".implode(",", $tap_temp)."' class='popover-close'>Back</div>";
-
 		echo "<input type='text' id='sidebar-navigation-search-input' placeholder='&#128270;' on=\"input-throttled:AMP.setState({pageState:{loginStatus: pageState.loginStatus}}),AMP.setState({pageState:{searchTerm: event.value.replace('  ',' ').replace('  ',' ').replace('?',' ').replace(',',' ').replace('&',' ')}}),sidebar-navigation-lightbox-search.close\">";
 		echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on='tap:". implode(",", $tap_temp) .",sidebar-navigation-lightbox-search.open,sidebar-navigation-lightbox-search-list.refresh'>Search</div>";
 	
 		$tap_temp[] = "sidebar-navigation-lightbox-search.close";
 	
+		echo "<div id='sidebar-navigation-close' role='button' tabindex='0' on='tap:".implode(",", $tap_temp).",sidebar-navigation.close' class='popover-close'>Back</div>";
+
 		foreach ($header_array_temp as $header_backend => $header_frontend):
 			if (empty($type_counts_array[$header_backend]) && ($header_backend !== "main")): continue; endif;
 			echo "<div class='sidebar-navigation-button' role='button' tabindex='0' on='tap:". implode(",", $tap_temp) .",sidebar-navigation-lightbox-". $header_backend .".open'>". ucfirst($header_frontend) ."</div>";
