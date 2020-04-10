@@ -74,20 +74,12 @@ h1 span {
 	display: block;
 	}
 
-#article-breadcrumbs, #edit-entry {
+#article-breadcrumbs{
 	top: 100px;
 	position: absolute;
-	font-size: 80%;
-	}
-
-#article-breadcrumbs {
 	left: 20px;
 	margin-right: 100px;
-	}
-
-#edit-entry {
-	right: 20px;
-	opacity: 0.6;
+	font-size: 80%;
 	}
 
 @media only screen and (max-width: 413px)  {
@@ -136,9 +128,7 @@ h1 span {
 	width: 100%;
 	background: rgba(255,255,255,1);
 	box-shadow: 0 5px 40px -13px rgba(50,50,50,0.3);
-	font-size: 80%;
 	padding: 10px;
-	font-size: 100%;
 	z-index: 100;
 	}
 
