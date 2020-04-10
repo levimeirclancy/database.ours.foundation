@@ -161,7 +161,7 @@ function amp_header($title=null, $canonical=null) {
 //		echo "<input type='text' id='sidebar-navigation-search-input' placeholder='&#128270;' on=\"input-throttled:AMP.setState({searchState:{searchTemp: event.value.replace('  ',' ').replace('  ',' ').replace('?',' ').replace(',',' ').replace('&',' ')}})\">";
 		echo "<input type='text' id='sidebar-navigation-search-input' placeholder='&#128270;' on=\"input-throttled:AMP.setState({searchTemp: event.value.replace('  ',' ').replace('  ',' ').replace('?',' ').replace(',',' ').replace('&',' ')})\">";
 //		echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on=\"tap:AMP.setState({searchState:{searchTerm: searchState.searchTemp}}),".implode(",",$tap_temp).",sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search.open\">Search</div>";
-		echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on=\"tap:AMP.setState({searchState:{searchTerm: searchTemp}}),".implode(",",$tap_temp).",sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search.open\">Search</div>";
+		echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on=\"tap:AMP.setState({searchTerm: searchTemp}),".implode(",",$tap_temp).",sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search.open\">Search</div>";
 	
 		$tap_temp[] = "sidebar-navigation-lightbox-search.close";
 	
