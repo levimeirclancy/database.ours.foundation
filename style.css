@@ -152,6 +152,7 @@ h1 span {
 	float: left;
 	color: rgba(255,255,255,1);
 	z-index: 101;
+	font-family: Arial, Helvetica, Sans Serif;
 	}
 
 .navigation-header-item::first-letter {
@@ -229,7 +230,7 @@ amp-lightbox {
 	margin: 10px 0 20px 0;
 	text-align: center;
 	font-weight: 700;
-	font-size: 80%;
+	font-size: 75%;
 	line-height: 1em;
 	font-family: Arial, Helvetica, Sans Serif;
 	cursor: pointer;
