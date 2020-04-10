@@ -16,7 +16,7 @@ foreach ($result as $row):
 //	endif;
 
 (empty($login) ? $login_hidden = "hide" : $login_hidden = "navigation-header-item");
-echo "<a href='/".$page_temp."/edit/'><span id='edit-entry' amp-fx='parallax' data-parallax-factor='1.3' [class]=\"pageState.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='$login_hidden'>&#10033; Edit</span></a>";
+echo "<a href='/".$page_temp."/edit/'><span amp-fx='parallax' data-parallax-factor='1.3' [class]=\"pageState.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='$login_hidden'>&#10033; Edit</span></a>";
 
 // Crumbs and GPS ...
 echo "<div id='article-breadcrumbs' amp-fx='parallax' data-parallax-factor='1.3'>";
