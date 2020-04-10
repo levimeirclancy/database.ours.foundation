@@ -75,7 +75,7 @@ h1 span {
 	}
 
 #article-breadcrumbs{
-	margin-right: 100px;
+	margin: 20px 100px 20px 20px;
 	font-size: 80%;
 	}
 
@@ -125,14 +125,14 @@ h1 span {
 	width: 100%;
 	background: rgba(255,255,255,1);
 	box-shadow: 0 5px 40px -13px rgba(50,50,50,0.3);
-	padding: 10px;
+	padding: 10px 0;
 	z-index: 100;
 	}
 
 .navigation-header-item {
-	margin: 5px 10px;
+	margin: 5px 0 5px 20px;
 	z-index: 101;
-	padding: 8px 20px 7px;
+	padding: 8px 20px 7px 17px;
 	border-radius: 100px;
 	background: #fff;
 	display: inline-block;
