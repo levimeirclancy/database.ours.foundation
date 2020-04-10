@@ -15,7 +15,7 @@ foreach ($result as $row):
 //	echo "<a href='/".$page_temp."/flyer/' target='_blank'><div id='messenger-flyer-button' ". $layout_nodisplay_temp .">Get flyer</div></a>";
 //	endif;
 
-(empty($login) ? $login_hidden = "navigation-header-item" : $login_hidden = "hide");
+(empty($login) ? $login_hidden = "hide" : $login_hidden = "navigation-header-item");
 echo "<a href='/".$page_temp."/edit/'><span id='edit-entry' amp-fx='parallax' data-parallax-factor='1.3' [class]=\"pageState.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='$login_hidden'>&#10033; Edit</span></a>";
 
 // Crumbs and GPS ...
