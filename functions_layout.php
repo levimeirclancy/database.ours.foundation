@@ -178,7 +178,7 @@ function amp_header($title=null, $canonical=null) {
 
 //		echo "<p [text]=\"'Hello with ' + searchState.searchTerm\">Hello before search</p>";
 	
-		echo "<amp-list id="sidebar-navigation-lightbox-search-list" layout="container" width="800" height="800" [height]="edit-work-list.length * 1000" items="." max-items="100" binding="refresh" reset-on-refresh="always" [src]=\"'/api/sitemap/?search=' + searchState.searchTerm\" src='/api/sitemap/?search='>";
+		echo "<amp-list id='sidebar-navigation-lightbox-search-list' layout='container' width='800' height='800' [height]=\"edit-work-list.length * 1000\" items='.' max-items='100' binding='refresh' reset-on-refresh='always' [src]=\"'/api/sitemap/?search=' + searchState.searchTerm\" src='/api/sitemap/?search='>";
 			echo "<span class='amp-list-fallback' fallback>Failed to load work history.</span>";
 			echo "<span class='amp-list-fallback' placeholder>Loading work history...</span>";
 			echo "<span class='amp-list-fallback' overflow>Show more.</span>";
