@@ -143,14 +143,15 @@ h1 span {
 	}
 
 .navigation-header-item {
-	margin: 3px 20px 5px 0;
-	padding: 8px 15px 7px;
+	margin: 5px 20px 5px 0;
+	padding: 10px 20px 9px;
 	border-radius: 100px;
-	background: #888;
+	background: #fff;
 	display: inline-block;
+	border: 1px solid #555;
 	cursor: pointer;
 	float: left;
-	color: rgba(255,255,255,1);
+	color: #333;
 	z-index: 101;
 	font-family: Arial, Helvetica, Sans Serif;
 	}
