@@ -162,8 +162,8 @@ function amp_header($title=null, $canonical=null) {
 	
 		echo "<div id='sidebar-navigation-close' role='button' tabindex='0' on='tap:".implode(", ", $tap_temp)."' class='popover-close'>Back</div>";
 
-		echo "<input type='text' id='sidebar-navigation-search-input' placeholder='&#128270;' on=\"input-throttled:AMP.setState({pageState :{ searchTemp: event.value.replace('  ',' ').replace('  ',' ').replace('?',' ').replace(',',' ').replace('&',' ')}})\">";
-		echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on=\"tap:".implode(",",$tap_temp).",AMP.setState({pageState :{searchTerm: pageState.searchTemp}}),sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search.open\">Search</div>";
+		echo "<input type='text' id='sidebar-navigation-search-input' placeholder='&#128270;' on=\"input-throttled:AMP.setState({pageState: {loginStatus: loginStatus, searchTemp: event.value.replace('  ',' ').replace('  ',' ').replace('?',' ').replace(',',' ').replace('&',' ')}})\">";
+		echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on=\"tap:".implode(",",$tap_temp).",AMP.setState({pageState: {loginStatus: loginStatus, searchTerm: pageState.searchTemp}}),sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search.open\">Search</div>";
 	
 		$tap_temp[] = "sidebar-navigation-lightbox-search.close";
 	
