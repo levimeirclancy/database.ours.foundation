@@ -1,6 +1,6 @@
 <? 
 
-echo "<h1>".ucfirst($domain)."</h1>";
+echo "<h1>&#x2742;</h1>";
 
 echo "<amp-carousel id='home-carousel' type='slides' width='auto' height='400' layout='fixed-height' loop autoplay delay='2000'>";
 
