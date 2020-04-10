@@ -92,7 +92,7 @@ function amp_header($title=null, $canonical=null) {
 	
 	// Prepare the AMP state
 	$amp_state_temp = [];
-	$amp_state_temp = [ "searchTerm" => "Default", "searchTemp" => "Default" ]; // First we will set the search terms to blank
+	$amp_state_temp = [ "searchTerm" => "null", "searchTemp" => "null" ]; // First we will set the search terms to blank
 	$login_hidden = $logout_hidden = null; // We will control how to display the login or logout buttons
 	if (empty($login)): $amp_state_temp["loginStatus"] = "loggedin"; $logout_hidden = "hidden"; // If we are not logged in
 	elseif (!(empty($login))): $amp_state_temp["loginStatus"] = "loggedout"; $login_hidden = "hidden"; endif; // If we are logged in
@@ -163,8 +163,8 @@ function amp_header($title=null, $canonical=null) {
 	
 		echo "<div id='sidebar-navigation-close' role='button' tabindex='0' on='tap:".implode(", ", $tap_temp)."' class='popover-close'>Back</div>";
 
-		echo "<input type='text' id='sidebar-navigation-search-input' placeholder='&#128270;' on=\"input-throttled:AMP.setState({pageState:{searchTemp: event.value.replace('  ',' ').replace('  ',' ').replace('?',' ').replace(',',' ').replace('&',' ')}})\">";
-		echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on='tap:AMP.setState({pageState: {SearchTerm: pageState.searchTemp}}),". implode(",", $tap_temp) .",sidebar-navigation-lightbox-search.open'>Search</div>";
+		echo "<input type='text' id='sidebar-navigation-search-input' placeholder='&#128270;' on=\"input-throttled:AMP.setState({pageState:{loginStatus: pageState.loginStatus, searchTemp: event.value.replace('  ',' ').replace('  ',' ').replace('?',' ').replace(',',' ').replace('&',' ')}})\">";
+		echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on='tap:AMP.setState({pageState: {loginStatus: pageState.loginStatus, SearchTerm: pageState.searchTemp}}),". implode(",", $tap_temp) .",sidebar-navigation-lightbox-search.open'>Search</div>";
 	
 		$tap_temp[] = "sidebar-navigation-lightbox-search.close";
 	
