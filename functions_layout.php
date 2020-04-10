@@ -176,28 +176,19 @@ function amp_header($title=null, $canonical=null) {
 
 	echo "<amp-lightbox class='sidebar-navigation-lightbox' id='sidebar-navigation-lightbox-search' on='lightboxClose:sidebar-navigation-close.show;lightboxOpen:sidebar-navigation-close.hide' layout='nodisplay' scrollable>";
 
-		echo "<p [text]=\"'Hello with ' + searchState.searchTerm\">Hello before search</p>";
+//		echo "<p [text]=\"'Hello with ' + searchState.searchTerm\">Hello before search</p>";
 	
-		// amp-list
-//		<amp-list id="sidebar-navigation-lightbox-search-list" layout="container" width="800" height="100" [height]="edit-work-list.length * 1000" items="message.work" max-items="100" binding="refresh" reset-on-refresh="always" src="/api/sitemap/?search=_" items="items">
-//		<span class='amp-list-fallback' fallback>Failed to load work history.</span>
-//		<span class='amp-list-fallback' placeholder>Loading work history...</span>
-//		<span class='amp-list-fallback' overflow>Show more.</span>
-//
-//		<template type='amp-mustache'>
-//			
-//			<div class='amp-list-item-alignment' id='amp-list-item-{{content_id}}'>
-//
-//			<div class='amp-list-item' id='amp-list-item-{{content_id}}'>
-//
-//			<span class='amp-list-item-completion-alignment'>
-//				<span class='amp-list-item-completion-incomplete' id='incomplete-{{content_id}}' {{hidden_incomplete}}></span>
-//				<span class='amp-list-item-completion-complete' id='complete-{{content_id}}' {{hidden_complete}}></span>
-//				<span class='amp-list-item-completion-changed' id='changed-{{content_id}}' hidden></span>
-//				</span>
-//				
-//			</template></amp-list>
+		echo "<amp-list id="sidebar-navigation-lightbox-search-list" layout="container" width="800" height="800" [height]="edit-work-list.length * 1000" items="." max-items="100" binding="refresh" reset-on-refresh="always" [src]=\"'/api/sitemap/?search=' + searchState.searchTerm\" src='/api/sitemap/?search='>";
+			echo "<span class='amp-list-fallback' fallback>Failed to load work history.</span>";
+			echo "<span class='amp-list-fallback' placeholder>Loading work history...</span>";
+			echo "<span class='amp-list-fallback' overflow>Show more.</span>";
 
+			echo "<template type='amp-mustache'>";
+				echo "<div class='amp-list-item-alignment' id='amp-list-item-{{entry_id}}'>
+				echo "{{entry_id}}";
+				echo "</div>";
+				echo "</template>";
+			echo "</amp-list>";
 		echo "</amp-lightbox>";
 	
 	echo "<amp-lightbox class='sidebar-navigation-lightbox' id='sidebar-navigation-lightbox-main' on='lightboxClose:sidebar-navigation-close.show;lightboxOpen:sidebar-navigation-close.hide' layout='nodisplay' scrollable>";
