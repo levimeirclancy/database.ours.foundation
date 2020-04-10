@@ -107,9 +107,6 @@ function amp_header($title=null, $canonical=null) {
 	// The domain name, to go home ...
 	echo "<div role='button' tabindex='0' class='navigation-header-item' on='tap:categories-popover'>&#x2742; Search</div>";
 	
-//	// ... then to toggle the search popover ...
-//	echo "<div role='button' tabindex='0' class='navigation-header-item' on='tap:search-popover'>&#x272A; Search</div>";
-	
 	// This is the login button ...
 	echo "<div role='button' tabindex='0' class='navigation-header-item' id='login-popover-launch' on='tap:login-popover' [class]=\"loginStatus == 'loggedin' ? 'hide' : 'navigation-header-item'\" $login_hidden>&#x2731; Log in</div>";
 		
