@@ -159,7 +159,7 @@ function amp_header($title=null, $canonical=null) {
 
 		echo "<amp-state id='searchState'><script type='application/json'>{'searchTemp': '','searchTerm': ''}</script></amp-state>";
 		echo "<input type='text' id='sidebar-navigation-search-input' on=\"input-throttled:AMP.setState({searchState:{searchTemp: event.value.replace('  ',' ').replace('  ',' ').replace('?',' ').replace(',',' ').replace('&',' ')}})\">";
-		echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on=\"tap:AMP.pushState({searchState:{searchTerm: searchState.searchTemp}}),".implode(",",$tap_temp).",sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search.open\">Search</div>";
+		echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on=\"tap:AMP.setState({searchState:{searchTerm: searchState.searchTemp}}),".implode(",",$tap_temp).",sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search.open\">Search</div>";
 	
 		$tap_temp[] = "sidebar-navigation-lightbox-search.close";
 	
