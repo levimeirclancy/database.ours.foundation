@@ -143,23 +143,26 @@ $coordinate_counts = 0;
 $sql_temp = "SELECT * FROM " . $database . ".information_directory";
 foreach($connection_pdo->query($sql_temp) as $row):
 
-	// requesting a specific entry id takes precedence over everything
-	if (!(in_array($page_temp, ["edit-xhr", "new-xhr", "delete-xhr"])) && isset($_REQUEST['entry_id']) && !(in_array($row['entry_id'], $_REQUEST['entry_id']))): continue; endif;
-
 	$row['type'] = str_replace('"', null, $row['type']);
 
-	if (isset($_REQUEST['type']) && !(in_array($row['type'], $_REQUEST['type']))): continue; endif;
+	// requesting a specific entry id takes precedence over everything
+	if (!(in_array($page_temp, ["edit-xhr", "new-xhr", "delete-xhr"]))):
 
-	if (isset($_REQUEST['search'])):
-		$result_temp = 0;
-		foreach ($_REQUEST['search'] as $search_temp):
-			$blob_temp = "*".strtolower(implode(" ", $row));
-			$search_temp = strtolower($search_temp);
-			if (strpos($blob_temp, $search_temp)): $result_temp = 1; break; endif;
-			endforeach;
-		if ($result_temp == 0): continue; endif;
+		if (isset($_REQUEST['entry_id']) && !(in_array($row['entry_id'], $_REQUEST['entry_id']))): continue; endif;
+
+		if (isset($_REQUEST['type']) && !(in_array($row['type'], $_REQUEST['type']))): continue; endif;
+
+		if (isset($_REQUEST['search'])):
+			$result_temp = 0;
+			foreach ($_REQUEST['search'] as $search_temp):
+				$blob_temp = "*".strtolower(implode(" ", $row));
+				$search_temp = strtolower($search_temp);
+				if (strpos($blob_temp, $search_temp)): $result_temp = 1; break; endif;
+				endforeach;
+			if ($result_temp == 0): continue; endif;
+			endif;
 		endif;
-		
+
 	$appendix_temp = json_decode($row['appendix'], true);
 	foreach ($_REQUEST as $appendix_key => $appendix_value):
 		if (in_array($appendix_key, [ "entry_id", "type", "search", "summary" ])): continue; endif;
