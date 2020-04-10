@@ -184,7 +184,7 @@ function amp_header($title=null, $canonical=null) {
 //			echo "<p class='amp-list-fallback' overflow>Show more.</p>";
 
 			echo "<template type='amp-mustache'>";
-				echo "<p class='amp-list-item-alignment' id='amp-list-item-{{entry_id}}'><a href='/{{entry_id}}/'>{{header}}</a></p>";
+				echo "<p class='sidebar-navigation-lightbox-item' id='amp-list-item-{{entry_id}}'><a href='/{{entry_id}}/' target='_blank'>{{header}}</a></p>";
 				echo "</template>";
 			echo "</amp-list>";
 		echo "</amp-lightbox>";
