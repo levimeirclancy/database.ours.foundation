@@ -153,7 +153,7 @@ function amp_header($title=null, $canonical=null) {
 		foreach (array_keys($header_array_temp) as $header_backend_temp):
 			$tap_temp[] = "lightbox-navigation-lightbox-". $header_backend_temp .".close";
 			endforeach;
-		$tap_temp[] = "sidebar-navigation.close";
+//		$tap_temp[] = "sidebar-navigation.close";
 	
 		echo "<div id='sidebar-navigation-close' role='button' tabindex='0' on='tap:".implode(", ", $tap_temp)."' class='popover-close'>Back</div>";
 
