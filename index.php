@@ -236,9 +236,6 @@ function htmlspecialchars_array($array_temp) {
 	foreach ($array_temp as $key_temp => $value_temp): $array_temp[$key_temp] = htmlspecialchars_array($value_temp); endforeach;
 	return $array_temp; }
 
-
-print_r($information_array);
-
 // if it is edit-xhr
 if ($page_temp == "edit-xhr"):
 
