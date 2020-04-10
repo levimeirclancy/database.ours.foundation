@@ -20,9 +20,7 @@ if ($page_temp == "new"): $new_page = "yes"; endif;
 
 // When tap, then also close the amp-lightbox
 
-// The navigation backbone...
-echo "<div id='edit-header'>";
-
+echo "<div id='admin-page-actions' amp-fx='parallax' data-parallax-factor='1.2'>";
 	echo "<a href='#title'><div class='navigation-header-item'>Title</div></a>";
 	echo "<a href='#full-name'><div class='navigation-header-item'>Full name</div></a>";
 	echo "<a href='#summary'><div class='navigation-header-item'>Summary</div></a>";
@@ -30,23 +28,8 @@ echo "<div id='edit-header'>";
 	echo "<a href='#studies'><div class='navigation-header-item'>Studies</div></a>";
 	echo "<a href='#hierarchy'><div class='navigation-header-item'>Hierarchy</div></a>";
 	echo "<a href='#more'><div class='navigation-header-item'>&#x2756; More...</div></a>";
-
+	echo "<div id='admin-page-delete' on='tap:delete-popover'>&#x2B19; Delete entry</div>";
 	echo "</div>";
-
-// Add a little footer thing to track what's happening...
-echo "<div>";
-
-// Ticket
-
-// Save button
-
-echo "</div>";
-
-echo "<div id='admin-page-actions' amp-fx='parallax' data-parallax-factor='1.2'>";
-// echo "<div id='admin-page-new-entry' on='tap:new-popover'>&#x271A; New entry</div>";
-echo "<div id='admin-page-delete' on='tap:delete-popover'>&#x2B19; Delete entry</div>";
-echo "<div id='admin-page-log-out' on='tap:logout-popover'>&#x2716; Log out</div>";
-echo "</div>";
 
 // Do a delete popover ... redirect if deletion works ...
 echo "<amp-lightbox id='delete-popover' layout='nodisplay'>";
