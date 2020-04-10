@@ -207,13 +207,31 @@ amp-lightbox {
 	background: rgba(255,255,255,1);
 	border: 1px solid rgba(50,50,50,1);
 	border-radius: 100px;
+	font-family: Times;
+	font-size: inherit;
+	display: block;
+	padding: 8px 20px;
 	}
 
 #sidebar-navigation-search-button {
+	color: rgba(50,50,50,0.8);
 	background: rgba(255,255,255,1);
-	border: 1px solid rgba(50,50,50,1);
+	box-shadow: 5px 5px 25px -5px rgba(40,40,40,0.5); 
+	opacity: 1;
+	padding: 7px 12px;
 	border-radius: 100px;
+	font-weight: 700;
+	font-size: 90%;
+	line-height: 1em;
+	font-family: Arial, Helvetica, Sans Serif;
 	}
+
+/* #sidebar-navigation-search-button:before {
+	content: 'search';
+	font-family: 'Material Icons';
+	font-size: 140%;
+	margin: 0 5px 0 0;
+	display: inline-block; } */
 
 #sidebar-navigation-close {
 	left: 205px;
