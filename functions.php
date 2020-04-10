@@ -28,7 +28,7 @@ function random_code($length=16) {
 	if (!(is_int($length))): $length = 16; endif;
 	if ($length < 1): $length = 16; endif;
 	$key_temp = null;
-	while (strlen($key_temp) < $length): $key_temp .= $characters[rand(0,31)]; endwhile;
+	while (empty($key_temp) || (strlen($key_temp) < $length)): $key_temp .= $characters[rand(0,31)]; endwhile;
 	return $key_temp; }
 
 function print_terms($terms_array) {
