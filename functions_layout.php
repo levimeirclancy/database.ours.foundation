@@ -138,7 +138,7 @@ function amp_header($title=null, $canonical=null) {
 			edit-entry.hide,
 			login.clear,
 			logout.clear,
-			AMP.setState({pageState {'loginStatus': 'loggedout'}})
+			AMP.setState({pageState:{'loginStatus': 'loggedout'}})
 		\">";
 	echo "<div role='button' tabindex='0' class='navigation-header-item' id='logout-submit' on='tap:logout.submit' [class]=\"pageState.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" $logout_hidden>&#x2716; Log out</div>";
 	echo "<div class='navigation-header-item' submitting>&#x25cf; Logging out...</div>";
@@ -253,7 +253,7 @@ function amp_header($title=null, $canonical=null) {
 				edit-entry.show,
 				login.clear,
 				logout.clear,
-				AMP.setState({pageState {'loginStatus': 'loggedin'}})
+				AMP.setState({pageState:{'loginStatus': 'loggedin'}})
 			\">";
 
 		echo "<label for='checkpoint_email'>E-mail address</label>";
