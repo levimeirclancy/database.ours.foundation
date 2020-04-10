@@ -128,13 +128,13 @@ if (isset($_REQUEST['order'])):
 	$order_language = $_REQUEST['order'];
 	unset($_REQUEST['order']); endif;
 
-foreach ($_REQUEST as $appendix_key => $appendix_value):
-	if (empty($appendix_value)): unset($_REQUEST[$appendix_key]); endif;
-	if (strpos("#".$appendix_value, ",") && ($appendix_key !== "search")): $appendix_value = explode(",", $appendix_value); endif;
-	if (!(is_array($appendix_value))): $appendix_value = [ $appendix_value ]; endif;
-	foreach ($appendix_value as $key_temp => $value_temp): $appendix_value[$key_temp] = trim($value_temp); endforeach;
-	$_REQUEST[$appendix_key] = $appendix_value;
-	endforeach;
+// foreach ($_REQUEST as $appendix_key => $appendix_value):
+//	if (empty($appendix_value)): unset($_REQUEST[$appendix_key]); endif;
+//	if (strpos("#".$appendix_value, ",") && ($appendix_key !== "search")): $appendix_value = explode(",", $appendix_value); endif;
+//	if (!(is_array($appendix_value))): $appendix_value = [ $appendix_value ]; endif;
+//	foreach ($appendix_value as $key_temp => $value_temp): $appendix_value[$key_temp] = trim($value_temp); endforeach;
+//	$_REQUEST[$appendix_key] = $appendix_value;
+//	endforeach;
 
 // These counts are used for the navigation sidebar and the home page
 $type_counts_array = [];
@@ -161,6 +161,8 @@ foreach($connection_pdo->query($sql_temp) as $row):
 				endforeach;
 			if ($result_temp == 0): continue; endif;
 			endif;
+
+		endif;
 
 	$appendix_temp = json_decode($row['appendix'], true);
 //	foreach ($_REQUEST as $appendix_key => $appendix_value):
