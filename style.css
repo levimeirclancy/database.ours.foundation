@@ -234,13 +234,6 @@ amp-lightbox {
 	font-family: Arial, Helvetica, Sans Serif;
 	}
 
-/* #sidebar-navigation-search-button:before {
-	content: 'search';
-	font-family: 'Material Icons';
-	font-size: 140%;
-	margin: 0 5px 0 0;
-	display: inline-block; } */
-
 #sidebar-navigation-close {
 	left: 205px;
 	right: auto;
@@ -270,7 +263,7 @@ amp-lightbox {
 		max-width: none;
 		}
 	
-	.sidebar-navigation-sublightbox {
+	.sidebar-navigation-lightbox {
 		margin: 0;
 		z-index: 95;
 		}
