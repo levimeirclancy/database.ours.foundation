@@ -159,7 +159,7 @@ h1 span {
 
 amp-lightbox {
 	margin: 0;
-	padding: 20px;
+	padding: 80px 20px 20px;
 	background: rgba(255,255,255,1);
 	box-shadow: 0 0 30px 0 rgba(30,30,30,0.3);
 	text-align: center;
@@ -193,8 +193,6 @@ amp-lightbox {
 
 
 #sidebar-navigation {
-	margin: 0;
-	padding: 80px 20px 20px;
 	z-index: 90;
 	max-width: 300px;
 	background: rgba(255,255,255,1);
