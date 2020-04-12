@@ -243,7 +243,7 @@ amp-lightbox {
 	}
 
 .sidebar-navigation-lightbox {
-	position: fixed;
+	left: 300px;	
 	top: 0;
 	z-index: 80;
 	}
@@ -264,7 +264,7 @@ amp-lightbox {
 		}
 	
 	.sidebar-navigation-lightbox {
-		margin: 0;
+		left: 0;
 		z-index: 95;
 		}
 
