@@ -254,7 +254,7 @@ amp-lightbox {
 @media only screen and (max-width: 700px) {
 
 	.sidebar-navigation-lightbox .popover-close {
-		left: 200px;
+		left: 20px;
 		}
 
 	#sidebar-navigation {
