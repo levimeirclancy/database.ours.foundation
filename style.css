@@ -239,8 +239,8 @@ amp-lightbox {
 	}
 
 #sidebar-navigation-close {
-	left: auto;
-	right: 20px;
+	left: 150px;
+	right: auto;
 	}
 
 .sidebar-navigation-lightbox {
@@ -258,6 +258,12 @@ amp-lightbox {
 }
 
 @media only screen and (max-width: 700px) {
+	
+	#sidebar-navigation-close {
+	left: auto;
+	right: 20px;
+	}
+
 	
 	#sidebar-navigation {
 		max-width: none;
