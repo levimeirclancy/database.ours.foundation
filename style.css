@@ -175,7 +175,7 @@ amp-lightbox {
 	background: rgba(255,255,255,1);
 	box-shadow: 2px 2px 20px -5px rgba(40,40,40,0.5); 
 	opacity: 1;
-	padding: 7px 12px;
+	padding: 7px 14px 7px 12px;
 	border-radius: 100px;
 	font-weight: 700;
 	font-size: 70%;
@@ -187,7 +187,7 @@ amp-lightbox {
 
 .popover-close:before {
 	content: '\293A';
-	font-size: 140%;
+	font-size: 130%;
 	margin: 0 5px 0 0;
 	display: inline-block; }
 
