@@ -239,7 +239,7 @@ amp-lightbox {
 	}
 
 #sidebar-navigation-close {
-	left: 200px;
+	left: 20px;
 	right: auto;
 	}
 
@@ -259,11 +259,10 @@ amp-lightbox {
 
 @media only screen and (max-width: 700px) {
 	
-	#sidebar-navigation-close {
-	left: auto;
-	right: 20px;
-	}
-
+/*	#sidebar-navigation-close {
+		left: auto;
+		right: 20px;
+		} */
 	
 	#sidebar-navigation {
 		max-width: none;
