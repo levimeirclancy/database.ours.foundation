@@ -165,6 +165,7 @@ amp-lightbox {
 	text-align: left;
 	box-sizing: border-box;
 	position: relative;
+	width: auto;
 	}
 
 .popover-close {
@@ -243,12 +244,8 @@ amp-lightbox {
 
 .sidebar-navigation-lightbox {
 	position: fixed;
-	padding: 20px;
-	margin: 0 0 0 300px;
 	top: 0;
 	z-index: 80;
-	display: block;
-	width: auto;
 	}
 
 .sidebar-navigation-lightbox p {
