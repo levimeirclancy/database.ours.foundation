@@ -823,11 +823,9 @@ figcaption {
 	caption-side: bottom;
 	text-align: left; }
 
-amp-lightbox {
-	background: rgba(255,255,255,1);
-	text-align: left;
+image.amp-lightbox {
 	z-index: 10000;
-	padding: 60px 0 100px; }
+	}
 
 amp-lightbox div.image_large {
 	margin: 70px 20px 20px; }
