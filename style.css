@@ -169,7 +169,7 @@ amp-lightbox {
 	}
 
 .popover-close {
-	right: 20px;
+	left: 20px;
 	top: 20px;
 	position: fixed;
 	color: rgba(50,50,50,0.8);
@@ -237,32 +237,30 @@ amp-lightbox {
 	font-family: Arial, Helvetica, Sans Serif;
 	}
 
-#sidebar-navigation-close {
-	left: 20px;
-	right: auto;
-	}
-
 .sidebar-navigation-lightbox {
 	margin: 0 0 0 300px;	
 	top: 0;
 	z-index: 80;
 	}
 
+.sidebar-navigation-lightbox .popover-close {
+	left: 340px;
+	}
+
 .sidebar-navigation-lightbox p {
 	margin: 0 0 50px 0;
-}
+	}
 
 @media only screen and (max-width: 700px) {
-	
-/*	#sidebar-navigation-close {
-		left: auto;
-		right: 20px;
-		} */
-	
+
+	.sidebar-navigation-lightbox .popover-close {
+		left: 200px;
+		}
+
 	#sidebar-navigation {
 		max-width: none;
 		}
-	
+
 	.sidebar-navigation-lightbox {
 		margin: 0;	
 		left: 0;
