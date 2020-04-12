@@ -169,7 +169,7 @@ amp-lightbox {
 
 .popover-close {
 	right: 15px;
-	bottom: 15px;
+	top: 15px;
 	position: fixed;
 	color: rgba(50,50,50,0.8);
 	background: rgba(255,255,255,1);
@@ -258,9 +258,14 @@ amp-lightbox {
 }
 
 @media only screen and (max-width: 700px) {
+	
+	#sidebar-navigation {
+		padding-top: 150px;
+		}
+
 	#sidebar-navigation-close {
-		left: auto;
-		right: 15px;
+		left: 250px;
+		right: auto;
 		}
 
 	#sidebar-navigation {
