@@ -239,7 +239,7 @@ amp-lightbox {
 	}
 
 #sidebar-navigation-close {
-	left: 205px;
+	left: 260px;
 	right: auto;
 	}
 
@@ -264,8 +264,8 @@ amp-lightbox {
 		}
 
 	#sidebar-navigation-close {
-		left: 300px;
-		right: auto;
+		left: auto;
+		right: 20px;
 		}
 
 	#sidebar-navigation {
