@@ -194,7 +194,7 @@ amp-lightbox {
 
 #sidebar-navigation {
 	margin: 0;
-	padding: 20px;
+	padding: 80px 20px 20px;
 	z-index: 90;
 	max-width: 300px;
 	background: rgba(255,255,255,1);
@@ -239,8 +239,8 @@ amp-lightbox {
 	}
 
 #sidebar-navigation-close {
-	left: 330px;
-	right: auto;
+	left: auto;
+	right: 20px;
 	}
 
 .sidebar-navigation-lightbox {
@@ -259,15 +259,6 @@ amp-lightbox {
 
 @media only screen and (max-width: 700px) {
 	
-	#sidebar-navigation {
-		padding-top: 80px;
-		}
-
-	#sidebar-navigation-close {
-		left: auto;
-		right: 20px;
-		}
-
 	#sidebar-navigation {
 		max-width: none;
 		}
