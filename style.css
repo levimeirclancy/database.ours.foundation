@@ -8,7 +8,7 @@ body {
 	margin: 0; }
 
 a, a:link, a:visited, a:hover {
-	text-decoration: none;
+	text-decoration: none:
 	color: #000; }
 
 .studies { 
@@ -391,9 +391,10 @@ amp-lightbox {
 
 /* FORMS */
 
-input:focus, textarea:focus, span:focus, div:focus, button:focus {
+*:focus {
 	outline: none;
-	outline-width: 0; }
+	outline-width: 0;
+	}
 
 
 form {
