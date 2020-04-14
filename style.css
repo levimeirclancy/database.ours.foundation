@@ -126,6 +126,13 @@ h1 span {
 
 /* HEADER */
 
+#begin-image {
+	position: absolute;
+	top: 50px;
+	left: 50px;
+	max-width: 70%;
+	}
+
 #navigation-header {
 	position: absolute;
 	left: 0;
