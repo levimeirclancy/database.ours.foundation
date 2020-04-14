@@ -153,6 +153,7 @@ function amp_header($title=null, $canonical=null) {
 		"new-popover.close",
 		];
 	$tap_temp[] = "sidebar-navigation-lightbox-main.close";
+	$tap_temp[] = "sidebar-navigation-lightbox-search.close";
 	foreach (array_keys($header_array_temp) as $header_backend_temp):
 		$tap_temp[] = "sidebar-navigation-lightbox-". $header_backend_temp .".close";
 		endforeach;
@@ -160,15 +161,13 @@ function amp_header($title=null, $canonical=null) {
 	// This is the popover for the categories ...;
 	echo "<amp-lightbox id='sidebar-navigation' layout='nodisplay' on='lightboxClose:pageState.refresh,navigation-header.show;lightboxOpen:".implode(",", $tap_temp)."' scrollable>";
 	
-		$header_array_temp = array_merge(["main" => $domain], $header_array);
-		
 		echo "<input type='text' id='sidebar-navigation-search-input' placeholder='&#128270;' on=\"input-throttled:AMP.setState({pageState:{searchTerm: event.value.replace('  ',' ').replace('  ',' ').replace('?',' ').replace(',',' ').replace('&',' ')}}),sidebar-navigation-lightbox-search.close\">";
 		echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on='tap:". implode(",", $tap_temp) .",sidebar-navigation-lightbox-search.open,sidebar-navigation-lightbox-search-list.refresh'>Search</div>";
 	
-		$tap_temp[] = "sidebar-navigation-lightbox-search.close";
-	
-		echo "<div id='sidebar-navigation-close' role='button' tabindex='0' on='tap:".implode(",", $tap_temp)."' class='popover-close'>Back</div>";
+		echo "<div id='sidebar-navigation-close' role='button' tabindex='0' on='tap:".implode(",", $tap_temp).",sidebar-navigation.close' class='popover-close'>Back</div>";
 
+		$header_array_temp = array_merge(["main" => $domain], $header_array);
+		
 		foreach ($header_array_temp as $header_backend => $header_frontend):
 			if (empty($type_counts_array[$header_backend]) && ($header_backend !== "main")): continue; endif;
 			echo "<div class='sidebar-navigation-button' role='button' tabindex='0' on='tap:". implode(",", $tap_temp) .",sidebar-navigation-lightbox-". $header_backend .".open'>". ucfirst($header_frontend) ."</div>";
@@ -176,7 +175,7 @@ function amp_header($title=null, $canonical=null) {
 	
 		echo "</amp-lightbox>";
 	
-	echo "<amp-lightbox class='sidebar-navigation-lightbox' id='sidebar-navigation-lightbox-search' on='lightboxClose:sidebar-navigation-close.show;lightboxOpen:". implode(",", $tap_temp) ."' layout='nodisplay' scrollable>";
+	echo "<amp-lightbox class='sidebar-navigation-lightbox' id='sidebar-navigation-lightbox-search' on='lightboxClose:sidebar-navigation-close.show;lightboxOpen:sidebar-navigation-close.hide,". implode(",", $tap_temp) ."' layout='nodisplay' scrollable>";
 
 		echo "<div role='button' tabindex='0' on='tap:".implode(",", $tap_temp)."' class='popover-close'>Back</div>";
 
@@ -195,7 +194,7 @@ function amp_header($title=null, $canonical=null) {
 			echo "</amp-list>";
 		echo "</amp-lightbox>";
 	
-	echo "<amp-lightbox class='sidebar-navigation-lightbox' id='sidebar-navigation-lightbox-main' on='lightboxClose:sidebar-navigation-close.show;lightboxOpen:". implode(",", $tap_temp) ."' layout='nodisplay' scrollable>";
+	echo "<amp-lightbox class='sidebar-navigation-lightbox' id='sidebar-navigation-lightbox-main' on='lightboxClose:sidebar-navigation-close.show;lightboxOpen:sidebar-navigation-close.hide,". implode(",", $tap_temp) ."' layout='nodisplay' scrollable>";
 
 		echo "<div role='button' tabindex='0' on='tap:".implode(",", $tap_temp)."' class='popover-close'>Back</div>";
 
@@ -213,7 +212,7 @@ function amp_header($title=null, $canonical=null) {
 		
 		if (empty($type_counts_array[$header_backend])): continue; endif;
 
-		echo "<amp-lightbox class='sidebar-navigation-lightbox' id='sidebar-navigation-lightbox-".$header_backend."' on='lightboxClose:sidebar-navigation-close.show;lightboxOpen:". implode(",", $tap_temp) ."' layout='nodisplay' scrollable>";
+		echo "<amp-lightbox class='sidebar-navigation-lightbox' id='sidebar-navigation-lightbox-".$header_backend."' on='lightboxClose:sidebar-navigation-close.show;lightboxOpen:sidebar-navigation-close.hide,". implode(",", $tap_temp) ."' layout='nodisplay' scrollable>";
 
 			echo "<div role='button' tabindex='0' on='tap:".implode(",", $tap_temp)."' class='popover-close'>Back</div>";	
 	
