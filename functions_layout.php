@@ -145,7 +145,13 @@ function amp_header($title=null, $canonical=null) {
 	// ... close out the navigation backbone
 	echo "</div>";
 
-	$tap_temp = [ "begin-image.hide", "navigation-header.hide", "sidebar-navigation.close" ];
+	$tap_temp = [
+		"begin-image.hide",
+		"navigation-header.hide",
+		"login-popover.close",
+		"settings-popover.close",
+		"new-popover.close",
+		];
 	$tap_temp[] = "sidebar-navigation-lightbox-main.close";
 	foreach (array_keys($header_array_temp) as $header_backend_temp):
 		$tap_temp[] = "sidebar-navigation-lightbox-". $header_backend_temp .".close";
@@ -169,7 +175,7 @@ function amp_header($title=null, $canonical=null) {
 			endforeach;
 	
 		echo "</amp-lightbox>";
-
+	
 	echo "<amp-lightbox class='sidebar-navigation-lightbox' id='sidebar-navigation-lightbox-search' on='lightboxClose:sidebar-navigation-close.show;lightboxOpen:". implode(",", $tap_temp) ."' layout='nodisplay' scrollable>";
 
 		echo "<div role='button' tabindex='0' on='tap:".implode(",", $tap_temp)."' class='popover-close'>Back</div>";
@@ -227,6 +233,8 @@ function amp_header($title=null, $canonical=null) {
 			echo "</amp-lightbox>";
 
 		endforeach;
+	
+	$tap_temp[] = "sidebar-navigation.close";
 		
 	// This is the popover to log in ...
 	echo "<amp-lightbox id='login-popover' on='lightboxClose:navigation-header.show;lightboxOpen:navigation-header.hide' layout='nodisplay'>";
