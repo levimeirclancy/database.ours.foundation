@@ -131,6 +131,7 @@ h1 span {
 	top: 50px;
 	left: 50px;
 	max-width: 70%;
+	z-index: 101;
 	}
 
 #navigation-header {
