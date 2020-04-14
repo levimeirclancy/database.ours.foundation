@@ -5,7 +5,9 @@ $tap_temp = implode(",", [
 	"sidebar-navigation.open",
 	]);
 
-echo "<amp-img src='begin.png' id='begin-image' width='750' height='545' layout='intrinsic' alt='Begin' role='button' tabindex='0' on='tap:".$tap_temp."'></amp-img>";
+echo "<amp-img src='begin.png' id='begin-image' width='375' height='273' layout='intrinsic' alt='Begin' role='button' tabindex='0' on='tap:".$tap_temp."'></amp-img>";
+
+footer();
 
 echo "<h1>&#x2742;</h1>";
 
