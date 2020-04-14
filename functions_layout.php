@@ -151,9 +151,9 @@ function amp_header($title=null, $canonical=null) {
 		"login-popover.close",
 		"settings-popover.close",
 		"new-popover.close",
+		"sidebar-navigation-lightbox-search.close",
 		];
-	$tap_temp[] = "sidebar-navigation-lightbox-main.close";
-	$tap_temp[] = "sidebar-navigation-lightbox-search.close";
+	$header_array_temp = array_merge(["main" => $domain], $header_array);
 	foreach (array_keys($header_array_temp) as $header_backend_temp):
 		$tap_temp[] = "sidebar-navigation-lightbox-". $header_backend_temp .".close";
 		endforeach;
@@ -165,8 +165,6 @@ function amp_header($title=null, $canonical=null) {
 		echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on='tap:". implode(",", $tap_temp) .",sidebar-navigation-lightbox-search.open,sidebar-navigation-lightbox-search-list.refresh'>Search</div>";
 	
 		echo "<div id='sidebar-navigation-close' role='button' tabindex='0' on='tap:".implode(",", $tap_temp).",sidebar-navigation.close' class='popover-close'>Back</div>";
-
-		$header_array_temp = array_merge(["main" => $domain], $header_array);
 		
 		foreach ($header_array_temp as $header_backend => $header_frontend):
 			if (empty($type_counts_array[$header_backend]) && ($header_backend !== "main")): continue; endif;
