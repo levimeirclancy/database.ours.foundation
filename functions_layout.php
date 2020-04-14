@@ -145,7 +145,7 @@ function amp_header($title=null, $canonical=null) {
 	// ... close out the navigation backbone
 	echo "</div>";
 
-	$tap_temp = [ "navigation-header.hide", "sidebar-navigation.close" ];
+	$tap_temp = [ "begin-image.hide", "navigation-header.hide", "sidebar-navigation.close" ];
 	$tap_temp[] = "sidebar-navigation-lightbox-main.close";
 	foreach (array_keys($header_array_temp) as $header_backend_temp):
 		$tap_temp[] = "sidebar-navigation-lightbox-". $header_backend_temp .".close";
