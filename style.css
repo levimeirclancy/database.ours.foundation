@@ -106,7 +106,7 @@ h1 span {
 .article-genealogy b {
 	display: block;
 	column-span: all;
-	padding: 5px;
+	padding: 0;
 	margin: 0;
 	font-size: 100%;
 	}
@@ -118,7 +118,7 @@ h1 span {
 	text-overflow: ellipsis;
 	width: 300px;
 	box-sizing: border-box;
-	padding: 5px;
+	padding: 5px 0;
 	margin: 0;
 	font-size: 100%;
 	}
