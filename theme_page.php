@@ -12,15 +12,14 @@ echo "<div id='article-breadcrumbs'>";
 		foreach ($array_temp as $key_temp => $parent_id_temp):
 			unset($array_temp[$key_temp]);
 			$contents_temp = body_process("{{{". $parent_id_temp ."}}}");
-			if (empty($contents_temp)): continue; endif;
+			empty($contents_temp) ? continue;
 			// Add a random code in case two entries have the same name
 			$array_temp[strip_tags($contents_temp).random_code(5)] = $contents_temp;
 			endforeach;
-		if (!(empty($array_temp))):
-			ksort($array_temp);
-			$plural_temp = $descriptor_temp;
-			if (count($array_temp) > 1): $plural_temp .= "s (". count($array_temp) .")"; endif;
-			endif;
+		empty($array_temp) ? return;
+		ksort($array_temp);
+		$plural_temp = $descriptor_temp;
+		count($array_temp) > 1 ? $plural_temp .= "s (". count($array_temp) .")";
 		echo "<p class='article-genealogy' amp-fx='parallax' data-parallax-factor='1.25'><b>". $plural_temp ."</b>".implode(null, $array_temp)."</p>";
 		}
 
@@ -78,9 +77,7 @@ foreach ($languages_temp as $language_temp):
 	echo "<hr>";
 	endforeach;
 
-if (!(empty($entry_info['studies']))):
-	echo "<div class='studies'>" . body_process(html_entity_decode(htmlspecialchars_decode($entry_info['studies']))) . "</div>";
-	endif;
+!(empty($entry_info['studies'])) ? echo "<div class='studies'>" . body_process(html_entity_decode(htmlspecialchars_decode($entry_info['studies']))) . "</div>";
 
 if ($entry_info['type'] == "person"):
 	// person info an terms
