@@ -299,7 +299,7 @@ function amp_header($title=null, $canonical=null) {
 				new-popover-submit.show
 			\">";
 
-		echo "<p>Do you really want to add a new entry?</p>";
+		echo "<p>Do you really want to create a new entry?</p>";
 
 		// Create selector ...
 		echo "<label for='type'>Type</label>";
