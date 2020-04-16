@@ -55,15 +55,15 @@ echo "<div id='article-breadcrumbs'>";
 		echo " (GPS)</a></p>";
 		endif;
 
-//	$languages_temp = [];
-//	if (!(empty($entry_info['summary']))): $languages_temp = array_merge($languages_temp, array_keys($entry_info['summary'])); endif;
-//	if (!(empty($entry_info['body']))): $languages_temp = array_merge($languages_temp, array_keys($entry_info['body'])); endif;
-//	if (!(empty($languages_temp))): $languages_temp = array_unique($languages_temp); endif;
-//	if (count($languages_temp) > 1):
-//		$language_array_temp = [];
-//		foreach($languages_temp as $language_temp): $language_array_temp[] = "<a href='#".$language_temp."'>".ucfirst($language_temp)."</a>"; endforeach;
-//		echo "<br>Languages > ". implode("&nbsp;&nbsp;|&nbsp;&nbsp;", $language_array_temp);
-//		endif;
+	$languages_temp = [];
+	if (!(empty($entry_info['summary']))): $languages_temp = array_merge($languages_temp, array_keys($entry_info['summary'])); endif;
+	if (!(empty($entry_info['body']))): $languages_temp = array_merge($languages_temp, array_keys($entry_info['body'])); endif;
+	if (!(empty($languages_temp))): $languages_temp = array_unique($languages_temp); endif;
+	if (count($languages_temp) > 1):
+		$language_array_temp = [];
+		foreach($languages_temp as $language_temp): $language_array_temp[] = "<a href='#".$language_temp."'>".ucfirst($language_temp)."</a>"; endforeach;
+		echo "<p>Languages > ". implode("&nbsp;&nbsp;|&nbsp;&nbsp;", $language_array_temp)."</p>";
+		endif;
 
 	relationships_array("parents", "Parent");
 	relationships_array("children", "Subpage");
