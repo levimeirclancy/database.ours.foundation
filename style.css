@@ -77,18 +77,20 @@ h1 span {
 
 #article-breadcrumbs {
 	position: relative;
-	margin-right: 100px;
+	padding: 0 100px 0 0;
+	margin: 0;
 	font-size: 80%;
 	}
 
 #edit-entry {
 	position: absolute;
-	top: 140px;
+	top: 20px;
 	right: 20px;
 	}
 
-@media only screen and (max-width: 513px)  {
-	#edit-entry { top: 200px; }
+@media only screen and (max-width: 550)  {
+	#article-breadcrumbs { padding-top: 100px; }
+	#edit-entry { top: 120px; }
 	}
 
 .article-genealogy {
