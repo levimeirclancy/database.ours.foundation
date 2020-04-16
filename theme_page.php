@@ -1,40 +1,54 @@
-<? // Crumbs and GPS ...
+<? // Arrange entry info
+$entry_info = $information_array[$page_temp];
+
+$retrieve_page->execute(["page_id"=>$page_temp]);
+$result = $retrieve_page->fetchAll();
+foreach ($result as $row):
+	$entry_info['summary'] = json_decode($row['summary'], true);
+	$entry_info['body'] = json_decode($row['body'], true);
+	$entry_info['studies'] = $row['studies'];
+	endforeach;
+
+function relationships_array($hierarchy_temp, $descriptor_temp) {
+	global $entry_info;
+
+	// Isolate the array we want
+	if (empty($entry_info[$hierarchy_temp]['hierarchy'])): $entry_info[$hierarchy_temp]['hierarchy'] = []; endif;
+	$array_temp = array_filter($entry_info[$hierarchy_temp]['hierarchy']);
+	$array_temp = array_unique($entry_info[$hierarchy_temp]['hierarchy']);
+		
+	// 
+	foreach ($array_temp as $key_temp => $parent_id_temp):
+		unset($array_temp[$key_temp]);
+		$contents_temp = body_process("{{{". $parent_id_temp ."}}}");
+		if (empty($contents_temp)): continue; endif;
+		// Add a random code in case two entries have the same name
+		$array_temp[strip_tags($contents_temp).random_code(5)] = $contents_temp;
+		endforeach;
+		
+	//
+	if (empty($array_temp)): return; endif;
+		
+	//
+	ksort($array_temp);
+	$plural_temp = $descriptor_temp;
+	if (count($array_temp) > 1): $plural_temp .= "s (". count($array_temp) .")"; endif;
+
+	// Finally echo it out
+	echo "<p class='article-genealogy' amp-fx='parallax' data-parallax-factor='1.25'><b>". $plural_temp ."</b>".implode(null, $array_temp)."</p>";
+	}
+
+// Crumbs and GPS ...
 echo "<div id='article-breadcrumbs'>";
 
-	function relationships_array($hierarchy_temp, $descriptor_temp) {
-		global $entry_info;
-
-		// Isolate the array we want
-		if (empty($entry_info[$hierarchy_temp]['hierarchy'])): $entry_info[$hierarchy_temp]['hierarchy'] = []; endif;
-		$array_temp = array_filter($entry_info[$hierarchy_temp]['hierarchy']);
-		$array_temp = array_unique($entry_info[$hierarchy_temp]['hierarchy']);
-		
-		// 
-		foreach ($array_temp as $key_temp => $parent_id_temp):
-			unset($array_temp[$key_temp]);
-			$contents_temp = body_process("{{{". $parent_id_temp ."}}}");
-			if (empty($contents_temp)): continue; endif;
-			// Add a random code in case two entries have the same name
-			$array_temp[strip_tags($contents_temp).random_code(5)] = $contents_temp;
-			endforeach;
-		
-		//
-		if (empty($array_temp)): return; endif;
-		
-		//
-		ksort($array_temp);
-		$plural_temp = $descriptor_temp;
-		if (count($array_temp) > 1): $plural_temp .= "s (". count($array_temp) .")"; endif;
-		echo "<p class='article-genealogy' amp-fx='parallax' data-parallax-factor='1.25'><b>". $plural_temp ."</b>".implode(null, $array_temp)."</p>";
-
-		}
-
+	// Edit button
 	empty($login) ? $login_hidden = "hide" : $login_hidden = "navigation-header-item";
 	echo "<a href='/".$page_temp."/edit/'><span id='edit-entry' amp-fx='parallax' data-parallax-factor='1.3' [class]=\"pageState.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='$login_hidden'>&#10033; Edit</span></a>";
 
 	// Type
 	echo "<p amp-fx='parallax' data-parallax-factor='1.3' role='button' tabindex='0' on='tap:tap:sidebar-navigation.open,sidebar-navigation-lightbox-".$entry_info['type'].".open'>Type: ".$header_array[$entry_info['type']]."</p>";
 
+	// GPS
 	if (!(empty($entry_info['appendix']['latitude'])) && !(empty($entry_info['appendix']['longitude']))):
 		echo "<p amp-fx='parallax' data-parallax-factor='1.3'><a href='https://".$domain."/".$entry_info['entry_id']."/map/' target='_blank'>";
 		echo substr($entry_info['appendix']['latitude'],0,6).", ".substr($entry_info['appendix']['longitude'],0,6);
@@ -54,19 +68,7 @@ echo "<div id='article-breadcrumbs'>";
 	relationships_array("parents", "Parent");
 	relationships_array("children", "Subpage");
 
-	endif;
-
-// Arrange entry info
-
-$entry_info = $information_array[$page_temp];
-
-$retrieve_page->execute(["page_id"=>$page_temp]);
-$result = $retrieve_page->fetchAll();
-foreach ($result as $row):
-	$entry_info['summary'] = json_decode($row['summary'], true);
-	$entry_info['body'] = json_decode($row['body'], true);
-	$entry_info['studies'] = $row['studies'];
-	endforeach;
+	echo "</div>";
 
 echo "<article><div vocab='http://schema.org/' typeof='Article'>";
 
