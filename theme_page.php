@@ -35,7 +35,7 @@ function relationships_array($hierarchy_temp, $descriptor_temp) {
 	if (count($array_temp) > 1): $plural_temp .= "s (". count($array_temp) .")"; endif;
 
 	// Finally echo it out
-	echo "<p class='article-genealogy' amp-fx='parallax' data-parallax-factor='1.25'><b>". $plural_temp ."</b>".implode(null, $array_temp)."</p>";
+	echo "<div class='article-genealogy' amp-fx='parallax' data-parallax-factor='1.25'><b>". $plural_temp ."</b>".implode(null, $array_temp)."</div>";
 	}
 
 // Crumbs and GPS ...
