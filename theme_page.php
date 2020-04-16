@@ -1,27 +1,5 @@
 <? // Crumbs and GPS ...
-echo "<div id='article-breadcrumbs' amp-fx='parallax' data-parallax-factor='1.3'>";
-
-	empty($login) ? $login_hidden = "hide" : $login_hidden = "navigation-header-item";
-	echo "<a href='/".$page_temp."/edit/'><span id='edit-entry' amp-fx='parallax' data-parallax-factor='1.3' [class]=\"pageState.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='$login_hidden'>&#10033; Edit</span></a>";
-
-	// Type
-	echo "Type: <span role='button' tabindex='0' on='tap:tap:sidebar-navigation.open,sidebar-navigation-lightbox-".$entry_info['type'].".open'>".$header_array[$entry_info['type']]."</span>";
-
-	if (!(empty($entry_info['appendix']['latitude'])) && !(empty($entry_info['appendix']['longitude']))):
-		echo "<br><a href='https://".$domain."/".$entry_info['entry_id']."/map/' target='_blank'>";
-		echo substr($entry_info['appendix']['latitude'],0,6).", ".substr($entry_info['appendix']['longitude'],0,6);
-		echo " (GPS)</a>";
-		endif;
-
-//	$languages_temp = [];
-//	if (!(empty($entry_info['summary']))): $languages_temp = array_merge($languages_temp, array_keys($entry_info['summary'])); endif;
-//	if (!(empty($entry_info['body']))): $languages_temp = array_merge($languages_temp, array_keys($entry_info['body'])); endif;
-//	if (!(empty($languages_temp))): $languages_temp = array_unique($languages_temp); endif;
-//	if (count($languages_temp) > 1):
-//		$language_array_temp = [];
-//		foreach($languages_temp as $language_temp): $language_array_temp[] = "<a href='#".$language_temp."'>".ucfirst($language_temp)."</a>"; endforeach;
-//		echo "<br>Languages > ". implode("&nbsp;&nbsp;|&nbsp;&nbsp;", $language_array_temp);
-//		endif;
+echo "<div id='article-breadcrumbs'>";
 
 	function relationships_array($hierarchy_temp, $descriptor_temp) {
 		global $entry_info;
@@ -43,8 +21,30 @@ echo "<div id='article-breadcrumbs' amp-fx='parallax' data-parallax-factor='1.3'
 			$plural_temp = $descriptor_temp;
 			if (count($array_temp) > 1): $plural_temp .= "s (". count($array_temp) .")"; endif;
 			endif;
-		echo "<div class='article-genealogy' amp-fx='parallax' data-parallax-factor='1.25'><b>". $plural_temp ."</b>".implode(null, $array_temp)."</div>";
+		echo "<p class='article-genealogy' amp-fx='parallax' data-parallax-factor='1.25'><b>". $plural_temp ."</b>".implode(null, $array_temp)."</p>";
 		}
+
+	empty($login) ? $login_hidden = "hide" : $login_hidden = "navigation-header-item";
+	echo "<a href='/".$page_temp."/edit/'><span id='edit-entry' amp-fx='parallax' data-parallax-factor='1.3' [class]=\"pageState.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='$login_hidden'>&#10033; Edit</span></a>";
+
+	// Type
+	echo "<p amp-fx='parallax' data-parallax-factor='1.3' role='button' tabindex='0' on='tap:tap:sidebar-navigation.open,sidebar-navigation-lightbox-".$entry_info['type'].".open'>Type: ".$header_array[$entry_info['type']]."</p>";
+
+	if (!(empty($entry_info['appendix']['latitude'])) && !(empty($entry_info['appendix']['longitude']))):
+		echo "<p amp-fx='parallax' data-parallax-factor='1.3'><a href='https://".$domain."/".$entry_info['entry_id']."/map/' target='_blank'>";
+		echo substr($entry_info['appendix']['latitude'],0,6).", ".substr($entry_info['appendix']['longitude'],0,6);
+		echo " (GPS)</a></p>";
+		endif;
+
+//	$languages_temp = [];
+//	if (!(empty($entry_info['summary']))): $languages_temp = array_merge($languages_temp, array_keys($entry_info['summary'])); endif;
+//	if (!(empty($entry_info['body']))): $languages_temp = array_merge($languages_temp, array_keys($entry_info['body'])); endif;
+//	if (!(empty($languages_temp))): $languages_temp = array_unique($languages_temp); endif;
+//	if (count($languages_temp) > 1):
+//		$language_array_temp = [];
+//		foreach($languages_temp as $language_temp): $language_array_temp[] = "<a href='#".$language_temp."'>".ucfirst($language_temp)."</a>"; endforeach;
+//		echo "<br>Languages > ". implode("&nbsp;&nbsp;|&nbsp;&nbsp;", $language_array_temp);
+//		endif;
 
 	relationships_array("parents", "Parent");
 	relationships_array("children", "Subpage");
