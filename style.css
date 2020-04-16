@@ -98,6 +98,9 @@ h1 span {
 	padding: 0;
 	display: block;
 	column-width: 300px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 	column-count: auto;
 	column-gap: 30px;
 	clear: both;
