@@ -46,13 +46,13 @@ echo "<div id='article-breadcrumbs'>";
 	echo "<a href='/".$page_temp."/edit/'><span id='edit-entry' amp-fx='parallax' data-parallax-factor='1.3' [class]=\"pageState.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='$login_hidden'>&#10033; Edit</span></a>";
 
 	// Type
-	echo "<p amp-fx='parallax' data-parallax-factor='1.3' role='button' tabindex='0' on='tap:tap:sidebar-navigation.open,sidebar-navigation-lightbox-".$entry_info['type'].".open'>Type: ".$header_array[$entry_info['type']]."</p>";
+	echo "<div amp-fx='parallax' data-parallax-factor='1.3' role='button' tabindex='0' on='tap:tap:sidebar-navigation.open,sidebar-navigation-lightbox-".$entry_info['type'].".open'>Type: ".$header_array[$entry_info['type']]."</div>";
 
 	// GPS
 	if (!(empty($entry_info['appendix']['latitude'])) && !(empty($entry_info['appendix']['longitude']))):
-		echo "<p amp-fx='parallax' data-parallax-factor='1.3'><a href='https://".$domain."/".$entry_info['entry_id']."/map/' target='_blank'>";
+		echo "<div amp-fx='parallax' data-parallax-factor='1.3'><a href='https://".$domain."/".$entry_info['entry_id']."/map/' target='_blank'>";
 		echo substr($entry_info['appendix']['latitude'],0,6).", ".substr($entry_info['appendix']['longitude'],0,6);
-		echo " (GPS)</a></p>";
+		echo " (GPS)</a></div>";
 		endif;
 
 	$languages_temp = [];
@@ -62,7 +62,7 @@ echo "<div id='article-breadcrumbs'>";
 	if (count($languages_temp) > 1):
 		$language_array_temp = [];
 		foreach($languages_temp as $language_temp): $language_array_temp[] = "<a href='#".$language_temp."'>".ucfirst($language_temp)."</a>"; endforeach;
-		echo "<p>Languages > ". implode("&nbsp;&nbsp;|&nbsp;&nbsp;", $language_array_temp)."</p>";
+		echo "<div>Languages > ". implode("&nbsp;&nbsp;|&nbsp;&nbsp;", $language_array_temp)."</div>";
 		endif;
 
 	relationships_array("parents", "Parent");
