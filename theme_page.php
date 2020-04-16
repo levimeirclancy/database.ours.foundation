@@ -5,7 +5,7 @@ echo "<div id='article-breadcrumbs'>";
 		global $entry_info;
 
 		// Isolate the array we want
-		empty($entry_info[$hierarchy_temp]['hierarchy']) ? $entry_info[$hierarchy_temp]['hierarchy'] = [] : ;
+		if (empty($entry_info[$hierarchy_temp]['hierarchy'])): $entry_info[$hierarchy_temp]['hierarchy'] = []; endif;
 		$array_temp = array_filter($entry_info[$hierarchy_temp]['hierarchy']);
 		$array_temp = array_unique($entry_info[$hierarchy_temp]['hierarchy']);
 		
