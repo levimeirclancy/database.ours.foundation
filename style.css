@@ -74,28 +74,26 @@ h1 span {
 	display: block;
 	}
 
+
+#article-breadcrumbs {
+	position: relative;
+	margin-right: 100px;
+	font-size: 80%;
+	}
+
 #edit-entry {
 	position: absolute;
 	top: 140px;
 	right: 20px;
 	}
 
-#article-breadcrumbs {
-	position: absolute;
-	top: 140px;
-	left: 20px;
-	margin-right: 100px;
-	font-size: 80%;
-	}
-
 @media only screen and (max-width: 513px)  {
-	#article-breadcrumbs, #edit-entry { top: 200px; }
+	#edit-entry { top: 200px; }
 	}
 
 .article-genealogy {
 	margin: 15px;
 	padding: 0;
-	font-size: 75%;
 	display: block;
 	column-width: 300px;
 	column-count: auto;
@@ -111,7 +109,6 @@ h1 span {
 	margin: 0;
 	font-size: 100%;
 	}
-
 
 .article-genealogy p {
 	display: inline-block;
