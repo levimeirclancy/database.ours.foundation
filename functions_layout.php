@@ -216,6 +216,7 @@ function amp_header($title=null, $canonical=null) {
 	
 			echo "<p>".number_format($type_counts_array[$header_backend])." ".$header_frontend."</p>";
 	
+			$result_temp = [];
 			$count_temp = 0;
 			foreach ($information_array as $entry_id => $entry_info):
 				if ($entry_info['type'] !== $header_backend): continue; endif;
