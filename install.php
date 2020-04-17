@@ -6,7 +6,7 @@
 
 function execute_checkup ($error_info, $message) {
 	if ($error_info[0] == "0000"): echo "Succcess ".$message."<hr>";
-	else: echo "Failure ".$message.".<br>".$error_info[2]."<hr>"; exit; endif; }
+	else: echo "Failure ".$message.".<br>".$error_info[2]."<hr>"; footer(); endif; }
 
 function random_code($length=16) {
 	$characters = [
