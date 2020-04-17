@@ -162,7 +162,7 @@ function amp_header($title=null, $canonical=null) {
 	echo "<amp-lightbox id='sidebar-navigation' layout='nodisplay' on='lightboxClose:pageState.refresh,navigation-header.show;lightboxOpen:".implode(",", $tap_temp)."' scrollable>";
 	
 		echo "<input type='text' id='sidebar-navigation-search-input' placeholder='&#128270;' on=\"input-throttled:AMP.setState({pageState:{searchTerm: event.value.replace('  ',' ').replace('  ',' ').replace('?',' ').replace(',',' ').replace('&',' ')}}),sidebar-navigation-lightbox-search.close\">";
-		echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on='tap:". implode(",", $tap_temp) .",sidebar-navigation-lightbox-search.open,sidebar-navigation-lightbox-search-list.refresh'>Search</div>";
+		echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on='tap:". implode(",", $tap_temp) .",sidebar-navigation-lightbox-search.open,sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search-list.changeToLayoutContainer()'>Search</div>";
 	
 		echo "<div id='sidebar-navigation-close' role='button' tabindex='0' on='tap:".implode(",", $tap_temp).",sidebar-navigation.close' class='popover-close'>Back</div>";
 		
@@ -179,7 +179,7 @@ function amp_header($title=null, $canonical=null) {
 
 		echo "<p [text]=\"pageState.searchTerm == '' || pageState.searchTerm == ' ' || pageState.searchTerm == null ? 'Search term cannot be empty.' : 'Search results for: ' + pageState.searchTerm\">Search term not received.</p>";
 	
-		echo "<amp-list id='sidebar-navigation-lightbox-search-list' layout='responsive' width='800' height='800' [height]=\"edit-work-list.length * 1000\" items='.' max-items='100' binding='refresh' reset-on-refresh='always' [src]=\"'/api/search/?search=' + pageState.searchTerm\">";
+		echo "<amp-list id='sidebar-navigation-lightbox-search-list' layout='responsive' width='800' height='800' items='.' max-items='100' binding='refresh' reset-on-refresh='always' [src]=\"'/api/search/?search=' + pageState.searchTerm\">";
 			echo "<p class='amp-list-fallback' fallback>No search results.</p>";
 			echo "<p class='amp-list-fallback' placeholder>Loading search results...</p>";
 //			echo "<p class='amp-list-fallback' overflow>Show more.</p>";
