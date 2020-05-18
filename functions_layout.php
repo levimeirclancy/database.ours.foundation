@@ -237,7 +237,7 @@ function amp_header($title=null, $canonical=null) {
 	// This is the popover to log in ...
 	echo "<amp-lightbox id='login-popover' on='lightboxClose:navigation-header.show;lightboxOpen:navigation-header.hide,AMP.setState({inputPasswordType: 'password'})' layout='nodisplay'>";
 
-		echo "<span role='button' tabindex='0' on='tap:login-popover.close' class='popover-close'>Back</span>";
+		echo "<span role='button' tabindex='0' on='tap:login-popover.close' on='tap:".implode(",", $tap_temp)."' class='popover-close'>Back</span>";
 
 		echo "<form id='login' method='post' action-xhr='/login-xhr/' target='_blank' on=\"
 			submit:
