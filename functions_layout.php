@@ -261,8 +261,8 @@ function amp_header($title=null, $canonical=null) {
 
 		echo "<label for='checkpoint_email'>Password</label>";
 		echo "<input type='password' [type]=\"inputPasswordType\" name='checkpoint_password' placeholder='Password' required>";
-		echo "<span role='button' tabindex='0' id='inputPasswordTypeText' on=\"tap:AMP.setState({inputPasswordType: 'text'}),inputPasswordTypeText.hide,inputPasswordTypeText.show\">Show as text</span>";
-		echo "<span role='button' tabindex='0' id='inputPasswordTypePassword' on=\"tap:AMP.setState({inputPasswordType: 'password'}),inputPasswordTypeText.show,inputPasswordTypeText.hide\" hidden>Show as password</span>";
+		echo "<span role='button' tabindex='0' id='inputPasswordTypeText' on=\"tap:AMP.setState({inputPasswordType: 'text'}),inputPasswordTypeText.hide,inputPasswordTypePassword.show\">Show as text</span>";
+		echo "<span role='button' tabindex='0' id='inputPasswordTypePassword' on=\"tap:AMP.setState({inputPasswordType: 'password'}),inputPasswordTypeText.show,inputPasswordTypePassword.hide\" hidden>Show as password</span>";
 	
 		echo "<br><span id='login-popover-submit' role='button' tabindex='0' on='tap:login.submit'>Log in</span>";
 
