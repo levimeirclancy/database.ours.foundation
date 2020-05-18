@@ -306,6 +306,7 @@ amp-lightbox {
 
 #login-popover .password-toggle {
 	padding: 10px 20px 0;
+	cursor: pointer;
 	}
 
 /* Set margin, padding, size, but also backgorund and shadow */
