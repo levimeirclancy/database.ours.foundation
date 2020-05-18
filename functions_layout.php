@@ -235,7 +235,7 @@ function amp_header($title=null, $canonical=null) {
 	$tap_temp[] = "sidebar-navigation.close";
 		
 	// This is the popover to log in ...
-	echo "<amp-lightbox id='login-popover' on='lightboxClose:navigation-header.show;lightboxOpen:navigation-header.hide' layout='nodisplay'>";
+	echo "<amp-lightbox id='login-popover' on='lightboxClose:navigation-header.show;lightboxOpen:navigation-header.hide,AMP.setState({inputPasswordType: 'password'})' layout='nodisplay'>";
 
 		echo "<span role='button' tabindex='0' on='tap:login-popover.close' class='popover-close'>Back</span>";
 
