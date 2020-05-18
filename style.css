@@ -286,7 +286,7 @@ amp-lightbox {
 	}
 
 /* Make the input and description same width and placement */
-#login-popover label, #login-popover input {
+#login-popover label, #login-popover input, #login-popover .password-toggle {
 	display: block;
 	margin: 5px auto;
 	max-width: 400px;
@@ -298,10 +298,14 @@ amp-lightbox {
 	}
 
 /* Just different margin, padding, size */
-#login-popover label {
+#login-popover label, #login-popover .password-toggle {
 	color: rgba(100,100,100,0.8);
 	font-size: 70%;
 	padding: 40px 20px 0;
+	}
+
+#login-popover .password-toggle {
+	padding: 10px 20px 0;
 	}
 
 /* Set margin, padding, size, but also backgorund and shadow */
