@@ -351,10 +351,12 @@ function print_row_loop ($header_backend, $entry_id=null, $indent_array=[]) {
 	
 		// However, if all its parents are the same type then we'll just output it there
 		foreach ($entry_info['parents']['hierarchy'] as $entry_id_temp):
-	
+		
 			// If its parents are all another type, it will get to go ahead
 			if ($information_array[$entry_id_temp]['type'] !== $header_backend): continue; endif;
-		
+	
+				echo $entry_id."test1";
+	
 			// If none of these cases are met, it will not be outputted
 			$result_temp = 0;
 	
