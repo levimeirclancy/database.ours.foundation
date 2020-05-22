@@ -347,16 +347,14 @@ function print_row_loop ($header_backend, $entry_id=null, $indent_array=[]) {
 	if ( ($entry_info['type'] == $header_backend) && !(empty($entry_info['parents']['hierarchy'])) && empty($indent_array)):
 	
 		// We will assume for the sake of checking that it will be outputted
-		$output_temp = 1;
+		$result_temp = 1;
 	
 		// However, if all its parents are the same type then we'll just output it there
 		foreach ($entry_info['parents']['hierarchy'] as $entry_id_temp):
 		
 			// If its parents are all another type, it will get to go ahead
 			if ($information_array[$entry_id_temp]['type'] !== $header_backend): continue; endif;
-	
-				echo $entry_id."test1";
-	
+		
 			// If none of these cases are met, it will not be outputted
 			$result_temp = 0;
 	
