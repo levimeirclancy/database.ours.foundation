@@ -335,12 +335,16 @@ function print_row_loop ($header_backend, $entry_id=null, $indent_level=0) {
 	
 	if (!(array_key_exists($entry_id, $information_array))):
 		return 0; endif;
+	
+	echo $entry_id;
 		
 	$entry_info = $information_array[$entry_id];
 	
 	// Do not output as a topline it if it is just a subset of another entry
 	if ( ($entry_info['type'] == $header_backend) && !(empty($entry_info['parents']['hierarchy'])) && ($indent_level == 0)):
 
+	echo "test1";
+	
 		$result_temp = 0; // In most cases, it will not be outputted
 	
 		// But there are a minority of cases were it might still go ahead
