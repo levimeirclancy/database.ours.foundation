@@ -220,7 +220,7 @@ function amp_header($title=null, $canonical=null) {
 			$count_temp = 0;
 			foreach ($information_array as $entry_id => $entry_info):
 				if ($entry_info['type'] !== $header_backend): continue; endif;
-				$result_temp = print_row_loop ($header_backend, $entry_id, 0);
+				$result_temp = print_row_loop ($header_backend, $entry_id);
 				$count_temp += $result_temp;
 				endforeach;
 
@@ -326,40 +326,37 @@ function amp_header($title=null, $canonical=null) {
 	}
 
 
-function print_row_loop ($header_backend, $entry_id=null, $indent_level=0) {
+function print_row_loop ($header_backend, $entry_id=null, $indent_array=[]) {
 	
 	global $login;
 	global $domain;
 	global $information_array;
 	global $logout_hidden;
 	
+	// If the entry does not exist
 	if (!(array_key_exists($entry_id, $information_array))):
 		return 0; endif;
 	
-	echo $entry_id;
-		
+	// If its parent is itself and has already been outputted
+	if (in_array($entry_id, $indent_array)):
+		return 0; endif;
+				
 	$entry_info = $information_array[$entry_id];
 	
-	// Do not output as a topline it if it is just a subset of another entry
-	if ( ($entry_info['type'] == $header_backend) && !(empty($entry_info['parents']['hierarchy'])) && ($indent_level == 0)):
-
-	echo "test1";
+	// If all its parents are in another category, it is like a topmost parent
+	if ( ($entry_info['type'] == $header_backend) && !(empty($entry_info['parents']['hierarchy'])) && empty($indent_array)):
 	
-		$result_temp = 0; // In most cases, it will not be outputted
+		// We will assume for the sake of checking that it will be outputted
+		$output_temp = 1;
 	
-		// But there are a minority of cases were it might still go ahead
+		// However, if all its parents are the same type then we'll just output it there
 		foreach ($entry_info['parents']['hierarchy'] as $entry_id_temp):
 	
-			// If its parents are all another type, then it can go ahead
+			// If its parents are all another type, it will get to go ahead
 			if ($information_array[$entry_id_temp]['type'] !== $header_backend): continue; endif;
-
-			// If its parent is itself, that is a kind of bug, and it can be go ahead once
-			if ($entry_id_temp == $entry_id): continue; endif;
-	
-			// If its a parent of its parent, that is also a kind of bug, and it can be go ahead once
-			if (!(in_array($entry_id, $information_array[$entry_id_temp]['parents']['hierarchy']))): continue; endif; 
-	
-			$result_temp = 1;
+		
+			// If none of these cases are met, it will not be outputted
+			$result_temp = 0;
 	
 			endforeach;
 	
@@ -383,8 +380,9 @@ function print_row_loop ($header_backend, $entry_id=null, $indent_level=0) {
 		endif;
 	
 	$count_temp = 0; $indent_temp = null;
-	while ($count_temp < $indent_level):
+	while ($count_temp < count($indent_array)):
 		$indent_temp .= "<span class='categories-item-indent'></span>";
+		if ($count_temp == 16): break; endif; // After 16, the indents just flatten out
 		$count_temp++;
 		endwhile;
 	
@@ -412,11 +410,13 @@ function print_row_loop ($header_backend, $entry_id=null, $indent_level=0) {
 	echo "</span>";
 	 
 	if (!(empty($entry_info['children']['hierarchy']))):
-		$indent_level++;
+		
+		$indent_array[] = $entry_id;
+	
 		$children_temp = array_intersect(array_keys($information_array), $entry_info['children']['hierarchy']); // sets the ordering
 		foreach($children_temp as $child_id):
 			if ($child_id == $entry_id): continue; endif;
-			print_row_loop ($header_backend, $child_id, $indent_level);
+			print_row_loop ($header_backend, $child_id, $indent_array);
 			endforeach;
 		endif;
 	
