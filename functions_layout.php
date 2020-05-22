@@ -216,7 +216,7 @@ function amp_header($title=null, $canonical=null) {
 	
 			echo "<p>".number_format($type_counts_array[$header_backend])." ".$header_frontend."</p>";
 	
-			$result_temp = [];
+			$result_temp = null;
 			$count_temp = 0;
 			foreach ($information_array as $entry_id => $entry_info):
 				if ($entry_info['type'] !== $header_backend): continue; endif;
@@ -338,8 +338,30 @@ function print_row_loop ($header_backend, $entry_id=null, $indent_level=0) {
 		
 	$entry_info = $information_array[$entry_id];
 	
+	// Do not output as a topline it if it is just a subset of another entry
 	if ( ($entry_info['type'] == $header_backend) && !(empty($entry_info['parents']['hierarchy'])) && ($indent_level == 0)):
-		return 0; endif;
+
+		$result_temp = 0; // In most cases, it will not be outputted
+	
+		// But there are a minority of cases were it might still go ahead
+		foreach ($entry_info['parents']['hierarchy'] as $entry_id_temp):
+	
+			// If its parents are all another type, then it can go ahead
+			if ($information_array[$entry_id_temp]['type'] !== $header_backend): continue; endif;
+
+			// If its parent is itself, that is a kind of bug, and it can be go ahead once
+			if ($entry_id_temp == $entry_id): continue; endif;
+	
+			// If its a parent of its parent, that is also a kind of bug, and it can be go ahead once
+			if (!(in_array($entry_id, $information_array[$entry_id_temp]['parents']['hierarchy']))): continue; endif; 
+	
+			$result_temp = 1;
+	
+			endforeach;
+	
+		if ($result_temp == 0): return 0; endif;
+	
+		endif;
 
 	if ($entry_info['type'] !== $header_backend):
 		if (empty($entry_info['children']['hierarchy'])): return 0; endif;
@@ -389,6 +411,7 @@ function print_row_loop ($header_backend, $entry_id=null, $indent_level=0) {
 		$indent_level++;
 		$children_temp = array_intersect(array_keys($information_array), $entry_info['children']['hierarchy']); // sets the ordering
 		foreach($children_temp as $child_id):
+			if ($child_id == $entry_id): continue; endif;
 			print_row_loop ($header_backend, $child_id, $indent_level);
 			endforeach;
 		endif;
