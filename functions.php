@@ -86,6 +86,8 @@ function print_row_loop ($header_backend, $entry_id=null, $indent_array=[]) {
 		if ($result_temp == 0): return; endif;
 	
 		endif;
+	
+	return ["test".$entry_id];
 
 	if ($entry_info['type'] !== $header_backend):
 		if (empty($entry_info['children']['hierarchy'])): return; endif;
