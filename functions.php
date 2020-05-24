@@ -51,10 +51,7 @@ function print_terms($terms_array) {
 
 function print_row_loop ($header_backend, $entry_id=null, $indent_array=[]) {
 	
-	global $login;
-	global $domain;
 	global $information_array;
-	global $logout_hidden;
 	
 	// If the entry does not exist
 	if (!(array_key_exists($entry_id, $information_array))):
@@ -105,12 +102,8 @@ function print_row_loop ($header_backend, $entry_id=null, $indent_array=[]) {
 		if ($skip_temp == 1): return; endif;
 		endif;
 	
-	$count_temp = 0; $indent_temp = null;
-	while ($count_temp < count($indent_array)):
-		$indent_temp .= "<span class='categories-item-indent'></span>";
-		if ($count_temp == 16): break; endif; // After 16, the indents just flatten out
-		$count_temp++;
-		endwhile;
+	$indent_count = count($indent_array);
+	if ($indent_count > 16): $indent_count = 16; endif; // After 16, the indents just flatten out
 	
 //	$fadeout_temp = null;
 //	if ($entry_info['type'] !== $header_backend):
@@ -118,40 +111,34 @@ function print_row_loop ($header_backend, $entry_id=null, $indent_array=[]) {
 //		endif;
 	
 	$entry_list = [];
-
-	$entry_list[$entry_id] = [
-		"entry_id"	=> $entry_id,
-		"header"	=> $information_array[$entry_id]['header'],
-		"map"		=> null,
-		];
-
-	 // Launch the row and indent
-//	echo "<span class='categories-item $fadeout_temp'>";
-
-	// Add the link to the article
-//	echo $indent_temp . "<a href='/$entry_id/'><span class='categories-item-title'>". $entry_info['header'] ."</span></a>";
-	
-	// Add the edit link ... we are going to remove this since it is not toggling gracefully with login/logout
-//	echo "<a href='/$entry_id/edit/'>";
-//	echo "<span class='categories-item-button' $logout_hidden>Edit</span></a>";
 	
 	// Display maps link
+	$map_temp = null;
     	if (!(empty($entry_info['appendix']['latitude'])) && !(empty($entry_info['appendix']['longitude']))): 
-		$entry_list[$entry_id]['map'] = "yes";
-// 		echo "<a href='/".$entry_id."/map/' target='_blank'><span class='categories-item-button'>Map</span></a>";
+		$map_temp = "yes";
 		endif;
+
+	$entry_list[] = [
+		"entry_id"	=> $entry_id,
+		"header"	=> $information_array[$entry_id]['header'],
+		"map"		=> $map_temp,
+		"indent_count"	=> $indent_count,
+		];
 	
-	
-	if (!(empty($entry_info['children']['hierarchy']))):
+	// If no children then we cut it off here
+	if (empty($entry_info['children']['hierarchy'])):
+		return $entry_list;
+		endif;
 		
-		$indent_array[] = $entry_id;
+	$indent_array[] = $entry_id;
 	
-		$children_temp = array_intersect(array_keys($information_array), $entry_info['children']['hierarchy']); // sets the ordering
-		foreach($children_temp as $child_id):
-			if ($child_id == $entry_id): continue; endif;
-			$entry_list = array_merge($entry_list, print_row_loop($header_backend, $child_id, $indent_array));
-			endforeach;
-		endif;
+	// Sets the ordering
+	$children_temp = array_intersect(array_keys($information_array), $entry_info['children']['hierarchy']);
+	foreach($children_temp as $child_id):
+		if ($child_id == $entry_id): continue; endif;
+		$result_temp = print_row_loop($header_backend, $child_id, $indent_array);
+		$entry_list = array_merge($entry_list, $result_temp);
+		endforeach;
 	
 	return $entry_list;
 	
