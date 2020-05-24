@@ -98,11 +98,6 @@ if (!(empty($_COOKIE['cookie']))):
 		endif;
 	endif;
 
-if ([$page_temp,$command_temp] == ["api", "login"]):
-	if (empty($login)): json_output(["loginStatus"=>"loggedout", "login"=>null, "countdown"=>null, ]); endif;
-	if (!(empty($login))): json_output(["loginStatus"=>"loggedin", "login"=>$login['user_id'], "countdown"=>$_COOKIE['cookie_time']-time(), ]); endif;
-	endif;
-
 // this is the header index
 $header_array = [
 	"location"	=> "Regions",
@@ -432,6 +427,23 @@ if ($page_temp == "api"):
 		include_once('api_coordinate.php');
 	elseif ($command_temp == "sitemap"):
 		json_output($information_array);
+	elseif ($command_temp == "page-state"):
+		$page_state = [];
+
+		$page_state['information-array'] = $information_array;
+
+		foreach ($header_array as $header_backend => $header_frontend):
+			$page_state['categories-array'][$header_backend] = [];
+			foreach($information_array as $entry_id => $entry_info):
+				$page_state['categories-array'][$header_backend] array_merge($page_state['categories-array'][$header_backend],print_row_loop ($header_backend, $entry_id));
+				endforeach;
+			endforeach;
+
+		if (empty($login)): $page_state['login'] = ["loginStatus"=>"loggedout", "login"=>null, "countdown"=>null, ];
+		elseif (!(empty($login))): $page_state['login'] = ["loginStatus"=>"loggedin", "login"=>$login['user_id'], "countdown"=>$_COOKIE['cookie_time']-time(), ]; endif;
+
+		echo json_output($page_state);
+
 	elseif ($command_temp == "search"):
 		if (empty($information_array)): json_status("error", "No results.");
 		else: json_output(array_values($information_array)); endif;
