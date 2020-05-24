@@ -87,8 +87,6 @@ function print_row_loop ($header_backend, $entry_id=null, $indent_array=[]) {
 	
 		endif;
 	
-	return ["test".$entry_id];
-
 	if ($entry_info['type'] !== $header_backend):
 		if (empty($entry_info['children']['hierarchy'])): return; endif;
 		$skip_temp = 1;
@@ -119,6 +117,9 @@ function print_row_loop ($header_backend, $entry_id=null, $indent_array=[]) {
     	if (!(empty($entry_info['appendix']['latitude'])) && !(empty($entry_info['appendix']['longitude']))): 
 		$map_temp = "yes";
 		endif;
+	
+	return ["test3"];
+
 
 	$entry_list[] = [
 		"entry_id"	=> $entry_id,
@@ -145,4 +146,3 @@ function print_row_loop ($header_backend, $entry_id=null, $indent_array=[]) {
 	return $entry_list;
 	
 	} ?>
-
