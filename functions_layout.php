@@ -93,7 +93,7 @@ function amp_header($title=null, $canonical=null) {
 	$login_hidden = $logout_hidden = "navigation-header-item"; // This would mean that buttons to login AND logout are shown
 	(empty($login) ? $logout_hidden = "hide" : $login_hidden = "hide");
 
-	echo "<amp-state id='pageState' src='/api/login/'></script></amp-state>";
+	echo "<amp-state id='pageState' src='/api/page-state/'></script></amp-state>";
 	
 	if (!(empty($google_analytics_code))):
 		echo '<amp-analytics type="googleanalytics">';
@@ -112,11 +112,11 @@ function amp_header($title=null, $canonical=null) {
 	echo "<div role='button' tabindex='0' class='navigation-header-item' on='tap:sidebar-navigation'>Navigation</div>";
 	
 	// This is the login button ...
-	echo "<div role='button' tabindex='0' id='login-popover-launch' on='tap:login-popover' [class]=\"pageState.loginStatus == 'loggedin' ? 'hide' : 'navigation-header-item'\" class='".$login_hidden."' >&#x2731; Log in</div>";
+	echo "<div role='button' tabindex='0' id='login-popover-launch' on='tap:login-popover' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'hide' : 'navigation-header-item'\" class='".$login_hidden."' >&#x2731; Log in</div>";
 		
 	// If you are signed in ...
-	echo "<div role='button' tabindex='0' id='settings-popover-launch' on='tap:settings-popover' [class]=\"pageState.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='".$logout_hidden."'>Settings</div>";
-	echo "<div role='button' tabindex='0' id='new-popover-launch' on='tap:new-popover' [class]=\"pageState.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='".$logout_hidden."'>&#x271A; New</div>";	
+	echo "<div role='button' tabindex='0' id='settings-popover-launch' on='tap:settings-popover' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='".$logout_hidden."'>Settings</div>";
+	echo "<div role='button' tabindex='0' id='new-popover-launch' on='tap:new-popover' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='".$logout_hidden."'>&#x271A; New</div>";	
 
 	echo "<form id='logout' method='post' action-xhr='/logout-xhr/' target='_blank' on=\"
 		submit:
@@ -134,9 +134,9 @@ function amp_header($title=null, $canonical=null) {
 			edit-entry.hide,
 			login.clear,
 			logout.clear,
-			AMP.setState({pageState:{loginStatus: 'loggedout'}})
+			AMP.setState({pageState:{login: {loginStatus: 'loggedout'}}})
 		\">";
-	echo "<div role='button' tabindex='0' id='logout-submit' on='tap:logout.submit' [class]=\"pageState.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='".$logout_hidden."'>&#x2716; Log out</div>";
+	echo "<div role='button' tabindex='0' id='logout-submit' on='tap:logout.submit' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='".$logout_hidden."'>&#x2716; Log out</div>";
 //	echo "<div class='navigation-header-item' submitting>&#x25cf; Logging out...</div>";
 	echo "<div role='button' tabindex='0' class='navigation-header-item' on='tap:logout.submit' id='logout-tryagain-submit' submit-error>&#x2716; Try logging out again</div>";
 //	echo "<div role='button' tabindex='0' class='navigation-header-item' on='tap:logout.submit' submit-success>&#x2713; Logged out</div>";
@@ -216,16 +216,19 @@ function amp_header($title=null, $canonical=null) {
 	
 			echo "<p>".number_format($type_counts_array[$header_backend])." ".$header_frontend."</p>";
 	
-			$result_temp = null;
-			$count_temp = 0;
-			foreach ($information_array as $entry_id => $entry_info):
-				if ($entry_info['type'] !== $header_backend): continue; endif;
-				$result_temp = print_row_loop ($header_backend, $entry_id);
-				$count_temp += $result_temp;
-				endforeach;
+			echo "<amp-list id='sidebar-navigation-lightbox-search-list' layout='responsive' width='800' height='800' items='categories-array.".$header_backend."' max-items='100' binding='refresh' [src]='pageState'>";
+			echo "<p class='amp-list-fallback' fallback>No search results.</p>";
+			echo "<p class='amp-list-fallback' placeholder>Loading search results...</p>";
+//			echo "<p class='amp-list-fallback' overflow>Show more.</p>";
 
-			if (empty($count_temp)): echo "<p>Empty. Consider creating a new entry.</p>"; endif;
-
+			echo "<template type='amp-mustache'>";
+				echo "<span class='categories-item $fadeout_temp'>";
+				echo "<a href='/{{entry_id}}/'><span class='categories-item-title'>{{header}}</span></a>";
+				echo "{{#map}}<a href='/{{entry_id}}/map/' target='_blank'><span class='categories-item-button'>Map</span></a>{{/map}}";
+				echo "</span>";
+				echo "</template>";
+			echo "</amp-list>";
+	
 			echo "<span class='categories-item'></span>";
 
 			echo "</amp-lightbox>";
@@ -253,7 +256,7 @@ function amp_header($title=null, $canonical=null) {
 				edit-entry.show,
 				login.clear,
 				logout.clear,
-				AMP.setState({pageState:{loginStatus: 'loggedin'}})
+				AMP.setState({pageState:{login: {loginStatus: 'loggedin'}}})
 			\">";
 
 		echo "<label for='checkpoint_email'>E-mail address</label>";
@@ -323,105 +326,6 @@ function amp_header($title=null, $canonical=null) {
 
 		echo "</amp-lightbox>";
 
-	}
-
-
-function print_row_loop ($header_backend, $entry_id=null, $indent_array=[]) {
-	
-	global $login;
-	global $domain;
-	global $information_array;
-	global $logout_hidden;
-	
-	// If the entry does not exist
-	if (!(array_key_exists($entry_id, $information_array))):
-		return 0; endif;
-	
-	// If its parent is itself and has already been outputted
-	if (in_array($entry_id, $indent_array)):
-		return 0; endif;
-				
-	$entry_info = $information_array[$entry_id];
-	
-	// If all its parents are in another category, it is like a topmost parent
-	if ( ($entry_info['type'] == $header_backend) && !(empty($entry_info['parents']['hierarchy'])) && empty($indent_array)):
-	
-		// We will assume for the sake of checking that it will be outputted
-		$result_temp = 1;
-	
-		// However, if all its parents are the same type then we'll just output it there
-		foreach ($entry_info['parents']['hierarchy'] as $entry_id_temp):
-		
-			// If its parents are all another type, it will get to go ahead
-			if ($information_array[$entry_id_temp]['type'] !== $header_backend): continue; endif;
-		
-			// If none of these cases are met, it will not be outputted
-			$result_temp = 0;
-	
-			endforeach;
-	
-		if ($result_temp == 0): return 0; endif;
-	
-		endif;
-
-	if ($entry_info['type'] !== $header_backend):
-		if (empty($entry_info['children']['hierarchy'])): return 0; endif;
-		$skip_temp = 1;
-		foreach ($entry_info['children']['hierarchy'] as $child_temp):
-			foreach ($information_array[$child_temp]['parents']['hierarchy'] as $parent_temp):
-				if ($information_array[$parent_temp]['type'] == $header_backend):
-					return 0; endif;
-				endforeach;
-			if ($information_array[$child_temp]['type'] == $header_backend):
-				$skip_temp = 0;
-				break; endif;
-			endforeach;
-		if ($skip_temp == 1): return 0; endif;
-		endif;
-	
-	$count_temp = 0; $indent_temp = null;
-	while ($count_temp < count($indent_array)):
-		$indent_temp .= "<span class='categories-item-indent'></span>";
-		if ($count_temp == 16): break; endif; // After 16, the indents just flatten out
-		$count_temp++;
-		endwhile;
-	
-	$fadeout_temp = null;
-	if ($entry_info['type'] !== $header_backend):
-		$fadeout_temp = "categories-item-fadeout";
-		endif;
-
-	 // Launch the row and indent
-	echo "<span class='categories-item $fadeout_temp'>";
-
-	// Add the link to the article
-	echo $indent_temp . "<a href='/$entry_id/'><span class='categories-item-title'>". $entry_info['header'] ."</span></a>";
-	
-	// Add the edit link ... we are going to remove this since it is not toggling gracefully with login/logout
-//	echo "<a href='/$entry_id/edit/'>";
-//	echo "<span class='categories-item-button' $logout_hidden>Edit</span></a>";
-	
-	// Display maps link
-    	if (!(empty($entry_info['appendix']['latitude'])) && !(empty($entry_info['appendix']['longitude']))): 
- 		echo "<a href='/".$entry_id."/map/' target='_blank'><span class='categories-item-button'>Map</span></a>";
-    		endif;
-	
-	// Close the row
-	echo "</span>";
-	 
-	if (!(empty($entry_info['children']['hierarchy']))):
-		
-		$indent_array[] = $entry_id;
-	
-		$children_temp = array_intersect(array_keys($information_array), $entry_info['children']['hierarchy']); // sets the ordering
-		foreach($children_temp as $child_id):
-			if ($child_id == $entry_id): continue; endif;
-			print_row_loop ($header_backend, $child_id, $indent_array);
-			endforeach;
-		endif;
-	
-	return 1;
-	
 	}
 
 
