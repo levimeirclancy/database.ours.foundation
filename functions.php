@@ -85,23 +85,10 @@ function print_row_loop ($header_backend, $entry_id=null, $indent_array=[]) {
 		if ($result_temp == 0): return; endif;
 	
 		endif;
-		
-	if ($information_array[$entry_id]['type'] !== $header_backend):
-		if (empty($information_array[$entry_id]['children']['hierarchy'])): return; endif;
-		$skip_temp = 1;
-		foreach ($information_array[$entry_id]['children']['hierarchy'] as $child_temp):
-			foreach ($information_array[$child_temp]['parents']['hierarchy'] as $parent_temp):
-				if ($information_array[$parent_temp]['type'] == $header_backend):
-					return; endif;
-				endforeach;
-			if ($information_array[$child_temp]['type'] == $header_backend):
-				$skip_temp = 0;
-				break; endif;
-			endforeach;
-		if ($skip_temp == 1): return; endif;
-		endif;
 
-	return ["test6"];
+	if ($information_array[$entry_id]['type'] !== $header_backend):
+		return;
+		endif;
 	
 	$indent_count = count($indent_array);
 	if ($indent_count > 16): $indent_count = 16; endif; // After 16, the indents just flatten out
