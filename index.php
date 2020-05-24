@@ -435,7 +435,7 @@ if ($page_temp == "api"):
 		foreach ($header_array as $header_backend => $header_frontend):
 			$page_state['categories-array'][$header_backend] = [];
 			foreach($information_array as $entry_id => $entry_info):
-				$page_state['categories-array'][$header_backend] array_merge($page_state['categories-array'][$header_backend],print_row_loop ($header_backend, $entry_id));
+				$page_state['categories-array'][$header_backend] = array_merge($page_state['categories-array'][$header_backend],print_row_loop ($header_backend, $entry_id));
 				endforeach;
 			endforeach;
 
