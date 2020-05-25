@@ -83,8 +83,8 @@ function print_row_loop ($header_backend, $entries_array=null, $indent_array=[])
 	
 			endif;
 
-		$indent_count = count($indent_array);
-		if ($indent_count > 16): $indent_count = 16; endif; // After 16, the indents just flatten out
+//		$indent_count = count($indent_array);
+//		if ($indent_count > 16): $indent_count = 16; endif; // After 16, the indents just flatten out
 	
 //	$fadeout_temp = null;
 //	if ($information_array[$entry_id]['type'] !== $header_backend):
@@ -100,7 +100,8 @@ function print_row_loop ($header_backend, $entries_array=null, $indent_array=[])
 		$entries_organized[] = [
 			"entry_id"	=> $entry_id,
 			"map"		=> $map_temp,
-			"indent_count"	=> $indent_count,
+//			"indent_count"	=> $indent_count,
+			"indent_array"	=> $indent_array,
 			];
 	
 		// If there are no children, just continue
