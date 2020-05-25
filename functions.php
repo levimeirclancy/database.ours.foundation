@@ -62,14 +62,15 @@ function print_row_loop ($header_backend, $entry_id=null, $indent_array=[]) {
 	if (!(array_key_exists($entry_id, $information_array))):
 		return; endif;
 	
+	// If the type is not correct
+	if ($information_array[$entry_id]['type'] !== $header_backend):
+		return; endif;
+
 	// If we're doing the first round but it already has parents
 	if (!(empty($information_array[$entry_id]['parents']['hierarchy'])) && empty($indent_array)):
 	
 		// We will assume for the sake of checking that it will be outputted
 		$result_temp = 1;
-	
-		// 
-//		if ($information_array[$entry_id]['type'] == $header_backend): 
 	
 		// However, if all its parents are the same type then we'll just output it there
 		foreach ($information_array[$entry_id]['parents']['hierarchy'] as $entry_id_temp):
@@ -77,7 +78,7 @@ function print_row_loop ($header_backend, $entry_id=null, $indent_array=[]) {
 			// If its parents are all another type, it will get to go ahead
 			if ($information_array[$entry_id_temp]['type'] !== $header_backend): continue; endif;
 		
-			// If none of these cases are met, it will not be outputted
+			// If one of its parents is the same type, it'll output as a child then
 			$result_temp = 0;
 	
 			endforeach;
@@ -86,10 +87,6 @@ function print_row_loop ($header_backend, $entry_id=null, $indent_array=[]) {
 	
 		endif;
 
-	if ($information_array[$entry_id]['type'] !== $header_backend):
-		return;
-		endif;
-	
 	$indent_count = count($indent_array);
 	if ($indent_count > 16): $indent_count = 16; endif; // After 16, the indents just flatten out
 	
