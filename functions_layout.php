@@ -181,7 +181,7 @@ function amp_header($title=null, $canonical=null) {
 
 			echo "<template type='amp-mustache'>";
 				echo "<span class='categories-item'>";
-				echo "<a href='/{{entry_id}}/' target='_blank'><span class='categories-item-title'>{{header}}</span></a>";
+				echo "<a href='/{{entry_id}}/' target='_blank'><span class='categories-item-title' [text]=\"pageState.informationArray.{{entry_id}}.header\">Click for more</span></a>";
 				echo "</span>";
 				echo "</template>";
 			echo "</amp-list>";
@@ -211,7 +211,7 @@ function amp_header($title=null, $canonical=null) {
 
 		echo "<template type='amp-mustache'>";
 			echo "<span class='categories-item $fadeout_temp'>";
-			echo "<a href='/{{entry_id}}/'><span class='categories-item-title' [text]=\"pageState.informationArray.{{entry_id}}.header\"></span></a>";
+			echo "<a href='/{{entry_id}}/'><span class='categories-item-title' [text]=\"pageState.informationArray.{{entry_id}}.header\">Click for more</span></a>";
 			echo "{{#map}}<a href='/{{entry_id}}/map/' target='_blank'><span class='categories-item-button'>Map</span></a>{{/map}}";
 			echo "</span>";
 			echo "</template>";
