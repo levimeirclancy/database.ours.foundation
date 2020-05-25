@@ -424,10 +424,10 @@ if ($page_temp == "api"):
 	elseif ($command_temp == "page-state"):
 		$page_state = [];
 
-		$page_state['information-array'] = $information_array;
+		$page_state['informationArray'] = $information_array;
 
 		foreach ($header_array as $header_backend => $header_frontend):
-			$page_state['categories-array'][$header_backend] = print_row_loop ($header_backend, array_keys($information_array), []);
+			$page_state['categoriesArray'][$header_backend] = print_row_loop ($header_backend, array_keys($information_array), []);
 			endforeach;
 
 		if (empty($login)): $page_state['login'] = ["loginStatus"=>"loggedout", "login"=>null, "countdown"=>null, ];
