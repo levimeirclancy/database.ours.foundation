@@ -214,6 +214,10 @@ function amp_header($title=null, $canonical=null) {
 
 		echo "<template type='amp-mustache'>";
 			echo "<span class='categories-item $fadeout_temp'>";
+	
+			// Handle the indenting
+			echo "<span class='categories-item-indent-wrapper'>{{#indent_array}}<span class='categories-item-indent'></span>{{/indent_array}}</span>";
+	
 			echo "<a href='/{{entry_id}}/'><span class='categories-item-title' [text]=\"pageState.informationArray.{{entry_id}}.header\">Click for more</span></a>";
 			echo "{{#map}}<a href='/{{entry_id}}/map/' target='_blank'><span class='categories-item-button'>Map</span></a>{{/map}}";
 			echo "</span>";
