@@ -210,7 +210,7 @@ function amp_header($title=null, $canonical=null) {
 	
 		echo "<p [text]=\"lightboxType\"></p>";
 	
-		echo "<amp-list id='sidebar-navigation-lightbox-search-list' layout='responsive' width='800' height='800' [items]=\"'categories-array.' + lightboxType\" max-items='100' binding='refresh' [src]='pageState'>";
+		echo "<amp-list id='sidebar-navigation-lightbox-search-list' layout='responsive' width='800' height='800' items='.' + lightboxType\" max-items='100' binding='refresh' [src]=\"'pageState.categories-array' + lightboxType\">";
 		echo "<p class='amp-list-fallback' fallback>No search results.</p>";
 		echo "<p class='amp-list-fallback' placeholder>Loading search results...</p>";
 //		echo "<p class='amp-list-fallback' overflow>Show more.</p>";
