@@ -68,13 +68,13 @@ function print_row_loop ($header_backend, $entries_array=null, $indent_array=[])
 	
 		// If the entry does not exist
 		if (!(array_key_exists($entry_id, $information_array))):
-			return; endif;
+			continue; endif;
 
 	$entries_organized[] = "test2";
 	
 		// If the type is not correct
 		if ($information_array[$entry_id]['type'] !== $header_backend):
-			return; endif;
+			continue; endif;
 
 	$entries_organized[] = "test3";
 	
