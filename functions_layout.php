@@ -163,7 +163,7 @@ function amp_header($title=null, $canonical=null) {
 		echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on='tap:sidebar-navigation-lightbox-search.open,sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search-list.changeToLayoutContainer()'>Search</div>";
 	
 		foreach ($header_array_temp as $header_backend => $header_frontend):
-			echo "<div class='sidebar-navigation-button' role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: pageState.categoriesArray.".$header_backend."}),sidebar-navigation-lightbox-type.open\">". ucfirst($header_frontend) ."</div>";
+			echo "<div class='sidebar-navigation-button' role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: pageState.categoriesArray.".$header_backend."}),sidebar-navigation-lightbox-type.open,sidebar-navigation-lightbox-type-list.changeToLayoutContainer()\">". ucfirst($header_frontend) ."</div>";
 			endforeach;
 	
 		echo "</amp-lightbox>";
@@ -204,7 +204,7 @@ function amp_header($title=null, $canonical=null) {
 	
 		echo "<p [text]=\"lightboxType\"></p>";
 	
-		echo "<amp-list id='sidebar-navigation-lightbox-search-list' layout='responsive' width='800' height='800' items='.' max-items='100' binding='refresh' [src]=\"pageStateType\">";
+		echo "<amp-list id='sidebar-navigation-lightbox-type-list' layout='responsive' width='800' height='800' items='.' max-items='100' binding='refresh' [src]=\"pageStateType\">";
 			echo "<p class='amp-list-fallback' fallback>No entries in cateogry.</p>";
 			echo "<p class='amp-list-fallback' placeholder>Loading entries...</p>";
 //			echo "<p class='amp-list-fallback' overflow>Show more.</p>";
