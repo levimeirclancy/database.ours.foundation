@@ -15,8 +15,6 @@ function amp_header($title=null, $canonical=null) {
 	// Database contents
 	global $header_array;
 	global $information_array;
-	global $type_counts_array;
-	global $coordinate_counts;
 	
 	// Login status
 	global $login;
@@ -159,14 +157,13 @@ function amp_header($title=null, $canonical=null) {
 	// This is the popover for the categories ...;
 	echo "<amp-lightbox id='sidebar-navigation' layout='nodisplay' on='lightboxClose:pageState.refresh,navigation-header.show;lightboxOpen:".implode(",", $tap_temp)."' scrollable>";
 	
+		echo "<div id='sidebar-navigation-close' role='button' tabindex='0' on='tap:sidebar-navigation.close' class='popover-close'>Back</div>";
+
 		echo "<input type='text' id='sidebar-navigation-search-input' placeholder='&#128270;' on=\"input-throttled:AMP.setState({pageState:{searchTerm: event.value.replace('  ',' ').replace('  ',' ').replace('?',' ').replace(',',' ').replace('&',' ')}}),sidebar-navigation-lightbox-search.close\">";
-		echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on='tap:". implode(",", $tap_temp) .",sidebar-navigation-lightbox-search.open,sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search-list.changeToLayoutContainer()'>Search</div>";
+		echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on='tap:sidebar-navigation-lightbox-search.open,sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search-list.changeToLayoutContainer()'>Search</div>";
 	
-		echo "<div id='sidebar-navigation-close' role='button' tabindex='0' on='tap:".implode(",", $tap_temp).",sidebar-navigation.close' class='popover-close'>Back</div>";
-		
 		foreach ($header_array_temp as $header_backend => $header_frontend):
-			if (empty($type_counts_array[$header_backend]) && ($header_backend !== "main")): continue; endif;
-			echo "<div class='sidebar-navigation-button' role='button' tabindex='0' on=\"tap:". implode(",", $tap_temp) .",AMP.setState({pageStateType: pageState.categories-array.".$header_backend."}),sidebar-navigation-lightbox-type.open\">". ucfirst($header_frontend) ."</div>";
+			echo "<div class='sidebar-navigation-button' role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: pageState.categories-array.".$header_backend."}),sidebar-navigation-lightbox-type.open\">". ucfirst($header_frontend) ."</div>";
 			endforeach;
 	
 		echo "</amp-lightbox>";
@@ -196,9 +193,6 @@ function amp_header($title=null, $canonical=null) {
 
 		// How many total entries are there ...
 		echo "<p>". number_format(count($information_array)) ." total entries.</p>";
-
-		// Display how many have GPS coordinates ...
-		if (!(empty($coordinate_counts))): echo "<p>". number_format($coordinate_counts)." map points.</p>"; endif;
 
 		// List of recently edited posts...
 
