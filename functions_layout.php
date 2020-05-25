@@ -166,7 +166,7 @@ function amp_header($title=null, $canonical=null) {
 		
 		foreach ($header_array_temp as $header_backend => $header_frontend):
 			if (empty($type_counts_array[$header_backend]) && ($header_backend !== "main")): continue; endif;
-			echo "<div class='sidebar-navigation-button' role='button' tabindex='0' on=\"tap:". implode(",", $tap_temp) .",sidebar-navigation-lightbox-type.open,AMP.setstate({lightboxType: '".$header_backend."'})\">". ucfirst($header_frontend) ."</div>";
+			echo "<div class='sidebar-navigation-button' role='button' tabindex='0' on=\"tap:". implode(",", $tap_temp) .",sidebar-navigation-lightbox-type.open,AMP.setstate({pageStateType: pageState.categories-array.".$header_backend."})\">". ucfirst($header_frontend) ."</div>";
 			endforeach;
 	
 		echo "</amp-lightbox>";
@@ -177,7 +177,7 @@ function amp_header($title=null, $canonical=null) {
 
 		echo "<p [text]=\"pageState.searchTerm == '' || pageState.searchTerm == ' ' || pageState.searchTerm == null ? 'Search term cannot be empty.' : 'Search results for: ' + pageState.searchTerm\">Search term not received.</p>";
 	
-		echo "<amp-list id='sidebar-navigation-lightbox-search-list' layout='responsive' width='800' height='800' items='.' max-items='100' binding='refresh' reset-on-refresh='always' [src]=\"'/api/search/?search=' + pageState.searchTerm\">";
+		echo "<amp-list id='sidebar-navigation-lightbox-search-list' layout='responsive' width='800' height='800' items='.' max-items='100' binding='refresh' reset-on-refresh='always' [src]='pageStateType'>";
 			echo "<p class='amp-list-fallback' fallback>No search results.</p>";
 			echo "<p class='amp-list-fallback' placeholder>Loading search results...</p>";
 //			echo "<p class='amp-list-fallback' overflow>Show more.</p>";
