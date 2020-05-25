@@ -360,6 +360,9 @@ amp-lightbox {
 	padding: 12px 0 5px;
 	border-top: 2px solid rgba(200,200,200,0.8);
 	box-sizing: border-box;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
 	}
 
 .categories-item-fadeout {
