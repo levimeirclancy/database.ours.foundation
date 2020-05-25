@@ -166,13 +166,17 @@ foreach($connection_pdo->query($sql_temp) as $row):
 		"entry_id" => $row['entry_id'],
 		"link" => "https://".$domain."/".$row['entry_id']."/",
 		"type" => $row['type'],
-		"name" => json_decode($row['name'], true),
-		"alternate_name" => json_decode($row['alternate_name'], true),
+//		"name" => json_decode($row['name'], true),
+//		"alternate_name" => json_decode($row['alternate_name'], true),
 		"header" => null,
 		"summary" => [],
 		"appendix" => $appendix_temp,
 		"parents" => [],
 		"children" => [] ];
+
+	$name_temp = [];
+	if (!(empty($row['name']))): $name_temp = json_decode($row['name'], true); endif;
+	if (!(is_array($name_temp))): $name_temp = []; endif;
 
 	if (isset($_REQUEST['summary']) && ($_REQUEST['summary'] == ["true"])):
 		$summary_temp = json_decode($row['summary'], true);
@@ -181,11 +185,11 @@ foreach($connection_pdo->query($sql_temp) as $row):
 			endforeach;
 		endif;
 
-	$information_array[$row['entry_id']]['header'] = implode(" • ", (array)$information_array[$row['entry_id']]['name']);
+	$information_array[$row['entry_id']]['header'] = implode(" • ", $name_temp);
 
 	$order_array[$row['entry_id']] = null;
-	if (isset($order_language) && isset($information_array[$row['entry_id']]['name'][$order_language])): $order_array[$row['entry_id']] = $information_array[$row['entry_id']]['name'][$order_language];
-	elseif (isset($information_array[$row['entry_id']]['name'])): $order_array[$row['entry_id']] = reset($information_array[$row['entry_id']]['name']); endif;
+	if (isset($order_language) && isset($name_temp[$order_language])): $order_array[$row['entry_id']] = $name_temp[$order_language];
+	elseif (isset($name_temp)): $order_array[$row['entry_id']] = reset($name_temp); endif;
 
 	endforeach;
 
@@ -506,7 +510,7 @@ if (isset($header_array[$page_temp])):
 	footer(); endif;
 
 if (!(empty($page_temp)) && isset($information_array[$page_temp])):
-	amp_header(implode(" • ", $information_array[$page_temp]['name']), $domain."/".$page_temp."/");
+	amp_header(implode(" • ", $information_array[$page_temp]['header']), $domain."/".$page_temp."/");
 	include_once('theme_page.php');
 	footer(); endif;
 
