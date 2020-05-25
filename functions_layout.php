@@ -163,7 +163,7 @@ function amp_header($title=null, $canonical=null) {
 		echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on='tap:sidebar-navigation-lightbox-search.open,sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search-list.changeToLayoutContainer()'>Search</div>";
 	
 		foreach ($header_array_temp as $header_backend => $header_frontend):
-			echo "<div class='sidebar-navigation-button' role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: pageState.categories-array.".$header_backend."}),sidebar-navigation-lightbox-type.open\">". ucfirst($header_frontend) ."</div>";
+			echo "<div class='sidebar-navigation-button' role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: pageState.categoriesArray.".$header_backend."}),sidebar-navigation-lightbox-type.open\">". ucfirst($header_frontend) ."</div>";
 			endforeach;
 	
 		echo "</amp-lightbox>";
@@ -211,7 +211,7 @@ function amp_header($title=null, $canonical=null) {
 
 		echo "<template type='amp-mustache'>";
 			echo "<span class='categories-item $fadeout_temp'>";
-			echo "<a href='/{{entry_id}}/'><span class='categories-item-title' [text]=\"pageState.information-array.{{entry_id}}.header\"></span></a>";
+			echo "<a href='/{{entry_id}}/'><span class='categories-item-title' [text]=\"pageState.informationArray.{{entry_id}}.header\"></span></a>";
 			echo "{{#map}}<a href='/{{entry_id}}/map/' target='_blank'><span class='categories-item-button'>Map</span></a>{{/map}}";
 			echo "</span>";
 			echo "</template>";
