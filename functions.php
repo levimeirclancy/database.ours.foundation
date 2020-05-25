@@ -60,6 +60,8 @@ function print_row_loop ($header_backend, $entries_array=null, $indent_array=[])
 	// Let's set up the array of organized entries
 	$entries_organized = [];
 	
+	$entries_organized[] = "test0";
+	
 	foreach ($entries_array as $entry_id):	
 
 	$entries_organized[] = "test1";
