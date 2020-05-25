@@ -49,81 +49,74 @@ function print_terms($terms_array) {
 		echo "<td>".$term_info['status']."</td></tr>"; endforeach;
 	echo "</tbody></table>"; }
 
-function print_row_loop ($header_backend, $entry_id=null, $indent_array=[]) {
+function print_row_loop ($header_backend, $entries_array=null, $indent_array=[]) {
 	
-	// If its parent is itself and has already been outputted
-	if (in_array($entry_id, $indent_array)):
-		return; endif;
-
 	// Make this available
 	global $information_array;
 	
-	// If the entry does not exist
-	if (!(array_key_exists($entry_id, $information_array))):
-		return; endif;
+	// Orders the array, and removes entries not in the $information_array
+	$entries_array = array_intersect(array_keys($information_array), $entries_array);
 	
-	// If the type is not correct
-	if ($information_array[$entry_id]['type'] !== $header_backend):
-		return; endif;
+	// Let's set up the array of organized entries
+	$entries_organized = [];
+	
+	foreach ($entries_array as $entry_id):	
 
-	// If we're doing the first round but it already has parents
-	if (!(empty($information_array[$entry_id]['parents']['hierarchy'])) && empty($indent_array)):
+		// If the entry does not exist
+		if (!(array_key_exists($entry_id, $information_array))):
+			return; endif;
 	
-		// We will assume for the sake of checking that it will be outputted
-		$result_temp = 1;
-	
-		// However, if all its parents are the same type then we'll just output it there
-		foreach ($information_array[$entry_id]['parents']['hierarchy'] as $entry_id_temp):
+		// If the type is not correct
+		if ($information_array[$entry_id]['type'] !== $header_backend):
+			return; endif;
+
+		// If we're doing the first round but it already has parents
+		if (!(empty($information_array[$entry_id]['parents']['hierarchy'])) && empty($indent_array)):
 		
-			// If its parents are all another type, it will get to go ahead
-			if ($information_array[$entry_id_temp]['type'] !== $header_backend): continue; endif;
+			// However, if all its parents are the same type then we'll just output it there
+			foreach ($information_array[$entry_id]['parents']['hierarchy'] as $entry_id_temp):
 		
-			// If one of its parents is the same type, it'll output as a child then
-			$result_temp = 0;
+				// If its parents are all another type, it will get to go ahead
+				if ($information_array[$entry_id_temp]['type'] !== $header_backend): continue; endif;
+		
+				continue 2;
 	
 			endforeach;
 	
-		if ($result_temp == 0): return; endif;
-	
-		endif;
+			endif;
 
-	$indent_count = count($indent_array);
-	if ($indent_count > 16): $indent_count = 16; endif; // After 16, the indents just flatten out
+		$indent_count = count($indent_array);
+		if ($indent_count > 16): $indent_count = 16; endif; // After 16, the indents just flatten out
 	
 //	$fadeout_temp = null;
 //	if ($information_array[$entry_id]['type'] !== $header_backend):
 //		$fadeout_temp = "categories-item-fadeout";
 //		endif;
 	
-	$entry_list = [];
-	
-	// Display maps link
-	$map_temp = null;
-    	if (!(empty($information_array[$entry_id]['appendix']['latitude'])) && !(empty($information_array[$entry_id]['appendix']['longitude']))): 
-		$map_temp = "yes";
-		endif;
+		// Display maps link
+		$map_temp = null;
+	    	if (!(empty($information_array[$entry_id]['appendix']['latitude'])) && !(empty($information_array[$entry_id]['appendix']['longitude']))): 
+			$map_temp = "yes";
+			endif;
 
-	$entry_list[] = [
-		"entry_id"	=> $entry_id,
-		"map"		=> $map_temp,
-		"indent_count"	=> $indent_count,
-		];
+		$entries_organized[] = [
+			"entry_id"	=> $entry_id,
+			"map"		=> $map_temp,
+			"indent_count"	=> $indent_count,
+			];
 	
-	// If no children then we cut it off here
-	if (empty($information_array[$entry_id]['children']['hierarchy'])):
-		return $entry_list;
-		endif;
-		
-	$indent_array[] = $entry_id;
+		// If there are no children, just continue
+		if (empty($information_array[$entry_id]['children']['hierarchy'])): continue; endif;
 	
-	// Sets the ordering
-	$children_temp = array_intersect(array_keys($information_array), $information_array[$entry_id]['children']['hierarchy']);
-	foreach($children_temp as $child_id):
-		if ($child_id == $entry_id): continue; endif;
-		$result_temp = print_row_loop($header_backend, $child_id, $indent_array);
-		$entry_list = array_merge($entry_list, $result_temp);
+		$indent_array[] = $entry_id;
+	
+		$result_temp = print_row_loop($header_backend, $information_array[$entry_id]['children']['hierarchy'], $indent_array);
+		$entries_organized = array_merge($entries_organized, $result_temp);
+	
 		endforeach;
 	
-	return $entry_list;
-	
-	} ?>
+	return $entries_organized;
+
+	}
+
+	?>
