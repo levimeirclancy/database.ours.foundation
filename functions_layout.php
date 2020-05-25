@@ -152,11 +152,9 @@ function amp_header($title=null, $canonical=null) {
 		"settings-popover.close",
 		"new-popover.close",
 		"sidebar-navigation-lightbox-search.close",
+		"sidebar-navigation-lightbox-type.close",
 		];
 	$header_array_temp = array_merge(["main" => $domain], $header_array);
-	foreach (array_keys($header_array_temp) as $header_backend_temp):
-		$tap_temp[] = "sidebar-navigation-lightbox-". $header_backend_temp .".close";
-		endforeach;
 	
 	// This is the popover for the categories ...;
 	echo "<amp-lightbox id='sidebar-navigation' layout='nodisplay' on='lightboxClose:pageState.refresh,navigation-header.show;lightboxOpen:".implode(",", $tap_temp)."' scrollable>";
@@ -168,7 +166,7 @@ function amp_header($title=null, $canonical=null) {
 		
 		foreach ($header_array_temp as $header_backend => $header_frontend):
 			if (empty($type_counts_array[$header_backend]) && ($header_backend !== "main")): continue; endif;
-			echo "<div class='sidebar-navigation-button' role='button' tabindex='0' on='tap:". implode(",", $tap_temp) .",sidebar-navigation-lightbox-". $header_backend .".open'>". ucfirst($header_frontend) ."</div>";
+			echo "<div class='sidebar-navigation-button' role='button' tabindex='0' on=\"tap:". implode(",", $tap_temp) .",sidebar-navigation-lightbox-type.open,AMP.setstate({lightboxType: '".$header_backend."'})\">". ucfirst($header_frontend) ."</div>";
 			endforeach;
 	
 		echo "</amp-lightbox>";
@@ -206,35 +204,29 @@ function amp_header($title=null, $canonical=null) {
 
 		echo "</amp-lightbox>";
 	
-	foreach ($header_array as $header_backend => $header_frontend):
-		
-		if (empty($type_counts_array[$header_backend])): continue; endif;
+	echo "<amp-lightbox class='sidebar-navigation-lightbox' id='sidebar-navigation-lightbox-type' on='lightboxClose:sidebar-navigation-close.show;lightboxOpen:sidebar-navigation-close.hide,". implode(",", $tap_temp) ."' layout='nodisplay' scrollable>";
 
-		echo "<amp-lightbox class='sidebar-navigation-lightbox' id='sidebar-navigation-lightbox-".$header_backend."' on='lightboxClose:sidebar-navigation-close.show;lightboxOpen:sidebar-navigation-close.hide,". implode(",", $tap_temp) ."' layout='nodisplay' scrollable>";
-
-			echo "<div role='button' tabindex='0' on='tap:".implode(",", $tap_temp)."' class='popover-close'>Back</div>";	
+		echo "<div role='button' tabindex='0' on='tap:".implode(",", $tap_temp)."' class='popover-close'>Back</div>";	
 	
-			echo "<p>".number_format($type_counts_array[$header_backend])." ".$header_frontend."</p>";
+		echo "<p>".number_format($type_counts_array[$header_backend])." ".$header_frontend."</p>";
 	
-			echo "<amp-list id='sidebar-navigation-lightbox-search-list' layout='responsive' width='800' height='800' items='categories-array.".$header_backend."' max-items='100' binding='refresh' [src]='pageState'>";
-			echo "<p class='amp-list-fallback' fallback>No search results.</p>";
-			echo "<p class='amp-list-fallback' placeholder>Loading search results...</p>";
-//			echo "<p class='amp-list-fallback' overflow>Show more.</p>";
+		echo "<amp-list id='sidebar-navigation-lightbox-search-list' layout='responsive' width='800' height='800' [items]=\"'categories-array.\ + lightboxType\" max-items='100' binding='refresh' [src]='pageState'>";
+		echo "<p class='amp-list-fallback' fallback>No search results.</p>";
+		echo "<p class='amp-list-fallback' placeholder>Loading search results...</p>";
+//		echo "<p class='amp-list-fallback' overflow>Show more.</p>";
 
-			echo "<template type='amp-mustache'>";
-				echo "<span class='categories-item $fadeout_temp'>";
-				echo "<a href='/{{entry_id}}/'><span class='categories-item-title' [text]=\"pageState.information-array.{{entry_id}}.header\"></span></a>";
-				echo "{{#map}}<a href='/{{entry_id}}/map/' target='_blank'><span class='categories-item-button'>Map</span></a>{{/map}}";
-				echo "</span>";
-				echo "</template>";
-			echo "</amp-list>";
+		echo "<template type='amp-mustache'>";
+			echo "<span class='categories-item $fadeout_temp'>";
+			echo "<a href='/{{entry_id}}/'><span class='categories-item-title' [text]=\"pageState.information-array.{{entry_id}}.header\"></span></a>";
+			echo "{{#map}}<a href='/{{entry_id}}/map/' target='_blank'><span class='categories-item-button'>Map</span></a>{{/map}}";
+			echo "</span>";
+			echo "</template>";
+		echo "</amp-list>";
 	
-			echo "<span class='categories-item'></span>";
+		echo "<span class='categories-item'></span>";
 
-			echo "</amp-lightbox>";
+		echo "</amp-lightbox>";
 
-		endforeach;
-	
 	$tap_temp[] = "sidebar-navigation.close";
 		
 	// This is the popover to log in ...
