@@ -160,7 +160,7 @@ function amp_header($title=null, $canonical=null) {
 		echo "<div id='sidebar-navigation-close' role='button' tabindex='0' on='tap:sidebar-navigation.close' class='popover-close'>Back</div>";
 
 		echo "<input type='text' id='sidebar-navigation-search-input' placeholder='&#128270;' on=\"input-throttled:AMP.setState({pageState:{searchTerm: event.value.replace('  ',' ').replace('  ',' ').replace('?',' ').replace(',',' ').replace('&',' ')}}),sidebar-navigation-lightbox-search.close\">";
-		echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on='tap:sidebar-navigation-lightbox-search.open,sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search-list.changeToLayoutContainer()'>Search</div>";
+		echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on='tap:sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search-list.changeToLayoutContainer(),sidebar-navigation-lightbox-search.open'>Search</div>";
 	
 		foreach ($header_array_temp as $header_backend => $header_frontend):
 			echo "<div class='sidebar-navigation-button' role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: pageState.categoriesArray.".$header_backend."}),sidebar-navigation-lightbox-type.open,sidebar-navigation-lightbox-type-list.changeToLayoutContainer()\">". ucfirst($header_frontend) ."</div>";
@@ -185,6 +185,9 @@ function amp_header($title=null, $canonical=null) {
 				echo "</span>";
 				echo "</template>";
 			echo "</amp-list>";
+	
+		echo "<span class='categories-item'></span>";
+
 		echo "</amp-lightbox>";
 	
 	echo "<amp-lightbox class='sidebar-navigation-lightbox' id='sidebar-navigation-lightbox-main' on='lightboxClose:sidebar-navigation-close.show;lightboxOpen:sidebar-navigation-close.hide,". implode(",", $tap_temp) ."' layout='nodisplay' scrollable>";
@@ -202,7 +205,7 @@ function amp_header($title=null, $canonical=null) {
 
 		echo "<div role='button' tabindex='0' on='tap:".implode(",", $tap_temp)."' class='popover-close'>Back</div>";	
 	
-		echo "<p [text]=\"lightboxType\"></p>";
+//		echo "<p [text]=\"lightboxType\"></p>";
 	
 		echo "<amp-list id='sidebar-navigation-lightbox-type-list' layout='responsive' width='800' height='800' items='.' max-items='100' binding='refresh' [src]=\"pageStateType\">";
 			echo "<p class='amp-list-fallback' fallback>No entries in cateogry.</p>";
