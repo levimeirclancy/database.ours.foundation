@@ -72,7 +72,7 @@ echo "<div id='article-breadcrumbs'>";
 
 echo "<article><div vocab='http://schema.org/' typeof='Article'>";
 
-echo "<header><h1 property='name' amp-fx='parallax' data-parallax-factor='1.2'><span>" . implode("</span> &bull; <span>", $entry_info['name']) . "</span></h1></header>";
+echo "<header><h1 property='name' amp-fx='parallax' data-parallax-factor='1.2'><span>" . $entry_info['header'] . "</span></h1></header>";
 
 echo "<span property='articleBody'>";
 
