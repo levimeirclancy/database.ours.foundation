@@ -373,6 +373,9 @@ amp-lightbox {
 	padding: 6px 30px 6px 0;
 	margin: 0;
 	vertical-align: middle;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
 	}
 
 .categories-item-button {
@@ -1006,10 +1009,10 @@ div.amp-lightbox-media-id {
 	}
 
 .admin-page-form amp-selector span {
-	text-overflow: ellipsis;
 	padding: 6px 18px;
 	margin: 0;
 	display: block;
+	text-overflow: ellipsis;
 	white-space: nowrap;
 	overflow: hidden;
 	border-radius: 0;
