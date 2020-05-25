@@ -105,10 +105,10 @@ function print_row_loop ($header_backend, $entries_array=null, $indent_array=[])
 	
 		// If there are no children, just continue
 		if (empty($information_array[$entry_id]['children']['hierarchy'])): continue; endif;
+		
+		$indent_array_temp = array_merge($indent_array, [$entry_id]);
 	
-		$indent_array[] = $entry_id;
-	
-		$result_temp = print_row_loop($header_backend, $information_array[$entry_id]['children']['hierarchy'], $indent_array);
+		$result_temp = print_row_loop($header_backend, $information_array[$entry_id]['children']['hierarchy'], $indent_array_temp);
 		$entries_organized = array_merge($entries_organized, $result_temp);
 	
 		endforeach;
