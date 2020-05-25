@@ -25,6 +25,7 @@ a, a:link, a:visited, a:hover {
 	display: inline-block;
 	}
 
+
 /* BAR */
 
 .header {
@@ -391,6 +392,13 @@ amp-lightbox {
 	.categories-item-button { display: inline-block; }
 	}
 
+
+.categories-item-indent-wrapper {
+	display: inline;
+	max-width: 400px;
+	overflow: hidden;
+	}
+	
 
 .categories-item-indent {
 	float: left;
