@@ -59,24 +59,16 @@ function print_row_loop ($header_backend, $entries_array=null, $indent_array=[])
 	
 	// Let's set up the array of organized entries
 	$entries_organized = [];
-	
-	$entries_organized[] = "test0";
-	
+		
 	foreach ($entries_array as $entry_id):	
-
-	$entries_organized[] = "test1";
 	
 		// If the entry does not exist
 		if (!(array_key_exists($entry_id, $information_array))):
 			continue; endif;
 
-	$entries_organized[] = "test2";
-	
 		// If the type is not correct
 		if ($information_array[$entry_id]['type'] !== $header_backend):
 			continue; endif;
-
-	$entries_organized[] = "test3";
 	
 		// If we're doing the first round but it already has parents
 		if (!(empty($information_array[$entry_id]['parents']['hierarchy'])) && empty($indent_array)):
@@ -90,8 +82,6 @@ function print_row_loop ($header_backend, $entries_array=null, $indent_array=[])
 				endforeach;
 	
 			endif;
-	
-		$entries_organized[] = "test4";
 
 		$indent_count = count($indent_array);
 		if ($indent_count > 16): $indent_count = 16; endif; // After 16, the indents just flatten out
