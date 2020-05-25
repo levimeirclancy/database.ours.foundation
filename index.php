@@ -433,11 +433,7 @@ if ($page_temp == "api"):
 		$page_state['information-array'] = $information_array;
 
 		foreach ($header_array as $header_backend => $header_frontend):
-			$page_state['categories-array'][$header_backend] = [];
-			foreach($information_array as $entry_id => $entry_info):
-				$result_temp = print_row_loop ($header_backend, $entry_id);
-				$page_state['categories-array'][$header_backend] = array_merge($page_state['categories-array'][$header_backend], $result_temp);
-				endforeach;
+			$page_state['categories-array'][$header_backend] = print_row_loop ($header_backend, array_keys($information_array), []);
 			endforeach;
 
 		if (empty($login)): $page_state['login'] = ["loginStatus"=>"loggedout", "login"=>null, "countdown"=>null, ];
