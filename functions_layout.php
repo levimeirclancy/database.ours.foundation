@@ -166,7 +166,7 @@ function amp_header($title=null, $canonical=null) {
 		
 		foreach ($header_array_temp as $header_backend => $header_frontend):
 			if (empty($type_counts_array[$header_backend]) && ($header_backend !== "main")): continue; endif;
-			echo "<div class='sidebar-navigation-button' role='button' tabindex='0' on=\"tap:". implode(",", $tap_temp) .",AMP.setstate({pageStateType: pageState.categories-array.".$header_backend."}),sidebar-navigation-lightbox-type.open\">". ucfirst($header_frontend) ."</div>";
+			echo "<div class='sidebar-navigation-button' role='button' tabindex='0' on=\"tap:". implode(",", $tap_temp) .",AMP.setState({pageStateType: pageState.categories-array.".$header_backend."}),sidebar-navigation-lightbox-type.open\">". ucfirst($header_frontend) ."</div>";
 			endforeach;
 	
 		echo "</amp-lightbox>";
