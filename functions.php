@@ -105,7 +105,6 @@ function print_row_loop ($header_backend, $entry_id=null, $indent_array=[]) {
 
 	$entry_list[] = [
 		"entry_id"	=> $entry_id,
-		"header"	=> $information_array[$entry_id]['header'],
 		"map"		=> $map_temp,
 		"indent_count"	=> $indent_count,
 		];
