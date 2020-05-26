@@ -475,6 +475,10 @@ h4, h5, h6 {
 	text-align: left;
 	}
 
+.article-genealogy {
+	border-width: 0 0 2px 0;
+	}
+
 .article-genealogy b {
 	display: block;
 	column-span: all;
