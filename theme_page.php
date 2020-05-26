@@ -9,17 +9,19 @@ foreach ($result as $row):
 	$entry_info['studies'] = $row['studies'];
 	endforeach;
 
-function relationships_array($hierarchy_temp, $descriptor_temp) {
+function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 	
 	global $information_array;
-	global $entry_info;
 
-	// Isolate the array we want
-	if (empty($entry_info[$hierarchy_temp]['hierarchy'])): $entry_info[$hierarchy_temp]['hierarchy'] = []; endif;
-	$array_temp = array_filter($entry_info[$hierarchy_temp]['hierarchy']);
-	$array_temp = array_unique($entry_info[$hierarchy_temp]['hierarchy']);
+	// If empty, just move on
+	if (empty($information_array[$entry_id][$hierarchy_temp]['hierarchy'])): return; endif;
 	
-	// Sets the ordering and ensures they exist
+	// If not empty, let's clean it up
+	$array_temp = $information_array[$entry_id][$hierarchy_temp]['hierarchy'];
+	$array_temp = array_filter($array_temp);
+	$array_temp = array_unique($array_temp);
+	
+	// Sets the ordering and ensures the entry IDs exist
 	$array_temp = array_intersect(array_keys($information_array), $array_temp);
 
 	// Get the output array ready	
@@ -82,8 +84,8 @@ echo "<div class='article-info' amp-fx='parallax' data-parallax-factor='1.2'>";
 
 	echo "</div>";
 
-	relationships_array("parents", "Parent");
-	relationships_array("children", "Subpage");
+	relationships_array($entry_id, "parents", "Parent");
+	relationships_array($entry_id, "children", "Subpage");
 
 	echo "</div>";
 
