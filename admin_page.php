@@ -66,10 +66,6 @@ echo "<form action-xhr='/edit-xhr/' method='post' class='admin-page-form' id='sa
 			admin-page-form-save.show
 		\">";
 
-
-$result_temp = file_get_contents("https://".$domain."/api/sitemap/");
-$additional_array = json_decode($result_temp, true);
-
 echo "<input type='hidden' name='entry_id' value='$page_temp'>";
 
 echo "<h1 amp-fx='parallax' data-parallax-factor='1.05'><a href='https://".$domain."/".$page_temp."/' target='_blank'>".$domain."/".$page_temp."/</a></h1>";
@@ -154,6 +150,7 @@ function hierarchy_selector ($relationship_name, $possible_array=[]) {
 	global $page_temp;
 	global $entry_info;
 	global $header_array;
+	global $information_array;
 
 	echo "<label for='". $relationship_name ."[]'>".ucwords($relationship_name)."</label>";
 	echo "<amp-selector layout='container' name='". $relationship_name ."[]' multiple><div>";
@@ -161,27 +158,29 @@ function hierarchy_selector ($relationship_name, $possible_array=[]) {
 	if (!(empty($entry_info['hierarchy'][$relationship_name]))): echo "<span option='clear_selection' style='font-style: italic;'>Clear selection</span>";
 	else: $entry_info['hierarchy'][$relationship_name] = []; endif;
 
+	$entry_info[$relationship_name]['hierarchy'] = array_intersect($possible_array, $entry_info[$relationship_name]['hierarchy']);
+	
 	foreach ($entry_info[$relationship_name]['hierarchy'] as $entry_id_temp):
-		if (empty($possible_array[$entry_id_temp])): continue; endif;
-		if (empty($possible_array[$entry_id_temp]['name'])): continue; endif;
+		if (!(in_array($entry_id_temp,$possible_array))): continue; endif;
+		if (empty($information_array[$entry_id_temp]['header'])): continue; endif;
 		if ($page_temp == $entry_id_temp): continue; endif;
 		echo "<span option='".$entry_id_temp."' selected>";
 		echo $possible_array[$entry_id_temp]['header'] . " • ". $header_array[$possible_array[$entry_id_temp]['type']];
 		echo "</span>"; endforeach;
 	foreach ($possible_array as $entry_id_temp => $entry_info_temp):
 		if ($page_temp == $entry_id_temp): continue; endif;
-		if (empty($possible_array[$entry_id_temp]['name'])): continue; endif;
+		if (empty($information_array[$entry_id_temp]['header'])): continue; endif;
 		if (in_array($entry_id_temp, $entry_info[$relationship_orientation][$relationship_name])): continue; endif;
 		echo "<span option='".$entry_id_temp."'>";
-		echo $possible_array[$entry_id_temp]['header'] . " • ". $header_array[$possible_array[$entry_id_temp]['type']];
+		echo $information_array[$entry_id_temp]['header'] . " • ". $header_array[$information_array[$entry_id_temp]['type']];
 		echo "</span>";
 		endforeach;
 	echo "</div></amp-selector>"; }
 
 echo "<input type='hidden' name='parents[]'>";
 echo "<input type='hidden' name='children[]'>";
-hierarchy_selector("parents", $additional_array);
-hierarchy_selector("children", $additional_array);
+hierarchy_selector("parents", array_keys($information_array));
+hierarchy_selector("children", array_keys($information_array));
 
 echo "<h2 id='more'>More...</h2>";
 
