@@ -164,7 +164,7 @@ function hierarchy_selector ($entry_id, $relationship_name, $possible_array) {
 		if (empty($information_array[$entry_id_temp]['header'])): continue; endif;
 		if ($entry_id == $entry_id_temp): continue; endif;
 		echo "<span option='".$entry_id_temp."' selected>";
-		echo $possible_array[$entry_id_temp]['header'] . " • ". $header_array[$possible_array[$entry_id_temp]['type']];
+		echo $information_array[$entry_id_temp]['header'] . " • ". $header_array[$information_array[$entry_id_temp]['type']];
 		echo "</span>"; endforeach;
 	foreach ($possible_array as $entry_id_temp):
 		if (in_array($entry_id_temp, $information_array[$entry_id][$relationship_name]['hierarchy'])): continue; endif;
