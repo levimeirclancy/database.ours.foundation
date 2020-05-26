@@ -50,10 +50,10 @@ echo "<div id='article-breadcrumbs' amp-fx='parallax' data-parallax-factor='1.2'
 	// Edit
 	$login_hidden = $logout_hidden = "navigation-header-item"; // This would mean that buttons to login AND logout are shown
 	(empty($login) ? $logout_hidden = "hide" : $login_hidden = "hide");
-	echo "<p [class]=\"pageState.login.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='".$logout_hidden."'><a href='/".$page_temp."/edit/'>Edit entry</a></p>";
+	echo "<span [class]=\"pageState.login.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='".$logout_hidden."'><a href='/".$page_temp."/edit/'>Edit entry</a></span>";
 
 	// Type
-	echo "<p role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: pageState.categoriesArray.".$entry_info['type']."}),sidebar-navigation.open,sidebar-navigation-lightbox-type.open\">Type: ".$header_array[$entry_info['type']]."</p>";
+	echo "<span role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: pageState.categoriesArray.".$entry_info['type']."}),sidebar-navigation.open,sidebar-navigation-lightbox-type.open\">Type: ".$header_array[$entry_info['type']]."</span>";
 
 	// GPS
 	if (!(empty($entry_info['appendix']['latitude'])) && !(empty($entry_info['appendix']['longitude']))):
