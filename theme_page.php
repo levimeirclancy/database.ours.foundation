@@ -38,6 +38,10 @@ function relationships_array($hierarchy_temp, $descriptor_temp) {
 	echo "<div class='article-genealogy' amp-fx='parallax' data-parallax-factor='1.25'><b>". $plural_temp ."</b>".implode(null, $array_temp)."</div>";
 	}
 
+echo "<article><div vocab='http://schema.org/' typeof='Article'>";
+
+echo "<header><h1 property='name' amp-fx='parallax' data-parallax-factor='1.2'><span>" . $entry_info['header'] . "</span></h1></header>";
+
 // Crumbs and GPS ...
 echo "<div id='article-breadcrumbs'>";
 
@@ -69,10 +73,6 @@ echo "<div id='article-breadcrumbs'>";
 	relationships_array("children", "Subpage");
 
 	echo "</div>";
-
-echo "<article><div vocab='http://schema.org/' typeof='Article'>";
-
-echo "<header><h1 property='name' amp-fx='parallax' data-parallax-factor='1.2'><span>" . $entry_info['header'] . "</span></h1></header>";
 
 echo "<span property='articleBody'>";
 
