@@ -35,17 +35,17 @@ function relationships_array($hierarchy_temp, $descriptor_temp) {
 	if (count($array_temp) > 1): $plural_temp .= "s (". count($array_temp) .")"; endif;
 
 	// Finally echo it out
-	echo "<div class='article-genealogy' amp-fx='parallax' data-parallax-factor='1.25'><b>". $plural_temp ."</b>".implode(null, $array_temp)."</div>";
+	echo "<div class='article-genealogy'><b>". $plural_temp ."</b>".implode(null, $array_temp)."</div>";
 	}
 
 echo "<article><div vocab='http://schema.org/' typeof='Article'>";
 
-echo "<header><h1 property='name' amp-fx='parallax' data-parallax-factor='1.2'><span>" . $entry_info['header'] . "</span></h1></header>";
+echo "<header><h1 property='name' amp-fx='parallax' data-parallax-factor='1.3'><span>" . $entry_info['header'] . "</span></h1></header>";
 
 // Crumbs and GPS ...
-echo "<div id='article-breadcrumbs'>";
+echo "<div id='article-breadcrumbs' amp-fx='parallax' data-parallax-factor='1.2'>";
 
-	echo "<div class='article-genealogy' amp-fx='parallax' data-parallax-factor='1.25'><b>Metadata</b>";
+	echo "<div class='article-genealogy'><b>Metadata</b>";
 
 	// Edit
 	$login_hidden = $logout_hidden = "test"; 
@@ -53,7 +53,7 @@ echo "<div id='article-breadcrumbs'>";
 	echo "<p [class]=\"pageState.login.loginStatus == 'loggedin' ? 'test' : 'hide'\" class='$login_hidden'><a href='/".$page_temp."/edit/'>Edit entry</a></p>";
 
 	// Type
-	echo "<p role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: pageState.categoriesArray.".$entry_info['type']."}),sidebar-navigation-lightbox-type.open\">Type: ".$header_array[$entry_info['type']]."</p>";
+	echo "<p role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: pageState.categoriesArray.".$entry_info['type']."}),sidebar-navigation.open,sidebar-navigation-lightbox-type.open\">Type: ".$header_array[$entry_info['type']]."</p>";
 
 	// GPS
 	if (!(empty($entry_info['appendix']['latitude'])) && !(empty($entry_info['appendix']['longitude']))):
