@@ -430,6 +430,7 @@ h4, h5, h6 {
 	}
 
 .article-info {
+	display: block;
 	position: relative;
 	padding: 0;
 	margin: 0 0 40px 0;
