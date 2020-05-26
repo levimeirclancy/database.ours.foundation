@@ -45,18 +45,20 @@ echo "<header><h1 property='name' amp-fx='parallax' data-parallax-factor='1.2'><
 // Crumbs and GPS ...
 echo "<div id='article-breadcrumbs'>";
 
+	echo "<div class='article-genealogy' amp-fx='parallax' data-parallax-factor='1.25'><b>Metadata</b>";
+
 	// Edit button
 	empty($login) ? $login_hidden = "hide" : $login_hidden = "navigation-header-item";
-	echo "<a href='/".$page_temp."/edit/'><span id='edit-entry' amp-fx='parallax' data-parallax-factor='1.3' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='$login_hidden'>&#10033; Edit</span></a>";
+	echo "<p><a href='/".$page_temp."/edit/'><span id='edit-entry' amp-fx='parallax' data-parallax-factor='1.3' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='$login_hidden'>&#10033; Edit</span></a></p>";
 
 	// Type
-	echo "<div amp-fx='parallax' data-parallax-factor='1.3' role='button' tabindex='0' on='tap:tap:sidebar-navigation.open,sidebar-navigation-lightbox-".$entry_info['type'].".open'>Type: ".$header_array[$entry_info['type']]."</div>";
+	echo "<p role='button' tabindex='0' on=\"tap:tap:tap:AMP.setState({pageStateType: pageState.categoriesArray.".$entry_info['type']."}),sidebar-navigation-lightbox-type.open\:>Type: ".$header_array[$entry_info['type']]."</p>";
 
 	// GPS
 	if (!(empty($entry_info['appendix']['latitude'])) && !(empty($entry_info['appendix']['longitude']))):
-		echo "<div amp-fx='parallax' data-parallax-factor='1.3'><a href='https://".$domain."/".$entry_info['entry_id']."/map/' target='_blank'>";
+		echo "<p><a href='https://".$domain."/".$entry_info['entry_id']."/map/' target='_blank'>";
 		echo substr($entry_info['appendix']['latitude'],0,6).", ".substr($entry_info['appendix']['longitude'],0,6);
-		echo " (GPS)</a></div>";
+		echo " (GPS)</a></p>";
 		endif;
 
 	$languages_temp = [];
@@ -66,8 +68,10 @@ echo "<div id='article-breadcrumbs'>";
 	if (count($languages_temp) > 1):
 		$language_array_temp = [];
 		foreach($languages_temp as $language_temp): $language_array_temp[] = "<a href='#".$language_temp."'>".ucfirst($language_temp)."</a>"; endforeach;
-		echo "<div>Languages > ". implode("&nbsp;&nbsp;|&nbsp;&nbsp;", $language_array_temp)."</div>";
+		echo "<p>Languages > ". implode("&nbsp;&nbsp;|&nbsp;&nbsp;", $language_array_temp)."</p>";
 		endif;
+
+	echo "</div>";
 
 	relationships_array("parents", "Parent");
 	relationships_array("children", "Subpage");
