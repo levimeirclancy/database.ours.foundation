@@ -451,8 +451,12 @@ h4, h5, h6 {
 	font-size: 80%;
 	}
 
-#article-breadcrumbs, #article-breadcrumbs p {
+#article-breadcrumbs b {
 	font-family: Assistant;
+	}
+
+#article-breadcrumbs b {
+	font-family: Roboto;
 	}
 
 
