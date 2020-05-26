@@ -47,7 +47,7 @@ echo "<div id='article-breadcrumbs'>";
 
 	// Edit button
 	empty($login) ? $login_hidden = "hide" : $login_hidden = "navigation-header-item";
-	echo "<a href='/".$page_temp."/edit/'><span id='edit-entry' amp-fx='parallax' data-parallax-factor='1.3' [class]=\"pageState.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='$login_hidden'>&#10033; Edit</span></a>";
+	echo "<a href='/".$page_temp."/edit/'><span id='edit-entry' amp-fx='parallax' data-parallax-factor='1.3' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='$login_hidden'>&#10033; Edit</span></a>";
 
 	// Type
 	echo "<div amp-fx='parallax' data-parallax-factor='1.3' role='button' tabindex='0' on='tap:tap:sidebar-navigation.open,sidebar-navigation-lightbox-".$entry_info['type'].".open'>Type: ".$header_array[$entry_info['type']]."</div>";
