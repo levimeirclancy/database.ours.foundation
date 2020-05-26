@@ -38,6 +38,10 @@ function relationships_array($hierarchy_temp, $descriptor_temp) {
 	echo "<div class='article-genealogy' amp-fx='parallax' data-parallax-factor='1.25'><b>". $plural_temp ."</b>".implode(null, $array_temp)."</div>";
 	}
 
+// Edit button
+empty($login) ? $login_hidden = "hide" : $login_hidden = "navigation-header-item";
+echo "<p><a href='/".$page_temp."/edit/'><span id='edit-entry' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='$login_hidden'>Edit entry</span></a></p>";
+
 echo "<article><div vocab='http://schema.org/' typeof='Article'>";
 
 echo "<header><h1 property='name' amp-fx='parallax' data-parallax-factor='1.2'><span>" . $entry_info['header'] . "</span></h1></header>";
@@ -46,10 +50,6 @@ echo "<header><h1 property='name' amp-fx='parallax' data-parallax-factor='1.2'><
 echo "<div id='article-breadcrumbs'>";
 
 	echo "<div class='article-genealogy' amp-fx='parallax' data-parallax-factor='1.25'><b>Metadata</b>";
-
-	// Edit button
-	empty($login) ? $login_hidden = "hide" : $login_hidden = "navigation-header-item";
-	echo "<p><a href='/".$page_temp."/edit/'><span id='edit-entry' amp-fx='parallax' data-parallax-factor='1.3' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='$login_hidden'>&#10033; Edit</span></a></p>";
 
 	// Type
 	echo "<p role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: pageState.categoriesArray.".$entry_info['type']."}),sidebar-navigation-lightbox-type.open\">Type: ".$header_array[$entry_info['type']]."</p>";
