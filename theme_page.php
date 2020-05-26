@@ -66,16 +66,16 @@ echo "<div class='article-info' amp-fx='parallax' data-parallax-factor='1.2'>";
 	// Add one for person stuff like demographics
 	// Add one for term-related stuff
 
-//	$languages_temp = [];
-//	if (!(empty($entry_info['summary']))): $languages_temp = array_merge($languages_temp, array_keys($entry_info['summary'])); endif;
-//	if (!(empty($entry_info['body']))): $languages_temp = array_merge($languages_temp, array_keys($entry_info['body'])); endif;
-//	if (!(empty($languages_temp))): $languages_temp = array_unique($languages_temp); endif;
-//	if (count($languages_temp) > 1):
-//		$language_array_temp = [];
-//		foreach($languages_temp as $language_temp):
-//			echo "<span class='article-info-section-item'><a href='#".$language_temp."'>".ucfirst($language_temp)."</a></span>";
-//			endforeach;
-//		endif;
+	$languages_temp = [];
+	if (!(empty($entry_info['summary']))): $languages_temp = array_merge($languages_temp, array_keys($entry_info['summary'])); endif;
+	if (!(empty($entry_info['body']))): $languages_temp = array_merge($languages_temp, array_keys($entry_info['body'])); endif;
+	if (!(empty($languages_temp))): $languages_temp = array_unique($languages_temp); endif;
+	if (count($languages_temp) > 1):
+		$language_array_temp = [];
+		foreach($languages_temp as $language_temp):
+			echo "<span class='article-info-section-item'><a href='#".$language_temp."'>".ucfirst($language_temp)."</a></span>";
+			endforeach;
+		endif;
 
 	// Edit
 	$login_hidden = $logout_hidden = "article-info-section-item"; // This would mean that buttons to login AND logout are shown
