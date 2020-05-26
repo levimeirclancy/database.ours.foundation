@@ -76,7 +76,7 @@ echo "<div class='article-genealogy' amp-fx='parallax' data-parallax-factor='1.2
 	// Edit
 	$login_hidden = $logout_hidden = "article-genealogy-item"; // This would mean that buttons to login AND logout are shown
 	(empty($login) ? $logout_hidden = "hide" : $login_hidden = "hide");
-	echo "<span [class]=\"pageState.login.loginStatus == 'loggedin' ? 'article-genealogy-section-item' : 'hide'\" class='".$logout_hidden."'><a href='/".$page_temp."/edit/'>Edit entry</a></span>";
+	echo "<a href='/".$page_temp."/edit/'><span [class]=\"pageState.login.loginStatus == 'loggedin' ? 'article-genealogy-section-item' : 'hide'\" class='".$logout_hidden."'>Edit entry</span></a>";
 
 	echo "</div>";
 
