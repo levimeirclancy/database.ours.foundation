@@ -48,9 +48,9 @@ echo "<div id='article-breadcrumbs'>";
 	echo "<div class='article-genealogy' amp-fx='parallax' data-parallax-factor='1.25'><b>Metadata</b>";
 
 	// Edit
-	$login_hidden = $logout_hidden = null; 
+	$login_hidden = $logout_hidden = "test"; 
 	empty($login) ? $login_hidden = "hide" : $login_hidden = null;
-	echo "<p [class]=\"pageState.login.loginStatus == 'loggedin' ? '' : 'hide'\" class='$login_hidden'><a href='/".$page_temp."/edit/'>Edit entry</a></p>";
+	echo "<p [class]=\"pageState.login.loginStatus == 'loggedin' ? 'test' : 'hide'\" class='$login_hidden'><a href='/".$page_temp."/edit/'>Edit entry</a></p>";
 
 	// Type
 	echo "<p role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: pageState.categoriesArray.".$entry_info['type']."}),sidebar-navigation-lightbox-type.open\">Type: ".$header_array[$entry_info['type']]."</p>";
