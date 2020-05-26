@@ -378,7 +378,7 @@ header {
 
 h1, h2, h3, h4, h5, h6 {
 	width: auto;
-	max-width: 1000px; 
+	max-width: 850px; 
 	border: 0;
 	display: block;
 	clear: both;
@@ -509,7 +509,7 @@ hr + hr {
 
 p, summary, ul, ol, blockquote {
 	width: auto;
-	max-width: 900px; 
+	max-width: 850px; 
 	border: 0;
 	display: block;
 	clear: both;
@@ -569,7 +569,7 @@ blockquote cite, blockquote cite a {
 
 blockquote blockquote {
 	width: 80%;
-	max-width: 1000px;
+	max-width: 850px;
 	margin: 20px auto; }
 
 blockquote blockquote p {
@@ -631,14 +631,14 @@ td p, li p {
 	margin: 0;
 	padding: 0;
 	width: auto;
-	max-width: 1000px; }
+	max-width: 850px; }
 
 td p + p, li p + p {
 	margin-top: 20px; }
 
 ul, ol {
 	width: auto;
-	max-width: 1000px;	
+	max-width: 850px;	
 	margin: 30px 30px 30px 35px;
 	padding: 0 0 10px 0;
 	list-style-position: outside;
