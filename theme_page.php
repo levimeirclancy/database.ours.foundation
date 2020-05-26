@@ -10,7 +10,9 @@ foreach ($result as $row):
 	endforeach;
 
 function relationships_array($hierarchy_temp, $descriptor_temp) {
+	
 	global $information_array;
+	global $entry_info;
 
 	// Isolate the array we want
 	if (empty($entry_info[$hierarchy_temp]['hierarchy'])): $entry_info[$hierarchy_temp]['hierarchy'] = []; endif;
