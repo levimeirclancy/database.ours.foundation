@@ -49,7 +49,7 @@ echo "<div id='article-breadcrumbs'>";
 
 	// Edit
 	empty($login) ? $login_hidden = "hide" : $login_hidden = null;
-	echo "<p id='edit-entry' [class]=\"pageState.login.loginStatus == 'loggedin' ? '' : 'hide'\" class='$login_hidden'><a href='/".$page_temp."/edit/'>Edit entry</a></p>";
+	echo "<p [class]=\"pageState.login.loginStatus == 'loggedin' ? '' : 'hide'\" class='$login_hidden'><a href='/".$page_temp."/edit/'>Edit entry</a></p>";
 
 	// Type
 	echo "<p role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: pageState.categoriesArray.".$entry_info['type']."}),sidebar-navigation-lightbox-type.open\">Type: ".$header_array[$entry_info['type']]."</p>";
