@@ -33,10 +33,10 @@ function relationships_array($hierarchy_temp, $descriptor_temp) {
 	if (empty($array_output_temp)): return; endif;
 		
 	// Finally echo it out
-	echo "<div class='article-genealogy'>";
-	echo "<span class='article-genealogy-caption'>". $descriptor_temp ." list</span>";
+	echo "<div class='article-genealogy-section'>";
+	echo "<span class='article-genealogy-section-caption'>". $descriptor_temp ." list</span>";
 	foreach ($array_output_temp as $entry_id_temp => $entry_header_temp):
-		echo "<span class='article-genealogy-item'><a href='/".$entry_id_temp."/'>".$entry_header_temp."</a></span>";
+		echo "<span class='article-genealogy-section-item'><a href='/".$entry_id_temp."/'>".$entry_header_temp."</a></span>";
 		endforeach;
 	echo "</div>"; }
 
@@ -45,19 +45,22 @@ echo "<article><div vocab='http://schema.org/' typeof='Article'>";
 echo "<header><h1 property='name' amp-fx='parallax' data-parallax-factor='1.3'><span>" . $entry_info['header'] . "</span></h1></header>";
 
 // Crumbs and GPS ...
-echo "<div id='article-breadcrumbs' amp-fx='parallax' data-parallax-factor='1.2'>";
+echo "<div class='article-genealogy' amp-fx='parallax' data-parallax-factor='1.2'>";
 
-	echo "<div class='article-genealogy'><span class='article-genealogy-caption'>Metadata</span>";
+	echo "<div class='article-genealogy-section'><span class='article-genealogy-section-caption'>Metadata</span>";
 
 	// Type
-	echo "<span class='article-genealogy-item' role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: pageState.categoriesArray.".$entry_info['type']."}),sidebar-navigation.open,sidebar-navigation-lightbox-type.open\">Type: ".$header_array[$entry_info['type']]."</span>";
+	echo "<span class='article-genealogy-section-item' role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: pageState.categoriesArray.".$entry_info['type']."}),sidebar-navigation.open,sidebar-navigation-lightbox-type.open\">Type: ".$header_array[$entry_info['type']]."</span>";
 
 	// GPS
 	if (!(empty($entry_info['appendix']['latitude'])) && !(empty($entry_info['appendix']['longitude']))):
-		echo "<span class='article-genealogy-item'><a href='https://".$domain."/".$entry_info['entry_id']."/map/' target='_blank'>";
+		echo "<span class='article-genealogy-section-item'><a href='https://".$domain."/".$entry_info['entry_id']."/map/' target='_blank'>";
 		echo substr($entry_info['appendix']['latitude'],0,6).", ".substr($entry_info['appendix']['longitude'],0,6);
 		echo " (GPS)</a></span>";
 		endif;
+
+	// Add one for person stuff like demographics
+	// Add one for term-related stuff
 
 //	$languages_temp = [];
 //	if (!(empty($entry_info['summary']))): $languages_temp = array_merge($languages_temp, array_keys($entry_info['summary'])); endif;
@@ -66,14 +69,14 @@ echo "<div id='article-breadcrumbs' amp-fx='parallax' data-parallax-factor='1.2'
 //	if (count($languages_temp) > 1):
 //		$language_array_temp = [];
 //		foreach($languages_temp as $language_temp):
-//			echo "<span class='article-genealogy-item'><a href='#".$language_temp."'>".ucfirst($language_temp)."</a></span>";
+//			echo "<span class='article-genealogy-section-item'><a href='#".$language_temp."'>".ucfirst($language_temp)."</a></span>";
 //			endforeach;
 //		endif;
 
 	// Edit
 	$login_hidden = $logout_hidden = "article-genealogy-item"; // This would mean that buttons to login AND logout are shown
 	(empty($login) ? $logout_hidden = "hide" : $login_hidden = "hide");
-	echo "<span [class]=\"pageState.login.loginStatus == 'loggedin' ? 'article-genealogy-item' : 'hide'\" class='".$logout_hidden."'><a href='/".$page_temp."/edit/'>Edit entry</a></span>";
+	echo "<span [class]=\"pageState.login.loginStatus == 'loggedin' ? 'article-genealogy-section-item' : 'hide'\" class='".$logout_hidden."'><a href='/".$page_temp."/edit/'>Edit entry</a></span>";
 
 	echo "</div>";
 
