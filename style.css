@@ -429,13 +429,13 @@ h4, h5, h6 {
 	padding: 8px 12px;
 	}
 
-.article-genealogy {
+.article-info {
 	position: relative;
 	padding: 20px;
 	margin: 0;
 	}
 
-.article-genealogy-section {
+.article-info-section {
 	margin: 20px;
 	padding: 20px;
 	border-width: 2px 0 2px 0;
@@ -449,12 +449,12 @@ h4, h5, h6 {
 	text-align: left;
 	}
 
-.article-genealogy-section + .article-genealogy-section {
+.article-info-section + .article-info-section {
 	border-width: 0 0 2px 0;
 	padding-top: 0;
 	}
 
-.article-genealogy-section-caption {
+.article-info-section-caption {
 	display: block;
 	column-span: all;
 	padding: 0;
@@ -463,7 +463,7 @@ h4, h5, h6 {
 	font-size: 80%;
 	}
 
-.article-genealogy-section-item {
+.article-info-section-item {
 	display: inline-block;
 	white-space: nowrap;
 	overflow: hidden;
