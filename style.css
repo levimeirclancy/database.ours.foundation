@@ -424,17 +424,18 @@ h4, h5, h6 {
 
 #article-breadcrumbs {
 	position: relative;
-	padding: 0 100px 0 20px;
-	margin: 0;
-	font-size: 80%;
+	padding: 20px;
+	margin: 20px;
 	}
 
 #article-breadcrumbs b {
 	font-family: Assistant;
+	font-size: 80%;
 	}
 
 #article-breadcrumbs p {
 	font-family: Roboto, Helvetica;
+	font-size: 70%;
 	}
 
 
@@ -449,7 +450,7 @@ h4, h5, h6 {
 	}
 
 .article-genealogy {
-	margin: 20px auto;
+	margin: 20px;
 	padding: 20px;
 	border-width: 2px 0 2px 0;
 	border-style: solid;
