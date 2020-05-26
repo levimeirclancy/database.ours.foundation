@@ -477,6 +477,7 @@ h4, h5, h6 {
 
 .article-genealogy + .article-genealogy {
 	border-width: 0 0 2px 0;
+	padding-top: 0;
 	}
 
 .article-genealogy b {
