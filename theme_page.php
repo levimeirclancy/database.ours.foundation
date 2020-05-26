@@ -35,7 +35,7 @@ function relationships_array($hierarchy_temp, $descriptor_temp) {
 	if (count($array_temp) > 1): $plural_temp .= "s (". count($array_temp) .")"; endif;
 
 	// Finally echo it out
-	echo "<div class='article-genealogy'><b>". $plural_temp ."</b>".implode(null, $array_temp)."</div>";
+	echo "<div class='article-genealogy'><span class='article-genealogy-caption'>". $plural_temp ."</span>".implode(null, $array_temp)."</div>";
 	}
 
 echo "<article><div vocab='http://schema.org/' typeof='Article'>";
@@ -45,21 +45,21 @@ echo "<header><h1 property='name' amp-fx='parallax' data-parallax-factor='1.3'><
 // Crumbs and GPS ...
 echo "<div id='article-breadcrumbs' amp-fx='parallax' data-parallax-factor='1.2'>";
 
-	echo "<div class='article-genealogy'><b>Metadata</b>";
+	echo "<div class='article-genealogy'><span class='article-genealogy-caption'>Metadata</span>";
 
 	// Edit
-	$login_hidden = $logout_hidden = "navigation-header-item-jdfgnlsdfgndskgn"; // This would mean that buttons to login AND logout are shown
+	$login_hidden = $logout_hidden = "article-genealogy-item"; // This would mean that buttons to login AND logout are shown
 	(empty($login) ? $logout_hidden = "hide" : $login_hidden = "hide");
-	echo "<span [class]=\"pageState.login.loginStatus == 'loggedin' ? 'navigation-header-item-jdfgnlsdfgndskgn' : 'hide'\" class='".$logout_hidden."'><a href='/".$page_temp."/edit/'>Edit entry</a></span>";
+	echo "<span [class]=\"pageState.login.loginStatus == 'loggedin' ? 'article-genealogy-item' : 'hide'\" class='".$logout_hidden."'><a href='/".$page_temp."/edit/'>Edit entry</a></span>";
 
 	// Type
 	echo "<span role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: pageState.categoriesArray.".$entry_info['type']."}),sidebar-navigation.open,sidebar-navigation-lightbox-type.open\">Type: ".$header_array[$entry_info['type']]."</span>";
 
 	// GPS
 	if (!(empty($entry_info['appendix']['latitude'])) && !(empty($entry_info['appendix']['longitude']))):
-		echo "<p><a href='https://".$domain."/".$entry_info['entry_id']."/map/' target='_blank'>";
+		echo "<span class='article-genealogy-item'><a href='https://".$domain."/".$entry_info['entry_id']."/map/' target='_blank'>";
 		echo substr($entry_info['appendix']['latitude'],0,6).", ".substr($entry_info['appendix']['longitude'],0,6);
-		echo " (GPS)</a></p>";
+		echo " (GPS)</a></span>";
 		endif;
 
 	$languages_temp = [];
