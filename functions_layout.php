@@ -72,6 +72,7 @@ function amp_header($title=null, $canonical=null) {
 	
 	// loading fonts
 	echo '<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">';
+	echo '<link href="https://fonts.googleapis.com/css2?family=Assistant:wght@800&display=swap" rel="stylesheet">';
 	echo '<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">';
 	
 	echo "<title>" . $title . "</title>";
