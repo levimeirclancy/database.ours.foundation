@@ -10,33 +10,35 @@ foreach ($result as $row):
 	endforeach;
 
 function relationships_array($hierarchy_temp, $descriptor_temp) {
-	global $entry_info;
+	global $information_array;
 
 	// Isolate the array we want
 	if (empty($entry_info[$hierarchy_temp]['hierarchy'])): $entry_info[$hierarchy_temp]['hierarchy'] = []; endif;
 	$array_temp = array_filter($entry_info[$hierarchy_temp]['hierarchy']);
 	$array_temp = array_unique($entry_info[$hierarchy_temp]['hierarchy']);
-		
-	// 
-	foreach ($array_temp as $key_temp => $parent_id_temp):
-		unset($array_temp[$key_temp]);
-		$contents_temp = body_process("{{{". $parent_id_temp ."}}}");
-		if (empty($contents_temp)): continue; endif;
-		// Add a random code in case two entries have the same name
-		$array_temp[strip_tags($contents_temp).random_code(5)] = $contents_temp;
+	
+	// Sets the ordering and ensures they exist
+	$array_temp = array_intersect(array_keys($information_array), $array_temp);
+
+	// Get the output array ready	
+	$array_output_temp = [];
+	
+	// Get the headers
+	foreach ($array_temp as $entry_id_temp):
+		if (empty($information_array[$entry_id_temp]['header'])): continue; endif;
+		$array_output_temp[$entry_id_temp] = $information_array[$entry_id_temp]['header'];
 		endforeach;
 		
-	//
-	if (empty($array_temp)): return; endif;
+	// If nothing made, then just end here
+	if (empty($array_output_temp)): return; endif;
 		
-	//
-	ksort($array_temp);
-	$plural_temp = $descriptor_temp;
-	if (count($array_temp) > 1): $plural_temp .= "s (". count($array_temp) .")"; endif;
-
 	// Finally echo it out
-	echo "<div class='article-genealogy'><span class='article-genealogy-caption'>". $plural_temp ."</span>".implode(null, $array_temp)."</div>";
-	}
+	echo "<div class='article-genealogy'>";
+	echo "<span class='article-genealogy-caption'>". $descriptor_temp ." list</span>";
+	foreach ($array_output_temp as $entry_id_temp => $entry_header_temp):
+		echo "<span class='article-genealogy-item'><a href='/".$entry_id_temp."/'>".$entry_header_temp."</a></span>";
+		endforeach;
+	echo "</div>"; }
 
 echo "<article><div vocab='http://schema.org/' typeof='Article'>";
 
@@ -57,22 +59,21 @@ echo "<div id='article-breadcrumbs' amp-fx='parallax' data-parallax-factor='1.2'
 		echo " (GPS)</a></span>";
 		endif;
 
-	$languages_temp = [];
-	if (!(empty($entry_info['summary']))): $languages_temp = array_merge($languages_temp, array_keys($entry_info['summary'])); endif;
-	if (!(empty($entry_info['body']))): $languages_temp = array_merge($languages_temp, array_keys($entry_info['body'])); endif;
-	if (!(empty($languages_temp))): $languages_temp = array_unique($languages_temp); endif;
-	if (count($languages_temp) > 1):
-		$language_array_temp = [];
-		foreach($languages_temp as $language_temp):
-			echo "<span class='article-genealogy-item'><a href='#".$language_temp."'>".ucfirst($language_temp)."</a></span>";
-			endforeach;
-		endif;
+//	$languages_temp = [];
+//	if (!(empty($entry_info['summary']))): $languages_temp = array_merge($languages_temp, array_keys($entry_info['summary'])); endif;
+//	if (!(empty($entry_info['body']))): $languages_temp = array_merge($languages_temp, array_keys($entry_info['body'])); endif;
+//	if (!(empty($languages_temp))): $languages_temp = array_unique($languages_temp); endif;
+//	if (count($languages_temp) > 1):
+//		$language_array_temp = [];
+//		foreach($languages_temp as $language_temp):
+//			echo "<span class='article-genealogy-item'><a href='#".$language_temp."'>".ucfirst($language_temp)."</a></span>";
+//			endforeach;
+//		endif;
 
 	// Edit
 	$login_hidden = $logout_hidden = "article-genealogy-item"; // This would mean that buttons to login AND logout are shown
 	(empty($login) ? $logout_hidden = "hide" : $login_hidden = "hide");
 	echo "<span [class]=\"pageState.login.loginStatus == 'loggedin' ? 'article-genealogy-item' : 'hide'\" class='".$logout_hidden."'><a href='/".$page_temp."/edit/'>Edit entry</a></span>";
-
 
 	echo "</div>";
 
