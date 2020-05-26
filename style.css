@@ -514,7 +514,7 @@ p, summary, ul, ol, blockquote {
 	display: block;
 	clear: both;
 	vertical-align: top;
-	margin: 20px auto;
+	margin: 0 auto;
 	padding: 20px;
 	text-align: left;
 	}
