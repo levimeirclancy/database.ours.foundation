@@ -50,83 +50,6 @@ a, a:link, a:visited, a:hover {
 	float: right; }
 
 
-/* ARTICLE */
-
-header {
-	display: block;
-	margin: 50px 0;
-	padding: 20px;
-	width: 100%;
-	box-sizing: border-box;
-	}
-
-h1 {
-	font-family: Assistant;
-	word-break: break-all;
-	text-align: center;
-	color: rgba(50,50,50,1);
-	margin: 90px auto 0;
-	padding: 20px;
-	display: block;
-	font-size: 150%;
-	line-height: 130%;
-	font-weight: 700; }
-
-h1 span {
-	display: block;
-	}
-
-
-#article-breadcrumbs {
-	position: relative;
-	padding: 0 100px 0 20px;
-	margin: 0;
-	font-size: 80%;
-	}
-
-#edit-entry {
-	position: absolute;
-	top: 10px;
-	right: 10px;
-	}
-
-@media only screen and (max-width: 550)  {
-	#article-breadcrumbs { padding-top: 100px; }
-	}
-
-.article-genealogy {
-	margin: 15px 0;
-	padding: 0;
-	display: block;
-	column-width: 300px;
-	column-count: auto;
-	column-gap: 30px;
-	clear: both;
-	text-align: left;
-	}
-
-.article-genealogy b {
-	display: block;
-	column-span: all;
-	padding: 0;
-	margin: 0;
-	font-size: 100%;
-	}
-
-.article-genealogy p {
-	display: inline-block;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-	width: 300px;
-	box-sizing: border-box;
-	padding: 5px 0;
-	margin: 0;
-	font-size: 100%;
-	}
-
-
-
 /* HEADER */
 
 #begin-image {
@@ -465,6 +388,112 @@ form {
 
 /* ARTICLE */
 
+/* ARTICLE */
+
+header {
+	display: block;
+	margin: 50px 0;
+	padding: 20px;
+	width: 100%;
+	box-sizing: border-box;
+	}
+
+h1, h2, h3, h4, h5, h6, p,
+summary, ul, ol, blockquote {
+	width: auto;
+	max-width: 1000px; 
+	border: 0;
+	display: block;
+	clear: both;
+	vertical-align: top;
+	margin: 40px auto;
+	padding: 20px;
+	text-align: left;
+	}
+
+h1, h2, h3, h4, h5, h6 {
+	word-break: break-all;
+	text-align: center;
+	}
+
+h1 span {
+	display: block;
+	}
+
+h1 {
+	font-family: Assistant;
+	font-size: 150%;
+	line-height: 130%;
+	font-weight: 800;
+	}
+
+h2 {
+	font-family: Times New Roman;
+	font-size: 120%;
+	line-height: 120%;
+	font-weight: 700; }
+
+h3 {
+	font-family: Times New Roman;
+	font-size: 100%;
+	font-weight: 700;
+	}
+
+h4, h5, h6 {
+	font-size: 100%;
+	font-weight: 400;
+	text-align: left;
+	font-style: italic; }
+
+#article-breadcrumbs {
+	position: relative;
+	padding: 0 100px 0 20px;
+	margin: 0;
+	font-size: 80%;
+	}
+
+#edit-entry {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	}
+
+@media only screen and (max-width: 550)  {
+	#article-breadcrumbs { padding-top: 100px; }
+	}
+
+.article-genealogy {
+	margin: 15px 0;
+	padding: 0;
+	display: block;
+	column-width: 300px;
+	column-count: auto;
+	column-gap: 30px;
+	clear: both;
+	text-align: left;
+	}
+
+.article-genealogy b {
+	display: block;
+	column-span: all;
+	padding: 0;
+	margin: 0;
+	font-size: 100%;
+	}
+
+.article-genealogy p {
+	display: inline-block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	width: 300px;
+	box-sizing: border-box;
+	padding: 5px 0;
+	margin: 0;
+	font-size: 100%;
+	}
+
+
 body, article {
 	}
 
@@ -495,52 +524,12 @@ hr + hr {
 	display: none; }
 
 article, th, td,
-h2, h3, h4, h5, h6, p, summary, ul, ol, blockquote {
+p, summary, ul, ol, blockquote {
 	font-size: 100%;
 	line-height: 130%;
 	font-weight: 400;
 	text-align: left;
 	font-family: Georgia, 'Times New Roman', Serif; }
-
-h2, h3, h4, h5, h6, p, summary, ul, ol, blockquote {
-	border: 0;
-	display: block;
-	clear: both;
-	vertical-align: top;
-	margin: 20px 10px;
-	padding: 10px; }
-
-h2 {
-	font-size: 120%;
-	line-height: 120%;
-	font-weight: 700;
-	padding: 120px 10px 50px; }
-
-h3 {
-	font-size: 32px;
-	font-weight: 400;
-	margin: 50px 20px 20px; }
-
-h4 {
-	font-size: 26px;
-	font-weight: 400;
-	margin: 30px 20px 20px;
-	font-style: italic; }
-
-h5, h6 {
-	font-size: 110%;
-	margin-top: 50px; }
-
-h5, h6, p {
-	width: auto;
-	max-width: 1000px; }
-
-blockquote {
-	background: inherit;
-	margin: 20px 0;
-	padding: 10px 0;
-	width: 100%;
-	position: relative; }
 
 blockquote::before, blockquote::after {
 	padding: 20px 20px 0;
