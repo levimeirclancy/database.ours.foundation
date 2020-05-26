@@ -445,12 +445,16 @@ h4, h5, h6 {
 	font-style: italic; }
 
 #article-breadcrumbs {
-	font-family: Assistant;
 	position: relative;
 	padding: 0 100px 0 20px;
 	margin: 0;
 	font-size: 80%;
 	}
+
+#article-breadcrumbs, #article-breadcrumbs p {
+	font-family: Assistant;
+	}
+
 
 #edit-entry {
 	position: absolute;
