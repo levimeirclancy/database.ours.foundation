@@ -466,7 +466,7 @@ h4, h5, h6 {
 	font-size: 80%;
 	}
 
-.article-genealogy p {
+.article-genealogy p, .article-genealogy span {
 	display: inline-block;
 	white-space: nowrap;
 	overflow: hidden;
