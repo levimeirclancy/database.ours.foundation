@@ -47,13 +47,8 @@ echo "<div id='article-breadcrumbs' amp-fx='parallax' data-parallax-factor='1.2'
 
 	echo "<div class='article-genealogy'><span class='article-genealogy-caption'>Metadata</span>";
 
-	// Edit
-	$login_hidden = $logout_hidden = "article-genealogy-item"; // This would mean that buttons to login AND logout are shown
-	(empty($login) ? $logout_hidden = "hide" : $login_hidden = "hide");
-	echo "<span [class]=\"pageState.login.loginStatus == 'loggedin' ? 'article-genealogy-item' : 'hide'\" class='".$logout_hidden."'><a href='/".$page_temp."/edit/'>Edit entry</a></span>";
-
 	// Type
-	echo "<span role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: pageState.categoriesArray.".$entry_info['type']."}),sidebar-navigation.open,sidebar-navigation-lightbox-type.open\">Type: ".$header_array[$entry_info['type']]."</span>";
+	echo "<span class='article-genealogy-item' role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: pageState.categoriesArray.".$entry_info['type']."}),sidebar-navigation.open,sidebar-navigation-lightbox-type.open\">Type: ".$header_array[$entry_info['type']]."</span>";
 
 	// GPS
 	if (!(empty($entry_info['appendix']['latitude'])) && !(empty($entry_info['appendix']['longitude']))):
@@ -68,9 +63,16 @@ echo "<div id='article-breadcrumbs' amp-fx='parallax' data-parallax-factor='1.2'
 	if (!(empty($languages_temp))): $languages_temp = array_unique($languages_temp); endif;
 	if (count($languages_temp) > 1):
 		$language_array_temp = [];
-		foreach($languages_temp as $language_temp): $language_array_temp[] = "<a href='#".$language_temp."'>".ucfirst($language_temp)."</a>"; endforeach;
-		echo "<p>Languages > ". implode("&nbsp;&nbsp;|&nbsp;&nbsp;", $language_array_temp)."</p>";
+		foreach($languages_temp as $language_temp):
+			echo "<span class='article-genealogy-item'><a href='#".$language_temp."'>".ucfirst($language_temp)."</a></span>";
+			endforeach;
 		endif;
+
+	// Edit
+	$login_hidden = $logout_hidden = "article-genealogy-item"; // This would mean that buttons to login AND logout are shown
+	(empty($login) ? $logout_hidden = "hide" : $login_hidden = "hide");
+	echo "<span [class]=\"pageState.login.loginStatus == 'loggedin' ? 'article-genealogy-item' : 'hide'\" class='".$logout_hidden."'><a href='/".$page_temp."/edit/'>Edit entry</a></span>";
+
 
 	echo "</div>";
 
