@@ -366,28 +366,6 @@ form {
 
 
 
-/* HOME */
-
-#home-carousel {
-	margin: 100px 0 0;
-	}
-
-.home-carousel-slide {
-	text-align: center;
-	font-weight: 400;
-	font-style: italic;
-	font-size: 170%;
-	width: 400px;
-	height: 400px;
-	}
-
-#home-carousel .amp-carousel-button {
-	visibility: hidden;
-	}
-
-
-/* ARTICLE */
-
 /* ARTICLE */
 
 header {
@@ -456,7 +434,7 @@ h4, h5, h6 {
 	}
 
 #article-breadcrumbs b {
-	font-family: Roboto;
+	font-family: Roboto, Helvetica;
 	}
 
 
