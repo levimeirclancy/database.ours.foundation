@@ -470,6 +470,7 @@ h4, h5, h6 {
 	display: inline-block;
 	white-space: nowrap;
 	overflow: hidden;
+	clear: both;
 	text-overflow: ellipsis;
 	width: 300px;
 	box-sizing: border-box;
