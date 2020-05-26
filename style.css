@@ -462,8 +462,11 @@ h4, h5, h6 {
 	}
 
 .article-genealogy {
-	margin: 15px 0;
-	padding: 0;
+	margin: 20px auto;
+	padding: 20px;
+	border-width: 2px 0 2px 0;
+	border-style: solid;
+	border-color: #555;
 	display: block;
 	column-width: 300px;
 	column-count: auto;
