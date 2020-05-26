@@ -92,8 +92,8 @@ echo "<div class='article-info' amp-fx='parallax' data-parallax-factor='1.2'>";
 
 	echo "</div>";
 
-	relationships_array($entry_id, "parents", "Parent");
-	relationships_array($entry_id, "children", "Subpage");
+	relationships_array($page_temp, "parents", "Parent");
+	relationships_array($page_temp, "children", "Subpage");
 
 	echo "</div>";
 
