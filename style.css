@@ -457,7 +457,7 @@ h4, h5, h6 {
 	padding-top: 0;
 	}
 
-.article-genealogy b {
+.article-genealogy-caption {
 	display: block;
 	column-span: all;
 	padding: 0;
@@ -466,7 +466,7 @@ h4, h5, h6 {
 	font-size: 80%;
 	}
 
-.article-genealogy p, .article-genealogy span {
+.article-genealogy-item {
 	display: inline-block;
 	white-space: nowrap;
 	overflow: hidden;
