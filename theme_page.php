@@ -13,8 +13,13 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 	
 	global $information_array;
 
+	echo "test1";
+	
 	// If empty, just move on
 	if (empty($information_array[$entry_id][$hierarchy_temp]['hierarchy'])): return; endif;
+	
+	echo "test2";
+
 	
 	// If not empty, let's clean it up
 	$array_temp = $information_array[$entry_id][$hierarchy_temp]['hierarchy'];
@@ -35,6 +40,9 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 		
 	// If nothing made, then just end here
 	if (empty($array_output_temp)): return; endif;
+	
+	echo "test3";
+
 		
 	// Finally echo it out
 	echo "<div class='article-info-section'>";
