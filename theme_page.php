@@ -52,7 +52,7 @@ echo "<div id='article-breadcrumbs'>";
 	echo "<p><a href='/".$page_temp."/edit/'><span id='edit-entry' amp-fx='parallax' data-parallax-factor='1.3' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='$login_hidden'>&#10033; Edit</span></a></p>";
 
 	// Type
-	echo "<p role='button' tabindex='0' on=\"tap:tap:tap:AMP.setState({pageStateType: pageState.categoriesArray.".$entry_info['type']."}),sidebar-navigation-lightbox-type.open\:>Type: ".$header_array[$entry_info['type']]."</p>";
+	echo "<p role='button' tabindex='0' on=\"tap:tap:AMP.setState({pageStateType: pageState.categoriesArray.".$entry_info['type']."}),sidebar-navigation-lightbox-type.open\">Type: ".$header_array[$entry_info['type']]."</p>";
 
 	// GPS
 	if (!(empty($entry_info['appendix']['latitude'])) && !(empty($entry_info['appendix']['longitude']))):
