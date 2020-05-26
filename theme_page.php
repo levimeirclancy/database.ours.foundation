@@ -48,6 +48,7 @@ echo "<div id='article-breadcrumbs'>";
 	echo "<div class='article-genealogy' amp-fx='parallax' data-parallax-factor='1.25'><b>Metadata</b>";
 
 	// Edit
+	$login_hidden = $logout_hidden = null; 
 	empty($login) ? $login_hidden = "hide" : $login_hidden = null;
 	echo "<p [class]=\"pageState.login.loginStatus == 'loggedin' ? '' : 'hide'\" class='$login_hidden'><a href='/".$page_temp."/edit/'>Edit entry</a></p>";
 
