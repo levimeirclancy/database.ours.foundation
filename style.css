@@ -509,7 +509,7 @@ hr + hr {
 
 p, summary, ul, ol, blockquote {
 	width: auto;
-	max-width: 1000px; 
+	max-width: 900px; 
 	border: 0;
 	display: block;
 	clear: both;
@@ -521,7 +521,7 @@ p, summary, ul, ol, blockquote {
 	
 article, th, td,
 p, summary, ul, ol, blockquote {
-	font-size: 100%;
+	font-size: 95%;
 	line-height: 130%;
 	font-weight: 400;
 	text-align: left;
