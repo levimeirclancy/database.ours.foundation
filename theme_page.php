@@ -46,7 +46,7 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 
 echo "<article><div vocab='http://schema.org/' typeof='Article'>";
 
-echo "<header><h1 property='name' amp-fx='parallax' data-parallax-factor='1.3'><span>" . $entry_info['header'] . "</span></h1></header>";
+echo "<header><h1 property='name' amp-fx='parallax' data-parallax-factor='1.3'>" . $entry_info['header'] . "</h1></header>";
 
 // Crumbs and GPS ...
 echo "<div class='article-info' amp-fx='parallax' data-parallax-factor='1.2'>";
