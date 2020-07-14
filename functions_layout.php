@@ -197,7 +197,7 @@ function amp_header($title=null, $canonical=null) {
 
 		echo "</amp-lightbox>";
 	
-	echo "<amp-lightbox class='sidebar-navigation-lightbox' id='sidebar-navigation-lightbox-about' on='lightboxClose:sidebar-navigation-close.show' layout='nodisplay' scrollable>";
+	echo "<amp-lightbox class='sidebar-navigation-lightbox' id='sidebar-navigation-lightbox-about'  layout='nodisplay' scrollable>";
 
 		echo "<div role='button' tabindex='0' on='tap:".$navigation_lightboxes.",".$sidebar_lightboxes."' class='popover-close'>Back</div>";
 
