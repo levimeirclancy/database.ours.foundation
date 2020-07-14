@@ -641,8 +641,8 @@ td p + p, li p + p {
 ul, ol {
 	width: auto;
 	max-width: 850px;	
-	margin: 30px 30px 30px 35px;
-	padding: 0 0 10px 0;
+	margin: 30px auto 30px;
+	padding: 0 40px;
 	list-style-position: outside;
 	line-height: 1.5; }
 
