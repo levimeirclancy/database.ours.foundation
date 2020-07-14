@@ -170,7 +170,7 @@ function amp_header($title=null, $canonical=null) {
 		echo "<div class='sidebar-navigation-button' role='button' tabindex='0' on=\"tap:sidebar-navigation-lightbox-search.close,sidebar-navigation-lightbox-type.close,sidebar-navigation-lightbox-about.open\">About</div>";
 	
 		foreach ($header_array as $header_backend => $header_frontend):
-			echo "<div class='sidebar-navigation-button' role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: pageState.categoriesArray.".$header_backend."}),sidebar-navigation-lightbox-search.close,sidebar-navigation-lightbox-about.close,sidebar-navigation-lightbox-type.open\">". ucfirst($header_frontend) ."</div>";
+			echo "<div class='sidebar-navigation-button' role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: pageState.categoriesArray.".$header_backend."}),sidebar-navigation-lightbox-type.open\">". ucfirst($header_frontend) ."</div>";
 			endforeach;
 	
 		echo "</amp-lightbox>";
