@@ -510,7 +510,7 @@ if (isset($header_array[$page_temp])):
 	footer(); endif;
 
 if (!(empty($page_temp)) && isset($information_array[$page_temp])):
-	amp_header(implode(" • ", $information_array[$page_temp]['header']), $domain."/".$page_temp."/");
+amp_header($information_array[$page_temp]['header'], $domain."/".$page_temp."/");
 	include_once('theme_page.php');
 	footer(); endif;
 
