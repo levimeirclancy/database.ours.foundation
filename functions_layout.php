@@ -222,7 +222,7 @@ function amp_header($title=null, $canonical=null) {
 //			echo "<p class='amp-list-fallback' overflow>Show more.</p>";
 
 		echo "<template type='amp-mustache'>";
-			echo "<span class='categories-item $fadeout_temp'>";
+			echo "<span class='categories-item'>";
 	
 			// Handle the indenting
 			echo "<span class='categories-item-indent-wrapper'>{{#indent_array}}<span class='categories-item-indent'></span>{{/indent_array}}</span>";
