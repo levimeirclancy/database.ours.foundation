@@ -215,8 +215,8 @@ div.sidebar-navigation-item {
 	}
 
 #sidebar-navigation-search-button, #sidebar-navigation-search-input {
-	display: table;
-	margin: 15px 10px 10px 5px;
+	display: block;
+	margin: 15px auto 5px;
 	padding: 7px 15px;
 	border-radius: 100px;
 	line-height: 1em;
@@ -239,6 +239,7 @@ div.sidebar-navigation-item {
 	text-align: left;
 	max-width: none;
 	width: 100%;
+	max-width: 80%;
 	}
 
 #sidebar-navigation-search-input::placeholder {
