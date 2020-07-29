@@ -165,7 +165,7 @@ function amp_header($title=null, $canonical=null) {
 
 			echo "<li>";
 			echo "<input type='text' id='sidebar-navigation-search-input' placeholder='...' on=\"input-throttled:AMP.setState({pageState:{searchTerm: event.value.replace('  ',' ').replace('  ',' ').replace('?',' ').replace(',',' ').replace('&',' ')}}),sidebar-navigation-lightbox-search.close\">";
-			echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on='tap:sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search-list.changeToLayoutContainer()'>&#128270; Search</div>";
+			echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on='tap:sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search-list.changeToLayoutContainer()'>Search</div>";
 			echo "</li>";
 //			echo "<li [text]=\"pageState.searchTerm == '' || pageState.searchTerm == ' ' || pageState.searchTerm == null ? 'Search term cannot be empty.' : 'Search results for: ' + pageState.searchTerm\">Search term not received.</li>";
 	
