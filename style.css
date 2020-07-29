@@ -129,7 +129,6 @@ amp-lightbox {
 
 .sidebar-back {
 	font-weight: 700;
-	font-size: 70%;
 	line-height: 1em;
 	font-family: Arial, Helvetica, Sans Serif;
 	cursor: pointer;
@@ -154,6 +153,7 @@ amp-lightbox {
 	box-sizing: border-box;
 	font-size: 80%;
 	line-height: 1.3em;
+	font-family: Assistant;
 	}
 
 #sidebar-navigation ul {
