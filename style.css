@@ -149,7 +149,7 @@ amp-lightbox {
 
 
 #sidebar-navigation {
-	width: 500px;
+	width: 650px;
 	background: rgba(255,255,255,1);
 	margin: 0;
 	padding: 20px;
@@ -165,9 +165,18 @@ amp-lightbox {
 	}
 
 #sidebar-navigation li {
-	border: 0;
-	margin: 0;
-	padding: 0;
+	display: block;
+	margin: 10px;
+	padding: 12px 0 5px;
+	border-top: 2px solid rgba(200,200,200,0.8);
+	box-sizing: border-box;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	}
+
+.categories-item-fadeout {
+	opacity: 0.5;
 	}
 	
 #sidebar-navigation li:before {
@@ -178,6 +187,31 @@ amp-lightbox {
 	display: block;
 	margin: 5p 0;
 	padding: 0;
+	}
+
+.categories-item-title {
+	font-size: 80%;
+	line-height: 1.3em;
+	display: inline;
+	padding: 6px 30px 6px 0;
+	margin: 0;
+	vertical-align: middle;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	}
+
+.categories-item-button {
+	font-family: 'Roboto', Helvetica, 'Sans Serif';
+	font-size: 60%;
+	background: rgba(200,200,200,1);
+	color: rgba(255,255,255,1);
+	font-weight: 700;
+	padding: 3px 13px;
+	margin: 3px 16px 3px 0;
+	border-radius: 100px;
+	display: none;
+	float: right;
 	}
 
 #sidebar-navigation-search-input {
@@ -211,14 +245,6 @@ amp-lightbox {
 	text-align: center;
 	font-family: Arial, Helvetica, Sans Serif;
 	cursor: pointer;
-	}
-
-@media only screen and (max-width: 700px) {
-
-	#sidebar-navigation {
-		max-width: none;
-		}
-
 	}
 
 .sidebar-navigation-lightbox-search-list-item {
@@ -289,49 +315,6 @@ amp-lightbox {
 	margin: 15px auto 15px;
 	padding: 10px;
 	text-align: center;
-	}
-
-
-/* CATEGORIES ITEMS */
-
-.categories-item {
-	display: block;
-	margin: 10px;
-	padding: 12px 0 5px;
-	border-top: 2px solid rgba(200,200,200,0.8);
-	box-sizing: border-box;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	overflow: hidden;
-	}
-
-.categories-item-fadeout {
-	opacity: 0.5;
-	}
-
-.categories-item-title {
-	font-size: 80%;
-	line-height: 1.3em;
-	display: inline;
-	padding: 6px 30px 6px 0;
-	margin: 0;
-	vertical-align: middle;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	overflow: hidden;
-	}
-
-.categories-item-button {
-	font-family: 'Roboto', Helvetica, 'Sans Serif';
-	font-size: 60%;
-	background: rgba(200,200,200,1);
-	color: rgba(255,255,255,1);
-	font-weight: 700;
-	padding: 3px 13px;
-	margin: 3px 16px 3px 0;
-	border-radius: 100px;
-	display: none;
-	float: right;
 	}
 
 @media only screen and (min-width: 650px)  {
