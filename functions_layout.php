@@ -105,10 +105,10 @@ function amp_header($title=null, $canonical=null) {
 	echo "<div id='navigation-header' amp-fx='parallax' data-parallax-factor='1.4'>";
 
 	// The domain name, to go home ...
-	echo "<div role='button' tabindex='0' class='navigation-header-item' on='tap:sidebar-navigation'>Navigation</div>";
+	echo "<div role='button' tabindex='0' class='navigation-header-item' on='tap:sidebar-navigation.open'>Navigation</div>";
 	
 	// This is the login button ...
-	echo "<div role='button' tabindex='0' id='login-popover-launch' on='tap:login-popover' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'hide' : 'navigation-header-item'\" class='".$login_hidden."' >&#x2731; Log in</div>";
+	echo "<div role='button' tabindex='0' id='login-popover-launch' on='tap:login-popover.open' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'hide' : 'navigation-header-item'\" class='".$login_hidden."' >&#x2731; Log in</div>";
 		
 	// If you are signed in ...
 	echo "<div role='button' tabindex='0' id='settings-popover-launch' on='tap:settings-popover' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='".$logout_hidden."'>Settings</div>";
@@ -152,7 +152,7 @@ function amp_header($title=null, $canonical=null) {
 	
 	// This is the popover for the categories ...;
 //	echo "<amp-sidebar id='sidebar-navigation' layout='nodisplay' side='left' on='lightboxClose:pageState.refresh,navigation-header.show;lightboxOpen:".$navigation_lightboxes."' scrollable>";
-	echo "<amp-sidebar id='sidebar-navigation' layout='nodisplay' side='left' on='sidebarClose:pageState.refresh,navigation-header.show;sidebarOpen:".$navigation_lightboxes."' scrollable>";
+	echo "<amp-sidebar id='sidebar-navigation' layout='nodisplay' side='left' on='sidebarClose:pageState.refresh,navigation-header.show;sidebarOpen:begin-image.hide,login-popover.close,settings-popover.close,new-popover.close' scrollable>";
 	
 		echo "<div class='popover-close' on='tap:".$navigation_lightboxes."' role='button' tabindex='0' amp-nested-submenu-close>Close</div>";
 
@@ -220,10 +220,8 @@ function amp_header($title=null, $canonical=null) {
 	
 		echo "</amp-sidebar>";
 	
-	$navigation_lightboxes .= ",sidebar-navigation.close";
-		
 	// This is the popover to log in ...
-	echo "<amp-lightbox id='login-popover' on=\"lightboxClose:navigation-header.show;lightboxOpen:".$navigation_lightboxes.",navigation-header.hide,AMP.setState({inputPasswordType: 'password'})\" layout='nodisplay'>";
+	echo "<amp-lightbox id='login-popover' on=\"lightboxClose:navigation-header.show;lightboxOpen:begin-image.hide,sidebar-navigation.close,settings-popover.close,new-popover.close,navigation-header.hide,AMP.setState({inputPasswordType: 'password'})\" layout='nodisplay'>";
 
 		echo "<span role='button' tabindex='0' on='tap:".$navigation_lightboxes.",".$sidebar_lightboxes."' class='popover-close'>Back</span>";
 
@@ -261,9 +259,9 @@ function amp_header($title=null, $canonical=null) {
 		echo "</amp-lightbox>";
 	
 	// This is the popover for settings ...
-	echo "<amp-lightbox id='settings-popover' on='lightboxClose:navigation-header.show;lightboxOpen:".$navigation_lightboxes."' layout='nodisplay'>";
+	echo "<amp-lightbox id='settings-popover' on='lightboxClose:navigation-header.show;lightboxOpen:begin-image.hide,login-popover.close,navigation-sidebar.close,new-popover.close' layout='nodisplay'>";
 
-		echo "<span role='button' tabindex='0' on='tap:settings-popover.close' class='popover-close'>Back</span>";
+		echo "<span role='button' tabindex='0' on='tap:".$navigation_lightboxes."' class='popover-close'>Back</span>";
 
 		echo "<p>Settings coming soon: password change, account management.</p>";
 	
@@ -279,9 +277,9 @@ function amp_header($title=null, $canonical=null) {
 		echo "</amp-lightbox>";
 
 	// Add a new popover ... residrect if adding it works ...
-	echo "<amp-lightbox id='new-popover' on='lightboxClose:navigation-header.show;lightboxOpen:".$navigation_lightboxes."' layout='nodisplay'>";
+	echo "<amp-lightbox id='new-popover' on='lightboxClose:navigation-header.show;lightboxOpen:begin-image.hide,login-popover.close,navigation-sidebar.close,settings-popover.close' layout='nodisplay'>";
 
-		echo "<div role='button' tabindex='0' on='tap:new-popover.close' class='popover-close'>Back</div>";
+		echo "<span role='button' tabindex='0' on='tap:".$navigation_lightboxes."' class='popover-close'>Back</span>";
 
 		echo "<form action-xhr='/new-xhr/' method='post' id='new' target='_top' class='admin-page-form' on=\"
 			submit:
