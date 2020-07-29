@@ -171,14 +171,9 @@ amp-lightbox {
 	margin: 10px;
 	padding: 10px;
 	border-bottom: 2px solid rgba(200,200,200,0.8);
-	}
-
-
-.sidebar-navigation-button {
 	display: block;
-	margin: 5p 0;
-	padding: 0;
 	}
+
 
 .sidebar-navigation-item-title {
 	font-size: inherit;
@@ -199,7 +194,7 @@ amp-lightbox {
 	color: rgba(255,255,255,1);
 	font-weight: 700;
 	padding: 3px;
-	margin: 0 0 0 10px;
+	margin: 0 0 0 0;
 	border-radius: 100px;
 	float: right;
 	}
