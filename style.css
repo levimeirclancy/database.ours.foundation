@@ -224,7 +224,7 @@ div.sidebar-navigation-item {
 	}
 
 #sidebar-navigation-search-input {
-	display: inline-block;
+	display: block;
 	margin: 10px;
 	padding: 5px;
 	border-radius: 100px;
