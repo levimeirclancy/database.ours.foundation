@@ -136,6 +136,7 @@ amp-lightbox {
 	box-shadow: 0 0 30px 0 rgba(30,30,30,0.3);
 	text-align: left;
 	width: auto;
+	box-sizing: border-box;
 	}
 
 .sidebar-navigation-button {
