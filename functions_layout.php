@@ -160,22 +160,25 @@ function amp_header($title=null, $canonical=null) {
 	
 		echo "<li><div amp-nested-submenu-open>Search</div>";
 	
-		echo "<amp-list amp-nested-submenu id='sidebar-navigation-lightbox-search-list' layout='responsive' width='800' height='800' items='.' max-items='100' binding='refresh' reset-on-refresh='always' [src]=\"'/api/search/?search=' + pageState.searchTerm\">";
-
+		echo "<div amp-nested-submenu><ul>";
+	
 			echo "<li class='sidebar-back' amp-nested-submenu-close>Back</li>";
 
 			echo "<li><input type='text' id='sidebar-navigation-search-input' placeholder='&#128270;' on=\"input-throttled:AMP.setState({pageState:{searchTerm: event.value.replace('  ',' ').replace('  ',' ').replace('?',' ').replace(',',' ').replace('&',' ')}}),sidebar-navigation-lightbox-search.close\"></li>";
 			echo "<li><div id='sidebar-navigation-search-button' role='button' tabindex='0' on='tap:sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search-list.changeToLayoutContainer()'>Search</div></li>";
 //			echo "<li [text]=\"pageState.searchTerm == '' || pageState.searchTerm == ' ' || pageState.searchTerm == null ? 'Search term cannot be empty.' : 'Search results for: ' + pageState.searchTerm\">Search term not received.</li>";
+	
+			echo "<amp-list id='sidebar-navigation-lightbox-search-list' layout='responsive' width='800' height='800' items='.' max-items='100' binding='refresh' reset-on-refresh='always' [src]=\"'/api/search/?search=' + pageState.searchTerm\">";
 
-			echo "<li class='amp-list-fallback' fallback>No search results.</li>";
-			echo "<li class='amp-list-fallback' placeholder>Loading search results...</li>";
-//			echo "<li class='amp-list-fallback' overflow>Show more.</li>";
+				echo "<li class='amp-list-fallback' fallback>No search results.</li>";
+				echo "<li class='amp-list-fallback' placeholder>Loading search results...</li>";
+//				echo "<li class='amp-list-fallback' overflow>Show more.</li>";
 
-			echo "<template type='amp-mustache'>";
-				echo "<li><a href='/{{entry_id}}/' target='_blank'><span class='categories-item-title' [text]=\"pageState.informationArray.{{entry_id}}.header\">Click for more</span></a></li>";
-				echo "</template>";
-				echo "</amp-list>";
+				echo "<template type='amp-mustache'>";
+					echo "<li><a href='/{{entry_id}}/' target='_blank'><span class='categories-item-title' [text]=\"pageState.informationArray.{{entry_id}}.header\">Click for more</span></a></li>";
+					echo "</template>";
+	
+				echo "</amp-list></ul></div>";
 		
 			echo "</li>";
 
@@ -191,23 +194,26 @@ function amp_header($title=null, $canonical=null) {
 //			echo "<div class='sidebar-navigation-button' role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: pageState.categoriesArray.".$header_backend."})\" amp-nested-submenu-open>". ucfirst($header_frontend) ."</div></li>";
 			echo "<div class='sidebar-navigation-li' role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: pageState.categoriesArray.".$header_backend."}),sidebar-navigation-lightbox-type-list.changeToLayoutContainer()\" amp-nested-submenu-open>". ucfirst($header_frontend) ."</div>";
 			endforeach;
-		echo "<amp-list amp-nested-submenu id='sidebar-navigation-lightbox-type-list' layout='responsive' width='800' height='800' items='.' max-items='100' binding='refresh' [src]=\"pageStateType\">";
+	
+		echo "<div amp-nested-submenu><ul>";
 			echo "<li><div class='sidebar-back' amp-nested-submenu-close>Back</div></li>";
-			echo "<li class='amp-list-fallback' fallback>No entries in cateogry.</li>";
-			echo "<li class='amp-list-fallback' placeholder>Loading entries...</li>";
-//			echo "<li class='amp-list-fallback' overflow>Show more.</li>";
 
-			echo "<template type='amp-mustache'>";
-				echo "<li>";
+			echo "<amp-list id='sidebar-navigation-lightbox-type-list' layout='responsive' width='800' height='800' items='.' max-items='100' binding='refresh' [src]=\"pageStateType\">";
+				echo "<li class='amp-list-fallback' fallback>No entries in category.</li>";
+				echo "<li class='amp-list-fallback' placeholder>Loading entries...</li>";
+//				echo "<li class='amp-list-fallback' overflow>Show more.</li>";
+
+				echo "<template type='amp-mustache'>";
+					echo "<li>";
 	
-				// Handle the indenting
-				echo "<span class='categories-item-indent-wrapper'>{{#indent_array}}<span class='categories-item-indent'></span>{{/indent_array}}</span>";
+					// Handle the indenting
+					echo "<span class='categories-item-indent-wrapper'>{{#indent_array}}<span class='categories-item-indent'></span>{{/indent_array}}</span>";
 	
-				echo "<a href='/{{entry_id}}/'><span class='categories-item-title' [text]=\"pageState.informationArray.{{entry_id}}.header\">Click for more</span></a>";
-				echo "{{#map}}<a href='/{{entry_id}}/map/' target='_blank'><span class='categories-item-button'>Map</span></a>{{/map}}";
-				echo "</li>";
-				echo "</template>";
-			echo "</amp-list>";
+					echo "<a href='/{{entry_id}}/'><span class='categories-item-title' [text]=\"pageState.informationArray.{{entry_id}}.header\">Click for more</span></a>";
+					echo "{{#map}}<a href='/{{entry_id}}/map/' target='_blank'><span class='categories-item-button'>Map</span></a>{{/map}}";
+					echo "</li>";
+					echo "</template>";
+				echo "</amp-list></ul></div>";
 	
 		echo "</li>";
 	
