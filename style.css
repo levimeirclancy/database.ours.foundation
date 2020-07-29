@@ -193,7 +193,7 @@ div.sidebar-navigation-item {
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	overflow: hidden;
-	display: inline-block;
+	display: inline;
 	}
 
 .sidebar-navigation-item-button {
