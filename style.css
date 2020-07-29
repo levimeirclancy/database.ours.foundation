@@ -208,6 +208,10 @@ div.sidebar-navigation-item {
 	float: right;
 	}
 
+#sidebar-navigation-search {
+	white-space: wrap;
+	}
+
 #sidebar-navigation-search-button, #sidebar-navigation-search-input {
 	display: inline-table;
 	margin: 10px 10px 5px;
