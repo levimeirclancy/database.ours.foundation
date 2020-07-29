@@ -211,10 +211,11 @@ div.sidebar-navigation-item {
 #sidebar-navigation-search {
 	white-space: normal;
 	padding: 0;
+	text-align: center;
 	}
 
 #sidebar-navigation-search-button, #sidebar-navigation-search-input {
-	display: inline-table;
+	display: table;
 	margin: 15px 10px 10px 5px;
 	padding: 7px 15px;
 	border-radius: 100px;
@@ -236,6 +237,8 @@ div.sidebar-navigation-item {
 	border: 1px solid #555;
 	color: #333;
 	text-align: left;
+	max-width: none;
+	width: 100%;
 	}
 
 #sidebar-navigation-search-input::placeholder {
