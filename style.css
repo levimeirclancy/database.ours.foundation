@@ -209,7 +209,7 @@ div.sidebar-navigation-item {
 	}
 
 #sidebar-navigation-search {
-	white-space: wrap;
+	white-space: normal;
 	}
 
 #sidebar-navigation-search-button, #sidebar-navigation-search-input {
