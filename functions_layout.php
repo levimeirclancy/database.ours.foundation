@@ -158,7 +158,7 @@ function amp_header($title=null, $canonical=null) {
 		
 		echo "<li><div class='sidebar-back' on='tap:".$navigation_lightboxes."' role='button' tabindex='0' amp-nested-submenu-close>Close</div></li>";
 	
-		echo "<li><div amp-nested-submenu-open>Search</div>";
+		echo "<li><div class='sidebar-navigation-item-title'>amp-nested-submenu-open>Search</div>";
 	
 		echo "<div amp-nested-submenu><ul>";
 	
@@ -170,12 +170,12 @@ function amp_header($title=null, $canonical=null) {
 	
 			echo "<amp-list id='sidebar-navigation-lightbox-search-list' layout='responsive' width='800' height='800' items='.' max-items='100' binding='refresh' reset-on-refresh='always' [src]=\"'/api/search/?search=' + pageState.searchTerm\">";
 
-				echo "<li class='amp-list-fallback' fallback>No search results.</li>";
-				echo "<li class='amp-list-fallback' placeholder>Loading search results...</li>";
-//				echo "<li class='amp-list-fallback' overflow>Show more.</li>";
+				echo "<li class='amp-list-fallback sidebar-navigation-item' fallback>No search results.</li>";
+				echo "<li class='amp-list-fallback sidebar-navigation-item' placeholder>Loading search results...</li>";
+//				echo "<li class='amp-list-fallback sidebar-navigation-item' overflow>Show more.</li>";
 
 				echo "<template type='amp-mustache'>";
-					echo "<li><a href='/{{entry_id}}/' target='_blank'><span class='categories-item-title' [text]=\"pageState.informationArray.{{entry_id}}.header\">Click for more</span></a></li>";
+					echo "<li><a href='/{{entry_id}}/' target='_blank'><span class='sidebar-navigation-item-title' [text]=\"pageState.informationArray.{{entry_id}}.header\">Click for more</span></a></li>";
 					echo "</template>";
 	
 				echo "</amp-list></ul></div>";
@@ -209,15 +209,15 @@ function amp_header($title=null, $canonical=null) {
 					// Handle the indenting
 					echo "<span class='categories-item-indent-wrapper'>{{#indent_array}}<span class='categories-item-indent'></span>{{/indent_array}}</span>";
 	
-					echo "<a href='/{{entry_id}}/'><span class='categories-item-title' [text]=\"pageState.informationArray.{{entry_id}}.header\">Click for more</span></a>";
-					echo "{{#map}}<a href='/{{entry_id}}/map/' target='_blank'><span class='categories-item-button'>Map</span></a>{{/map}}";
+					echo "<a href='/{{entry_id}}/'><span class='sidebar-navigation-item-title' [text]=\"pageState.informationArray.{{entry_id}}.header\">Click for more</span></a>";
+					echo "{{#map}}<a href='/{{entry_id}}/map/' target='_blank'><span class='sidebar-navigation-item-button'>Map</span></a>{{/map}}";
 					echo "</li>";
 					echo "</template>";
 				echo "</amp-list></ul></div>";
 	
-		echo "</li>";
+			echo "</li>";
 	
-		echo "</ul></amp-nested-menu>";
+			echo "</ul></amp-nested-menu>";
 	
 		echo "</amp-sidebar>";
 	
