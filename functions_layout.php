@@ -162,7 +162,9 @@ function amp_header($title=null, $canonical=null) {
 	
 //		echo "<div id='sidebar-navigation-close' role='button' tabindex='0' on='tap:".$navigation_lightboxes.",".$sidebar_lightboxes.",sidebar-navigation-lightbox-search.close,sidebar-navigation-lightbox-about.close,sidebar-navigation-lightbox-about.close,sidebar-navigation.close' class='popover-close'>Back</div>";
 
-		echo "<ul><li>";
+		echo "<amp-nested-menu layout='fill'><ul>";
+		
+		echo "<li>";
 		echo "<input type='text' id='sidebar-navigation-search-input' placeholder='&#128270;' on=\"input-throttled:AMP.setState({pageState:{searchTerm: event.value.replace('  ',' ').replace('  ',' ').replace('?',' ').replace(',',' ').replace('&',' ')}}),sidebar-navigation-lightbox-search.close\">";
 		echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on='tap:sidebar-navigation-lightbox-search.open'>Search</div>";
 		echo "</li>";
@@ -177,7 +179,7 @@ function amp_header($title=null, $canonical=null) {
 			echo "<li><div class='sidebar-navigation-button' role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: pageState.categoriesArray.".$header_backend."}),sidebar-navigation-lightbox-type.open\">". ucfirst($header_frontend) ."</div></li>";
 			endforeach;
 	
-		echo "</ul>";
+		echo "</ul></amp-nested-menu>";
 	
 		echo "</amp-sidebar>";
 	
