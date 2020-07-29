@@ -171,11 +171,9 @@ function amp_header($title=null, $canonical=null) {
 	
 			echo "<amp-list id='sidebar-navigation-lightbox-search-list' layout='responsive' width='800' height='800' items='.' max-items='100' binding='refresh' reset-on-refresh='always' [src]=\"'/api/search/?search=' + pageState.searchTerm\">";
 
-				echo "<li class='sidebar-navigation-item'>";
-					echo "<span class='sidebar-navigation-item-title' fallback>No search results.</span>";
-					echo "<span class='sidebar-navigation-item-title' placeholder>Loading search results...</span>";
-//					echo "<span class='sidebar-navigation-item-title' overflow>Show more.</span>";
-					echo "</li>";
+				echo "<li class='sidebar-navigation-item' fallback><span class='sidebar-navigation-item-title'>No search results.</span></li>";
+				echo "<li class='sidebar-navigation-item' placeholder><span class='sidebar-navigation-item-title'>Loading search results...</span></li>";
+//				echo "<li class='sidebar-navigation-item' overflow><span class='sidebar-navigation-item-title'>Show more...</span></li>";
 
 				echo "<template type='amp-mustache'>";
 					echo "<li class='sidebar-navigation-item'><a href='/{{entry_id}}/' target='_blank'><span class='sidebar-navigation-item-title' [text]=\"pageState.informationArray.{{entry_id}}.header\">Click for more</span></a></li>";
@@ -201,11 +199,10 @@ function amp_header($title=null, $canonical=null) {
 			echo "<li class='sidebar-navigation-item'><div class='sidebar-back' amp-nested-submenu-close>Back</li>";
 
 			echo "<amp-list id='sidebar-navigation-lightbox-type-list' layout='responsive' width='800' height='800' items='.' max-items='100' binding='refresh' [src]=\"pageStateType\">";
-				echo "<li class='sidebar-navigation-item'>";
-					echo "<span class='sidebar-navigation-item-title' fallback>No entries in category.</span>";
-					echo "<span class='sidebar-navigation-item-title' placeholder>Loading entries...</span>";
-//					echo "<span class='sidebar-navigation-item-title' overflow>Show more.</span>";
-					echo "</li>";
+
+				echo "<li class='sidebar-navigation-item' fallback><span class='sidebar-navigation-item-title'>No entries in category.</span></li>";
+				echo "<li class='sidebar-navigation-item' placeholder><span class='sidebar-navigation-item-title'>Loading entries...</span></li>";
+//				echo "<li class='sidebar-navigation-item' overflow><span class='sidebar-navigation-item-title'>Show more...</span></li>";
 
 				echo "<template type='amp-mustache'>";
 					echo "<li class='sidebar-navigation-item'>";
