@@ -154,10 +154,10 @@ function amp_header($title=null, $canonical=null) {
 //	echo "<amp-sidebar id='sidebar-navigation' layout='nodisplay' side='left' on='lightboxClose:pageState.refresh,navigation-header.show;lightboxOpen:".$navigation_lightboxes."' scrollable>";
 	echo "<amp-sidebar id='sidebar-navigation' layout='nodisplay' side='left' on='sidebarClose:pageState.refresh,navigation-header.show;sidebarOpen:begin-image.hide,login-popover.close,settings-popover.close,new-popover.close' scrollable>";
 	
-		echo "<div class='popover-close' on='tap:".$navigation_lightboxes."' role='button' tabindex='0' amp-nested-submenu-close>Close</div>";
-
 		echo "<amp-nested-menu layout='fill'><ul>";
 		
+		echo "<li><div class='popover-close' on='tap:".$navigation_lightboxes."' role='button' tabindex='0' amp-nested-submenu-close>Close</div></li>";
+	
 		echo "<li>";
 		echo "<input type='text' id='sidebar-navigation-search-input' placeholder='&#128270;' on=\"input-throttled:AMP.setState({pageState:{searchTerm: event.value.replace('  ',' ').replace('  ',' ').replace('?',' ').replace(',',' ').replace('&',' ')}}),sidebar-navigation-lightbox-search.close\">";
 		echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on='tap:sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search-list.changeToLayoutContainer()' amp-nested-submenu-open>Search</div>";
