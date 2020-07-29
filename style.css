@@ -145,7 +145,6 @@ amp-lightbox {
 
 
 #sidebar-navigation {
-	font-family: Assistant;
 	width: 650px;
 	background: rgba(255,255,255,1);
 	margin: 0;
@@ -189,6 +188,7 @@ div.sidebar-navigation-item {
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	overflow: hidden;
+	font-family: Assistant;
 	}
 
 .sidebar-navigation-item-button {
