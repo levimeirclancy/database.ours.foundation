@@ -169,7 +169,7 @@ function amp_header($title=null, $canonical=null) {
 
 		echo "<li><div class='sidebar-navigation-button' amp-nested-submenu-open>About</div>";
 			echo "<div amp-nested-submenu><ul>";
-			echo "<li><div amp-nested-submenu-close>Go back</div></li>
+			echo "<li><div amp-nested-submenu-close>Go back</div></li>";
 			echo "<li><p>". number_format(count($information_array)) ." total entries.</p></li>";
 			echo "</ul></div></li>";
 	
