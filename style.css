@@ -134,6 +134,7 @@ amp-lightbox {
 	font-family: Arial, Helvetica, Sans Serif;
 	cursor: pointer;
 	text-align: right;
+	margin: 0 0 20px 0;
 	}
 
 .sidebar-back:before {
