@@ -198,8 +198,8 @@ amp-lightbox {
 	background: rgba(200,200,200,1);
 	color: rgba(255,255,255,1);
 	font-weight: 700;
-	padding: 3px 13px;
-	margin: 3px 16px 3px 0;
+	padding: 3px;
+	margin: 0 0 0 10px;
 	border-radius: 100px;
 	float: right;
 	}
