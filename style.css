@@ -168,6 +168,9 @@ amp-lightbox {
 	margin: 0;
 	padding: 0;
 	border: 0;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
 	}
 
 #sidebar-navigation li.sidebar-navigation-item, .sidebar-navigation-item {
@@ -175,7 +178,6 @@ amp-lightbox {
 	padding: 10px;
 	border-bottom: 2px solid rgba(200,200,200,0.8);
 	font-family: Assistant;
-	display: inline-block;
 	}
 
 div.sidebar-navigation-item {
@@ -191,7 +193,7 @@ div.sidebar-navigation-item {
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	overflow: hidden;
-	display: inline;
+	display: inline-block;
 	}
 
 .sidebar-navigation-item-button {
