@@ -170,14 +170,36 @@ function amp_header($title=null, $canonical=null) {
 		echo "</li>";
 
 		echo "<li><div class='sidebar-navigation-button' amp-nested-submenu-open>About</div>";
-			echo "<div amp-nested-submenu><ul>";
-			echo "<li><div amp-nested-submenu-close>Go back</div></li>";
-			echo "<li><p>". number_format(count($information_array)) ." total entries.</p></li>";
-			echo "</ul></div></li>";
+			echo "<div amp-nested-submenu>";
+			echo "<div amp-nested-submenu-close>Go back</div>";
+			echo "<p>". number_format(count($information_array)) ." total entries.</p>";
+			echo "</div></li>";
 	
+		echo "<li>";
 		foreach ($header_array as $header_backend => $header_frontend):
-			echo "<li><div class='sidebar-navigation-button' role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: pageState.categoriesArray.".$header_backend."}),sidebar-navigation-lightbox-type.open\">". ucfirst($header_frontend) ."</div></li>";
+			echo "<div class='sidebar-navigation-button' role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: pageState.categoriesArray.".$header_backend."})\" amp-nested-submenu-open>". ucfirst($header_frontend) ."</div></li>";
 			endforeach;
+		echo "<div amp-nested-submenu>";
+		echo "<div amp-nested-submenu-close>Go back</div>";
+		echo "<amp-list id='sidebar-navigation-lightbox-type-list' layout='responsive' width='800' height='800' items='.' max-items='100' binding='refresh' [src]=\"pageStateType\">";
+			echo "<p class='amp-list-fallback' fallback>No entries in cateogry.</p>";
+			echo "<p class='amp-list-fallback' placeholder>Loading entries...</p>";
+//			echo "<p class='amp-list-fallback' overflow>Show more.</p>";
+
+			echo "<template type='amp-mustache'>";
+				echo "<span class='categories-item'>";
+	
+				// Handle the indenting
+				echo "<span class='categories-item-indent-wrapper'>{{#indent_array}}<span class='categories-item-indent'></span>{{/indent_array}}</span>";
+	
+				echo "<a href='/{{entry_id}}/'><span class='categories-item-title' [text]=\"pageState.informationArray.{{entry_id}}.header\">Click for more</span></a>";
+				echo "{{#map}}<a href='/{{entry_id}}/map/' target='_blank'><span class='categories-item-button'>Map</span></a>{{/map}}";
+				echo "</span>";
+				echo "</template>";
+			echo "</amp-list>";
+	
+			echo "<span class='categories-item'></span>";
+		echo "</div></li>";
 	
 		echo "</ul></amp-nested-menu>";
 	
@@ -200,33 +222,6 @@ function amp_header($title=null, $canonical=null) {
 				echo "</span>";
 				echo "</template>";
 			echo "</amp-list>";
-	
-		echo "<span class='categories-item'></span>";
-
-		echo "</amp-lightbox>";
-	
-	echo "<amp-lightbox class='sidebar-navigation-lightbox' id='sidebar-navigation-lightbox-type' on='lightboxClose:sidebar-navigation-close.show;lightboxOpen:".$navigation_lightboxes.",sidebar-navigation-lightbox-search.close,sidebar-navigation-lightbox-about.close,sidebar-navigation-close.hide,sidebar-navigation-lightbox-type-list.changeToLayoutContainer()' layout='nodisplay' scrollable>";
-
-		echo "<div role='button' tabindex='0' on='tap:".$navigation_lightboxes.",".$sidebar_lightboxes."' class='popover-close'>Back</div>";	
-	
-//		echo "<p [text]=\"lightboxType\"></p>";
-	
-		echo "<amp-list id='sidebar-navigation-lightbox-type-list' layout='responsive' width='800' height='800' items='.' max-items='100' binding='refresh' [src]=\"pageStateType\">";
-			echo "<p class='amp-list-fallback' fallback>No entries in cateogry.</p>";
-			echo "<p class='amp-list-fallback' placeholder>Loading entries...</p>";
-//			echo "<p class='amp-list-fallback' overflow>Show more.</p>";
-
-		echo "<template type='amp-mustache'>";
-			echo "<span class='categories-item'>";
-	
-			// Handle the indenting
-			echo "<span class='categories-item-indent-wrapper'>{{#indent_array}}<span class='categories-item-indent'></span>{{/indent_array}}</span>";
-	
-			echo "<a href='/{{entry_id}}/'><span class='categories-item-title' [text]=\"pageState.informationArray.{{entry_id}}.header\">Click for more</span></a>";
-			echo "{{#map}}<a href='/{{entry_id}}/map/' target='_blank'><span class='categories-item-button'>Map</span></a>{{/map}}";
-			echo "</span>";
-			echo "</template>";
-		echo "</amp-list>";
 	
 		echo "<span class='categories-item'></span>";
 
