@@ -164,7 +164,7 @@ amp-lightbox {
 	border: 0;
 	}
 
-#sidebar-navigation li {
+#sidebar-navigation ul li, .sidebar-navigation-item {
 	display: block;
 	margin: 10px;
 	padding: 12px 0 5px;
@@ -189,7 +189,7 @@ amp-lightbox {
 	padding: 0;
 	}
 
-.categories-item-title {
+.sidebar-navigation-item-title {
 	font-size: 80%;
 	line-height: 1.3em;
 	display: inline;
@@ -201,7 +201,7 @@ amp-lightbox {
 	overflow: hidden;
 	}
 
-.categories-item-button {
+.sidebar-navigation-item-button {
 	font-family: 'Roboto', Helvetica, 'Sans Serif';
 	font-size: 60%;
 	background: rgba(200,200,200,1);
