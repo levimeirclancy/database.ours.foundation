@@ -210,11 +210,11 @@ div.sidebar-navigation-item {
 
 #sidebar-navigation-search-button {
 	display: table;
-	margin: 10px 10px 0;
-	padding: 5px 15px;
+	margin: 10px 10px 5px;
+	padding: 7px 15px;
 	border-radius: 100px;
-	background: #333;
-	border: 1px solid #333;
+	background: #666;
+	border: 1px solid #666;
 	color: #fff;
 	line-height: 1em;
 	font-weight: 400;
@@ -225,8 +225,8 @@ div.sidebar-navigation-item {
 
 #sidebar-navigation-search-input {
 	display: table;
-	margin: 10px 10px 0;
-	padding: 5px 15px;
+	margin: 10px 10px 5px;
+	padding: 7px 15px;
 	border-radius: 100px;
 	background: #fff;
 	border: 1px solid #555;
