@@ -170,9 +170,9 @@ function amp_header($title=null, $canonical=null) {
 	
 			echo "<amp-list id='sidebar-navigation-lightbox-search-list' layout='responsive' width='800' height='800' items='.' max-items='100' binding='refresh' reset-on-refresh='always' [src]=\"'/api/search/?search=' + pageState.searchTerm\">";
 
-				echo "<li class='amp-list-fallback sidebar-navigation-item' fallback>No search results.</li>";
-				echo "<li class='amp-list-fallback sidebar-navigation-item' placeholder>Loading search results...</li>";
-//				echo "<li class='amp-list-fallback sidebar-navigation-item' overflow>Show more.</li>";
+				echo "<li fallback><span class='sidebar-navigation-item-title'>No search results.</span></li>";
+				echo "<li placeholder><span class='sidebar-navigation-item-title'>Loading search results...</span></li>";
+//				echo "<li overflow><span class='sidebar-navigation-item-title'>Show more.</span></li>";
 
 				echo "<template type='amp-mustache'>";
 					echo "<li><a href='/{{entry_id}}/' target='_blank'><span class='sidebar-navigation-item-title' [text]=\"pageState.informationArray.{{entry_id}}.header\">Click for more</span></a></li>";
@@ -199,9 +199,9 @@ function amp_header($title=null, $canonical=null) {
 			echo "<li><div class='sidebar-back' amp-nested-submenu-close>Back</div></li>";
 
 			echo "<amp-list id='sidebar-navigation-lightbox-type-list' layout='responsive' width='800' height='800' items='.' max-items='100' binding='refresh' [src]=\"pageStateType\">";
-				echo "<li class='amp-list-fallback' fallback>No entries in category.</li>";
-				echo "<li class='amp-list-fallback' placeholder>Loading entries...</li>";
-//				echo "<li class='amp-list-fallback' overflow>Show more.</li>";
+				echo "<li fallback><span class='sidebar-navigation-item-title'>No entries in category.</span></li>";
+				echo "<li placeholder><span class='sidebar-navigation-item-title'>Loading entries...</span></li>";
+//				echo "<li overflow><span class='sidebar-navigation-item-title'>Show more.</span></li>";
 
 				echo "<template type='amp-mustache'>";
 					echo "<li>";
