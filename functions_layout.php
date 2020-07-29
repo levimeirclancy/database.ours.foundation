@@ -189,11 +189,10 @@ function amp_header($title=null, $canonical=null) {
 			echo "<li>". number_format(count($information_array)) ." total entries.</li>";
 			echo "</ul></div></li>";
 	
-		echo "<div class='sidebar-navigation-item' amp-nested-submenu-open>";
 		foreach ($header_array as $header_backend => $header_frontend):
-			echo "<div class='sidebar-navigation-item-title' role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: pageState.categoriesArray.".$header_backend."}),sidebar-navigation-lightbox-type-list.changeToLayoutContainer()\">". ucfirst($header_frontend) ."</div>";
+			echo "<div class='sidebar-navigation-item' role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: pageState.categoriesArray.".$header_backend."}),sidebar-navigation-lightbox-type-list.changeToLayoutContainer()\" amp-nested-submenu-open>";
+			echo "<div class='sidebar-navigation-item-title'>". ucfirst($header_frontend) ."</div></div>";
 			endforeach;
-			echo "</div>";
 	
 		echo "<div amp-nested-submenu><ul>";
 			echo "<li><div class='sidebar-back' amp-nested-submenu-close>Back</div></li>";
