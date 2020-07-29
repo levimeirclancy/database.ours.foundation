@@ -164,8 +164,10 @@ function amp_header($title=null, $canonical=null) {
 	
 			echo "<li class='sidebar-back' amp-nested-submenu-close>Back</li>";
 
-			echo "<li><input type='text' id='sidebar-navigation-search-input' placeholder='&#128270;' on=\"input-throttled:AMP.setState({pageState:{searchTerm: event.value.replace('  ',' ').replace('  ',' ').replace('?',' ').replace(',',' ').replace('&',' ')}}),sidebar-navigation-lightbox-search.close\"></li>";
-			echo "<li><div id='sidebar-navigation-search-button' role='button' tabindex='0' on='tap:sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search-list.changeToLayoutContainer()'>Search</div></li>";
+			echo "<li>";
+			echo "<input type='text' id='sidebar-navigation-search-input' placeholder='&#128270;' on=\"input-throttled:AMP.setState({pageState:{searchTerm: event.value.replace('  ',' ').replace('  ',' ').replace('?',' ').replace(',',' ').replace('&',' ')}}),sidebar-navigation-lightbox-search.close\">";
+	//		echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on='tap:sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search-list.changeToLayoutContainer()'>Search</div>";
+			echo "</li>";
 //			echo "<li [text]=\"pageState.searchTerm == '' || pageState.searchTerm == ' ' || pageState.searchTerm == null ? 'Search term cannot be empty.' : 'Search results for: ' + pageState.searchTerm\">Search term not received.</li>";
 	
 			echo "<amp-list id='sidebar-navigation-lightbox-search-list' layout='responsive' width='800' height='800' items='.' max-items='100' binding='refresh' reset-on-refresh='always' [src]=\"'/api/search/?search=' + pageState.searchTerm\">";
@@ -190,9 +192,7 @@ function amp_header($title=null, $canonical=null) {
 	
 		echo "<li>";
 		foreach ($header_array as $header_backend => $header_frontend):
-//			sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search-list.changeToLayoutContainer()
-//			echo "<div class='sidebar-navigation-button' role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: pageState.categoriesArray.".$header_backend."})\" amp-nested-submenu-open>". ucfirst($header_frontend) ."</div></li>";
-			echo "<div class='sidebar-navigation-li' role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: pageState.categoriesArray.".$header_backend."}),sidebar-navigation-lightbox-type-list.changeToLayoutContainer()\" amp-nested-submenu-open>". ucfirst($header_frontend) ."</div>";
+			echo "<div class='sidebar-navigation-item' role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: pageState.categoriesArray.".$header_backend."}),sidebar-navigation-lightbox-type-list.changeToLayoutContainer()\" amp-nested-submenu-open><span class='sidebar-navigation-item-title'>". ucfirst($header_frontend) ."</span></div>";
 			endforeach;
 	
 		echo "<div amp-nested-submenu><ul>";
