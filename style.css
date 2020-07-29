@@ -209,9 +209,9 @@ div.sidebar-navigation-item {
 	}
 
 #sidebar-navigation-search-button {
-	display: inline-block;
-	margin: 10px;
-	padding: 5px;
+	display: table;
+	margin: 10px 10px 0;
+	padding: 5px 8px;
 	border-radius: 100px;
 	background: #fff;
 	border: 1px solid #555;
@@ -224,16 +224,16 @@ div.sidebar-navigation-item {
 	}
 
 #sidebar-navigation-search-input {
-	display: block;
-	margin: 10px;
-	padding: 5px;
+	display: table;
+	margin: 10px 10px 0;
+	padding: 5px 8px;
 	border-radius: 100px;
 	background: #fff;
 	border: 1px solid #555;
 	color: #333;
 	line-height: 1em;
 	font-weight: 400;
-	text-align: center;
+	text-align: left;
 	font-family: Arial, Helvetica, Sans Serif;
 	cursor: pointer;
 	}
