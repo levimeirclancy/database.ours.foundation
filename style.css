@@ -210,11 +210,12 @@ div.sidebar-navigation-item {
 
 #sidebar-navigation-search {
 	white-space: normal;
+	padding: 0;
 	}
 
 #sidebar-navigation-search-button, #sidebar-navigation-search-input {
 	display: inline-table;
-	margin: 10px 10px 5px;
+	margin: 15px 10px 10px 5px;
 	padding: 7px 15px;
 	border-radius: 100px;
 	line-height: 1em;
