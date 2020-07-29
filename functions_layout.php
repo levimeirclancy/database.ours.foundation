@@ -157,7 +157,8 @@ function amp_header($title=null, $canonical=null) {
 		
 	
 	// This is the popover for the categories ...;
-	echo "<amp-sidebar id='sidebar-navigation' layout='nodisplay' side='left' on='lightboxClose:pageState.refresh,navigation-header.show;lightboxOpen:".$navigation_lightboxes."' scrollable>";
+//	echo "<amp-sidebar id='sidebar-navigation' layout='nodisplay' side='left' on='lightboxClose:pageState.refresh,navigation-header.show;lightboxOpen:".$navigation_lightboxes."' scrollable>";
+	echo "<amp-sidebar id='sidebar-navigation' layout='nodisplay' side='left' on='sidebarClose:pageState.refresh,navigation-header.show;sidebarOpen:".$navigation_lightboxes."' scrollable>";
 	
 		echo "<div id='sidebar-navigation-close' role='button' tabindex='0' on='tap:".$navigation_lightboxes.",".$sidebar_lightboxes.",sidebar-navigation-lightbox-search.close,sidebar-navigation-lightbox-about.close,sidebar-navigation-lightbox-about.close,sidebar-navigation.close' class='popover-close'>Back</div>";
 
