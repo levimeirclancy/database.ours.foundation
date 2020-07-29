@@ -208,34 +208,29 @@ div.sidebar-navigation-item {
 	float: right;
 	}
 
-#sidebar-navigation-search-button {
-	display: table;
+#sidebar-navigation-search-button, #sidebar-navigation-search-input {
+	display: inline-table;
 	margin: 10px 10px 5px;
 	padding: 7px 15px;
 	border-radius: 100px;
+	line-height: 1em;
+	font-weight: 400;
+	font-family: Arial, Helvetica, Sans Serif;
+	}
+
+#sidebar-navigation-search-button {
 	background: #666;
 	border: 1px solid #666;
 	color: #fff;
-	line-height: 1em;
-	font-weight: 400;
 	text-align: center;
-	font-family: Arial, Helvetica, Sans Serif;
 	cursor: pointer;
 	}
 
 #sidebar-navigation-search-input {
-	display: table;
-	margin: 10px 10px 5px;
-	padding: 7px 15px;
-	border-radius: 100px;
 	background: #fff;
 	border: 1px solid #555;
 	color: #333;
-	line-height: 1em;
-	font-weight: 400;
 	text-align: left;
-	font-family: Arial, Helvetica, Sans Serif;
-	cursor: pointer;
 	}
 
 #sidebar-navigation-search-input::placeholder {
