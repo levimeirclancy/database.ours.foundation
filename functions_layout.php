@@ -158,7 +158,7 @@ function amp_header($title=null, $canonical=null) {
 		
 		echo "<li><div class='sidebar-back' on='tap:".$navigation_lightboxes."' role='button' tabindex='0' amp-nested-submenu-close>Close</div></li>";
 	
-		echo "<li><div class='sidebar-navigation-item-title'>amp-nested-submenu-open>Search</div>";
+		echo "<li><div class='sidebar-navigation-item-title' amp-nested-submenu-open>Search</div>";
 	
 		echo "<div amp-nested-submenu><ul>";
 	
