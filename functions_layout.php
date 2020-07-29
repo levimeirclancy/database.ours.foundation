@@ -171,12 +171,12 @@ function amp_header($title=null, $canonical=null) {
 	
 			echo "<amp-list id='sidebar-navigation-lightbox-search-list' layout='responsive' width='800' height='800' items='.' max-items='100' binding='refresh' reset-on-refresh='always' [src]=\"'/api/search/?search=' + pageState.searchTerm\">";
 
-				echo "<li fallback><span class='sidebar-navigation-item-title'>No search results.</span></li>";
-				echo "<li placeholder><span class='sidebar-navigation-item-title'>Loading search results...</span></li>";
-//				echo "<li overflow><span class='sidebar-navigation-item-title'>Show more.</span></li>";
+				echo "<li class='sidebar-navigation-item' fallback><span class='sidebar-navigation-item-title'>No search results.</span></li>";
+				echo "<li class='sidebar-navigation-item' placeholder><span class='sidebar-navigation-item-title'>Loading search results...</span></li>";
+//				echo "<li class='sidebar-navigation-item' overflow><span class='sidebar-navigation-item-title'>Show more.</span></li>";
 
 				echo "<template type='amp-mustache'>";
-					echo "<li><a href='/{{entry_id}}/' target='_blank'><span class='sidebar-navigation-item-title' [text]=\"pageState.informationArray.{{entry_id}}.header\">Click for more</span></a></li>";
+					echo "<li class='sidebar-navigation-item'><a href='/{{entry_id}}/' target='_blank'><span class='sidebar-navigation-item-title' [text]=\"pageState.informationArray.{{entry_id}}.header\">Click for more</span></a></li>";
 					echo "</template>";
 	
 				echo "</amp-list></ul></div>";
@@ -185,8 +185,8 @@ function amp_header($title=null, $canonical=null) {
 
 		echo "<li class='sidebar-navigation-item'><div class='sidebar-navigation-item-title' amp-nested-submenu-open>About</div>";
 		echo "<div amp-nested-submenu><ul>";
-			echo "<li><div class='sidebar-back' amp-nested-submenu-close>Back</div></li>";
-			echo "<li>". number_format(count($information_array)) ." total entries.</li>";
+			echo "<li class='sidebar-navigation-item'><div class='sidebar-back' amp-nested-submenu-close>Back</div></li>";
+			echo "<li class='sidebar-navigation-item'>". number_format(count($information_array)) ." total entries.</li>";
 			echo "</ul></div></li>";
 	
 		echo "<li>";	
@@ -195,15 +195,15 @@ function amp_header($title=null, $canonical=null) {
 			endforeach;
 	
 		echo "<div amp-nested-submenu><ul>";
-			echo "<li><div class='sidebar-back' amp-nested-submenu-close>Back</div></li>";
+			echo "<li class='sidebar-navigation-item'><div class='sidebar-back' amp-nested-submenu-close>Back</div></li>";
 
 			echo "<amp-list id='sidebar-navigation-lightbox-type-list' layout='responsive' width='800' height='800' items='.' max-items='100' binding='refresh' [src]=\"pageStateType\">";
-				echo "<li fallback><span class='sidebar-navigation-item-title'>No entries in category.</span></li>";
-				echo "<li placeholder><span class='sidebar-navigation-item-title'>Loading entries...</span></li>";
-//				echo "<li overflow><span class='sidebar-navigation-item-title'>Show more.</span></li>";
+				echo "<li class='sidebar-navigation-item' fallback><span class='sidebar-navigation-item-title'>No entries in category.</span></li>";
+				echo "<li class='sidebar-navigation-item' placeholder><span class='sidebar-navigation-item-title'>Loading entries...</span></li>";
+//				echo "<li class='sidebar-navigation-item' overflow><span class='sidebar-navigation-item-title'>Show more.</span></li>";
 
 				echo "<template type='amp-mustache'>";
-					echo "<li>";
+					echo "<li class='sidebar-navigation-item'>";
 	
 					// Handle the indenting
 					echo "<span class='categories-item-indent-wrapper'>{{#indent_array}}<span class='categories-item-indent'></span>{{/indent_array}}</span>";
