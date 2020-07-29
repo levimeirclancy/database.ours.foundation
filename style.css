@@ -151,6 +151,7 @@ amp-lightbox {
 	box-shadow: 0 0 30px 0 rgba(30,30,30,0.3);
 	text-align: left;
 	box-sizing: border-box;
+	font-size: 80%;
 	}
 
 #sidebar-navigation ul {
@@ -159,20 +160,19 @@ amp-lightbox {
 	border: 0;
 	}
 
-#sidebar-navigation ul li, .sidebar-navigation-item {
-	margin: 10px;
-	padding: 12px 0 5px;
+
+#sidebar-navigation ul li {
+	margin: 0;
+	padding: 0;
 	border: 0;
-	border-top: 2px solid rgba(200,200,200,0.8);
 	}
 
-.categories-item-fadeout {
-	opacity: 0.5;
+.sidebar-navigation-item {
+	margin: 10px;
+	padding: 10px;
+	border-bottom: 2px solid rgba(200,200,200,0.8);
 	}
-	
-#sidebar-navigation li:before {
-	display: none;
-	}
+
 
 .sidebar-navigation-button {
 	display: block;
@@ -181,10 +181,10 @@ amp-lightbox {
 	}
 
 .sidebar-navigation-item-title {
-	font-size: 80%;
+	font-size: inherit;
 	line-height: 1.3em;
 	display: block;
-	padding: 6px 30px 6px 0;
+	padding: 0;
 	margin: 0;
 	vertical-align: middle;
 	text-overflow: ellipsis;
