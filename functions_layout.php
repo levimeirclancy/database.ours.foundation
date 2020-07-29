@@ -154,12 +154,11 @@ function amp_header($title=null, $canonical=null) {
 //	echo "<amp-sidebar id='sidebar-navigation' layout='nodisplay' side='left' on='lightboxClose:pageState.refresh,navigation-header.show;lightboxOpen:".$navigation_lightboxes."' scrollable>";
 	echo "<amp-sidebar id='sidebar-navigation' layout='nodisplay' side='left' on='sidebarClose:pageState.refresh,navigation-header.show;sidebarOpen:begin-image.hide,login-popover.close,settings-popover.close,new-popover.close' scrollable>";
 	
-		echo "<amp-nested-menu layout='fill'><ul>";
+		echo "<amp-nested-menu layout='fill'>";
 		
-		echo "<li><div class='sidebar-back' on='tap:".$navigation_lightboxes."' role='button' tabindex='0' amp-nested-submenu-close>Close</div></li>";
+		echo "<div class='sidebar-back' on='tap:".$navigation_lightboxes."' role='button' tabindex='0' amp-nested-submenu-close>Close</div>";
 	
-		echo "<li><div class='sidebar-navigation-item-title' amp-nested-submenu-open>Search</div>";
-	
+		echo "<div class='sidebar-navigation-item' amp-nested-submenu-open><div class='sidebar-navigation-item-title'>Search</div></div>";
 		echo "<div amp-nested-submenu><ul>";
 	
 			echo "<li class='sidebar-back' amp-nested-submenu-close>Back</li>";
@@ -184,15 +183,14 @@ function amp_header($title=null, $canonical=null) {
 		
 			echo "</li>";
 
-		echo "<li><div amp-nested-submenu-open>About</div>";
-			echo "<div amp-nested-submenu><ul>";
+		echo "<div class='sidebar-navigation-item' amp-nested-submenu-open><div class='sidebar-navigation-item-title'>About</div></div>";
+		echo "<div amp-nested-submenu><ul>";
 			echo "<li><div class='sidebar-back' amp-nested-submenu-close>Back</div></li>";
 			echo "<li>". number_format(count($information_array)) ." total entries.</li>";
 			echo "</ul></div></li>";
 	
-		echo "<li>";
 		foreach ($header_array as $header_backend => $header_frontend):
-			echo "<div class='sidebar-navigation-item' role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: pageState.categoriesArray.".$header_backend."}),sidebar-navigation-lightbox-type-list.changeToLayoutContainer()\" amp-nested-submenu-open><span class='sidebar-navigation-item-title'>". ucfirst($header_frontend) ."</span></div>";
+			echo "<div class='sidebar-navigation-item' amp-nested-submenu-open><div class='sidebar-navigation-item-title' role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: pageState.categoriesArray.".$header_backend."}),sidebar-navigation-lightbox-type-list.changeToLayoutContainer()\">". ucfirst($header_frontend) ."</div>";
 			endforeach;
 	
 		echo "<div amp-nested-submenu><ul>";
