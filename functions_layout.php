@@ -156,13 +156,13 @@ function amp_header($title=null, $canonical=null) {
 	
 		echo "<amp-nested-menu layout='fill'><ul>";
 		
-		echo "<li><div class='popover-close' on='tap:".$navigation_lightboxes."' role='button' tabindex='0' amp-nested-submenu-close>Close</div></li>";
+		echo "<li><div class='sidebar-back' on='tap:".$navigation_lightboxes."' role='button' tabindex='0' amp-nested-submenu-close>Close</div></li>";
 	
 		echo "<li>";
 		echo "<input type='text' id='sidebar-navigation-search-input' placeholder='&#128270;' on=\"input-throttled:AMP.setState({pageState:{searchTerm: event.value.replace('  ',' ').replace('  ',' ').replace('?',' ').replace(',',' ').replace('&',' ')}}),sidebar-navigation-lightbox-search.close\">";
 		echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on='tap:sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search-list.changeToLayoutContainer()' amp-nested-submenu-open>Search</div>";
 		echo "<div amp-nested-submenu><ul>";
-			echo "<li class='popover-close' amp-nested-submenu-close>Back</li>";
+			echo "<li class='sidebar-back' amp-nested-submenu-close>Back</li>";
 
 			echo "<li [text]=\"pageState.searchTerm == '' || pageState.searchTerm == ' ' || pageState.searchTerm == null ? 'Search term cannot be empty.' : 'Search results for: ' + pageState.searchTerm\">Search term not received.</li>";
 	
@@ -184,7 +184,7 @@ function amp_header($title=null, $canonical=null) {
 
 		echo "<li><div class='sidebar-navigation-button' amp-nested-submenu-open>About</div>";
 			echo "<div amp-nested-submenu>";
-			echo "<ul><li><div class='popover-close' amp-nested-submenu-close>Back</div></li>";
+			echo "<ul><li><div class='sidebar-back' amp-nested-submenu-close>Back</div></li>";
 			echo "<li>". number_format(count($information_array)) ." total entries.</li></ul>";
 			echo "</div></li>";
 	
@@ -195,7 +195,7 @@ function amp_header($title=null, $canonical=null) {
 			echo "<div class='sidebar-navigation-button' role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: pageState.categoriesArray.".$header_backend."}),sidebar-navigation-lightbox-type-list.changeToLayoutContainer()\" amp-nested-submenu-open>". ucfirst($header_frontend) ."</div></li>";
 			endforeach;
 		echo "<div amp-nested-submenu><ul>";
-		echo "<li><div class='popover-close' amp-nested-submenu-close>Back</div></li>";
+		echo "<li><div class='sidebar-back' amp-nested-submenu-close>Back</div></li>";
 		echo "<amp-list id='sidebar-navigation-lightbox-type-list' layout='responsive' width='800' height='800' items='.' max-items='100' binding='refresh' [src]=\"pageStateType\">";
 			echo "<li class='amp-list-fallback' fallback>No entries in cateogry.</li>";
 			echo "<li class='amp-list-fallback' placeholder>Loading entries...</li>";
@@ -223,7 +223,7 @@ function amp_header($title=null, $canonical=null) {
 	// This is the popover to log in ...
 	echo "<amp-lightbox id='login-popover' on=\"lightboxClose:navigation-header.show;lightboxOpen:begin-image.hide,sidebar-navigation.close,settings-popover.close,new-popover.close,navigation-header.hide,AMP.setState({inputPasswordType: 'password'})\" layout='nodisplay'>";
 
-		echo "<span role='button' tabindex='0' on='tap:".$navigation_lightboxes.",".$sidebar_lightboxes."' class='popover-close'>Back</span>";
+		echo "<span role='button' tabindex='0' on='tap:".$navigation_lightboxes.",".$sidebar_lightboxes."' class='lightboxes-close'>Back</span>";
 
 		echo "<form id='login' method='post' action-xhr='/login-xhr/' target='_blank' on=\"
 			submit:
@@ -261,7 +261,7 @@ function amp_header($title=null, $canonical=null) {
 	// This is the popover for settings ...
 	echo "<amp-lightbox id='settings-popover' on='lightboxClose:navigation-header.show;lightboxOpen:begin-image.hide,login-popover.close,navigation-sidebar.close,new-popover.close' layout='nodisplay'>";
 
-		echo "<span role='button' tabindex='0' on='tap:".$navigation_lightboxes."' class='popover-close'>Back</span>";
+		echo "<span role='button' tabindex='0' on='tap:".$navigation_lightboxes."' class='lightboxes-close'>Back</span>";
 
 		echo "<p>Settings coming soon: password change, account management.</p>";
 	
@@ -279,7 +279,7 @@ function amp_header($title=null, $canonical=null) {
 	// Add a new popover ... residrect if adding it works ...
 	echo "<amp-lightbox id='new-popover' on='lightboxClose:navigation-header.show;lightboxOpen:begin-image.hide,login-popover.close,navigation-sidebar.close,settings-popover.close' layout='nodisplay'>";
 
-		echo "<span role='button' tabindex='0' on='tap:".$navigation_lightboxes."' class='popover-close'>Back</span>";
+		echo "<span role='button' tabindex='0' on='tap:".$navigation_lightboxes."' class='lightboxes-close'>Back</span>";
 
 		echo "<form action-xhr='/new-xhr/' method='post' id='new' target='_top' class='admin-page-form' on=\"
 			submit:
