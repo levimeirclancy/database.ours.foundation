@@ -160,16 +160,24 @@ function amp_header($title=null, $canonical=null) {
 //	echo "<amp-sidebar id='sidebar-navigation' layout='nodisplay' side='left' on='lightboxClose:pageState.refresh,navigation-header.show;lightboxOpen:".$navigation_lightboxes."' scrollable>";
 	echo "<amp-sidebar id='sidebar-navigation' layout='nodisplay' side='left' on='sidebarClose:pageState.refresh,navigation-header.show;sidebarOpen:".$navigation_lightboxes."' scrollable>";
 	
-		echo "<div id='sidebar-navigation-close' role='button' tabindex='0' on='tap:".$navigation_lightboxes.",".$sidebar_lightboxes.",sidebar-navigation-lightbox-search.close,sidebar-navigation-lightbox-about.close,sidebar-navigation-lightbox-about.close,sidebar-navigation.close' class='popover-close'>Back</div>";
+//		echo "<div id='sidebar-navigation-close' role='button' tabindex='0' on='tap:".$navigation_lightboxes.",".$sidebar_lightboxes.",sidebar-navigation-lightbox-search.close,sidebar-navigation-lightbox-about.close,sidebar-navigation-lightbox-about.close,sidebar-navigation.close' class='popover-close'>Back</div>";
 
+		echo "<ul><li>";
 		echo "<input type='text' id='sidebar-navigation-search-input' placeholder='&#128270;' on=\"input-throttled:AMP.setState({pageState:{searchTerm: event.value.replace('  ',' ').replace('  ',' ').replace('?',' ').replace(',',' ').replace('&',' ')}}),sidebar-navigation-lightbox-search.close\">";
 		echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on='tap:sidebar-navigation-lightbox-search.open'>Search</div>";
+		echo "</li>";
 
-		echo "<div class='sidebar-navigation-button' role='button' tabindex='0' on=\"tap:sidebar-navigation-lightbox-about.open\">About</div>";
+		echo "<li><div class='sidebar-navigation-button' amp-nested-submenu-open>About</div>";
+			echo "<div amp-nested-submenu><ul>";
+			echo "<li><div amp-nested-submenu-close>Go back</div></li>
+			echo "<li><p>". number_format(count($information_array)) ." total entries.</p></li>";
+			echo "</ul></div></li>";
 	
 		foreach ($header_array as $header_backend => $header_frontend):
-			echo "<div class='sidebar-navigation-button' role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: pageState.categoriesArray.".$header_backend."}),sidebar-navigation-lightbox-type.open\">". ucfirst($header_frontend) ."</div>";
+			echo "<li><div class='sidebar-navigation-button' role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: pageState.categoriesArray.".$header_backend."}),sidebar-navigation-lightbox-type.open\">". ucfirst($header_frontend) ."</div></li>";
 			endforeach;
+	
+		echo "</ul>";
 	
 		echo "</amp-sidebar>";
 	
@@ -192,19 +200,6 @@ function amp_header($title=null, $canonical=null) {
 			echo "</amp-list>";
 	
 		echo "<span class='categories-item'></span>";
-
-		echo "</amp-lightbox>";
-	
-	echo "<amp-lightbox class='sidebar-navigation-lightbox' id='sidebar-navigation-lightbox-about' on='lightboxClose:sidebar-navigation-close.show;lightboxOpen:sidebar-navigation-lightbox-search.close,sidebar-navigation-lightbox-type.close,sidebar-navigation-close.hide' layout='nodisplay' scrollable>";
-
-		echo "<div role='button' tabindex='0' on='tap:".$navigation_lightboxes.",".$sidebar_lightboxes."' class='popover-close'>Back</div>";
-
-		// How many total entries are there ...
-		echo "<p>". number_format(count($information_array)) ." total entries.</p>";
-
-		// List of recently edited posts...
-	
-		// Add a toggle to choose the post that goes here
 
 		echo "</amp-lightbox>";
 	
