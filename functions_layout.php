@@ -147,31 +147,44 @@ function amp_header($title=null, $canonical=null) {
 		"login-popover.close",
 		"settings-popover.close",
 		"new-popover.close",
-		]);
-	
-	$sidebar_lightboxes = implode(",", [
-		"sidebar-navigation-lightbox-search.close",
-		"sidebar-navigation-lightbox-about.close",
-		"sidebar-navigation-lightbox-type.close",
-		]);
-		
+		"sidebar-navigation.close",
+		]);		
 	
 	// This is the popover for the categories ...;
 //	echo "<amp-sidebar id='sidebar-navigation' layout='nodisplay' side='left' on='lightboxClose:pageState.refresh,navigation-header.show;lightboxOpen:".$navigation_lightboxes."' scrollable>";
 	echo "<amp-sidebar id='sidebar-navigation' layout='nodisplay' side='left' on='sidebarClose:pageState.refresh,navigation-header.show;sidebarOpen:".$navigation_lightboxes."' scrollable>";
 	
-//		echo "<div id='sidebar-navigation-close' role='button' tabindex='0' on='tap:".$navigation_lightboxes.",".$sidebar_lightboxes.",sidebar-navigation-lightbox-search.close,sidebar-navigation-lightbox-about.close,sidebar-navigation-lightbox-about.close,sidebar-navigation.close' class='popover-close'>Back</div>";
+		echo "<div class='popover-close' on='tap:".$navigation_lightboxes."' role='button' tabindex='0' amp-nested-submenu-close>Close</div>";
 
 		echo "<amp-nested-menu layout='fill'><ul>";
 		
 		echo "<li>";
 		echo "<input type='text' id='sidebar-navigation-search-input' placeholder='&#128270;' on=\"input-throttled:AMP.setState({pageState:{searchTerm: event.value.replace('  ',' ').replace('  ',' ').replace('?',' ').replace(',',' ').replace('&',' ')}}),sidebar-navigation-lightbox-search.close\">";
-		echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on='tap:sidebar-navigation-lightbox-search.open'>Search</div>";
-		echo "</li>";
+		echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on='tap:sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search-list.changeToLayoutContainer()' amp-nested-submenu-open>Search</div>";
+		echo "<div amp-nested-submenu>";
+			echo "<div class='popover-close' amp-nested-submenu-close>Back</div>";
+
+			echo "<p [text]=\"pageState.searchTerm == '' || pageState.searchTerm == ' ' || pageState.searchTerm == null ? 'Search term cannot be empty.' : 'Search results for: ' + pageState.searchTerm\">Search term not received.</p>";
+	
+			echo "<amp-list id='sidebar-navigation-lightbox-search-list' layout='responsive' width='800' height='800' items='.' max-items='100' binding='refresh' reset-on-refresh='always' [src]=\"'/api/search/?search=' + pageState.searchTerm\">";
+				echo "<p class='amp-list-fallback' fallback>No search results.</p>";
+				echo "<p class='amp-list-fallback' placeholder>Loading search results...</p>";
+//				echo "<p class='amp-list-fallback' overflow>Show more.</p>";
+
+				echo "<template type='amp-mustache'>";
+					echo "<span class='categories-item'>";
+					echo "<a href='/{{entry_id}}/' target='_blank'><span class='categories-item-title' [text]=\"pageState.informationArray.{{entry_id}}.header\">Click for more</span></a>";
+					echo "</span>";
+					echo "</template>";
+				echo "</amp-list>";
+	
+			echo "<span class='categories-item'></span>";
+	
+			echo "</div></li>";
 
 		echo "<li><div class='sidebar-navigation-button' amp-nested-submenu-open>About</div>";
 			echo "<div amp-nested-submenu>";
-			echo "<div amp-nested-submenu-close>Go back</div>";
+			echo "<div class='popover-close' amp-nested-submenu-close>Back</div>";
 			echo "<p>". number_format(count($information_array)) ." total entries.</p>";
 			echo "</div></li>";
 	
@@ -182,7 +195,7 @@ function amp_header($title=null, $canonical=null) {
 			echo "<div class='sidebar-navigation-button' role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: pageState.categoriesArray.".$header_backend."}),sidebar-navigation-lightbox-type-list.changeToLayoutContainer()\" amp-nested-submenu-open>". ucfirst($header_frontend) ."</div></li>";
 			endforeach;
 		echo "<div amp-nested-submenu>";
-		echo "<div amp-nested-submenu-close>Go back</div>";
+		echo "<div class='popover-close' amp-nested-submenu-close>Back</div>";
 		echo "<amp-list id='sidebar-navigation-lightbox-type-list' layout='responsive' width='800' height='800' items='.' max-items='100' binding='refresh' [src]=\"pageStateType\">";
 			echo "<p class='amp-list-fallback' fallback>No entries in cateogry.</p>";
 			echo "<p class='amp-list-fallback' placeholder>Loading entries...</p>";
@@ -207,28 +220,6 @@ function amp_header($title=null, $canonical=null) {
 	
 		echo "</amp-sidebar>";
 	
-	echo "<amp-lightbox class='sidebar-navigation-lightbox' id='sidebar-navigation-lightbox-search' on='lightboxClose:sidebar-navigation-close.show;lightboxOpen:".$navigation_lightboxes.",sidebar-navigation-lightbox-type.close,sidebar-navigation-lightbox-about.close,sidebar-navigation-close.hide,sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search-list.changeToLayoutContainer()' layout='nodisplay' scrollable>";
-
-		echo "<div role='button' tabindex='0' on='tap:".$navigation_lightboxes.",".$sidebar_lightboxes."' class='popover-close'>Back</div>";
-
-		echo "<p [text]=\"pageState.searchTerm == '' || pageState.searchTerm == ' ' || pageState.searchTerm == null ? 'Search term cannot be empty.' : 'Search results for: ' + pageState.searchTerm\">Search term not received.</p>";
-	
-		echo "<amp-list id='sidebar-navigation-lightbox-search-list' layout='responsive' width='800' height='800' items='.' max-items='100' binding='refresh' reset-on-refresh='always' [src]=\"'/api/search/?search=' + pageState.searchTerm\">";
-			echo "<p class='amp-list-fallback' fallback>No search results.</p>";
-			echo "<p class='amp-list-fallback' placeholder>Loading search results...</p>";
-//			echo "<p class='amp-list-fallback' overflow>Show more.</p>";
-
-			echo "<template type='amp-mustache'>";
-				echo "<span class='categories-item'>";
-				echo "<a href='/{{entry_id}}/' target='_blank'><span class='categories-item-title' [text]=\"pageState.informationArray.{{entry_id}}.header\">Click for more</span></a>";
-				echo "</span>";
-				echo "</template>";
-			echo "</amp-list>";
-	
-		echo "<span class='categories-item'></span>";
-
-		echo "</amp-lightbox>";
-
 	$navigation_lightboxes .= ",sidebar-navigation.close";
 		
 	// This is the popover to log in ...
