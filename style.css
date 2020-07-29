@@ -170,7 +170,7 @@ amp-lightbox {
 
 #sidebar-navigation li.sidebar-navigation-item, .sidebar-navigation-item {
 	margin: 10px;
-	padding: 6px 10px 10px;
+	padding: 5px 10px 13px;
 	border-bottom: 2px solid rgba(200,200,200,0.8);
 	display: block;
 	}
@@ -193,8 +193,8 @@ amp-lightbox {
 	background: rgba(200,200,200,1);
 	color: rgba(255,255,255,1);
 	font-weight: 700;
-	padding: 3px;
-	margin: 0 0 0 0;
+	padding: 3px 8px;
+	margin: 0;
 	border-radius: 100px;
 	float: right;
 	}
