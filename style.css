@@ -228,7 +228,7 @@ div.sidebar-navigation-item {
 
 #sidebar-navigation-search-button {
 	display: inline-block;
-	margin: 10px 0 20px 0;
+	margin: 10px auto 20px auto;
 	padding: 8px 20px 7px;
 	border-radius: 100px;
 	background: #fff;
