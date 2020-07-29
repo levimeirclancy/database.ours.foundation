@@ -144,7 +144,7 @@ amp-lightbox {
 
 
 #sidebar-navigation {
-	max-width: 650px;
+	width: 650px;
 	background: rgba(255,255,255,1);
 	margin: 0;
 	padding: 20px;
@@ -164,10 +164,6 @@ amp-lightbox {
 	margin: 10px;
 	padding: 12px 0 5px;
 	border-top: 2px solid rgba(200,200,200,0.8);
-	box-sizing: border-box;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	overflow: hidden;
 	}
 
 .categories-item-fadeout {
