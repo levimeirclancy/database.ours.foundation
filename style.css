@@ -138,11 +138,26 @@ amp-lightbox {
 	box-sizing: border-box;
 	}
 
+#sidebar-navigation ul {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	}
+
+#sidebar-navigation li {
+	border: 0;
+	margin: 0;
+	padding: 0;
+	}
+	
+#sidebar-navigation li:before {
+	display: none;
+	}
+
 .sidebar-navigation-button {
-	font-size: 90%;
-	line-height: 1em;
-	margin: 15px 0;
-	cursor: pointer;
+	display: block;
+	margin: 5p 0;
+	padding: 0;
 	}
 
 #sidebar-navigation-search-input {
@@ -178,34 +193,10 @@ amp-lightbox {
 	cursor: pointer;
 	}
 
-.sidebar-navigation-lightbox {
-	margin: 0 0 0 300px;	
-	top: 0;
-	z-index: 1000;
-	}
-
-.sidebar-navigation-lightbox .popover-close {
-	left: 330px;
-	}
-
-.sidebar-navigation-lightbox p {
-	margin: 0 0 50px 0;
-	}
-
 @media only screen and (max-width: 700px) {
-
-	.sidebar-navigation-lightbox .popover-close {
-		left: 20px;
-		}
 
 	#sidebar-navigation {
 		max-width: none;
-		}
-
-	.sidebar-navigation-lightbox {
-		margin: 0;	
-		left: 0;
-		z-index: 95;
 		}
 
 	}
