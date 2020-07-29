@@ -143,7 +143,7 @@ function amp_header($title=null, $canonical=null) {
 
 	$navigation_lightboxes = implode(",", [
 		"begin-image.hide",
-		"navigation-header.hide",
+//		"navigation-header.hide",
 		"login-popover.close",
 		"settings-popover.close",
 		"new-popover.close",
