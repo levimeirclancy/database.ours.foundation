@@ -156,9 +156,9 @@ function amp_header($title=null, $canonical=null) {
 	
 		echo "<amp-nested-menu layout='fill'><ul>";
 		
-		echo "<li><div class='sidebar-back' on='tap:".$navigation_lightboxes."' role='button' tabindex='0' amp-nested-submenu-close>Close</div></li>";
+		echo "<li class='sidebar-navigation-item'><div class='sidebar-back' on='tap:".$navigation_lightboxes."' role='button' tabindex='0' amp-nested-submenu-close>Close</div></li>";
 	
-		echo "<li><div class='sidebar-navigation-item-title'  amp-nested-submenu-open>Search</div>";
+		echo "<li class='sidebar-navigation-item'><div class='sidebar-navigation-item-title'  amp-nested-submenu-open>Search</div>";
 		echo "<div amp-nested-submenu><ul>";
 	
 			echo "<li class='sidebar-back' amp-nested-submenu-close>Back</li>";
@@ -183,7 +183,7 @@ function amp_header($title=null, $canonical=null) {
 		
 			echo "</li>";
 
-		echo "<li><div class='sidebar-navigation-item-title' amp-nested-submenu-open>About</div>";
+		echo "<li class='sidebar-navigation-item'><div class='sidebar-navigation-item-title' amp-nested-submenu-open>About</div>";
 		echo "<div amp-nested-submenu><ul>";
 			echo "<li><div class='sidebar-back' amp-nested-submenu-close>Back</div></li>";
 			echo "<li>". number_format(count($information_array)) ." total entries.</li>";
