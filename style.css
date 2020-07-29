@@ -182,6 +182,7 @@ amp-lightbox {
 .sidebar-navigation-lightbox {
 	margin: 0 0 0 300px;	
 	top: 0;
+	z-index: 1000;
 	}
 
 .sidebar-navigation-lightbox .popover-close {
