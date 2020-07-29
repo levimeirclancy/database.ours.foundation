@@ -213,7 +213,10 @@ amp-lightbox {
 	font-size: inherit;
 	display: block;
 	font-size: 95%;
+	width: auto;
+	max-width: 80%;
 	padding: 9px 20px 8px;
+	margin: 12px auto;
 	}
 
 #sidebar-navigation-search-input::placeholder {
