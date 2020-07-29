@@ -129,7 +129,6 @@ amp-lightbox {
 
 
 #sidebar-navigation {
-	z-index: 90;
 	max-width: 300px;
 	background: rgba(255,255,255,1);
 	margin: 0;
@@ -183,7 +182,6 @@ amp-lightbox {
 .sidebar-navigation-lightbox {
 	margin: 0 0 0 300px;	
 	top: 0;
-	z-index: 80;
 	}
 
 .sidebar-navigation-lightbox .popover-close {
