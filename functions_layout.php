@@ -183,10 +183,10 @@ function amp_header($title=null, $canonical=null) {
 			echo "</li>";
 
 		echo "<li><div amp-nested-submenu-open>About</div>";
-			echo "<div amp-nested-submenu>";
-			echo "<ul><li><div class='sidebar-back' amp-nested-submenu-close>Back</div></li>";
-			echo "<li>". number_format(count($information_array)) ." total entries.</li></ul>";
-			echo "</div></li>";
+			echo "<div amp-nested-submenu><ul>";
+			echo "<li><div class='sidebar-back' amp-nested-submenu-close>Back</div></li>";
+			echo "<li>". number_format(count($information_array)) ." total entries.</li>";
+			echo "</ul></div></li>";
 	
 		echo "<li>";
 		foreach ($header_array as $header_backend => $header_frontend):
