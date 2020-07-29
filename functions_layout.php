@@ -163,7 +163,7 @@ function amp_header($title=null, $canonical=null) {
 	
 			echo "<li class='sidebar-navigation-item'><div class='sidebar-back' amp-nested-submenu-close>Back</li>";
 
-			echo "<li class='sidebar-navigation-search'>";
+			echo "<li id='sidebar-navigation-search'>";
 			echo "<input type='text' id='sidebar-navigation-search-input' placeholder='...' on=\"input-throttled:AMP.setState({pageState:{searchTerm: event.value.replace('  ',' ').replace('  ',' ').replace('?',' ').replace(',',' ').replace('&',' ')}}),sidebar-navigation-lightbox-search.close\">";
 			echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on='tap:sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search-list.changeToLayoutContainer()'>Search</div>";
 			echo "</li>";
