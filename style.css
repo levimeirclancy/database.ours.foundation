@@ -173,9 +173,11 @@ amp-lightbox {
 	margin: 0;
 	padding: 10px;
 	border-bottom: 2px solid rgba(200,200,200,0.8);
-	display: block;
 	}
 
+div.sidebar-navigation-item {
+	display: block;
+	}
 
 .sidebar-navigation-item-title {
 	font-size: inherit;
