@@ -217,7 +217,7 @@ div.sidebar-navigation-item {
 	display: block;
 	font-size: 95%;
 	width: auto;
-	max-width: 80%;
+	max-width: none;
 	padding: 9px 20px 8px;
 	margin: 12px auto;
 	}
