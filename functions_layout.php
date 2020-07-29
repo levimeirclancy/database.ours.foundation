@@ -161,7 +161,7 @@ function amp_header($title=null, $canonical=null) {
 		echo "<li class='sidebar-navigation-item'><div class='sidebar-navigation-item-title'  amp-nested-submenu-open>Search</div>";
 		echo "<div amp-nested-submenu><ul>";
 	
-			echo "<li class='sidebar-back' amp-nested-submenu-close>Back</li>";
+			echo "<li class='sidebar-navigation-item'><div class='sidebar-back' amp-nested-submenu-close>Back</li>";
 
 			echo "<li>";
 			echo "<input type='text' id='sidebar-navigation-search-input' placeholder='&#128270;' on=\"input-throttled:AMP.setState({pageState:{searchTerm: event.value.replace('  ',' ').replace('  ',' ').replace('?',' ').replace(',',' ').replace('&',' ')}}),sidebar-navigation-lightbox-search.close\">";
@@ -195,7 +195,8 @@ function amp_header($title=null, $canonical=null) {
 			endforeach;
 	
 		echo "<div amp-nested-submenu><ul>";
-			echo "<li class='sidebar-navigation-item'><div class='sidebar-back' amp-nested-submenu-close>Back</div></li>";
+	
+			echo "<li class='sidebar-navigation-item'><div class='sidebar-back' amp-nested-submenu-close>Back</li>";
 
 			echo "<amp-list id='sidebar-navigation-lightbox-type-list' layout='responsive' width='800' height='800' items='.' max-items='100' binding='refresh' [src]=\"pageStateType\">";
 				echo "<li class='sidebar-navigation-item' fallback><span class='sidebar-navigation-item-title'>No entries in category.</span></li>";
