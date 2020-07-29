@@ -214,7 +214,7 @@ div.sidebar-navigation-item {
 	border-radius: 100px;
 	font-family: Times;
 	font-size: inherit;
-	display: inline-block;
+	display: block;
 	font-size: 95%;
 	width: auto;
 	max-width: 80%;
@@ -227,7 +227,7 @@ div.sidebar-navigation-item {
 	}
 
 #sidebar-navigation-search-button {
-	display: inline-block;
+	display: block;
 	margin: 10px auto 20px auto;
 	padding: 8px 20px 7px;
 	border-radius: 100px;
