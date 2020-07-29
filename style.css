@@ -173,6 +173,7 @@ amp-lightbox {
 	margin: 0;
 	padding: 10px;
 	border-bottom: 2px solid rgba(200,200,200,0.8);
+	font-family: Assistant;
 	}
 
 div.sidebar-navigation-item {
@@ -188,7 +189,6 @@ div.sidebar-navigation-item {
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	overflow: hidden;
-	font-family: Assistant;
 	}
 
 .sidebar-navigation-item-button {
