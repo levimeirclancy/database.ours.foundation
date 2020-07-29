@@ -129,6 +129,7 @@ amp-lightbox {
 
 
 #sidebar-navigation {
+	z-index: 90;
 	max-width: 300px;
 	background: rgba(255,255,255,1);
 	margin: 0;
