@@ -191,7 +191,7 @@ function amp_header($title=null, $canonical=null) {
 	
 		echo "<li>";	
 		foreach ($header_array as $header_backend => $header_frontend):
-			echo "<div class='sidebar-navigation-item-title' role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: pageState.categoriesArray.".$header_backend."}),sidebar-navigation-lightbox-type-list.changeToLayoutContainer()\" amp-nested-submenu-open>". ucfirst($header_frontend) ."</div></div>";
+			echo "<div class='sidebar-navigation-item' role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: pageState.categoriesArray.".$header_backend."}),sidebar-navigation-lightbox-type-list.changeToLayoutContainer()\" amp-nested-submenu-open><div class='sidebar-navigation-item-title'>". ucfirst($header_frontend) ."</div></div>";
 			endforeach;
 	
 		echo "<div amp-nested-submenu><ul>";
