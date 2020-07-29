@@ -128,6 +128,7 @@ amp-lightbox {
 	display: inline-block; }
 
 .sidebar-back {
+	font-size: 90%;
 	font-weight: 700;
 	line-height: 1em;
 	font-family: Arial, Helvetica, Sans Serif;
@@ -144,6 +145,7 @@ amp-lightbox {
 
 
 #sidebar-navigation {
+	font-family: Assistant;
 	width: 650px;
 	background: rgba(255,255,255,1);
 	margin: 0;
@@ -153,7 +155,6 @@ amp-lightbox {
 	box-sizing: border-box;
 	font-size: 80%;
 	line-height: 1.3em;
-	font-family: Assistant;
 	}
 
 #sidebar-navigation ul {
