@@ -43,6 +43,9 @@ function amp_header($title=null, $canonical=null) {
 	// amp boilerplate code https://www.ampproject.org/docs/reference/spec/amp-boilerplate
 	echo "<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>";
 
+	// for the navigation sidebar
+	echo '<script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>';
+	
 	// for amp-form
 	echo '<script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>';
 
@@ -51,15 +54,9 @@ function amp_header($title=null, $canonical=null) {
 
 	// for amp-bind
 	echo '<script async custom-element="amp-bind" src="https://cdn.ampproject.org/v0/amp-bind-0.1.js"></script>';
-		
-	// for carousels
-	echo '<script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.2.js"></script>';
 	
-	// for lightbox search feature
+	// for lightboxes
 	echo '<script async custom-element="amp-lightbox" src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js"></script>';
-
-	// for fitting text
-	echo '<script async custom-element="amp-fit-text" src="https://cdn.ampproject.org/v0/amp-fit-text-0.1.js"></script>';	
 
 	// for error results
 	echo '<script async custom-template="amp-mustache" src="https://cdn.ampproject.org/v0/amp-mustache-0.2.js"></script>';
@@ -160,7 +157,7 @@ function amp_header($title=null, $canonical=null) {
 		
 	
 	// This is the popover for the categories ...;
-	echo "<amp-lightbox id='sidebar-navigation' layout='nodisplay' on='lightboxClose:pageState.refresh,navigation-header.show;lightboxOpen:".$navigation_lightboxes."' scrollable>";
+	echo "<amp-sidebar id='sidebar-navigation' layout='nodisplay' side='left' on='lightboxClose:pageState.refresh,navigation-header.show;lightboxOpen:".$navigation_lightboxes."' scrollable>";
 	
 		echo "<div id='sidebar-navigation-close' role='button' tabindex='0' on='tap:".$navigation_lightboxes.",".$sidebar_lightboxes.",sidebar-navigation-lightbox-search.close,sidebar-navigation-lightbox-about.close,sidebar-navigation-lightbox-about.close,sidebar-navigation.close' class='popover-close'>Back</div>";
 
@@ -173,7 +170,7 @@ function amp_header($title=null, $canonical=null) {
 			echo "<div class='sidebar-navigation-button' role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: pageState.categoriesArray.".$header_backend."}),sidebar-navigation-lightbox-type.open\">". ucfirst($header_frontend) ."</div>";
 			endforeach;
 	
-		echo "</amp-lightbox>";
+		echo "</amp-sidebar>";
 	
 	echo "<amp-lightbox class='sidebar-navigation-lightbox' id='sidebar-navigation-lightbox-search' on='lightboxClose:sidebar-navigation-close.show;lightboxOpen:".$navigation_lightboxes.",sidebar-navigation-lightbox-type.close,sidebar-navigation-lightbox-about.close,sidebar-navigation-close.hide,sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search-list.changeToLayoutContainer()' layout='nodisplay' scrollable>";
 
