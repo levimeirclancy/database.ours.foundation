@@ -169,8 +169,8 @@ amp-lightbox {
 	}
 
 #sidebar-navigation li.sidebar-navigation-item, .sidebar-navigation-item {
-	margin: 10px;
-	padding: 5px 10px 13px;
+	margin: 0;
+	padding: 10px;
 	border-bottom: 2px solid rgba(200,200,200,0.8);
 	display: block;
 	}
