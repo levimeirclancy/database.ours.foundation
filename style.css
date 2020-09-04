@@ -520,6 +520,12 @@ p, summary, ul, ol, blockquote {
 	text-align: left;
 	font-family: Georgia, 'Times New Roman', Serif; }
 
+blockquote {
+	border: 1px solid #555;
+	border-radius: 8px;
+	padding: 20px;
+	}
+
 blockquote::before, blockquote::after {
 	padding: 20px 20px 0;
 	margin: 20px 0 10px;
@@ -532,22 +538,14 @@ blockquote::before {
 	opacity: 0.9;
 	content: '“';
 	font-size: 50px;
-	position: sticky;
-	position: -webkit-sticky;
+/*	position: sticky;
+	position: -webkit-sticky; */
 	top: 0;
 	color: rgba(0,0,0,1);
 	text-align: left; }
 
 table blockquote::before {
 	padding-left: 0; }
-
-blockquote::after {
-	background: rgba(255,255,255,0);
-	content: '• \00a0 • \00a0 • \00a0';
-	font-size: 30px;
-	position: relative;
-	color: rgba(0,0,0,0.6);
-	text-align: center; }
 
 blockquote cite {
 	text-align: left;
