@@ -521,28 +521,28 @@ p, summary, ul, ol, blockquote {
 	font-family: Georgia, 'Times New Roman', Serif; }
 
 blockquote {
-	border: 1px solid #555;
-	border-radius: 8px;
+	border: 2px solid #ddd;
+	border-radius: 6px;
 	padding: 20px;
+	margin: 20px auto;
 	}
 
 blockquote::before, blockquote::after {
-	padding: 20px 20px 0;
-	margin: 20px 0 10px;
-	display: block;
+	display: inline;
 	line-height: 1.5;
+	font-size: 170%;
+	opacity: 0.9;
+	padding: 5px;
+	color: rgba(0,0,0,1);
 	font-family: 'Times New Roman'; }
 	
 blockquote::before {	
-	background: inherit;
-	opacity: 0.9;
 	content: '“';
-	font-size: 50px;
-/*	position: sticky;
-	position: -webkit-sticky; */
-	top: 0;
-	color: rgba(0,0,0,1);
-	text-align: left; }
+	}
+
+blockquote::after {	
+	content: '”';
+	}
 
 table blockquote::before {
 	padding-left: 0; }
