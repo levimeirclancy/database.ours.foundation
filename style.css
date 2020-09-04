@@ -530,8 +530,8 @@ blockquote {
 	}
 
 blockquote::before, blockquote::after {
-	display: inline;
-	line-height: 1.5;
+	display: block;
+	line-height: 0;
 	font-size: 300%;
 	color: rgba(0,0,0,.2);
 	font-family: 'Times New Roman';
