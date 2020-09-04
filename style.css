@@ -522,17 +522,18 @@ p, summary, ul, ol, blockquote {
 	font-family: Georgia, 'Times New Roman', Serif; }
 
 blockquote {
-	border: 2px solid rgba(0,0,0,.7);
+	border: 2px solid rgba(0,0,0,.2);
 	border-radius: 6px;
 	padding: 20px;
 	margin: 20px auto;
+	max-width: 700px;
 	}
 
 blockquote::before, blockquote::after {
 	display: inline;
 	line-height: 1.5;
 	font-size: 300%;
-	color: rgba(0,0,0,.7);
+	color: rgba(0,0,0,.2);
 	font-family: 'Times New Roman';
 	position: absolute; }
 	
