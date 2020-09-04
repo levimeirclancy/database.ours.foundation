@@ -531,15 +531,16 @@ blockquote {
 
 blockquote::before, blockquote::after {
 	display: block;
-	line-height: 0;
+	line-height: 1;
 	font-size: 300%;
 	color: rgba(0,0,0,.2);
 	font-family: 'Times New Roman';
-	position: absolute; }
+	position: absolute;
+	font-weight: 700; }
 	
 blockquote::before {	
 	content: '“';
-	top: 5px;
+	top: 15px;
 	left: 5px;
 	}
 
