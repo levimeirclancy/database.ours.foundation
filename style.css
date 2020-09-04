@@ -510,6 +510,7 @@ p, summary, ul, ol, blockquote {
 	margin: 0 auto;
 	padding: 20px;
 	text-align: left;
+	position: relative;
 	}
 	
 article, th, td,
@@ -521,7 +522,7 @@ p, summary, ul, ol, blockquote {
 	font-family: Georgia, 'Times New Roman', Serif; }
 
 blockquote {
-	border: 2px solid #ddd;
+	border: 2px solid rgba(0,0,0,.7);
 	border-radius: 6px;
 	padding: 20px;
 	margin: 20px auto;
@@ -530,18 +531,21 @@ blockquote {
 blockquote::before, blockquote::after {
 	display: inline;
 	line-height: 1.5;
-	font-size: 170%;
-	opacity: 0.9;
-	padding: 5px;
-	color: rgba(0,0,0,1);
-	font-family: 'Times New Roman'; }
+	font-size: 300%;
+	color: rgba(0,0,0,.7);
+	font-family: 'Times New Roman';
+	position: absolute; }
 	
 blockquote::before {	
 	content: '“';
+	top: 5px;
+	left: 5px;
 	}
 
 blockquote::after {	
 	content: '”';
+	bottom: 5px;
+	right: 5px;
 	}
 
 table blockquote::before {
