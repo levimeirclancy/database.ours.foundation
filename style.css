@@ -939,13 +939,13 @@ div.amp-lightbox-media-id {
 	border: 0;
 	border-radius: 6px;
 	box-sizing: border-box;
-	font-family: inherit;
+	font-family: Verdana, Helvetica, 'Sans Serif';
 	font-size: inherit;
 	line-height: inherit;
 	}
 
 .admin-page-form input, .admin-page-form textarea, .admin-page-form amp-selector {
-	border-radius: 15px;
+	border-radius: 25px;
 	color: rgba(0,0,0,1);
 	padding: 15px;
 	max-width: 850px;
@@ -956,13 +956,9 @@ div.amp-lightbox-media-id {
 
 .admin-page-form label {
 	color: rgba(100,100,100,0.8);
-	padding: 40px 20px 5px;
+	padding: 40px 8px 5px;
 	}
 	
-.admin-page-form textarea {
-	box-sizing: border-box;
-	}
-
 .admin-page-form-summary {
 	height: 250px;
 	}
