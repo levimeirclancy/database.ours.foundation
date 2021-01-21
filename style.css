@@ -940,12 +940,12 @@ div.amp-lightbox-media-id {
 	border-radius: 6px;
 	box-sizing: border-box;
 	font-family: Verdana, Helvetica, 'Sans Serif';
-	font-size: inherit;
+	font-size: 90%;
 	line-height: inherit;
 	}
 
 .admin-page-form input, .admin-page-form textarea, .admin-page-form amp-selector {
-	border-radius: 25px;
+	border-radius: 10px;
 	color: rgba(0,0,0,1);
 	padding: 15px;
 	max-width: 850px;
@@ -956,7 +956,7 @@ div.amp-lightbox-media-id {
 
 .admin-page-form label {
 	color: rgba(100,100,100,0.8);
-	padding: 40px 8px 5px;
+	padding: 40px 15px 5px;
 	}
 	
 .admin-page-form-summary {
