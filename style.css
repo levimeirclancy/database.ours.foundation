@@ -992,7 +992,7 @@ div.amp-lightbox-media-id {
 	border-radius: 25px;
 	}
 
-.admin-page-form amp-selector span[selected] {
+.admin-page-form amp-selector span[selected], .admin-page-form amp-selector span[aria-expanded="true"] {
 	background: rgba(150,150,150,1);
 	color: rgba(255,255,255,1);
 	border: 0 none rgba(255,255,255,0);
