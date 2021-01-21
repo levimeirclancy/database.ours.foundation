@@ -955,8 +955,9 @@ div.amp-lightbox-media-id {
 	}
 
 .admin-page-form label {
+	font-style: italic;
 	color: rgba(100,100,100,0.8);
-	padding: 40px 15px 5px;
+	padding: 40px 16px 5px;
 	}
 	
 .admin-page-form-summary {
