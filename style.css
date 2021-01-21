@@ -971,7 +971,7 @@ div.amp-lightbox-media-id {
 	}
 
 .admin-page-form amp-selector {
-	padding: 5px;
+	padding: 0;
 	max-height: 340px;
 	overflow-y: auto;
 	overflow-x: hidden;
@@ -980,8 +980,8 @@ div.amp-lightbox-media-id {
 	}
 
 .admin-page-form amp-selector span {
-	padding: 5px 10px;
-	margin: 5px;
+	padding: 10px 10px;
+	margin: 0;
 	display: block;
 	text-overflow: ellipsis;
 	white-space: nowrap;
@@ -989,7 +989,7 @@ div.amp-lightbox-media-id {
 	border-radius: 0;
 	border: 0 none rgba(255,255,255,0);
 	outline: 0 none rgba(255,255,255,0);
-	border-radius: 25px;
+	border-radius: 0;
 	}
 
 .admin-page-form amp-selector span[selected], .admin-page-form amp-selector span[aria-selected="true"] {
