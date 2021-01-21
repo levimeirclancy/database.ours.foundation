@@ -589,7 +589,9 @@ table {
 	box-sizing: border-box;
 	table-layout: auto;
 	border-collapse: collapse;
-	overflow: auto; }
+	overflow: auto;
+	display: inline-block;
+	border-top: 2px solid rgba(255,255,255,1); }
 
 table table {
 	margin: 20px 0; }
@@ -603,18 +605,18 @@ tbody tr:nth-child(even) td {
 
 thead {
 	color: rgba(0,0,0,0.55);
-	border-left: 2px solid rgba(200,200,200,0.16);
-	border-right: 2px solid rgba(200,200,200,0.16);
-	border-top: 2px solid rgba(200,200,200,0.16);
+//	border-left: 2px solid rgba(200,200,200,0.16);
+//	border-right: 2px solid rgba(200,200,200,0.16);
+//	border-top: 2px solid rgba(200,200,200,0.16);
 	position: -webkit-sticky; /* Safari */
 	position: sticky;
 	}
 
 tbody {
-	border-left: 2px solid rgba(200,200,200,0.16);
+	border-left: 2px solid rgba(255,255,255,1);
 //	border-right: 2px solid rgba(200,200,200,0.16);
-	border-top: 2px solid rgba(200,200,200,0.16); 
-	border-bottom: 2px solid rgba(200,200,200,0.16); }
+	border-top: 2px solid rgba(255,255,255,1);
+	border-bottom: 2px solid rgba(255,255,255,1); }
 
 th, td {
 	padding: 0;
@@ -622,7 +624,7 @@ th, td {
 	font-weight: 400;
 	text-align: left;
 	margin: 0;
-	border-right: 2px solid rgba(200,200,200,0.16); }
+	border-right: 2px solid rgba(255,255,255,1); }
 
 th {
 	font-style: italic; }
