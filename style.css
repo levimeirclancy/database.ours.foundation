@@ -942,6 +942,7 @@ div.amp-lightbox-media-id {
 	font-family: Verdana, Helvetica, 'Sans Serif';
 	font-size: 90%;
 	line-height: inherit;
+	outline: 0 none rgba(255,255,255,0);
 	}
 
 .admin-page-form input, .admin-page-form textarea, .admin-page-form amp-selector {
@@ -975,6 +976,7 @@ div.amp-lightbox-media-id {
 	overflow-y: auto;
 	overflow-x: hidden;
 	position: relative;
+	outline: 0 none rgba(255,255,255,0);
 	}
 
 .admin-page-form amp-selector span {
@@ -985,16 +987,16 @@ div.amp-lightbox-media-id {
 	white-space: nowrap;
 	overflow: hidden;
 	border-radius: 0;
-	border: 1px solid rgba(255,255,255,0);
-	outline: 1px solid rgba(255,255,255,0);
+	border: 0 none rgba(255,255,255,0);
+	outline: 0 none rgba(255,255,255,0);
 	border-radius: 25px;
 	}
 
 .admin-page-form amp-selector span[selected] {
 	background: rgba(150,150,150,1);
 	color: rgba(255,255,255,1);
-	border: 1px solid rgba(255,255,255,0);
-	outline: 1px solid rgba(255,255,255,0);
+	border: 0 none rgba(255,255,255,0);
+	outline: 0 none rgba(255,255,255,0);
 	}
 
 .admin-page-form amp-selector span[disabled] {
