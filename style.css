@@ -619,18 +619,18 @@ th, td {
 	font-weight: 400;
 	text-align: left;
 	margin: 0;
-	border-right: 2px solid rgba(255,255,255,1); }
+	border-right: 2px solid rgba(100,100,100,1); }
 
 th {
 	font-style: italic; }
 
-table p, li p {
+th p, td p, li p {
 	margin: 0;
 	padding: 0;
 	width: auto;
 	max-width: 850px; }
 
-table p + p, li p + p {
+th p + p, td p + p, li p + p {
 	margin-top: 10px; }
 
 article ul, article ol {
