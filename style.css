@@ -934,7 +934,7 @@ div.amp-lightbox-media-id {
 .admin-page-form label, .admin-page-form input, .admin-page-form textarea, .admin-page-form amp-selector {
 	display: block;
 	margin: 5px auto;
-	max-width: 600px;
+	max-width: 800px;
 	width: 95%;
 	text-align: left;
 	border: 0;
@@ -944,21 +944,19 @@ div.amp-lightbox-media-id {
 
 .admin-page-form label {
 	color: rgba(100,100,100,0.8);
-	font-size: 70%;
 	padding: 40px 20px 5px;
 	}
 
 .admin-page-form input {
 	color: rgba(0,0,0,1);
-	font-size: 75%;
 	padding: 15px 20px;
 	background: rgba(235,235,235,1);
+	border-radius: 50px;
 	border-bottom: 1px solid rgba(255,255,255,0.7);
-	box-shadow: 3px 12px 12px -9px rgba(50,50,50,0.2);
+	box-shadow: 3px 12px 15px -9px rgba(50,50,50,0.1);
 	}
 
 .admin-page-form textarea {
-	font-size: 70%;
 	margin: 5px auto;
 	padding: 10px 20px;
 	text-align: left;
