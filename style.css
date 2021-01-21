@@ -980,7 +980,7 @@ div.amp-lightbox-media-id {
 .admin-page-form amp-selector span {
 	padding: 5px;
 	margin: 5px;
-	display: inline-block;
+	display: block;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	overflow: hidden;
@@ -993,6 +993,8 @@ div.amp-lightbox-media-id {
 	background: rgba(150,150,150,1);
 	color: rgba(255,255,255,1);
 	border: 0;
+	outline: none;
+	outline-width: 0;
 	}
 
 .admin-page-form amp-selector span[disabled] {
