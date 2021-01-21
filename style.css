@@ -602,36 +602,30 @@ tbody tr:nth-child(even) td {
 	background: rgba(250,250,250,1); }
 
 thead {
-//	color: rgba(0,0,0,0.55);
+	color: rgba(0,0,0,0.55);
 	border-left: 2px solid rgba(200,200,200,0.16);
 	border-right: 2px solid rgba(200,200,200,0.16);
 	border-top: 2px solid rgba(200,200,200,0.16);
-	margin: 0 5 20px 5px;
-	border-radius: 10px;
 	position: -webkit-sticky; /* Safari */
 	position: sticky;
 	}
 
 tbody {
-	border-radius: 10px;
-	margin: 5px;
 	border-left: 2px solid rgba(200,200,200,0.16);
-	border-right: 2px solid rgba(200,200,200,0.16);
+//	border-right: 2px solid rgba(200,200,200,0.16);
+	border-top: 2px solid rgba(200,200,200,0.16); 
 	border-bottom: 2px solid rgba(200,200,200,0.16); }
 
 th, td {
-	padding: 5px;
+	padding: 0;
 	vertical-align: top;
 	font-weight: 400;
 	text-align: left;
-	margin: 0; }
+	margin: 0;
+	border-right: 2px solid rgba(200,200,200,0.16); }
 
 th {
 	font-style: italic; }
-
-th + th, td + td {
-	text-align: center;
-	border-left: 2px solid rgba(200,200,200,0.16); }
 
 td p, li p {
 	margin: 0;
@@ -640,7 +634,7 @@ td p, li p {
 	max-width: 850px; }
 
 td p + p, li p + p {
-	margin-top: 20px; }
+	margin-top: 10px; }
 
 article ul, article ol {
 	width: auto;
