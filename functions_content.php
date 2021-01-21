@@ -198,12 +198,12 @@ function body_process($body_incoming) {
 	$body_incoming = $delimiter.$body_incoming.$delimiter;
 	
 	$body_incoming = str_replace($delimiter."|||***", $delimiter."<table><thead><tr><th>".$delimiter, $body_incoming);
-	$body_incoming = str_replace("\n|||***", $delimiter."</th><th>".$delimiter, $body_incoming);
-	$body_incoming = str_replace("|||***", $delimiter."<table><thead><tr><th>".$delimiter, $body_incoming);
-	$body_incoming = str_replace($delimiter."---\n---".$delimiter."***", $delimiter."</th></tr></thead><tbody>\n<tr><td>".$delimiter, $body_incoming);
+	$body_incoming = str_replace("\n|||***", $delimiter."</th><th>", $body_incoming);
+	$body_incoming = str_replace("|||***", $delimiter."<table><thead><tr><th>", $body_incoming);
+	$body_incoming = str_replace($delimiter."---\n---".$delimiter."***", $delimiter."</th></tr></thead><tbody>\n<tr><td>", $body_incoming);
 	$body_incoming = str_replace($delimiter."---\n---", $delimiter."</td></tr></tbody></table>".$delimiter, $body_incoming);
-	$body_incoming = str_replace($delimiter."---".$delimiter."***", $delimiter."</td></tr>\n<tr><td>".$delimiter, $body_incoming);
-	$body_incoming = str_replace("\n***", $delimiter."</td><td>".$delimiter, $body_incoming);
+	$body_incoming = str_replace($delimiter."---".$delimiter."***", $delimiter."</td></tr>\n<tr><td>", $body_incoming);
+	$body_incoming = str_replace("\n***", $delimiter."</td><td>", $body_incoming);
 	$body_incoming = str_replace("<blockquote>", $delimiter."<blockquote>".$delimiter, $body_incoming);
 	$body_incoming = str_replace("</blockquote>", $delimiter."</blockquote>".$delimiter, $body_incoming);
 
@@ -214,7 +214,17 @@ function body_process($body_incoming) {
 	$body_incoming = str_replace("<td>***", "<td colspan='2'>", $body_incoming);
 	$body_incoming = str_replace("<td colspan='2'>***", "<td colspan='3'>", $body_incoming);
 	$body_incoming = str_replace("<td colspan='3'>***", "<td colspan='4'>", $body_incoming);
-	
+
+	// Add delimiter
+	$body_incoming = str_replace("<th>", "<th>".$delimiter, $body_incoming);
+	$body_incoming = str_replace("<th colspan='2'>", "<th colspan='2'>".$delimiter, $body_incoming);
+	$body_incoming = str_replace("<th colspan='3'>", "<th colspan='3'>".$delimiter, $body_incoming);
+	$body_incoming = str_replace("<th colspan='4'>", "<th colspan='4'>".$delimiter, $body_incoming);
+	$body_incoming = str_replace("<td>", "<td>".$delimiter, $body_incoming);
+	$body_incoming = str_replace("<td colspan='2'>", "<td colspan='2'>".$delimiter, $body_incoming);
+	$body_incoming = str_replace("<td colspan='3'>", "<td colspan='3'>".$delimiter, $body_incoming);
+	$body_incoming = str_replace("<td colspan='4'>", "<td colspan='4'>".$delimiter, $body_incoming);
+
 	$image_lightbox_array = [];
 	
 	// process links first
