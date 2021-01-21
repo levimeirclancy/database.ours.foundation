@@ -608,12 +608,12 @@ tbody {
 	}
 
 th, td {
-	padding: 5px;
+	padding: 5px 8px;
 	vertical-align: top;
 	font-weight: 400;
 	text-align: left;
 	margin: 0;
-	border-right: 2px solid rgba(255,255,255,1);
+	border-right: 2px solid rgba(150,150,150,0.2);
 	}
 
 th {
