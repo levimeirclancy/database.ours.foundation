@@ -969,17 +969,21 @@ div.amp-lightbox-media-id {
 	max-height: none;
 	}
 
+.admin-page-form amp-selector {
+	padding: 5px;
+	}
+
 .admin-page-form amp-selector div {
 	max-height: 340px;
 	overflow-y: auto;
 	overflow-x: hidden;
-	padding: 5px 0;
+	padding: 0;
 	position: relative;
 	border: 0;
 	}
 
 .admin-page-form amp-selector span {
-	padding: 5px;
+	padding: 5px 10px;
 	margin: 5px;
 	display: block;
 	text-overflow: ellipsis;
@@ -1014,7 +1018,6 @@ div.amp-lightbox-media-id {
 	background: rgba(255,255,255,1);
 	color: rgba(50,50,50,1);
 	box-shadow: 0 -5px 35px -12px rgba(30,30,30,0.3);
-	font-size: 80%;
 	}
 
 #admin-page-form-save {
@@ -1026,7 +1029,6 @@ div.amp-lightbox-media-id {
 	padding: 10px 25px;
 	vertical-align: middle;
 	border-radius: 0;
-	font-size: 80%;
 	}
 
 
