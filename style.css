@@ -510,8 +510,6 @@ p, summary, ul, ol, blockquote {
 	
 article, th, td,
 p, summary, ul, ol, blockquote {
-	font-size: 95%;
-	line-height: 130%;
 	font-weight: 400;
 	text-align: left;
 	font-family: Georgia, 'Times New Roman', Serif; }
