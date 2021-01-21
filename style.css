@@ -932,7 +932,7 @@ div.amp-lightbox-media-id {
 
 .admin-page-form label, .admin-page-form input, .admin-page-form textarea, .admin-page-form amp-selector {
 	display: block;
-	margin: 5px;
+	margin: 5px 8px;
 	max-width: 800px;
 	width: 95%;
 	text-align: left;
@@ -956,7 +956,6 @@ div.amp-lightbox-media-id {
 	}
 
 .admin-page-form textarea {
-	margin: 5px auto;
 	padding: 10px 20px;
 	text-align: left;
 	border: 1px solid rgba(200,200,200,0.8);
