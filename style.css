@@ -602,18 +602,16 @@ thead {
 	}
 
 tbody {
-	border-left: 2px solid rgba(255,255,255,1);
-	border-top: 2px solid rgba(255,255,255,1);
-	border-bottom: 2px solid rgba(255,255,255,1);
+	border: 2px solid rgba(150,150,150,0.1);
 	}
 
 th, td {
-	padding: 5px 8px;
+	padding: 8px 12px;
 	vertical-align: top;
 	font-weight: 400;
 	text-align: left;
 	margin: 0;
-	border-right: 2px solid rgba(150,150,150,0.2);
+	border: 2px solid rgba(150,150,150,0.1);
 	}
 
 th {
