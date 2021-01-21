@@ -934,28 +934,28 @@ div.amp-lightbox-media-id {
 	display: block;
 	margin: 5px 8px;
 	padding: 8px;
-	width: 100%;
+	width: 95%;
 	text-align: left;
 	border: 0;
 	border-radius: 6px;
 	box-sizing: border-box;
 	}
 
-.admin-page-form label {
-	color: rgba(100,100,100,0.8);
-	padding: 40px 20px 5px;
-	}
-
-.admin-page-form input, textarea {
+.admin-page-form input, .admin-page-form textarea, .admin-page-form amp-selector {
 	color: rgba(0,0,0,1);
 	padding: 15px;
+	max-width: 850px;
 	background: rgba(255,255,255,1);
-	border-top: 1px solid rgba(100,100,100,1);
-	border-bottom: 1px solid rgba(100,100,100,1);
+	border: 1px solid rgba(100,100,100,0.5);
 	border-radius: 0;
 	box-shadow: 3px 12px 15px -9px rgba(50,50,50,0.1);
 	}
 
+.admin-page-form label {
+	color: rgba(100,100,100,0.8);
+	padding: 40px 20px 5px;
+	}
+	
 .admin-page-form textarea {
 	box-sizing: border-box;
 	}
