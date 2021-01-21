@@ -990,14 +990,14 @@ div.amp-lightbox-media-id {
 	white-space: nowrap;
 	overflow: hidden;
 	border-radius: 0;
-	border: 0;
+	border: 1px solid rgba(255,255,255,0);
 	border-radius: 25px;
 	}
 
 .admin-page-form amp-selector span[selected] {
 	background: rgba(150,150,150,1);
 	color: rgba(255,255,255,1);
-	border: 0;
+	border: 1px solid rgba(255,255,255,0);
 	outline: none;
 	outline-width: 0;
 	}
