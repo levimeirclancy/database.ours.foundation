@@ -83,7 +83,7 @@ a, a:link, a:visited, a:hover {
 	cursor: pointer;
 	text-align: center;
 	color: #333;
-	font-size: 70%;
+	font-size: 90%;
 	font-weight: 700;
 	font-family: Arial, Helvetica, Sans Serif;
 	}
@@ -378,11 +378,7 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 30px auto;
 	padding: 20px;
 	text-align: left;
-	}
-
-h1, h2, h3, h4, h5, h6 {
 	word-break: break-all;
-	text-align: center;
 	}
 
 h1 span {
@@ -390,7 +386,6 @@ h1 span {
 	}
 
 h1 {
-	font-family: Assistant;
 	font-size: 170%;
 	line-height: 130%;
 	}
@@ -507,7 +502,7 @@ p, summary, ul, ol, blockquote {
 	display: block;
 	clear: both;
 	vertical-align: top;
-	margin: 0 auto;
+	margin: 0;
 	padding: 20px;
 	text-align: left;
 	position: relative;
