@@ -975,6 +975,7 @@ div.amp-lightbox-media-id {
 	overflow-x: hidden;
 	padding: 5px 0;
 	position: relative;
+	border: 0;
 	}
 
 .admin-page-form amp-selector span {
