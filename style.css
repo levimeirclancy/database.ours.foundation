@@ -920,19 +920,19 @@ div.amp-lightbox-media-id {
 
 .admin-page-form h2 {
 	max-width: 600px;
-	margin: 0 auto;
+	margin: 5px;
 	padding: 130px 20px 10px;
 	}
 	
 .admin-page-form p {
 	max-width: 600px;
-	margin: 0 auto;
+	margin: 5px;
 	padding: 60px 20px 0;
 	}
 
 .admin-page-form label, .admin-page-form input, .admin-page-form textarea, .admin-page-form amp-selector {
 	display: block;
-	margin: 5px auto;
+	margin: 5px;
 	max-width: 800px;
 	width: 95%;
 	text-align: left;
