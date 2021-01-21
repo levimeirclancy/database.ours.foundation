@@ -152,7 +152,7 @@ function hierarchy_selector ($entry_id, $relationship_name, $possible_array) {
 	global $information_array;
 
 	echo "<label for='". $relationship_name ."[]'>".ucwords($relationship_name)."</label>";
-	echo "<amp-selector layout='container' name='". $relationship_name ."[]' multiple><div>";
+	echo "<amp-selector layout='container' name='". $relationship_name ."[]' multiple>";
 
 	if (!(empty($information_array[$entry_id]['hierarchy'][$relationship_name]))): echo "<span option='clear_selection' style='font-style: italic;'>Clear selection</span>";
 	else: $information_array[$entry_id]['hierarchy'][$relationship_name] = []; endif;
@@ -174,7 +174,7 @@ function hierarchy_selector ($entry_id, $relationship_name, $possible_array) {
 		echo $information_array[$entry_id_temp]['header'] . " • ". $header_array[$information_array[$entry_id_temp]['type']];
 		echo "</span>";
 		endforeach;
-	echo "</div></amp-selector>"; }
+	echo "</amp-selector>"; }
 
 echo "<input type='hidden' name='parents[]'>";
 echo "<input type='hidden' name='children[]'>";
@@ -198,7 +198,7 @@ foreach ($appendix_array as $appendix_key => $appendix_type):
 echo "<p>An entry's type is its most important organizational component. Types are largely self-explanatory, except for 'articles' which are intended to be less research-oriented and more consumption-oriented.</p>";
 
 echo "<label for='type'>Type</label>";
-echo "<amp-selector layout='container' name='type'><div>";
+echo "<amp-selector layout='container' name='type'>";
 if (isset($header_array[$entry_info['type']])):
 	echo "<span option='".$entry_info['type']."' selected>".$header_array[$entry_info['type']]."</span>";
 	endif;
@@ -206,7 +206,7 @@ foreach ($header_array as $header_backend => $header_frontend):
 	if ($header_backend == $entry_info['type']): continue; endif;
 	echo "<span option='".$header_backend."'>".$header_frontend."</span>";
 	endforeach;
-echo "</div></amp-selector>";
+echo "</amp-selector>";
 
 echo "<br><br><br><br><br>";
 
