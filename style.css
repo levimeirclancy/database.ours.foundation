@@ -974,24 +974,26 @@ div.amp-lightbox-media-id {
 	overflow-y: auto;
 	overflow-x: hidden;
 	padding: 5px 0;
+	position: relative;
 	}
 
 .admin-page-form amp-selector span {
 	padding: 5px;
 	margin: 5px;
-	display: block;
+	display: inline-block;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	overflow: hidden;
 	border-radius: 0;
+	border: 0;
+	border-radius: 25px;
 	}
 
 .admin-page-form amp-selector span[selected] {
-	background: rgba(100,100,100,1);
-	border: 0;
-	border-radius: 25px;
+	background: rgba(150,150,150,1);
 	color: rgba(255,255,255,1);
 	float: left;
+	top: 0;
 	}
 
 .admin-page-form amp-selector span[disabled] {
