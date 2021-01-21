@@ -629,13 +629,13 @@ th, td {
 th {
 	font-style: italic; }
 
-td p, li p {
+table p, li p {
 	margin: 0;
 	padding: 0;
 	width: auto;
 	max-width: 850px; }
 
-td p + p, li p + p {
+table p + p, li p + p {
 	margin-top: 10px; }
 
 article ul, article ol {
