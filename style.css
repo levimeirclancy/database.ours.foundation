@@ -973,38 +973,25 @@ div.amp-lightbox-media-id {
 	max-height: 340px;
 	overflow-y: auto;
 	overflow-x: hidden;
-	padding: 0;
-	margin: 0 100px 0 0;
-	font-size: 70%;
-	border-radius: 6px;
-	background: rgba(235,235,235,1);
-	border-bottom: 1px solid rgba(255,255,255,0.7);
-	box-shadow: 3px 12px 12px -9px rgba(50,50,50,0.2);
+	padding: 5px 0;
 	}
 
 .admin-page-form amp-selector span {
-	padding: 6px 18px;
-	margin: 0;
+	padding: 5px;
+	margin: 5px;
 	display: block;
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	overflow: hidden;
 	border-radius: 0;
-	font-family: Verdana, Helvetica, 'Sans Serif';
-	}
-
-.admin-page-form amp-selector span:first-child {
-	padding-top: 10px;
-	}
-
-.admin-page-form amp-selector span:last-child {
-	padding-bottom: 10px;
 	}
 
 .admin-page-form amp-selector span[selected] {
 	background: rgba(100,100,100,1);
 	border: 0;
+	border-radius: 25px;
 	color: rgba(255,255,255,1);
+	float: left;
 	}
 
 .admin-page-form amp-selector span[disabled] {
