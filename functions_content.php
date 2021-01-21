@@ -207,6 +207,14 @@ function body_process($body_incoming) {
 	$body_incoming = str_replace("<blockquote>", $delimiter."<blockquote>".$delimiter, $body_incoming);
 	$body_incoming = str_replace("</blockquote>", $delimiter."</blockquote>".$delimiter, $body_incoming);
 
+	// Add COLSPAN, but only up to four columns
+	$body_incoming = str_replace("<th>***", "<th colspan='2'>", $body_incoming);
+	$body_incoming = str_replace("<th colspan='2'>***", "<th colspan='3'>", $body_incoming);
+	$body_incoming = str_replace("<th colspan='3'>***", "<th colspan='4'>", $body_incoming);
+	$body_incoming = str_replace("<td>***", "<td colspan='2'>", $body_incoming);
+	$body_incoming = str_replace("<td colspan='2'>***", "<td colspan='3'>", $body_incoming);
+	$body_incoming = str_replace("<td colspan='3'>***", "<td colspan='4'>", $body_incoming);
+	
 	$image_lightbox_array = [];
 	
 	// process links first
