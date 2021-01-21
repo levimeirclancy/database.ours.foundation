@@ -197,7 +197,7 @@ function body_process($body_incoming) {
 
 	$body_incoming = $delimiter.$body_incoming.$delimiter;
 	
-	$body_incoming = str_replace($delimiter."|||***", $delimiter."<table><thead><tr><th>", $body_incoming);
+	$body_incoming = str_replace($delimiter."|||***", $delimiter."<table><thead><tr><th>".$delimiter, $body_incoming);
 	$body_incoming = str_replace("\n|||***", $delimiter."</th><th>".$delimiter, $body_incoming);
 	$body_incoming = str_replace("|||***", $delimiter."<table><thead><tr><th>".$delimiter, $body_incoming);
 	$body_incoming = str_replace($delimiter."---\n---".$delimiter."***", $delimiter."</th></tr></thead><tbody>\n<tr><td>".$delimiter, $body_incoming);
