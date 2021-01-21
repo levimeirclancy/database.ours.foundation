@@ -939,7 +939,9 @@ div.amp-lightbox-media-id {
 	border: 0;
 	border-radius: 6px;
 	box-sizing: border-box;
+	font-family: inherit;
 	font-size: inherit;
+	line-height: inherit;
 	}
 
 .admin-page-form input, .admin-page-form textarea, .admin-page-form amp-selector {
