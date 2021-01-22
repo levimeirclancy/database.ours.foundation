@@ -194,7 +194,7 @@ function body_process($body_incoming) {
 	$body_incoming = str_replace("\r", "\n", $body_incoming);
 	
 	// Replace double spces
-	$body_incoming = str_replace("/\s\s+/", "sdsdfg", $body_incoming);
+	$body_incoming = preg_replace("/\s\s+/", "sdsdfg", $body_incoming);
 	
 	$delimiter = "\n\n";
 
