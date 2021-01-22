@@ -227,6 +227,25 @@ function body_process($body_incoming) {
 		
 	$image_lightbox_array = [];
 	
+	// Find all MathML expressions
+	$matches = [];
+//	preg_match_all('/<amp-mathml.*?>(.*?)<\/amp-mathml>/si', $body_incoming, $matches);
+//	preg_match_all('/<amp-mathml (.*?)<\/amp-mathml>/si', $body_incoming, $matches);
+	
+	foreach ($matches as $match_temp):
+
+		$link_string = $match_temp;
+	
+		$link_string = str_replace("\n", " ", $link_string);
+		$link_string = str_replace("\r", " ", $link_string);
+		$link_string = str_replace("  ", " ", $link_string);
+		$link_string = str_replace("  ", " ", $link_string);
+		$link_string = trim($link_string);
+	
+		$body_incoming = str_replace("<amp-mathml ".$match_temp."</amp-mathml>", "<amp-mathml ".$link_string."</amp-mathml>", $body_incoming);
+	
+		endforeach;
+	
 	// process links first
 	$matches = [];
 	preg_match_all("/(?<=\{\{\{)(.*?)(?=\}\}\})/is", $body_incoming, $matches);
