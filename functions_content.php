@@ -227,7 +227,7 @@ function body_process($body_incoming) {
 
 	
 	// Find all MathML expressions
-	preg_match_all("/(?<=\<amp-mathml)(.*?)(?=amp-mathml\>)/is", $body_incoming, $matches);
+	preg_match_all("/(?<=\<\a\m\p\-\m\a\t\h\m\l)(.*?)(?=\a\m\p\-\m\a\t\h\m\l\>)/is", $body_incoming, $matches);
 	
 	foreach ($matches as $match_temp):
 
