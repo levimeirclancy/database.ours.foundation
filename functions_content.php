@@ -189,8 +189,7 @@ function body_process($body_incoming) {
 	global $retrieve_page;
 	global $retrieve_media;
 //	global $retrieve_entry;
-	
-	
+		
 	$body_incoming = str_replace("\r", "\n", $body_incoming);
 	
 	$delimiter = "\n\n";
@@ -229,8 +228,7 @@ function body_process($body_incoming) {
 	
 	// Find all MathML expressions
 	$matches = [];
-//	preg_match_all('/<amp-mathml.*?>(.*?)<\/amp-mathml>/si', $body_incoming, $matches);
-//	preg_match_all('/<amp-mathml (.*?)<\/amp-mathml>/si', $body_incoming, $matches);
+	preg_match_all('/<amp-mathml (.*?)<\/amp-mathml>/si', $body_incoming, $matches);
 	
 	foreach ($matches as $match_temp):
 
