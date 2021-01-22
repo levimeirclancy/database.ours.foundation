@@ -190,7 +190,11 @@ function body_process($body_incoming) {
 	global $retrieve_media;
 //	global $retrieve_entry;
 		
+	// Standardize line breaks
 	$body_incoming = str_replace("\r", "\n", $body_incoming);
+	
+	// Replace double spces
+	$body_incoming = str_replace("/  +/g", " ", $body_incoming);
 	
 	$delimiter = "\n\n";
 
@@ -235,7 +239,6 @@ function body_process($body_incoming) {
 		$link_string = $match_temp;
 	
 		$link_string = str_replace("\n", " ", $link_string);
-		$link_string = str_replace("\r", " ", $link_string);
 		$link_string = str_replace("  ", " ", $link_string);
 		$link_string = str_replace("  ", " ", $link_string);
 		$link_string = trim($link_string);
