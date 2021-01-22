@@ -236,7 +236,7 @@ function body_process($body_incoming) {
 	preg_match_all("'<amp-mathml (.*?)</amp-mathml>'si", $body_incoming, $matches);
 	
 	$counter = 0;
-	foreach ($matches as $match_temp):
+	foreach ($matches[1] as $match_temp):
 	$counter++;
 
 		$link_string = $match_temp;
