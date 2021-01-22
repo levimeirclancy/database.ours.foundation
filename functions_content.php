@@ -225,6 +225,24 @@ function body_process($body_incoming) {
 	$body_incoming = str_replace("<td colspan='3'>", "<td colspan='3'>".$delimiter, $body_incoming);
 	$body_incoming = str_replace("<td colspan='4'>", "<td colspan='4'>".$delimiter, $body_incoming);
 
+	
+	// Find all MathML expressions
+	preg_match_all("/(?<=<amp-mathml)(.*?)(?=amp-mathml>)/is", $body_incoming, $matches);
+	
+	foreach ($matches as $match_temp):
+
+		$link_string = $match_temp;
+	
+		$link_string = str_replace("\n", " ", $link_string);
+		$link_string = str_replace("\r", " ", $link_string);
+		$link_string = str_replace("  ", " ", $link_string);
+		$link_string = str_replace("  ", " ", $link_string);
+		$link_string = trim($link_string);
+	
+		$body_incoming = str_replace("<amp-mathml ".$match_temp."amp-mathml>", $link_string, $body_incoming);
+	
+		endforeach;
+		
 	$image_lightbox_array = [];
 	
 	// process links first
