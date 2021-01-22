@@ -195,7 +195,7 @@ function body_process($body_incoming) {
 	
 	// Replace double spces
 //	$body_incoming = preg_replace("/\t\t+/", " ", $body_incoming);
-	$body_incoming = preg_replace("/^\S\t\n\r^\S\t\n\r+/", "2", $body_incoming);
+	$body_incoming = preg_replace("/^\S\t\n\r+/", "2", $body_incoming);
 	
 	$delimiter = "\n\n";
 
