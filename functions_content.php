@@ -247,7 +247,7 @@ function body_process($body_incoming) {
 		$link_string = trim($link_string);
 	
 //		$body_incoming = str_replace("<amp-mathml ".$match_temp."</amp-mathml>", "<amp-mathml ".$link_string."</amp-mathml>", $body_incoming);
-		$body_incoming = str_replace("<amp-mathml", $match_temp, $body_incoming);
+		$body_incoming = str_replace("<amp-mathml", implode(" ", $match_temp), $body_incoming);
 	
 		endforeach;
 	
