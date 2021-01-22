@@ -67,6 +67,9 @@ function amp_header($title=null, $canonical=null) {
 	// for the parallax
 	echo '<script async custom-element="amp-fx-collection" src="https://cdn.ampproject.org/v0/amp-fx-collection-0.1.js"></script>';
 	
+	// for the mathml formulas
+	echo '<script async custom-element="amp-mathml" src="https://cdn.ampproject.org/v0/amp-mathml-0.1.js"></script>';
+	
 	// loading fonts
 	echo '<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">';
 	echo '<link href="https://fonts.googleapis.com/css2?family=Assistant&display=swap" rel="stylesheet">';
