@@ -195,7 +195,7 @@ function body_process($body_incoming) {
 	
 	// Replace double spces
 //	$body_incoming = preg_replace("/\t\t+/", " ", $body_incoming);
-	$body_incoming = preg_replace("/^\S\t\n\r+/", "2", $body_incoming);
+//	$body_incoming = preg_replace("/^\S\t\n\r+/", "2", $body_incoming);
 	
 	$delimiter = "\n\n";
 
@@ -245,7 +245,7 @@ function body_process($body_incoming) {
 		$link_string = trim($link_string);
 	
 //		$body_incoming = str_replace("<amp-mathml ".$match_temp."</amp-mathml>", "<amp-mathml ".$link_string."</amp-mathml>", $body_incoming);
-		$body_incoming = str_replace("<amp-mathml ".$match_temp."</amp-mathml>", "<amp-mathml ".$link_string."</amp-mathml>", $body_incoming);
+		$body_incoming = str_replace("<amp-mathml ".$match_temp."</amp-mathml>", "fdgsdfgsdgdsgdfg", $body_incoming);
 	
 		endforeach;
 	
