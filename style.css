@@ -514,7 +514,6 @@ blockquote blockquote::after {
 	font-size: 25px; }
 
 table {
-	width: 100%;
 	margin: 100px auto;
 	box-sizing: border-box;
 	table-layout: auto;
