@@ -565,7 +565,7 @@ th p + p, td p + p, li p + p {
 article ul, article ol {
 	width: auto;
 	max-width: 850px;	
-	margin: 30px auto 30px;
+	margin: 30px 20px 30px;
 	padding: 0 40px;
 	list-style-position: outside;
 	line-height: 1.5; }
