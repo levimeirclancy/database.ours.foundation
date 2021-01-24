@@ -49,9 +49,9 @@
 		$entries_organized[] = [
 			"entry_id"	=> $entry_id,
 //			"header"	=> $information_array[$entry_id]['header'],
-			"map"		=> $map_temp,
+//			"map"		=> $map_temp,
 			"indent_count"	=> count($indent_array),
-//			"indent_array"	=> $indent_array,
+			"indent_array"	=> $indent_array,
 			];
 	
 		// If there are no children, just continue
@@ -66,4 +66,14 @@
 	
 	return $entries_organized;
 
-	} ?>
+	}
+
+$entries_array  = print_row_loop ($page_temp, array_keys($information_array), []);
+
+foreach ($entries_array as $entry_id => $entry_info):
+
+	echo $information_array[$entry_id]['header'] . "<br>";
+
+	endforeach;
+
+?>
