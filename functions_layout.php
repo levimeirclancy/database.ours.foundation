@@ -174,12 +174,12 @@ function amp_header($title=null, $canonical=null) {
 	
 		echo "<amp-nested-menu layout='fill'><ul>";
 		
-		echo "<li class='sidebar-navigation-item'><div class='sidebar-back' on='tap:".$navigation_lightboxes."' role='button' tabindex='0' amp-nested-submenu-close>Close</div></li>";
+		echo "<li class='sidebar-navigation-close'><div class='sidebar-back' on='tap:".$navigation_lightboxes."' role='button' tabindex='0' amp-nested-submenu-close>Close</div></li>";
 	
 		echo "<li class='sidebar-navigation-item'><div class='sidebar-navigation-item-title'  amp-nested-submenu-open>Search</div>";
 		echo "<div amp-nested-submenu><ul>";
 	
-			echo "<li class='sidebar-navigation-item sidebar-navigation-search-close'><div class='sidebar-back' amp-nested-submenu-close>Back</li>";
+			echo "<li class='sidebar-navigation-close'><div class='sidebar-back' amp-nested-submenu-close>Back</li>";
 
 			echo "<li id='sidebar-navigation-search'>";
 			echo "<label for='search-input'>Search the database</label>";
@@ -202,7 +202,7 @@ function amp_header($title=null, $canonical=null) {
 
 		echo "<li class='sidebar-navigation-item'><div class='sidebar-navigation-item-title' amp-nested-submenu-open>About</div>";
 		echo "<div amp-nested-submenu><ul>";
-			echo "<li class='sidebar-navigation-item'><div class='sidebar-back' amp-nested-submenu-close>Back</div></li>";
+			echo "<li class='sidebar-navigation-close'><div class='sidebar-back' amp-nested-submenu-close>Back</div></li>";
 			echo "<li class='sidebar-navigation-item'>".number_format(count($information_array)) ." total entries.</li>";
 			echo "</ul></div></li>";
 	
@@ -213,7 +213,7 @@ function amp_header($title=null, $canonical=null) {
 	
 		echo "<div amp-nested-submenu><ul>";
 	
-			echo "<li class='sidebar-navigation-item'><div class='sidebar-back' amp-nested-submenu-close>Back</li>";
+			echo "<li class='sidebar-navigation-close'><div class='sidebar-back' amp-nested-submenu-close>Back</li>";
 
 			echo "<amp-list id='sidebar-navigation-lightbox-type-list' layout='responsive' width='800' height='800' items='.' max-items='100' binding='refresh' [src]=\"pageStateType\">";
 
