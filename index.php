@@ -505,11 +505,6 @@ if (!(empty($page_temp)) && !(isset($header_array[$page_temp]))):
 
 	endif;
 
-// view entries lists
-if (isset($header_array[$page_temp])):
-	permanent_redirect("https://".$domain."/");
-	footer(); endif;
-
 if (!(empty($page_temp)) && isset($header_array[$page_temp])):
 	amp_header($header_array[$page_temp], $domain."/".$page_temp."/");
 	include_once('theme_type.php');
