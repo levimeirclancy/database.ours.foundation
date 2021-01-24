@@ -107,7 +107,7 @@ function amp_header($title=null, $canonical=null) {
 	echo "<div id='navigation-header' amp-fx='parallax' data-parallax-factor='1.4'>";
 
 	// The domain name, to go home ...
-	echo "<div role='button' tabindex='0' class='navigation-header-item' on='tap:sidebar-navigation.open'>Navigation</div>";
+	echo "<div role='button' tabindex='0' class='navigation-header-item' on='tap:sidebar-navigation.open,sidebar-navigation.changeToLayoutContainer()'>Navigation</div>";
 	
 	// This is the login button ...
 	echo "<div role='button' tabindex='0' id='login-popover-launch' on='tap:login-popover.open' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'hide' : 'navigation-header-item'\" class='".$login_hidden."' >Log in</div>";
