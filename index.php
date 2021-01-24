@@ -446,8 +446,8 @@ if ($page_temp == "api"):
 //		else: json_output(array_values($information_array)); endif;
 		else:
 			$search_array = [
-				"searchTerm" = $_REQUEST['search'][0],
-				"searchResults" = $information_array,
+				"searchTerm" => $_REQUEST['search'][0],
+				"searchResults" => $information_array,
 				];
 			json_output($search_array); endif;
 		endif;
