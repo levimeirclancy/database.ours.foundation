@@ -474,7 +474,7 @@ if (!(empty($_REQUEST['view'])) && ($_REQUEST['view'] == "compact")): $layout_no
 // if the $page_temp is valid then go ahead and see if it exists
 if (!(empty($page_temp))):
 	if (!(isset($information_array[$page_temp]))):
-		$command_temp = null; // To avoid showing edit options
+		$page_temp = $command_temp = null; // To avoid showing edit options
 		amp_header();
 		notfound(); endif;
 
