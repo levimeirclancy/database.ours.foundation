@@ -444,7 +444,12 @@ if ($page_temp == "api"):
 	elseif ($command_temp == "search"):
 		if (empty($information_array)): json_status("error", "No results.");
 //		else: json_output(array_values($information_array)); endif;
-		else: json_output($information_array); endif;
+		else:
+			$search_array = [
+				"searchTerm" = $_REQUEST['search'][0],
+				"searchResults" = $information_array,
+				];
+			json_output($search_array); endif;
 		endif;
 	exit; endif;
 
