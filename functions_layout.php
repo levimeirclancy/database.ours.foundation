@@ -214,13 +214,13 @@ function amp_header($title=null, $canonical=null) {
 				echo "<li class='sidebar-navigation-close'><div class='sidebar-back' amp-nested-submenu-close>Back</li>";
 				echo "<li class='sidebar-navigation-item'><a href='/".$header_backend."/'><span class='sidebar-navigation-item-title'>Type: ".$header_frontend."</span></a></li>";
 				$counter_temp = 0;
-				foreach($information_id as $entry_id => $entry_info):
+				foreach($information_array as $entry_id => $entry_info):
 					if ($entry_info['type'] !== $header_backend): continue; endif;
 					echo "<li class='sidebar-navigation-item'><a href='/". $entry_id . "/'>";
 					echo "<span class='sidebar-navigation-item-title'>".$entry_info['header']."</span></a></li>";
 					$counter_temp++;
 					endforeach;
-				if ($counter_temp == 0): echo "<li><span class='sidebar-navigation-item-title'>No results.</span></li>"; endif;
+				if ($counter_temp == 0): echo "<li class='sidebar-navigation-item'><span class='sidebar-navigation-item-title'>No results.</span></li>"; endif;
 				echo "</ul></div>";
 			endforeach;
 	
