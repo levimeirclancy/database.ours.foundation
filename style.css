@@ -607,7 +607,7 @@ article ul > li:before {
 	height: 2px;
 	background: rgba(200,200,200,0.5);
 	position: absolute;
-	top: 16px;
+	top: 15px;
 	left: 0; }
 
 article ol {
