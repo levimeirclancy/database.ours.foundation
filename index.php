@@ -473,7 +473,7 @@ $layout_nodisplay_temp = null;
 if (!(empty($_REQUEST['view'])) && ($_REQUEST['view'] == "compact")): $layout_nodisplay_temp = "layout='nodisplay'"; endif;
 
 // if the $page_temp is valid then go ahead and see if it exists
-if (!(empty($page_temp))):
+if (!(empty($page_temp)) && !(isset($header_array[$page_temp]))):
 	if (!(isset($information_array[$page_temp]))):
 		$page_temp = $command_temp = null; // To avoid showing edit options
 		amp_header();
