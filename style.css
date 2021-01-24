@@ -565,7 +565,7 @@ th p + p, td p + p, li p + p {
 article ul, article ol {
 	width: auto;
 	max-width: 850px;	
-	margin: 30px 20px 30px;
+	margin: 30px 10px 30px;
 	padding: 0 30px;
 	list-style-position: outside;
 	line-height: 1.5; }
@@ -607,7 +607,7 @@ article ul > li:before {
 	height: 2px;
 	background: rgba(200,200,200,0.5);
 	position: absolute;
-	top: 18px;
+	top: 16px;
 	left: 0; }
 
 article ol {
