@@ -194,7 +194,7 @@ function amp_header($title=null, $canonical=null) {
 
 				echo "<template type='amp-mustache'>";
 //					echo "<li class='sidebar-navigation-item'><a href='/{{entry_id}}/' target='_blank'><span class='sidebar-navigation-item-title' [text]=\"pageState.informationArray.{{entry_id}}.header\">Click for more</span></a></li>";
-					echo "<li class='sidebar-navigation-item'><a href='/{{entry_id}}/' target='_blank'><span class='sidebar-navigation-item-title' [text]=\"{{header}}">Click for more</span></a></li>";
+					echo "<li class='sidebar-navigation-item'><a href='/{{entry_id}}/' target='_blank'><span class='sidebar-navigation-item-title' [text]=\"{{header}}\">Click for more</span></a></li>";
 					echo "</template>";
 	
 				echo "</amp-list></ul></div>";
