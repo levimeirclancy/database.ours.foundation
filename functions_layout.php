@@ -146,7 +146,6 @@ function amp_header($title=null, $canonical=null) {
 
 	$navigation_lightboxes = implode(",", [
 		"begin-image.hide",
-//		"navigation-header.hide",
 		"login-popover.close",
 		"settings-popover.close",
 		"new-popover.close",
@@ -154,7 +153,6 @@ function amp_header($title=null, $canonical=null) {
 		]);		
 	
 	// This is the popover for the categories ...;
-//	echo "<amp-sidebar id='sidebar-navigation' layout='nodisplay' side='left' on='lightboxClose:pageState.refresh,navigation-header.show;lightboxOpen:".$navigation_lightboxes."' scrollable>";
 	echo "<amp-sidebar id='sidebar-navigation' layout='nodisplay' side='left' on='sidebarClose:pageState.refresh,navigation-header.show;sidebarOpen:begin-image.hide,login-popover.close,settings-popover.close,new-popover.close' scrollable>";
 	
 		echo "<amp-nested-menu layout='fill'><ul>";
@@ -228,7 +226,7 @@ function amp_header($title=null, $canonical=null) {
 	// This is the popover to log in ...
 	echo "<amp-lightbox id='login-popover' on=\"lightboxClose:navigation-header.show;lightboxOpen:begin-image.hide,sidebar-navigation.close,settings-popover.close,new-popover.close,navigation-header.hide,AMP.setState({inputPasswordType: 'password'})\" layout='nodisplay'>";
 
-		echo "<span role='button' tabindex='0' on='tap:".$navigation_lightboxes.",".$sidebar_lightboxes."' class='lightboxes-close'>Back</span>";
+		echo "<span role='button' tabindex='0' on='tap:".$navigation_lightboxes."' class='lightboxes-close'>Back</span>";
 
 		echo "<form id='login' method='post' action-xhr='/login-xhr/' target='_blank' on=\"
 			submit:
