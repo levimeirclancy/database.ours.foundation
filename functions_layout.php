@@ -209,7 +209,7 @@ function amp_header($title=null, $canonical=null) {
 	
 		echo "<li>";	
 		foreach ($header_array as $header_backend => $header_frontend):
-			echo "<div class='sidebar-navigation-item' role='button' tabindex='0' on=\"tap:sidebar-navigation-lightbox-type-list.changeToLayoutContainer()\" amp-nested-submenu-open><div class='sidebar-navigation-item-title'>". ucfirst($header_frontend) ."</div>";	
+			echo "<div class='sidebar-navigation-item sidebar-navigation-item-title' role='button' tabindex='0' amp-nested-submenu-open>". ucfirst($header_frontend) ."</div>";	
 			echo "<div amp-nested-submenu><ul>";
 				echo "<li class='sidebar-navigation-close'><div class='sidebar-back' amp-nested-submenu-close>Back</li>";
 				echo "<li class='sidebar-navigation-item'><a href='/".$header_backend."/'><span class='sidebar-navigation-item-title'>Type: ".$header_frontend."</span></a></li>";
@@ -221,7 +221,7 @@ function amp_header($title=null, $canonical=null) {
 					$counter_temp++;
 					endforeach;
 				if ($counter_temp == 0): echo "<li class='sidebar-navigation-item'><span class='sidebar-navigation-item-title'>No results.</span></li>"; endif;
-				echo "</ul></div></div>";
+				echo "</ul></div></li>";
 			endforeach;
 	
 			echo "</ul></amp-nested-menu>";
