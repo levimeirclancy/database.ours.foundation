@@ -519,7 +519,6 @@ table {
 	table-layout: auto;
 	border-collapse: collapse;
 	overflow: auto;
-	display: block;
 	border: 2px solid rgba(245,245,245,1);
 	}
 
