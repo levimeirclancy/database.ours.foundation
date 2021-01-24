@@ -193,7 +193,7 @@ foreach($connection_pdo->query($sql_temp) as $row):
 
 	endforeach;
 
-if (!(empty($information_array)) && ($command_temp == "search") ($_REQUEST['paths'] == ["true"])):
+if (!(empty($information_array)) && ( ($command_temp !== "search") ||  ($_REQUEST['paths'] == ["true"]) ) ):
 	$sql_temp = "SELECT * FROM " . $database . ".information_paths";
 	foreach($connection_pdo->query($sql_temp) as $row):
 		if ($row['parent_id'] == $row['child_id']): continue; endif;
