@@ -99,7 +99,7 @@ function print_row_loop ($header_backend, $entries_array=null, $indent_array=[])
 
 		$entries_organized[] = [
 			"entry_id"	=> $entry_id,
-			"header"	=> $information_array[$entry_id]['header'],
+//			"header"	=> $information_array[$entry_id]['header'],
 			"map"		=> $map_temp,
 //			"indent_count"	=> $indent_count,
 			"indent_array"	=> $indent_array,
