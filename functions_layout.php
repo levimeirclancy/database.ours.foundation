@@ -112,17 +112,27 @@ function amp_header($title=null, $canonical=null) {
 	// This is the login button ...
 	echo "<div role='button' tabindex='0' id='login-popover-launch' on='tap:login-popover.open' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'hide' : 'navigation-header-item'\" class='".$login_hidden."' >Log in</div>";
 		
-	// If you are signed in, the buttons for 'settings' and 'new'
+	// If you are signed in, the button for 'settings'...
 	echo "<div role='button' tabindex='0' id='settings-popover-launch' on='tap:settings-popover' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='".$logout_hidden."'>Settings</div>";
-	echo "<div role='button' tabindex='0' id='new-popover-launch' on='tap:new-popover' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='".$logout_hidden."'>&#x271A; New</div>";	
 
 	// If you are viewing a page but not editing it...
 	if (!(empty($page_temp)) && empty($command_temp)):
 	
 		// If you are signed in, the button for 'edit' will appear...
-		echo "<a href='/".$page_temp."/edit/'><div id='settings-popover-launch' on='tap:settings-popover' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='".$logout_hidden."'>Edit</div></a>";
+		echo "<a href='/".$page_temp."/edit/' target='_blank'><div id='settings-popover-launch' on='tap:settings-popover' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='".$logout_hidden."'>Edit</div></a>";
 	
 		endif;
+	
+	// If you are editing a page and want to preview it...
+	if (!(empty($page_temp)) && ($command_temp == "edit")):
+	
+		// If you are signed in, the button for 'edit' will appear...
+		echo "<a href='/".$page_temp."/' target='_blank'><div id='settings-popover-launch' on='tap:settings-popover' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='".$logout_hidden."'>View</div></a>";
+	
+		endif;
+
+	// If you are signed in then button to add new...
+	echo "<div role='button' tabindex='0' id='new-popover-launch' on='tap:new-popover' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='".$logout_hidden."'>&#x271A; New</div>";	
 	
 	echo "<form id='logout' method='post' action-xhr='/logout-xhr/' target='_blank' on=\"
 		submit:
