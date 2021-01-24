@@ -214,6 +214,7 @@ function amp_header($title=null, $canonical=null) {
 		echo "<div amp-nested-submenu><ul>";
 	
 			echo "<li class='sidebar-navigation-close'><div class='sidebar-back' amp-nested-submenu-close>Back</li>";
+			echo "<li class='sidebar-navigation-item'><a [href]=\"'/' . pageStateType .'/'\" [text]=\"pageStateType\"><b>Link</b></a></li>";
 
 			echo "<amp-list id='sidebar-navigation-lightbox-type-list' layout='responsive' width='800' height='800' items='.' max-items='100' binding='refresh' [src]=\"pageStateType\">";
 
