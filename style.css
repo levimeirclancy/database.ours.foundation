@@ -201,7 +201,7 @@ div.sidebar-navigation-item {
 	text-align: center;
 	}
 
-#login-popover-submit, #logout-popover-submit, #new-popover-submit, #delete-popover-submit {
+#login-popover-submit, #logout-popover-submit, #new-popover-submit, #delete-popover-submit, #search-submit {
 	display: table;
 	max-width: 300px;
 	margin: 30px 50px;
@@ -212,6 +212,10 @@ div.sidebar-navigation-item {
 	color: rgba(255,255,255,1);
 	box-shadow: none;
 	box-sizing: border-box;
+	}
+
+#search-submit {
+	margin: 20px auto;
 	}
 
 .form-feedback {
