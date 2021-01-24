@@ -104,17 +104,13 @@ amp-lightbox {
 	}
 
 .lightboxes-close {
-	left: 20px;
+	right: 20px;
 	top: 20px;
 	position: fixed;
-	color: rgba(50,50,50,0.8);
-	background: rgba(255,255,255,1);
-	box-shadow: 2px 2px 20px -5px rgba(40,40,40,0.5); 
-	opacity: 1;
+	color: rgba(20,20,20,0.9);
 	padding: 7px 14px 7px 12px;
 	border-radius: 100px;
 	font-weight: 700;
-	font-size: 70%;
 	line-height: 1em;
 	font-family: Arial, Helvetica, Sans Serif;
 	z-index: 10000;
@@ -247,7 +243,6 @@ div.sidebar-navigation-item {
 	}
 
 #login-popover-submit, #logout-popover-submit, #new-popover-submit, #delete-popover-submit {
-	font-size: 90%;
 	display: table;
 	max-width: 300px;
 	margin: 30px 50px;
