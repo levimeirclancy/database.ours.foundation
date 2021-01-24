@@ -912,12 +912,17 @@ input, textarea, amp-selector {
 	box-shadow: 3px 12px 15px -9px rgba(50,50,50,0.1);
 	}
 
-label, .password-toggle {
+label {
 	font-style: italic;
 	color: rgba(100,100,100,0.8);
 	padding: 40px 16px 5px;
 	}
-	
+
+.password-toggle {
+	color: rgba(100,100,100,0.8);
+	padding: 5px 16px 5px;
+	}
+
 .admin-page-form-summary {
 	height: 250px;
 	}
