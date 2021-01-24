@@ -107,7 +107,7 @@ amp-lightbox {
 	}
 
 .lightboxes-close {
-	right: 15px;
+	right: 10px;
 	top: 10px;
 	position: fixed;
 	z-index: 10000;
