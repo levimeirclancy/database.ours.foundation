@@ -532,11 +532,6 @@ tbody tr:nth-child(even) td {
 	background: rgba(250,250,250,1); }
 
 thead {
-	color: rgba(0,0,0,0.55);
-	position: -webkit-sticky; /* Safari */
-	position: sticky;
-	top: 0;
-	left: 0;
 	}
 
 tbody {
