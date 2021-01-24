@@ -226,7 +226,7 @@ function amp_header($title=null, $canonical=null) {
 	// This is the popover to log in ...
 	echo "<amp-lightbox id='login-popover' on=\"lightboxClose:navigation-header.show;lightboxOpen:begin-image.hide,sidebar-navigation.close,settings-popover.close,new-popover.close,navigation-header.hide,AMP.setState({inputPasswordType: 'password'})\" layout='nodisplay'>";
 
-		echo "<span role='button' tabindex='0' on='tap:".$navigation_lightboxes."' class='lightboxes-close'>Back</span>";
+		echo "<span role='button' tabindex='0' on='tap:".$navigation_lightboxes."' class='lightboxes-close'>Close</span>";
 
 		echo "<form id='login' method='post' action-xhr='/login-xhr/' target='_blank' on=\"
 			submit:
@@ -264,7 +264,7 @@ function amp_header($title=null, $canonical=null) {
 	// This is the popover for settings ...
 	echo "<amp-lightbox id='settings-popover' on='lightboxClose:navigation-header.show;lightboxOpen:begin-image.hide,login-popover.close,navigation-sidebar.close,new-popover.close' layout='nodisplay'>";
 
-		echo "<span role='button' tabindex='0' on='tap:".$navigation_lightboxes."' class='lightboxes-close'>Back</span>";
+		echo "<span role='button' tabindex='0' on='tap:".$navigation_lightboxes."' class='lightboxes-close'>Close</span>";
 
 		echo "<p>Settings coming soon: password change, account management.</p>";
 	
@@ -282,7 +282,7 @@ function amp_header($title=null, $canonical=null) {
 	// Add a new popover ... residrect if adding it works ...
 	echo "<amp-lightbox id='new-popover' on='lightboxClose:navigation-header.show;lightboxOpen:begin-image.hide,login-popover.close,navigation-sidebar.close,settings-popover.close' layout='nodisplay'>";
 
-		echo "<span role='button' tabindex='0' on='tap:".$navigation_lightboxes."' class='lightboxes-close'>Back</span>";
+		echo "<span role='button' tabindex='0' on='tap:".$navigation_lightboxes."' class='lightboxes-close'>Close</span>";
 
 		echo "<form action-xhr='/new-xhr/' method='post' id='new' target='_top' class='admin-page-form' on=\"
 			submit:
