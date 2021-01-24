@@ -169,10 +169,8 @@ foreach($connection_pdo->query($sql_temp) as $row):
 //		"name" => json_decode($row['name'], true),
 //		"alternate_name" => json_decode($row['alternate_name'], true),
 		"header" => null,
-		"summary" => [],
 //		"appendix" => $appendix_temp,
-		"parents" => [],
-		"children" => [] ];
+		];
 
 	$name_temp = [];
 	if (!(empty($row['name']))): $name_temp = json_decode($row['name'], true); endif;
@@ -203,10 +201,12 @@ if (!(empty($information_array)) && ( ($command_temp !== "search") ||  ($_REQUES
 			$row['child_id'] = $row['parent_id'];
 			$row['parent_id'] = $temp; endif;
 		if (array_key_exists($row['parent_id'], $information_array)):
+			if (empty($information_array[$row['child_id']]['children'])): $information_array[$row['child_id']]['children'] = []; endif;
 			if (empty($information_array[$row['parent_id']]['children'][$row['path_type']])): $information_array[$row['parent_id']]['children'][$row['path_type']] = []; endif;
 			if (empty($row['child_id'])): continue; endif;
 			$information_array[$row['parent_id']]['children'][$row['path_type']][] = $row['child_id']; endif;
 		if (array_key_exists($row['child_id'], $information_array)):
+			if (empty($information_array[$row['child_id']]['parents'])): $information_array[$row['child_id']]['parents'] = []; endif;
 			if (empty($information_array[$row['child_id']]['parents'][$row['path_type']])): $information_array[$row['child_id']]['parents'][$row['path_type']] = []; endif;
 			if (empty($row['parent_id'])): continue; endif;
 			$information_array[$row['child_id']]['parents'][$row['path_type']][] = $row['parent_id']; endif;
