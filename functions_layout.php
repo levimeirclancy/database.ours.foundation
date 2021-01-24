@@ -183,7 +183,7 @@ function amp_header($title=null, $canonical=null) {
 
 			echo "<li id='sidebar-navigation-search'>";
 			echo "<label for='search-input'>Search the database</label>";
-			echo "<input type='text' id='search-input' placeholder='...' on=\"input-throttled:AMP.setState({pageState:{searchTerm: event.value.replace('  ',' ').replace('  ',' ').replace('?',' ').replace(',',' ').replace('&',' ')}}),sidebar-navigation-lightbox-search.close\">";
+			echo "<input type='text' id='search-input' placeholder='...' on=\"input-throttled:AMP.setState({pageState:{searchTerm: event.value.replace('  ',' ').replace('  ',' ').replace('?',' ').replace(',',' ').replace('&',' ')}})\">";
 			echo "<div id='search-submit' role='button' tabindex='0' on='tap:sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search-list.changeToLayoutContainer()'>Search</div>";
 			echo "</li>";
 	
@@ -225,7 +225,8 @@ function amp_header($title=null, $canonical=null) {
 					echo "<li class='sidebar-navigation-item'>";
 	
 					// Handle the indenting
-					echo "<span class='categories-item-indent-wrapper'>{{#indent_array}}<span class='categories-item-indent'></span>{{/indent_array}}</span>";
+//					echo "<span class='categories-item-indent-wrapper'>{{#indent_array}}<span class='categories-item-indent'></span>{{/indent_array}}</span>";
+					echo "<span class='categories-item-indent-wrapper'>{{#indent_count}}<span class='categories-item-indent'></span>{{/indent_count}}</span>";
 	
 					echo "<a href='/{{entry_id}}/'><span class='sidebar-navigation-item-title' [text]=\"pageState.informationArray.{{entry_id}}.header\">Click for more</span></a>";
 					echo "{{#map}}<a href='/{{entry_id}}/map/' target='_blank'><span class='sidebar-navigation-item-button'>Map</span></a>{{/map}}";
