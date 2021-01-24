@@ -187,7 +187,7 @@ function amp_header($title=null, $canonical=null) {
 		echo "<li class='sidebar-navigation-item'><div class='sidebar-navigation-item-title' amp-nested-submenu-open>About</div>";
 		echo "<div amp-nested-submenu><ul>";
 			echo "<li class='sidebar-navigation-item'><div class='sidebar-back' amp-nested-submenu-close>Back</div></li>";
-			echo '<li class="sidebar-navigation-item"><amp-mathml layout="container" inline data-formula="'. number_format(count($information_array)) .'"></amp-mathml> total entries.</li>';
+			echo "<li class='sidebar-navigation-item'>".number_format(count($information_array)) ." total entries.</li>";
 			echo "</ul></div></li>";
 	
 		echo "<li>";	
@@ -370,5 +370,6 @@ function notfound() {
 
 
 function footer() {
+	echo '<amp-mathml layout="container" data-formula="$$ 1 + 1 = 2 $$"></amp-mathml>';
 	echo "</body></html>";
 	exit; } ?>
