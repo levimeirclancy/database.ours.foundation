@@ -179,7 +179,7 @@ function amp_header($title=null, $canonical=null) {
 		echo "<li class='sidebar-navigation-item'><div class='sidebar-navigation-item-title'  amp-nested-submenu-open>Search</div>";
 		echo "<div amp-nested-submenu><ul>";
 	
-			echo "<li class='sidebar-navigation-item'><div class='sidebar-back' amp-nested-submenu-close>Back</li>";
+			echo "<li class='sidebar-navigation-item sidebar-navigation-search-close'><div class='sidebar-back' amp-nested-submenu-close>Back</li>";
 
 			echo "<li id='sidebar-navigation-search'>";
 			echo "<label for='search-input'>Search the database</label>";
