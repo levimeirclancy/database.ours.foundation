@@ -73,7 +73,10 @@ a, a:link, a:visited, a:hover {
 	z-index: 100;
 	}
 
-.navigation-header-item, .lightboxes-close {
+.navigation-header-item, .lightboxes-close, .sidebar-back {
+	font-size: 90%;
+	line-height: 1em;
+	font-family: Arial, Helvetica, Sans Serif;
 	margin: 5px 10px;
 	padding: 8px 20px 7px 17px;
 	border-radius: 100px;
@@ -88,7 +91,7 @@ a, a:link, a:visited, a:hover {
 	font-family: Arial, Helvetica, Sans Serif;
 	}
 
-.navigation-header-item::first-letter, .lightboxes-close::first-letter {
+.navigation-header-item::first-letter, .lightboxes-close::first-letter, .sidebar-back::first-letter {
 	vertical-align: top;
 	}
 
@@ -117,10 +120,6 @@ amp-lightbox {
 	display: inline-block; }
 
 .sidebar-back {
-	font-size: 90%;
-	font-weight: 700;
-	line-height: 1em;
-	font-family: Arial, Helvetica, Sans Serif;
 	cursor: pointer;
 	text-align: right;
 	margin: 0 0 20px 0;
