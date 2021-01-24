@@ -104,12 +104,14 @@ amp-lightbox {
 	}
 
 .lightboxes-close {
-	right: 20px;
+	right: 10px;
 	top: 20px;
-	font-size: 90%;
+	font-size: 80%;
 	position: fixed;
 	color: rgba(20,20,20,0.9);
 	padding: 7px 14px 7px 12px;
+	border: 1px solid rgba(20,20,20,0.9);
+	line-height: 1em;
 	border-radius: 100px;
 	font-weight: 700;
 	font-family: Arial, Helvetica, Sans Serif;
