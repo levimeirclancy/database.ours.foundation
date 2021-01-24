@@ -119,7 +119,7 @@ function amp_header($title=null, $canonical=null) {
 	if (!(empty($page_temp)) && empty($command_temp)):
 	
 		// If you are signed in, the button for 'edit' will appear...
-		echo "<a href='/".$page_temp."/edit/' target='_blank'><div id='settings-popover-launch' on='tap:settings-popover' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='".$logout_hidden."'>Edit</div></a>";
+		echo "<a href='/".$page_temp."/edit/' target='_blank'><div id='settings-popover-launch' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='".$logout_hidden."'>Edit</div></a>";
 	
 		endif;
 	
@@ -127,7 +127,7 @@ function amp_header($title=null, $canonical=null) {
 	if (!(empty($page_temp)) && ($command_temp == "edit")):
 	
 		// If you are signed in, the button for 'edit' will appear...
-		echo "<a href='/".$page_temp."/' target='_blank'><div id='settings-popover-launch' on='tap:settings-popover' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='".$logout_hidden."'>View</div></a>";
+		echo "<a href='/".$page_temp."/' target='_blank'><div id='settings-popover-launch' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='".$logout_hidden."'>View</div></a>";
 	
 		endif;
 
