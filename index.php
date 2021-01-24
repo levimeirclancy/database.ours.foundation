@@ -430,9 +430,9 @@ if ($page_temp == "api"):
 
 		$page_state['informationArray'] = $information_array;
 
-		foreach ($header_array as $header_backend => $header_frontend):
-			$page_state['categoriesArray'][$header_backend] = print_row_loop ($header_backend, array_keys($information_array), []);
-			endforeach;
+//		foreach ($header_array as $header_backend => $header_frontend):
+//			$page_state['categoriesArray'][$header_backend] = print_row_loop ($header_backend, array_keys($information_array), []);
+//			endforeach;
 
 		if (empty($login)): $page_state['login'] = ["loginStatus"=>"loggedout", "login"=>null, "countdown"=>null, ];
 		elseif (!(empty($login))): $page_state['login'] = ["loginStatus"=>"loggedin", "login"=>$login['user_id'], "countdown"=>$_COOKIE['cookie_time']-time(), ]; endif;
@@ -510,8 +510,13 @@ if (isset($header_array[$page_temp])):
 	permanent_redirect("https://".$domain."/");
 	footer(); endif;
 
+if (!(empty($page_temp)) && isset($header_array[$page_temp])):
+	amp_header($header_array[$page_temp], $domain."/".$page_temp."/");
+	include_once('theme_type.php');
+	footer(); endif;
+
 if (!(empty($page_temp)) && isset($information_array[$page_temp])):
-amp_header($information_array[$page_temp]['header'], $domain."/".$page_temp."/");
+	amp_header($information_array[$page_temp]['header'], $domain."/".$page_temp."/");
 	include_once('theme_page.php');
 	footer(); endif;
 
