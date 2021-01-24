@@ -68,15 +68,11 @@
 
 	}
 
-echo "test";
-
 $entries_array  = print_row_loop ($page_temp, array_keys($information_array), []);
 
-print_r($entries_array);
+foreach ($entries_array as $entry_info):
 
-foreach ($entries_array as $entry_id => $entry_info):
-
-	echo $information_array[$entry_id]['header'] . "<br>";
+	echo $information_array[$entry_info['entry_id']]['header'] . "<br>";
 
 	endforeach;
 
