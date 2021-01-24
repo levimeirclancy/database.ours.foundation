@@ -184,6 +184,7 @@ foreach($connection_pdo->query($sql_temp) as $row):
 		endif;
 
 	$information_array[$row['entry_id']]['header'] = implode(" • ", $name_temp);
+	if (empty($information_array[$row['entry_id']]['header'])): $information_array[$row['entry_id']]['header'] = "[ No title ]"; endif;
 
 	$order_array[$row['entry_id']] = null;
 	if (isset($order_language) && isset($name_temp[$order_language])): $order_array[$row['entry_id']] = $name_temp[$order_language];
