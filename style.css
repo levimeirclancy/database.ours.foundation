@@ -171,6 +171,11 @@ div.sidebar-navigation-item {
 	display: block;
 	}
 
+.sidebar-navigation-close {
+	margin: 0;
+	padding: 10px;
+	}
+	
 .sidebar-navigation-item-title {
 	font-size: inherit;
 	line-height: inherit;
@@ -193,10 +198,6 @@ div.sidebar-navigation-item {
 	margin: 0;
 	border-radius: 100px;
 	float: right;
-	}
-
-.sidebar-navigation-search-close {
-	border: 0;
 	}
 
 #sidebar-navigation-search {
