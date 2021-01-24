@@ -209,29 +209,28 @@ function amp_header($title=null, $canonical=null) {
 	
 		echo "<li>";	
 		foreach ($header_array as $header_backend => $header_frontend):
-			echo "<div class='sidebar-navigation-item' role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: '".$header_backend."'}),sidebar-navigation-lightbox-type-list.changeToLayoutContainer()\" amp-nested-submenu-open><div class='sidebar-navigation-item-title'>". ucfirst($header_frontend) ."</div></div>";
+			echo "<div class='sidebar-navigation-item' role='button' tabindex='0' on=\"tap:sidebar-navigation-lightbox-type-list.changeToLayoutContainer()\" amp-nested-submenu-open><div class='sidebar-navigation-item-title'>". ucfirst($header_frontend) ."</div></div>";	
+			echo "<div amp-nested-submenu><ul>";
+				echo "<li class='sidebar-navigation-close'><div class='sidebar-back' amp-nested-submenu-close>Back</li>";
+				echo "<div class='sidebar-navigation-item'><a href='/".$header_backend."/'>".$header_frontend."</a></li>";
+				echo "</ul></div>";
 			endforeach;
-	
-		echo "<div amp-nested-submenu><ul>";
-	
-			echo "<li class='sidebar-navigation-close'><div class='sidebar-back' amp-nested-submenu-close>Back</li>";
-			echo "<li class='sidebar-navigation-item'><a [href]=\"'/' + pageStateType  + '/'\" [text]=\"'Type: ' + pageState.pageTypes.pageStateType\"><b>Link</b></a></li>";
 
-			echo "<amp-list id='sidebar-navigation-lightbox-type-list' layout='responsive' width='800' height='800' items='.' max-items='100' binding='refresh' [src]=\"pageState.informationArray\">";
-
-				echo "<li class='sidebar-navigation-item' fallback><span class='sidebar-navigation-item-title'>No entries in category.</span></li>";
-				echo "<li class='sidebar-navigation-item' placeholder><span class='sidebar-navigation-item-title'>Loading entries...</span></li>";
+//			echo "<amp-list id='sidebar-navigation-lightbox-type-list' layout='responsive' width='800' height='800' items='.' max-items='100' binding='refresh' [src]=\"pageState.informationArray\">";
+//
+//				echo "<li class='sidebar-navigation-item' fallback><span class='sidebar-navigation-item-title'>No entries in category.</span></li>";
+//				echo "<li class='sidebar-navigation-item' placeholder><span class='sidebar-navigation-item-title'>Loading entries...</span></li>";
 //				echo "<li class='sidebar-navigation-item' overflow><span class='sidebar-navigation-item-title'>Show more...</span></li>";
 
-				echo "<template type='amp-mustache'>";
-					echo "<li class='sidebar-navigation-item'>";	
-					echo "<a href='/{{entry_id}}/'><span class='sidebar-navigation-item-title' [text]=\"{{header}}\">Click for more</span></a>";
-					echo "{{#map}}<a href='/{{entry_id}}/map/' target='_blank'><span class='sidebar-navigation-item-button'>Map</span></a>{{/map}}";
-					echo "</li>";
-					echo "</template>";
-				echo "</amp-list></ul></div>";
+//				echo "<template type='amp-mustache'>";
+//					echo "<li class='sidebar-navigation-item'>";	
+//					echo "<a href='/{{entry_id}}/'><span class='sidebar-navigation-item-title' [text]=\"{{header}}\">Click for more</span></a>";
+//					echo "{{#map}}<a href='/{{entry_id}}/map/' target='_blank'><span class='sidebar-navigation-item-button'>Map</span></a>{{/map}}";
+//					echo "</li>";
+//					echo "</template>";
+//				echo "</amp-list></ul></div>";
 	
-			echo "</li>";
+//			echo "</li>";
 	
 			echo "</ul></amp-nested-menu>";
 	
