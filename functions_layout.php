@@ -228,7 +228,8 @@ function amp_header($title=null, $canonical=null) {
 					// Handle the indenting
 					echo "<span class='categories-item-indent-wrapper'>{{#indent_array}}<span class='categories-item-indent'></span>{{/indent_array}}</span>";
 	
-					echo "<a href='/{{entry_id}}/'><span class='sidebar-navigation-item-title' [text]=\"pageState.informationArray.{{entry_id}}.header\">Click for more</span></a>";
+//					echo "<a href='/{{entry_id}}/'><span class='sidebar-navigation-item-title' [text]=\"pageState.informationArray.{{entry_id}}.header\">Click for more</span></a>";
+					echo "<a href='/{{entry_id}}/'><span class='sidebar-navigation-item-title' [text]=\"{{header}}\">Click for more</span></a>";
 					echo "{{#map}}<a href='/{{entry_id}}/map/' target='_blank'><span class='sidebar-navigation-item-button'>Map</span></a>{{/map}}";
 					echo "</li>";
 					echo "</template>";
