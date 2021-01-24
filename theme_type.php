@@ -76,7 +76,7 @@ foreach ($entries_array as $entry_info):
 
 	$count_temp = 0;
 	if (!(is_int($entry_info['indent_count']))): $entry_info['indent_count'] = 0; endif;
-	echo "<li class='sidebar-navigation-item'><span class='categories-item-indent-wrapper'>"'
+	echo "<li class='sidebar-navigation-item'><span class='categories-item-indent-wrapper'>";
 	while ($count_temp < $entry_info['indent_count']):
 		echo "<span class='categories-item-indent'></span>";
 		$count_temp++;
