@@ -54,7 +54,7 @@ echo "<div class='article-info' amp-fx='parallax' data-parallax-factor='1.2'>";
 	echo "<div class='article-info-section'><span class='article-info-section-caption'>Metadata</span>";
 
 	// Type
-	echo "<span class='article-info-section-item' role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: pageState.categoriesArray.".$entry_info['type']."}),sidebar-navigation.open,sidebar-navigation-lightbox-type.open\">Type: ".$header_array[$entry_info['type']]."</span>";
+	echo "<span class='article-info-section-item' role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: pageState.categoriesArray.".$entry_info['type']."}),sidebar-navigation.open,sidebar-navigation-lightbox-type.open\">Type: <a href='/".$entry_info['type']."/'>".$header_array[$entry_info['type']]."</a></span>";
 
 	// GPS
 	if (!(empty($entry_info['appendix']['latitude'])) && !(empty($entry_info['appendix']['longitude']))):
