@@ -172,8 +172,9 @@ div.sidebar-navigation-item {
 	}
 
 .sidebar-navigation-close {
+	display: block;
 	margin: 0;
-	padding: 15px;
+	padding: 20px;
 	}
 	
 .sidebar-navigation-item-title {
