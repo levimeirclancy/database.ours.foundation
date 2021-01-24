@@ -81,9 +81,9 @@ foreach ($entries_array as $entry_info):
 		echo "<span class='categories-item-indent'></span>";
 		$count_temp++;
 		endwhile;
-	echo "</span>";
+	echo "</span><a href='/".$entry_info['entry_id']."/'><span class='sidebar-navigation-item-title'>";
 	
-	echo $information_array[$entry_info['entry_id']]['header'] . "</li>";
+	echo $information_array[$entry_info['entry_id']]['header'] . "</span></a></li>";
 
 	endforeach;
 
