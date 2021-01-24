@@ -980,6 +980,7 @@ amp-selector span[disabled] {
 	}
 
 #footer-formula {
+	text-direction: rtl;
 	margin: 20px 0 50px;
 	}
 
@@ -991,4 +992,8 @@ amp-selector span[disabled] {
 	th, td { display: block;}
 	th + th, td + td, th + td, td + th { border-left: none; border-top: 2px solid rgba(200,200,200,0.12); }
 
-@media print { #navigation-header, #footer-formula { display: none; } }
+@media print { 
+	#navigation-header, #footer-formula {
+		display: none;
+		}
+	}
