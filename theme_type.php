@@ -68,6 +68,8 @@
 
 	}
 
+echo "test";
+
 $entries_array  = print_row_loop ($page_temp, array_keys($information_array), []);
 
 print_r($entries_array);
