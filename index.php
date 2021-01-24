@@ -437,7 +437,7 @@ if ($page_temp == "api"):
 
 		$page_state['searchTerm'] = null;
 
-		$page_state['pageTypes'] = $header_array;
+//		$page_state['pageTypes'] = $header_array;
 
 		if (empty($login)): $page_state['login'] = ["loginStatus"=>"loggedout", "login"=>null, "countdown"=>null, ];
 		elseif (!(empty($login))): $page_state['login'] = ["loginStatus"=>"loggedin", "login"=>$login['user_id'], "countdown"=>$_COOKIE['cookie_time']-time(), ]; endif;
