@@ -206,6 +206,10 @@ div.sidebar-navigation-item {
 	text-align: center;
 	}
 
+#sidebar-navigation-search label {
+	padding-top: 10px;
+	}
+
 #login-popover-submit, #logout-popover-submit, #new-popover-submit, #delete-popover-submit, #search-submit {
 	display: table;
 	max-width: 300px;
