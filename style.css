@@ -108,7 +108,7 @@ amp-lightbox {
 
 .lightboxes-close {
 	right: 20px;
-	top: 20px;
+	top: 10px;
 	position: fixed;
 	z-index: 10000;
 	}
@@ -120,6 +120,8 @@ amp-lightbox {
 	display: inline-block; }
 
 .sidebar-back {
+	right: 0;
+	border: 0;
 	cursor: pointer;
 	text-align: right;
 	margin: 0 0 20px 0;
@@ -130,7 +132,6 @@ amp-lightbox {
 	font-size: 130%;
 	margin: 0 5px 0 0;
 	display: inline-block; }
-
 
 #sidebar-navigation {
 	width: 650px;
