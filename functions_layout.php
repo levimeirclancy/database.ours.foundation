@@ -370,6 +370,6 @@ function notfound() {
 
 
 function footer() {
-	echo '<amp-mathml layout="container" data-formula="$$ 1 + 1 = 2 $$"></amp-mathml>';
+	echo '<amp-mathml id="footer-formula" layout="container" data-formula="$$ 1 + 1 = 2 $$"></amp-mathml>';
 	echo "</body></html>";
 	exit; } ?>
