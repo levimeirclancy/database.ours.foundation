@@ -182,16 +182,15 @@ function amp_header($title=null, $canonical=null) {
 			echo "<li class='sidebar-navigation-item'><div class='sidebar-back' amp-nested-submenu-close>Back</li>";
 
 			echo "<li id='sidebar-navigation-search'>";
-			echo "<input type='text' id='sidebar-navigation-search-input' placeholder='...' on=\"input-throttled:AMP.setState({pageState:{searchTerm: event.value.replace('  ',' ').replace('  ',' ').replace('?',' ').replace(',',' ').replace('&',' ')}}),sidebar-navigation-lightbox-search.close\">";
-			echo "<div id='sidebar-navigation-search-button' role='button' tabindex='0' on='tap:sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search-list.changeToLayoutContainer()'>Search</div>";
+			echo "<label for='search-input'>Search the database</label>";
+			echo "<input type='text' id='search-input' placeholder='...' on=\"input-throttled:AMP.setState({pageState:{searchTerm: event.value.replace('  ',' ').replace('  ',' ').replace('?',' ').replace(',',' ').replace('&',' ')}}),sidebar-navigation-lightbox-search.close\">";
+			echo "<div id='search-submit' role='button' tabindex='0' on='tap:sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search-list.changeToLayoutContainer()'>Search</div>";
 			echo "</li>";
-//			echo "<li [text]=\"pageState.searchTerm == '' || pageState.searchTerm == ' ' || pageState.searchTerm == null ? 'Search term cannot be empty.' : 'Search results for: ' + pageState.searchTerm\">Search term not received.</li>";
 	
 			echo "<amp-list id='sidebar-navigation-lightbox-search-list' layout='responsive' width='800' height='800' items='.' max-items='100' binding='refresh' reset-on-refresh='always' [src]=\"'/api/search/?search=' + pageState.searchTerm\">";
 
 				echo "<li class='sidebar-navigation-item' fallback><span class='sidebar-navigation-item-title'>No search results.</span></li>";
 				echo "<li class='sidebar-navigation-item' placeholder><span class='sidebar-navigation-item-title'>Loading search results...</span></li>";
-//				echo "<li class='sidebar-navigation-item' overflow><span class='sidebar-navigation-item-title'>Show more...</span></li>";
 
 				echo "<template type='amp-mustache'>";
 					echo "<li class='sidebar-navigation-item'><a href='/{{entry_id}}/' target='_blank'><span class='sidebar-navigation-item-title' [text]=\"pageState.informationArray.{{entry_id}}.header\">Click for more</span></a></li>";
