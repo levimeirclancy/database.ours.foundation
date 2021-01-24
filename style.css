@@ -140,12 +140,11 @@ amp-lightbox {
 #sidebar-navigation {
 	width: 650px;
 	background: rgba(255,255,255,1);
-	margin: 0;
 	padding: 10px 20px;
-	box-shadow: 0 0 30px 0 rgba(30,30,30,0.3);
 	text-align: left;
 	box-sizing: border-box;
 	line-height: 1.3em;
+	white-space: normal;
 	}
 
 #sidebar-navigation ul {
