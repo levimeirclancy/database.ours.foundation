@@ -172,7 +172,7 @@ function amp_header($title=null, $canonical=null) {
 	// This is the popover for the categories ...;
 	echo "<amp-sidebar id='sidebar-navigation' layout='nodisplay' side='left' on='sidebarClose:pageState.refresh,navigation-header.show;sidebarOpen:begin-image.hide,login-popover.close,settings-popover.close,new-popover.close'>";
 	
-		echo "<amp-nested-menu layout='fill'><ul>";
+		echo "<amp-nested-menu id='amp-nested-menu' layout='fill'><ul>";
 		
 		echo "<li class='sidebar-navigation-close'><div class='sidebar-back' on='tap:".$navigation_lightboxes."' role='button' tabindex='0' amp-nested-submenu-close>Close</div></li>";
 	
@@ -208,9 +208,9 @@ function amp_header($title=null, $canonical=null) {
 			echo "</ul></div></li>";
 
 		foreach ($header_array as $header_backend => $header_frontend):
-			echo "<li class='sidebar-navigation-item'><div class='sidebar-navigation-item-title' role='button' tabindex='0' on='tap:sidebar-navigation.changeToLayoutContainer()' amp-nested-submenu-open>". ucfirst($header_frontend) ."</div>";	
+			echo "<li class='sidebar-navigation-item'><div class='sidebar-navigation-item-title' role='button' tabindex='0' on='tap:amp-nested-menu.changeToLayoutContainer()' amp-nested-submenu-open>". ucfirst($header_frontend) ."</div>";	
 			echo "<div amp-nested-submenu><ul>";
-				echo "<li class='sidebar-navigation-close'><div class='sidebar-back' role='button' tabindex='0' on='tap:sidebar-navigation.changeToLayoutContainer()' amp-nested-submenu-close>Back</div></li>";
+				echo "<li class='sidebar-navigation-close'><div class='sidebar-back' role='button' tabindex='0' on='tap:amp-nested-menu.changeToLayoutContainer()' amp-nested-submenu-close>Back</div></li>";
 				echo "<li class='sidebar-navigation-item'><a href='/".$header_backend."/'><span class='sidebar-navigation-item-title'>Type: ".$header_frontend."</span></a></li>";
 				$counter_temp = 0;
 				foreach($information_array as $entry_id => $entry_info):
