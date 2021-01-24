@@ -170,12 +170,6 @@ amp-lightbox {
 div.sidebar-navigation-item {
 	display: block;
 	}
-
-li.sidebar-navigation-close {
-	display: block;
-	margin: 20px;
-	padding: 0;
-	}
 	
 .sidebar-navigation-item-title {
 	font-size: inherit;
@@ -205,6 +199,12 @@ li.sidebar-navigation-close {
 	white-space: normal;
 	padding: 0 0 10px;
 	text-align: center;
+	}
+
+li.sidebar-navigation-close {
+	display: block;
+	margin: 40px;
+	padding: 0;
 	}
 
 #login-popover-submit, #logout-popover-submit, #new-popover-submit, #delete-popover-submit, #search-submit {
