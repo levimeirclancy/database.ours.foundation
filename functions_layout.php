@@ -370,6 +370,6 @@ function notfound() {
 
 
 function footer() {
-	echo '<amp-mathml id="footer-formula" layout="container" data-formula="$$ תורה = תורה $$"></amp-mathml>';
+	echo '<amp-mathml id="footer-formula" layout="container" data-formula="\[ תורה = תורה \]"></amp-mathml>';
 	echo "</body></html>";
 	exit; } ?>
