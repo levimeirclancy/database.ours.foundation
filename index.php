@@ -170,7 +170,7 @@ foreach($connection_pdo->query($sql_temp) as $row):
 //		"alternate_name" => json_decode($row['alternate_name'], true),
 		"header" => null,
 		"summary" => [],
-		"appendix" => $appendix_temp,
+//		"appendix" => $appendix_temp,
 		"parents" => [],
 		"children" => [] ];
 
@@ -193,7 +193,7 @@ foreach($connection_pdo->query($sql_temp) as $row):
 
 	endforeach;
 
-if (!(empty($information_array))):
+if (!(empty($information_array)) && ($command_temp == "search") ($_REQUEST['paths'] == ["true"])):
 	$sql_temp = "SELECT * FROM " . $database . ".information_paths";
 	foreach($connection_pdo->query($sql_temp) as $row):
 		if ($row['parent_id'] == $row['child_id']): continue; endif;
