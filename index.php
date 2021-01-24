@@ -442,6 +442,12 @@ if ($page_temp == "api"):
 		echo json_output($page_state);
 
 	elseif ($command_temp == "search"):
+
+		$search_array = [
+				"searchTerm" => $_REQUEST['search'][0],
+				"searchResults" => [ ["entry_id" => "aaa"],["entry_id" => "bbb"],["entry_id" => "cc"], ],
+				];
+			json_output($search_array);
 		if (empty($information_array)): json_status("error", "No results.");
 //		else: json_output(array_values($information_array)); endif;
 		else:
