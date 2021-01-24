@@ -78,14 +78,15 @@ echo "<div class='article-info' amp-fx='parallax' data-parallax-factor='1.2'>";
 		endif;
 
 	// Edit
-	$login_hidden = $logout_hidden = "article-info-section-item"; // This would mean that buttons to login AND logout are shown
-	(empty($login) ? $logout_hidden = "hide" : $login_hidden = "hide");
-	echo "<a href='/".$page_temp."/edit/'><span [class]=\"pageState.login.loginStatus == 'loggedin' ? 'article-info-section-item' : 'hide'\" class='".$logout_hidden."'>Edit entry</span></a>";
+//	$login_hidden = $logout_hidden = "article-info-section-item"; // This would mean that buttons to login AND logout are shown
+//	(empty($login) ? $logout_hidden = "hide" : $login_hidden = "hide");
+//	echo "<a href='/".$page_temp."/edit/'><span [class]=\"pageState.login.loginStatus == 'loggedin' ? 'article-info-section-item' : 'hide'\" class='".$logout_hidden."'>Edit entry</span></a>";
 
 	echo "</div>";
 
 	relationships_array($page_temp, "parents", "Parent");
 	relationships_array($page_temp, "children", "Subpage");
+	// Add one for mentions
 
 	echo "</div>";
 
