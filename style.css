@@ -973,7 +973,7 @@ label {
 amp-selector {
 	font-size: 90%;
 	padding: 0;
-	max-height: 350px;
+	max-height: 360px;
 	overflow-y: auto;
 	overflow-x: hidden;
 	position: relative;
