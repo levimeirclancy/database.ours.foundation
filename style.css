@@ -151,7 +151,6 @@ amp-lightbox {
 	margin: 0;
 	padding: 10px;
 	border: 0;
-	display: block;
 	}
 
 
@@ -426,6 +425,18 @@ p, summary, ul, ol, blockquote {
 	max-width: 850px; 
 	border: 0;
 	display: block;
+	clear: both;
+	vertical-align: top;
+	margin: 0;
+	padding: 20px;
+	text-align: left;
+	position: relative;
+	}
+
+ul, ol{
+	width: auto;
+	max-width: 850px; 
+	border: 0;
 	clear: both;
 	vertical-align: top;
 	margin: 0;
