@@ -118,12 +118,17 @@ amp-lightbox {
 	margin: 0 5px 0 0;
 	display: inline-block; }
 
+.sidebar-navigation-close {
+	margin: 0;
+	padding: 0;
+	}
+
 .sidebar-back {
 	display: block;
 	cursor: pointer;
 	text-align: right;
 	padding: 3px 15px;
-	margin: 0 0 20px 0;
+	margin: 10px 0 20px 0;
 	}
 
 .sidebar-back:before {
@@ -199,12 +204,6 @@ div.sidebar-navigation-item {
 	white-space: normal;
 	padding: 0 0 10px;
 	text-align: center;
-	}
-
-li.sidebar-navigation-close {
-	display: block;
-	margin: 40px;
-	padding: 0;
 	}
 
 #login-popover-submit, #logout-popover-submit, #new-popover-submit, #delete-popover-submit, #search-submit {
