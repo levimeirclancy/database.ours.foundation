@@ -70,9 +70,20 @@
 
 $entries_array  = print_row_loop ($page_temp, array_keys($information_array), []);
 
+echo "<ul>";
+
 foreach ($entries_array as $entry_info):
 
-	echo $information_array[$entry_info['entry_id']]['header'] . "<br>";
+	$count_temp = 0;
+	if (!(is_int($entry_info['indent_count']))): $entry_info['indent_count'] = 0; endif;
+	echo "<li class='sidebar-navigation-item'><span class='categories-item-indent-wrapper'>"'
+	while ($count_temp < $entry_info['indent_count']):
+		echo "<span class='categories-item-indent'></span>";
+		$count_temp++;
+		endwhile;
+	echo "</span>";
+	
+	echo $information_array[$entry_info['entry_id']]['header'] . "</li>";
 
 	endforeach;
 
