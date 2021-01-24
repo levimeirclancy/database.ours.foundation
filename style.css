@@ -201,39 +201,6 @@ div.sidebar-navigation-item {
 	text-align: center;
 	}
 
-#sidebar-navigation-search-button, #sidebar-navigation-search-input {
-	margin: 15px auto 5px;
-	padding: 9px 15px;
-	border-radius: 100px;
-	line-height: 1em;
-	font-weight: 400;
-	font-family: Arial, Helvetica, Sans Serif;
-	}
-
-#sidebar-navigation-search-button {
-	display: table;
-	background: #666;
-	border: 1px solid #666;
-	color: #fff;
-	text-align: center;
-	cursor: pointer;
-	}
-
-#sidebar-navigation-search-input {
-	display: block;
-	background: #fff;
-	border: 1px solid #555;
-	color: #333;
-	text-align: left;
-	max-width: none;
-	width: 100%;
-	max-width: 80%;
-	}
-
-#sidebar-navigation-search-input::placeholder {
-	font-size: 90%;
-	}
-
 #login-popover-submit, #logout-popover-submit, #new-popover-submit, #delete-popover-submit {
 	display: table;
 	max-width: 300px;
