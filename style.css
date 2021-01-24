@@ -987,9 +987,4 @@ amp-selector span[disabled] {
 	th, td { display: block;}
 	th + th, td + td, th + td, td + th { border-left: none; border-top: 2px solid rgba(200,200,200,0.12); }
 
-	
-/* MATHEMATICS */
-	
-.overline { text-decoration: overline; }
-
-.smallcaps { font-variant: small-caps; }
+@media print { #navigation-header, #footer-formula { display: none; } }
