@@ -173,8 +173,8 @@ div.sidebar-navigation-item {
 
 .sidebar-navigation-close {
 	display: block;
-	margin: 0;
-	padding: 20px;
+	margin: 15px;
+	padding: 0;
 	}
 	
 .sidebar-navigation-item-title {
