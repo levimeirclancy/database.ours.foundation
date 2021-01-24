@@ -209,14 +209,13 @@ function amp_header($title=null, $canonical=null) {
 	
 		echo "<li>";	
 		foreach ($header_array as $header_backend => $header_frontend):
-//			echo "<div class='sidebar-navigation-item' role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: ".$header_backend."}),sidebar-navigation-lightbox-type-list.changeToLayoutContainer()\" amp-nested-submenu-open><div class='sidebar-navigation-item-title'>". ucfirst($header_frontend) ."</div></div>";
 			echo "<div class='sidebar-navigation-item' role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: '".$header_backend."'}),sidebar-navigation-lightbox-type-list.changeToLayoutContainer()\" amp-nested-submenu-open><div class='sidebar-navigation-item-title'>". ucfirst($header_frontend) ."</div></div>";
 			endforeach;
 	
 		echo "<div amp-nested-submenu><ul>";
 	
 			echo "<li class='sidebar-navigation-close'><div class='sidebar-back' amp-nested-submenu-close>Back</li>";
-			echo "<li class='sidebar-navigation-item'><a [href]=\"'/' + pageStateType  + '/'\" [text]=\"'Type: ' + pageStateType\"><b>Link</b></a></li>";
+			echo "<li class='sidebar-navigation-item'><a [href]=\"'/' + pageStateType  + '/'\" [text]=\"'Type: ' + pageState.pageTypes.pageStateType\"><b>Link</b></a></li>";
 
 			echo "<amp-list id='sidebar-navigation-lightbox-type-list' layout='responsive' width='800' height='800' items='.' max-items='100' binding='refresh' [src]=\"pageState.informationArray\">";
 
