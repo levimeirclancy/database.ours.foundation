@@ -206,9 +206,9 @@ function amp_header($title=null, $canonical=null) {
 			echo "<li class='sidebar-navigation-close'><div class='sidebar-back' amp-nested-submenu-close>Back</div></li>";
 			echo "<li class='sidebar-navigation-item'>".number_format(count($information_array)) ." total entries.</li>";
 			echo "</ul></div></li>";
-	
-		echo "<li>";	
+
 		foreach ($header_array as $header_backend => $header_frontend):
+			echo "<li class='sidebar-navigation-item'>";
 			echo "<div class='sidebar-navigation-item sidebar-navigation-item-title' role='button' tabindex='0' amp-nested-submenu-open>". ucfirst($header_frontend) ."</div>";	
 			echo "<div amp-nested-submenu><ul>";
 				echo "<li class='sidebar-navigation-close'><div class='sidebar-back' amp-nested-submenu-close>Back</li>";
