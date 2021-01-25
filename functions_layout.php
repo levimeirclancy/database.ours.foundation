@@ -178,7 +178,7 @@ function amp_header($title=null, $canonical=null) {
 
 		echo "<ul>";
 	
-		echo "<li class='sidebar-navigation-close'><div class='sidebar-back' on='tap:".$navigation_lightboxes."' role='button' tabindex='0' amp-nested-submenu-close>Close</div></li>";
+		echo "<li class='sidebar-navigation-close'><div class='sidebar-back' on='tap:".$navigation_lightboxes."' role='button' tabindex='0'>Close</div></li>";
 	
 //		echo "<li class='sidebar-navigation-item'><div class='sidebar-navigation-item-title' amp-nested-submenu-open>About</div></li>";
 
@@ -196,27 +196,27 @@ function amp_header($title=null, $canonical=null) {
 			
 		echo "<ul>";
 	
-		echo "<li class='sidebar-navigation-close'><div class='sidebar-back' on='tap:".$navigation_lightboxes."' role='button' tabindex='0' amp-nested-submenu-close>Close</div></li>";
+		echo "<li class='sidebar-navigation-close'><div class='sidebar-back' on='tap:".$navigation_lightboxes."' role='button' tabindex='0'>Close</div></li>";
 
-			echo "<li id='sidebar-navigation-search'>";
-			echo "<label for='search-input'>Search the database</label>";
-//			echo "<input type='text' id='search-input' placeholder='...' on=\"input-throttled:AMP.setState({pageState:{searchTerm: event.value.replace('  ',' ').replace('  ',' ').replace('?',' ').replace(',',' ').replace('&',' ')}})\">";
-			echo "<input type='text' id='search-input' placeholder='...' on=\"input-throttled:AMP.setState({pageState:{searchTerm: event.value}})\">";
-			echo "<div id='search-submit' role='button' tabindex='0' on='tap:sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search-list.changeToLayoutContainer()'>Search</div>";
-			echo "</li>";
+		echo "<li>";
+		echo "<label for='search-input'>Search the database</label>";
+//		echo "<input type='text' id='search-input' placeholder='...' on=\"input-throttled:AMP.setState({pageState:{searchTerm: event.value.replace('  ',' ').replace('  ',' ').replace('?',' ').replace(',',' ').replace('&',' ')}})\">";
+		echo "<input type='text' id='search-input' placeholder='...' on=\"input-throttled:AMP.setState({pageState:{searchTerm: event.value}})\">";
+		echo "<div id='search-submit' role='button' tabindex='0' on='tap:sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search-list.changeToLayoutContainer()'>Search</div>";
+		echo "</li>";
 	
-			echo "<amp-list id='sidebar-navigation-lightbox-search-list' credentials='include' layout='responsive' width='800' height='800' items='.' max-items='100' binding='refresh' reset-on-refresh='always' items='searchResults' [src]=\"'/api/search/?search=' + pageState.searchTerm\">";
+		echo "<amp-list id='sidebar-navigation-lightbox-search-list' credentials='include' layout='responsive' width='800' height='800' items='.' max-items='100' binding='refresh' reset-on-refresh='always' items='searchResults' [src]=\"'/api/search/?search=' + pageState.searchTerm\">";
 
-				echo "<li class='sidebar-navigation-item' fallback><span class='sidebar-navigation-item-title'>No search results.</span></li>";
-				echo "<li class='sidebar-navigation-item' placeholder><span class='sidebar-navigation-item-title'>Loading search results...</span></li>";
+		echo "<li class='sidebar-navigation-item' fallback><span class='sidebar-navigation-item-title'>No search results.</span></li>";
+		echo "<li class='sidebar-navigation-item' placeholder><span class='sidebar-navigation-item-title'>Loading search results...</span></li>";
 
-				echo "<template type='amp-mustache'>";
-					echo "<li class='sidebar-navigation-item'><a href='/{{entry_id}}/' target='_blank'><span class='sidebar-navigation-item-title' [text]=\"{{entry_id}}\">Click for more</span></a></li>";
-					echo "</template>";
+		echo "<template type='amp-mustache'>";
+			echo "<li class='sidebar-navigation-item'><a href='/{{entry_id}}/' target='_blank'><span class='sidebar-navigation-item-title' [text]=\"{{entry_id}}\">Click for more</span></a></li>";
+			echo "</template>";
 	
-				echo "</amp-list></ul></div>";
-		
-			echo "</li></ul>";
+		echo "</amp-list></ul>";
+	
+		echo "</amp-sidebar>";
 	
 	// This is the popover to log in ...
 	echo "<amp-lightbox id='login-popover' on=\"lightboxClose:navigation-header.show;lightboxOpen:begin-image.hide,sidebar-navigation.close,settings-popover.close,new-popover.close,navigation-header.hide,AMP.setState({inputPasswordType: 'password'})\" layout='nodisplay'>";
