@@ -97,8 +97,6 @@ echo "<ul id='entries-list-hierarchical' class='entries-list'>";
 
 echo "<ul id='entries-list-alphabetical' class='entries-list' hidden>";
 
-echo "test";
-
 	foreach ($information_array as $entry_info):
 
 		if ($entry_info['type'] !== $page_temp): continue; endif;
