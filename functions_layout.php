@@ -110,7 +110,7 @@ function amp_header($title=null, $canonical=null) {
 	echo "<div role='button' tabindex='0' class='navigation-header-item' on='tap:sidebar-navigation.open,sidebar-navigation.changeToLayoutContainer()'>Categories</div>";
 	
 	// The search
-	echo "<div role='button' tabindex='0' class='navigation-header-item' on='tap:sidebar-search.open,sidebar-navigation.changeToLayoutContainer()'>Categories</div>";
+	echo "<div role='button' tabindex='0' class='navigation-header-item' on='tap:sidebar-search.open,sidebar-search.changeToLayoutContainer()'>Search</div>";
 	
 	// This is the login button ...
 	echo "<div role='button' tabindex='0' id='login-popover-launch' on='tap:login-popover.open' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'hide' : 'navigation-header-item'\" class='".$login_hidden."' >Log in</div>";
