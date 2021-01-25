@@ -71,12 +71,12 @@
 
 	}
 
-echo "<div role='button' tabindex='0' id='entries-button-alphabetical' class='navigation-header-item' on='tap:entries-list-alphabetical.show,entries-list-hierarchical.hide,entries-button-alphabetical.hide,entries-button-hierarchical.show' layout='container'>Alphabetical</div>";
-echo "<div role='button' tabindex='0' id='entries-button-hierarchical' class='navigation-header-item' on='tap:entries-list-alphabetical.hide,entries-list-hierarchical.show,entries-button-alphabetical.show,entries-button-hierarchical.hide' layout='nodisplay'>Hierarchical</div>";
+echo "<div role='button' tabindex='0' id='entries-button-alphabetical' class='navigation-header-item' on='tap:entries-list-alphabetical.show,entries-list-hierarchical.hide,entries-button-alphabetical.hide,entries-button-hierarchical.show'>Alphabetical</div>";
+echo "<div role='button' tabindex='0' id='entries-button-hierarchical' class='navigation-header-item hide' on='tap:entries-list-alphabetical.hide,entries-list-hierarchical.show,entries-button-alphabetical.show,entries-button-hierarchical.hide'>Hierarchical</div>";
 
 $entries_array  = print_row_loop ($page_temp, array_keys($information_array), []);
 
-echo "<ul id='entries-list-hierarchical' class='entries-list' layout='container'>";
+echo "<ul id='entries-list-hierarchical' class='entries-list'>";
 
 	foreach ($entries_array as $entry_info):
 
@@ -95,7 +95,7 @@ echo "<ul id='entries-list-hierarchical' class='entries-list' layout='container'
 
 	echo "</ul>";
 
-echo "<ul id='entries-list-alphabetical' class='entries-list' layout='nodisplay'>";
+echo "<ul id='entries-list-alphabetical' class='entries-list hide'>";
 
 echo "test";
 
