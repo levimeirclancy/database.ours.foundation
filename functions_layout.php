@@ -208,14 +208,13 @@ function amp_header($title=null, $canonical=null) {
 		echo "<div id='search-submit' role='button' tabindex='0' on='tap:sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search-list.changeToLayoutContainer()'>Search</div>";
 		echo "</li>";
 	
-//		echo "<amp-list id='sidebar-navigation-lightbox-search-list' credentials='include' layout='responsive' width='800' height='800' items='.' max-items='100' binding='refresh' reset-on-refresh='always' items='searchResults' [src]=\"'/api/search/?search=' + pageState.searchTerm\">";
 		echo "<amp-list id='sidebar-navigation-lightbox-search-list' credentials='include' layout='responsive' width='800' height='800' max-items='100' binding='refresh' reset-on-refresh='always' items='searchResults' [src]=\"'/api/search/?search=' + pageState.searchTerm\">";
 
 		echo "<li class='sidebar-navigation-item' fallback><span class='sidebar-navigation-item-title'>No search results.</span></li>";
 		echo "<li class='sidebar-navigation-item' placeholder><span class='sidebar-navigation-item-title'>Loading search results...</span></li>";
 
 		echo "<template type='amp-mustache'>";
-			echo "<li class='sidebar-navigation-item'><a href='/{{entry_id}}/' target='_blank'><span class='sidebar-navigation-item-title' [text]=\"{{entry_id}}\">Click for more</span></a></li>";
+			echo "<li class='sidebar-navigation-item'><a href='/{{entry_id}}/' target='_blank'><span class='sidebar-navigation-item-title' [text]='{{header}}'>Click for more</span></a></li>";
 			echo "</template>";
 	
 		echo "</amp-list></ul>";
