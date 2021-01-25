@@ -126,10 +126,10 @@ function amp_header($title=null, $canonical=null) {
 	
 		endif;
 	
-	// If you are editing a page and want to preview it...
+	// If you are editing a page and want to view it...
 	if (!(empty($page_temp)) && ($command_temp == "edit")):
 	
-		// If you are signed in, the button for 'edit' will appear...
+		// If you are signed in, the button for 'view' will appear...
 		echo "<a href='/".$page_temp."/' target='_blank'><div id='settings-popover-launch' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='".$logout_hidden."'>View</div></a>";
 	
 		endif;
@@ -184,7 +184,7 @@ function amp_header($title=null, $canonical=null) {
 //		echo "<li class='sidebar-navigation-item'><div class='sidebar-navigation-item-title' amp-nested-submenu-open>About</div></li>";
 
 		$target_temp = "target='_blank'";
-		if ($command_temp == "edit"): $target_temp = null; endif;
+		if ($command_temp !== "edit"): $target_temp = null; endif;
 	
 		foreach ($header_array as $header_backend => $header_frontend):
 			echo "<li class='sidebar-navigation-item'><a href='/".$header_backend."/' ".$target_temp.">";
