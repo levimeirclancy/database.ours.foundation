@@ -72,7 +72,7 @@
 	}
 
 echo "<div role='button' tabindex='0' class='navigation-header-item' id='entries-button-alphabetical' on='tap:entries-list-alphabetical.show,entries-list-hierarchical.hide,entries-button-alphabetical.hide,entries-button-hierarchical.show'>Alphabetical</div>";
-echo "<div role='button' tabindex='0' class='navigation-header-item' id='entries-button-hierarchical' on='tap:entries-list-alphabetical.show,entries-list-hierarchical.hide,entries-button-alphabetical.hide,entries-button-hierarchical.show'>Hierarchical</div>";
+echo "<div role='button' tabindex='0' class='navigation-header-item' id='entries-button-hierarchical' on='tap:entries-list-alphabetical.hide,entries-list-hierarchical.show,entries-button-alphabetical.show,entries-button-hierarchical.hide'>Hierarchical</div>";
 	
 
 $entries_array  = print_row_loop ($page_temp, array_keys($information_array), []);
