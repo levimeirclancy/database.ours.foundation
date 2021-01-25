@@ -456,7 +456,7 @@ if ($page_temp == "api"):
 //		else: json_output(array_values($information_array)); endif;
 		else:
 			$search_array['searchCount'] = count($information_array);
-			$search_array['searchResults'] = $information_array;
+			$search_array['searchResults'] = array_values($information_array);
 			json_output($search_array); endif;
 		endif;
 	exit; endif;
