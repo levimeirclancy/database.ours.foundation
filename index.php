@@ -452,7 +452,6 @@ if ($page_temp == "api"):
 				"searchCount" => 0,
 				"searchResults" => [ ],
 				];
-			json_output($search_array);
 		if (empty($information_array)): json_status("error", "No results.");
 //		else: json_output(array_values($information_array)); endif;
 		else:
