@@ -54,7 +54,7 @@ $connection_pdo = new PDO(
 	);
 
 // create entries directory table
-$table_array = [
+$tables_array = [
 	"information_directory" =>
 		[
 		"`entry_id` VARCHAR(10)",
@@ -122,6 +122,7 @@ $table_array = [
 
 foreach ($tables_array as $table_name => $columns_info):
 	$sql_temp = "CREATE TABLE IF NOT EXISTS ".$database.".".$table_name." (".implode(", ", $columns_info).") DEFAULT CHARSET=utf8mb4";
+echo $sql_temp."<br>";
 	$run_statement = $connection_pdo->prepare($sql_temp);
 	$run_statement->execute();
 	execute_checkup($run_statement->errorInfo(), "creating ".$table_name." table");
