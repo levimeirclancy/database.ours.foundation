@@ -449,7 +449,7 @@ if ($page_temp == "api"):
 
 		$search_array = [
 				"searchTerm" => $_REQUEST['search'][0],
-				"searchCount" => 0;
+				"searchCount" => 0,
 				"searchResults" => [ ],
 				];
 			json_output($search_array);
