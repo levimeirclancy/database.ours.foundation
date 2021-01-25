@@ -93,7 +93,7 @@ $table_array = [
 		"`value` TEXT",
 		"timestamp TIMESTAMP",
 		"PRIMARY KEY (`key`)",
-		]
+		],
 	"locations_shapes" =>
 		[
 		"`line_id` VARCHAR(10)",
