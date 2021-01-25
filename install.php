@@ -59,9 +59,8 @@ $table_array = [
 		[
 		"`entry_id` VARCHAR(10)",
 		"`type` VARCHAR(20)",
-		// published
-		// updated
-		"`name` VARCHAR(500)",
+		"`date_published` DATE", // Add this column
+		"`date_updated` DATIME", // And add this column
 		"`alternate_name` VARCHAR(500)",
 		"`summary` TEXT",
 		"`body` TEXT",
