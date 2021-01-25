@@ -106,8 +106,11 @@ function amp_header($title=null, $canonical=null) {
 	// The navigation backbone...
 	echo "<div id='navigation-header' amp-fx='parallax' data-parallax-factor='1.4'>";
 
-	// The domain name, to go home ...
-	echo "<div role='button' tabindex='0' class='navigation-header-item' on='tap:sidebar-navigation.open,sidebar-navigation.changeToLayoutContainer()'>Navigation</div>";
+	// The categories
+	echo "<div role='button' tabindex='0' class='navigation-header-item' on='tap:sidebar-navigation.open,sidebar-navigation.changeToLayoutContainer()'>Categories</div>";
+	
+	// The search
+	echo "<div role='button' tabindex='0' class='navigation-header-item' on='tap:sidebar-search.open,sidebar-navigation.changeToLayoutContainer()'>Categories</div>";
 	
 	// This is the login button ...
 	echo "<div role='button' tabindex='0' id='login-popover-launch' on='tap:login-popover.open' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'hide' : 'navigation-header-item'\" class='".$login_hidden."' >Log in</div>";
@@ -167,20 +170,33 @@ function amp_header($title=null, $canonical=null) {
 		"settings-popover.close",
 		"new-popover.close",
 		"sidebar-navigation.close",
+		"sidebar-search.close",
 		]);		
 	
 	// This is the popover for the categories ...;
 	echo "<amp-sidebar id='sidebar-navigation' layout='nodisplay' side='left' on='sidebarClose:pageState.refresh,navigation-header.show;sidebarOpen:begin-image.hide,login-popover.close,settings-popover.close,new-popover.close'>";
+
+		echo "<ul>";
 	
-		echo "<amp-nested-menu layout='fill'><ul>";
-		
 		echo "<li class='sidebar-navigation-close'><div class='sidebar-back' on='tap:".$navigation_lightboxes."' role='button' tabindex='0' amp-nested-submenu-close>Close</div></li>";
 	
-		echo "<li class='sidebar-navigation-item'>";
-		echo "<div class='sidebar-navigation-item-title' amp-nested-submenu-open>Search</div>";
-		echo "<div amp-nested-submenu><ul>";
+//		echo "<li class='sidebar-navigation-item'><div class='sidebar-navigation-item-title' amp-nested-submenu-open>About</div></li>";
+
+		foreach ($header_array as $header_backend => $header_frontend):
+			echo "<li class='sidebar-navigation-item'><a href='/".$header_backend."/'>";
+			echo "<div class='sidebar-navigation-item-title'>". ucfirst($header_frontend) ."</div></a></li>";
+			endforeach;
 	
-			echo "<li class='sidebar-navigation-close'><div class='sidebar-back' amp-nested-submenu-close>Back</li>";
+		echo "</ul>";
+	
+		echo "</amp-sidebar>";
+	
+	// This is the popover for the categories ...;
+	echo "<amp-sidebar id='sidebar-search' layout='nodisplay' side='left' on='sidebarClose:pageState.refresh,navigation-header.show;sidebarOpen:begin-image.hide,login-popover.close,settings-popover.close,new-popover.close'>";
+			
+		echo "<ul>";
+	
+		echo "<li class='sidebar-navigation-close'><div class='sidebar-back' on='tap:".$navigation_lightboxes."' role='button' tabindex='0' amp-nested-submenu-close>Close</div></li>";
 
 			echo "<li id='sidebar-navigation-search'>";
 			echo "<label for='search-input'>Search the database</label>";
@@ -200,34 +216,7 @@ function amp_header($title=null, $canonical=null) {
 	
 				echo "</amp-list></ul></div>";
 		
-			echo "</li>";
-
-		echo "<li class='sidebar-navigation-item'><div class='sidebar-navigation-item-title' amp-nested-submenu-open>About</div>";
-		echo "<div amp-nested-submenu><ul>";
-			echo "<li class='sidebar-navigation-close'><div class='sidebar-back' amp-nested-submenu-close>Back</div></li>";
-			echo "<li class='sidebar-navigation-item'>".number_format(count($information_array)) ." total entries.</li>";
-			echo "</ul></div></li>";
-
-		foreach ($header_array as $header_backend => $header_frontend):
-			echo "<li class='sidebar-navigation-item'>";
-			echo "<div class='sidebar-navigation-item-title' amp-nested-submenu-open>". ucfirst($header_frontend) ."</div>";	
-			echo "<div amp-nested-submenu><ul>";
-				echo "<li class='sidebar-navigation-close'><div class='sidebar-back' role='button' tabindex='0' amp-nested-submenu-close>Back</div></li>";
-				echo "<li class='sidebar-navigation-item'><a href='/".$header_backend."/'><span class='sidebar-navigation-item-title'>Type: ".$header_frontend."</span></a></li>";
-				$counter_temp = 0;
-				foreach($information_array as $entry_id => $entry_info):
-					if ($entry_info['type'] !== $header_backend): continue; endif;
-					echo "<li class='sidebar-navigation-item'><a href='/". $entry_id . "/'>";
-					echo "<span class='sidebar-navigation-item-title'>".$entry_info['header']."</span></a></li>";
-					$counter_temp++;
-					endforeach;
-				if ($counter_temp == 0): echo "<li class='sidebar-navigation-item'><span class='sidebar-navigation-item-title'>No results.</span></li>"; endif;
-				echo "</ul></div></li>";
-			endforeach;
-	
-			echo "</ul></amp-nested-menu>";
-	
-		echo "</amp-sidebar>";
+			echo "</li></ul>";
 	
 	// This is the popover to log in ...
 	echo "<amp-lightbox id='login-popover' on=\"lightboxClose:navigation-header.show;lightboxOpen:begin-image.hide,sidebar-navigation.close,settings-popover.close,new-popover.close,navigation-header.hide,AMP.setState({inputPasswordType: 'password'})\" layout='nodisplay'>";
