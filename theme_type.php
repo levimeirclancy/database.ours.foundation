@@ -75,8 +75,6 @@ $entries_array  = print_row_loop ($page_temp, array_keys($information_array), []
 
 echo "<ul class='entries-list'>";
 
-echo "test";
-
 foreach ($entries_array as $entry_info):
 
 	$count_temp = 0;
