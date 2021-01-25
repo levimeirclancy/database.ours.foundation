@@ -15,6 +15,9 @@
 		if (!(array_key_exists($entry_id, $information_array))):
 			continue; endif;
 
+		if (!(isset($information_array[$entry_id]['type']))):
+			continue; endif;
+	
 		// If the type is not correct
 		if ($information_array[$entry_id]['type'] !== $header_backend):
 			continue; endif;
