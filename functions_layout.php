@@ -215,8 +215,11 @@ function amp_header($title=null, $canonical=null) {
 		echo "<li class='sidebar-navigation-item' fallback><span class='sidebar-navigation-item-title'>No search results.</span></li>";
 		echo "<li class='sidebar-navigation-item' placeholder><span class='sidebar-navigation-item-title'>Loading search results...</span></li>";
 
+		$target_temp = "target='_self'"; // Open search result in a new tab
+		if ($command_temp == "edit"): $target_temp = "target='_blank'"; endif; // If not editing, then by default open search result in current tab
+
 		echo "<template type='amp-mustache'>";
-			echo "<li class='sidebar-navigation-item'><a href='/{{entry_id}}/' target='_blank'><span class='sidebar-navigation-item-title' [text]='{{header}}'>{{header}}</span></a></li>";
+			echo "<li class='sidebar-navigation-item'><a href='/{{entry_id}}/' ".$target_temp."><span class='sidebar-navigation-item-title' [text]='{{header}}'>{{header}}</span></a></li>";
 			echo "</template>";
 	
 		echo "</amp-list></ul>";
