@@ -203,8 +203,7 @@ function amp_header($title=null, $canonical=null) {
 
 		echo "<li>";
 		echo "<label for='search-input'>Search the database</label>";
-//		echo "<input type='text' id='search-input' placeholder='...' on=\"input-throttled:AMP.setState({pageState:{searchTerm: event.value.replace('  ',' ').replace('  ',' ').replace('?',' ').replace(',',' ').replace('&',' ')}})\">";
-		echo "<input type='text' id='search-input' placeholder='...' on=\"input-throttled:AMP.setState({pageState:{searchTerm: event.value}})\">";
+		echo "<input type='text' id='search-input' placeholder='...' on=\"input-throttled:AMP.setState({pageState:{searchTerm: event.value}}),sidebar-navigation-lightbox-search-list.changeToLayoutContainer()\">";
 		echo "<div id='search-submit' role='button' tabindex='0' on='tap:sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search-list.changeToLayoutContainer()'>Search</div>";
 		echo "</li>";
 	
