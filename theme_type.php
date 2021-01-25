@@ -71,23 +71,43 @@
 
 	}
 
+echo "<div role='button' tabindex='0' class='navigation-header-item' id='entries-button-alphabetical' on='tap:entries-list-alphabetical.show,entries-list-hierarchical.hide,entries-button-alphabetical.hide,entries-button-hierarchical.show'>Alphabetical</div>";
+echo "<div role='button' tabindex='0' class='navigation-header-item' id='entries-button-hierarchical' on='tap:entries-list-alphabetical.show,entries-list-hierarchical.hide,entries-button-alphabetical.hide,entries-button-hierarchical.show'>Hierarchical</div>";
+	
+
 $entries_array  = print_row_loop ($page_temp, array_keys($information_array), []);
 
-echo "<ul class='entries-list'>";
+echo "<ul class='entries-list' id='entries-list-hierarchical'>";
 
-foreach ($entries_array as $entry_info):
+	foreach ($entries_array as $entry_info):
 
-	$count_temp = 0;
-	if (!(is_int($entry_info['indent_count']))): $entry_info['indent_count'] = 0; endif;
-	echo "<li class='entries-list-item'><span class='categories-item-indent-wrapper'>";
-	while ($count_temp < $entry_info['indent_count']):
-		echo "<span class='categories-item-indent'></span>";
-		$count_temp++;
-		endwhile;
-	echo "</span><a href='/".$entry_info['entry_id']."/'><span class='sidebar-navigation-item-title'>";
+		$count_temp = 0;
+		if (!(is_int($entry_info['indent_count']))): $entry_info['indent_count'] = 0; endif;
+		echo "<li class='entries-list-item'><span class='categories-item-indent-wrapper'>";
+		while ($count_temp < $entry_info['indent_count']):
+			echo "<span class='categories-item-indent'></span>";
+			$count_temp++;
+			endwhile;
+		echo "</span><a href='/".$entry_info['entry_id']."/'><span class='sidebar-navigation-item-title'>";
 	
-	echo $information_array[$entry_info['entry_id']]['header'] . "</span></a></li>";
+		echo $information_array[$entry_info['entry_id']]['header'] . "</span></a></li>";
 
-	endforeach;
+		endforeach;
+
+	echo "</ul>";
+
+echo "<ul class='entries-list hide' id='entries-list-alphabetical'>";
+
+	foreach ($information_array as $entry_info):
+
+		if ($entry_info['type'] !== $page_temp): continue; endif;
+
+		echo "<li class='entries-list-item'><a href='/".$entry_info['entry_id']."/'><span class='sidebar-navigation-item-title'>";
+	
+		echo $information_array[$entry_info['entry_id']]['header'] . "</span></a></li>";
+
+		endforeach;
+
+	echo "</ul>";
 
 ?>
