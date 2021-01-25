@@ -122,7 +122,7 @@ function amp_header($title=null, $canonical=null) {
 	if (!(empty($page_temp)) && empty($command_temp)):
 	
 		// If you are signed in, the button for 'edit' will appear...
-		echo "<a href='/".$page_temp."/edit/' target='_blank'><div id='settings-popover-launch' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='".$logout_hidden."'>Edit</div></a>";
+		echo "<a href='/".$page_temp."/edit/' target='_blank'><div id='settings-popover-launch' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='".$logout_hidden."' target='_self'>Edit</div></a>";
 	
 		endif;
 	
