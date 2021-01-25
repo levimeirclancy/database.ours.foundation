@@ -120,7 +120,7 @@ $table_array = [
 		],
 	];
 
-foreach ($tables_array $table_name => $columns_info):
+foreach ($tables_array as $table_name => $columns_info):
 	$sql_temp = "CREATE TABLE IF NOT EXISTS ".$database.".".$table_name." (".implode(", ", $columns_info).") DEFAULT CHARSET=utf8mb4";
 	$run_statement = $connection_pdo->prepare($sql_temp);
 	$run_statement->execute();
