@@ -174,7 +174,7 @@ function amp_header($title=null, $canonical=null) {
 		]);		
 	
 	// This is the popover for the categories ...;
-	echo "<amp-sidebar id='sidebar-navigation' layout='nodisplay' side='left' on='sidebarClose:pageState.refresh,navigation-header.show;sidebarOpen:begin-image.hide,login-popover.close,settings-popover.close,new-popover.close'>";
+	echo "<amp-sidebar class='sidebar' id='sidebar-navigation' layout='nodisplay' side='left' on='sidebarClose:pageState.refresh,navigation-header.show;sidebarOpen:begin-image.hide,login-popover.close,settings-popover.close,new-popover.close'>";
 
 		echo "<ul>";
 	
@@ -192,7 +192,7 @@ function amp_header($title=null, $canonical=null) {
 		echo "</amp-sidebar>";
 	
 	// This is the popover for the categories ...;
-	echo "<amp-sidebar id='sidebar-search' layout='nodisplay' side='left' on='sidebarClose:pageState.refresh,navigation-header.show;sidebarOpen:begin-image.hide,login-popover.close,settings-popover.close,new-popover.close'>";
+	echo "<amp-sidebar class='sidebar' id='sidebar-search' layout='nodisplay' side='left' on='sidebarClose:pageState.refresh,navigation-header.show;sidebarOpen:begin-image.hide,login-popover.close,settings-popover.close,new-popover.close'>";
 			
 		echo "<ul>";
 	
