@@ -53,11 +53,80 @@ $connection_pdo = new PDO(
 		)
 	);
 
-// create users table
-$sql_temp = "CREATE TABLE IF NOT EXISTS $database.users (`user_id` VARCHAR(100), `status` VARCHAR(100), `email` VARCHAR(100), `name` VARCHAR(100), `hash` VARCHAR(400), `authenticator` VARCHAR(100), `cookie` VARCHAR(100),  timestamp TIMESTAMP, PRIMARY KEY (`user_id`)) DEFAULT CHARSET=utf8mb4;";
-$run_statement = $connection_pdo->prepare($sql_temp);
-$run_statement->execute();
-execute_checkup($run_statement->errorInfo(), "creating users table");
+// create entries directory table
+$table_array = [
+	"information_directory" =>
+		[
+		"`entry_id` VARCHAR(10)",
+		"`type` VARCHAR(20)",
+		// published
+		// updated
+		"`name` VARCHAR(500)",
+		"`alternate_name` VARCHAR(500)",
+		"`summary` TEXT",
+		"`body` TEXT",
+		"`studies` TEXT",
+		"`appendix` TEXT",
+		"`timestamp` TIMESTAMP",
+		"PRIMARY KEY (`entry_id`)",
+		],
+	"information_paths" =>
+		[
+		"`path_id` VARCHAR(100)",
+		"`parent_id` VARCHAR(100)",
+		"`path_type` VARCHAR(100)",
+		"`child_id` VARCHAR(100)",
+		"`timestamp` TIMESTAMP",
+		"PRIMARY KEY (`path_id`)",
+		],
+	"information_history" =>
+		[
+		"`information_id` VARCHAR(10)",
+		"`entry_id` VARCHAR(10)",
+		"`information_name` VARCHAR(100)",
+		"`information_value` TEXT",
+		"`timestamp` TIMESTAMP",
+		"PRIMARY KEY (`information_id`)",
+		],
+	"siteinfo" =>
+		[
+		"`key` VARCHAR(100)",
+		"`value` TEXT",
+		"timestamp TIMESTAMP",
+		"PRIMARY KEY (`key`)",
+		]
+	"locations_shapes" =>
+		[
+		"`line_id` VARCHAR(10)",
+		"`shape_id` VARCHAR(10)",
+		"`entry_id` VARCHAR(10)",
+		"`start_latitude` DECIMAL(16,13)",
+		"`start_longitude` DECIMAL(16,13)",
+		"`end_latitude` DECIMAL(16,13)",
+		"`end_longitude` DECIMAL(16,13)",
+		"`timestamp` TIMESTAMP",
+		"PRIMARY KEY (`line_id`)",
+		],
+	"users" =>
+		[
+		"`user_id` VARCHAR(100)",
+		"`status` VARCHAR(100)",
+		"`email` VARCHAR(100)",
+		"`name` VARCHAR(100)",
+		"`hash` VARCHAR(400)",
+		"`authenticator` VARCHAR(100)",
+		"`cookie` VARCHAR(100)",
+		"timestamp TIMESTAMP",
+		"PRIMARY KEY (`user_id`)",	
+		],
+	];
+
+foreach ($tables_array $table_name => $columns_info):
+	$sql_temp = "CREATE TABLE IF NOT EXISTS ".$database.".".$table_name." (".implode(", ", $columns_info).") DEFAULT CHARSET=utf8mb4";
+	$run_statement = $connection_pdo->prepare($sql_temp);
+	$run_statement->execute();
+	execute_checkup($run_statement->errorInfo(), "creating ".$table_name." table");
+	endforeach;
 
 if (!(empty($_POST['submit']))):
 
@@ -83,47 +152,6 @@ if (!(empty($_POST['submit']))):
 		echo "<b style='color: red;'>Passwords did not match</b><hr>";
 		endif;
 	endif;
-
-// create locations shapes table
-$sql_temp = "CREATE TABLE IF NOT EXISTS $database.locations_shapes (`line_id` VARCHAR(10), `shape_id` VARCHAR(10), `entry_id` VARCHAR(10), `start_latitude` DECIMAL(16,13), `start_longitude` DECIMAL(16,13), `end_latitude` DECIMAL(16,13), `end_longitude` DECIMAL(16,13), `timestamp` TIMESTAMP, PRIMARY KEY (`line_id`)) DEFAULT CHARSET=utf8mb4";
-$run_statement = $connection_pdo->prepare($sql_temp);
-$run_statement->execute();
-execute_checkup($run_statement->errorInfo(), "creating locations_shapes table");
-
-// create entries directory table
-$columns_temp = [
-	"`entry_id` VARCHAR(10)",
-	"`type` VARCHAR(20)",
-	"`name` VARCHAR(500)",
-	"`alternate_name` VARCHAR(500)",
-	"`summary` TEXT",
-	"`body` TEXT",
-	"`studies` TEXT",
-	"`appendix` TEXT",
-	"`timestamp` TIMESTAMP",
-	"PRIMARY KEY (`entry_id`)" ];
-$sql_temp = "CREATE TABLE IF NOT EXISTS $database.information_directory (".implode(", ", $columns_temp).") DEFAULT CHARSET=utf8mb4";
-$run_statement = $connection_pdo->prepare($sql_temp);
-$run_statement->execute();
-execute_checkup($run_statement->errorInfo(), "creating information_directory table");
-
-// create paths table
-$sql_temp = "CREATE TABLE IF NOT EXISTS $database.information_paths (`path_id` VARCHAR(100), `parent_id` VARCHAR(100), `path_type` VARCHAR(100), `child_id` VARCHAR(100), timestamp TIMESTAMP, PRIMARY KEY (`path_id`)) DEFAULT CHARSET=utf8mb4;";
-$run_statement = $connection_pdo->prepare($sql_temp);
-$run_statement->execute();
-execute_checkup($run_statement->errorInfo(), "creating information_paths table");
-			
-// create archived information table
-$sql_temp = "CREATE TABLE IF NOT EXISTS $database.information_history (`information_id` VARCHAR(10), `entry_id` VARCHAR(10), `information_name` VARCHAR(100), `information_value` TEXT, `timestamp` TIMESTAMP, PRIMARY KEY (`information_id`)) DEFAULT CHARSET=utf8mb4";
-$run_statement = $connection_pdo->prepare($sql_temp);
-$run_statement->execute();
-execute_checkup($run_statement->errorInfo(), "creating information_history table");
-
-// create site info table
-$sql_temp = "CREATE TABLE IF NOT EXISTS $database.siteinfo (`key` VARCHAR(100), `value` TEXT, timestamp TIMESTAMP, PRIMARY KEY (`key`)) DEFAULT CHARSET=utf8mb4;";
-$run_statement = $connection_pdo->prepare($sql_temp);
-$run_statement->execute();
-execute_checkup($run_statement->errorInfo(), "creating siteinfo table");
 
 // select users from table and if it is empty then create a user
 $sql_temp = "SELECT * FROM $database.users";
