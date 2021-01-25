@@ -183,8 +183,9 @@ function amp_header($title=null, $canonical=null) {
 	
 //		echo "<li class='sidebar-navigation-item'><div class='sidebar-navigation-item-title' amp-nested-submenu-open>About</div></li>";
 
-		$target_temp = "target='_blank'";
-		if ($command_temp !== "edit"): $target_temp = null; endif;
+		// Open a category page in current or new tab
+		$target_temp = "target='_self'"; // Open category page in a new tab
+		if ($command_temp == "edit"): $target_temp = "target='_blank'"; endif; // Open category page in current tab
 	
 		foreach ($header_array as $header_backend => $header_frontend):
 			echo "<li class='sidebar-navigation-item'><a href='/".$header_backend."/' ".$target_temp.">";
