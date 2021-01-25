@@ -63,6 +63,7 @@ a, a:link, a:visited, a:hover {
 
 #navigation-header {
 	position: absolute;
+	box-sizing: border-box;
 	left: 0;
 	top: 0;
 	right: 0;
