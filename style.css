@@ -18,15 +18,6 @@ a, a:link, a:visited, a:hover {
 	width: auto; 
 	max-width: 890px; }
 
-.hide {
-	display: none;
-	}
-
-.show {
-	display: inline-block;
-	}
-
-
 /* BAR */
 
 .header {
@@ -979,4 +970,16 @@ amp-selector span[disabled] {
 	#navigation-header, #footer-formula {
 		display: none;
 		}
+	}
+
+
+
+/* Toggle classes */
+
+.hide {
+	display: none;
+	}
+
+.show {
+	display: inline-block;
 	}
