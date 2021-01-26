@@ -202,6 +202,21 @@ echo "<label for='entry_published'>Published date</label>";
 echo "<input type='hidden' id='entry_published' name='entry_published' value='".$entry_info['entry_published']."'>";
 echo "</amp-date-picker>";
 
+if (!(empty($appendix_array)):
+	echo "<h2 id='more'>More...</h2>";
+	foreach ($appendix_array as $appendix_key => $appendix_type):
+		$placeholder_temp = str_replace("_", " ", $appendix_key);
+		echo "<label for='appendix[".$appendix_key."]'>". $placeholder_temp ."</label>";
+		if ($appendix_type == "string"):
+			echo "<input type='text' name='appendix[".$appendix_key."]' placeholder='". $placeholder_temp ."' value='".htmlspecialchars($entry_info['appendix'][$appendix_key], ENT_QUOTES)."'>";
+		elseif ($appendix_type == "checkbox"):
+			$checked_temp = null;
+			if ($entry_info['appendix'][$appendix_key] == $appendix_key): $checked_temp = "checked"; endif;
+			echo "<input type='checkbox' name='appendix[".$appendix_key."].' value='".$appendix_key."' $checked_temp>";
+			endif;
+		endforeach;
+	endif;
+
 echo "<br><br><br><br><br>";
 
 echo "<div id='admin-page-form-snackbar'>";
