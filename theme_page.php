@@ -7,6 +7,7 @@ foreach ($result as $row):
 	$entry_info['summary'] = json_decode($row['summary'], true);
 	$entry_info['body'] = json_decode($row['body'], true);
 	$entry_info['studies'] = $row['studies'];
+	$entry_info['appendix'] = json_decode($row['appendix'],true);
 	endforeach;
 
 function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
