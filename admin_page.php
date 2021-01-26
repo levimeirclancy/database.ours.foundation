@@ -202,7 +202,7 @@ echo "<label for='entry_published'>Published date</label>";
 echo "<input type='hidden' id='entry_published' name='entry_published' value='".$entry_info['entry_published']."'>";
 echo "</amp-date-picker>";
 
-if (!(empty($appendix_array)):
+if (!(empty($appendix_array))):
 	echo "<h2 id='more'>More...</h2>";
 	foreach ($appendix_array as $appendix_key => $appendix_type):
 		$placeholder_temp = str_replace("_", " ", $appendix_key);
