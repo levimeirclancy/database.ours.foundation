@@ -872,6 +872,10 @@ input, textarea, amp-selector {
 	box-shadow: 3px 12px 15px -9px rgba(50,50,50,0.1);
 	}
 
+amp-date-picker {
+	margin: 5px 8px;
+	}
+
 label {
 	font-style: italic;
 	color: rgba(100,100,100,0.8);
