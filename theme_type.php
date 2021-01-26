@@ -79,7 +79,7 @@ $indent_ever = 0;
 
 echo "<ul id='entries-list-hierarchical' class='entries-list'>";
 
-	echo "<li class='entries-list-item'></li><li></li>";
+	echo "<li class='entries-list-item'></li>";
 
 	foreach ($entries_array as $entry_info):
 
