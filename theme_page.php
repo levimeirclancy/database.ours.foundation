@@ -59,8 +59,8 @@ echo "<div class='article-info' amp-fx='parallax' data-parallax-factor='1.2'>";
 	// Date published
 	echo "<span class='article-info-section-item'>Published: ".date("Y F j", strtotime($entry_info['date_published']))."</span>";
 
-	// Date modified
-	echo "<span class='article-info-section-item'>Modified: ".date("Y F j, H:i:s", strtotime($entry_info['date_modified']))."</span>";
+	// Date updated
+	echo "<span class='article-info-section-item'>Updated: ".date("Y F j, H:i:s", strtotime($entry_info['date_updated']))."</span>";
 
 	// GPS
 	if (!(empty($entry_info['appendix']['latitude'])) && !(empty($entry_info['appendix']['longitude']))):
