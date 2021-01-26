@@ -900,7 +900,7 @@ label {
 amp-selector {
 	font-size: 90%;
 	padding: 0;
-	max-height: 360px;
+	max-height: 365px;
 	overflow-y: auto;
 	overflow-x: hidden;
 	position: relative;
