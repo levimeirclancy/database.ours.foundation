@@ -197,10 +197,10 @@ echo "</amp-selector>";
 
 echo "<p>Directly edit its published time here,</p>";
 
-echo '<amp-date-picker id='static-picker' type='single' mode='static' layout='fixed-height' height='500' format='YYYY-MM-DD' min='1000-00-00' input-selector='#entry_published'>';
+echo "<amp-date-picker id='static-picker' type='single' mode='static' layout='fixed-height' height='500' format='YYYY-MM-DD' min='1000-00-00' input-selector='#entry_published'>";
 echo "<label for='entry_published'>Published date</label>";
 echo "<input type='hidden' id='entry_published' name='entry_published' value='".$entry_info['entry_published']."'>";
-echo '</amp-date-picker>';
+echo "</amp-date-picker>";
 
 echo "<br><br><br><br><br>";
 
