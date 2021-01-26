@@ -172,6 +172,8 @@ foreach($connection_pdo->query($sql_temp) as $row):
 //		"appendix" => $appendix_temp,
 		];
 
+	$information_array[$row['entry_id']] = sanitize_dates($information_array[$row['entry_id']], $row);
+
 	$name_temp = [];
 	if (!(empty($row['name']))): $name_temp = json_decode($row['name'], true); endif;
 	if (!(is_array($name_temp))): $name_temp = []; endif;
