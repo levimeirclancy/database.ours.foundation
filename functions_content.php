@@ -18,8 +18,8 @@ $retrieve_paths = $connection_pdo->prepare($sql_temp);
 
 function santize_dates ($entry_info, $row=[]) {
 	
-	if (!(isset($entry_info['entry_updated'])): $entry_info['entry_updated'] = null; endif;
-	if (!(isset($entry_info['entry_published'])): $entry_info['entry_published'] = null; endif;
+	if (!(isset($entry_info['entry_updated']))): $entry_info['entry_updated'] = null; endif;
+	if (!(isset($entry_info['entry_published']))): $entry_info['entry_published'] = null; endif;
 	
 	// Because this column was added in an upgrade, it has to be constructed
 	if (empty($entry_info['entry_updated'])):
