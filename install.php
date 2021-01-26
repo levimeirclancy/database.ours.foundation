@@ -130,18 +130,12 @@ foreach ($tables_array as $table_name => $columns_info):
 // Format for adding columns, e.g. during an upgrade
 $columns_array = [
 	
-	[
-	"table"		=> "information_directory",
-	"column"	=> "`date_published` DATE",
-	"after"		=> "`entry_id`",
-	],
-	
-	[
-	"table"		=> "information_directory",
-	"column"	=> "`date_updated` DATETIME",
-	"after"		=> "`date_published`",
-	],
-	
+//	[
+//	"table"		=> "information_directory",
+//	"column"	=> "`date_published` DATE",
+//	"after"		=> "`entry_id`",
+//	],
+		
 	];
 
 foreach ($columns_array as $column_info):
