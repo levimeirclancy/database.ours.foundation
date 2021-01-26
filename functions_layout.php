@@ -124,7 +124,7 @@ function amp_header($title=null, $canonical=null) {
 	echo "<div role='button' tabindex='0' id='settings-popover-launch' on='tap:settings-popover' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='".$logout_hidden."'>Settings</div>";
 
 	// If you are viewing a page but not editing it...
-	if (!(empty($page_temp)) && empty($command_temp)):
+	if (!(empty($page_temp)) && !(isset($header_array[$page_temp])) && empty($command_temp)):
 	
 		// If you are signed in, the button for 'edit' will appear...
 		echo "<a href='/".$page_temp."/edit/' target='_self'><div id='settings-popover-launch' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='".$logout_hidden."'>Edit</div></a>";
