@@ -73,12 +73,19 @@
 
 echo "<h1>".$header_array[$page_temp]."</h1>";
 
-echo "<div role='button' tabindex='0' id='entries-button-alphabetical' class='navigation-header-item' on='tap:entries-list-alphabetical.show,entries-list-hierarchical.hide,entries-button-alphabetical.hide,entries-button-hierarchical.show'>Switch to alphabetical</div>";
-echo "<div role='button' tabindex='0' id='entries-button-hierarchical' class='navigation-header-item' on='tap:entries-list-alphabetical.hide,entries-list-hierarchical.show,entries-button-alphabetical.show,entries-button-hierarchical.hide' hidden>Switch to hierarchical</div>";
-
 $entries_array  = print_row_loop ($page_temp, array_keys($information_array), []);
 
+$indent_ever = 0;
+
 echo "<ul id='entries-list-hierarchical' class='entries-list'>";
+
+	$tap_temp = [
+		"entries-list-alphabetical.show",
+		"entries-list-hierarchical.hide",
+		"entries-button-alphabetical.hide",
+		"entries-button-hierarchical.show",
+		];
+	echo "<li><div role='button' tabindex='0' id='entries-button-alphabetical' class='navigation-header-item' on='tap:". implode(", ", $tap_temp) ."'>Switch to alphabetical</div></li>
 
 	foreach ($entries_array as $entry_info):
 
@@ -88,6 +95,7 @@ echo "<ul id='entries-list-hierarchical' class='entries-list'>";
 		while ($count_temp < $entry_info['indent_count']):
 			echo "<span class='categories-item-indent'></span>";
 			$count_temp++;
+			$indent_ever++;
 			endwhile;
 		echo "</span><a href='/".$entry_info['entry_id']."/'><span class='sidebar-navigation-item-title'>";
 	
@@ -97,7 +105,17 @@ echo "<ul id='entries-list-hierarchical' class='entries-list'>";
 
 	echo "</ul>";
 
+// if ($indent_ever == 0): footer();
+
 echo "<ul id='entries-list-alphabetical' class='entries-list' hidden>";
+
+	$tap_temp = [
+		"entries-list-alphabetical.hide",
+		"entries-list-hierarchical.show",
+		"entries-button-alphabetical.show",
+		"entries-button-hierarchical.hide",
+		];
+	echo "<li><div role='button' tabindex='0' id='entries-button-hierarchical' class='navigation-header-item' on='tap:". implode(", ", $tap_temp) ."'>Switch to hierarchical</div></li>
 
 	foreach ($information_array as $entry_info):
 
