@@ -71,6 +71,8 @@
 
 	}
 
+echo "<h1>".$header_array[$page_temp]."</h1>";
+
 echo "<div role='button' tabindex='0' id='entries-button-alphabetical' class='navigation-header-item' on='tap:entries-list-alphabetical.show,entries-list-hierarchical.hide,entries-button-alphabetical.hide,entries-button-hierarchical.show'>Switch to alphabetical</div>";
 echo "<div role='button' tabindex='0' id='entries-button-hierarchical' class='navigation-header-item' on='tap:entries-list-alphabetical.hide,entries-list-hierarchical.show,entries-button-alphabetical.show,entries-button-hierarchical.hide' hidden>Switch to hierarchical</div>";
 
