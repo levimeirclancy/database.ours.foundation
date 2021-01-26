@@ -32,21 +32,4 @@ function random_code($length=16) {
 	while (strlen($key_temp) < $length): $key_temp .= $characters[rand(0,$upper_offset)]; endwhile;
 	return $key_temp; }
 
-function print_terms($terms_array) {
-	if (empty($terms_array)): return; endif;
-	foreach ($terms_array as $term_id => $term_info):
-		$entry_id_array[$term_info['person_id']] = [];
-		$entry_id_array[$term_info['position_id']] = [];
-		$entry_id_array[$term_info['for_id']] = []; endforeach;
-	echo "<table><thead><tr><th>term id</th><th>person</th><th>position</th><th>for</th><th>start</th><th>end</th><th>status</th></tr></thead><tbody>";
-	foreach ($terms_array as $term_id => $term_info):
-		echo "<tr><td>$term_id</td>";
-		echo "<td>".$information_array[$term_info['person_id']]['english_name'][0]."</td>";
-		echo "<td>".$information_array[$term_info['position_id']]['english_name'][0]."</td>";
-		echo "<td>".$information_array[$term_info['for_id']]['english_name'][0]."</td>";
-		echo "<td>".$term_info['date_start']."</td>";
-		echo "<td>".$term_info['date_end']."</td>";
-		echo "<td>".$term_info['status']."</td></tr>"; endforeach;
-	echo "</tbody></table>"; }
-
-	?>
+?>
