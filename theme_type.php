@@ -79,14 +79,6 @@ $indent_ever = 0;
 
 echo "<ul id='entries-list-hierarchical' class='entries-list'>";
 
-	$tap_temp = [
-		"entries-list-alphabetical.show",
-		"entries-list-hierarchical.hide",
-		"entries-button-alphabetical.hide",
-		"entries-button-hierarchical.show",
-		];
-	echo "<li><div role='button' tabindex='0' id='entries-button-alphabetical' class='navigation-header-item' on='tap:". implode(", ", $tap_temp) ."'>Switch to alphabetical</div></li>";
-
 	foreach ($entries_array as $entry_info):
 
 		$count_temp = 0;
@@ -103,9 +95,19 @@ echo "<ul id='entries-list-hierarchical' class='entries-list'>";
 
 		endforeach;
 
+	if ($indent_ever !== 0):
+		$tap_temp = [
+			"entries-list-alphabetical.show",
+			"entries-list-hierarchical.hide",
+			"entries-button-alphabetical.hide",
+			"entries-button-hierarchical.show",
+			];
+		echo "<li><div role='button' tabindex='0' id='entries-button-alphabetical' class='navigation-header-item' on='tap:". implode(", ", $tap_temp) ."'>Switch to alphabetical</div></li>";
+		endif;
+
 	echo "</ul>";
 
-// if ($indent_ever == 0): footer();
+ if ($indent_ever == 0): footer();
 
 echo "<ul id='entries-list-alphabetical' class='entries-list' hidden>";
 
