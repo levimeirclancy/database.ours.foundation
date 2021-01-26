@@ -69,6 +69,11 @@ function amp_header($title=null, $canonical=null) {
 	// for the mathml formulas
 	echo '<script async custom-element="amp-mathml" src="https://cdn.ampproject.org/v0/amp-mathml-0.1.js"></script>';
 	
+	// for the amp-date-picker in the edit interface
+	if (isset($page_temp) && ($command_temp == "edit")):
+		echo '<script async custom-element="amp-date-picker" src="https://cdn.ampproject.org/v0/amp-date-picker-0.1.js"></script>';
+		endif;
+	
 	// loading fonts
 	echo '<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">';
 	echo '<link href="https://fonts.googleapis.com/css2?family=Assistant&display=swap" rel="stylesheet">';
