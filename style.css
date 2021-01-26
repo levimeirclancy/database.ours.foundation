@@ -863,6 +863,7 @@ label, .password-toggle, input, textarea, amp-selector {
 	}
 
 input, textarea, amp-selector {
+	margin: 5px 13px;
 	border-radius: 10px;
 	color: rgba(0,0,0,1);
 	padding: 15px;
@@ -874,10 +875,6 @@ input, textarea, amp-selector {
 
 input[type="date"] {
 	max-width: 300px;
-	}
-
-amp-date-picker {
-	margin: 5px 8px;
 	}
 
 label {
