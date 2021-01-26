@@ -63,6 +63,8 @@ echo "<div class='article-info' amp-fx='parallax' data-parallax-factor='1.2'>";
 	echo "<span class='article-info-section-item'>Updated: ".date("Y F j, H:i:s", strtotime($entry_info['date_updated']))."</span>";
 
 	// GPS
+
+print_r($entry_info['appendix']);
 	if (!(empty($entry_info['appendix']['latitude'])) && !(empty($entry_info['appendix']['longitude']))):
 		echo "<span class='article-info-section-item'><a href='https://".$domain."/".$entry_info['entry_id']."/map/' target='_blank'>";
 		echo substr($entry_info['appendix']['latitude'],0,6).", ".substr($entry_info['appendix']['longitude'],0,6);
