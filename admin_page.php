@@ -199,7 +199,7 @@ echo "</amp-selector>";
 
 echo "<p>Directly edit its published time here,</p>";
 
-echo "<label for='date_published'>Published date</label>";
+echo "<label for='date_published'>Published date (YYYY-MM-DD, e.g. 2020-01-25).</label>";
 echo "<input type='date' id='date_published' name='date_published' value='".$entry_info['date_published']."'>";
 
 if (!(empty($appendix_array))):
