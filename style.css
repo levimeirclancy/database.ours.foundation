@@ -873,7 +873,7 @@ input, textarea, amp-selector {
 	}
 
 input[type="date"] {
-	max-width: 400px;
+	max-width: 300px;
 	}
 
 amp-date-picker {
