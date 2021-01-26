@@ -79,6 +79,8 @@ $indent_ever = 0;
 
 echo "<ul id='entries-list-hierarchical' class='entries-list'>";
 
+	echo "<li class='entries-list-item'></li>";
+
 	foreach ($entries_array as $entry_info):
 
 		$count_temp = 0;
@@ -111,13 +113,7 @@ if ($indent_ever == 0): footer(); endif;
 
 echo "<ul id='entries-list-alphabetical' class='entries-list' hidden>";
 
-	$tap_temp = [
-		"entries-list-alphabetical.hide",
-		"entries-list-hierarchical.show",
-		"entries-button-alphabetical.show",
-		"entries-button-hierarchical.hide",
-		];
-	echo "<li><div role='button' tabindex='0' id='entries-button-hierarchical' class='navigation-header-item' on='tap:". implode(", ", $tap_temp) ."'>Switch to hierarchical</div></li>";
+	echo "<li class='entries-list-item'></li>";
 
 	foreach ($information_array as $entry_info):
 
@@ -128,5 +124,13 @@ echo "<ul id='entries-list-alphabetical' class='entries-list' hidden>";
 		echo $information_array[$entry_info['entry_id']]['header'] . "</span></a></li>";
 
 		endforeach;
+
+	$tap_temp = [
+		"entries-list-alphabetical.hide",
+		"entries-list-hierarchical.show",
+		"entries-button-alphabetical.show",
+		"entries-button-hierarchical.hide",
+		];
+	echo "<li><div role='button' tabindex='0' id='entries-button-hierarchical' class='navigation-header-item' on='tap:". implode(", ", $tap_temp) ."'>Switch to hierarchical</div></li>";
 
 	echo "</ul>"; ?>
