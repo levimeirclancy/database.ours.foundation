@@ -86,6 +86,10 @@ echo "<div class='article-info' amp-fx='parallax' data-parallax-factor='1.2'>";
 
 	relationships_array($page_temp, "parents", "Parent");
 	relationships_array($page_temp, "children", "Subpage");
+
+	// Add a relationships_array for mentions
+//	$search = "/api/search/?search=test";
+
 	// Add one for mentions
 
 	echo "</div>";
