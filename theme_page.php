@@ -54,7 +54,13 @@ echo "<div class='article-info' amp-fx='parallax' data-parallax-factor='1.2'>";
 	echo "<div class='article-info-section'><span class='article-info-section-caption'>Metadata</span>";
 
 	// Type
-	echo "<span class='article-info-section-item' role='button' tabindex='0' on=\"tap:AMP.setState({pageStateType: pageState.categoriesArray.".$entry_info['type']."}),sidebar-navigation.open,sidebar-navigation-lightbox-type.open\">Type: <a href='/".$entry_info['type']."/'>".$header_array[$entry_info['type']]."</a></span>";
+	echo "<span class='article-info-section-item'>Type: <a href='/".$entry_info['type']."/'>".$header_array[$entry_info['type']]."</a></span>";
+
+	// Date published
+	echo "<span class='article-info-section-item'>Published: ".date("Y F j", strtotime($entry_info['entry_published']))."</span>";
+
+	// Date modified
+	echo "<span class='article-info-section-item'>Modified: ".date("Y F j, H:i:s", strtotime($entry_info['entry_published']))."</span>";
 
 	// GPS
 	if (!(empty($entry_info['appendix']['latitude'])) && !(empty($entry_info['appendix']['longitude']))):
@@ -62,9 +68,6 @@ echo "<div class='article-info' amp-fx='parallax' data-parallax-factor='1.2'>";
 		echo substr($entry_info['appendix']['latitude'],0,6).", ".substr($entry_info['appendix']['longitude'],0,6);
 		echo " (GPS)</a></span>";
 		endif;
-
-	// Add one for person stuff like demographics
-	// Add one for term-related stuff
 
 	$languages_temp = [];
 	if (!(empty($entry_info['summary']))): $languages_temp = array_merge($languages_temp, array_keys($entry_info['summary'])); endif;
