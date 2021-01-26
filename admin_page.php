@@ -158,6 +158,8 @@ function hierarchy_selector ($entry_id, $relationship_name, $possible_array) {
 
 	$information_array[$entry_id][$relationship_name]['hierarchy'] = array_intersect($possible_array, $information_array[$entry_id][$relationship_name]['hierarchy']);
 	
+	if (!(is_array($information_array[$entry_id][$relationship_name]['hierarchy']))): $information_array[$entry_id][$relationship_name]['hierarchy'] = []; endif;
+	
 	foreach ($information_array[$entry_id][$relationship_name]['hierarchy'] as $entry_id_temp):
 		if (!(in_array($entry_id_temp, $possible_array))): continue; endif;
 		if (empty($information_array[$entry_id_temp]['header'])): continue; endif;
