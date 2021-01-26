@@ -36,8 +36,8 @@ function sanitize_dates ($entry_info, $row=[]) {
 	if (!(isset($entry_info['date_published'])) || empty($entry_info['date_published'])):
 		if (isset($row['date_published']) && !(empty($row['date_published']))):
 			$entry_info['date_published'] = date("Y-m-d", strtotime($row['date_published']));
-		elseif (isset($row['date_updated']) && !(empty($row['date_updated']))):
-			$entry_info['date_published'] = date("Y-m-d", strtotime($row['date_updated']));
+		elseif (isset($entry_info['date_updated']) && !(empty($entry_info['date_updated']))):
+			$entry_info['date_published'] = date("Y-m-d", strtotime($entry_info['date_updated']));
 		else:
 			$entry_info['date_published'] = date("Y-m-d H:i:s", time());
 		endif;
