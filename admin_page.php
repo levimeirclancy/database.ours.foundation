@@ -201,7 +201,7 @@ echo "<p>Directly edit its published time here,</p>";
 
 echo "<amp-date-picker id='static-picker' type='single' mode='static' layout='intrinsic' height='1' width='1' format='YYYY-MM-DD' min='1000-00-00' input-selector='#date_published'>";
 echo "<label for='date_published'>Published date</label>";
-echo "<input type='hidden' id='date_published' name='date_published' value='".$entry_info['date_published']."'>";
+echo "<input type='text' id='date_published' name='date_published' value='".$entry_info['date_published']."'>";
 echo "</amp-date-picker>";
 
 if (!(empty($appendix_array))):
