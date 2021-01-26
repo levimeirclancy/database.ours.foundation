@@ -48,6 +48,9 @@ echo "<article><div vocab='http://schema.org/' typeof='Article'>";
 
 echo "<header><h1 property='name' amp-fx='parallax' data-parallax-factor='1.3'>" . $entry_info['header'] . "</h1></header>";
 
+print_r($entry_info);
+
+
 // Crumbs and GPS ...
 echo "<div class='article-info' amp-fx='parallax' data-parallax-factor='1.2'>";
 
@@ -63,8 +66,6 @@ echo "<div class='article-info' amp-fx='parallax' data-parallax-factor='1.2'>";
 	echo "<span class='article-info-section-item'>Updated: ".date("Y F j, H:i:s", strtotime($entry_info['date_updated']))."</span>";
 
 	// GPS
-
-print_r($entry_info['appendix']);
 	if (!(empty($entry_info['appendix']['latitude'])) && !(empty($entry_info['appendix']['longitude']))):
 		echo "<span class='article-info-section-item'><a href='https://".$domain."/".$entry_info['entry_id']."/map/' target='_blank'>";
 		echo substr($entry_info['appendix']['latitude'],0,6).", ".substr($entry_info['appendix']['longitude'],0,6);
