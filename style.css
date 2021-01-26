@@ -86,6 +86,12 @@ a, a:link, a:visited, a:hover {
 	vertical-align: top;
 	}
 
+#entries-list-alphabetical .navigation-header-item, #entries-list-hierarchical .navigation-header-item {
+	top: 0;
+	right: 0;
+	position: absolute;
+	}
+
 amp-lightbox {
 	margin: 0;
 	padding: 80px 20px 20px;
@@ -157,6 +163,7 @@ amp-lightbox {
 
 .entries-list {
 	list-style-type: none;
+	position: relative;
 	}
 
 .sidebar li.sidebar-navigation-item, .sidebar-navigation-item, .entries-list-item {
