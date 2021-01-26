@@ -199,11 +199,8 @@ echo "</amp-selector>";
 
 echo "<p>Directly edit its published time here,</p>";
 
-// if (empty($entry_info['date_published'])): $entry_info['date_published'] = date("Y-m-d", time()); endif;
-// echo "<amp-date-picker id='static-picker' type='single' mode='static' layout='fixed' height='600' width='360' format='YYYY-MM-DD' min='1000-00-00' date='".$entry_info['date_published']."' input-selector='#date_published'>";
 echo "<label for='date_published'>Published date</label>";
 echo "<input type='date' id='date_published' name='date_published' value='".$entry_info['date_published']."'>";
-// echo "</amp-date-picker>";
 
 if (!(empty($appendix_array))):
 	echo "<h2 id='more'>More...</h2>";
