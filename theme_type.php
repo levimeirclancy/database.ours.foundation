@@ -85,7 +85,7 @@ echo "<ul id='entries-list-hierarchical' class='entries-list'>";
 		"entries-button-alphabetical.hide",
 		"entries-button-hierarchical.show",
 		];
-	echo "<li><div role='button' tabindex='0' id='entries-button-alphabetical' class='navigation-header-item' on='tap:". implode(", ", $tap_temp) ."'>Switch to alphabetical</div></li>
+	echo "<li><div role='button' tabindex='0' id='entries-button-alphabetical' class='navigation-header-item' on='tap:". implode(", ", $tap_temp) ."'>Switch to alphabetical</div></li>";
 
 	foreach ($entries_array as $entry_info):
 
@@ -115,7 +115,7 @@ echo "<ul id='entries-list-alphabetical' class='entries-list' hidden>";
 		"entries-button-alphabetical.show",
 		"entries-button-hierarchical.hide",
 		];
-	echo "<li><div role='button' tabindex='0' id='entries-button-hierarchical' class='navigation-header-item' on='tap:". implode(", ", $tap_temp) ."'>Switch to hierarchical</div></li>
+	echo "<li><div role='button' tabindex='0' id='entries-button-hierarchical' class='navigation-header-item' on='tap:". implode(", ", $tap_temp) ."'>Switch to hierarchical</div></li>";
 
 	foreach ($information_array as $entry_info):
 
