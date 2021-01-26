@@ -18,35 +18,35 @@ $retrieve_paths = $connection_pdo->prepare($sql_temp);
 
 function sanitize_dates ($entry_info, $row=[]) {
 	
-	if (!(isset($entry_info['entry_updated']))): $entry_info['entry_updated'] = null; endif;
-	if (!(isset($entry_info['entry_published']))): $entry_info['entry_published'] = null; endif;
+	if (!(isset($entry_info['date_updated']))): $entry_info['date_updated'] = null; endif;
+	if (!(isset($entry_info['date_published']))): $entry_info['date_published'] = null; endif;
 	
 	// Because this column was added in an upgrade, it has to be constructed
-	if (!(isset($entry_info['entry_updated'])) || empty($entry_info['entry_updated'])):
-		if (isset($row['entry_updated']) && !(empty($row['entry_updated']))):
-			$entry_info['entry_updated'] = date("Y-m-d H:i:s", strtotime($row['entry_updated']));
+	if (!(isset($entry_info['date_updated'])) || empty($entry_info['date_updated'])):
+		if (isset($row['date_updated']) && !(empty($row['date_updated']))):
+			$entry_info['date_updated'] = date("Y-m-d H:i:s", strtotime($row['date_updated']));
 		elseif (isset($row['timestamp']) && !(empty($row['timestamp']))):
-			$entry_info['entry_updated'] = date("Y-m-d H:i:s", strtotime($row['timestamp']));
+			$entry_info['date_updated'] = date("Y-m-d H:i:s", strtotime($row['timestamp']));
 		else:
-			$entry_info['entry_updated'] = date("Y-m-d H:i:s", time());
+			$entry_info['date_updated'] = date("Y-m-d H:i:s", time());
 			endif;
 		endif;
 	
 	// Because this column was added in an upgrade, it has to be constructed
-	if (!(isset($entry_info['entry_published'])) || empty($entry_info['entry_published'])):
-		if (isset($row['entry_published']) && !(empty($row['entry_published']))):
-			$entry_info['entry_published'] = date("Y-m-d", strtotime($row['entry_published']));
-		elseif (isset($row['entry_updated']) && !(empty($row['entry_updated']))):
-			$entry_info['entry_published'] = date("Y-m-d", strtotime($row['entry_updated']));
+	if (!(isset($entry_info['date_published'])) || empty($entry_info['date_published'])):
+		if (isset($row['date_published']) && !(empty($row['date_published']))):
+			$entry_info['date_published'] = date("Y-m-d", strtotime($row['date_published']));
+		elseif (isset($row['date_updated']) && !(empty($row['date_updated']))):
+			$entry_info['date_published'] = date("Y-m-d", strtotime($row['date_updated']));
 		else:
-			$entry_info['entry_published'] = date("Y-m-d H:i:s", time());
+			$entry_info['date_published'] = date("Y-m-d H:i:s", time());
 		endif;
 	
 		endif;
 	
 	// Ensure they are formatted
-	$entry_info['entry_updated'] = date("Y-m-d H:i:s", strtotime($entry_info['entry_updated']));
-	$entry_info['entry_published'] = date("Y-m-d", (strtotime($entry_info['entry_published'])+5));
+	$entry_info['date_updated'] = date("Y-m-d H:i:s", strtotime($entry_info['date_updated']));
+	$entry_info['date_published'] = date("Y-m-d", (strtotime($entry_info['date_published'])+5));
 	
 	return $entry_info; }
 
@@ -76,8 +76,8 @@ function nesty_page($page_id_temp) {
 			$page_info[$row['entry_id']] = [
 				"entry_id"		=> $row['entry_id'],
 				"type"			=> $row['type'],
-				"entry_published"	=> $row['entry_published'],
-				"entry_updated"		=> $row['entry_updated'],
+				"date_published"	=> $row['date_published'],
+				"date_updated"		=> $row['date_updated'],
 				"name"			=> json_decode($row['name'], true),
 				"alternate_name"	=> json_decode($row['alternate_name'], true),
 				"appendix"		=> json_decode($row['appendix'], true),
