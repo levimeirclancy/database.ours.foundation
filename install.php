@@ -127,6 +127,30 @@ foreach ($tables_array as $table_name => $columns_info):
 	execute_checkup($run_statement->errorInfo(), "creating ".$table_name." table");
 	endforeach;
 
+// Format for adding columns, e.g. during an upgrade
+$columns_array = [
+	
+	[
+	"table"		=> "information_directory",
+	"column"	=> "`date_published` DATE",
+	"after"		=> "`entry_id`",
+	],
+	
+	[
+	"table"		=> "information_directory",
+	"column"	=> "`date_updated` DATETIME",
+	"after"		=> "`date_published`",
+	],
+	
+	];
+
+foreach ($columns_array as $column_info):
+	$sql_temp = "ALTER TABLE ".$database.".".$column_info['table']." ADD COLUMN ".$column_info['column']." AFTER ".$column_info['after'];
+	$run_statement = $connection_pdo->prepare($sql_temp);
+	$run_statement->execute();
+	execute_checkup($run_statement->errorInfo(), "adding ".$column_info['column']." to ".$column_info['table']);
+	endforeach;
+
 if (!(empty($_POST['submit']))):
 
 	if (empty($_POST['email']) || empty($_POST['password1'])):
