@@ -49,9 +49,6 @@ echo "<article><div vocab='http://schema.org/' typeof='Article'>";
 
 echo "<header><h1 property='name' amp-fx='parallax' data-parallax-factor='1.3'>" . $entry_info['header'] . "</h1></header>";
 
-print_r($entry_info);
-
-
 // Crumbs and GPS ...
 echo "<div class='article-info' amp-fx='parallax' data-parallax-factor='1.2'>";
 
