@@ -16,7 +16,7 @@ $retrieve_media = $connection_pdo->prepare($sql_temp);
 $sql_temp = "SELECT * FROM $database.information_paths WHERE parent_id=:content_id OR child_id=:content_id";
 $retrieve_paths = $connection_pdo->prepare($sql_temp);
 
-function santize_dates ($entry_info, $row=[]) {
+function sanitize_dates ($entry_info, $row=[]) {
 	
 	if (!(isset($entry_info['entry_updated']))): $entry_info['entry_updated'] = null; endif;
 	if (!(isset($entry_info['entry_published']))): $entry_info['entry_published'] = null; endif;
