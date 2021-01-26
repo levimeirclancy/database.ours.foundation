@@ -4,9 +4,9 @@ $entry_info = $entry_info[$page_temp];
 $retrieve_page->execute(["page_id"=>$page_temp]);
 $result = $retrieve_page->fetchAll();
 foreach ($result as $row):
-	$entry_info['summary'] = json_decode($row['summary'], true);
-	$entry_info['body'] = json_decode($row['body'], true);
-	$entry_info['studies'] = $row['studies'];
+	$entry_info['summary']		= json_decode($row['summary'], true);
+	$entry_info['body']		= json_decode($row['body'], true);
+	$entry_info['studies']		= $row['studies'];
 	endforeach;
 
 $appendix_array = [];
@@ -26,8 +26,7 @@ echo "<div id='admin-page-actions' amp-fx='parallax' data-parallax-factor='1.2'>
 	echo "<a href='#summary'><div class='navigation-header-item'>Summary</div></a>";
 	echo "<a href='#body'><div class='navigation-header-item'>Body</div></a>";
 	echo "<a href='#studies'><div class='navigation-header-item'>Studies</div></a>";
-	echo "<a href='#hierarchy'><div class='navigation-header-item'>Hierarchy</div></a>";
-	echo "<a href='#more'><div class='navigation-header-item'>&#x2756; More...</div></a>";
+	echo "<a href='#relationality'><div class='navigation-header-item'>Relationality</div></a>";
 	echo "<div id='admin-page-delete' on='tap:delete-popover'>&#x2B19; Delete entry</div>";
 	echo "</div>";
 
@@ -176,24 +175,12 @@ function hierarchy_selector ($entry_id, $relationship_name, $possible_array) {
 		endforeach;
 	echo "</amp-selector>"; }
 
+echo "<h2 id='relationality'>Relationality</h2>";
+
 echo "<input type='hidden' name='parents[]'>";
 echo "<input type='hidden' name='children[]'>";
 hierarchy_selector($page_temp, "parents", array_keys($information_array));
 hierarchy_selector($page_temp, "children", array_keys($information_array));
-
-echo "<h2 id='more'>More...</h2>";
-
-foreach ($appendix_array as $appendix_key => $appendix_type):
-	$placeholder_temp = str_replace("_", " ", $appendix_key);
-	echo "<label for='appendix[".$appendix_key."]'>". $placeholder_temp ."</label>";
-	if ($appendix_type == "string"):
-		echo "<input type='text' name='appendix[".$appendix_key."]' placeholder='". $placeholder_temp ."' value='".htmlspecialchars($entry_info['appendix'][$appendix_key], ENT_QUOTES)."'>";
-	elseif ($appendix_type == "checkbox"):
-		$checked_temp = null;
-		if ($entry_info['appendix'][$appendix_key] == $appendix_key): $checked_temp = "checked"; endif;
-		echo "<input type='checkbox' name='appendix[".$appendix_key."].' value='".$appendix_key."' $checked_temp>";
-		endif;
-	endforeach;
 
 echo "<p>An entry's type is its most important organizational component. Types are largely self-explanatory, except for 'articles' which are intended to be less research-oriented and more consumption-oriented.</p>";
 
@@ -207,6 +194,12 @@ foreach ($header_array as $header_backend => $header_frontend):
 	echo "<span option='".$header_backend."'>".$header_frontend."</span>";
 	endforeach;
 echo "</amp-selector>";
+
+echo "<p>Directly edit its published time here,</p>";
+
+echo '<amp-date-picker mode="overlay" layout="container" input-selector="[name=deliverydate]">';
+echo '<label for="entry_published">Published date</label>';
+echo '<input type="text" name="entry_published" value='".$entry_info['entry_published']."'>';
 
 echo "<br><br><br><br><br>";
 
