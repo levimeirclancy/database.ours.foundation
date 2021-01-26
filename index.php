@@ -261,14 +261,16 @@ if ($page_temp == "edit-xhr"):
 		return $array_temp; }
 
 	$values_temp = [
-		"entry_id" => $_POST['entry_id'],
-		"type" => $_POST['type'],
-		"name" => $_POST['name'],
-		"alternate_name" => $_POST['alternate_name'],
-		"summary" => $_POST['summary'],
-		"body" => $_POST['body'],
-		"studies" => $_POST['studies'],
-		"appendix" => $_POST['appendix'] ];
+		"entry_id"		=> $_POST['entry_id'],
+		"type"			=> $_POST['type'],
+		"entry_published"	=> date("Y-m-d", (strtotime($_POST['entry_published'])+5)), // mySQL DATE column has format YYYY-MM-DD
+		"entry_updated"		=> date("Y-m-d H:i:s", time()), // mySQL DATETIME column has format YYYY-MM-DD hh:mm:ss
+		"name"			=> $_POST['name'],
+		"alternate_name"	=> $_POST['alternate_name'],
+		"summary" 		=> $_POST['summary'],
+		"body"			=> $_POST['body'],
+		"studies"		=> $_POST['studies'],
+		"appendix"		=> $_POST['appendix'] ];
 
 	$values_temp = clean_empty_array($values_temp);
 
@@ -324,7 +326,6 @@ if ($page_temp == "edit-xhr"):
 		$result_temp = execute_checkup($information_paths_statement->errorInfo());
 		if ($result_temp !== "success"): json_result($domain, "error", null, "Error adding paths: ".$result_temp); endif;
 		}
-
 	
 	// Initialize these values
 	if (empty($_POST['parents'])): $_POST['parents'] = []; endif;
@@ -348,7 +349,7 @@ if ($page_temp == "edit-xhr"):
 	$information_children_clear_statement = $connection_pdo->prepare($sql_temp);
 	$information_children_clear_statement->execute(["parent_id" => $_POST['entry_id']]);
 
-	// And back any children that were selected, too
+	// Add back any children that were selected, too
 	foreach($_POST['children'] as $path_temp):
 		paths_check ($_POST['entry_id'], "hierarchy", $path_temp);
 		endforeach;
