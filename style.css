@@ -431,7 +431,7 @@ ul, ol{
 	position: relative;
 	}
 	
-article, th, td,
+article, article th, article td,
 p, summary, ul, ol, blockquote {
 	font-weight: 400;
 	text-align: left;
@@ -466,7 +466,7 @@ blockquote::after {
 	right: 5px;
 	}
 
-table blockquote::before {
+article table blockquote::before {
 	padding-left: 0; }
 
 blockquote cite {
@@ -499,7 +499,7 @@ blockquote blockquote::before {
 blockquote blockquote::after {
 	font-size: 25px; }
 
-table {
+article table {
 	margin: 20px auto;
 	box-sizing: border-box;
 	table-layout: auto;
@@ -508,22 +508,22 @@ table {
 	border: 2px solid rgba(245,245,245,1);
 	}
 
-table table {
+article table table {
 	margin: 20px 0; }
 
-tbody tr:nth-child(odd) td {
+article tbody tr:nth-child(odd) td {
 	background: rgba(255,255,255,1); }
 
-tbody tr:nth-child(even) td {
+article tbody tr:nth-child(even) td {
 	background: rgba(250,250,250,1); }
 
-thead {
+article thead {
 	}
 
-tbody {
+article tbody {
 	}
 
-th, td {
+article th, article td {
 	padding: 10px;
 	vertical-align: top;
 	font-weight: 400;
@@ -532,15 +532,15 @@ th, td {
 	border: 2px solid rgba(245,245,245,1);
 	}
 
-th {
+article th {
 	font-style: italic; }
 
-th p, td p, li p {
+article th p, article td p, article li p {
 	margin: 0;
 	padding: 0;
 	}
 
-th p + p, td p + p, li p + p {
+article th p + p, article td p + p, article li p + p {
 	margin-top: 10px; }
 
 article ul, article ol {
@@ -962,8 +962,8 @@ amp-selector span[disabled] {
 
 @media only screen and (max-width: 500px)  {
 	blockquote cite { width: 100%; }
-	th, td { display: block;}
-	th + th, td + td, th + td, td + th { border-left: none; border-top: 2px solid rgba(200,200,200,0.12); }
+	article th, article td { display: block;}
+	article th + th, article td + td, article th + td, article td + th { border-left: none; border-top: 2px solid rgba(200,200,200,0.12); }
 	}
 
 @media print { 
