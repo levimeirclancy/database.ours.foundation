@@ -11,7 +11,7 @@ foreach ($result as $row):
 
 $appendix_array = [];
 if ($entry_info['type'] == "location"): $appendix_array = [ "unit_id"=>"unit", "parent_id"=>"location" ]; endif;
-if ($entry_info['type'] == "place"): $appendix_array = ["latitude"=>"string", "longitude"=>"string", "priority"=>"checkbox" ]; endif;
+if ($entry_info['type'] == "place"): $appendix_array = ["latitude"=>"string", "longitude"=>"string" ]; endif;
 if ($entry_info['type'] == "village"): $appendix_array = ["latitude"=>"string", "longitude"=>"string"]; endif;
 if ($entry_info['type'] == "person"): $appendix_array = [ "birthday"=>"date", "email"=>"string", "telephone"=>"string", "website"=>"string", "facebook"=>"string", "twitter"=>"string" ]; endif;
 
@@ -213,54 +213,4 @@ echo "<div id='admin-page-form-snackbar'>";
 
 echo "<div id='admin-page-form-save' role='button' tabindex='0' on='tap:pageState.refresh,save.submit'>Save</div>";
 
-echo "</form>";
-
-exit;
-
-	if (!(in_array($input_temp, [ "term" ]))):
-		echo "<span style='font-family: Raleway; display: block; padding-top: 20px;'>".str_replace("_", " ", $input_temp)."</span>";
-		endif;
-
-	if (in_array($input_temp, [ "term" ])):
-		$terms_array = get_terms(["person_id"=>$page_temp]);
-//		if (empty($terms_array)): continue; endif;
-		echo "<table><thead><tr><th>term</th><th>person</th><th>position</th><th>for</th><th>party</th><th>start</th><th>end</th><th>vote</th></tr></thead><tbody>";
-		foreach($terms_array as $term_id => $term_info):
-			$information_array = get_entries(["entry_id"=>$term_info]);
-			echo "<tr><td><a href='/$term_id/'>$term_id</a></td>";
-			if (empty($term_info['person_id'])): echo "<td></td>";
-			else: echo "<td><a href='?entry_id=".$term_info['person_id']."'>".$information_array[$term_info['person_id']]['name_english'][0]."</a></td>"; endif;
-			echo "<td><a href='?entry_id=".$term_info['person_id']."'>".$information_array[$term_info['position_id']]['name_english'][0]."</a></td>";
-			echo "<td><a href='?entry_id=".$term_info['person_id']."'>".$information_array[$term_info['for']]['name_english'][0]."</a></td>";
-			echo "<td><a href='?entry_id=".$term_info['person_id']."'>".$information_array[$term_info['party_id']]['name_english'][0]."</a></td>";
-			echo "<td><a href='?event_id=".$term_info['start_event']."'>".$information_array[$term_info['start_event']]['name_english'][0]."</a></td>";
-			if ($term_info['end_event'] == "active"): echo "<td>active</td>";
-			else: echo "<td><a href='?event_id=".$term_info['end_event']."'>".$information_array[$term_info['end_event']]['name_english'][0]."</a></td>"; endif;
-			echo "<td>".$term_info['vote']."</a></td></tr>";
-			endforeach;
-		echo "</tbody></table>";
-
-	elseif (in_array($input_temp, [ "start_date", "end_date" ])):
-		echo "<input type='date' name='$input_temp' value='".$entry_info[$input_temp][0]."'>";
-
-	elseif (in_array($input_temp, [ "priority" ])):
-		$checked_temp = null;
-		if (!(empty($entry_info[$input_temp])) && ($entry_info[$input_temp][0] == $input_temp)): $checked_temp = "checked"; endif;
-		echo "<input type='hidden' name='$input_temp' value=''> <input type='checkbox' name='$input_temp' value='$input_temp' $checked_temp>";
-
-	elseif (in_array($input_temp, [ "telephone" ])):
-		echo "<input type='text' name='$input_temp' placeholder='".str_replace("_", " ", $input_temp)."' value='".$entry_info[$input_temp][0]."'>";
-
-	elseif (in_array($input_temp, [ "website", "facebook", "twitter" ])):
-		echo "<input type='website' name='$input_temp' value='".$entry_info[$input_temp][0]."'>";
-
-	elseif (in_array($input_temp, [ "birthday" ])):
-		echo "<input type='date' name='$input_temp' value='".$entry_info[$input_temp][0]."'>";
-
-	elseif (in_array($input_temp, [ "email" ])):
-		echo "<input type='email' name='$input_temp' value='".$entry_info[$input_temp][0]."'>";
-
-	elseif (in_array($input_temp, [ "website", "facebook", "twitter" ])):
-		echo "<input type='website' name='$input_temp' value='".$entry_info[$input_temp][0]."'>";
-
-	endif; ?>
+echo "</form>"; ?>
