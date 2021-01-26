@@ -107,7 +107,7 @@ echo "<ul id='entries-list-hierarchical' class='entries-list'>";
 
 	echo "</ul>";
 
- if ($indent_ever == 0): footer();
+if ($indent_ever == 0): footer(); endif;
 
 echo "<ul id='entries-list-alphabetical' class='entries-list' hidden>";
 
@@ -129,6 +129,4 @@ echo "<ul id='entries-list-alphabetical' class='entries-list' hidden>";
 
 		endforeach;
 
-	echo "</ul>";
-
-?>
+	echo "</ul>"; ?>
