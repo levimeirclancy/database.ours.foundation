@@ -54,10 +54,10 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 			endforeach;
 
 		 // Pluralize
-		if ($count_temp > 1): $echo_section .= "<span class='article-info-section-caption'>". $descriptor_temp ." / ".$header_frontend." (".number_format($counter_temp)." results)</span>" . $echo_section_temp; endif;
+		if ($count_temp > 1): $echo_section .= "<span class='article-info-section-caption'>". $descriptor_temp ." / ".$header_frontend." (".number_format($count_temp)." results)</span>" . $echo_section_temp; endif;
 
 		// Do not pluralize
-		if ($count_temp == 1): $echo_section .= "<span class='article-info-section-caption'>". $descriptor_temp ." / ".$header_frontend." (".number_format($counter_temp)." result)</span>" . $echo_section_temp; endif;
+		if ($count_temp == 1): $echo_section .= "<span class='article-info-section-caption'>". $descriptor_temp ." / ".$header_frontend." (".number_format($count_temp)." result)</span>" . $echo_section_temp; endif;
 
 		endforeach;
 	
@@ -65,7 +65,7 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 	if (empty($counter_section)): return; endif;
 
 	// If there are paths spread across multiple types, then give an overall sum
-	if (count($counter_section) > 1): $echo_section = $echo_section . "<span class='article-info-section-caption'>".$descriptor_temp." / ".number_format(array_sum($counter_section))." total results</span>"; endif;
+	if (count($counter_section) > 1): $echo_section = "<span class='article-info-section-caption'>".$descriptor_temp." / ".number_format(array_sum($counter_section))." total results</span>" . $echo_section; endif;
 
 	// Wrap it up
 	$echo_section = "<div class='article-info-section'>" . $echo_section . "</div>";
@@ -145,9 +145,9 @@ echo "<div class='article-info' amp-fx='parallax' data-parallax-factor='1.2'>";
 			endforeach;
 		endif;
 
-	relationships_array($page_temp, "grandparents", "Hierarchy = +2");
-	relationships_array($page_temp, "parents", "Hierarchy = +1 (parent pages)");
-	relationships_array($page_temp, "children", "Hierarchy = -1 (subpages)");
+	relationships_array($page_temp, "grandparents", "Hierarchy / Parents of parent pages");
+	relationships_array($page_temp, "parents", "Hierarchy / Parent pages)");
+	relationships_array($page_temp, "children", "Hierarchy / Subpages");
 	relationships_array($page_temp, "mentions", "Mentions");
 
 	echo "</div>";
