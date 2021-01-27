@@ -28,8 +28,8 @@ function sanitize_dates ($entry_info, $row=[]) {
 		"village"	=> "settlements",
 		"event"		=> "article",
 		"topic"		=> "article",
-		"position"	=> "terms",
-		"term"		=> "terms",
+		"position"	=> "offices-units",
+		"term"		=> "offices-units",
 		];
 	if (isset($header_array_corrections[$entry_info['type']])):
 		$entry_info['type'] = $header_array_corrections[$entry_info['type']];
