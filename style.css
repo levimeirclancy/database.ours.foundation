@@ -63,7 +63,7 @@ a, a:link, a:visited, a:hover {
 	margin: 0 0 50px 0;
 	}
 
-.navigation-header-item, .lightboxes-close, .sidebar-back {
+.navigation-header-item, .sidebar-back {
 	font-size: 90%;
 	line-height: 1em;
 	font-family: Arial, Helvetica, Sans Serif;
@@ -80,7 +80,7 @@ a, a:link, a:visited, a:hover {
 	font-family: Arial, Helvetica, Sans Serif;
 	}
 
-.navigation-header-item::first-letter, .lightboxes-close::first-letter, .sidebar-back::first-letter {
+.navigation-header-item::first-letter, .sidebar-back::first-letter {
 	vertical-align: top;
 	}
 
@@ -101,23 +101,6 @@ amp-lightbox {
 	width: auto;
 	}
 
-.lightboxes-close {
-	right: 12px;
-	top: 9px;
-	position: fixed;
-	z-index: 10000;
-	}
-
-.lightboxes-close:before {
-	content: '\293A';
-	font-size: 130%;
-	margin: 0 5px 0 0;
-	display: inline-block; }
-
-.sidebar-navigation-close {
-	margin: 0;
-	padding: 0;
-	}
 
 .sidebar-back {
 	display: block;
@@ -771,23 +754,6 @@ div.amp-lightbox-media-id {
 	border: 0 solid <? echo $color ?>;
 	border-radius: 4px;
 	margin: 10px 20px 0; }
-
-.amp-lightbox-close {
-	z-index: 10000000000;
-	position: fixed;
-	top: 0;
-	left: 0;
-	display: block;
-	width: 100%;
-	text-align: center;
-	font-family: Arial;
-	text-transform: uppercase;
-	padding: 12px 0 10px;
-	font-size: 14px;
-	line-height: 15px;
-	color: #fff;
-	border-radius: 0;
-	margin: 0; }
 
 
 /* EDIT */
