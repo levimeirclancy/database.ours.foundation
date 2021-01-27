@@ -456,8 +456,9 @@ if ($page_temp == "api"):
 				"searchCount" => 0,
 				"searchResults" => [ ],
 				];
-		if (empty($information_array) || empty($search_temp)): json_status("error", "No results.");
-//		else: json_output(array_values($information_array)); endif;
+		if (empty($information_array) || empty($search_temp)):
+//			json_status("error", "No results.");
+			json_output($search_array);
 		else:
 			$search_array['searchCount'] = count($information_array);
 			$search_array['searchResults'] = array_values($information_array);
