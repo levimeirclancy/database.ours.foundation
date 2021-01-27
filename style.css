@@ -903,7 +903,7 @@ amp-sidebar ul, amp-sidebar ol, amp-sidebar amp-list {
 	}
 
 amp-sidebar ul > li:before, amp-sidebar ol > li:before, amp-sidebar amp-list > li:before {
-	top: 9px;
+	top: 11px;
 	}
 
 amp-sidebar ul li, amp-sidebar ol li, amp-sidebar amp-list li {
