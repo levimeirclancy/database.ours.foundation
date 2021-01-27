@@ -891,7 +891,6 @@ amp-sidebar ul, amp-sidebar ol, amp-sidebar amp-list {
 	border: 0;
 	font-size: 95%;
 	font-family: Arial, Helvetica, 'Sans Serif';
-	border-bottom: 0;
 	}
 
 amp-sidebar ul > li:before, amp-sidebar ol > li:before, amp-sidebar amp-list > li:before {
