@@ -38,11 +38,13 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 	// If nothing made, then just end here
 	if (empty($array_output_temp)): return; endif;
 		
-	// Finally echo it out
-	$echo_section = null;
-	$counter_section = [];
+	// Assecmble the section defaults
+	$echo_section = $counter_section = null;
+
 	foreach ($header_array as $header_backend => $header_frontend):
+		
 		$counter_temp = $echo_section_temp = null;
+	
 		foreach ($array_output_temp as $entry_id_temp => $entry_header_temp):
 			if ($information_array[$entry_id_temp]['type'] !== $header_backend): continue; endif;
 			$echo_section_temp .= "<span class='article-info-section-item'><a href='/".$entry_id_temp."/'>".$entry_header_temp."</a></span>";
@@ -50,8 +52,13 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 			if (!(isset($counter_section[$header_backend]))): $counter_section[$header_backend] = 0; endif;
 			$counter_section[$header_backend]++;
 			endforeach;
-		if ($count_temp > 1): $echo_section .= "<span class='article-info-section-caption'>". $descriptor_temp ." / ".$header_frontend." (".number_format($counter_temp)." results)</span>" . $echo_section_temp; // Pluralize
-		elseif ($count_temp == 1): $echo_section .= "<span class='article-info-section-caption'>". $descriptor_temp ." / ".$header_frontend." (".number_format($counter_temp)." result)</span>" . $echo_section_temp; // Do not pluralize
+
+		 // Pluralize
+		if ($count_temp > 1): $echo_section .= "<span class='article-info-section-caption'>". $descriptor_temp ." / ".$header_frontend." (".number_format($counter_temp)." results)</span>" . $echo_section_temp; endif;
+
+		// Do not pluralize
+		elseif ($count_temp == 1): $echo_section .= "<span class='article-info-section-caption'>". $descriptor_temp ." / ".$header_frontend." (".number_format($counter_temp)." result)</span>" . $echo_section_temp;
+
 		endforeach;
 	
 	// If there are no paths in this hierarchy
