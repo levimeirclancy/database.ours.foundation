@@ -148,10 +148,8 @@ foreach($connection_pdo->query($sql_temp) as $row):
 		if (isset($_REQUEST['type']) && !(in_array($row['type'], $_REQUEST['type']))): continue; endif;
 
 		if (!(empty($search_temp))):
-			$result_temp = 0;
-			$blob_temp = "*".strtolower(implode(" ", $row));
-			if (strpos($blob_temp, strtolower($search_temp))): $result_temp = 1; break; endif;
-			if ($result_temp == 0): continue; endif;
+			$blob_temp = strtolower(implode(" ", $row));
+			if (strpos($blob_temp, strtolower($search_temp)) === FALSE): continue; endif;
 			endif;
 		endif;
 
