@@ -48,7 +48,7 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 			$echo_temp .= "<span class='article-info-section-item'><a href='/".$entry_id_temp."/'>".$entry_header_temp."</a></span>";
 			$counter_temp++;
 			endforeach;
-		echo "</div>";
+		$echo_temp .= "</div>";
 		if (empty($counter_temp)): continue; endif;
 		echo $echo_temp;
 		endforeach; }
