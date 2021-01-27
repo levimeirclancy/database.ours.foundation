@@ -76,8 +76,10 @@ echo "<article><div vocab='http://schema.org/' typeof='Article'>";
 
 echo "<header><h1 property='name' amp-fx='parallax' data-parallax-factor='1.3'>" . $entry_info['header'] . "</h1></header>";
 
+echo "<div class='navigation-header-item' role='button' tabindex='0' on='tap:sidebar-article-info.toggle'>Entry details</div>";
+
 // Crumbs and GPS ...
-echo "<div class='article-info' amp-fx='parallax' data-parallax-factor='1.2'>";
+echo "<amp-sidebar id='sidebar-article-info' layout='nodisplay' side='right' class='article-info'>";
 
 	echo "<div class='article-info-section'><span class='article-info-section-caption'>Metadata</span>";
 
@@ -150,7 +152,7 @@ echo "<div class='article-info' amp-fx='parallax' data-parallax-factor='1.2'>";
 	relationships_array($page_temp, "children", "Hierarchy / Subpages");
 	relationships_array($page_temp, "mentions", "Mentions");
 
-	echo "</div>";
+	echo "</amp-sidebar>";
 
 echo "<span property='articleBody'>";
 
