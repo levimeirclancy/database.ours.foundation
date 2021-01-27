@@ -54,10 +54,10 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 			endforeach;
 
 		 // Pluralize
-		if ($count_temp > 1): $echo_section .= "<ul><li><b><span class='sidebar-entry-info-list-item'>".$header_frontend." (".number_format($count_temp)." results)</span></b>" . $echo_section_temp ."</ul>"; endif;
+		if ($count_temp > 1): $echo_section .= "<ul><li><b><span class='sidebar-entry-info-list-item'>".$descriptor_temp." / <a href='/".$header_backend."/'>".$header_frontend."</a> (".number_format($count_temp)." results)</span></b>" . $echo_section_temp ."</ul>"; endif;
 
 		// Do not pluralize
-		if ($count_temp == 1): $echo_section .= "<ul><li><b><span class='sidebar-entry-info-list-item'>".$header_frontend." (".number_format($count_temp)." result)</span></b>" . $echo_section_temp ."</ul>"; endif;
+		if ($count_temp == 1): $echo_section .= "<ul><li><b><span class='sidebar-entry-info-list-item'>".$descriptor_temp." / <a href='/".$header_backend."/'>".$header_frontend."</a> (".number_format($count_temp)." result)</span></b>" . $echo_section_temp ."</ul>"; endif;
 
 		endforeach;
 	
