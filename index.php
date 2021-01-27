@@ -430,7 +430,7 @@ if ($page_temp == "api"):
 	elseif ($command_temp == "page-state"):
 
 		$page_state = [
-			"searchTerm"	=> null,
+			"searchTerm"	=> "",
 			"login"		=> [
 				"loginStatus"	=> "loggedout", 
 				"login"		=> null, 
