@@ -76,10 +76,22 @@ echo "<article><div vocab='http://schema.org/' typeof='Article'>";
 
 echo "<header><h1 property='name' amp-fx='parallax' data-parallax-factor='1.3'>" . $entry_info['header'] . "</h1></header>";
 
+// Check for language and content
+$languages_temp = [];
+if (!(empty($entry_info['summary']))): $languages_temp = array_merge($languages_temp, array_keys($entry_info['summary'])); endif;
+if (!(empty($entry_info['body']))): $languages_temp = array_merge($languages_temp, array_keys($entry_info['body'])); endif;
+if (!(empty($languages_temp))): $languages_temp = array_unique($languages_temp); endif;
+
 echo "<div class='navigation-header-item' role='button' tabindex='0' on='tap:sidebar-article-info.toggle'>Entry details</div>";
 
 // Crumbs and GPS ...
-echo "<amp-sidebar id='sidebar-article-info' layout='nodisplay' side='right' class='article-info'>";
+if (empty($languages_temp)):
+	$article_info_container = null;
+elseif (!(empty($languages_temp)):
+	$article_info_container = "layout='nodisplay'";
+	endif;
+
+echo "<amp-sidebar id='sidebar-article-info' ".$article_info_container." side='right' class='article-info'>";
 
 	echo "<ul>";
 	echo "<li>Metadata";
@@ -92,10 +104,6 @@ echo "<amp-sidebar id='sidebar-article-info' layout='nodisplay' side='right' cla
 			echo substr($entry_info['appendix']['latitude'],0,6).", ".substr($entry_info['appendix']['longitude'],0,6);
 			echo " (GPS)</a></li>";
 			endif;
-		$languages_temp = [];
-		if (!(empty($entry_info['summary']))): $languages_temp = array_merge($languages_temp, array_keys($entry_info['summary'])); endif;
-		if (!(empty($entry_info['body']))): $languages_temp = array_merge($languages_temp, array_keys($entry_info['body'])); endif;
-		if (!(empty($languages_temp))): $languages_temp = array_unique($languages_temp); endif;
 		if (count($languages_temp) > 1):
 			$language_array_temp = [];
 			foreach($languages_temp as $language_temp):
