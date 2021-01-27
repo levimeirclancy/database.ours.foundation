@@ -47,7 +47,7 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 	
 		foreach ($array_output_temp as $entry_id_temp => $entry_header_temp):
 			if ($information_array[$entry_id_temp]['type'] !== $header_backend): continue; endif;
-			$echo_section_temp .= "<li><a href='/".$entry_id_temp."/'><span class='sidebar-entry-info-list-item'>".$entry_header_temp."</span></a></li>";
+			$echo_section_temp .= "<li><a href='/".$entry_id_temp."/'><span class='sidebar-navigation-item-title'>".$entry_header_temp."</span></a></li>";
 			$count_temp++;
 			if (!(isset($counter_section[$header_backend]))): $counter_section[$header_backend] = 0; endif;
 			$counter_section[$header_backend]++;
@@ -58,7 +58,7 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 		elseif ($count_temp == 1): $results_temp = "result";
 		else: continue; endif;
 	
-		$echo_section .=	"<li><i><span class='sidebar-entry-info-list-item'>".
+		$echo_section .=	"<li><i><span class='sidebar-navigation-item-title'>".
 					$descriptor_temp.
 					" / <a href='/".$header_backend."/'>".$header_frontend."</a>".
 					" (".number_format($count_temp)." ".$results_temp.")</span></i></li>".
@@ -73,7 +73,7 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 	elseif ($counter_section == 1): $results_temp = "result";
 	else: $echo_section = null; endif;
 
-	$echo_section_final = 		"<ul><li><i><span class='sidebar-entry-info-list-item'>".
+	$echo_section_final = 		"<ul><li><i><span class='sidebar-navigation-item-title'>".
 					$descriptor_temp.
 					" (". number_format($counter_section). " ". $results_temp .")</span></i>".
 					"<ul>" . $echo_section . "</ul></li></ul>";
@@ -125,25 +125,25 @@ echo "<div id='sidebar-entry-info-button-wrapper' amp-fx='parallax' data-paralla
 echo "<amp-sidebar id='sidebar-entry-info' layout='nodisplay' side='right'>";
 	echo "<div class='sidebar-back' on='tap:sidebar-entry-info.close' role='button' tabindex='0'>Close</div>";
 	echo "<ul>";
-	echo "<li><span class='sidebar-entry-info-list-item'><b>Metadata</b></span>";
+	echo "<li><span class='sidebar-navigation-item-title'><b>Metadata</b></span>";
 		echo "<ul>";
-		echo "<li><span class='sidebar-entry-info-list-item'>Type: <a href='/".$entry_info['type']."/'>".$header_array[$entry_info['type']]."</a></span></li>"; // Type
-		echo "<li><span class='sidebar-entry-info-list-item'>Published: ".date("Y F d", strtotime($entry_info['date_published']))."</span></li>"; // Date published
-		echo "<li><span class='sidebar-entry-info-list-item'>Updated: ".date("Y F d, H:i:s", strtotime($entry_info['date_updated']))."</span></li>"; // Date updated
+		echo "<li><span class='sidebar-navigation-item-title'>Type: <a href='/".$entry_info['type']."/'>".$header_array[$entry_info['type']]."</a></span></li>"; // Type
+		echo "<li><span class='sidebar-navigation-item-title'>Published: ".date("Y F d", strtotime($entry_info['date_published']))."</span></li>"; // Date published
+		echo "<li><span class='sidebar-navigation-item-title'>Updated: ".date("Y F d, H:i:s", strtotime($entry_info['date_updated']))."</span></li>"; // Date updated
 		if (!(empty($entry_info['appendix']['latitude'])) && !(empty($entry_info['appendix']['longitude']))): // GPS
-			echo "<li><a href='https://".$domain."/".$entry_info['entry_id']."/map/' target='_blank'><span class='sidebar-entry-info-list-item'>";
+			echo "<li><a href='https://".$domain."/".$entry_info['entry_id']."/map/' target='_blank'><span class='sidebar-navigation-item-title'>";
 			echo substr($entry_info['appendix']['latitude'],0,6).", ".substr($entry_info['appendix']['longitude'],0,6);
 			echo " (GPS)</span></a></li>";
 			endif;
 		if (count($languages_temp) > 1):
 			$language_array_temp = [];
 			foreach($languages_temp as $language_temp):
-				echo "<li><a href='#".$language_temp."'><span class='sidebar-entry-info-list-item'>".ucfirst($language_temp)."</span></a></li>";
+				echo "<li><a href='#".$language_temp."'><span class='sidebar-navigation-item-title'>".ucfirst($language_temp)."</span></a></li>";
 				endforeach;
 			endif;
 		echo "</ul></li>";
 
-	echo "<li><b><span class='sidebar-entry-info-list-item'>Relations</span></b>";
+	echo "<li><b><span class='sidebar-navigation-item-title'>Relations</span></b>";
 	relationships_array($page_temp, "grandparents", "Relations / Parents of parent pages");
 	relationships_array($page_temp, "parents", "Relations / Parent pages");
 	relationships_array($page_temp, "children", "Relations / Subpages");
