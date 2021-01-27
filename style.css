@@ -309,24 +309,6 @@ h4, h5, h6 {
 	background: rgba(255,255,255,1);
 	}
 
-.sidebar-entry-info-list {
-	margin-top: 0;
-	}
-
-ul.sidebar-entry-info-list li:before {
-	top: 9px;
-	}
-
-.sidebar-entry-info-list-item {
-	font-size: 90%;
-	font-family: Arial, Helvetica, 'Sans Serif';
-	line-height: 1em;
-	display: block;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	overflow: hidden;
-	}
-
 body, article {
 	position: relative;
 	}
@@ -924,11 +906,19 @@ amp-sidebar ul li {
 	overflow: hidden;
 	}
 
-li.sidebar-navigation-item {
+li.unnested-list-item {
 	margin: 0;
 	padding: 10px;
 	border-bottom: 2px solid rgba(200,200,200,0.8);
-	font-family: Assistant;
+	font-family: Arial, Helvetica, 'Sans Serif';
+	border-left: 0;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	overflow: hidden;
+	}
+
+li.unnested-list-item:before {
+	display: none;
 	}
 
 /* Toggle classes */
