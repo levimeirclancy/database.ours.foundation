@@ -82,16 +82,43 @@ if (!(empty($entry_info['summary']))): $languages_temp = array_merge($languages_
 if (!(empty($entry_info['body']))): $languages_temp = array_merge($languages_temp, array_keys($entry_info['body'])); endif;
 if (!(empty($languages_temp))): $languages_temp = array_unique($languages_temp); endif;
 
-echo "<div class='navigation-header-item' role='button' tabindex='0' on='tap:sidebar-article-info.toggle'>Entry details</div>";
+// Find grandparents
+$information_array[$page_temp]['grandparents'] = [ "hierarchy" => [] ];
+if (isset($information_array[$page_temp]['parents']['hierarchy'])):
+	$grandparents_array = [];
+	foreach ($information_array[$page_temp]['parents']['hierarchy'] as $entry_id_temp):
+		if (!(isset($information_array[$entry_id_temp]['parents']['hierarchy']))): continue; endif;
+		if (empty($information_array[$entry_id_temp]['parents']['hierarchy'])): continue; endif;
+		$grandparents_array = array_merge($grandparents_array, $information_array[$entry_id_temp]['parents']['hierarchy']);
+		endforeach;
+	if (!(empty($grandparents_array))):
+		$grandparents_array = array_diff($grandparents_array, $information_array[$page_temp]['parents']['hierarchy']);
+		$grandparents_array = array_diff($grandparents_array, $information_array[$page_temp]['children']['hierarchy']);
+		$information_array[$page_temp]['grandparents']['hierarchy'] = $grandparents_array;
+		endif;
+	endif;
+
+// Find mentions
+$information_array[$page_temp]['mentions'] = [ "hierarchy" => [] ];
+$search_results = file_get_contents("https://".$domain."/api/search/?search={{{".$page_temp."}}}");
+$search_results = json_decode($search_results, true);
+if ($search_results['searchCount'] > 0):
+	$information_array[$page_temp]['mentions'] = [ "hierarchy" => [] ];
+	foreach($search_results['searchResults'] as $entry_info_temp):
+		if (in_array($entry_info_temp['entry_id'], $information_array[$page_temp]['grandparents']['hierarchy'])): continue; endif;
+		if (in_array($entry_info_temp['entry_id'], $information_array[$page_temp]['parents']['hierarchy'])): continue; endif;
+		if (in_array($entry_info_temp['entry_id'], $information_array[$page_temp]['children']['hierarchy'])): continue; endif;
+		$information_array[$page_temp]['mentions']['hierarchy'][] = $entry_info_temp['entry_id'];
+		endforeach;
+	endif;
 
 // Crumbs and GPS ...
 if (empty($languages_temp)):
-	$article_info_container = "open";
+	echo "<div id='sidebar-article-info' class='article-info'>";
 elseif (!(empty($languages_temp))):
-	$article_info_container = "";
+	echo "<div class='navigation-header-item' role='button' tabindex='0' on='tap:sidebar-article-info.toggle'>Entry details</div>";
+	echo "<amp-sidebar id='sidebar-article-info' layout='nodisplay' class='article-info'>";
 	endif;
-
-echo "<amp-sidebar id='sidebar-article-info' layout='nodisplay' ".$article_info_container." side='right' class='article-info'>";
 
 	echo "<ul>";
 	echo "<li>Metadata";
@@ -112,36 +139,6 @@ echo "<amp-sidebar id='sidebar-article-info' layout='nodisplay' ".$article_info_
 			endif;
 		echo "</ul></li>";
 
-	// Find grandparents
-	$information_array[$page_temp]['grandparents'] = [ "hierarchy" => [] ];
-	if (isset($information_array[$page_temp]['parents']['hierarchy'])):
-		$grandparents_array = [];
-		foreach ($information_array[$page_temp]['parents']['hierarchy'] as $entry_id_temp):
-			if (!(isset($information_array[$entry_id_temp]['parents']['hierarchy']))): continue; endif;
-			if (empty($information_array[$entry_id_temp]['parents']['hierarchy'])): continue; endif;
-			$grandparents_array = array_merge($grandparents_array, $information_array[$entry_id_temp]['parents']['hierarchy']);
-			endforeach;
-		if (!(empty($grandparents_array))):
-			$grandparents_array = array_diff($grandparents_array, $information_array[$page_temp]['parents']['hierarchy']);
-			$grandparents_array = array_diff($grandparents_array, $information_array[$page_temp]['children']['hierarchy']);
-			$information_array[$page_temp]['grandparents']['hierarchy'] = $grandparents_array;
-			endif;
-		endif;
-
-	// Find mentions
-	$information_array[$page_temp]['mentions'] = [ "hierarchy" => [] ];
-	$search_results = file_get_contents("https://".$domain."/api/search/?search={{{".$page_temp."}}}");
-	$search_results = json_decode($search_results, true);
-	if ($search_results['searchCount'] > 0):
-		$information_array[$page_temp]['mentions'] = [ "hierarchy" => [] ];
-		foreach($search_results['searchResults'] as $entry_info_temp):
-			if (in_array($entry_info_temp['entry_id'], $information_array[$page_temp]['grandparents']['hierarchy'])): continue; endif;
-			if (in_array($entry_info_temp['entry_id'], $information_array[$page_temp]['parents']['hierarchy'])): continue; endif;
-			if (in_array($entry_info_temp['entry_id'], $information_array[$page_temp]['children']['hierarchy'])): continue; endif;
-			$information_array[$page_temp]['mentions']['hierarchy'][] = $entry_info_temp['entry_id'];
-			endforeach;
-		endif;
-
 	relationships_array($page_temp, "grandparents", "Hierarchy / Parents of parent pages");
 	relationships_array($page_temp, "parents", "Hierarchy / Parent pages");
 	relationships_array($page_temp, "children", "Hierarchy / Subpages");
@@ -149,7 +146,12 @@ echo "<amp-sidebar id='sidebar-article-info' layout='nodisplay' ".$article_info_
 
 	echo "</ul>";
 
+// Crumbs and GPS ...
+if (empty($languages_temp)):
+	echo "</div>";
+elseif (!(empty($languages_temp))):
 	echo "</amp-sidebar>";
+	endif;
 
 echo "<span property='articleBody'>";
 
