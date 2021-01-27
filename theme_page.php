@@ -72,8 +72,6 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 	
 	echo $echo_section; }
 
-echo "<article><div vocab='http://schema.org/' typeof='Article'>";
-
 // Check for language and content
 $languages_temp = [];
 if (!(empty($entry_info['summary']))): $languages_temp = array_merge($languages_temp, array_keys($entry_info['summary'])); endif;
@@ -144,6 +142,8 @@ echo "<amp-sidebar id='sidebar-entry-info' layout='nodisplay' side='right'>";
 
 	echo "</ul>";
 	echo "</amp-sidebar>";
+
+echo "<article><div vocab='http://schema.org/' typeof='Article'>";
 
 echo "<header><h1 property='name' amp-fx='parallax' data-parallax-factor='1.3'>" . $entry_info['header'] . "</h1></header>";
 
