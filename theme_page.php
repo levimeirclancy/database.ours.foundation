@@ -113,13 +113,8 @@ if ($search_results['searchCount'] > 0):
 	endif;
 
 // Crumbs and GPS ...
-if (empty($languages_temp)):
-	echo "<div id='sidebar-article-info' class='article-info'>";
-elseif (!(empty($languages_temp))):
-	echo "<div class='navigation-header-item' role='button' tabindex='0' on='tap:sidebar-article-info.toggle'>Entry details</div>";
-	echo "<amp-sidebar id='sidebar-article-info' layout='nodisplay' side='right' class='article-info'>";
-	endif;
-
+echo "<div class='navigation-header-item' role='button' tabindex='0' on='tap:sidebar-article-info.toggle'>Entry details</div>";
+echo "<amp-sidebar id='sidebar-article-info' layout='nodisplay' side='right' class='article-info'>";
 	echo "<ul>";
 	echo "<li>Metadata";
 		echo "<ul>";
@@ -145,13 +140,7 @@ elseif (!(empty($languages_temp))):
 	relationships_array($page_temp, "mentions", "Mentions");
 
 	echo "</ul>";
-
-// Crumbs and GPS ...
-if (empty($languages_temp)):
-	echo "</div>";
-elseif (!(empty($languages_temp))):
 	echo "</amp-sidebar>";
-	endif;
 
 echo "<span property='articleBody'>";
 
