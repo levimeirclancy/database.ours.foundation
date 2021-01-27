@@ -898,6 +898,8 @@ amp-sidebar ul {
 	margin: 0;
 	padding: 10px;
 	border: 0;
+	font-size: 90%;
+	font-family: Arial, Helvetica, 'Sans Serif';
 	}
 
 amp-sidebar ul li {
@@ -910,7 +912,6 @@ li.unnested-list-item {
 	margin: 0;
 	padding: 10px;
 	border-bottom: 2px solid rgba(200,200,200,0.8);
-	font-family: Arial, Helvetica, 'Sans Serif';
 	border-left: 0;
 	text-overflow: ellipsis;
 	white-space: nowrap;
