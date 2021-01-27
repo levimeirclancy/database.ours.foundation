@@ -66,10 +66,10 @@ echo "<div class='article-info' amp-fx='parallax' data-parallax-factor='1.2'>";
 	echo "<span class='article-info-section-item'>Type: <a href='/".$entry_info['type']."/'>".$header_array[$entry_info['type']]."</a></span>";
 
 	// Date published
-	echo "<span class='article-info-section-item'>Published: ".date("Y F j", strtotime($entry_info['date_published']))."</span>";
+	echo "<span class='article-info-section-item'>Published: ".date("Y F d", strtotime($entry_info['date_published']))."</span>";
 
 	// Date updated
-	echo "<span class='article-info-section-item'>Updated: ".date("Y F j, H:i:s", strtotime($entry_info['date_updated']))."</span>";
+	echo "<span class='article-info-section-item'>Updated: ".date("Y F d, H:i:s", strtotime($entry_info['date_updated']))."</span>";
 
 	// GPS
 	if (!(empty($entry_info['appendix']['latitude'])) && !(empty($entry_info['appendix']['longitude']))):
