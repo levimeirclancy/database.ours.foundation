@@ -898,8 +898,12 @@ amp-sidebar ul, amp-sidebar ol, amp-sidebar amp-list {
 	margin: 0;
 	padding: 10px;
 	border: 0;
-	font-size: 90%;
+	font-size: 95%;
 	font-family: Arial, Helvetica, 'Sans Serif';
+	}
+
+amp-sidebar ul > li:before, amp-sidebar ol > li:before, amp-sidebar amp-list > li:before {
+	top: 9px;
 	}
 
 amp-sidebar ul li, amp-sidebar ol li, amp-sidebar amp-list li {
@@ -907,6 +911,7 @@ amp-sidebar ul li, amp-sidebar ol li, amp-sidebar amp-list li {
 	white-space: nowrap;
 	overflow: hidden;
 	}
+
 
 li.unnested-list-item {
 	margin: 0;
