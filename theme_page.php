@@ -102,10 +102,10 @@ echo "<div class='article-info' amp-fx='parallax' data-parallax-factor='1.2'>";
 	// Add a relationships_array for mentions
 	$search_results = file_get_contents("https://".$domain."/api/search/?search={{{".$page_temp."}}}");
 	$search_results = json_decode($search_results, true);
-
-print_r($search_results);
 	if ($search_results['searchCount'] > 0):
 		foreach($search_results['searchResults'] as $entry_info_temp):
+			if (in_array($entry_info_temp['entry_id'], $information_array[$entry_id]['parents']['hierarchy'])): continue; endif;
+			if (in_array($entry_info_temp['entry_id'], $information_array[$entry_id]['children']['hierarchy'])): continue; endif;
 			$information_array[$page_temp]['mentions']['hierarchy'][] = $entry_info_temp['entry_id'];
 			endforeach;
 		relationships_array($page_temp, "mentions", "Mentions");
