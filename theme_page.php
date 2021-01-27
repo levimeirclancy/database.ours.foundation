@@ -117,7 +117,7 @@ echo "<div id='sidebar-entry-info-button-wrapper' amp-fx='parallax' data-paralla
 
 // Sidebar
 echo "<amp-sidebar id='sidebar-entry-info' layout='nodisplay' side='right'>";
-	echo "<ul><li class='sidebar-navigation-close'><div class='sidebar-back' on='tap:sidebar-entry-info.close' role='button' tabindex='0'>Close</div></li></ul>";
+	echo "<div class='sidebar-back' on='tap:sidebar-entry-info.close' role='button' tabindex='0'>Close</div>";
 	echo "<ul class='sidebar-entry-info-list'>";
 	echo "<li><span class='sidebar-entry-info-list-item'>Metadata</span>";
 		echo "<ul>";
