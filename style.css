@@ -116,24 +116,30 @@ amp-lightbox {
 	margin: 0 5px 0 0;
 	display: inline-block; }
 
-.sidebar {
-	width: 650px;
-	background: rgba(255,255,255,1);
+amp-lightbox, amp-sidebar {
+	margin: 0;
 	padding: 10px 20px;
+	background: rgba(255,255,255,1);
 	text-align: left;
 	box-sizing: border-box;
+	position: relative;
 	line-height: 1.3em;
 	white-space: normal;
 	}
 
-.sidebar ul {
+amp-sidebar {
+	box-shadow: 0 0 30px 0 rgba(30,30,30,0.3);
+	width: 650px;
+	}
+
+amp-sidebar ul {
 	margin: 0;
 	padding: 10px;
 	border: 0;
 	}
 
 
-.sidebar ul li, .entries-list-item ul li {
+amp-sidebar ul li, .entries-list-item ul li {
 	margin: 0;
 	padding: 0;
 	border: 0;
@@ -147,7 +153,7 @@ amp-lightbox {
 	position: relative;
 	}
 
-.sidebar li.sidebar-navigation-item, .sidebar-navigation-item, .entries-list-item {
+amp-sidebar li.sidebar-navigation-item, .sidebar-navigation-item, .entries-list-item {
 	margin: 0;
 	padding: 10px;
 	border-bottom: 2px solid rgba(200,200,200,0.8);
@@ -182,7 +188,7 @@ div.sidebar-navigation-item {
 	float: right;
 	}
 
-.sidebar label {
+amp-sidebar label {
 	padding-top: 10px;
 	}
 
