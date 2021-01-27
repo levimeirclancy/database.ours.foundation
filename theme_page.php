@@ -135,7 +135,7 @@ echo "<amp-sidebar id='sidebar-entry-info' layout='nodisplay' side='right'>";
 			endif;
 		echo "</ul></li>";
 
-	<li><b>Hierarchy</b>
+	echo "<li><b>Hierarchy</b>";
 	relationships_array($page_temp, "grandparents", "Hierarchy / Parents of parent pages");
 	relationships_array($page_temp, "parents", "Hierarchy / Parent pages");
 	relationships_array($page_temp, "children", "Hierarchy / Subpages");
