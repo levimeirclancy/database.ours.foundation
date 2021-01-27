@@ -47,17 +47,17 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 	
 		foreach ($array_output_temp as $entry_id_temp => $entry_header_temp):
 			if ($information_array[$entry_id_temp]['type'] !== $header_backend): continue; endif;
-			$echo_section_temp .= "<span class='article-info-section-item'><a href='/".$entry_id_temp."/'>".$entry_header_temp."</a></span>";
+			$echo_section_temp .= "<li><a href='/".$entry_id_temp."/'>".$entry_header_temp."</a></li>";
 			$count_temp++;
 			if (!(isset($counter_section[$header_backend]))): $counter_section[$header_backend] = 0; endif;
 			$counter_section[$header_backend]++;
 			endforeach;
 
 		 // Pluralize
-		if ($count_temp > 1): $echo_section .= "<span class='article-info-section-caption'>". $descriptor_temp ." / ".$header_frontend." (".number_format($count_temp)." results)</span>" . $echo_section_temp; endif;
+		if ($count_temp > 1): $echo_section .= "<li class='article-info-section-caption'>". $descriptor_temp ." / ".$header_frontend." (".number_format($count_temp)." results)</li>" . $echo_section_temp; endif;
 
 		// Do not pluralize
-		if ($count_temp == 1): $echo_section .= "<span class='article-info-section-caption'>". $descriptor_temp ." / ".$header_frontend." (".number_format($count_temp)." result)</span>" . $echo_section_temp; endif;
+		if ($count_temp == 1): $echo_section .= "<li class='article-info-section-caption'>". $descriptor_temp ." / ".$header_frontend." (".number_format($count_temp)." result)</li>" . $echo_section_temp; endif;
 
 		endforeach;
 	
@@ -65,10 +65,10 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 	if (empty($counter_section)): return; endif;
 
 	// If there are paths spread across multiple types, then give an overall sum
-	if (count($counter_section) > 1): $echo_section = "<span class='article-info-section-caption'>".$descriptor_temp." / ".number_format(array_sum($counter_section))." total results</span>" . $echo_section; endif;
+	if (count($counter_section) > 1): $echo_section = "<li class='article-info-section-caption'>".$descriptor_temp." / ".number_format(array_sum($counter_section))." total results</li>" . $echo_section; endif;
 
 	// Wrap it up
-	$echo_section = "<div class='article-info-section'>" . $echo_section . "</div>";
+	$echo_section = "<li><ul>" . $echo_section . "</ul></li>";
 	
 	echo $echo_section; }
 
@@ -81,41 +81,27 @@ echo "<div class='navigation-header-item' role='button' tabindex='0' on='tap:sid
 // Crumbs and GPS ...
 echo "<amp-sidebar id='sidebar-article-info' layout='nodisplay' side='right' class='article-info'>";
 
-	echo "<div class='article-info-section'><span class='article-info-section-caption'>Metadata</span>";
-
-	// Type
-	echo "<span class='article-info-section-item'>Type: <a href='/".$entry_info['type']."/'>".$header_array[$entry_info['type']]."</a></span>";
-
-	// Date published
-	echo "<span class='article-info-section-item'>Published: ".date("Y F d", strtotime($entry_info['date_published']))."</span>";
-
-	// Date updated
-	echo "<span class='article-info-section-item'>Updated: ".date("Y F d, H:i:s", strtotime($entry_info['date_updated']))."</span>";
-
-	// GPS
-	if (!(empty($entry_info['appendix']['latitude'])) && !(empty($entry_info['appendix']['longitude']))):
-		echo "<span class='article-info-section-item'><a href='https://".$domain."/".$entry_info['entry_id']."/map/' target='_blank'>";
-		echo substr($entry_info['appendix']['latitude'],0,6).", ".substr($entry_info['appendix']['longitude'],0,6);
-		echo " (GPS)</a></span>";
-		endif;
-
-	$languages_temp = [];
-	if (!(empty($entry_info['summary']))): $languages_temp = array_merge($languages_temp, array_keys($entry_info['summary'])); endif;
-	if (!(empty($entry_info['body']))): $languages_temp = array_merge($languages_temp, array_keys($entry_info['body'])); endif;
-	if (!(empty($languages_temp))): $languages_temp = array_unique($languages_temp); endif;
-	if (count($languages_temp) > 1):
-		$language_array_temp = [];
-		foreach($languages_temp as $language_temp):
-			echo "<span class='article-info-section-item'><a href='#".$language_temp."'>".ucfirst($language_temp)."</a></span>";
-			endforeach;
-		endif;
-
-	// Edit
-//	$login_hidden = $logout_hidden = "article-info-section-item"; // This would mean that buttons to login AND logout are shown
-//	(empty($login) ? $logout_hidden = "hide" : $login_hidden = "hide");
-//	echo "<a href='/".$page_temp."/edit/'><span [class]=\"pageState.login.loginStatus == 'loggedin' ? 'article-info-section-item' : 'hide'\" class='".$logout_hidden."'>Edit entry</span></a>";
-
-	echo "</div>";
+	echo "<ul><li>Metadata";
+		echo "<ul>";
+		echo "<li>Type: <a href='/".$entry_info['type']."/'>".$header_array[$entry_info['type']]."</a></li>"; // Type
+		echo "<li>Published: ".date("Y F d", strtotime($entry_info['date_published']))."</li>"; // Date published
+		echo "<li>Updated: ".date("Y F d, H:i:s", strtotime($entry_info['date_updated']))."</li>"; // Date updated
+		if (!(empty($entry_info['appendix']['latitude'])) && !(empty($entry_info['appendix']['longitude']))): // GPS
+			echo "<li><a href='https://".$domain."/".$entry_info['entry_id']."/map/' target='_blank'>";
+			echo substr($entry_info['appendix']['latitude'],0,6).", ".substr($entry_info['appendix']['longitude'],0,6);
+			echo " (GPS)</a></li>";
+			endif;
+		$languages_temp = [];
+		if (!(empty($entry_info['summary']))): $languages_temp = array_merge($languages_temp, array_keys($entry_info['summary'])); endif;
+		if (!(empty($entry_info['body']))): $languages_temp = array_merge($languages_temp, array_keys($entry_info['body'])); endif;
+		if (!(empty($languages_temp))): $languages_temp = array_unique($languages_temp); endif;
+		if (count($languages_temp) > 1):
+			$language_array_temp = [];
+			foreach($languages_temp as $language_temp):
+				echo "<li><a href='#".$language_temp."'>".ucfirst($language_temp)."</a></li>";
+				endforeach;
+			endif;
+		echo "</ul></li>";
 
 	// Find grandparents
 	$information_array[$page_temp]['grandparents'] = [ "hierarchy" => [] ];
@@ -151,6 +137,8 @@ echo "<amp-sidebar id='sidebar-article-info' layout='nodisplay' side='right' cla
 	relationships_array($page_temp, "parents", "Hierarchy / Parent pages)");
 	relationships_array($page_temp, "children", "Hierarchy / Subpages");
 	relationships_array($page_temp, "mentions", "Mentions");
+
+	echo "</ul>";
 
 	echo "</amp-sidebar>";
 
