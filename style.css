@@ -886,8 +886,6 @@ ol ol ol {
 	list-style-type: lower-alpha; }
 
 amp-sidebar ul, amp-sidebar ol, amp-sidebar amp-list {
-	margin: 0;
-	padding: 10px;
 	font-size: 95%;
 	font-family: Arial, Helvetica, 'Sans Serif';
 	}
@@ -900,6 +898,10 @@ amp-sidebar ul li, amp-sidebar ol li, amp-sidebar amp-list li {
 	text-overflow: ellipsis;
 	white-space: nowrap;
 	overflow: hidden;
+	}
+
+.unnested-list {
+	border: 0;
 	}
 
 .unnested-list li {
