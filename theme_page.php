@@ -47,17 +47,17 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 	
 		foreach ($array_output_temp as $entry_id_temp => $entry_header_temp):
 			if ($information_array[$entry_id_temp]['type'] !== $header_backend): continue; endif;
-			$echo_section_temp .= "<li><a href='/".$entry_id_temp."/'>".$entry_header_temp."</a></li>";
+			$echo_section_temp .= "<li><a href='/".$entry_id_temp."/'><span class='sidebar-entry-info-list-item'>".$entry_header_temp."</span></a></li>";
 			$count_temp++;
 			if (!(isset($counter_section[$header_backend]))): $counter_section[$header_backend] = 0; endif;
 			$counter_section[$header_backend]++;
 			endforeach;
 
 		 // Pluralize
-		if ($count_temp > 1): $echo_section .= "<li>". $descriptor_temp ." / ".$header_frontend." (".number_format($count_temp)." results)<ul>" . $echo_section_temp ."</ul></li>"; endif;
+		if ($count_temp > 1): $echo_section .= "<li><span class='sidebar-entry-info-list-item'>". $descriptor_temp ." / ".$header_frontend." (".number_format($count_temp)." results)</span><ul>" . $echo_section_temp ."</ul></li>"; endif;
 
 		// Do not pluralize
-		if ($count_temp == 1): $echo_section .= "<li>". $descriptor_temp ." / ".$header_frontend." (".number_format($count_temp)." result)<ul>" . $echo_section_temp ."</ul></li>"; endif;
+		if ($count_temp == 1): $echo_section .= "<li><span class='sidebar-entry-info-list-item'>". $descriptor_temp ." / ".$header_frontend." (".number_format($count_temp)." result)</span><ul>" . $echo_section_temp ."</ul></li>"; endif;
 
 		endforeach;
 	
@@ -120,18 +120,18 @@ echo "<amp-sidebar id='sidebar-entry-info' layout='nodisplay' side='right'>";
 	echo "<ul class='sidebar-entry-info-list'>";
 	echo "<li>Metadata";
 		echo "<ul>";
-		echo "<li>Type: <a href='/".$entry_info['type']."/'>".$header_array[$entry_info['type']]."</a></li>"; // Type
-		echo "<li>Published: ".date("Y F d", strtotime($entry_info['date_published']))."</li>"; // Date published
-		echo "<li>Updated: ".date("Y F d, H:i:s", strtotime($entry_info['date_updated']))."</li>"; // Date updated
+		echo "<li><span class='sidebar-entry-info-list-item'>Type: <a href='/".$entry_info['type']."/'>".$header_array[$entry_info['type']]."</a></span></li>"; // Type
+		echo "<li><span class='sidebar-entry-info-list-item'>Published: ".date("Y F d", strtotime($entry_info['date_published']))."</span></li>"; // Date published
+		echo "<li><span class='sidebar-entry-info-list-item'>Updated: ".date("Y F d, H:i:s", strtotime($entry_info['date_updated']))."</span></li>"; // Date updated
 		if (!(empty($entry_info['appendix']['latitude'])) && !(empty($entry_info['appendix']['longitude']))): // GPS
-			echo "<li><a href='https://".$domain."/".$entry_info['entry_id']."/map/' target='_blank'>";
+			echo "<li><a href='https://".$domain."/".$entry_info['entry_id']."/map/' target='_blank'><span class='sidebar-entry-info-list-item'>";
 			echo substr($entry_info['appendix']['latitude'],0,6).", ".substr($entry_info['appendix']['longitude'],0,6);
-			echo " (GPS)</a></li>";
+			echo " (GPS)</span></a></li>";
 			endif;
 		if (count($languages_temp) > 1):
 			$language_array_temp = [];
 			foreach($languages_temp as $language_temp):
-				echo "<li><a href='#".$language_temp."'>".ucfirst($language_temp)."</a></li>";
+				echo "<li><a href='#".$language_temp."'><span class='sidebar-entry-info-list-item'>".ucfirst($language_temp)."</span></a></li>";
 				endforeach;
 			endif;
 		echo "</ul></li>";
