@@ -86,12 +86,12 @@ echo "<div class='navigation-header-item' role='button' tabindex='0' on='tap:sid
 
 // Crumbs and GPS ...
 if (empty($languages_temp)):
-	$article_info_container = null;
+	$article_info_container = "open";
 elseif (!(empty($languages_temp))):
-	$article_info_container = "layout='nodisplay'";
+	$article_info_container = "";
 	endif;
 
-echo "<amp-sidebar id='sidebar-article-info' ".$article_info_container." side='right' class='article-info'>";
+echo "<amp-sidebar id='sidebar-article-info' layout='nodisplay' ".$article_info_container." side='right' class='article-info'>";
 
 	echo "<ul>";
 	echo "<li>Metadata";
