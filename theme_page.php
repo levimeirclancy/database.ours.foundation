@@ -111,8 +111,8 @@ if ($search_results['searchCount'] > 0):
 	endif;
 
 // Crumbs and GPS ...
-echo "<div class='navigation-header-item' id='sidebar-article-info-button' role='button' tabindex='0' on='tap:sidebar-article-info.toggle'>≡ Entry details</div>";
-echo "<amp-sidebar id='sidebar-article-info' layout='nodisplay' side='right' class='article-info'>";
+echo "<div class='navigation-header-item' id='sidebar-entry-info-button' role='button' tabindex='0' on='tap:sidebar-entry-info.toggle'>≡ Entry details</div>";
+echo "<amp-sidebar id='sidebar-entry-info' layout='nodisplay' side='right'>";
 	echo "<ul>";
 	echo "<li>Metadata";
 		echo "<ul>";
