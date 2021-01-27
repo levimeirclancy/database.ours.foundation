@@ -39,19 +39,31 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 	if (empty($array_output_temp)): return; endif;
 		
 	// Finally echo it out
+	$echo_section = null;
+	$counter_section = [];
 	foreach ($header_array as $header_backend => $header_frontend):
-		$echo_temp = $counter_temp = null;
-		$echo_temp .= "<div class='article-info-section'>";
-		$echo_temp .= "<span class='article-info-section-caption'>". $descriptor_temp ." list - ".$header_frontend."</span>";
+		$counter_temp = $echo_section_temp = ;
 		foreach ($array_output_temp as $entry_id_temp => $entry_header_temp):
 			if ($information_array[$entry_id_temp]['type'] !== $header_backend): continue; endif;
-			$echo_temp .= "<span class='article-info-section-item'><a href='/".$entry_id_temp."/'>".$entry_header_temp."</a></span>";
+			$echo_section_temp .= "<span class='article-info-section-item'><a href='/".$entry_id_temp."/'>".$entry_header_temp."</a></span>";
 			$counter_temp++;
+			if (!(isset($counter_section[$header_backend]))): $counter_section[$header_backend] = 0; endif;
+			$counter_section[$header_backend]++;
 			endforeach;
-		$echo_temp .= "</div>";
-		if (empty($counter_temp)): continue; endif;
-		echo $echo_temp;
-		endforeach; }
+		if ($count_temp > 1): $echo_section .= "<span class='article-info-section-caption'>". $descriptor_temp ." / ".$header_frontend." (".number_format($counter_temp.)." results)</span>" . $echo_section_temp; // Pluralize
+		elseif ($count_temp == 1): $echo_section .= "<span class='article-info-section-caption'>". $descriptor_temp ." / ".$header_frontend." (".number_format($counter_temp.)." result)</span>" . $echo_section_temp; // Do not pluralize
+		endforeach;
+	
+	// If there are no paths in this hierarchy
+	if (empty($counter_section)): return; endif;
+
+	// If there are paths spread across multiple types, then give an overall sum
+	if (count($counter_section) > 1): $echo_section = $echo_section . "<span class='article-info-section-caption'>".$descriptor_temp." / ".number_format(array_sum($counter_section))." total results</span>"; endif;
+
+	// Wrap it up
+	$echo_section = "<div class='article-info-section'>" . $echo_section . "</div>";
+	
+	echo $echo_section; }
 
 echo "<article><div vocab='http://schema.org/' typeof='Article'>";
 
@@ -126,9 +138,9 @@ echo "<div class='article-info' amp-fx='parallax' data-parallax-factor='1.2'>";
 			endforeach;
 		endif;
 
-	relationships_array($page_temp, "grandparents", "Parents of parent pages");
-	relationships_array($page_temp, "parents", "Parent pages");
-	relationships_array($page_temp, "children", "Subpages");
+	relationships_array($page_temp, "grandparents", "Hierarchy = +2");
+	relationships_array($page_temp, "parents", "Hierarchy = +1 (parent pages)");
+	relationships_array($page_temp, "children", "Hierarchy = -1 (subpages)");
 	relationships_array($page_temp, "mentions", "Mentions");
 
 	echo "</div>";
