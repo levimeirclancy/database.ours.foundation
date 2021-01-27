@@ -334,14 +334,14 @@ h4, h5, h6 {
 	padding: 8px 12px;
 	}
 
-#sidebar-article-info-button {
+#sidebar-entry-info-button {
 	position: absolute;
 	top: 30px;
 	right: 30px;
 	}
 
-#sidebar-article-info {
-	font=size: 90px;
+#sidebar-entry-info {
+	font-size: 90%;
 	font-family: Verdana, Helvetica, 'Sans Serif';
 	}
 
