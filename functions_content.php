@@ -36,6 +36,10 @@ function sanitize_dates ($entry_info, $row=[]) {
 		$entry_info['type'] = $header_array_corrections[$entry_info['type']];
 		endif;
 	
+	// Ensure there are hierachy elements
+	if (!(isset($entry_info['parents']))): $entry_info['parents'] = [ "hierarchy" => [] ]; endif;
+	if (!(isset($entry_info['children']))): $entry_info['children'] = [ "hierarchy" => [] ]; endif;
+
 	// Because this column was added in an upgrade, it has to be constructed
 	if (!(isset($entry_info['date_updated'])) || empty($entry_info['date_updated'])):
 		if (isset($row['date_updated']) && !(empty($row['date_updated']))):
