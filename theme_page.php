@@ -55,7 +55,7 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 
 		 // Pluralize
 		if ($count_temp > 1): $results_temp = "results";
-		if ($count_temp == 1): $results_temp = "result";
+		elseif ($count_temp == 1): $results_temp = "result";
 		else: continue; endif;
 	
 		$echo_section .= "<li><b><span class='sidebar-entry-info-list-item'>".$descriptor_temp." / <a href='/".$header_backend."/'>".$header_frontend."</a> (".number_format($count_temp)." ".$results_temp.")</span></b>" . $echo_section_temp .""; endif;
@@ -66,7 +66,7 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 	
 	// Pluralize
 	if ($counter_section > 1): $results_temp = "results";
-	if ($counter_section == 1): $results_temp = "result";
+	elseif ($counter_section == 1): $results_temp = "result";
 	else: $echo_section = null; endif;
 
 	$echo_section_final = "<ul><li><b><span class='sidebar-entry-info-list-item'>".$descriptor_temp." (". number_format($counter_section). " ". $results_temp .")</span></b><ul>" . $echo_section . "</ul></li></ul>";
