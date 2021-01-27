@@ -42,7 +42,7 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 	$echo_section = null;
 	$counter_section = [];
 	foreach ($header_array as $header_backend => $header_frontend):
-		$counter_temp = $echo_section_temp = ;
+		$counter_temp = $echo_section_temp = null;
 		foreach ($array_output_temp as $entry_id_temp => $entry_header_temp):
 			if ($information_array[$entry_id_temp]['type'] !== $header_backend): continue; endif;
 			$echo_section_temp .= "<span class='article-info-section-item'><a href='/".$entry_id_temp."/'>".$entry_header_temp."</a></span>";
