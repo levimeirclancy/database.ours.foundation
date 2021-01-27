@@ -58,10 +58,10 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 		elseif ($count_temp == 1): $results_temp = "result";
 		else: continue; endif;
 	
-		$echo_section .=	"<li><b><span class='sidebar-entry-info-list-item'>".
+		$echo_section .=	"<li><i><span class='sidebar-entry-info-list-item'>".
 					$descriptor_temp.
 					" / <a href='/".$header_backend."/'>".$header_frontend."</a>".
-					" (".number_format($count_temp)." ".$results_temp.")</span></b></li>".
+					" (".number_format($count_temp)." ".$results_temp.")</span></i></li>".
 					$echo_section_temp;
 
 		endforeach;
@@ -73,9 +73,9 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 	elseif ($counter_section == 1): $results_temp = "result";
 	else: $echo_section = null; endif;
 
-	$echo_section_final = 		"<ul><li><b><span class='sidebar-entry-info-list-item'>".
+	$echo_section_final = 		"<ul><li><i><span class='sidebar-entry-info-list-item'>".
 					$descriptor_temp.
-					" (". number_format($counter_section). " ". $results_temp .")</span></b>".
+					" (". number_format($counter_section). " ". $results_temp .")</span></i>".
 					"<ul>" . $echo_section . "</ul></li></ul>";
 	
 	echo $echo_section_final; }
@@ -143,7 +143,7 @@ echo "<amp-sidebar id='sidebar-entry-info' layout='nodisplay' side='right'>";
 			endif;
 		echo "</ul></li>";
 
-	echo "<li><b>Relations</b>";
+	echo "<li><b><span class='sidebar-entry-info-list-item'>Relations</span></b>";
 	relationships_array($page_temp, "grandparents", "Relations / Parents of parent pages");
 	relationships_array($page_temp, "parents", "Relations / Parent pages");
 	relationships_array($page_temp, "children", "Relations / Subpages");
