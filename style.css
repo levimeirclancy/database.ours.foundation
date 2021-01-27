@@ -844,15 +844,15 @@ ul, ol, amp-list {
 	margin: 30px 10px 30px;
 	padding: 0;
 	list-style-position: outside;
-	line-height: 1.5; }
+	line-height: 1.5;
+	border-bottom: 2px solid rgba(200,200,200,0.5); }
 
 ul ul, ul ol, ul amp-list,
 ol ul, ol ol, ol amp-list,
 amp-list ul, amp-list ol, amp-list amp-list {
 	width: auto;
 	max-width: none;
-	margin: 10px;
-	border-bottom: 2px solid rgba(200,200,200,0.5); }
+	margin: 10px 15px; }
 
 li {
 	padding: 4px 0 9px 15px;
@@ -891,6 +891,7 @@ amp-sidebar ul, amp-sidebar ol, amp-sidebar amp-list {
 	border: 0;
 	font-size: 95%;
 	font-family: Arial, Helvetica, 'Sans Serif';
+	border-bottom: 0;
 	}
 
 amp-sidebar ul > li:before, amp-sidebar ol > li:before, amp-sidebar amp-list > li:before {
