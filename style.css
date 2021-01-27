@@ -332,10 +332,15 @@ h4, h5, h6 {
 	padding: 8px 12px;
 	}
 
+#sidebar-entry-info-button-wrapper {
+	display: block;
+	margin: 20px 0;
+	text-align: right;
+	}
+
+
 #sidebar-entry-info-button {
-	position: absolute;
-	top: 30px;
-	right: 30px;
+	display: inline-block;
 	}
 
 #sidebar-entry-info {
