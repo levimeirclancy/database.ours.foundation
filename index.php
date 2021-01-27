@@ -133,6 +133,7 @@ $coordinate_counts = 0;
 
 $search_temp = null;
 if (isset($_REQUEST['search']) && !(empty($_REQUEST['search'][0]))):
+	if (!(is_array($_REQUEST['search']))): $_REQUEST['search'] = [ $_REQUEST['search'] ]; endif;
 	$search_temp = $_REQUEST['search'][0];
 	endif;
 
