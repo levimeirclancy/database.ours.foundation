@@ -76,7 +76,7 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 	$echo_section_final = 		"<ul><li><i><span class='sidebar-navigation-item-title'>".
 					$descriptor_temp.
 					" (". number_format($counter_section). " ". $results_temp .")</span></i>".
-					"<ul>" . $echo_section . "</ul></li></ul>";
+					$echo_section . "</li></ul>";
 	
 	echo $echo_section_final; }
 
