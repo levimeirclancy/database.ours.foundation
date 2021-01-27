@@ -926,6 +926,10 @@ li.unnested-list-item:before {
 	display: none;
 	}
 
+li.unnested-list-item:after {
+	display: none;
+	}
+
 /* Toggle classes */
 
 .hide {
