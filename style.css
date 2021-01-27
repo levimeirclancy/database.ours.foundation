@@ -904,7 +904,7 @@ amp-sidebar ul li, amp-sidebar ol li, amp-sidebar amp-list li {
 	overflow: hidden;
 	}
 
-li.unnested-list-item {
+.unnested-list li {
 	margin: 0;
 	padding: 10px;
 	border-bottom: 2px solid rgba(200,200,200,0.8);
@@ -914,11 +914,7 @@ li.unnested-list-item {
 	overflow: hidden;
 	}
 
-li.unnested-list-item:before {
-	display: none;
-	}
-
-li.unnested-list-item:after {
+.unnested-list li:before {
 	display: none;
 	}
 
