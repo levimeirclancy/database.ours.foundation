@@ -844,7 +844,8 @@ ol ul, ol ol, ol amp-list,
 amp-list ul, amp-list ol, amp-list amp-list {
 	width: auto;
 	max-width: none;
-	margin: 10px 15px; }
+	margin: 10px 15px;
+	font-size: 100%; }
 
 li {
 	padding: 5px 15px 9px 15px;
