@@ -46,7 +46,7 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 		foreach ($array_output_temp as $entry_id_temp => $entry_header_temp):
 			if ($information_array[$entry_id_temp]['type'] !== $header_backend): continue; endif;
 			$echo_temp .= "<span class='article-info-section-item'><a href='/".$entry_id_temp."/'>".$entry_header_temp."</a></span>";
-			$counter_temp++
+			$counter_temp++;
 			endforeach;
 		echo "</div>";
 		if (empty($counter_temp)): continue; endif;
