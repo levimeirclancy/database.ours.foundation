@@ -852,7 +852,7 @@ amp-list ul, amp-list ol, amp-list amp-list {
 	width: auto;
 	max-width: none;
 	margin: 5px;
-	borer-bottom: 2px solid rgba(200,200,200,0.5); }
+	border-bottom: 2px solid rgba(200,200,200,0.5); }
 
 li {
 	padding: 4px 0 9px 15px;
