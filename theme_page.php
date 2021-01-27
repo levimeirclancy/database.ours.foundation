@@ -101,10 +101,9 @@ echo "<div class='article-info' amp-fx='parallax' data-parallax-factor='1.2'>";
 	if (isset($information_array[$page_temp]['parents']['hierarchy'])):
 		$grandparents_array = [];
 		foreach ($information_array[$page_temp]['parents']['hierarchy'] as $entry_id_temp):
-
-print_r($information_array[$entry_id_temp]['parents']);
 			if (!(isset($information_array[$entry_id_temp]['parents']['hierarchy']))): continue; endif;
 			if (empty($information_array[$entry_id_temp]['parents']['hierarchy'])): continue; endif;
+print_r($information_array[$entry_id_temp]['parents']);
 			$grandparents_array = array_merge($grandparents_array, $information_array[$entry_id_temp]['parents']['hierarchy']);
 			endforeach;
 		if (!(empty($grandparents_array))):
