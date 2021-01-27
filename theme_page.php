@@ -100,7 +100,7 @@ echo "<div class='article-info' amp-fx='parallax' data-parallax-factor='1.2'>";
 	relationships_array($page_temp, "children", "Subpage");
 
 	// Add a relationships_array for mentions
-	$search_results = file_get_contents("/api/search/?search={{{".$page_temp."}}}");
+	$search_results = file_get_contents("https://".$domain."/api/search/?search={{{".$page_temp."}}}");
 	$search_results = json_decode($search_results, true);
 
 print_r($search_results);
