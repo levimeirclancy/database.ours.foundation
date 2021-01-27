@@ -30,6 +30,7 @@ function sanitize_dates ($entry_info, $row=[]) {
 		"topic"		=> "article",
 		"position"	=> "offices-units",
 		"term"		=> "offices-units",
+		"terms"		=> "offices-units",
 		];
 	if (isset($header_array_corrections[$entry_info['type']])):
 		$entry_info['type'] = $header_array_corrections[$entry_info['type']];
