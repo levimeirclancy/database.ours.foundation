@@ -190,7 +190,7 @@ function amp_header($title=null, $canonical=null) {
 		echo "<ul>";
 		
 		foreach ($header_array as $header_backend => $header_frontend):
-			echo "<li class='sidebar-navigation-item'><a href='/".$header_backend."/' ".$target_temp.">";
+			echo "<li class='unnested-list-item'><a href='/".$header_backend."/' ".$target_temp.">";
 			echo "<div class='sidebar-navigation-item-title'>". ucfirst($header_frontend) ."</div></a></li>";
 			endforeach;
 	
@@ -209,11 +209,11 @@ function amp_header($title=null, $canonical=null) {
 	
 		echo "<amp-list id='sidebar-navigation-lightbox-search-list' credentials='include' layout='responsive' width='800' height='300' max-items='100' binding='refresh' reset-on-refresh='always' items='searchResults' [src]=\"'/api/search/?search=' + pageState.searchTerm\">";
 
-		echo "<li class='sidebar-navigation-item' fallback><span class='sidebar-navigation-item-title'>No search results.</span></li>";
-		echo "<li class='sidebar-navigation-item' placeholder><span class='sidebar-navigation-item-title'>Loading search results...</span></li>";
+		echo "<li class='unnested-list-item' fallback><span class='sidebar-navigation-item-title'>No search results.</span></li>";
+		echo "<li class='unnested-list-item' placeholder><span class='sidebar-navigation-item-title'>Loading search results...</span></li>";
 
 		echo "<template type='amp-mustache'>";
-			echo "<li class='sidebar-navigation-item'><a href='/{{entry_id}}/' ".$target_temp."><span class='sidebar-navigation-item-title' [text]='{{header}}'>{{header}}</span></a></li>";
+			echo "<li class='unnested-list-item'><a href='/{{entry_id}}/' ".$target_temp."><span class='sidebar-navigation-item-title' [text]='{{header}}'>{{header}}</span></a></li>";
 			echo "</template>";
 	
 		echo "</amp-list>";
