@@ -349,8 +349,8 @@ h4, h5, h6 {
 .sidebar-entry-info-list {
 	}
 
-ul.sidebar-entry-info-list > li:before {
-	top: 5px;
+ul.sidebar-entry-info-list li:before {
+	top: 9px;
 	}
 
 .sidebar-entry-info-list-item {
