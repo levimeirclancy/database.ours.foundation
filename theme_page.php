@@ -58,7 +58,11 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 		elseif ($count_temp == 1): $results_temp = "result";
 		else: continue; endif;
 	
-		$echo_section .= "<li><b><span class='sidebar-entry-info-list-item'>".$descriptor_temp." / <a href='/".$header_backend."/'>".$header_frontend."</a> (".number_format($count_temp)." ".$results_temp.")</span></b>" . $echo_section_temp .""; endif;
+		$echo_section .=	"<li><b><span class='sidebar-entry-info-list-item'>".
+					$descriptor_temp.
+					" / <a href='/".$header_backend."/'>".$header_frontend."</a>".
+					" (".number_format($count_temp)." ".$results_temp.")</span></b></li>".
+					$echo_section_temp;
 
 		endforeach;
 	
@@ -69,7 +73,10 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 	elseif ($counter_section == 1): $results_temp = "result";
 	else: $echo_section = null; endif;
 
-	$echo_section_final = "<ul><li><b><span class='sidebar-entry-info-list-item'>".$descriptor_temp." (". number_format($counter_section). " ". $results_temp .")</span></b><ul>" . $echo_section . "</ul></li></ul>";
+	$echo_section_final = 		"<ul><li><b><span class='sidebar-entry-info-list-item'>".
+					$descriptor_temp.
+					" (". number_format($counter_section). " ". $results_temp .")</span></b>".
+					"<ul>" . $echo_section . "</ul></li></ul>";
 	
 	echo $echo_section_final; }
 
