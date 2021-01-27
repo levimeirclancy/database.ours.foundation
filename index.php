@@ -131,6 +131,11 @@ if (isset($_REQUEST['order'])):
 // These counts are used for the navigation sidebar and the home page
 $coordinate_counts = 0;
 
+$search_temp = null;
+if (isset($_REQUEST['search']) && !(empty($_REQUEST['search'][0]))):
+	$search_temp = $_REQUEST['search'][0];
+	endif;
+
 $sql_temp = "SELECT * FROM " . $database . ".information_directory";
 foreach($connection_pdo->query($sql_temp) as $row):
 
@@ -142,13 +147,10 @@ foreach($connection_pdo->query($sql_temp) as $row):
 
 		if (isset($_REQUEST['type']) && !(in_array($row['type'], $_REQUEST['type']))): continue; endif;
 
-		if (isset($_REQUEST['search'])):
-			if (!(is_array($_REQUEST['search']))): $_REQUEST['search'] = [ $_REQUEST['search'] ]; endif;
+		if (!(empty($search_temp))):
 			$result_temp = 0;
-			foreach ($_REQUEST['search'] as $search_temp):
-				$blob_temp = "*".strtolower(implode(" ", $row));
-				if (strpos($blob_temp, strtolower($search_temp))): $result_temp = 1; break; endif;
-				endforeach;
+			$blob_temp = "*".strtolower(implode(" ", $row));
+			if (strpos($blob_temp, strtolower($search_temp))): $result_temp = 1; break; endif;
 			if ($result_temp == 0): continue; endif;
 			endif;
 		endif;
@@ -452,11 +454,11 @@ if ($page_temp == "api"):
 	elseif ($command_temp == "search"):
 
 		$search_array = [
-				"searchTerm" => $_REQUEST['search'][0],
+				"searchTerm" => $search_temp,
 				"searchCount" => 0,
 				"searchResults" => [ ],
 				];
-		if (empty($information_array)): json_status("error", "No results.");
+		if (empty($information_array) || empty($search_temp)): json_status("error", "No results.");
 //		else: json_output(array_values($information_array)); endif;
 		else:
 			$search_array['searchCount'] = count($information_array);
