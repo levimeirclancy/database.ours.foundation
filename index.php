@@ -105,9 +105,8 @@ $header_array = [
 	"place"		=> "Places",
 	"person"	=> "People",
 	"party"		=> "Parties",
-	"position"	=> "Positions",
 	"demographic"	=> "Demographics",
-	"term"		=> "Terms (of Offices)",
+	"terms"		=> "Terms (of Offices)",
 	"article"	=> "Articles",
 	];
 
