@@ -232,7 +232,7 @@ function amp_header($title=null, $canonical=null) {
 		echo "</amp-sidebar>";
 	
 	// This is the popover to log in ...
-	echo "<amp-lightbox id='login-popover' on=\"lightboxClose:navigation-header.show,inputPasswordTypeText.hide,inputPasswordTypePassword.show,AMP.setState({pageState:{login: {inputPasswordType: 'password'}}});lightboxOpen:begin-image.hide,sidebar-navigation.close,settings-popover.close,new-popover.close,inputPasswordTypeText.hide,inputPasswordTypePassword.show,AMP.setState({pageState:{login: {inputPasswordType: 'password'}}})\" layout='nodisplay'>";
+	echo "<amp-lightbox id='login-popover' on=\"lightboxClose:navigation-header.show,inputPasswordTypeText.show,inputPasswordTypePassword.hide,AMP.setState({pageState:{login: {inputPasswordType: 'password'}}});lightboxOpen:begin-image.hide,sidebar-navigation.close,settings-popover.close,new-popover.close,inputPasswordTypeText.show,inputPasswordTypePassword.hide,AMP.setState({pageState:{login: {inputPasswordType: 'password'}}})\" layout='nodisplay'>";
 
 		echo "<span role='button' tabindex='0' on='tap:".$navigation_lightboxes."' class='lightboxes-close'>Close</span>";
 
