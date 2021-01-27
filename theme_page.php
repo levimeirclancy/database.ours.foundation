@@ -87,7 +87,7 @@ echo "<div class='navigation-header-item' role='button' tabindex='0' on='tap:sid
 // Crumbs and GPS ...
 if (empty($languages_temp)):
 	$article_info_container = null;
-elseif (!(empty($languages_temp)):
+elseif (!(empty($languages_temp))):
 	$article_info_container = "layout='nodisplay'";
 	endif;
 
