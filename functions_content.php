@@ -21,6 +21,12 @@ function sanitize_dates ($entry_info, $row=[]) {
 	if (!(isset($entry_info['date_updated']))): $entry_info['date_updated'] = null; endif;
 	if (!(isset($entry_info['date_published']))): $entry_info['date_published'] = null; endif;
 	
+	// Correct the header array
+	if ($entry_info['type'] == "location"): $entry_info['type'] = "regions"; endif;
+	if ($entry_info['type'] == "village"): $entry_info['type'] = "settlements"; endif;
+	if ($entry_info['type'] == "event"): $entry_info['type'] = "article"; endif;
+	if ($entry_info['type'] == "topic"): $entry_info['type'] = "article"; endif;
+	
 	// Because this column was added in an upgrade, it has to be constructed
 	if (!(isset($entry_info['date_updated'])) || empty($entry_info['date_updated'])):
 		if (isset($row['date_updated']) && !(empty($row['date_updated']))):
