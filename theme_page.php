@@ -54,10 +54,10 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 			endforeach;
 
 		 // Pluralize
-		if ($count_temp > 1): $echo_section .= "<li><span class='sidebar-entry-info-list-item'>". $descriptor_temp ." / ".$header_frontend." (".number_format($count_temp)." results)</span><ul>" . $echo_section_temp ."</ul></li>"; endif;
+		if ($count_temp > 1): $echo_section .= "<ul><li><b><span class='sidebar-entry-info-list-item'>".$header_frontend." (".number_format($count_temp)." results)</span></b>" . $echo_section_temp ."</ul>"; endif;
 
 		// Do not pluralize
-		if ($count_temp == 1): $echo_section .= "<li><span class='sidebar-entry-info-list-item'>". $descriptor_temp ." / ".$header_frontend." (".number_format($count_temp)." result)</span><ul>" . $echo_section_temp ."</ul></li>"; endif;
+		if ($count_temp == 1): $echo_section .= "<ul><li><b><span class='sidebar-entry-info-list-item'>".$header_frontend." (".number_format($count_temp)." result)</span></b>" . $echo_section_temp ."</ul>"; endif;
 
 		endforeach;
 	
@@ -68,7 +68,7 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 //	if (count($counter_section) > 1): $echo_section = "<li>".$descriptor_temp." / ".number_format(array_sum($counter_section))." total results</li>" . $echo_section; endif;
 
 	// Wrap it up
-//	$echo_section = "<li><ul>" . $echo_section . "</ul></li>";
+	$echo_section = "<ul><li><b><span class='sidebar-entry-info-list-item'>".$descriptor_temp."</span></b>" . $echo_section . "</li></ul>";
 	
 	echo $echo_section; }
 
@@ -117,7 +117,7 @@ echo "<div id='sidebar-entry-info-button-wrapper' amp-fx='parallax' data-paralla
 echo "<amp-sidebar id='sidebar-entry-info' layout='nodisplay' side='right'>";
 	echo "<div class='sidebar-back' on='tap:sidebar-entry-info.close' role='button' tabindex='0'>Close</div>";
 	echo "<ul>";
-	echo "<li><span class='sidebar-entry-info-list-item'>Metadata</span>";
+	echo "<li><span class='sidebar-entry-info-list-item'><b>Metadata</b></span>";
 		echo "<ul>";
 		echo "<li><span class='sidebar-entry-info-list-item'>Type: <a href='/".$entry_info['type']."/'>".$header_array[$entry_info['type']]."</a></span></li>"; // Type
 		echo "<li><span class='sidebar-entry-info-list-item'>Published: ".date("Y F d", strtotime($entry_info['date_published']))."</span></li>"; // Date published
@@ -135,10 +135,12 @@ echo "<amp-sidebar id='sidebar-entry-info' layout='nodisplay' side='right'>";
 			endif;
 		echo "</ul></li>";
 
+	<li><b>Hierarchy</b>
 	relationships_array($page_temp, "grandparents", "Hierarchy / Parents of parent pages");
 	relationships_array($page_temp, "parents", "Hierarchy / Parent pages");
 	relationships_array($page_temp, "children", "Hierarchy / Subpages");
 	relationships_array($page_temp, "mentions", "Mentions");
+	echo "</li>";
 
 	echo "</ul>";
 	echo "</amp-sidebar>";
