@@ -104,7 +104,7 @@ echo "<div class='article-info' amp-fx='parallax' data-parallax-factor='1.2'>";
 	$search_results = json_decode($search_results, true);
 	if ($search_results['searchCount'] > 0):
 		foreach($search_results['searchResults'] as $entry_info_temp):
-			$information_array[$page_temp]['mentions']]['hierarchy'][] = $entry_info_temp['entry_id'];
+			$information_array[$page_temp]['mentions']['hierarchy'][] = $entry_info_temp['entry_id'];
 			endforeach;
 		relationships_array($page_temp, "mentions", "Mentions");
 		endif;
