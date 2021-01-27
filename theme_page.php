@@ -50,8 +50,8 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 			if (!(isset($counter_section[$header_backend]))): $counter_section[$header_backend] = 0; endif;
 			$counter_section[$header_backend]++;
 			endforeach;
-		if ($count_temp > 1): $echo_section .= "<span class='article-info-section-caption'>". $descriptor_temp ." / ".$header_frontend." (".number_format($counter_temp.)." results)</span>" . $echo_section_temp; // Pluralize
-		elseif ($count_temp == 1): $echo_section .= "<span class='article-info-section-caption'>". $descriptor_temp ." / ".$header_frontend." (".number_format($counter_temp.)." result)</span>" . $echo_section_temp; // Do not pluralize
+		if ($count_temp > 1): $echo_section .= "<span class='article-info-section-caption'>". $descriptor_temp ." / ".$header_frontend." (".number_format($counter_temp)." results)</span>" . $echo_section_temp; // Pluralize
+		elseif ($count_temp == 1): $echo_section .= "<span class='article-info-section-caption'>". $descriptor_temp ." / ".$header_frontend." (".number_format($counter_temp)." result)</span>" . $echo_section_temp; // Do not pluralize
 		endforeach;
 	
 	// If there are no paths in this hierarchy
