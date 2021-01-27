@@ -99,7 +99,7 @@ echo "<div class='article-info' amp-fx='parallax' data-parallax-factor='1.2'>";
 	// Find grandparents
 	$information_array[$page_temp]['grandparents'] = [ "hierarchy" => [] ];
 	if (isset($information_array[$page_temp]['parents']['hierarchy'])):
-		$grandparents_array = []
+		$grandparents_array = [];
 		foreach ($information_array[$page_temp]['parents']['hierarchy'] as $entry_id_temp):
 			if (!(isset($information_array[$entry_id_temp]['parents']['hierarchy']))): continue; endif;
 			if (empty($information_array[$entry_id_temp]['parents']['hierarchy'])): continue; endif;
