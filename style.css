@@ -346,14 +346,16 @@ h4, h5, h6 {
 	}
 
 .sidebar-entry-info-list {
-	font-size: 90%;
-	font-family: Verdana, Helvetica, 'Sans Serif';
 	}
 
 .sidebar-entry-info-list li, .sidebar-entry-info-list li ul li {
 	font-family: inherit;
 	}
 
+.sidebar-entry-info-list-item
+	font-size: 90%;
+	font-family: Arial, Helvetica, 'Sans Serif';
+	}
 
 body, article {
 	position: relative;
