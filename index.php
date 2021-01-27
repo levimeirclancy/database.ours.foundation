@@ -428,21 +428,24 @@ if ($page_temp == "api"):
 	elseif ($command_temp == "sitemap"):
 		json_output($information_array);
 	elseif ($command_temp == "page-state"):
-		$page_state = [];
 
-		// if request informationarray == "true"...
-//		$page_state['informationArray'] = $information_array;
+		$page_state = [
+			"searchTerm"	=> null,
+			"login"		=> [
+				"loginStatus"	=> "loggedout", 
+				"login"		=> null, 
+				"countdown"	=> null,
+				],
+			];
 
-//		foreach ($header_array as $header_backend => $header_frontend):
-//			$page_state['categoriesArray'][$header_backend] = print_row_loop ($header_backend, array_keys($information_array), []);
-//			endforeach;
-
-		$page_state['searchTerm'] = null;
-
-//		$page_state['pageTypes'] = $header_array;
-
-		if (empty($login)): $page_state['login'] = ["loginStatus"=>"loggedout", "login"=>null, "countdown"=>null, ];
-		elseif (!(empty($login))): $page_state['login'] = ["loginStatus"=>"loggedin", "login"=>$login['user_id'], "countdown"=>$_COOKIE['cookie_time']-time(), ]; endif;
+		if (!(empty($login))):
+			$page_state['login'] = [
+				"inputPasswordType"	=> "password",
+				"loginStatus"		=> "loggedin",
+				"login"			=> $login['user_id'],
+				"countdown"		=> $_COOKIE['cookie_time']-time(),
+				];
+			endif;
 
 		echo json_output($page_state);
 
