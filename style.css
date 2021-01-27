@@ -301,6 +301,10 @@ h4, h5, h6 {
 	display: inline-block;
 	}
 
+#sidebar-entry-info .sidebar-navigation-item-title {
+	font-size: 95%;
+	}
+
 body, article {
 	position: relative;
 	}
@@ -845,7 +849,7 @@ amp-list ul, amp-list ol, amp-list amp-list {
 	width: auto;
 	max-width: none;
 	margin: 10px 15px;
-	font-size: 100%; }
+	}
 
 li {
 	padding: 5px 15px 9px 15px;
@@ -879,7 +883,6 @@ ol ol ol {
 	list-style-type: lower-alpha; }
 
 amp-sidebar ul, amp-sidebar ol, amp-sidebar amp-list {
-	font-size: 95%;
 	font-family: Arial, Helvetica, 'Sans Serif';
 	}
 
