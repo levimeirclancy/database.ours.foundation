@@ -113,7 +113,7 @@ if ($search_results['searchCount'] > 0):
 // Sidebar button
 echo "<div id='sidebar-entry-info-button-wrapper'>";
 	echo "<div class='navigation-header-item' id='sidebar-entry-info-button' role='button' tabindex='0' on='tap:sidebar-entry-info.toggle'>≡ Entry details</div>";
-	endif;
+	echo "</div>";
 
 // Sidebar
 echo "<amp-sidebar id='sidebar-entry-info' layout='nodisplay' side='right'>";
