@@ -851,7 +851,8 @@ ol ul, ol ol, ol amp-list,
 amp-list ul, amp-list ol, amp-list amp-list {
 	width: auto;
 	max-width: none;
-	margin: 5px; }
+	margin: 5px;
+	borer-bottom: 2px solid rgba(200,200,200,0.5); }
 
 li {
 	padding: 4px 0 9px 15px;
@@ -864,16 +865,6 @@ ul > li, amp-list li {
 
 ul > li:last-child, amp-list > li:last-child {
 	padding-bottom: 20px; }
-
-ul > li:last-child::after, amp-list > li:last-child::after {
-	content: ' ';
-	display: block;
-	position: absolute;
-	left: 0;
-	bottom: 0;
-	width: 150px;
-	height: 2px;
-	background: rgba(200,200,200,0.5); }
 
 ul > li:before, amp-list > li:before {
 	content: ' ';
