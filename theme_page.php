@@ -54,10 +54,10 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 			endforeach;
 
 		 // Pluralize
-		if ($count_temp > 1): $echo_section .= "<li class='article-info-section-caption'>". $descriptor_temp ." / ".$header_frontend." (".number_format($count_temp)." results)</li>" . $echo_section_temp; endif;
+		if ($count_temp > 1): $echo_section .= "<li>". $descriptor_temp ." / ".$header_frontend." (".number_format($count_temp)." results)<ul>" . $echo_section_temp ."</ul></li>"; endif;
 
 		// Do not pluralize
-		if ($count_temp == 1): $echo_section .= "<li class='article-info-section-caption'>". $descriptor_temp ." / ".$header_frontend." (".number_format($count_temp)." result)</li>" . $echo_section_temp; endif;
+		if ($count_temp == 1): $echo_section .= "<li>". $descriptor_temp ." / ".$header_frontend." (".number_format($count_temp)." result)<ul>" . $echo_section_temp ."</ul></li>"; endif;
 
 		endforeach;
 	
@@ -65,10 +65,10 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 	if (empty($counter_section)): return; endif;
 
 	// If there are paths spread across multiple types, then give an overall sum
-	if (count($counter_section) > 1): $echo_section = "<li class='article-info-section-caption'>".$descriptor_temp." / ".number_format(array_sum($counter_section))." total results</li>" . $echo_section; endif;
+//	if (count($counter_section) > 1): $echo_section = "<li>".$descriptor_temp." / ".number_format(array_sum($counter_section))." total results</li>" . $echo_section; endif;
 
 	// Wrap it up
-	$echo_section = "<li><ul>" . $echo_section . "</ul></li>";
+//	$echo_section = "<li><ul>" . $echo_section . "</ul></li>";
 	
 	echo $echo_section; }
 
@@ -81,7 +81,8 @@ echo "<div class='navigation-header-item' role='button' tabindex='0' on='tap:sid
 // Crumbs and GPS ...
 echo "<amp-sidebar id='sidebar-article-info' layout='nodisplay' side='right' class='article-info'>";
 
-	echo "<ul><li>Metadata";
+	echo "<ul>";
+	echo "<li>Metadata";
 		echo "<ul>";
 		echo "<li>Type: <a href='/".$entry_info['type']."/'>".$header_array[$entry_info['type']]."</a></li>"; // Type
 		echo "<li>Published: ".date("Y F d", strtotime($entry_info['date_published']))."</li>"; // Date published
