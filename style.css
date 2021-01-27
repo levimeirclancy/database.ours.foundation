@@ -352,6 +352,7 @@ h4, h5, h6 {
 .sidebar-entry-info-list-item {
 	font-size: 90%;
 	font-family: Arial, Helvetica, 'Sans Serif';
+	line-height: 1em;
 	display: block;
 	text-overflow: ellipsis;
 	white-space: nowrap;
