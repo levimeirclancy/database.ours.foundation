@@ -13,6 +13,7 @@ foreach ($result as $row):
 function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 	
 	global $information_array;
+	global $header_array;
 
 	// If empty, just move on
 	if (empty($information_array[$entry_id][$hierarchy_temp]['hierarchy'])): return; endif;
@@ -38,12 +39,19 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 	if (empty($array_output_temp)): return; endif;
 		
 	// Finally echo it out
-	echo "<div class='article-info-section'>";
-	echo "<span class='article-info-section-caption'>". $descriptor_temp ." list</span>";
-	foreach ($array_output_temp as $entry_id_temp => $entry_header_temp):
-		echo "<span class='article-info-section-item'><a href='/".$entry_id_temp."/'>".$entry_header_temp."</a></span>";
-		endforeach;
-	echo "</div>"; }
+	foreach ($header_array as $header_backend => $header_frontend):
+		$echo_temp = $counter_temp = null;
+		$echo_temp .= "<div class='article-info-section'>";
+		$echo_temp .= "<span class='article-info-section-caption'>". $descriptor_temp ." list - ".$header_frontend."</span>";
+		foreach ($array_output_temp as $entry_id_temp => $entry_header_temp):
+			if ($information_array[$entry_id_temp]['type'] !== $header_backend): continue; endif;
+			$echo_temp .= "<span class='article-info-section-item'><a href='/".$entry_id_temp."/'>".$entry_header_temp."</a></span>";
+			$counter_temp++
+			endforeach;
+		echo "</div>";
+		if (empty($counter_temp)): continue; endif;
+		echo $echo_temp;
+		endforeach; }
 
 echo "<article><div vocab='http://schema.org/' typeof='Article'>";
 
@@ -92,9 +100,14 @@ echo "<div class='article-info' amp-fx='parallax' data-parallax-factor='1.2'>";
 	relationships_array($page_temp, "children", "Subpage");
 
 	// Add a relationships_array for mentions
-//	$search = "/api/search/?search=test";
-
-	// Add one for mentions
+	$search_results = file_get_contents("/api/search/?search={{{".$page_temp."}}}");
+	$search_results = json_decode($search_results, true);
+	if ($search_results['searchCount'] > 0):
+		foreach($search_results['searchResults'] as $entry_info_temp):
+			$information_array[$page_temp]['mentions']]['hierarchy'][] = $entry_info_temp['entry_id'];
+			endforeach;
+		relationships_array($page_temp, "mentions", "Mentions");
+		endif;
 
 	echo "</div>";
 
