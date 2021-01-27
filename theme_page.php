@@ -111,14 +111,14 @@ if ($search_results['searchCount'] > 0):
 	endif;
 
 // Sidebar button
-echo "<div id='sidebar-entry-info-button-wrapper'>";
+echo "<div id='sidebar-entry-info-button-wrapper' amp-fx='parallax' data-parallax-factor='1.1'>";
 	echo "<div class='navigation-header-item' id='sidebar-entry-info-button' role='button' tabindex='0' on='tap:sidebar-entry-info.toggle'>≡ Entry details</div>";
 	echo "</div>";
 
 // Sidebar
 echo "<amp-sidebar id='sidebar-entry-info' layout='nodisplay' side='right'>";
 	echo "<ul class='sidebar-entry-info-list'>";
-	echo "<li>Metadata";
+	echo "<li><span class='sidebar-entry-info-list-item'>Metadata</span>";
 		echo "<ul>";
 		echo "<li><span class='sidebar-entry-info-list-item'>Type: <a href='/".$entry_info['type']."/'>".$header_array[$entry_info['type']]."</a></span></li>"; // Type
 		echo "<li><span class='sidebar-entry-info-list-item'>Published: ".date("Y F d", strtotime($entry_info['date_published']))."</span></li>"; // Date published
