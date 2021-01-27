@@ -106,6 +106,7 @@ echo "<div class='article-info' amp-fx='parallax' data-parallax-factor='1.2'>";
 print_r($information_array[$entry_id_temp]['parents']);
 			$grandparents_array = array_merge($grandparents_array, $information_array[$entry_id_temp]['parents']['hierarchy']);
 			endforeach;
+print_r($grandparents_array);
 		if (!(empty($grandparents_array))):
 			$grandparents_array = array_diff($grandparents_array, $information_array[$page_temp]['parents']['hierarchy']);
 			$grandparents_array = array_diff($grandparents_array, $information_array[$page_temp]['children']['hierarchy']);
