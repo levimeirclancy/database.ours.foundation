@@ -53,16 +53,13 @@ a, a:link, a:visited, a:hover {
 	}
 
 #navigation-header {
-	position: absolute;
 	box-sizing: border-box;
-	left: 0;
-	top: 0;
-	right: 0;
 	width: 100%;
 	background: rgba(255,255,255,1);
 	box-shadow: 0 5px 40px -13px rgba(50,50,50,0.3);
 	padding: 10px;
 	z-index: 100;
+	margin: 0 0 50px 0;
 	}
 
 .navigation-header-item, .lightboxes-close, .sidebar-back {
@@ -341,6 +338,9 @@ h4, h5, h6 {
 	}
 
 #sidebar-entry-info {
+	}
+
+.class='sidebar-entry-info-list {
 	font-size: 90%;
 	font-family: Verdana, Helvetica, 'Sans Serif';
 	}
