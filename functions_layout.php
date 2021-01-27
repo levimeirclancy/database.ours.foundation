@@ -232,7 +232,7 @@ function amp_header($title=null, $canonical=null) {
 		echo "</amp-sidebar>";
 	
 	// This is the popover to log in ...
-	echo "<amp-lightbox id='login-popover' on=\"lightboxClose:navigation-header.show;lightboxOpen:begin-image.hide,sidebar-navigation.close,settings-popover.close,new-popover.close,navigation-header.hide,AMP.setState({inputPasswordType: 'password'})\" layout='nodisplay'>";
+	echo "<amp-lightbox id='login-popover' on=\"lightboxClose:navigation-header.show;lightboxOpen:begin-image.hide,sidebar-navigation.close,settings-popover.close,new-popover.close,navigation-header.hide,AMP.setState({pageState:{login: {inputPasswordType: 'password'}}})\" layout='nodisplay'>";
 
 		echo "<span role='button' tabindex='0' on='tap:".$navigation_lightboxes."' class='lightboxes-close'>Close</span>";
 
@@ -257,9 +257,11 @@ function amp_header($title=null, $canonical=null) {
 		echo "<input type='email' id='checkpoint_email' name='checkpoint_email' placeholder='E-mail address' required>";
 
 		echo "<label for='checkpoint_password'>Password</label>";
-		echo "<input type='password' [type]=\"inputPasswordType\" id='checkpoint_password' name='checkpoint_password' placeholder='Password' required>";
-		echo "<span class='password-toggle' role='button' tabindex='0' id='inputPasswordTypeText' on=\"tap:AMP.setState({inputPasswordType: 'text'}),inputPasswordTypeText.hide,inputPasswordTypePassword.show\">Show password</span>";
-		echo "<span class='password-toggle' role='button' tabindex='0' id='inputPasswordTypePassword' on=\"tap:AMP.setState({inputPasswordType: 'password'}),inputPasswordTypeText.show,inputPasswordTypePassword.hide\" hidden>Hide password</span>";
+		echo "<input type='password' [type]=\"pageState.login.inputPasswordType\" id='checkpoint_password' name='checkpoint_password' placeholder='Password' required>";
+		echo "<span class='password-toggle' role='button' tabindex='0' id='inputPasswordTypeText' on=\"tap:AMP.setState({pageState:{login: {inputPasswordType: 'text'}}}),inputPasswordTypeText.hide,inputPasswordTypePassword.show\">Show password</span>";
+		echo "<span class='password-toggle' role='button' tabindex='0' id='inputPasswordTypePassword' on=\"tap:AMP.setState({pageState:{login: {inputPasswordType: 'password'}}}),inputPasswordTypeText.show,inputPasswordTypePassword.hide\" hidden>Hide password</span>";
+	
+	
 	
 		echo "<br><span id='login-popover-submit' role='button' tabindex='0' on='tap:login.submit'>Log in</span>";
 
