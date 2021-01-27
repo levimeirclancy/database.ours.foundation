@@ -304,6 +304,7 @@ h1 span {
 	}
 
 h1 {
+	margin: 60px 0;
 	font-size: 170%;
 	line-height: 130%;
 	}
@@ -333,58 +334,19 @@ h4, h5, h6 {
 	padding: 8px 12px;
 	}
 
-.article-info {
-	display: block;
-	position: relative;
-	padding: 0;
-	margin: 0 0 100px 0;
+#sidebar-article-info-button {
+	position: absolute;
+	top: 30px;
+	right: 30px;
 	}
 
-.article-info-section {
-	margin: 20px;
-	padding: 20px;
-	border-width: 2px 0 2px 0;
-	border-style: solid;
-	border-color: #555;
-	display: block;
-	column-width: 300px;
-	column-count: auto;
-	column-gap: 30px;
-	clear: both;
-	text-align: left;
+#sidebar-article-info {
+	font=size: 90px;
+	font-family: Verdana, Helvetica, 'Sans Serif';
 	}
-
-.article-info-section + .article-info-section {
-	border-width: 0 0 2px 0;
-	padding-top: 0;
-	}
-
-.article-info-section-caption {
-	display: block;
-	column-span: all;
-	padding: 0;
-	margin: 0;
-	font-family: Assistant;
-	font-size: 80%;
-	}
-
-.article-info-section-item {
-	display: inline-block;
-	white-space: nowrap;
-	overflow: hidden;
-	clear: both;
-	text-overflow: ellipsis;
-	width: 300px;
-	box-sizing: border-box;
-	padding: 5px 5px 0 0;
-	margin: 0;
-	font-family: Roboto, Helvetica;
-	font-size: 80%;
-	line-height: 1em;
-	}
-
 
 body, article {
+	position: relative;
 	}
 
 span, div {
