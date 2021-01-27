@@ -179,8 +179,7 @@ function amp_header($title=null, $canonical=null) {
 		]);		
 	
 	// This is the popover for the categories ...;
-//	echo "<amp-sidebar class='sidebar' id='sidebar-navigation' layout='nodisplay' side='left' on='sidebarClose:navigation-header.show;sidebarOpen:begin-image.hide,login-popover.close,settings-popover.close,new-popover.close'>";
-	echo "<amp-sidebar class='sidebar' id='sidebar-navigation' layout='nodisplay' side='left' on='sidebarOpen:begin-image.hide,login-popover.close,settings-popover.close,new-popover.close'>";
+	echo "<amp-sidebar id='sidebar-navigation' layout='nodisplay' side='left' on='sidebarOpen:begin-image.hide,login-popover.close,settings-popover.close,new-popover.close'>";
 
 		echo "<div class='sidebar-back' on='tap:".$navigation_lightboxes."' role='button' tabindex='0'>Close</div>";
 	
@@ -202,7 +201,7 @@ function amp_header($title=null, $canonical=null) {
 		echo "</amp-sidebar>";
 	
 	// This is the popover for the categories ...;
-	echo "<amp-sidebar class='sidebar' id='sidebar-search' layout='nodisplay' side='left' on='sidebarOpen:begin-image.hide,login-popover.close,settings-popover.close,new-popover.close'>";
+	echo "<amp-sidebar id='sidebar-search' layout='nodisplay' side='left' on='sidebarOpen:begin-image.hide,login-popover.close,settings-popover.close,new-popover.close'>";
 	
 		echo "<div class='sidebar-back' on='tap:".$navigation_lightboxes."' role='button' tabindex='0'>Close</div>";
 		
@@ -279,12 +278,10 @@ function amp_header($title=null, $canonical=null) {
 	
 		echo "<label>Enter new e-mail address</label>";
 		echo "<input name='checkpoint_newemail'>";
-		echo "update email";
 
 		echo "<label>Enter new password</label>";
 		echo "<input name='checkpoint_newpassword'>";
 		echo "<input name='checkpoint_newpassword'>";
-		echo "update password";	
 	
 		echo "</amp-lightbox>";
 
