@@ -55,21 +55,23 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 
 		 // Pluralize
 		if ($count_temp > 1): $results_temp = "results";
-		if ($count_temp == 1): $results_temp = "result");
+		if ($count_temp == 1): $results_temp = "result";
 		else: continue; endif;
 	
 		$echo_section .= "<li><b><span class='sidebar-entry-info-list-item'>".$descriptor_temp." / <a href='/".$header_backend."/'>".$header_frontend."</a> (".number_format($count_temp)." ".$results_temp.")</span></b>" . $echo_section_temp .""; endif;
 
 		endforeach;
 	
-	 // Pluralize
-	if ($counter_section > 1): $results_temp = "results";
-	if ($counter_section == 1): $results_temp = "result");
-	else: return "<ul><li><b><span class='sidebar-entry-info-list-item'>".$descriptor_temp."</span></b><ul><li>No results</li></ul></li></ul>"; endif;
-
-	$echo_section = "<ul><li><b><span class='sidebar-entry-info-list-item'>".$descriptor_temp." (". number_format($counter_section). " ". $results_temp .")</span></b><ul>" . $echo_section . "</ul></li></ul>";
+	$echo_section = "<ul>".$echo_section."</ul>";
 	
-	echo $echo_section; }
+	// Pluralize
+	if ($counter_section > 1): $results_temp = "results";
+	if ($counter_section == 1): $results_temp = "result";
+	else: $echo_section = null; endif;
+
+	$echo_section_final = "<ul><li><b><span class='sidebar-entry-info-list-item'>".$descriptor_temp." (". number_format($counter_section). " ". $results_temp .")</span></b><ul>" . $echo_section . "</ul></li></ul>";
+	
+	echo $echo_section_final; }
 
 // Check for language and content
 $languages_temp = [];
