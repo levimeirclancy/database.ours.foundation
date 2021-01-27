@@ -854,7 +854,7 @@ amp-list ul, amp-list ol, amp-list amp-list {
 	margin: 5px; }
 
 li {
-	padding: 4px 0 9px 20px;
+	padding: 4px 0 9px 15px;
 	margin: 0;
 	position: relative; }
 
@@ -911,7 +911,6 @@ amp-sidebar ul li, amp-sidebar ol li, amp-sidebar amp-list li {
 	white-space: nowrap;
 	overflow: hidden;
 	}
-
 
 li.unnested-list-item {
 	margin: 0;
