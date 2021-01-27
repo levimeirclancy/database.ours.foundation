@@ -54,14 +54,14 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 			endforeach;
 
 		 // Pluralize
-		if ($count_temp > 1): $results_temp = "results";
-		elseif ($count_temp == 1): $results_temp = "result";
+		if ($count_temp > 1): $results_temp = "(".number_format($count_temp)." results)";
+		elseif ($count_temp == 1): $results_temp = null;
 		else: continue; endif;
 	
 		$echo_section .=	"<li><i><span class='sidebar-navigation-item-title'>".
 					$descriptor_temp.
 					" / <a href='/".$header_backend."/'>".$header_frontend."</a>".
-					" (".number_format($count_temp)." ".$results_temp.")</span></i></li>".
+					" ".$results_temp."</span></i></li>".
 					$echo_section_temp;
 
 		endforeach;
