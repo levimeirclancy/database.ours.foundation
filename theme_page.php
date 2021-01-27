@@ -113,7 +113,7 @@ if ($search_results['searchCount'] > 0):
 // Crumbs and GPS ...
 echo "<div class='navigation-header-item' id='sidebar-entry-info-button' role='button' tabindex='0' on='tap:sidebar-entry-info.toggle'>≡ Entry details</div>";
 echo "<amp-sidebar id='sidebar-entry-info' layout='nodisplay' side='right'>";
-	echo "<ul>";
+	echo "<ul class='sidebar-entry-info-list'>";
 	echo "<li>Metadata";
 		echo "<ul>";
 		echo "<li>Type: <a href='/".$entry_info['type']."/'>".$header_array[$entry_info['type']]."</a></li>"; // Type
@@ -145,7 +145,7 @@ echo "<header><h1 property='name' amp-fx='parallax' data-parallax-factor='1.3'>"
 echo "<span property='articleBody'>";
 
 if (empty($languages_temp)):
-	echo "<ul>";
+	echo "<ul class='sidebar-entry-info-list'>";
 	relationships_array($page_temp, "children", "Hierarchy / Subpages");
 	echo "</ul>";
 	endif;
