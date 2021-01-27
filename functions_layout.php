@@ -178,19 +178,17 @@ function amp_header($title=null, $canonical=null) {
 		"sidebar-search.close",
 		]);		
 	
-	// This is the popover for the categories ...;
+	// Open a navigation in current or new tab
+	$target_temp = "target='_self'"; // Open category page in a new tab
+	if ($command_temp == "edit"): $target_temp = "target='_blank'"; endif; // Open category page in current tab
+
+	// This is the popover for the categories
 	echo "<amp-sidebar id='sidebar-navigation' layout='nodisplay' side='left' on='sidebarOpen:begin-image.hide,login-popover.close,settings-popover.close,new-popover.close'>";
 
 		echo "<div class='sidebar-back' on='tap:".$navigation_lightboxes."' role='button' tabindex='0'>Close</div>";
 	
 		echo "<ul>";
 		
-//		echo "<li class='sidebar-navigation-item'><div class='sidebar-navigation-item-title' amp-nested-submenu-open>About</div></li>";
-
-		// Open a category page in current or new tab
-		$target_temp = "target='_self'"; // Open category page in a new tab
-		if ($command_temp == "edit"): $target_temp = "target='_blank'"; endif; // Open category page in current tab
-	
 		foreach ($header_array as $header_backend => $header_frontend):
 			echo "<li class='sidebar-navigation-item'><a href='/".$header_backend."/' ".$target_temp.">";
 			echo "<div class='sidebar-navigation-item-title'>". ucfirst($header_frontend) ."</div></a></li>";
@@ -200,7 +198,7 @@ function amp_header($title=null, $canonical=null) {
 	
 		echo "</amp-sidebar>";
 	
-	// This is the popover for the categories ...;
+	// This is the popover for searching
 	echo "<amp-sidebar id='sidebar-search' layout='nodisplay' side='left' on='sidebarOpen:begin-image.hide,login-popover.close,settings-popover.close,new-popover.close'>";
 	
 		echo "<div class='sidebar-back' on='tap:".$navigation_lightboxes."' role='button' tabindex='0'>Close</div>";
@@ -213,9 +211,6 @@ function amp_header($title=null, $canonical=null) {
 
 		echo "<li class='sidebar-navigation-item' fallback><span class='sidebar-navigation-item-title'>No search results.</span></li>";
 		echo "<li class='sidebar-navigation-item' placeholder><span class='sidebar-navigation-item-title'>Loading search results...</span></li>";
-
-		$target_temp = "target='_self'"; // Open search result in a new tab
-		if ($command_temp == "edit"): $target_temp = "target='_blank'"; endif; // If not editing, then by default open search result in current tab
 
 		echo "<template type='amp-mustache'>";
 			echo "<li class='sidebar-navigation-item'><a href='/{{entry_id}}/' ".$target_temp."><span class='sidebar-navigation-item-title' [text]='{{header}}'>{{header}}</span></a></li>";
