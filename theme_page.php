@@ -96,13 +96,29 @@ echo "<div class='article-info' amp-fx='parallax' data-parallax-factor='1.2'>";
 
 	echo "</div>";
 
-	relationships_array($page_temp, "parents", "Parent");
-	relationships_array($page_temp, "children", "Subpage");
+	// Find grandparents
+	if (isset($information_array[$page_temp]['parents']['hierarchy'])):
+		$grandparents_array = []
+		foreach ($information_array[$page_temp]['parents']['hierarchy'] as $entry_id_temp):
+			if (!(isset($information_array[$entry_id_temp]['parents']['hierarchy']))): continue; endif;
+			if (empty($information_array[$entry_id_temp]['parents']['hierarchy'])): continue; endif;
+			$grandparents_array = array_merge($grandparents_array, $information_array[$entry_id_temp]['parents']['hierarchy']);
+			endforeach;
+		if (!(empty($grandparents_array))):
+			$information_array[$page_temp]['grandparents'] = [ "hierarchy" => [] ];
+			$information_array[$page_temp]['grandparents']['hierarchy'] = $grandparents_array;
+			relationships_array($page_temp, "grandparents", "Parents of parent pages");
+			endif;
+		endif;
+
+	relationships_array($page_temp, "parents", "Parent pages");
+	relationships_array($page_temp, "children", "Subpages");
 
 	// Add a relationships_array for mentions
 	$search_results = file_get_contents("https://".$domain."/api/search/?search={{{".$page_temp."}}}");
 	$search_results = json_decode($search_results, true);
 	if ($search_results['searchCount'] > 0):
+		$information_array[$page_temp]['mentions'] = [ "hierarchy" => [] ];
 		foreach($search_results['searchResults'] as $entry_info_temp):
 			if (in_array($entry_info_temp['entry_id'], $information_array[$page_temp]['parents']['hierarchy'])): continue; endif;
 			if (in_array($entry_info_temp['entry_id'], $information_array[$page_temp]['children']['hierarchy'])): continue; endif;
