@@ -854,37 +854,36 @@ amp-selector span[disabled] {
 
 
 
-/* List */
+/* Lists ... ul, ol, amp-list */
 
-ul, ol {
+ul, ol, amp-list {
 	width: auto;
 	max-width: 850px;	
 	margin: 30px 10px 30px;
-	padding: 0 5px;
+	padding: 5px;
 	list-style-position: outside;
 	line-height: 1.5; }
 
-ul ul, ol ol, ul ol,  ol ul {
+ul ul, ul ol, ul amp-list,
+ol ul, ol ol, ol amp-list,
+amp-list ul, amp-list ol, amp-list amp-list {
 	width: auto;
 	max-width: none;
-	margin: 5px 0 0 5px; }
+	margin: 5px; }
 
 li {
 	padding: 4px 0 9px 20px;
 	margin: 0;
 	position: relative; }
 
-li ul + ul, li ol + ol, li ul + ol, li ol + ul {
-	margin-top: 20px; }
-
-ul > li {
+ul > li, amp-list li {
 	border-left: 2px solid rgba(200,200,200,0.5);
 	list-style-type: none; }
 
-ul > li:last-child {
+ul > li:last-child, amp-list > li:last-child {
 	padding-bottom: 20px; }
 
-ul > li:last-child::after {
+ul > li:last-child::after, amp-list > li:last-child::after {
 	content: ' ';
 	display: block;
 	position: absolute;
@@ -894,7 +893,7 @@ ul > li:last-child::after {
 	height: 2px;
 	background: rgba(200,200,200,0.5); }
 
-ul > li:before {
+ul > li:before, amp-list > li:before {
 	content: ' ';
 	display: block;
 	width: 12px;
