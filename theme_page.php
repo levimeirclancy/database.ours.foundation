@@ -54,21 +54,20 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 			endforeach;
 
 		 // Pluralize
-		if ($count_temp > 1): $echo_section .= "<ul><li><b><span class='sidebar-entry-info-list-item'>".$descriptor_temp." / <a href='/".$header_backend."/'>".$header_frontend."</a> (".number_format($count_temp)." results)</span></b>" . $echo_section_temp ."</ul>"; endif;
-
-		// Do not pluralize
-		if ($count_temp == 1): $echo_section .= "<ul><li><b><span class='sidebar-entry-info-list-item'>".$descriptor_temp." / <a href='/".$header_backend."/'>".$header_frontend."</a> (".number_format($count_temp)." result)</span></b>" . $echo_section_temp ."</ul>"; endif;
+		if ($count_temp > 1): $results_temp = "results";
+		if ($count_temp == 1): $results_temp = "result");
+		else: continue; endif;
+	
+		$echo_section .= "<li><b><span class='sidebar-entry-info-list-item'>".$descriptor_temp." / <a href='/".$header_backend."/'>".$header_frontend."</a> (".number_format($count_temp)." ".$results_temp.")</span></b>" . $echo_section_temp .""; endif;
 
 		endforeach;
 	
-	// If there are no paths in this hierarchy
-	if (empty($counter_section)): return; endif;
+	 // Pluralize
+	if ($counter_section > 1): $results_temp = "results";
+	if ($counter_section == 1): $results_temp = "result");
+	else: return "<ul><li><b><span class='sidebar-entry-info-list-item'>".$descriptor_temp."</span></b><ul><li>No results</li></ul></li></ul>"; endif;
 
-	// If there are paths spread across multiple types, then give an overall sum
-//	if (count($counter_section) > 1): $echo_section = "<li>".$descriptor_temp." / ".number_format(array_sum($counter_section))." total results</li>" . $echo_section; endif;
-
-	// Wrap it up
-	$echo_section = "<ul><li><b><span class='sidebar-entry-info-list-item'>".$descriptor_temp."</span></b>" . $echo_section . "</li></ul>";
+	$echo_section = "<ul><li><b><span class='sidebar-entry-info-list-item'>".$descriptor_temp." (". number_format($counter_section). " ". $results_temp .")</span></b><ul>" . $echo_section . "</ul></li></ul>";
 	
 	echo $echo_section; }
 
@@ -135,11 +134,11 @@ echo "<amp-sidebar id='sidebar-entry-info' layout='nodisplay' side='right'>";
 			endif;
 		echo "</ul></li>";
 
-	echo "<li><b>Hierarchy</b>";
-	relationships_array($page_temp, "grandparents", "Hierarchy / Parents of parent pages");
-	relationships_array($page_temp, "parents", "Hierarchy / Parent pages");
-	relationships_array($page_temp, "children", "Hierarchy / Subpages");
-	relationships_array($page_temp, "mentions", "Mentions");
+	echo "<li><b>Relations</b>";
+	relationships_array($page_temp, "grandparents", "Relations / Parents of parent pages");
+	relationships_array($page_temp, "parents", "Relations / Parent pages");
+	relationships_array($page_temp, "children", "Relations / Subpages");
+	relationships_array($page_temp, "mentions", "Relations / Mentions");
 	echo "</li>";
 
 	echo "</ul>";
