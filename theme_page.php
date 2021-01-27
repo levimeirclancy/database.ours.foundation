@@ -135,7 +135,7 @@ echo "<amp-sidebar id='sidebar-article-info' layout='nodisplay' side='right' cla
 		endif;
 
 	relationships_array($page_temp, "grandparents", "Hierarchy / Parents of parent pages");
-	relationships_array($page_temp, "parents", "Hierarchy / Parent pages)");
+	relationships_array($page_temp, "parents", "Hierarchy / Parent pages");
 	relationships_array($page_temp, "children", "Hierarchy / Subpages");
 	relationships_array($page_temp, "mentions", "Mentions");
 
