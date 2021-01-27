@@ -348,11 +348,7 @@ h4, h5, h6 {
 .sidebar-entry-info-list {
 	}
 
-.sidebar-entry-info-list li, .sidebar-entry-info-list li ul li {
-	font-family: inherit;
-	}
-
-.sidebar-entry-info-list-item
+.sidebar-entry-info-list-item {
 	font-size: 90%;
 	font-family: Arial, Helvetica, 'Sans Serif';
 	}
