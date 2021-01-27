@@ -117,7 +117,7 @@ if (empty($languages_temp)):
 	echo "<div id='sidebar-article-info' class='article-info'>";
 elseif (!(empty($languages_temp))):
 	echo "<div class='navigation-header-item' role='button' tabindex='0' on='tap:sidebar-article-info.toggle'>Entry details</div>";
-	echo "<amp-sidebar id='sidebar-article-info' layout='nodisplay' class='article-info'>";
+	echo "<amp-sidebar id='sidebar-article-info' layout='nodisplay' side='right' class='article-info'>";
 	endif;
 
 	echo "<ul>";
