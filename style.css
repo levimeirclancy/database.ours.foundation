@@ -350,6 +350,11 @@ h4, h5, h6 {
 	font-family: Verdana, Helvetica, 'Sans Serif';
 	}
 
+.sidebar-entry-info-list li, .sidebar-entry-info-list li ul li {
+	font-family: inherit;
+	}
+
+
 body, article {
 	position: relative;
 	}
