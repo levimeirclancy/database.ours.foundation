@@ -529,7 +529,7 @@ article ul, article ol {
 	width: auto;
 	max-width: 850px;	
 	margin: 30px 10px 30px;
-	padding: 0 0;
+	padding: 0 5px;
 	list-style-position: outside;
 	line-height: 1.5; }
 
