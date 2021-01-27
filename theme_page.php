@@ -57,7 +57,7 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 		if ($count_temp > 1): $echo_section .= "<span class='article-info-section-caption'>". $descriptor_temp ." / ".$header_frontend." (".number_format($counter_temp)." results)</span>" . $echo_section_temp; endif;
 
 		// Do not pluralize
-		elseif ($count_temp == 1): $echo_section .= "<span class='article-info-section-caption'>". $descriptor_temp ." / ".$header_frontend." (".number_format($counter_temp)." result)</span>" . $echo_section_temp;
+		if ($count_temp == 1): $echo_section .= "<span class='article-info-section-caption'>". $descriptor_temp ." / ".$header_frontend." (".number_format($counter_temp)." result)</span>" . $echo_section_temp;
 
 		endforeach;
 	
