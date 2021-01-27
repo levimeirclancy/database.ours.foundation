@@ -100,8 +100,8 @@ if (!(empty($_COOKIE['cookie']))):
 
 // this is the header index
 $header_array = [
-	"location"	=> "Regions",
-	"village"	=> "Villages",
+	"regions"	=> "Regions",
+	"village"	=> "Settlements",
 	"place"		=> "Places",
 	"person"	=> "People",
 	"party"		=> "Parties",
