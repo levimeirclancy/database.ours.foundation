@@ -182,10 +182,10 @@ function amp_header($title=null, $canonical=null) {
 //	echo "<amp-sidebar class='sidebar' id='sidebar-navigation' layout='nodisplay' side='left' on='sidebarClose:navigation-header.show;sidebarOpen:begin-image.hide,login-popover.close,settings-popover.close,new-popover.close'>";
 	echo "<amp-sidebar class='sidebar' id='sidebar-navigation' layout='nodisplay' side='left' on='sidebarOpen:begin-image.hide,login-popover.close,settings-popover.close,new-popover.close'>";
 
+		echo "<div class='sidebar-back' on='tap:".$navigation_lightboxes."' role='button' tabindex='0'>Close</div>";
+	
 		echo "<ul>";
-	
-		echo "<li class='sidebar-navigation-close'><div class='sidebar-back' on='tap:".$navigation_lightboxes."' role='button' tabindex='0'>Close</div></li>";
-	
+		
 //		echo "<li class='sidebar-navigation-item'><div class='sidebar-navigation-item-title' amp-nested-submenu-open>About</div></li>";
 
 		// Open a category page in current or new tab
@@ -203,11 +203,11 @@ function amp_header($title=null, $canonical=null) {
 	
 	// This is the popover for the categories ...;
 	echo "<amp-sidebar class='sidebar' id='sidebar-search' layout='nodisplay' side='left' on='sidebarOpen:begin-image.hide,login-popover.close,settings-popover.close,new-popover.close'>";
-			
+	
+		echo "<div class='sidebar-back' on='tap:".$navigation_lightboxes."' role='button' tabindex='0'>Close</div>";
+		
 		echo "<ul>";
 	
-		echo "<li class='sidebar-navigation-close'><div class='sidebar-back' on='tap:".$navigation_lightboxes."' role='button' tabindex='0'>Close</div></li>";
-
 		echo "<li>";
 		echo "<label for='search-input'>Search the database</label>";
 		echo "<input type='text' id='search-input' required pattern=\".{1,}\" placeholder='...' on=\"input-throttled:AMP.setState({pageState:{searchTerm: event.value}}),sidebar-navigation-lightbox-search-list.changeToLayoutContainer()\">";
@@ -233,7 +233,7 @@ function amp_header($title=null, $canonical=null) {
 	// This is the popover to log in ...
 	echo "<amp-lightbox id='login-popover' on=\"lightboxClose:inputPasswordTypeText.show,inputPasswordTypePassword.hide,AMP.setState({pageState:{login: {inputPasswordType: 'password'}}});lightboxOpen:begin-image.hide,sidebar-navigation.close,settings-popover.close,new-popover.close,inputPasswordTypeText.show,inputPasswordTypePassword.hide,AMP.setState({pageState:{login: {inputPasswordType: 'password'}}})\" layout='nodisplay'>";
 
-		echo "<span role='button' tabindex='0' on='tap:".$navigation_lightboxes."' class='lightboxes-close'>Close</span>";
+		echo "<span role='button' tabindex='0' on='tap:".$navigation_lightboxes."' class='sidebar-back'>Close</span>";
 
 		echo "<form id='login' method='post' action-xhr='/login-xhr/' target='_blank' on=\"
 			submit:
