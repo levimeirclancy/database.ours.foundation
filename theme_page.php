@@ -74,8 +74,6 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 
 echo "<article><div vocab='http://schema.org/' typeof='Article'>";
 
-echo "<header><h1 property='name' amp-fx='parallax' data-parallax-factor='1.3'>" . $entry_info['header'] . "</h1></header>";
-
 // Check for language and content
 $languages_temp = [];
 if (!(empty($entry_info['summary']))): $languages_temp = array_merge($languages_temp, array_keys($entry_info['summary'])); endif;
@@ -113,7 +111,7 @@ if ($search_results['searchCount'] > 0):
 	endif;
 
 // Crumbs and GPS ...
-echo "<div class='navigation-header-item' role='button' tabindex='0' on='tap:sidebar-article-info.toggle'>Entry details</div>";
+echo "<div class='navigation-header-item' id='sidebar-article-info-button' role='button' tabindex='0' on='tap:sidebar-article-info.toggle'>≡ Entry details</div>";
 echo "<amp-sidebar id='sidebar-article-info' layout='nodisplay' side='right' class='article-info'>";
 	echo "<ul>";
 	echo "<li>Metadata";
@@ -142,7 +140,15 @@ echo "<amp-sidebar id='sidebar-article-info' layout='nodisplay' side='right' cla
 	echo "</ul>";
 	echo "</amp-sidebar>";
 
+echo "<header><h1 property='name' amp-fx='parallax' data-parallax-factor='1.3'>" . $entry_info['header'] . "</h1></header>";
+
 echo "<span property='articleBody'>";
+
+if (empty($languages_temp)):
+	echo "<ul>";
+	relationships_array($page_temp, "children", "Hierarchy / Subpages");
+	echo "</ul>";
+	endif;
 
 foreach ($languages_temp as $language_temp):
 	echo "<span id='".$language_temp."'></span>";
