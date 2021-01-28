@@ -883,7 +883,7 @@ ol ol ol {
 
 amp-sidebar ul, amp-sidebar ol, amp-sidebar amp-list {
 	font-family: Arial, Helvetica, 'Sans Serif';
-	margin: 30px 0 30px;
+	margin: 0;
 	}
 
 amp-sidebar ul > li:before, amp-sidebar ol > li:before, amp-sidebar amp-list > li:before {
