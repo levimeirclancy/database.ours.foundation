@@ -100,13 +100,13 @@ if (!(empty($_COOKIE['cookie']))):
 
 // this is the header index
 $header_array = [
+	"offices-units"	=> "Offices and units",
+	"demographic"	=> "Demographics",
+	"party"		=> "Parties",
 	"regions"	=> "Regions",
 	"settlements"	=> "Settlements",
 	"place"		=> "Places",
 	"person"	=> "People",
-	"party"		=> "Parties",
-	"demographic"	=> "Demographics",
-	"offices-units"	=> "Offices and units",
 	"article"	=> "Articles",
 	];
 
