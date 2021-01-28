@@ -143,12 +143,10 @@ echo "<amp-sidebar id='sidebar-entry-info' layout='nodisplay' side='right'>";
 			endif;
 		echo "</ul></li>";
 
-	echo "<li><b><span class='sidebar-navigation-item-title'>Relations</span></b>";
 	relationships_array($page_temp, "grandparents", "Relations / Parents of parent pages");
 	relationships_array($page_temp, "parents", "Relations / Parent pages");
 	relationships_array($page_temp, "children", "Relations / Subpages");
 	relationships_array($page_temp, "mentions", "Relations / Mentions");
-	echo "</li>";
 
 	echo "</ul>";
 	echo "</amp-sidebar>";
@@ -161,7 +159,7 @@ echo "<span property='articleBody'>";
 
 if (empty($languages_temp)):
 	echo "<ul class='sidebar-entry-info-list'>";
-	relationships_array($page_temp, "children", "Hierarchy / Subpages");
+	relationships_array($page_temp, "children", "Relations / Subpages");
 	echo "</ul>";
 	endif;
 
