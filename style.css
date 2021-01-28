@@ -848,11 +848,11 @@ ol ul, ol ol, ol amp-list,
 amp-list ul, amp-list ol, amp-list amp-list {
 	width: auto;
 	max-width: none;
-	margin: 6px;
+	margin: 6px 6px 0 6px;
 	}
 
 li {
-	padding: 6px;
+	padding: 6px 6px 0 6px;
 	margin: 0;
 	position: relative; }
 
