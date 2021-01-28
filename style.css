@@ -861,9 +861,6 @@ ul > li, amp-list li {
 	border-left: 2px solid rgba(200,200,200,0.5);
 	list-style-type: none; }
 
-ul > li:last-child, amp-list > li:last-child {
-	padding-bottom: 20px; }
-
 ul > li:before, amp-list > li:before {
 	content: ' ';
 	display: block;
