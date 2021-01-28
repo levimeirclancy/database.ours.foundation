@@ -853,7 +853,7 @@ amp-list ul, amp-list ol, amp-list amp-list {
 	}
 
 li {
-	padding: 3px 3px 3px 10px;
+	padding: 8px;
 	margin: 0;
 	position: relative; }
 
@@ -864,7 +864,7 @@ ul > li, amp-list li {
 ul > li:before, amp-list > li:before {
 	content: ' ';
 	display: block;
-	width: 9px;
+	width: 5px;
 	height: 2px;
 	background: rgba(200,200,200,0.5);
 	position: absolute;
