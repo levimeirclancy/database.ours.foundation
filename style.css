@@ -869,7 +869,7 @@ ul > li:before, amp-list > li:before {
 	height: 2px;
 	background: rgba(200,200,200,0.5);
 	position: absolute;
-	top: 20px;
+	top: 15px;
 	left: 0; }
 
 ol {
@@ -887,7 +887,7 @@ amp-sidebar ul, amp-sidebar ol, amp-sidebar amp-list {
 	}
 
 amp-sidebar ul > li:before, amp-sidebar ol > li:before, amp-sidebar amp-list > li:before {
-	top: 12px;
+	top: 14px;
 	}
 
 amp-sidebar ul li, amp-sidebar ol li, amp-sidebar amp-list li {
