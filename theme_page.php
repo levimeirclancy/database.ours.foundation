@@ -117,7 +117,7 @@ if ($search_results['searchCount'] > 0):
 	endif;
 
 // Sidebar button
-echo "<div id='sidebar-entry-info-button-wrapper' amp-fx='parallax' data-parallax-factor='1.1'>";
+echo "<div id='sidebar-entry-info-button-wrapper' amp-fx='parallax' data-parallax-factor='1.3'>";
 	echo "<div class='navigation-header-item' id='sidebar-entry-info-button' role='button' tabindex='0' on='tap:sidebar-entry-info.toggle'>≡ Entry details</div>";
 	echo "</div>";
 
