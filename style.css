@@ -838,7 +838,7 @@ ul, ol, amp-list {
 	width: auto;
 	max-width: 850px;	
 	margin: 30px 10px 30px;
-	padding: 0;
+	padding: 3px;
 	list-style-position: outside;
 	line-height: 1.5;
 	border-bottom: 2px solid rgba(200,200,200,0.5); }
@@ -848,12 +848,13 @@ ol ul, ol ol, ol amp-list,
 amp-list ul, amp-list ol, amp-list amp-list {
 	width: auto;
 	max-width: none;
-	margin: 6px 6px 0 6px;
+	margin: 3px;
+	padding: 3px;
 	}
 
 li {
-	padding: 6px 6px 0 6px;
-	margin: 0;
+	padding: 3px;
+	margin: 3px;
 	position: relative; }
 
 ul > li, amp-list li {
@@ -866,11 +867,11 @@ ul > li:last-child, amp-list > li:last-child {
 ul > li:before, amp-list > li:before {
 	content: ' ';
 	display: block;
-	width: 12px;
+	width: 9px;
 	height: 2px;
 	background: rgba(200,200,200,0.5);
 	position: absolute;
-	top: 15px;
+	top: 18px;
 	left: 0; }
 
 ol {
