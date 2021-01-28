@@ -841,8 +841,7 @@ ul, ol, amp-list {
 	padding: 0;
 	list-style-position: outside;
 	line-height: 1.4;
-	box-sizing: border-box;
-	border-bottom: 2px solid rgba(200,200,200,0.5); }
+	box-sizing: border-box; }
 
 ul ul, ul ol, ul amp-list,
 ol ul, ol ol, ol amp-list,
