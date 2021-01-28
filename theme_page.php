@@ -39,7 +39,8 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 	if (empty($array_output_temp)): return; endif;
 		
 	// Assecmble the section defaults
-	$echo_section = $counter_section = null;
+	$echo_section = [];
+	$counter_section = null;
 
 	foreach ($header_array as $header_backend => $header_frontend):
 		
@@ -58,7 +59,7 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 		elseif ($count_temp == 1): $results_temp = null;
 		else: continue; endif;
 	
-		$echo_section .=	"<li><i><span class='sidebar-navigation-item-title'>".
+		$echo_section[] =	"<li><i><span class='sidebar-navigation-item-title'>".
 					$descriptor_temp.
 					" / <a href='/".$header_backend."/'>".$header_frontend."</a>".
 					" ".$results_temp."</span></i></li>".
@@ -66,7 +67,7 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 
 		endforeach;
 	
-	$echo_section = "<ul>".$echo_section."</ul>";
+	$echo_section = "<ul>".implode("</ul><ul>", $echo_section)."</ul>";
 	
 	// Pluralize
 	if (array_sum($counter_section) > 1): $results_temp = "results";
