@@ -73,10 +73,10 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 	elseif (array_sum($counter_section) == 1): $results_temp = "result";
 	else: $echo_section = null; endif;
 
-	$echo_section_final = 		"<ul><li><b><span class='sidebar-navigation-item-title'>".
+	$echo_section_final = 		"<li><b><span class='sidebar-navigation-item-title'>".
 					$descriptor_temp.
 					" (". number_format(array_sum($counter_section)). " ". $results_temp .")</span></b>".
-					$echo_section . "</li></ul>";
+					$echo_section . "</li>";
 	
 	echo $echo_section_final; }
 
