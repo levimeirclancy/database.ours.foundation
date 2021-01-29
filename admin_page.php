@@ -165,7 +165,7 @@ foreach ($appendix_array as $appendix_key => $appendix_type):
 	create_inputs($entry_info, $appendix_key, str_replace("_", " ", $appendix_key), "input-text", "off");
 	endforeach;
 
-$possibilities_array = []
+$possibilities_array = [];
 foreach ($information_array as $entry_id_temp => $entry_info_temp):
 	$possibilities_array[$entry_id_temp] = $entry_info_temp['head'] . " • ". $site_info['category_array'][$entry_info_temp['type']];
 	endforeach;
