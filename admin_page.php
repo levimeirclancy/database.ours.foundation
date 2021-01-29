@@ -68,7 +68,7 @@ echo "<input type='hidden' name='entry_id' value='$page_temp'>";
 
 echo "<h1 amp-fx='parallax' data-parallax-factor='1.05'><a href='https://".$domain."/".$page_temp."/' target='_blank'>".$domain."/".$page_temp."/</a></h1>";
 
-function create_inputs($entry_info, $input_backend, $input_descriptor) {
+function create_inputs($entry_info, $input_backend, $input_descriptor, $input_type = "input-text", $language_toggle = "on") {
 	
 	global $site_info;
 	
@@ -89,36 +89,46 @@ function create_inputs($entry_info, $input_backend, $input_descriptor) {
 	foreach ($languages_array_temp as $language_temp):
 
 		$echo_temp = $button_hidden_temp = $input_hidden_temp = $value_temp = null;
-		$placeholder_temp = ucfirst($input_descriptor)." / ". ucfirst($language_temp);
-
-		if (isset($entry_info[$input_backend][$language_temp])):
-			$value_temp = trim($entry_info[$input_backend][$language_temp]);
+		
+		if ($language_toggle == "on"):
+			$placeholder_temp = ucfirst($input_descriptor)." / ". ucfirst($language_temp);
+			$id_temp = $input_backend."-".$language_temp;
+			$name_temp = $input_backend."[".$language_temp."]";
+			if (isset($entry_info[$input_backend][$language_temp])): $value_temp = trim($entry_info[$input_backend][$language_temp]); endif;
+		else:
+			$placeholder_temp = ucfirst($input_descriptor);
+			$id_temp = $input_backend;
+			$name_temp = $input_backend;
+			if (isset($entry_info[$input_backend])): $value_temp = trim($entry_info[$input_backend]); endif;
+			endif;
+			
+		if (!(empty($value_temp))):
 			$button_hidden_temp = "hidden";
 			$input_hidden_temp = null;
-		elseif (!(isset($entry_info[$input_backend][$language_temp]))):
+		elseif (empty($value_temp)):
 			$button_hidden_temp = null;
 			$input_hidden_temp = "hidden";
 			endif;
 
-		$echo_temp .= "<div class='input-button-wrapper'><span role='button' tabindex='0' class='input-button' id='admin-page-".$input_backend."-".$language_temp."-button' on='tap:admin-page-".$input_backend."-".$language_temp.".show,admin-page-".$input_backend."-".$language_temp."-button.hide' ".$button_hidden_temp.">Add ".ucfirst($language_temp)." ".$input_descriptor."</span></div>";
+		$echo_temp .= "<div class='input-button-wrapper'><span role='button' tabindex='0' class='input-button' id='admin-page-".$id_temp."-button' on='tap:admin-page-".$id_temp.".show,admin-page-".$id_temp."-button.hide' ".$button_hidden_temp.">Add ".$placeholder_temp."</span></div>";
 
-		$echo_temp .= "<div class='admin-page-input' id='admin-page-".$input_backend."-".$language_temp."' ".$input_hidden_temp.">";
-			$echo_temp .= "<label for='".$input_backend."[".$language_temp."]'>". $placeholder_temp ."</label>";
+		$echo_temp .= "<div class='admin-page-input' id='admin-page-".$id_temp."' ".$input_hidden_temp.">";
+			$echo_temp .= "<label for='".$name_temp."'>". $placeholder_temp ."</label>";
 	
-			if ($input_backend == "name"):
-				$echo_temp .= "<input id='".$input_backend."-".$language_temp."' name='".$input_backend."[".$language_temp."]' placeholder='". $placeholder_temp ."' value='".htmlspecialchars($value_temp, ENT_QUOTES)."' maxlength='70'>";
-			elseif ($input_backend == "body"):
-				$echo_temp .= "<textarea name='".$input_backend."[".$language_temp."]' placeholder='". $placeholder_temp ."' class='admin-page-form-".$input_backend."'>".$value_temp."</textarea>";
+			if ($input_type == "textarea"):
+				$echo_temp .= "<textarea name='".$name_temp."' placeholder='". $placeholder_temp ."' class='admin-page-form-".$input_backend."'>".$value_temp."</textarea>";
 			else:
-				$echo_temp .= "<input id='".$input_backend."-".$language_temp."' name='".$input_backend."[".$language_temp."]' placeholder='". $placeholder_temp ."' value='".htmlspecialchars($value_temp, ENT_QUOTES)."' maxlength='70'>";
+				$echo_temp .= "<input id='".$id_temp."' name='".$name_temp."' placeholder='". $placeholder_temp ."' value='".htmlspecialchars($value_temp, ENT_QUOTES)."' maxlength='150'>";
 				endif;	
 
-			$echo_temp .= "<div class='input-button-wrapper'><span class='input-button' role='button' tabindex='0' on='tap:admin-page-".$input_backend."-".$language_temp.".hide,admin-page-".$input_backend."-".$language_temp."-button.show'>Remove ".ucfirst($language_temp)." ".$input_descriptor."</span></div>";
+			$echo_temp .= "<div class='input-button-wrapper'><span class='input-button' role='button' tabindex='0' on='tap:admin-page-".$id_temp.".hide,admin-page-".$id_temp."-button.show'>Remove ".$placeholder_temp."</span></div>";
 			
 			$echo_temp .= "</div>";
 
 		echo $echo_temp; // Because it's stored as a string, we can also use this format to prepend or append onto $echo_section
 
+		if ($language_toggle !== "on"): break; endif; // If no more languages, stop there
+	
 		endforeach;
 	
 	}
@@ -126,15 +136,8 @@ function create_inputs($entry_info, $input_backend, $input_descriptor) {
 create_inputs($entry_info, "name", "title");
 // create_inputs($entry_info['alternate_name'], "alternate_name", "full name");
 create_inputs($entry_info, "summary", "headline");
-create_inputs($entry_info, "body", "body");
-
-echo "<h2>Studies</h2>";
-$placeholder_temp = "Studies";
-echo "<label for='studies'>". $placeholder_temp ."</label>";
-echo "<textarea name='studies' placeholder='". $placeholder_temp ."' class='admin-page-form-body'>".$entry_info['studies']."</textarea>";
-
-echo "<h2>Hierarchy</h2>";
-// echo "<p>The hierarchy is the entry's position downstream and upstream of other entries.</p>";
+create_inputs($entry_info, "body", "body", "textarea");
+create_inputs($entry_info, "body", "body", "textarea", "studies");
 
 function hierarchy_selector ($entry_id, $relationship_name, $possible_array) {
 
@@ -168,8 +171,6 @@ function hierarchy_selector ($entry_id, $relationship_name, $possible_array) {
 		endforeach;
 	echo "</amp-selector>"; }
 
-echo "<h2 id='relationality'>Relationality</h2>";
-
 echo "<input type='hidden' name='parents[]'>";
 echo "<input type='hidden' name='children[]'>";
 hierarchy_selector($page_temp, "parents", array_keys($information_array));
@@ -194,7 +195,6 @@ echo "<label for='date_published'>Published date (YYYY-MM-DD, e.g. 2020-01-25).<
 echo "<input type='date' id='date_published' name='date_published' value='".$entry_info['date_published']."'>";
 
 if (!(empty($appendix_array))):
-	echo "<h2 id='more'>More...</h2>";
 	foreach ($appendix_array as $appendix_key => $appendix_type):
 		$placeholder_temp = str_replace("_", " ", $appendix_key);
 		echo "<label for='appendix[".$appendix_key."]'>". $placeholder_temp ."</label>";
