@@ -254,8 +254,9 @@ if ($page_temp == "edit-xhr"):
 //		"alternate_name"	=> $_POST['alternate_name'],
 		"summary" 		=> $_POST['summary'],
 		"body"			=> $_POST['body'],
-		"studies"		=> $_POST['studies'],
-		"appendix"		=> $_POST['appendix'] ];
+		"studies"		=> null,
+		"appendix"		=> $_POST['appendix'],
+		];
 
 	$values_temp = clean_empty_array($values_temp);
 
