@@ -112,7 +112,6 @@ function create_inputs($entry_info, $input_backend, $input_descriptor, $input_ty
 			$echo_temp .= "<label for='".$name_temp."'>". $placeholder_temp ."</label>";
 	
 			if ($input_type == "textarea"):
-				$echo_temp .= "<input		name='".$name_temp."' type='hidden' value=''>";
 				$echo_temp .= "<textarea	name='".$name_temp."' placeholder='". $placeholder_temp ."' id='".$id_temp."'>".$value_temp."</textarea>";
 			else:
 				$echo_temp .= "<input		name='".$name_temp."' placeholder='". $placeholder_temp ."' id='".$id_temp."' value='".htmlspecialchars($value_temp, ENT_QUOTES)."' maxlength='150'>";
