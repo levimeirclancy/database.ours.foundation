@@ -8,6 +8,6 @@ $google_analytics_code = "";
 
 $domain = "";
 
-$publisher = $author = "Foundation of Ours";
+$publisher = $author = "";
 
 $color = ""; ?>
