@@ -10,4 +10,11 @@ $domain = "";
 
 $publisher = $author = "";
 
-$color = ""; ?>
+$color = "";
+
+// This is normally not changed,
+$site_info = [
+ "languages"=>["english", "hebrew", "sorani", "arabic"]];
+
+
+?>
