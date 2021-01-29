@@ -666,7 +666,7 @@ label, input, textarea, amp-selector, .input-button-wrapper {
 	outline: 0 none rgba(255,255,255,0);
 	}
 
-.input-button-wrapper {
+input + .input-button-wrapper, textarea + .input-button-wrapper, amp-selector + .input-button-wrapper {
 	text-align: right;
 	max-width: 850px;
 	}
