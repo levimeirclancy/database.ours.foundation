@@ -302,10 +302,9 @@ hr {
 	display: block;
 	clear: both;
 	text-align: center;
-	margin: 90px 0 110px;
-	height: 5px;
+	margin: 50px 0 100px;
+	height: 10px;
 	background: rgba(255,255,255,1);
-	box-shadow: 5px 5px 20px -2px rgba(50,50,50,0.3);
 	border: 0; }
 
 hr + hr {
