@@ -28,14 +28,6 @@ a, a:link, a:visited, a:hover {
 
 /* HEADER */
 
-#begin-image {
-	position: absolute;
-	top: 50px;
-	left: 50px;
-	max-width: 70%;
-	z-index: 101;
-	}
-
 #navigation-header {
 	box-sizing: border-box;
 	width: 100%;
