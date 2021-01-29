@@ -18,23 +18,6 @@ a, a:link, a:visited, a:hover {
 	padding: 0;
 	width: auto; 
 	max-width: 890px; }
-
-/* BAR */
-
-.header {
-	position: fixed;
-	bottom: 0;
-	right: 0;
-	background: none;
-	display: block;
-	padding: 0;
-	z-index: 100000; }
-	
-.header_button {
-	display: block;
-	margin: 10px 30px 10px 0;
-	font-size: 35px;
-	color: rgba(30,30,30,0.75); }
 	
 .float_left {
 	float: left; }
@@ -236,11 +219,7 @@ form {
 /* ARTICLE */
 
 header {
-	display: block;
-	margin: 50px 0;
-	padding: 20px;
-	width: 100%;
-	box-sizing: border-box;
+	display: contents;
 	}
 
 h1, h2, h3, h4, h5, h6 {
