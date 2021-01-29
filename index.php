@@ -15,8 +15,6 @@ $connection_pdo = new PDO(
 if (empty($connection_pdo)): echo "Could not connect to mySQL."; exit; endif;
 
 include_once('functions.php');
-
-$site_info = ["languages"=>["english", "hebrew", "sorani", "arabic"]];
 	
 $url_temp = $login = $page = $action = null;
 
@@ -97,19 +95,6 @@ if (!(empty($_COOKIE['cookie']))):
 		permanent_redirect("https://".$domain."/".$page_temp);
 		endif;
 	endif;
-
-// this is the header index
-$header_array = [
-	"offices-units"	=> "Offices and units",
-	"demographic"	=> "Demographics",
-	"party"		=> "Parties",
-	"regions"	=> "Regions",
-	"settlements"	=> "Settlements",
-	"place"		=> "Places",
-	"person"	=> "People",
-	"article"	=> "Articles",
-	];
-
 
 // Pull all the entries
 $order_array = $information_array = [];
