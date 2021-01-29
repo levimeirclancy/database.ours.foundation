@@ -112,9 +112,9 @@ function create_inputs($entry_info, $input_backend, $input_descriptor, $input_ty
 			$echo_temp .= "<label for='".$name_temp."'>". $placeholder_temp ."</label>";
 	
 			if ($input_type == "textarea"):
-				$echo_temp .= "<textarea name='".$name_temp."' placeholder='". $placeholder_temp ."' class='admin-page-form-".$input_backend."'>".$value_temp."</textarea>";
+				$echo_temp .= "<textarea	name='".$name_temp."' placeholder='". $placeholder_temp ."' id='".$id_temp."'>".$value_temp."</textarea>";
 			else:
-				$echo_temp .= "<input id='".$id_temp."' name='".$name_temp."' placeholder='". $placeholder_temp ."' value='".htmlspecialchars($value_temp, ENT_QUOTES)."' maxlength='150'>";
+				$echo_temp .= "<input		name='".$name_temp."' placeholder='". $placeholder_temp ."' id='".$id_temp."' value='".htmlspecialchars($value_temp, ENT_QUOTES)."' maxlength='150'>";
 				endif;	
 
 			$echo_temp .= "<div class='input-button-wrapper'><span class='input-button' role='button' tabindex='0' on='tap:admin-page-".$id_temp.".hide,admin-page-".$id_temp."-button.show'>Hide: ".$placeholder_temp."</span></div>";
