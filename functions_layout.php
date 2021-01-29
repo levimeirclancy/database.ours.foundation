@@ -170,7 +170,6 @@ function amp_header($title=null, $canonical=null) {
 	echo "</div>";
 
 	$navigation_lightboxes = implode(",", [
-		"begin-image.hide",
 		"login-popover.close",
 		"settings-popover.close",
 		"new-popover.close",
@@ -183,7 +182,7 @@ function amp_header($title=null, $canonical=null) {
 	if ($command_temp == "edit"): $target_temp = "target='_blank'"; endif; // Open category page in current tab
 
 	// This is the popover for the categories
-	echo "<amp-sidebar id='sidebar-navigation' layout='nodisplay' side='left' on='sidebarOpen:begin-image.hide,login-popover.close,settings-popover.close,new-popover.close'>";
+	echo "<amp-sidebar id='sidebar-navigation' layout='nodisplay' side='left' on='sidebarOpen:login-popover.close,settings-popover.close,new-popover.close'>";
 
 		echo "<div class='sidebar-back' on='tap:".$navigation_lightboxes."' role='button' tabindex='0'>Close</div>";
 	
@@ -199,7 +198,7 @@ function amp_header($title=null, $canonical=null) {
 		echo "</amp-sidebar>";
 	
 	// This is the popover for searching
-	echo "<amp-sidebar id='sidebar-search' layout='nodisplay' side='left' on='sidebarOpen:begin-image.hide,login-popover.close,settings-popover.close,new-popover.close'>";
+	echo "<amp-sidebar id='sidebar-search' layout='nodisplay' side='left' on='sidebarOpen:login-popover.close,settings-popover.close,new-popover.close'>";
 	
 		echo "<div class='sidebar-back' on='tap:".$navigation_lightboxes."' role='button' tabindex='0'>Close</div>";
 		
@@ -221,7 +220,7 @@ function amp_header($title=null, $canonical=null) {
 		echo "</amp-sidebar>";
 	
 	// This is the popover to log in ...
-	echo "<amp-lightbox id='login-popover' on=\"lightboxClose:inputPasswordTypeText.show,inputPasswordTypePassword.hide,AMP.setState({pageState:{login: {inputPasswordType: 'password'}}});lightboxOpen:begin-image.hide,sidebar-navigation.close,settings-popover.close,new-popover.close,inputPasswordTypeText.show,inputPasswordTypePassword.hide,AMP.setState({pageState:{login: {inputPasswordType: 'password'}}})\" layout='nodisplay'>";
+	echo "<amp-lightbox id='login-popover' on=\"lightboxClose:inputPasswordTypeText.show,inputPasswordTypePassword.hide,AMP.setState({pageState:{login: {inputPasswordType: 'password'}}});lightboxOpen:sidebar-navigation.close,settings-popover.close,new-popover.close,inputPasswordTypeText.show,inputPasswordTypePassword.hide,AMP.setState({pageState:{login: {inputPasswordType: 'password'}}})\" layout='nodisplay'>";
 
 		echo "<span role='button' tabindex='0' on='tap:".$navigation_lightboxes."' class='sidebar-back'>Close</span>";
 
@@ -261,7 +260,7 @@ function amp_header($title=null, $canonical=null) {
 		echo "</amp-lightbox>";
 	
 	// This is the popover for settings ...
-	echo "<amp-lightbox id='settings-popover' on='lightboxOpen:begin-image.hide,login-popover.close,navigation-sidebar.close,new-popover.close' layout='nodisplay'>";
+	echo "<amp-lightbox id='settings-popover' on='lightboxOpen:login-popover.close,navigation-sidebar.close,new-popover.close' layout='nodisplay'>";
 
 		echo "<span role='button' tabindex='0' on='tap:".$navigation_lightboxes."' class='sidebar-back'>Close</span>";
 
@@ -277,7 +276,7 @@ function amp_header($title=null, $canonical=null) {
 		echo "</amp-lightbox>";
 
 	// Add a new popover ... residrect if adding it works ...
-	echo "<amp-lightbox id='new-popover' on='lightboxOpen:begin-image.hide,login-popover.close,navigation-sidebar.close,settings-popover.close' layout='nodisplay'>";
+	echo "<amp-lightbox id='new-popover' on='lightboxOpen:login-popover.close,navigation-sidebar.close,settings-popover.close' layout='nodisplay'>";
 
 		echo "<span role='button' tabindex='0' on='tap:".$navigation_lightboxes."' class='sidebar-back'>Close</span>";
 
