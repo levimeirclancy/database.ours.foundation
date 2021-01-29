@@ -188,14 +188,16 @@ if (!(empty($information_array)) && ( ($command_temp !== "search") ||  ($_REQUES
 			$row['parent_id'] = $temp; endif;
 		if (array_key_exists($row['parent_id'], $information_array)):
 			if (empty($information_array[$row['child_id']]['children'])): $information_array[$row['child_id']]['children'] = []; endif;
-			if (empty($information_array[$row['parent_id']]['children'][$row['path_type']])): $information_array[$row['parent_id']]['children'][$row['path_type']] = []; endif;
+//			if (empty($information_array[$row['parent_id']]['children'][$row['path_type']])): $information_array[$row['parent_id']]['children'][$row['path_type']] = []; endif;
 			if (empty($row['child_id'])): continue; endif;
-			$information_array[$row['parent_id']]['children'][$row['path_type']][] = $row['child_id']; endif;
+//			$information_array[$row['parent_id']]['children'][$row['path_type']][] = $row['child_id']; endif;
+			$information_array[$row['parent_id']]['children'][] = $row['child_id']; endif;
 		if (array_key_exists($row['child_id'], $information_array)):
 			if (empty($information_array[$row['child_id']]['parents'])): $information_array[$row['child_id']]['parents'] = []; endif;
-			if (empty($information_array[$row['child_id']]['parents'][$row['path_type']])): $information_array[$row['child_id']]['parents'][$row['path_type']] = []; endif;
+//			if (empty($information_array[$row['child_id']]['parents'][$row['path_type']])): $information_array[$row['child_id']]['parents'][$row['path_type']] = []; endif;
 			if (empty($row['parent_id'])): continue; endif;
-			$information_array[$row['child_id']]['parents'][$row['path_type']][] = $row['parent_id']; endif;
+//			$information_array[$row['child_id']]['parents'][$row['path_type']][] = $row['parent_id']; endif;
+			$information_array[$row['child_id']]['parents'][] = $row['parent_id']; endif;
 		endforeach;
 	endif;
 
