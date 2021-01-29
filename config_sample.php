@@ -14,7 +14,7 @@ $color = "";
 
 // This is normally not changed,
 $site_info = [
- "languages"=>["english", "hebrew", "sorani", "arabic"]];
+	"languages"=>["english", "hebrew", "sorani", "arabic"]];
 
 
 ?>
