@@ -73,9 +73,11 @@ function create_inputs($entry_info, $input_backend, $input_descriptor) {
 	global $site_info;
 	
 	if (!(isset($entry_info[$input_backend])) || empty($entry_info[$input_backend])):
-		$entry_info[$input_backend] = [
-			"english" => " ",
-			];
+		$entry_info[$input_backend] = [];
+//		$entry_info[$input_backend] = [ "english" => " ", ]; // Make this open by default for all
+		if ($input_backend == "name"): // Make the "name" open by default
+			$entry_info[$input_backend] = [ "english" => " ", ];
+			endif;
 		endif;
 	
 	$languages_array_temp = array_keys($entry_info[$input_backend]);
@@ -98,12 +100,10 @@ function create_inputs($entry_info, $input_backend, $input_descriptor) {
 			$input_hidden_temp = "hidden";
 			endif;
 
-		$echo_temp .= "<span role='button' tabindex='0' id='admin-page-".$input_backend."-".$language_temp."-button' on='tap:admin-page-".$input_backend."-".$language_temp.".show,admin-page-".$input_backend."-".$language_temp."-button.hide' ".$button_hidden_temp.">Add ".ucfirst($language_temp)." ".$input_descriptor."</span>";
+		$echo_temp .= "<span role='button' tabindex='0' class='admin-page-button'> id='admin-page-".$input_backend."-".$language_temp."-button' on='tap:admin-page-".$input_backend."-".$language_temp.".show,admin-page-".$input_backend."-".$language_temp."-button.hide' ".$button_hidden_temp.">Add ".ucfirst($language_temp)." ".$input_descriptor."</span>";
 
 		$echo_temp .= "<div class='admin-page-input' id='admin-page-".$input_backend."-".$language_temp."' ".$input_hidden_temp.">";
-			$echo_temp .= "<label for='".$input_backend."[".$language_temp."]'>". $placeholder_temp;
-			$echo_temp .= "<span role='button' tabindex='0' on='tap:admin-page-".$input_backend."-".$language_temp.".hide,admin-page-".$input_backend."-".$language_temp."-button.show'>Remove</span>";
-			$echo_temp .= "</label>";
+			$echo_temp .= "<label for='".$input_backend."[".$language_temp."]'>". $placeholder_temp ."</label>";
 	
 			if ($input_backend == "name"):
 				$echo_temp .= "<input id='".$input_backend."-".$language_temp."' name='".$input_backend."[".$language_temp."]' placeholder='". $placeholder_temp ."' value='".htmlspecialchars($value_temp, ENT_QUOTES)."' maxlength='70'>";
@@ -112,6 +112,8 @@ function create_inputs($entry_info, $input_backend, $input_descriptor) {
 			else:
 				$echo_temp .= "<input id='".$input_backend."-".$language_temp."' name='".$input_backend."[".$language_temp."]' placeholder='". $placeholder_temp ."' value='".htmlspecialchars($value_temp, ENT_QUOTES)."' maxlength='70'>";
 				endif;	
+
+			$echo_temp .= "<div class='admin-page-button-wrapper'><span class='admin-page-button' role='button' tabindex='0' on='tap:admin-page-".$input_backend."-".$language_temp.".hide,admin-page-".$input_backend."-".$language_temp."-button.show'>Remove</span></div>";
 			
 			$echo_temp .= "</div>";
 
