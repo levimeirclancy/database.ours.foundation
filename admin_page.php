@@ -63,7 +63,7 @@ echo "<div class='input-button-wrapper'>";
 	echo "<div class='input-button' role='button' tabindex='0' on='tap:delete-popover'>&#x2B19; Delete entry</div>";
 	echo "</div>";
 
-function create_inputs($entry_info, $input_backend, $input_descriptor, $input_type = "input-text", $language_toggle = "on") {
+function create_inputs($entry_info, $input_backend, $input_descriptor, $input_type = "input-text", $language_toggle = "on", $visibility_manual = null, $possibilities_array = []) {
 	
 	global $site_info;
 		
@@ -94,11 +94,20 @@ function create_inputs($entry_info, $input_backend, $input_descriptor, $input_ty
 			$name_temp = $input_backend;
 			if (isset($entry_info[$input_backend])): $value_temp = trim($entry_info[$input_backend]); endif;
 			endif;
+	
+		$multiple_temp = null;
+		if ($input_type == "amp-selector-single"):
+			$name_temp .= "[]";
+			endif;
+		if ($input_type == "amp-selector-multiple"):
+			$name_temp .= "[]";
+			$multiple_temp = "multiple";
+			endif;
 			
-		if (!(empty($value_temp)) || ([$input_backend,$language_temp] == ["name", "english"])): // Set it up so name, english is open by default ... in the future make it pick first item in inputs array, first item in languages array
+		if (($visibility_manual !== "off") && ( !(empty($value_temp)) || ([$input_backend,$language_temp] == ["name", "english"]))): // Set it up so name, english is open by default ... in the future make it pick first item in inputs array, first item in languages array
 			$button_hidden_temp = "hidden";
 			$input_hidden_temp = null;
-		elseif (empty($value_temp)):
+		elseif (($visibility_manual == "off") || empty($value_temp)):
 			$button_hidden_temp = null;
 			$input_hidden_temp = "hidden";
 			endif;
@@ -108,10 +117,26 @@ function create_inputs($entry_info, $input_backend, $input_descriptor, $input_ty
 		$echo_temp .= "<div class='admin-page-input' id='admin-page-".$id_temp."' ".$input_hidden_temp.">";
 			$echo_temp .= "<label for='".$name_temp."'>". $placeholder_temp ."</label>";
 	
-			if ($input_type == "textarea"):
+			if (in_array($input_type, ["amp-selector-single", "amp-selector-multiple"])):
+				if (!(is_array($value_temp))): $value_temp = [ $value_temp ]; endif;
+				$echo_temp .= "<input type='hidden' name='".$name_temp."'>";
+				$echo_temp .= "<amp-selector layout='container' name='".$name_temp."' ".$multiple_temp.">";
+				foreach ($value_temp as $value_temp_temp):
+					$echo_temp .= "<span option='".$value_temp_temp."' selected>".$possibilities_array[$value_temp_temp]."</span>";
+					endif;
+				foreach ($possibilities_array as $value_temp_temp => $frontend_temp_temp):
+					if (in_array($value_temp_temp, $value_temp)): continue; endif;
+					$echo_temp .= "<span option='".$value_temp_temp."'>".$frontend_temp_temp."</span>";
+					endforeach;
+				echo "</amp-selector>";
+			elseif ($input_type == "textarea-big"):
 				$echo_temp .= "<textarea	name='".$name_temp."' placeholder='". $placeholder_temp ."' id='".$id_temp."'>".$value_temp."</textarea>";
+			elseif ($input_type == "textarea-small"):
+				$echo_temp .= "<textarea	name='".$name_temp."' placeholder='". $placeholder_temp ."' id='".$id_temp."' class='textarea-small'>".$value_temp."</textarea>";
+			elseif ($input_type == "input-date"):
+				$echo_temp .= "<input		name='".$name_temp."' placeholder='". $placeholder_temp ."' id='".$id_temp."' type='date' value='".htmlspecialchars($value_temp, ENT_QUOTES)."'>";
 			else:
-				$echo_temp .= "<input		name='".$name_temp."' placeholder='". $placeholder_temp ."' id='".$id_temp."' value='".htmlspecialchars($value_temp, ENT_QUOTES)."' maxlength='150'>";
+				$echo_temp .= "<input		name='".$name_temp."' placeholder='". $placeholder_temp ."' id='".$id_temp."' type='text' value='".htmlspecialchars($value_temp, ENT_QUOTES)."' maxlength='150'>";
 				endif;	
 
 			$echo_temp .= "<div class='input-button-wrapper'><span class='input-button' role='button' tabindex='0' on='tap:admin-page-".$id_temp.".hide,admin-page-".$id_temp."-button.show'>Hide: ".$placeholder_temp."</span></div>";
@@ -130,76 +155,23 @@ function create_inputs($entry_info, $input_backend, $input_descriptor, $input_ty
 	
 create_inputs($entry_info, "name", "title");
 // create_inputs($entry_info['alternate_name'], "alternate_name", "full name");
-create_inputs($entry_info, "summary", "headline", "textarea");
+create_inputs($entry_info, "summary", "headline", "textarea-small");
 create_inputs($entry_info, "body", "body", "textarea");
 create_inputs($entry_info, "studies", "studies", "textarea", "off");
+create_inputs($entry_info, "date_published", "Published date", "input-date", "off", "off");
 
-function hierarchy_selector ($entry_id, $relationship_name, $possible_array) {
-
-	global $site_info;
-	global $information_array;
-
-	echo "<label for='". $relationship_name ."[]'>".ucwords($relationship_name)."</label>";
-	echo "<amp-selector layout='container' name='". $relationship_name ."[]' multiple>";
-
-	if (!(empty($information_array[$entry_id]['hierarchy'][$relationship_name]))): echo "<span option='clear_selection' style='font-style: italic;'>Clear selection</span>";
-	else: $information_array[$entry_id]['hierarchy'][$relationship_name] = []; endif;
-
-	$information_array[$entry_id][$relationship_name]['hierarchy'] = array_intersect($possible_array, $information_array[$entry_id][$relationship_name]['hierarchy']);
-	
-	if (!(is_array($information_array[$entry_id][$relationship_name]['hierarchy']))): $information_array[$entry_id][$relationship_name]['hierarchy'] = []; endif;
-	
-	foreach ($information_array[$entry_id][$relationship_name]['hierarchy'] as $entry_id_temp):
-		if (!(in_array($entry_id_temp, $possible_array))): continue; endif;
-		if (empty($information_array[$entry_id_temp]['header'])): continue; endif;
-		if ($entry_id == $entry_id_temp): continue; endif;
-		echo "<span option='".$entry_id_temp."' selected>";
-		echo $information_array[$entry_id_temp]['header'] . " • ". $site_info['category_array'][$information_array[$entry_id_temp]['type']];
-		echo "</span>"; endforeach;
-	foreach ($possible_array as $entry_id_temp):
-		if (in_array($entry_id_temp, $information_array[$entry_id][$relationship_name]['hierarchy'])): continue; endif;
-		if (empty($information_array[$entry_id_temp]['header'])): continue; endif;
-		if ($entry_id == $entry_id_temp): continue; endif;
-		echo "<span option='".$entry_id_temp."'>";
-		echo $information_array[$entry_id_temp]['header'] . " • ". $site_info['category_array'][$information_array[$entry_id_temp]['type']];
-		echo "</span>";
-		endforeach;
-	echo "</amp-selector>"; }
-
-echo "<input type='hidden' name='parents[]'>";
-echo "<input type='hidden' name='children[]'>";
-hierarchy_selector($page_temp, "parents", array_keys($information_array));
-hierarchy_selector($page_temp, "children", array_keys($information_array));
-
-echo "<label for='type'>Type</label>";
-echo "<amp-selector layout='container' name='type'>";
-if (isset($site_info['category_array'][$entry_info['type']])):
-	echo "<span option='".$entry_info['type']."' selected>".$site_info['category_array'][$entry_info['type']]."</span>";
-	endif;
-foreach ($site_info['category_array'] as $header_backend => $header_frontend):
-	if ($header_backend == $entry_info['type']): continue; endif;
-	echo "<span option='".$header_backend."'>".$header_frontend."</span>";
+foreach ($appendix_array as $appendix_key => $appendix_type):
+	create_inputs($entry_info, $appendix_key, str_replace("_", " ", $appendix_key), "input-text", "off");
 	endforeach;
-echo "</amp-selector>";
 
-echo "<p>Directly edit its published time here,</p>";
+$possibilities_array = []
+foreach ($information_array as $entry_id_temp => $entry_info_temp):
+	$possibilities_array[$entry_id_temp] = $entry_info_temp['head'] . " • ". $site_info['category_array'][$entry_info_temp['type']];
+	endforeach;
+create_inputs($information_array[$entry_id]['hierarchy'], "parents", "parents", "amp-selector-multiple", "off", "off", $possibilities_array);
+create_inputs($information_array[$entry_id]['hierarchy'], "children", "children", "amp-selector-multiple", "off", "off", $possibilities_array);
 
-echo "<label for='date_published'>Published date (YYYY-MM-DD, e.g. 2020-01-25).</label>";
-echo "<input type='date' id='date_published' name='date_published' value='".$entry_info['date_published']."'>";
-
-if (!(empty($appendix_array))):
-	foreach ($appendix_array as $appendix_key => $appendix_type):
-		$placeholder_temp = str_replace("_", " ", $appendix_key);
-		echo "<label for='appendix[".$appendix_key."]'>". $placeholder_temp ."</label>";
-		if ($appendix_type == "string"):
-			echo "<input type='text' name='appendix[".$appendix_key."]' placeholder='". $placeholder_temp ."' value='".htmlspecialchars($entry_info['appendix'][$appendix_key], ENT_QUOTES)."'>";
-		elseif ($appendix_type == "checkbox"):
-			$checked_temp = null;
-			if ($entry_info['appendix'][$appendix_key] == $appendix_key): $checked_temp = "checked"; endif;
-			echo "<input type='checkbox' name='appendix[".$appendix_key."].' value='".$appendix_key."' $checked_temp>";
-			endif;
-		endforeach;
-	endif;
+create_inputs($entry_info, "type", "Type", "amp-selector-single", "off", "off", $site_info['category_array']);
 
 echo "<br><br><br><br><br>";
 
