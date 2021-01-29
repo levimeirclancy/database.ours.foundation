@@ -113,7 +113,7 @@ function create_inputs($entry_info, $input_backend, $input_descriptor) {
 				$echo_temp .= "<input id='".$input_backend."-".$language_temp."' name='".$input_backend."[".$language_temp."]' placeholder='". $placeholder_temp ."' value='".htmlspecialchars($value_temp, ENT_QUOTES)."' maxlength='70'>";
 				endif;	
 
-			$echo_temp .= "<div class='input-button-wrapper'><span class='input-button' role='button' tabindex='0' on='tap:admin-page-".$input_backend."-".$language_temp.".hide,admin-page-".$input_backend."-".$language_temp."-button.show'>Remove</span></div>";
+			$echo_temp .= "<div class='input-button-wrapper'><span class='input-button' role='button' tabindex='0' on='tap:admin-page-".$input_backend."-".$language_temp.".hide,admin-page-".$input_backend."-".$language_temp."-button.show'>Remove ".ucfirst($language_temp)." ".$input_descriptor."</span></div>";
 			
 			$echo_temp .= "</div>";
 
