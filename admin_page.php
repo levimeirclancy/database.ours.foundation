@@ -58,7 +58,7 @@ echo "<form action-xhr='/edit-xhr/' method='post' class='admin-page-form' id='sa
 echo "<input type='hidden' name='entry_id' value='$page_temp'>";
 
 echo "<label for='entry-link' amp-fx='parallax' data-parallax-factor='1.2'><a href='https://".$domain."/".$page_temp."/' target='_blank'>Open in new tab</a></label>";
-echo "<input name='entry-link' type='text' value='".$domain."/".$page_temp."/' readonly>>";
+echo "<input name='entry-link' type='text' value='".$domain."/".$page_temp."/' readonly>";
 echo "<div class='input-button-wrapper' amp-fx='parallax' data-parallax-factor='1.15'>";
 	echo "<div class='input-button' role='button' tabindex='0' on='tap:delete-popover'>&#x2B19; Delete entry</div>";
 	echo "</div>";
