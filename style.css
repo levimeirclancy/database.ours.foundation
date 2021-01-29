@@ -262,7 +262,7 @@ h1 span {
 	}
 
 h1 {
-	margin: 60px auto 30px;
+	margin: 60px auto 0;
 	font-size: 170%;
 	line-height: 130%;
 	text-align: center;
@@ -460,6 +460,7 @@ article th p + p, article td p + p, article li p + p {
 .entry-metadata-wrapper {
 	display: block;
 	text-align: center;
+	margin: 0 0 30px;
 	}
 
 .entry-metadata, .entry-metadata-more {
