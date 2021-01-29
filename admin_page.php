@@ -72,10 +72,15 @@ function create_inputs($entry_info, $input_backend, $input_descriptor) {
 	
 	global $site_info;
 	
+	if (!(isset($entry_info[$input_backend])) || empty($entry_info[$input_backend])):
+		$entry_info[$input_backend] = [];
+		endif;
+	
 	$languages_array_temp = array_keys($entry_info[$input_backend]);
 	$languages_array_temp = array_merge($site_info['languages'], $languages_array_temp);
 	$languages_array_temp = array_unique($languages_array_temp);
-	$echo_section = null;
+	
+//	$echo_section = null;
 
 	foreach ($languages_array_temp as $language_temp):
 
