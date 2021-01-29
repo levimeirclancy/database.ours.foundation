@@ -155,9 +155,11 @@ echo "<header><h1 property='name' amp-fx='parallax' data-parallax-factor='1.3'>"
 //		echo "<li><span class='sidebar-navigation-item-title'>Published: ".date("Y F d", strtotime($entry_info['date_published']))."</span></li>"; // Date published
 //		echo "<li><span class='sidebar-navigation-item-title'>Updated: ".date("Y F d, H:i:s", strtotime($entry_info['date_updated']))."</span></li>"; // Date updated
 
-echo "<span class='entry-metadata' amp-fx='parallax' data-parallax-factor='1.25'>Published: <time property='datePublished' datetime='".date("Y-m-d", strtotime($entry_info['date_published']))."'> ".date("Y F d", strtotime($entry_info['date_published']))."</time></span>";
-echo "<span class='entry-metadata' amp-fx='parallax' data-parallax-factor='1.25'>Modified: <time property='dateModified' datetime='".date("Y-m-dTH:i:s", strtotime($entry_info['date_published']))."'> ".date("Y F d, H:i:s", strtotime($entry_info['date_updated']))."</time></span>";
-echo "<span class='entry-metadata-more' amp-fx='parallax' data-parallax-factor='1.25' role='button' tabindex='0' on='tap:sidebar-entry-info.toggle'>More details</span>";
+echo "<div class='entry-metadata-more'>";
+	echo "<span class='entry-metadata' amp-fx='parallax' data-parallax-factor='1.25'>Published: <time property='datePublished' datetime='".date("Y-m-d", strtotime($entry_info['date_published']))."'> ".date("Y F d", strtotime($entry_info['date_published']))."</time></span>";
+	echo "<span class='entry-metadata' amp-fx='parallax' data-parallax-factor='1.25'>Modified: <time property='dateModified' datetime='".date("Y-m-dTH:i:s", strtotime($entry_info['date_published']))."'> ".date("Y F d, H:i:s", strtotime($entry_info['date_updated']))."</time></span>";
+	echo "<span class='entry-metadata-more' amp-fx='parallax' data-parallax-factor='1.25' role='button' tabindex='0' on='tap:sidebar-entry-info.toggle'>More details</span>";
+	echo "</div>";
 
 echo "<span property='articleBody'>";
 
