@@ -68,15 +68,11 @@ echo "<input type='hidden' name='entry_id' value='$page_temp'>";
 
 echo "<h1 amp-fx='parallax' data-parallax-factor='1.05'><a href='https://".$domain."/".$page_temp."/' target='_blank'>".$domain."/".$page_temp."/</a></h1>";
 
-//echo "<span id='title'></span>";
-//echo "<h2>Title</h2>";
-//echo "<p>The title should be shorter than the full name, and easier to comprehend as well. For example, <i>Sagrada Familia</i>. It may also contain bracketed elements for sorting, e.g. <i>[01] Sagrada Familia</i>.</p>";
-
-function create_inputs($values_array, $input_descriptor, $input_backend) {
+function create_inputs($entry_info, $input_backend, $input_descriptor) {
 	
 	global $site_info;
 	
-	$languages_array_temp = array_keys($values_array);
+	$languages_array_temp = array_keys($entry_info[$input_backend]);
 	$languages_array_temp = array_merge($site_info['languages'], $languages_array_temp);
 	$languages_array_temp = array_unique($languages_array_temp);
 	$echo_section = null;
@@ -86,11 +82,11 @@ function create_inputs($values_array, $input_descriptor, $input_backend) {
 		$echo_temp = $button_hidden_temp = $input_hidden_temp = $value_temp = null;
 		$placeholder_temp = ucfirst($input_descriptor)." / ". ucfirst($language_temp);
 
-		if (isset($values_array[$language_temp])):
-			$value_temp = $values_array[$language_temp];
+		if (isset($entry_info[$input_backend][$language_temp])):
+			$value_temp = $entry_info[$input_backend][$language_temp];
 			$button_hidden_temp = "hidden";
 			$input_hidden_temp = null;
-		elseif (!(isset($values_array[$language_temp]))):
+		elseif (!(isset($entry_info[$input_backend][$language_temp]))):
 			$button_hidden_temp = null;
 			$input_hidden_temp = "hidden";
 			endif;
@@ -118,10 +114,10 @@ function create_inputs($values_array, $input_descriptor, $input_backend) {
 	
 	}
 	
-create_inputs($entry_info['name'], "title", "name");
-// create_inputs($entry_info['alternate_name'], "Full name", "alternate_name");
-create_inputs($entry_info['summary'], "headline", "summary");
-create_inputs($entry_info['body'], "body", "body");
+create_inputs($entry_info, "name", "title");
+// create_inputs($entry_info['alternate_name'], "alternate_name", "full name");
+create_inputs($entry_info, "summary", "headline");
+create_inputs($entry_info, "body", "body");
 
 echo "<h2>Studies</h2>";
 $placeholder_temp = "Studies";
