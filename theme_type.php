@@ -71,7 +71,7 @@
 
 	}
 
-echo "<h1>".$header_array[$page_temp]."</h1>";
+echo "<h1>".$site_info['category_array'][$page_temp]."</h1>";
 
 $entries_array  = print_row_loop ($page_temp, array_keys($information_array), []);
 
