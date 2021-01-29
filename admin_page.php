@@ -20,12 +20,12 @@ if ($page_temp == "new"): $new_page = "yes"; endif;
 // When tap, then also close the amp-lightbox
 
 echo "<div id='admin-page-actions' amp-fx='parallax' data-parallax-factor='1.2'>";
-	echo "<a href='#title'><div class='navigation-header-item'>Title</div></a>";
-	echo "<a href='#full-name'><div class='navigation-header-item'>Full name</div></a>";
-	echo "<a href='#summary'><div class='navigation-header-item'>Summary</div></a>";
-	echo "<a href='#body'><div class='navigation-header-item'>Body</div></a>";
-	echo "<a href='#studies'><div class='navigation-header-item'>Studies</div></a>";
-	echo "<a href='#relationality'><div class='navigation-header-item'>Relationality</div></a>";
+//	echo "<a href='#title'><div class='navigation-header-item'>Title</div></a>";
+//	echo "<a href='#full-name'><div class='navigation-header-item'>Full name</div></a>";
+//	echo "<a href='#summary'><div class='navigation-header-item'>Summary</div></a>";
+//	echo "<a href='#body'><div class='navigation-header-item'>Body</div></a>";
+//	echo "<a href='#studies'><div class='navigation-header-item'>Studies</div></a>";
+//	echo "<a href='#relationality'><div class='navigation-header-item'>Relationality</div></a>";
 	echo "<div id='admin-page-delete' on='tap:delete-popover'>&#x2B19; Delete entry</div>";
 	echo "</div>";
 
@@ -68,52 +68,67 @@ echo "<input type='hidden' name='entry_id' value='$page_temp'>";
 
 echo "<h1 amp-fx='parallax' data-parallax-factor='1.05'><a href='https://".$domain."/".$page_temp."/' target='_blank'>".$domain."/".$page_temp."/</a></h1>";
 
-echo "<span id='title'></span>";
-echo "<h2>Title</h2>";
-echo "<p>The title should be shorter than the full name, and easier to comprehend as well. For example, <i>Sagrada Familia</i>. It may also contain bracketed elements for sorting, e.g. <i>[01] Sagrada Familia</i>.</p>";
+//echo "<span id='title'></span>";
+//echo "<h2>Title</h2>";
+//echo "<p>The title should be shorter than the full name, and easier to comprehend as well. For example, <i>Sagrada Familia</i>. It may also contain bracketed elements for sorting, e.g. <i>[01] Sagrada Familia</i>.</p>";
 
-foreach ($entry_info['name'] as $language_temp => $value_temp):
+$languages_array_temp = array_values($entry_info['name']);
+$languages_array_temp = array_merge($site_info['languages'], $languages_array_temp);
+$languages_array_temp = array_unique($languages_array_temp);
+$echo_section = null;
+
+foreach ($languages_array_temp as $language_temp):
+
+	$echo_temp = $hide_temp = $value_temp = null;
 	$placeholder_temp = "Title / ". ucfirst($language_temp);
-	echo "<label for='name[".$language_temp."]'>". $placeholder_temp ."</label>";
-	echo "<input name='name[".$language_temp."]' placeholder='". $placeholder_temp ."' value='".htmlspecialchars($value_temp, ENT_QUOTES)."' maxlength='70'>";
-	endforeach;
-foreach($site_info['languages'] as $language_temp):
-	if (isset($entry_info['name'][$language_temp])): continue; endif;
-	$placeholder_temp = "Title / ". ucfirst($language_temp);
-	echo "<label for='name[".$language_temp."]'>". $placeholder_temp ."</label>";
-	echo "<input name='name[".$language_temp."]' placeholder='". $placeholder_temp ."' maxlength='70'>";
-	endforeach;
 
-echo "<span id='full-name'></span>";
-echo "<h2>Full name</h2>";
-echo "<p>The full name of a person should include middle, last, and family names. Places may also have full names, such as <i>Basílica de la Sagrada Familia</i>. It should not be depended on for sorting.</p>";
+	if (isset($entry_info['name'][$language_temp])):
+		$value_temp = $entry_info['name'][$language_temp];
+	elseif (!(isset($entry_info['name'][$language_temp]))):
+		$hide_temp = "hide";
+		endif;
 
-foreach ($entry_info['alternate_name'] as $language_temp => $value_temp):
-	$placeholder_temp = "Full name / ".ucfirst($language_temp);
-	echo "<label for='alternate_name[".$language_temp."]'>". $placeholder_temp ."</label>";
-	echo "<input name='alternate_name[".$language_temp."]' placeholder='". $placeholder_temp ."' value='".htmlspecialchars($value_temp, ENT_QUOTES)."' maxlength='70'>";
-	endforeach;
-foreach($site_info['languages'] as $language_temp):
-	if (isset($entry_info['alternate_name'][$language_temp])): continue; endif;
-	$placeholder_temp = "Full name / ". ucfirst($language_temp);
-	echo "<label for='alternate_name[".$language_temp."]'>". $placeholder_temp ."</label>";
-	echo "<input name='alternate_name[".$language_temp."]' placeholder='". $placeholder_temp ."' maxlength='70'>";
-	endforeach;
+	$echo_temp .= "<div class='admin-page-input ".$hide_temp."' id='admin-page-title-".$language."'>";
+		$echo_temp .= "<label for='name[".$language_temp."]'>". $placeholder_temp;
+		$echo_temp .= "<span on='tap:name-".$language.".clear,admin-page-title-".$language.".hide,admin-page-title-".$language."-button.show'>Remove ".ucfirst($language_temp)."</span>";
+		$echo_temp .= "</label>";
+		$echo_temp .= "<input id='name-".$language."' name='name[".$language_temp."]' placeholder='". $placeholder_temp ."' value='".htmlspecialchars($value_temp, ENT_QUOTES)."' maxlength='70'>";
+		$echo_temp .= "</div>";
 
-echo "<span id='summary'></span>";
-echo "<h2>Summary</h2>";
-echo "<p>This short summary may get used for short-form content like stories, messages, and previews. It can contain multiple short paragraphs with images.</p>";
+	echo $echo_temp; // Because it's stored as a string, we can also use this format to prepend or append onto $echo_section
+
+	endforeach;
+	
+// echo "<span id='full-name'></span>";
+// echo "<h2>Full name</h2>";
+// echo "<p>The full name of a person should include middle, last, and family names. Places may also have full names, such as <i>Basílica de la Sagrada Familia</i>. It should not be depended on for sorting.</p>";
+
+// foreach ($entry_info['alternate_name'] as $language_temp => $value_temp):
+//	$placeholder_temp = "Full name / ".ucfirst($language_temp);
+//	echo "<label for='alternate_name[".$language_temp."]'>". $placeholder_temp ."</label>";
+//	echo "<input name='alternate_name[".$language_temp."]' placeholder='". $placeholder_temp ."' value='".htmlspecialchars($value_temp, ENT_QUOTES)."' maxlength='70'>";
+//	endforeach;
+// foreach($site_info['languages'] as $language_temp):
+//	if (isset($entry_info['alternate_name'][$language_temp])): continue; endif;
+//	$placeholder_temp = "Full name / ". ucfirst($language_temp);
+//	echo "<label for='alternate_name[".$language_temp."]'>". $placeholder_temp ."</label>";
+//	echo "<input name='alternate_name[".$language_temp."]' placeholder='". $placeholder_temp ."' maxlength='70'>";
+//	endforeach;
+
+// echo "<span id='summary'></span>";
+// echo "<h2>Headline</h2>";
+// echo "<p>This short headline may get used for short-form content like stories, messages, and previews.</p>";
 
 foreach ($entry_info['summary'] as $language_temp => $value_temp):
 	$placeholder_temp = "Summary / ". ucfirst($language_temp);
 	echo "<label for='summary[".$language_temp."]'>". $placeholder_temp ."</label>";
-	echo "<textarea name='summary[".$language_temp."]' placeholder='". $placeholder_temp ."' class='admin-page-form-summary' maxlength='1000'>".$value_temp."</textarea>";
+	echo "<input name='summary[".$language_temp."]' placeholder='". $placeholder_temp ."' value='".$value_temp."'>";
 	endforeach;
 foreach($site_info['languages'] as $language_temp):
 	if (isset($entry_info['summary'][$language_temp])): continue; endif;
 	$placeholder_temp = "Summary / ". ucfirst($language_temp);
 	echo "<label for='summary[".$language_temp."]'>". $placeholder_temp ."</label>";
-	echo "<textarea name='summary[".$language_temp."]' placeholder='". $placeholder_temp ."' class='admin-page-form-summary' maxlength='1000'></textarea>";
+	echo "<input name='summary[".$language_temp."]' placeholder='". $placeholder_temp ."'>";
 	endforeach;
 
 echo "<span id='body'></span>";
