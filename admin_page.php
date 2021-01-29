@@ -94,7 +94,7 @@ function create_inputs($entry_info, $input_backend, $input_descriptor, $input_ty
 			if (isset($entry_info[$input_backend])): $value_temp = trim($entry_info[$input_backend]); endif;
 			endif;
 			
-		if (!(empty($value_temp)) || ([$input_backend,$language_temp] == ["name", "english"])): // Set it up so name, english is open by default
+		if (!(empty($value_temp)) || ([$input_backend,$language_temp] == ["name", "english"])): // Set it up so name, english is open by default ... in the future make it pick first item in inputs array, first item in languages array
 			$button_hidden_temp = "hidden";
 			$input_hidden_temp = null;
 		elseif (empty($value_temp)):
