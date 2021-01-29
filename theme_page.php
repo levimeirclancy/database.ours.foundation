@@ -154,13 +154,11 @@ echo "<article><div vocab='http://schema.org/' typeof='Article'>";
 
 echo "<header><h1 property='name' amp-fx='parallax' data-parallax-factor='1.3'>" . $entry_info['header'] . "</h1></header>";
 
-//		echo "<li><span class='sidebar-navigation-item-title'>Type: <a href='/".$entry_info['type']."/'>".$header_array[$entry_info['type']]."</a></span></li>"; // Type
-//		echo "<li><span class='sidebar-navigation-item-title'>Published: ".date("Y F d", strtotime($entry_info['date_published']))."</span></li>"; // Date published
-//		echo "<li><span class='sidebar-navigation-item-title'>Updated: ".date("Y F d, H:i:s", strtotime($entry_info['date_updated']))."</span></li>"; // Date updated
-
 echo "<div class='entry-metadata-wrapper'>";
-	echo "<span class='entry-metadata' amp-fx='parallax' data-parallax-factor='1.25'>Published: <time property='datePublished' datetime='".date("Y-m-d", strtotime($entry_info['date_published']))."'> ".date("Y F d", strtotime($entry_info['date_published']))."</time></span>";
-	echo "<span class='entry-metadata' amp-fx='parallax' data-parallax-factor='1.25'>Modified: <time property='dateModified' datetime='".date("Y-m-dTH:i:s", strtotime($entry_info['date_published']))."'> ".date("Y F d, H:i:s", strtotime($entry_info['date_updated']))."</time></span>";
+//	echo "<span class='entry-metadata' amp-fx='parallax' data-parallax-factor='1.25'>Published: <time property='datePublished' datetime='".date("Y-m-d", strtotime($entry_info['date_published']))."'> ".date("Y F d", strtotime($entry_info['date_published']))."</time></span>";
+	echo "<span class='entry-metadata' amp-fx='parallax' data-parallax-factor='1.25'>פורסם ב: <time property='datePublished' datetime='".date("Y-m-d", strtotime($entry_info['date_published']))."'> ".date("Y F d", strtotime($entry_info['date_published']))."</time></span>";
+//	echo "<span class='entry-metadata' amp-fx='parallax' data-parallax-factor='1.25'>Modified: <time property='dateModified' datetime='".date("Y-m-dTH:i:s", strtotime($entry_info['date_published']))."'> ".date("Y F d, H:i:s", strtotime($entry_info['date_updated']))."</time></span>";
+	echo "<span class='entry-metadata' amp-fx='parallax' data-parallax-factor='1.25'>עודכן ב: <time property='dateModified' datetime='".date("Y-m-dTH:i:s", strtotime($entry_info['date_published']))."'> ".date("Y F d, H:i:s", strtotime($entry_info['date_updated']))."</time></span>";
 	echo "<span class='entry-metadata-more' amp-fx='parallax' data-parallax-factor='1.25' role='button' tabindex='0' on='tap:sidebar-entry-info.toggle'>More details</span>";
 	echo "</div>";
 
