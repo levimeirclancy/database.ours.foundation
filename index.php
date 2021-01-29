@@ -16,7 +16,7 @@ if (empty($connection_pdo)): echo "Could not connect to mySQL."; exit; endif;
 
 include_once('functions.php');
 
-$site_info = ["languages"=>["english", "sorani", "arabic"]];
+$site_info = ["languages"=>["english", "hebrew", "sorani", "arabic"]];
 	
 $url_temp = $login = $page = $action = null;
 
