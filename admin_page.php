@@ -123,7 +123,7 @@ function create_inputs($entry_info, $input_backend, $input_descriptor, $input_ty
 				$echo_temp .= "<amp-selector layout='container' name='".$name_temp."' ".$multiple_temp.">";
 				foreach ($value_temp as $value_temp_temp):
 					$echo_temp .= "<span option='".$value_temp_temp."' selected>".$possibilities_array[$value_temp_temp]."</span>";
-					endif;
+					endforeach;
 				foreach ($possibilities_array as $value_temp_temp => $frontend_temp_temp):
 					if (in_array($value_temp_temp, $value_temp)): continue; endif;
 					$echo_temp .= "<span option='".$value_temp_temp."'>".$frontend_temp_temp."</span>";
