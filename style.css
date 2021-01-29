@@ -723,11 +723,7 @@ label {
 	border-radius: 100px;
 	}
 
-.admin-page-form-summary {
-	height: 250px;
-	}
-
-.admin-page-form-body {
+textarea {
 	height: 600px;
 	max-height: none;
 	}
