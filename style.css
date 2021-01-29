@@ -453,6 +453,7 @@ article th p + p, article td p + p, article li p + p {
 	}
 
 .entry-metadata-more {
+	font-style: normal;
 	margin: 8px 20px;
 	border: 1px solid rgba(100,100,100,0.8);
 	cursor: pointer;
