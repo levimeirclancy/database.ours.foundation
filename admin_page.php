@@ -79,17 +79,21 @@ $echo_section = null;
 
 foreach ($languages_array_temp as $language_temp):
 
-	$echo_temp = $hidden_temp = $value_temp = null;
+	$echo_temp = $button_hidden_temp = $input_hidden_temp = $value_temp = null;
 	$placeholder_temp = "Title / ". ucfirst($language_temp);
 
 	if (isset($entry_info['name'][$language_temp])):
 		$value_temp = $entry_info['name'][$language_temp];
+		$button_hidden_temp = "hidden";
+		$input_hidden_temp = null;
 	elseif (!(isset($entry_info['name'][$language_temp]))):
-		$echo_temp .= "<span role='button' tabindex='0' id='admin-page-title-".$language_temp."-button' on='tap:admin-page-title-".$language_temp.".show,admin-page-title-".$language_temp."-button.hide'>Add ".ucfirst($language_temp)."</span>";
-		$hidden_temp = "hidden";
+		$button_hidden_temp = null;
+		$input_hidden_temp = "hidden";
 		endif;
 
-	$echo_temp .= "<div class='admin-page-input' id='admin-page-title-".$language_temp."' ".$hidden_temp.">";
+	$echo_temp .= "<span role='button' tabindex='0' id='admin-page-title-".$language_temp."-button' on='tap:admin-page-title-".$language_temp.".show,admin-page-title-".$language_temp."-button.hide' ".$button_hidden_temp.">Add ".ucfirst($language_temp)."</span>";
+
+	$echo_temp .= "<div class='admin-page-input' id='admin-page-title-".$language_temp."' ".$input_hidden_temp.">";
 		$echo_temp .= "<label for='name[".$language_temp."]'>". $placeholder_temp;
 		$echo_temp .= "<span role='button' tabindex='0' on='tap:admin-page-title-".$language_temp.".hide,admin-page-title-".$language_temp."-button.show'>Remove ".ucfirst($language_temp)."</span>";
 		$echo_temp .= "</label>";
