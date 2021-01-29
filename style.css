@@ -688,13 +688,13 @@ label, input, textarea, amp-selector, .input-button-wrapper {
 	border: 0;
 	border-radius: 6px;
 	box-sizing: border-box;
-	font-family: Verdana, Helvetica, 'Sans Serif';
 	font-size: 90%;
 	line-height: inherit;
 	outline: 0 none rgba(255,255,255,0);
 	}
 
 input, textarea, amp-selector {
+	font-family: Verdana, Helvetica, 'Sans Serif';
 	margin: 5px 13px;
 	border-radius: 10px;
 	color: rgba(0,0,0,1);
@@ -716,6 +716,7 @@ label {
 	}
 
 .input-button {
+	cursor: pointer;
 	color: rgba(100,100,100,0.8);
 	padding: 5px 16px 5px;
 	border: 1px solid rgba(100,100,100,0.8);
