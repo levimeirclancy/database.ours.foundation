@@ -10,7 +10,7 @@ foreach ($result as $row):
 	endforeach;
 
 $appendix_array = [];
-if ($entry_info['type'] == "place"): $appendix_array = ["latitude"=>"string", "longitude"=>"string" ]; endif;
+if ($entry_info['type'] == "place"): $appendix_array = ["latitude"=>"string", "longitude"=>"string" ]; endift
 if ($entry_info['type'] == "village"): $appendix_array = ["latitude"=>"string", "longitude"=>"string"]; endif;
 if ($entry_info['type'] == "person"): $appendix_array = [ "birthday"=>"date", "email"=>"string", "telephone"=>"string", "website"=>"string", "facebook"=>"string", "twitter"=>"string" ]; endif;
 
@@ -125,7 +125,7 @@ function create_inputs($entry_info, $input_backend, $input_descriptor, $input_ty
 			
 			$echo_temp .= "</div>";
 
-		$echo_temp .= "<div class='input-button-wrapper'><span class='input-button' role='button' tabindex='0' on='tap:admin-page-".$id_temp.".toggle'>Toggle ".$placeholder_temp."</span></div>";
+		$echo_temp .= "<div class='input-button-wrapper'><span class='input-button' role='button' tabindex='0' on='tap:admin-page-".$id_temp.".toggleVisibility'>Toggle ".$placeholder_temp."</span></div>";
 	
 		echo $echo_temp; // Because it's stored as a string, we can also use this format to prepend or append onto $echo_section
 
