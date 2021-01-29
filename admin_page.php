@@ -72,97 +72,64 @@ echo "<h1 amp-fx='parallax' data-parallax-factor='1.05'><a href='https://".$doma
 //echo "<h2>Title</h2>";
 //echo "<p>The title should be shorter than the full name, and easier to comprehend as well. For example, <i>Sagrada Familia</i>. It may also contain bracketed elements for sorting, e.g. <i>[01] Sagrada Familia</i>.</p>";
 
-$languages_array_temp = array_keys($entry_info['name']);
-$languages_array_temp = array_merge($site_info['languages'], $languages_array_temp);
-$languages_array_temp = array_unique($languages_array_temp);
-$echo_section = null;
-
-foreach ($languages_array_temp as $language_temp):
-
-	$echo_temp = $button_hidden_temp = $input_hidden_temp = $value_temp = null;
-	$placeholder_temp = "Title / ". ucfirst($language_temp);
-
-	if (isset($entry_info['name'][$language_temp])):
-		$value_temp = $entry_info['name'][$language_temp];
-		$button_hidden_temp = "hidden";
-		$input_hidden_temp = null;
-	elseif (!(isset($entry_info['name'][$language_temp]))):
-		$button_hidden_temp = null;
-		$input_hidden_temp = "hidden";
-		endif;
-
-	$echo_temp .= "<span role='button' tabindex='0' id='admin-page-title-".$language_temp."-button' on='tap:admin-page-title-".$language_temp.".show,admin-page-title-".$language_temp."-button.hide' ".$button_hidden_temp.">Add ".ucfirst($language_temp)."</span>";
-
-	$echo_temp .= "<div class='admin-page-input' id='admin-page-title-".$language_temp."' ".$input_hidden_temp.">";
-		$echo_temp .= "<label for='name[".$language_temp."]'>". $placeholder_temp;
-		$echo_temp .= "<span role='button' tabindex='0' on='tap:name-".$language_temp.".clear,admin-page-title-".$language_temp.".hide,admin-page-title-".$language_temp."-button.show'>Remove ".ucfirst($language_temp)."</span>";
-		$echo_temp .= "</label>";
-		$echo_temp .= "<input id='name-".$language_temp."' name='name[".$language_temp."]' placeholder='". $placeholder_temp ."' value='".htmlspecialchars($value_temp, ENT_QUOTES)."' maxlength='70'>";
-		$echo_temp .= "</div>";
-
-	echo $echo_temp; // Because it's stored as a string, we can also use this format to prepend or append onto $echo_section
-
-	endforeach;
+function create_inputs($values_array, $input_descriptor, $input_backend) {
 	
-// echo "<span id='full-name'></span>";
-// echo "<h2>Full name</h2>";
-// echo "<p>The full name of a person should include middle, last, and family names. Places may also have full names, such as <i>Basílica de la Sagrada Familia</i>. It should not be depended on for sorting.</p>";
+	global $site_info;
+	
+	$languages_array_temp = array_keys($values_array);
+	$languages_array_temp = array_merge($site_info['languages'], $languages_array_temp);
+	$languages_array_temp = array_unique($languages_array_temp);
+	$echo_section = null;
 
-// foreach ($entry_info['alternate_name'] as $language_temp => $value_temp):
-//	$placeholder_temp = "Full name / ".ucfirst($language_temp);
-//	echo "<label for='alternate_name[".$language_temp."]'>". $placeholder_temp ."</label>";
-//	echo "<input name='alternate_name[".$language_temp."]' placeholder='". $placeholder_temp ."' value='".htmlspecialchars($value_temp, ENT_QUOTES)."' maxlength='70'>";
-//	endforeach;
-// foreach($site_info['languages'] as $language_temp):
-//	if (isset($entry_info['alternate_name'][$language_temp])): continue; endif;
-//	$placeholder_temp = "Full name / ". ucfirst($language_temp);
-//	echo "<label for='alternate_name[".$language_temp."]'>". $placeholder_temp ."</label>";
-//	echo "<input name='alternate_name[".$language_temp."]' placeholder='". $placeholder_temp ."' maxlength='70'>";
-//	endforeach;
+	foreach ($languages_array_temp as $language_temp):
 
-// echo "<span id='summary'></span>";
-// echo "<h2>Headline</h2>";
-// echo "<p>This short headline may get used for short-form content like stories, messages, and previews.</p>";
+		$echo_temp = $button_hidden_temp = $input_hidden_temp = $value_temp = null;
+		$placeholder_temp = ucfirst($input_descriptor)." / ". ucfirst($language_temp);
 
-foreach ($entry_info['summary'] as $language_temp => $value_temp):
-	$placeholder_temp = "Summary / ". ucfirst($language_temp);
-	echo "<label for='summary[".$language_temp."]'>". $placeholder_temp ."</label>";
-	echo "<input name='summary[".$language_temp."]' placeholder='". $placeholder_temp ."' value='".$value_temp."'>";
-	endforeach;
-foreach($site_info['languages'] as $language_temp):
-	if (isset($entry_info['summary'][$language_temp])): continue; endif;
-	$placeholder_temp = "Summary / ". ucfirst($language_temp);
-	echo "<label for='summary[".$language_temp."]'>". $placeholder_temp ."</label>";
-	echo "<input name='summary[".$language_temp."]' placeholder='". $placeholder_temp ."'>";
-	endforeach;
+		if (isset($values_array[$language_temp])):
+			$value_temp = $values_array[$language_temp];
+			$button_hidden_temp = "hidden";
+			$input_hidden_temp = null;
+		elseif (!(isset($values_array[$language_temp]))):
+			$button_hidden_temp = null;
+			$input_hidden_temp = "hidden";
+			endif;
 
-echo "<span id='body'></span>";
-echo "<h2>Body</h2>";
-echo "<p>The body can be as long as wanted, and is long-form content.</p>";
+		$echo_temp .= "<span role='button' tabindex='0' id='admin-page-".$input_backend."-".$language_temp."-button' on='tap:admin-page-".$input_backend."-".$language_temp.".show,admin-page-title-".$language_temp."-button.hide' ".$button_hidden_temp.">Add ".ucfirst($language_temp)."</span>";
 
-foreach ($entry_info['body'] as $language_temp => $value_temp):
-	$placeholder_temp = "Body / ". ucfirst($language_temp);
-	echo "<label for='body[".$language_temp."]'>". $placeholder_temp ."</label>";
-	echo "<textarea name='body[".$language_temp."]' placeholder='". $placeholder_temp ."' class='admin-page-form-body'>".$value_temp."</textarea>";
-	endforeach;
-foreach($site_info['languages'] as $language_temp):
-	if (isset($entry_info['body'][$language_temp])): continue; endif;
-	$placeholder_temp = "Body / ". ucfirst($language_temp);
-	echo "<label for='body[".$language_temp."]'>". $placeholder_temp ."</label>";
-	echo "<textarea name='body[".$language_temp."]' placeholder='". $placeholder_temp ."' class='admin-page-form-body'></textarea>";
-	endforeach;
+		$echo_temp .= "<div class='admin-page-input' id='admin-page-".$input_backend."-".$language_temp."' ".$input_hidden_temp.">";
+			$echo_temp .= "<label for='name[".$language_temp."]'>". $placeholder_temp;
+			$echo_temp .= "<span role='button' tabindex='0' on='tap:name-".$language_temp.".clear,admin-page-".$input_backend."-".$language_temp.".hide,admin-page-title-".$language_temp."-button.show'>Remove ".ucfirst($language_temp)."</span>";
+			$echo_temp .= "</label>";
+	
+			if ($input_backend == "name"):
+				$echo_temp .= "<input id='"$input_backend."-".$language_temp."' name='".$input_backend."[".$language_temp."]' placeholder='". $placeholder_temp ."' value='".htmlspecialchars($value_temp, ENT_QUOTES)."' maxlength='70'>";
+			if ($input_backend == "body"):
+				echo "<textarea name='".$input_backend."[".$language_temp."]' placeholder='". $placeholder_temp ."' class='admin-page-form-".$input_backend."'>".$value_temp."</textarea>";
+			else:
+				$echo_temp .= "<input id='"$input_backend."-".$language_temp."' name='".$input_backend."[".$language_temp."]' placeholder='". $placeholder_temp ."' value='".htmlspecialchars($value_temp, ENT_QUOTES)."' maxlength='70'>";
+				endif;	
+			
+			$echo_temp .= "</div>";
 
-echo "<span id='studies'></span>";
+		echo $echo_temp; // Because it's stored as a string, we can also use this format to prepend or append onto $echo_section
+
+		endforeach;
+	
+	}
+	
+create_inputs($entry_info['name'], "title", "name");
+// create_inputs($entry_info['alternate_name'], "Full name", "alternate_name");
+create_inputs($entry_info['summary'], "headline", "summary");
+create_inputs($entry_info['body'], "body", "body");
+
 echo "<h2>Studies</h2>";
-echo "<p>This is the list of references and notes.</p>";
-
 $placeholder_temp = "Studies";
 echo "<label for='studies'>". $placeholder_temp ."</label>";
 echo "<textarea name='studies' placeholder='". $placeholder_temp ."' class='admin-page-form-body'>".$entry_info['studies']."</textarea>";
 
-echo "<span id='hierarchy'></span>";
 echo "<h2>Hierarchy</h2>";
-echo "<p>The hierarchy is the entry's position downstream and upstream of other entries.</p>";
+// echo "<p>The hierarchy is the entry's position downstream and upstream of other entries.</p>";
 
 function hierarchy_selector ($entry_id, $relationship_name, $possible_array) {
 
