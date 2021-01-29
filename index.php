@@ -251,7 +251,7 @@ if ($page_temp == "edit-xhr"):
 		"date_published"	=> date("Y-m-d", (strtotime($_POST['date_published'])+5)), // mySQL DATE column has format YYYY-MM-DD
 		"date_updated"		=> date("Y-m-d H:i:s", time()), // mySQL DATETIME column has format YYYY-MM-DD hh:mm:ss
 		"name"			=> $_POST['name'],
-		"alternate_name"	=> $_POST['alternate_name'],
+//		"alternate_name"	=> $_POST['alternate_name'],
 		"summary" 		=> $_POST['summary'],
 		"body"			=> $_POST['body'],
 		"studies"		=> $_POST['studies'],
