@@ -12,7 +12,7 @@ function amp_header($title=null, $canonical=null) {
 	global $command_temp;
 
 	// Database contents
-	global $header_array;
+	global $site_info;
 	global $information_array;
 	
 	// Login status
@@ -124,7 +124,7 @@ function amp_header($title=null, $canonical=null) {
 	echo "<div role='button' tabindex='0' id='settings-popover-launch' on='tap:settings-popover' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='".$logout_hidden."'>Settings</div>";
 
 	// If you are viewing a page but not editing it...
-	if (!(empty($page_temp)) && !(isset($header_array[$page_temp])) && empty($command_temp)):
+	if (!(empty($page_temp)) && !(isset($site_info['category_array'][$page_temp])) && empty($command_temp)):
 	
 		// If you are signed in, the button for 'edit' will appear...
 		echo "<a href='/".$page_temp."/edit/' target='_self'><div id='settings-popover-launch' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='".$logout_hidden."'>Edit</div></a>";
@@ -189,7 +189,7 @@ function amp_header($title=null, $canonical=null) {
 	
 		echo "<ul class='unnested-list'>";
 		
-		foreach ($header_array as $header_backend => $header_frontend):
+		foreach ($site_info['category_array'] as $header_backend => $header_frontend):
 			echo "<li><a href='/".$header_backend."/' ".$target_temp.">";
 			echo "<div class='sidebar-navigation-item-title'>". ucfirst($header_frontend) ."</div></a></li>";
 			endforeach;
@@ -293,7 +293,7 @@ function amp_header($title=null, $canonical=null) {
 		// Create selector ...
 		echo "<label for='type'>Type</label>";
 		echo "<amp-selector layout='container' name='type'><div>";
-		foreach ($header_array as $header_backend => $header_frontend):
+		foreach ($site_info['category_array'] as $header_backend => $header_frontend):
 			echo "<span option='".$header_backend."'>".$header_frontend."</span>";
 			endforeach;
 		echo "</div></amp-selector>";
