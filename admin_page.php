@@ -70,17 +70,11 @@ function create_inputs($entry_info, $input_backend, $input_descriptor, $input_ty
 	if ($language_toggle == "on"):
 		if (!(isset($entry_info[$input_backend])) || empty($entry_info[$input_backend])):
 			$entry_info[$input_backend] = [];
-//			$entry_info[$input_backend] = [ "english" => " ", ]; // Make this open by default for all
-			if ($input_backend == "name"): // Make the "name" open by default
-				$entry_info[$input_backend] = [ "english" => " ", ];
-				endif;
 			endif;
 		$languages_array_temp = array_keys($entry_info[$input_backend]);
 		$languages_array_temp = array_merge($site_info['languages'], $languages_array_temp);
 		$languages_array_temp = array_unique($languages_array_temp);
 		endif;
-	
-	print_r($entry_info);
 	
 //	$echo_section = null;
 
@@ -100,7 +94,7 @@ function create_inputs($entry_info, $input_backend, $input_descriptor, $input_ty
 			if (isset($entry_info[$input_backend])): $value_temp = trim($entry_info[$input_backend]); endif;
 			endif;
 			
-		if (!(empty($value_temp))):
+		if (!(empty($value_temp)) || ([$input_backend,$language_temp] == ["name", "english"])): // Set it up so name, english is open by default
 			$button_hidden_temp = "hidden";
 			$input_hidden_temp = null;
 		elseif (empty($value_temp)):
