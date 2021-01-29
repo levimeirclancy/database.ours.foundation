@@ -104,7 +104,7 @@ function create_inputs($values_array, $input_descriptor, $input_backend) {
 	
 			if ($input_backend == "name"):
 				$echo_temp .= "<input id='".$input_backend."-".$language_temp."' name='".$input_backend."[".$language_temp."]' placeholder='". $placeholder_temp ."' value='".htmlspecialchars($value_temp, ENT_QUOTES)."' maxlength='70'>";
-			if ($input_backend == "body"):
+			elseif ($input_backend == "body"):
 				echo "<textarea name='".$input_backend."[".$language_temp."]' placeholder='". $placeholder_temp ."' class='admin-page-form-".$input_backend."'>".$value_temp."</textarea>";
 			else:
 				$echo_temp .= "<input id='".$input_backend."-".$language_temp."' name='".$input_backend."[".$language_temp."]' placeholder='". $placeholder_temp ."' value='".htmlspecialchars($value_temp, ENT_QUOTES)."' maxlength='70'>";
