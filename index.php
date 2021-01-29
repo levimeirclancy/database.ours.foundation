@@ -260,6 +260,8 @@ if ($page_temp == "edit-xhr"):
 
 	$values_temp = clean_empty_array($values_temp);
 
+	if (empty($values_temp['studies'])): $values_temp['studies'] = " "; endif;
+
 	foreach ($values_temp as $key_temp => $value_temp):
 		if (empty($value_temp) || !(is_array($value_temp))): continue; endif;
 		$values_temp[$key_temp] = json_encode($value_temp);
