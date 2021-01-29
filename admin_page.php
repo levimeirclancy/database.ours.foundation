@@ -129,7 +129,7 @@ function create_inputs($entry_info, $input_backend, $input_descriptor, $input_ty
 					if (in_array($value_temp_temp, $value_temp)): continue; endif;
 					$echo_temp .= "<span option='".$value_temp_temp."'>".$frontend_temp_temp."</span>";
 					endforeach;
-				echo "</amp-selector>";
+				$echo_temp .= "</amp-selector>";
 			elseif ($input_type == "textarea-big"):
 				$echo_temp .= "<textarea	name='".$name_temp."' placeholder='". $placeholder_temp ."' id='".$id_temp."'>".$value_temp."</textarea>";
 			elseif ($input_type == "textarea-small"):
