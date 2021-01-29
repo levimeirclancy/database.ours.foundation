@@ -524,11 +524,5 @@ if (!(empty($_SERVER['REQUEST_URI'])) && ($_SERVER['REQUEST_URI'] !== "/")):
 	permanent_redirect("https://".$domain); endif;
 
 amp_header($domain, $domain);
-$tap_temp = implode(",", [
-	"begin-image.hide",
-	"sidebar-navigation.open",
-	]);
-
-echo "<amp-img src='begin.png' id='begin-image' width='375' height='273' layout='intrinsic' alt='Begin' role='button' tabindex='0' on='tap:".$tap_temp."'></amp-img>";
-
+include_once('theme_home.php');
 footer(); ?>
