@@ -100,7 +100,7 @@ function create_inputs($entry_info, $input_backend, $input_descriptor) {
 			$input_hidden_temp = "hidden";
 			endif;
 
-		$echo_temp .= "<span role='button' tabindex='0' class='admin-page-button'> id='admin-page-".$input_backend."-".$language_temp."-button' on='tap:admin-page-".$input_backend."-".$language_temp.".show,admin-page-".$input_backend."-".$language_temp."-button.hide' ".$button_hidden_temp.">Add ".ucfirst($language_temp)." ".$input_descriptor."</span>";
+		$echo_temp .= "<div class='input-button-wrapper'><span role='button' tabindex='0' class='input-button'> id='admin-page-".$input_backend."-".$language_temp."-button' on='tap:admin-page-".$input_backend."-".$language_temp.".show,admin-page-".$input_backend."-".$language_temp."-button.hide' ".$button_hidden_temp.">Add ".ucfirst($language_temp)." ".$input_descriptor."</span></div>";
 
 		$echo_temp .= "<div class='admin-page-input' id='admin-page-".$input_backend."-".$language_temp."' ".$input_hidden_temp.">";
 			$echo_temp .= "<label for='".$input_backend."[".$language_temp."]'>". $placeholder_temp ."</label>";
@@ -113,7 +113,7 @@ function create_inputs($entry_info, $input_backend, $input_descriptor) {
 				$echo_temp .= "<input id='".$input_backend."-".$language_temp."' name='".$input_backend."[".$language_temp."]' placeholder='". $placeholder_temp ."' value='".htmlspecialchars($value_temp, ENT_QUOTES)."' maxlength='70'>";
 				endif;	
 
-			$echo_temp .= "<div class='admin-page-button-wrapper'><span class='admin-page-button' role='button' tabindex='0' on='tap:admin-page-".$input_backend."-".$language_temp.".hide,admin-page-".$input_backend."-".$language_temp."-button.show'>Remove</span></div>";
+			$echo_temp .= "<div class='input-button-wrapper'><span class='input-button' role='button' tabindex='0' on='tap:admin-page-".$input_backend."-".$language_temp.".hide,admin-page-".$input_backend."-".$language_temp."-button.show'>Remove</span></div>";
 			
 			$echo_temp .= "</div>";
 
