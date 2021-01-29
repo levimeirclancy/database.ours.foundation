@@ -803,7 +803,7 @@ ul, ol, amp-list {
 	max-width: 850px;
 	margin: 30px;
 	padding: 0;
-	list-style-position: inside;
+	list-style-position: outside;
 	line-height: 1.4;
 	border-left: 2px solid rgba(200,200,200,0.5);
 	border-bottom: 2px solid rgba(200,200,200,0.5);
@@ -837,6 +837,7 @@ ul > li:before, amp-list > li:before {
 	left: 0; }
 
 ol {
+	padding-left: 30px;
 	list-style-type: decimal; }
 
 ol ol {
