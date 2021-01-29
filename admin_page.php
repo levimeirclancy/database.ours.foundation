@@ -73,7 +73,9 @@ function create_inputs($entry_info, $input_backend, $input_descriptor) {
 	global $site_info;
 	
 	if (!(isset($entry_info[$input_backend])) || empty($entry_info[$input_backend])):
-		$entry_info[$input_backend] = [];
+		$entry_info[$input_backend] = [
+			"english" => " ",
+			];
 		endif;
 	
 	$languages_array_temp = array_keys($entry_info[$input_backend]);
@@ -88,7 +90,7 @@ function create_inputs($entry_info, $input_backend, $input_descriptor) {
 		$placeholder_temp = ucfirst($input_descriptor)." / ". ucfirst($language_temp);
 
 		if (isset($entry_info[$input_backend][$language_temp])):
-			$value_temp = $entry_info[$input_backend][$language_temp];
+			$value_temp = trim($entry_info[$input_backend][$language_temp]);
 			$button_hidden_temp = "hidden";
 			$input_hidden_temp = null;
 		elseif (!(isset($entry_info[$input_backend][$language_temp]))):
