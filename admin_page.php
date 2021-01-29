@@ -110,7 +110,7 @@ function create_inputs($entry_info, $input_backend, $input_descriptor, $input_ty
 			$input_hidden_temp = "hidden";
 			endif;
 
-		$echo_temp .= "<div class='input-button-wrapper'><span role='button' tabindex='0' class='input-button' id='admin-page-".$id_temp."-button' on='tap:admin-page-".$id_temp.".show,admin-page-".$id_temp."-button.hide' ".$button_hidden_temp.">Add ".$placeholder_temp."</span></div>";
+//		$echo_temp .= "<div class='input-button-wrapper'><span role='button' tabindex='0' class='input-button' id='admin-page-".$id_temp."-button' on='tap:admin-page-".$id_temp.".show,admin-page-".$id_temp."-button.hide' ".$button_hidden_temp.">Show ".$placeholder_temp."</span></div>";
 
 		$echo_temp .= "<div class='admin-page-input' id='admin-page-".$id_temp."' ".$input_hidden_temp.">";
 			$echo_temp .= "<label for='".$name_temp."'>". $placeholder_temp ."</label>";
@@ -121,10 +121,12 @@ function create_inputs($entry_info, $input_backend, $input_descriptor, $input_ty
 				$echo_temp .= "<input id='".$id_temp."' name='".$name_temp."' placeholder='". $placeholder_temp ."' value='".htmlspecialchars($value_temp, ENT_QUOTES)."' maxlength='150'>";
 				endif;	
 
-			$echo_temp .= "<div class='input-button-wrapper'><span class='input-button' role='button' tabindex='0' on='tap:admin-page-".$id_temp.".hide,admin-page-".$id_temp."-button.show'>Remove ".$placeholder_temp."</span></div>";
+//			$echo_temp .= "<div class='input-button-wrapper'><span class='input-button' role='button' tabindex='0' on='tap:admin-page-".$id_temp.".hide,admin-page-".$id_temp."-button.show'>Hide ".$placeholder_temp."</span></div>";
 			
 			$echo_temp .= "</div>";
 
+		$echo_temp .= "<div class='input-button-wrapper'><span class='input-button' role='button' tabindex='0' on='tap:admin-page-".$id_temp.".toggle'>Toggle ".$placeholder_temp."</span></div>";
+	
 		echo $echo_temp; // Because it's stored as a string, we can also use this format to prepend or append onto $echo_section
 
 		if ($language_toggle !== "on"): break; endif; // If no more languages, stop there
