@@ -130,7 +130,7 @@ function create_inputs($entry_info, $input_backend, $input_descriptor, $input_ty
 	
 create_inputs($entry_info, "name", "title");
 // create_inputs($entry_info['alternate_name'], "alternate_name", "full name");
-create_inputs($entry_info, "summary", "headline");
+create_inputs($entry_info, "summary", "headline", "textarea");
 create_inputs($entry_info, "body", "body", "textarea");
 create_inputs($entry_info, "studies", "studies", "textarea", "off");
 
