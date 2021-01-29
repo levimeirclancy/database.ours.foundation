@@ -666,6 +666,10 @@ label, input, textarea, amp-selector, .input-button-wrapper {
 	outline: 0 none rgba(255,255,255,0);
 	}
 
+.input-button-wrapper {
+	text-align: right;
+	}
+
 input, textarea, amp-selector {
 	font-family: Verdana, Helvetica, 'Sans Serif';
 	margin: 5px 13px;
