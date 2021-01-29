@@ -13,7 +13,7 @@ foreach ($result as $row):
 function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 	
 	global $information_array;
-	global $header_array;
+	global $site_info;
 
 	// If empty, just move on
 	if (empty($information_array[$entry_id][$hierarchy_temp]['hierarchy'])): return; endif;
@@ -42,7 +42,7 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 	$echo_section = [];
 	$counter_section = null;
 
-	foreach ($header_array as $header_backend => $header_frontend):
+	foreach ($site_info['category_array'] as $header_backend => $header_frontend):
 		
 		$count_temp = $echo_section_temp = null;
 	
@@ -126,10 +126,10 @@ echo "<amp-sidebar id='sidebar-entry-info' layout='nodisplay' side='right'>";
 	echo "<ul>";
 	echo "<li><span class='sidebar-navigation-item-title'><b>Metadata</b></span>";
 		echo "<ul>";
-		echo "<li><span class='sidebar-navigation-item-title'>Type: <a href='/".$entry_info['type']."/'><span property='genre'>".$header_array[$entry_info['type']]."</span></a></span></li>"; // Type
+		echo "<li><span class='sidebar-navigation-item-title'>Type: <a href='/".$entry_info['type']."/'><span property='genre'>".$site_info['category_array'][$entry_info['type']]."</span></a></span></li>"; // Type
 		echo "<li><span class='sidebar-navigation-item-title'>Publisher: <a href='https://".$domain."'><span property='publisher'>".$publisher."</span></a></span></li>"; // Publisher
 		echo "<li><span class='sidebar-navigation-item-title'>Author: <span property='author'>".$author."</span></span></li>"; // Author
-		echo "<li><span class='sidebar-navigation-item-title'>Type: <a href='/".$entry_info['type']."/'><span property='genre'>".$header_array[$entry_info['type']]."</span></a></span></li>"; // Type
+		echo "<li><span class='sidebar-navigation-item-title'>Type: <a href='/".$entry_info['type']."/'><span property='genre'>".$site_info['category_array'][$entry_info['type']]."</span></a></span></li>"; // Type
 //		echo "<li><span class='sidebar-navigation-item-title'>Published: ".date("Y F d", strtotime($entry_info['date_published']))."</span></li>"; // Date published
 //		echo "<li><span class='sidebar-navigation-item-title'>Updated: ".date("Y F d, H:i:s", strtotime($entry_info['date_updated']))."</span></li>"; // Date updated
 		if (!(empty($entry_info['appendix']['latitude'])) && !(empty($entry_info['appendix']['longitude']))): // GPS
