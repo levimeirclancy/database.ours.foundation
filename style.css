@@ -803,7 +803,7 @@ ul, ol, amp-list {
 	max-width: 850px;
 	margin: 30px;
 	padding: 0;
-	list-style-position: outside;
+	list-style-position: inside;
 	line-height: 1.4;
 	border-left: 2px solid rgba(200,200,200,0.5);
 	border-bottom: 2px solid rgba(200,200,200,0.5);
