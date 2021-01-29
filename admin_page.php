@@ -72,7 +72,7 @@ echo "<h1 amp-fx='parallax' data-parallax-factor='1.05'><a href='https://".$doma
 //echo "<h2>Title</h2>";
 //echo "<p>The title should be shorter than the full name, and easier to comprehend as well. For example, <i>Sagrada Familia</i>. It may also contain bracketed elements for sorting, e.g. <i>[01] Sagrada Familia</i>.</p>";
 
-$languages_array_temp = array_values($entry_info['name']);
+$languages_array_temp = array_keys($entry_info['name']);
 $languages_array_temp = array_merge($site_info['languages'], $languages_array_temp);
 $languages_array_temp = array_unique($languages_array_temp);
 $echo_section = null;
