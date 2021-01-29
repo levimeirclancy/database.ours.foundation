@@ -117,6 +117,9 @@ if ($search_results['searchCount'] > 0):
 		endforeach;
 	endif;
 
+// Begin article content
+echo "<article><div vocab='http://schema.org/' typeof='Article'>";
+
 // Sidebar
 echo "<amp-sidebar id='sidebar-entry-info' layout='nodisplay' side='right'>";
 	echo "<div class='sidebar-back' on='tap:sidebar-entry-info.close' role='button' tabindex='0'>Close</div>";
@@ -149,8 +152,6 @@ echo "<amp-sidebar id='sidebar-entry-info' layout='nodisplay' side='right'>";
 
 	echo "</ul>";
 	echo "</amp-sidebar>";
-
-echo "<article><div vocab='http://schema.org/' typeof='Article'>";
 
 echo "<header><h1 property='name' amp-fx='parallax' data-parallax-factor='1.3'>" . $entry_info['header'] . "</h1></header>";
 
