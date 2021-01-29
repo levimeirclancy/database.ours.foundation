@@ -20,12 +20,6 @@ if ($page_temp == "new"): $new_page = "yes"; endif;
 // When tap, then also close the amp-lightbox
 
 echo "<div id='admin-page-actions' amp-fx='parallax' data-parallax-factor='1.2'>";
-//	echo "<a href='#title'><div class='navigation-header-item'>Title</div></a>";
-//	echo "<a href='#full-name'><div class='navigation-header-item'>Full name</div></a>";
-//	echo "<a href='#summary'><div class='navigation-header-item'>Summary</div></a>";
-//	echo "<a href='#body'><div class='navigation-header-item'>Body</div></a>";
-//	echo "<a href='#studies'><div class='navigation-header-item'>Studies</div></a>";
-//	echo "<a href='#relationality'><div class='navigation-header-item'>Relationality</div></a>";
 	echo "<div id='admin-page-delete' on='tap:delete-popover'>&#x2B19; Delete entry</div>";
 	echo "</div>";
 
