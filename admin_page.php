@@ -85,7 +85,7 @@ foreach ($languages_array_temp as $language_temp):
 	if (isset($entry_info['name'][$language_temp])):
 		$value_temp = $entry_info['name'][$language_temp];
 	elseif (!(isset($entry_info['name'][$language_temp]))):
-		$echo_temp .= "<span role='button' tabindex='0' on='tap:admin-page-title-".$language_temp.".show,admin-page-title-".$language_temp."-button.hide'>Add ".ucfirst($language_temp)."</span>";
+		$echo_temp .= "<span role='button' tabindex='0' id='admin-page-title-".$language_temp."-button' on='tap:admin-page-title-".$language_temp.".show,admin-page-title-".$language_temp."-button.hide'>Add ".ucfirst($language_temp)."</span>";
 		$hidden_temp = "hidden";
 		endif;
 
