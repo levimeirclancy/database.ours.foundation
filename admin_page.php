@@ -167,7 +167,7 @@ foreach ($appendix_array as $appendix_key => $appendix_type):
 
 $possibilities_array = [];
 foreach ($information_array as $entry_id_temp => $entry_info_temp):
-	$possibilities_array[$entry_id_temp] = $entry_info_temp['head'] . " • ". $site_info['category_array'][$entry_info_temp['type']];
+	$possibilities_array[$entry_id_temp] = $entry_info_temp['header'] . " • ". $site_info['category_array'][$entry_info_temp['type']];
 	endforeach;
 create_inputs($information_array[$entry_id]['hierarchy'], "parents", "parents", "amp-selector-multiple", "off", "off", $possibilities_array);
 create_inputs($information_array[$entry_id]['hierarchy'], "children", "children", "amp-selector-multiple", "off", "off", $possibilities_array);
