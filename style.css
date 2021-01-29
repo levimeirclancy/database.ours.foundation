@@ -652,33 +652,6 @@ div.amp-lightbox-media-id {
 	border-radius: 100px;
 	}
 
-#admin-page-new-entry {
-	top: 10px;
-	left: 10px;
-	}
-
-#admin-page-delete {
-	top: 50px;
-	left: 10px;
-	}
-
-#admin-page-log-out {
-	top: 10px;
-	right: 10px;
-	}
-
-.admin-page-form h2 {
-	max-width: 600px;
-	margin: 5px;
-	padding: 130px 20px 10px;
-	}
-	
-.admin-page-form p {
-	max-width: 600px;
-	margin: 5px;
-	padding: 60px 20px 0;
-	}
-
 label, input, textarea, amp-selector, .input-button-wrapper {
 	display: block;
 	margin: 5px 8px;
@@ -713,6 +686,10 @@ label {
 	font-style: italic;
 	color: rgba(100,100,100,0.8);
 	padding: 40px 16px 5px;
+	}
+
+.admin-page-input {
+	display: container;
 	}
 
 .input-button {
