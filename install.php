@@ -61,7 +61,8 @@ $tables_array = [
 		"`type` VARCHAR(20)",
 		"`date_published` DATE", // Add this column
 		"`date_updated` DATETIME", // And add this column
-		"`alternate_name` VARCHAR(500)",
+		"`name` VARCHAR(1000)",
+//		"`alternate_name` VARCHAR(500)",
 		"`summary` TEXT",
 		"`body` TEXT",
 		"`studies` TEXT",
