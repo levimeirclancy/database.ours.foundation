@@ -14,7 +14,19 @@ $color = "";
 
 // This is normally not changed,
 $site_info = [
-	"languages"=>["english", "hebrew", "sorani", "arabic"]];
-
-
-?>
+	"languages"		=> 
+		[
+		"english", "hebrew", "sorani", "arabic"
+		],
+	"category_array"	=> 
+		[
+		"offices-units"	=> "Offices and units",
+		"demographic"	=> "Demographics",
+		"party"		=> "Parties",
+		"regions"	=> "Regions",
+		"settlements"	=> "Settlements",
+		"place"		=> "Places",
+		"person"	=> "People",
+		"article"	=> "Articles",
+		],
+	]; ?>
