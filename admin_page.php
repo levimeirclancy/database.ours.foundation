@@ -95,7 +95,7 @@ foreach ($languages_array_temp as $language_temp):
 
 	$echo_temp .= "<div class='admin-page-input' id='admin-page-title-".$language_temp."' ".$input_hidden_temp.">";
 		$echo_temp .= "<label for='name[".$language_temp."]'>". $placeholder_temp;
-		$echo_temp .= "<span role='button' tabindex='0' on='tap:admin-page-title-".$language_temp.".hide,admin-page-title-".$language_temp."-button.show'>Remove ".ucfirst($language_temp)."</span>";
+		$echo_temp .= "<span role='button' tabindex='0' on='tap:name-".$language.".clear,admin-page-title-".$language_temp.".hide,admin-page-title-".$language_temp."-button.show'>Remove ".ucfirst($language_temp)."</span>";
 		$echo_temp .= "</label>";
 		$echo_temp .= "<input id='name-".$language."' name='name[".$language_temp."]' placeholder='". $placeholder_temp ."' value='".htmlspecialchars($value_temp, ENT_QUOTES)."' maxlength='70'>";
 		$echo_temp .= "</div>";
