@@ -164,6 +164,8 @@ echo "<div class='entry-metadata-wrapper'>";
 	echo "<span class='entry-metadata-more' amp-fx='parallax' data-parallax-factor='1.25' role='button' tabindex='0' on='tap:sidebar-entry-info.toggle'>More details</span>";
 	echo "</div>";
 
+echo "<hr>";
+
 echo "<span property='articleBody'>";
 
 if (empty($languages_temp)):
