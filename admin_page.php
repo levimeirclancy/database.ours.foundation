@@ -74,11 +74,13 @@ function create_inputs($entry_info, $input_backend, $input_descriptor, $input_ty
 			if ($input_backend == "name"): // Make the "name" open by default
 				$entry_info[$input_backend] = [ "english" => " ", ];
 				endif;
-		endif;
+			endif;
 		$languages_array_temp = array_keys($entry_info[$input_backend]);
 		$languages_array_temp = array_merge($site_info['languages'], $languages_array_temp);
 		$languages_array_temp = array_unique($languages_array_temp);
 		endif;
+	
+	print_r($entry_info);
 	
 //	$echo_section = null;
 
