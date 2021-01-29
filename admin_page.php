@@ -71,18 +71,20 @@ echo "<h1 amp-fx='parallax' data-parallax-factor='1.05'><a href='https://".$doma
 function create_inputs($entry_info, $input_backend, $input_descriptor, $input_type = "input-text", $language_toggle = "on") {
 	
 	global $site_info;
-	
-	if (!(isset($entry_info[$input_backend])) || empty($entry_info[$input_backend])):
-		$entry_info[$input_backend] = [];
-//		$entry_info[$input_backend] = [ "english" => " ", ]; // Make this open by default for all
-		if ($input_backend == "name"): // Make the "name" open by default
-			$entry_info[$input_backend] = [ "english" => " ", ];
-			endif;
+		
+	$languages_array_temp = [ "placeholder" ];
+	if ($language_toggle == "on"):
+		if (!(isset($entry_info[$input_backend])) || empty($entry_info[$input_backend])):
+			$entry_info[$input_backend] = [];
+//			$entry_info[$input_backend] = [ "english" => " ", ]; // Make this open by default for all
+			if ($input_backend == "name"): // Make the "name" open by default
+				$entry_info[$input_backend] = [ "english" => " ", ];
+				endif;
 		endif;
-	
-	$languages_array_temp = array_keys($entry_info[$input_backend]);
-	$languages_array_temp = array_merge($site_info['languages'], $languages_array_temp);
-	$languages_array_temp = array_unique($languages_array_temp);
+		$languages_array_temp = array_keys($entry_info[$input_backend]);
+		$languages_array_temp = array_merge($site_info['languages'], $languages_array_temp);
+		$languages_array_temp = array_unique($languages_array_temp);
+		endif;
 	
 //	$echo_section = null;
 
@@ -139,7 +141,7 @@ create_inputs($entry_info, "name", "title");
 // create_inputs($entry_info['alternate_name'], "alternate_name", "full name");
 create_inputs($entry_info, "summary", "headline");
 create_inputs($entry_info, "body", "body", "textarea");
-create_inputs($entry_info, "studies", "studies", "textarea", "studies");
+create_inputs($entry_info, "studies", "studies", "textarea", "off");
 
 function hierarchy_selector ($entry_id, $relationship_name, $possible_array) {
 
