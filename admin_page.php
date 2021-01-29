@@ -97,7 +97,7 @@ foreach ($languages_array_temp as $language_temp):
 		$echo_temp .= "<label for='name[".$language_temp."]'>". $placeholder_temp;
 		$echo_temp .= "<span role='button' tabindex='0' on='tap:name-".$language_temp.".clear,admin-page-title-".$language_temp.".hide,admin-page-title-".$language_temp."-button.show'>Remove ".ucfirst($language_temp)."</span>";
 		$echo_temp .= "</label>";
-		$echo_temp .= "<input id='name-".$language."' name='name[".$language_temp."]' placeholder='". $placeholder_temp ."' value='".htmlspecialchars($value_temp, ENT_QUOTES)."' maxlength='70'>";
+		$echo_temp .= "<input id='name-".$language_temp."' name='name[".$language_temp."]' placeholder='". $placeholder_temp ."' value='".htmlspecialchars($value_temp, ENT_QUOTES)."' maxlength='70'>";
 		$echo_temp .= "</div>";
 
 	echo $echo_temp; // Because it's stored as a string, we can also use this format to prepend or append onto $echo_section
