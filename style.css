@@ -679,7 +679,7 @@ div.amp-lightbox-media-id {
 	padding: 60px 20px 0;
 	}
 
-label, .password-toggle, input, textarea, amp-selector {
+label, input, textarea, amp-selector, .input-button-wrapper {
 	display: block;
 	margin: 5px 8px;
 	padding: 8px;
@@ -715,9 +715,11 @@ label {
 	padding: 40px 16px 5px;
 	}
 
-.password-toggle {
+.input-button {
 	color: rgba(100,100,100,0.8);
 	padding: 5px 16px 5px;
+	border: 1px solid rgba(100,100,100,0.8);
+	opacity: 0.8;
 	}
 
 .admin-page-form-summary {
