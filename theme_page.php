@@ -124,6 +124,9 @@ echo "<amp-sidebar id='sidebar-entry-info' layout='nodisplay' side='right'>";
 	echo "<li><span class='sidebar-navigation-item-title'><b>Metadata</b></span>";
 		echo "<ul>";
 		echo "<li><span class='sidebar-navigation-item-title'>Type: <a href='/".$entry_info['type']."/'><span property='genre'>".$header_array[$entry_info['type']]."</span></a></span></li>"; // Type
+		echo "<li><span class='sidebar-navigation-item-title'>Publisher: <span property='publisher'>".$publisher."</span></span></li>"; // Publisher
+		echo "<li><span class='sidebar-navigation-item-title'>Author: <span property='author'>".$author."</span></span></li>"; // Author
+		echo "<li><span class='sidebar-navigation-item-title'>Type: <a href='/".$entry_info['type']."/'><span property='genre'>".$header_array[$entry_info['type']]."</span></a></span></li>"; // Type
 //		echo "<li><span class='sidebar-navigation-item-title'>Published: ".date("Y F d", strtotime($entry_info['date_published']))."</span></li>"; // Date published
 //		echo "<li><span class='sidebar-navigation-item-title'>Updated: ".date("Y F d, H:i:s", strtotime($entry_info['date_updated']))."</span></li>"; // Date updated
 		if (!(empty($entry_info['appendix']['latitude'])) && !(empty($entry_info['appendix']['longitude']))): // GPS
