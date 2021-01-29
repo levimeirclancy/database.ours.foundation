@@ -466,7 +466,7 @@ article th p + p, article td p + p, article li p + p {
 .entry-metadata, .entry-metadata-more {
 	display: inline-block;
 	font-style: italic;
-	margin: 15px;
+	margin: 0;
 	font-size: 90%;
 	padding: 8px 15px;
 	background: rgba(255,255,255,0.3);
@@ -475,6 +475,7 @@ article th p + p, article td p + p, article li p + p {
 	}
 
 .entry-metadata-more {
+	margin: 8px 15px;
 	border: 1px solid rgba(100,100,100,0.8);
 	cursor: pointer;
 	}
