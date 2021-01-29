@@ -226,7 +226,7 @@ if ($page_temp == "edit-xhr"):
 	if (!(array_key_exists($_POST['entry_id'], $information_array))): json_result($domain, "error", null, "Entry does not exist."); endif;
 
 	if (empty($_POST['type'])): json_result($domain, "error", null, "Needs type."); endif;
-	if (empty($header_array[$_POST['type']])): json_result($domain, "error", null, "Type is not valid."); endif;
+	if (empty($site_info['category_array'][$_POST['type']])): json_result($domain, "error", null, "Type is not valid."); endif;
 
 	function clean_empty_array($array_temp) {
 		if (ctype_space($array_temp)): return null; endif;
@@ -349,13 +349,13 @@ if ($page_temp == "new-xhr"):
 	if (empty($login)): json_result($domain, "error", null, "Not logged in."); endif;
 
 	if (empty($_POST['type'])): json_result($domain, "error", null, "Needs type."); endif;
-	if (empty($header_array[$_POST['type']])): json_result($domain, "error", null, "Type is not valid."); endif;
+	if (empty($site_info['category_array'][$_POST['type']])): json_result($domain, "error", null, "Type is not valid."); endif;
 
 	// Create a unique entry_id
 	$entry_id = random_code(7);
 
 	// While the entry_id already exists, or is in use in the header array
-	while (isset($information_array[$entry_id]) || isset($header_array[$entry_id])): $entry_id = random_code(7); endwhile;
+	while (isset($information_array[$entry_id]) || isset($site_info['category_array'][$entry_id])): $entry_id = random_code(7); endwhile;
 
 	// Redirect to the edit ...
 	$values_temp = [
@@ -478,7 +478,7 @@ $layout_nodisplay_temp = null;
 if (!(empty($_REQUEST['view'])) && ($_REQUEST['view'] == "compact")): $layout_nodisplay_temp = "layout='nodisplay'"; endif;
 
 // if the $page_temp is valid then go ahead and see if it exists
-if (!(empty($page_temp)) && !(isset($header_array[$page_temp]))):
+if (!(empty($page_temp)) && !(isset($site_info['category_array'][$page_temp]))):
 	if (!(isset($information_array[$page_temp]))):
 		$page_temp = $command_temp = null; // To avoid showing edit options
 		amp_header();
@@ -510,8 +510,8 @@ if (!(empty($page_temp)) && !(isset($header_array[$page_temp]))):
 
 	endif;
 
-if (!(empty($page_temp)) && isset($header_array[$page_temp])):
-	amp_header($header_array[$page_temp], $domain."/".$page_temp."/");
+if (!(empty($page_temp)) && isset($site_info['category_array'][$page_temp])):
+	amp_header($site_info['category_array'][$page_temp], $domain."/".$page_temp."/");
 	include_once('theme_type.php');
 	footer(); endif;
 
