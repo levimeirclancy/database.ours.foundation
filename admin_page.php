@@ -146,7 +146,7 @@ echo "<p>The hierarchy is the entry's position downstream and upstream of other 
 
 function hierarchy_selector ($entry_id, $relationship_name, $possible_array) {
 
-	global $header_array;
+	global $site_info;
 	global $information_array;
 
 	echo "<label for='". $relationship_name ."[]'>".ucwords($relationship_name)."</label>";
@@ -164,14 +164,14 @@ function hierarchy_selector ($entry_id, $relationship_name, $possible_array) {
 		if (empty($information_array[$entry_id_temp]['header'])): continue; endif;
 		if ($entry_id == $entry_id_temp): continue; endif;
 		echo "<span option='".$entry_id_temp."' selected>";
-		echo $information_array[$entry_id_temp]['header'] . " • ". $header_array[$information_array[$entry_id_temp]['type']];
+		echo $information_array[$entry_id_temp]['header'] . " • ". $site_info['category_array'][$information_array[$entry_id_temp]['type']];
 		echo "</span>"; endforeach;
 	foreach ($possible_array as $entry_id_temp):
 		if (in_array($entry_id_temp, $information_array[$entry_id][$relationship_name]['hierarchy'])): continue; endif;
 		if (empty($information_array[$entry_id_temp]['header'])): continue; endif;
 		if ($entry_id == $entry_id_temp): continue; endif;
 		echo "<span option='".$entry_id_temp."'>";
-		echo $information_array[$entry_id_temp]['header'] . " • ". $header_array[$information_array[$entry_id_temp]['type']];
+		echo $information_array[$entry_id_temp]['header'] . " • ". $site_info['category_array'][$information_array[$entry_id_temp]['type']];
 		echo "</span>";
 		endforeach;
 	echo "</amp-selector>"; }
@@ -187,10 +187,10 @@ echo "<p>An entry's type is its most important organizational component. Types a
 
 echo "<label for='type'>Type</label>";
 echo "<amp-selector layout='container' name='type'>";
-if (isset($header_array[$entry_info['type']])):
-	echo "<span option='".$entry_info['type']."' selected>".$header_array[$entry_info['type']]."</span>";
+if (isset($site_info['category_array'][$entry_info['type']])):
+	echo "<span option='".$entry_info['type']."' selected>".$site_info['category_array'][$entry_info['type']]."</span>";
 	endif;
-foreach ($header_array as $header_backend => $header_frontend):
+foreach ($site_info['category_array'] as $header_backend => $header_frontend):
 	if ($header_backend == $entry_info['type']): continue; endif;
 	echo "<span option='".$header_backend."'>".$header_frontend."</span>";
 	endforeach;
