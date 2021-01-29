@@ -668,6 +668,7 @@ label, input, textarea, amp-selector, .input-button-wrapper {
 
 .input-button-wrapper {
 	text-align: right;
+	max-width: 850px;
 	}
 
 input, textarea, amp-selector {
