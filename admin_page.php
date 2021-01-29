@@ -19,9 +19,6 @@ if ($page_temp == "new"): $new_page = "yes"; endif;
 
 // When tap, then also close the amp-lightbox
 
-echo "<div id='admin-page-actions' amp-fx='parallax' data-parallax-factor='1.2'>";
-	echo "<div id='admin-page-delete' on='tap:delete-popover'>&#x2B19; Delete entry</div>";
-	echo "</div>";
 
 // Do a delete popover ... redirect if deletion works ...
 echo "<amp-lightbox id='delete-popover' layout='nodisplay'>";
@@ -60,7 +57,11 @@ echo "<form action-xhr='/edit-xhr/' method='post' class='admin-page-form' id='sa
 
 echo "<input type='hidden' name='entry_id' value='$page_temp'>";
 
-echo "<h1 amp-fx='parallax' data-parallax-factor='1.05'><a href='https://".$domain."/".$page_temp."/' target='_blank'>".$domain."/".$page_temp."/</a></h1>";
+echo "<p amp-fx='parallax' data-parallax-factor='1.2'><a href='https://".$domain."/".$page_temp."/' target='_blank'>".$domain."/".$page_temp."/</a></p>";
+
+echo "<div class='input-button-wrapper' amp-fx='parallax' data-parallax-factor='1.15'>";
+	echo "<div class='input-button' role='button' tabindex='0' on='tap:delete-popover'>&#x2B19; Delete entry</div>";
+	echo "</div>";
 
 function create_inputs($entry_info, $input_backend, $input_descriptor, $input_type = "input-text", $language_toggle = "on") {
 	
@@ -169,8 +170,6 @@ echo "<input type='hidden' name='parents[]'>";
 echo "<input type='hidden' name='children[]'>";
 hierarchy_selector($page_temp, "parents", array_keys($information_array));
 hierarchy_selector($page_temp, "children", array_keys($information_array));
-
-echo "<p>An entry's type is its most important organizational component. Types are largely self-explanatory, except for 'articles' which are intended to be less research-oriented and more consumption-oriented.</p>";
 
 echo "<label for='type'>Type</label>";
 echo "<amp-selector layout='container' name='type'>";
