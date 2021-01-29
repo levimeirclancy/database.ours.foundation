@@ -94,7 +94,7 @@ function create_inputs($entry_info, $input_backend, $input_descriptor) {
 		$echo_temp .= "<span role='button' tabindex='0' id='admin-page-".$input_backend."-".$language_temp."-button' on='tap:admin-page-".$input_backend."-".$language_temp.".show,admin-page-".$input_backend."-".$language_temp."-button.hide' ".$button_hidden_temp.">Add ".ucfirst($language_temp)."</span>";
 
 		$echo_temp .= "<div class='admin-page-input' id='admin-page-".$input_backend."-".$language_temp."' ".$input_hidden_temp.">";
-			$echo_temp .= "<label for='name[".$language_temp."]'>". $placeholder_temp;
+			$echo_temp .= "<label for='".$input_backend."[".$language_temp."]'>". $placeholder_temp;
 			$echo_temp .= "<span role='button' tabindex='0' on='tap:name-".$language_temp.".clear,admin-page-".$input_backend."-".$language_temp.".hide,admin-page-".$input_backend."-".$language_temp."-button.show'>Remove ".ucfirst($language_temp)."</span>";
 			$echo_temp .= "</label>";
 	
