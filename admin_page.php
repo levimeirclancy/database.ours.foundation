@@ -122,6 +122,7 @@ function create_inputs($entry_info, $input_backend, $input_descriptor, $input_ty
 				$echo_temp .= "<input type='hidden' name='".$name_temp."'>";
 				$echo_temp .= "<amp-selector layout='container' name='".$name_temp."' ".$multiple_temp.">";
 				foreach ($value_temp as $value_temp_temp):
+					if (!(isset($possibilities_array[$value_temp_temp]))): continue; endif;
 					$echo_temp .= "<span option='".$value_temp_temp."' selected>".$possibilities_array[$value_temp_temp]."</span>";
 					endforeach;
 				foreach ($possibilities_array as $value_temp_temp => $frontend_temp_temp):
