@@ -165,12 +165,14 @@ foreach ($appendix_array as $appendix_key => $appendix_type):
 	create_inputs($entry_info, $appendix_key, str_replace("_", " ", $appendix_key), "input-text", "off");
 	endforeach;
 
+print_r($entry_info);
+
 $possibilities_array = [];
 foreach ($information_array as $entry_id_temp => $entry_info_temp):
 	$possibilities_array[$entry_id_temp] = $entry_info_temp['header'] . " • ". $site_info['category_array'][$entry_info_temp['type']];
 	endforeach;
-create_inputs($information_array[$entry_id]['hierarchy'], "parents", "parents", "amp-selector-multiple", "off", "off", $possibilities_array);
-create_inputs($information_array[$entry_id]['hierarchy'], "children", "children", "amp-selector-multiple", "off", "off", $possibilities_array);
+create_inputs($entry_info['hierarchy'], "parents", "parents", "amp-selector-multiple", "off", "off", $possibilities_array);
+create_inputs($entry_info['hierarchy'], "children", "children", "amp-selector-multiple", "off", "off", $possibilities_array);
 
 create_inputs($entry_info, "type", "Type", "amp-selector-single", "off", "off", $site_info['category_array']);
 
