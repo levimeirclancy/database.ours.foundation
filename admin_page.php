@@ -137,7 +137,7 @@ create_inputs($entry_info, "name", "title");
 // create_inputs($entry_info['alternate_name'], "alternate_name", "full name");
 create_inputs($entry_info, "summary", "headline");
 create_inputs($entry_info, "body", "body", "textarea");
-create_inputs($entry_info, "body", "body", "textarea", "studies");
+create_inputs($entry_info, "studies", "studies", "textarea", "studies");
 
 function hierarchy_selector ($entry_id, $relationship_name, $possible_array) {
 
