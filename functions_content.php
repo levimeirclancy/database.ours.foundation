@@ -502,8 +502,9 @@ function body_process($body_incoming) {
 	$matches = [];
 	preg_match_all("/(?<=\\$\\$\\$)(.*?)(?=\\$\\$\\$)/is", $body_incoming, $matches); // Must escape $ twice sa \\$ not just \$
 	if (empty($matches)): $matches = [ [], [], ]; endif;
-	$matches = array_unique($matches[0]);
-	foreach ($matches as $match_temp):
+	$matches = $matches[0]; // We will not array_unique because we want to skip all odd (interstitial) content
+	foreach ($matches as $key_temp => $match_temp):
+		if ( ($key_temp !== 0) && ($key_temp % 2 !== 0) ): continue; endif;
 		$link_string = "<amp-mathml inline layout='container' data-formula='\[".trim(str_replace("\s",null,$match_temp))."\]'></amp-mathml>";
 		$body_incoming = str_replace("$$$".$match_temp."$$$", $link_string, $body_incoming);
 		endforeach;
