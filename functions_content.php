@@ -118,10 +118,12 @@ function nesty_page($page_id_temp) {
 				$row['parent_id'] = $temp;
 				endif;
 			if ($page_id_temp == $row['parent_id']):
-				$page_info[$page_id_temp]['children'][$row['path_type']][] = $row['child_id'];
+//				$page_info[$page_id_temp]['children'][$row['path_type']][] = $row['child_id'];
+				$page_info[$page_id_temp]['children'][] = $row['child_id'];
 				endif;
 			if ($page_id_temp == $row['child_id']):
-				$page_info[$page_id_temp]['parents'][$row['path_type']][] = $row['parent_id'];
+//				$page_info[$page_id_temp]['parents'][$row['path_type']][] = $row['parent_id'];
+				$page_info[$page_id_temp]['parents'][] = $row['parent_id'];
 				endif;
 			endforeach;
 
