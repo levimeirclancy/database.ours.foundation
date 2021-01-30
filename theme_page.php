@@ -16,10 +16,10 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 	global $site_info;
 
 	// If empty, just move on
-	if (empty($information_array[$entry_id][$hierarchy_temp]['hierarchy'])): return; endif;
+	if (empty($information_array[$entry_id][$hierarchy_temp])): return; endif;
 		
 	// If not empty, let's clean it up
-	$array_temp = $information_array[$entry_id][$hierarchy_temp]['hierarchy'];
+	$array_temp = $information_array[$entry_id][$hierarchy_temp];
 	$array_temp = array_filter($array_temp);
 	$array_temp = array_unique($array_temp);
 	
@@ -87,18 +87,18 @@ if (!(empty($entry_info['body']))): $languages_temp = array_merge($languages_tem
 if (!(empty($languages_temp))): $languages_temp = array_unique($languages_temp); endif;
 
 // Find grandparents
-$information_array[$page_temp]['grandparents'] = [ "hierarchy" => [] ];
-if (isset($information_array[$page_temp]['parents']['hierarchy'])):
+$information_array[$page_temp]['grandparents'] = [ ];
+if (isset($information_array[$page_temp]['parents'])):
 	$grandparents_array = [];
-	foreach ($information_array[$page_temp]['parents']['hierarchy'] as $entry_id_temp):
-		if (!(isset($information_array[$entry_id_temp]['parents']['hierarchy']))): continue; endif;
-		if (empty($information_array[$entry_id_temp]['parents']['hierarchy'])): continue; endif;
-		$grandparents_array = array_merge($grandparents_array, $information_array[$entry_id_temp]['parents']['hierarchy']);
+	foreach ($information_array[$page_temp]['parents'] as $entry_id_temp):
+		if (!(isset($information_array[$entry_id_temp]['parents']))): continue; endif;
+		if (empty($information_array[$entry_id_temp]['parents'])): continue; endif;
+		$grandparents_array = array_merge($grandparents_array, $information_array[$entry_id_temp]['parents']);
 		endforeach;
 	if (!(empty($grandparents_array))):
-		$grandparents_array = array_diff($grandparents_array, $information_array[$page_temp]['parents']['hierarchy']);
-		$grandparents_array = array_diff($grandparents_array, $information_array[$page_temp]['children']['hierarchy']);
-		$information_array[$page_temp]['grandparents']['hierarchy'] = $grandparents_array;
+		$grandparents_array = array_diff($grandparents_array, $information_array[$page_temp]['parents']);
+		$grandparents_array = array_diff($grandparents_array, $information_array[$page_temp]['children']);
+		$information_array[$page_temp]['grandparents'] = $grandparents_array;
 		endif;
 	endif;
 
@@ -109,10 +109,10 @@ $search_results = json_decode($search_results, true);
 if ($search_results['searchCount'] > 0):
 	$information_array[$page_temp]['mentions'] = [ "hierarchy" => [] ];
 	foreach($search_results['searchResults'] as $entry_info_temp):
-		if (in_array($entry_info_temp['entry_id'], $information_array[$page_temp]['grandparents']['hierarchy'])): continue; endif;
-		if (in_array($entry_info_temp['entry_id'], $information_array[$page_temp]['parents']['hierarchy'])): continue; endif;
-		if (in_array($entry_info_temp['entry_id'], $information_array[$page_temp]['children']['hierarchy'])): continue; endif;
-		$information_array[$page_temp]['mentions']['hierarchy'][] = $entry_info_temp['entry_id'];
+		if (in_array($entry_info_temp['entry_id'], $information_array[$page_temp]['grandparents'])): continue; endif;
+		if (in_array($entry_info_temp['entry_id'], $information_array[$page_temp]['parents'])): continue; endif;
+		if (in_array($entry_info_temp['entry_id'], $information_array[$page_temp]['children'])): continue; endif;
+		$information_array[$page_temp]['mentions'][] = $entry_info_temp['entry_id'];
 		endforeach;
 	endif;
 
