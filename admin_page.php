@@ -98,7 +98,6 @@ function create_inputs($entry_info, $input_backend, $input_descriptor, $input_ty
 	
 		$multiple_temp = null;
 		if ($input_type == "amp-selector-single"):
-			$name_temp .= "[]";
 			endif;
 		if ($input_type == "amp-selector-multiple"):
 			$name_temp .= "[]";
