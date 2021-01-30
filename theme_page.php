@@ -103,11 +103,11 @@ if (isset($information_array[$page_temp]['parents'])):
 	endif;
 
 // Find mentions
-$information_array[$page_temp]['mentions'] = [ "hierarchy" => [] ];
+$information_array[$page_temp]['mentions'] = [ ];
 $search_results = file_get_contents("https://".$domain."/api/search/?search={{{".$page_temp."}}}");
 $search_results = json_decode($search_results, true);
 if ($search_results['searchCount'] > 0):
-	$information_array[$page_temp]['mentions'] = [ "hierarchy" => [] ];
+	$information_array[$page_temp]['mentions'] = [ ];
 	foreach($search_results['searchResults'] as $entry_info_temp):
 		if (in_array($entry_info_temp['entry_id'], $information_array[$page_temp]['grandparents'])): continue; endif;
 		if (in_array($entry_info_temp['entry_id'], $information_array[$page_temp]['parents'])): continue; endif;
