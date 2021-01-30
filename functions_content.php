@@ -516,6 +516,17 @@ function body_process($body_incoming) {
 		$entry_string = $delimiter.implode(null,$citation_string).$entry_info[$citation_id_temp]['body'].$delimiter;
 
 		endforeach;
+	
+	// process formulas
+	$matches = [];
+	preg_match_all("/(?<=\$\$\$)(.*?)(?=\$\$\$)/is", $body_incoming, $matches);
+	if (empty($matches)): $matches = [ [], [] ]; endif;
+	$matches = array_unique($matches[0]);
+	foreach ($matches as $match_temp):
+		$link_string = "<amp-mathml inline layout='container' data-formula='\[".$match_temp."\]'></amp-mathml>";
+		$body_incoming = str_replace("$$$".$match_temp."$$$", $link_string, $body_incoming);
+		endforeach;
+
 		
 	$skip_array = [
 		"<blockquote", "blockquote>", "<iframe", "iframe>", "<div", "div>", "<hr>",  "<hr />", "<aside", "aside>", 
