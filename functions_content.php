@@ -508,9 +508,7 @@ function body_process($body_incoming) {
 		$link_string = "<amp-mathml inline layout='container' data-formula='\[".trim(str_replace("\s",null,$match_temp))."\]'></amp-mathml>";
 		$body_incoming = str_replace("$$$".$match_temp."$$$", $link_string, $body_incoming);
 		endforeach;
-	
-	print_r($matches); exit;
-	
+
 	// Find all MathML expressions
 	$matches = [];
 	preg_match_all("'<amp-mathml (.*?)</amp-mathml>'si", $body_incoming, $matches);
