@@ -92,7 +92,8 @@ function create_inputs($entry_info, $input_backend, $input_descriptor, $input_ty
 			$placeholder_temp = ucfirst($input_descriptor);
 			$id_temp = $input_backend;
 			$name_temp = $input_backend;
-			if (isset($entry_info[$input_backend])): $value_temp = trim($entry_info[$input_backend]); endif;
+			if (isset($entry_info[$input_backend])): $value_temp = $entry_info[$input_backend]; endif;
+			if (!(is_array($value_temp))): $value_temp = trim($value_temp); endif;
 			endif;
 	
 		$multiple_temp = null;
@@ -122,6 +123,7 @@ function create_inputs($entry_info, $input_backend, $input_descriptor, $input_ty
 				$echo_temp .= "<input type='hidden' name='".$name_temp."'>";
 				$echo_temp .= "<amp-selector layout='container' name='".$name_temp."' ".$multiple_temp.">";
 				foreach ($value_temp as $value_temp_temp):
+					if (empty(trim($value_temp_temp))): continue; endif;
 					if (!(isset($possibilities_array[$value_temp_temp]))): continue; endif;
 					$echo_temp .= "<span option='".$value_temp_temp."' selected>".$possibilities_array[$value_temp_temp]."</span>";
 					endforeach;
