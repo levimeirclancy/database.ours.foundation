@@ -159,8 +159,8 @@ function create_inputs($entry_info, $input_backend, $input_descriptor, $input_ty
 create_inputs($entry_info, "name", "title");
 // create_inputs($entry_info['alternate_name'], "alternate_name", "full name");
 create_inputs($entry_info, "summary", "headline", "textarea-small");
-create_inputs($entry_info, "body", "body", "textarea");
-create_inputs($entry_info, "studies", "studies", "textarea", "off");
+create_inputs($entry_info, "body", "body", "textarea-big");
+create_inputs($entry_info, "studies", "studies", "textarea-big", "off");
 create_inputs($entry_info, "date_published", "Published date", "input-date", "off", "off");
 
 foreach ($appendix_array as $appendix_key => $appendix_type):
