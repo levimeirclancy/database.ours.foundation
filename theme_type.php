@@ -23,10 +23,10 @@
 			continue; endif;
 	
 		// If we're doing the first round but it already has parents
-		if (!(empty($information_array[$entry_id]['parents']['hierarchy'])) && empty($indent_array)):
+		if (!(empty($information_array[$entry_id]['parents'])) && empty($indent_array)):
 		
 			// We are going to check all the parents
-			foreach ($information_array[$entry_id]['parents']['hierarchy'] as $entry_id_temp):
+			foreach ($information_array[$entry_id]['parents'] as $entry_id_temp):
 		
 				// If it has one parent that is the same type, skip now and get to it as a child then
 				if ($information_array[$entry_id_temp]['type'] == $header_backend): continue 2; endif;
@@ -58,11 +58,11 @@
 			];
 	
 		// If there are no children, just continue
-		if (empty($information_array[$entry_id]['children']['hierarchy'])): continue; endif;
+		if (empty($information_array[$entry_id]['children'])): continue; endif;
 		
 		$indent_array_temp = array_merge($indent_array, [$entry_id]);
 	
-		$result_temp = print_row_loop($header_backend, $information_array[$entry_id]['children']['hierarchy'], $indent_array_temp);
+		$result_temp = print_row_loop($header_backend, $information_array[$entry_id]['children'], $indent_array_temp);
 		$entries_organized = array_merge($entries_organized, $result_temp);
 	
 		endforeach;
