@@ -523,7 +523,7 @@ function body_process($body_incoming) {
 	$matches = $matches[0]; // We will not array_unique because we want to skip all odd (interstitial) content
 	foreach ($matches as $key_temp => $match_temp):
 		if ( ($key_temp !== 0) && ($key_temp % 2 !== 0) ): continue; endif;	
-		$link_string = "<amp-mathml inline layout='container' data-formula='\[".trim($match_temp)."\]'></amp-mathml>";
+		$link_string = "<amp-mathml inline layout='container' data-formula='\[".trim(preg_replace("/\n/", "/\s/", $match_temp)."\]'></amp-mathml>";
 		$body_incoming = str_replace("$$$".$match_temp."$$$", $link_string, $body_incoming);
 		endforeach;
 
