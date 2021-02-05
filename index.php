@@ -145,6 +145,8 @@ foreach($connection_pdo->query($sql_temp) as $row):
 //		if (!(array_intersect($appendix_temp[$appendix_key], $appendix_value))): continue 2; endif;
 //		endforeach;
 
+	// Mix the $appendix_temp with $site_info['appendix_array'][TYPE]
+
 	$information_array[$row['entry_id']] = [
 		"entry_id" => $row['entry_id'],
 		"link" => "https://".$domain."/".$row['entry_id']."/",
