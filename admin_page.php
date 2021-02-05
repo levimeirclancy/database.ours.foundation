@@ -193,7 +193,7 @@ foreach ($appendix_array as $appendix_key => $appendix_type):
 			$possibilities_array[$entry_id_temp] = $entry_info_temp['header'] . " • ". $site_info['category_array'][$entry_info_temp['type']];
 			endforeach;
 		endif;
-	create_inputs($entry_info, $appendix_key, str_replace("_", " ", $appendix_key), $appendix_type, "off", null, $possibilities_array);
+	create_inputs($entry_info, "appendix[".$appendix_key."]", str_replace("_", " ", $appendix_key), $appendix_type, "off", null, $possibilities_array);
 	endforeach;
 
 $possibilities_array = [];
