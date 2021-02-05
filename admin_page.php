@@ -9,11 +9,6 @@ foreach ($result as $row):
 	$entry_info['studies']		= $row['studies'];
 	endforeach;
 
-$appendix_array = [];
-if ($entry_info['type'] == "place"): $appendix_array = ["latitude"=>"string", "longitude"=>"string" ]; endif;
-if ($entry_info['type'] == "village"): $appendix_array = ["latitude"=>"string", "longitude"=>"string"]; endif;
-if ($entry_info['type'] == "person"): $appendix_array = [ "birthday"=>"date", "email"=>"string", "telephone"=>"string", "website"=>"string", "facebook"=>"string", "twitter"=>"string" ]; endif;
-
 $new_page = null;
 if ($page_temp == "new"): $new_page = "yes"; endif;
 
@@ -162,8 +157,42 @@ create_inputs($entry_info, "body", "body", "textarea-big");
 create_inputs($entry_info, "studies", "studies", "textarea-big", "off");
 create_inputs($entry_info, "date_published", "Published date", "input-date", "off", "off");
 
+
+$appendix_array = [];
+if ($entry_info['type'] == "place"):
+	$appendix_array = [
+		"latitude"	=> "input-text", 
+		"longitude"	=> "input-text", 
+		];
+elseif ($entry_info['type'] == "regions"):
+	$appendix_array = [
+		"unit"		=> "amp-selector",
+		];
+elseif ($entry_info['type'] == "village"):
+	$appendix_array = [
+		"latitude"	=> "input-text", 
+		"longitude"	=> "input-text",
+	];
+elseif ($entry_info['type'] == "person"):
+	$appendix_array = [ 
+		"birthday"	=> "date", 
+		"email"		=> "input-text", 
+		"telephone"	=> "input-text", 
+		"website"	=> "input-text", 
+		"facebook"	=> "input-text", 
+		"twitter"	=> "input-text", 
+		];
+	endif;
+
 foreach ($appendix_array as $appendix_key => $appendix_type):
-	create_inputs($entry_info, $appendix_key, str_replace("_", " ", $appendix_key), "input-text", "off");
+	$possibilities_array = [];
+	if ($appendix_key == "unit"):
+		foreach ($information_array as $entry_id_temp => $entry_info_temp):
+			if ($entry_info_temp['type'] !== "offices-units"): continue; endif;
+			$possibilities_array[$entry_id_temp] = $entry_info_temp['header'] . " • ". $site_info['category_array'][$entry_info_temp['type']];
+			endforeach;
+		endif;
+	create_inputs($entry_info, $appendix_key, str_replace("_", " ", $appendix_key), $appendix_type, "off", null, $possibilities_array);
 	endforeach;
 
 $possibilities_array = [];
