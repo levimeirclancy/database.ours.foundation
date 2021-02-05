@@ -522,8 +522,8 @@ function body_process($body_incoming) {
 	if (empty($matches)): $matches = [ [], [], ]; endif;
 	$matches = $matches[0]; // We will not array_unique because we want to skip all odd (interstitial) content
 	foreach ($matches as $key_temp => $match_temp):
-		if ( ($key_temp !== 0) && ($key_temp % 2 !== 0) ): continue; endif;
-		$link_string = "<amp-mathml inline layout='container' data-formula='\[".trim(preg_replace("/\s/",null,$match_temp))."\]'></amp-mathml>";
+		if ( ($key_temp !== 0) && ($key_temp % 2 !== 0) ): continue; endif;	
+		$link_string = "<amp-mathml inline layout='container' data-formula='\[".trim(preg_replace("[\r\n]+","/\s/",$match_temp))."\]'></amp-mathml>"; /// Currently will catch multiple newlines. This one will not (\r\n|\r|\n)
 		$body_incoming = str_replace("$$$".$match_temp."$$$", $link_string, $body_incoming);
 		endforeach;
 
