@@ -266,8 +266,8 @@ if ($page_temp == "edit-xhr"):
 	if (isset($site_info['appendix_array'][$_POST['type']])):
 		foreach ($site_info['appendix_array'][$_POST['type']] as $appendix_key => $appendix_type):
 			$appendix_temp[$appendix_key] = null;
-			if (!(isset($_POST['appendix'][$appendix_key]))): continue; endif;
-			$appendix_temp[$appendix_key] = $_POST['appendix'][$appendix_key];
+			if (isset($_POST[$appendix_key])): $appendix_temp[$appendix_key] = $_POST[$appendix_key];
+			elseif (isset($_POST['appendix']$appendix_key])): $appendix_temp[$appendix_key] = $_POST['appendix'][$appendix_key]; endif;
 			endforeach;
 		endif;
 
