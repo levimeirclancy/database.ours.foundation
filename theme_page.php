@@ -136,6 +136,13 @@ echo "<amp-sidebar id='sidebar-entry-info' layout='nodisplay' side='right'>";
 			echo substr($entry_info['appendix']['latitude'],0,6).", ".substr($entry_info['appendix']['longitude'],0,6);
 			echo " (GPS)</span></a></li>";
 			endif;
+		if (!(empty($entry_info['appendix']['unit']))): 
+			echo "<li>Unit<ul>";
+			foreach($entry_info['appendix']['unit'] as $entry_id_temp):
+				echo "<li><a href='/".$entry_id_temp."/'>". $information_array[$entry_id_temp]['header']."</a></li>";
+				endforeach;
+			echo "</ul></li>";
+			endif;
 		if (count($languages_temp) > 1):
 			$language_array_temp = [];
 			foreach($languages_temp as $language_temp):
