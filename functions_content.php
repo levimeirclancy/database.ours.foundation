@@ -99,13 +99,30 @@ function nesty_page($page_id_temp) {
 				"date_updated"		=> $row['date_updated'],
 				"name"			=> json_decode($row['name'], true),
 				"alternate_name"	=> json_decode($row['alternate_name'], true),
-				"appendix"		=> json_decode($row['appendix'], true),
 				"page_id"		=> $row['entry_id'],
 				"link"			=> $row['link'] = "https://".$domain_temp."/".$row['entry_id']."/",
 				"parents" 		=> [],
-				"children" 		=> [] ];
+				"children" 		=> [],
+				"appendix"		=> [], ];
+	
 			$page_info[$row['entry_id']]['header'] = implode(" • ", $page_info[$row['entry_id']]['name']);
 			$page_info[$row['entry_id']] = sanitize_dates($page_info[$row['entry_id']], $row);
+	
+			// Check if there is supposed to be an appendix
+			if (!(isset($site_info['appendix_array'][$page_info[$row['entry_id']]['type']]))): continue; endif;
+	
+			// Set up the appendix according to the authorized, pre-defined structure; discard excess
+			$appendix_sorted_temp = [];
+			$appendix_sql_temp = json_decode($row['appendix'], true);
+			foreach ($site_info['appendix_array'][$page_info[$row['entry_id']]['type']] as $appendix_key => $appendix_type):
+				$appendix_sorted_temp[$appendix_key] = null;
+				if (!(isset($appendix_sql_temp[$appendix_key]))): continue; endif;
+				$appendix_sorted_temp[$appendix_key] = $appendix_sql_temp[$appendix_key];
+				endforeach;
+
+			// Update the $page_info
+			$page_info[$row['entry_id']]['appendix'] = $appendix_sorted_temp;
+	
 			endforeach;
 		$retrieve_paths->execute(["content_id"=>$page_id_temp]);
 		$result = $retrieve_paths->fetchAll();
