@@ -88,7 +88,9 @@ function create_inputs($entry_info, $input_backend, $input_descriptor, $input_ty
 			$id_temp = $input_backend;
 			$name_temp = $input_backend;
 			if (isset($entry_info[$input_backend])): $value_temp = $entry_info[$input_backend]; endif;
-			if (isset($entry_info['appendix'][$input_backend])): $value_temp = $entry_info['appendix'][$input_backend]; endif;
+			if (isset($entry_info['appendix'][$input_backend])): 
+				$name_temp = "appendix[".$name_temp."]";
+				$value_temp = $entry_info['appendix'][$input_backend]; endif;
 			if (!(is_array($value_temp))): $value_temp = trim($value_temp); endif;
 			endif;
 	
@@ -194,7 +196,7 @@ foreach ($appendix_array as $appendix_key => $appendix_type):
 			$possibilities_array[$entry_id_temp] = $entry_info_temp['header'] . " • ". $site_info['category_array'][$entry_info_temp['type']];
 			endforeach;
 		endif;
-	create_inputs($entry_info, "appendix[".$appendix_key."]", str_replace("_", " ", $appendix_key), $appendix_type, "off", null, $possibilities_array);
+	create_inputs($entry_info, $appendix_key, str_replace("_", " ", $appendix_key), $appendix_type, "off", null, $possibilities_array);
 	endforeach;
 
 $possibilities_array = [];
