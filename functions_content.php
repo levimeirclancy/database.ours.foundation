@@ -108,6 +108,8 @@ function nesty_page($page_id_temp) {
 			$page_info[$row['entry_id']]['header'] = implode(" • ", $page_info[$row['entry_id']]['name']);
 			$page_info[$row['entry_id']] = sanitize_dates($page_info[$row['entry_id']], $row);
 	
+			print_r($page_info);
+	
 			// Check if there is supposed to be an appendix
 			if (!(isset($site_info['appendix_array'][$page_info[$row['entry_id']]['type']]))): continue; endif;
 	
