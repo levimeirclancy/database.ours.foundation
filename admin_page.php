@@ -166,7 +166,7 @@ if ($entry_info['type'] == "place"):
 		];
 elseif ($entry_info['type'] == "regions"):
 	$appendix_array = [
-		"unit"		=> "amp-selector",
+		"unit"		=> "amp-selector-multiple",
 		];
 elseif ($entry_info['type'] == "village"):
 	$appendix_array = [
