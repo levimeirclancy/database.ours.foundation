@@ -28,5 +28,33 @@ $site_info = [
 		"place"		=> "Places",
 		"person"	=> "People",
 		"article"	=> "Articles",
+//		"bibliography"	=> "Bibliography",
+		],
+	"appendix_array"	=>
+		[
+		"regions"	=>
+			[
+			"unit"		=> "amp-selector-multiple",
+			],
+		"settlements"	=>
+			[
+			"latitude"	=> "input-text", 
+			"longitude"	=> "input-text",
+			],
+		"place"		=> 
+			[
+			"latitude"	=> "input-text", 
+			"longitude"	=> "input-text", 
+			],
+		"person"	=>
+			[
+			"unit"		=> "amp-selector-multiple",
+			"birthday"	=> "date", 
+			"email"		=> "input-text", 
+			"telephone"	=> "input-text", 
+			"website"	=> "input-text", 
+			"facebook"	=> "input-text", 
+			"twitter"	=> "input-text", 
+			],
 		],
 	]; ?>
