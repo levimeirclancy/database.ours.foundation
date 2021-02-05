@@ -1,8 +1,6 @@
 <? $entry_info = nesty_page($page_temp);
 $entry_info = $entry_info[$page_temp];
 
-print_r($entry_info);
-
 $retrieve_page->execute(["page_id"=>$page_temp]);
 $result = $retrieve_page->fetchAll();
 foreach ($result as $row):
@@ -13,9 +11,6 @@ foreach ($result as $row):
 
 $new_page = null;
 if ($page_temp == "new"): $new_page = "yes"; endif;
-
-// When tap, then also close the amp-lightbox
-
 
 // Do a delete popover ... redirect if deletion works ...
 echo "<amp-lightbox id='delete-popover' layout='nodisplay'>";
@@ -89,9 +84,10 @@ function create_inputs($entry_info, $input_backend, $input_descriptor, $input_ty
 			$placeholder_temp = ucfirst($input_descriptor);
 			$id_temp = $input_backend;
 			$name_temp = $input_backend;
-			if (isset($entry_info[$input_backend])): $value_temp = $entry_info[$input_backend]; endif;
-			if (isset($entry_info['appendix'][$input_backend])): 
-				$name_temp = "appendix[".$name_temp."]";
+			if (isset($entry_info[$input_backend])):
+				$value_temp = $entry_info[$input_backend];
+			elseif (isset($entry_info['appendix'][$input_backend])):
+//				$name_temp = "appendix[".$name_temp."]";
 				$value_temp = $entry_info['appendix'][$input_backend]; endif;
 			if (!(is_array($value_temp))): $value_temp = trim($value_temp); endif;
 			endif;
@@ -164,40 +160,19 @@ create_inputs($entry_info, "studies", "studies", "textarea-big", "off");
 create_inputs($entry_info, "date_published", "Published date", "input-date", "off", "off");
 
 
-$appendix_array = [];
-if ($entry_info['type'] == "place"):
-	$appendix_array = [
-		"latitude"	=> "input-text", 
-		"longitude"	=> "input-text", 
-		];
-elseif ($entry_info['type'] == "regions"):
-	$appendix_array = [
-		"unit"		=> "amp-selector-multiple",
-		];
-elseif ($entry_info['type'] == "village"):
-	$appendix_array = [
-		"latitude"	=> "input-text", 
-		"longitude"	=> "input-text",
-	];
-elseif ($entry_info['type'] == "person"):
-	$appendix_array = [ 
-		"birthday"	=> "date", 
-		"email"		=> "input-text", 
-		"telephone"	=> "input-text", 
-		"website"	=> "input-text", 
-		"facebook"	=> "input-text", 
-		"twitter"	=> "input-text", 
-		];
-	endif;
+if (!(isset($site_info['appendix_array'][$entry_info['type']]))): $site_info['appendix_array'][$entry_info['type']] = []; endif;
+foreach ($site_info['appendix_array'][$entry_info['type']] as $appendix_key => $appendix_type):
 
-foreach ($appendix_array as $appendix_key => $appendix_type):
 	$possibilities_array = [];
+
+	// For a "unit" only give it offices and units
 	if ($appendix_key == "unit"):
 		foreach ($information_array as $entry_id_temp => $entry_info_temp):
 			if ($entry_info_temp['type'] !== "offices-units"): continue; endif;
 			$possibilities_array[$entry_id_temp] = $entry_info_temp['header'] . " • ". $site_info['category_array'][$entry_info_temp['type']];
 			endforeach;
 		endif;
+
 	create_inputs($entry_info, $appendix_key, str_replace("_", " ", $appendix_key), $appendix_type, "off", null, $possibilities_array);
 	endforeach;
 
