@@ -259,8 +259,19 @@ if ($page_temp == "edit-xhr"):
 		"summary" 		=> $_POST['summary'],
 		"body"			=> $_POST['body'],
 		"studies"		=> $_POST['studies'],
-		"appendix"		=> $_POST['appendix'],
+		"appendix"		=> null,
 		];
+
+	$appendix_temp = [];
+	if (isset($site_info['appendix_array'][$_POST['type']])):
+		foreach ($site_info['appendix_array'][$_POST['type']] as $appendix_key => $appendix_type)
+			$appendix_temp[$appendix_key] = null;
+			if (!(isset($_POST['appendix'][$appendix_key]))): continue; endif;
+			$appendix_temp[$appendix_key] = $_POST['appendix'][$appendix_key];
+			endforeach;
+		endif;
+
+	$values_temp['appendix'] = $appendix_temp;
 
 	$values_temp = clean_empty_array($values_temp);
 
