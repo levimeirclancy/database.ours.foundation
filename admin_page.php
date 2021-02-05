@@ -114,6 +114,7 @@ function create_inputs($entry_info, $input_backend, $input_descriptor, $input_ty
 	
 			if (in_array($input_type, ["amp-selector-single", "amp-selector-multiple"])):
 				if (!(is_array($value_temp))): $value_temp = [ $value_temp ]; endif;
+				$value_temp = array_unique($value_temp);
 				$echo_temp .= "<input type='hidden' name='".$name_temp."'>";
 				$echo_temp .= "<amp-selector layout='container' name='".$name_temp."' ".$multiple_temp.">";
 				foreach ($value_temp as $value_temp_temp):
