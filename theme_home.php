@@ -25,6 +25,7 @@ foreach($ordered_published_array as $entry_id => $discard_info):
 
 $ordered_modified_array = [];
 foreach ($information_array as $entry_id => $entry_info):
+	if (empty($entry_info['date_modified'])): continue; endif;
 	$ordered_modified_array[$entry_id] = $entry_info['date_modified'];
 	endforeach; 
 arsort($ordered_modified_array);
