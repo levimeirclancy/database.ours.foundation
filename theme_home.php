@@ -13,31 +13,31 @@ $ordered_published_array = [];
 foreach ($information_array as $entry_id => $entry_info):
 	$ordered_published_array[$entry_id] = $entry_info['date_published'];
 	endforeach; 
-arsort($ordered_published_array);
-print_r($ordered_published_array);
-$ordered_published_array = array_slice($ordered_published_array, 0, 10);
+if (!(empty($ordered_published_array))):
+	arsort($ordered_published_array);
+	$ordered_published_array = array_slice($ordered_published_array, 0, 10);
+	echo "<h2>Recently published</h2>";
+	echo "<ul>";
+	foreach($ordered_published_array as $entry_id => $discard_info):
+		echo "<li><a href='/".$entry_id."/'>".$information_array[$entry_id]['header']."</a></li>";
+		endforeach;
+		echo "</ul>";
+	endif;
 
-echo "<h2>Recently published</h2>";
-echo "<ul>";
-foreach($ordered_published_array as $entry_id => $discard_info):
-	echo "<li><a href='/".$entry_id."/'>".$information_array[$entry_id]['header']."</a></li>";
-	endforeach;
-	echo "</ul>"; 
-
-$ordered_modified_array = [];
+$ordered_updated_array = [];
 foreach ($information_array as $entry_id => $entry_info):
-	if (empty($entry_info['date_modified'])): continue; endif;
-	$ordered_modified_array[$entry_id] = $entry_info['date_modified'];
+	if (empty($entry_info['date_updated'])): continue; endif;
+	$ordered_updated_array[$entry_id] = $entry_info['date_updated'];
 	endforeach; 
-arsort($ordered_modified_array);
-print_r($ordered_modified_array);
-$ordered_array = array_slice($ordered_modified_array, 0, 10);
-
-echo "<h2>Recently modified</h2>";
-echo "<ul>";
-foreach($ordered_modified_array as $entry_id => $discard_info):
-	echo "<li><a href='/".$entry_id."/'>".$information_array[$entry_id]['header']."</a></li>";
-	endforeach;
-	echo "</ul>"; 
+if (!(empty($ordered_updated_array))):
+	arsort($ordered_updated_array);
+	$ordered_array = array_slice($ordered_modified_array, 0, 10);
+	echo "<h2>Recently updated</h2>";
+	echo "<ul>";
+		foreach($ordered_updated_array as $entry_id => $discard_info):
+		echo "<li><a href='/".$entry_id."/'>".$information_array[$entry_id]['header']."</a></li>";
+		endforeach;
+		echo "</ul>"; 
+	endif;
 
 ?>
