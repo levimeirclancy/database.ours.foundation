@@ -296,39 +296,35 @@ if ($page_temp == "edit-xhr"):
 
 	if ($result_temp !== "success"): json_result($domain, "error", null, $result_temp); endif;
 
+	// Clear out all of its relations
+
+	$sql_temp = "DELETE FROM ".$database.".information_paths WHERE child_id=:entry_id OR parent_id=:entry_id";
+	$information_paths_clear_statement = $connection_pdo->prepare($sql_temp);
+	$information_paths_clear_statement->execute(["entry_id" => $_POST['entry_id']]);
+
 	$values_temp = [
 		"path_id" => null,
 		"parent_id" => null,
-		"path_type" => null,
+//		"path_type" => null,
 		"child_id" => null ];
 	$sql_temp = sql_setup($values_temp, "information_paths");
 	$information_paths_statement = $connection_pdo->prepare($sql_temp);
 
-	$sql_temp = "DELETE FROM ".$database.".information_paths WHERE (path_id=:path_id) OR (parent_id=:parent_id AND child_id=:child_id)";
-	$information_paths_remove_statement = $connection_pdo->prepare($sql_temp);
-
-	function paths_check($parent_id, $path_type, $child_id) {
+	function paths_check($parent_id, $child_id) {
 		
+		global $information_array;
 		global $entry_info;
-		global $_POST;
 		global $connection_pdo;
-		global $information_paths_remove_statement;
 		global $information_paths_statement;
 		
-		// This clears out any bad path keys or duplicate relationships
-		$values_temp = [
-			"path_id" => $parent_id."_".$child_id."_".$path_type,
-			"parent_id" => $parent_id,
-			"child_id" => $child_id ];
-		$information_paths_remove_statement->execute($values_temp);
-		$result_temp = execute_checkup($information_paths_remove_statement->errorInfo());
-		if ($result_temp !== "success"): json_result($domain, "error", null, "Error removing paths: ".$result_temp); endif;
-
+		// It needs to really exist
+		if (!(isset($information_array[$parent_id]))): return; endif;
+		if (!(isset($information_array[$child_id]))): return; endif;
+		
 		// And this adds in the correct one
 		$values_temp = [
-			"path_id" => $parent_id."_".$child_id."_".$path_type,
+			"path_id" => $parent_id."_".$child_id,
 			"parent_id" => $parent_id,
-			"path_type" => $path_type,
 			"child_id" => $child_id ];
 		$information_paths_statement->execute($values_temp);
 		$result_temp = execute_checkup($information_paths_statement->errorInfo());
@@ -342,24 +338,14 @@ if ($page_temp == "edit-xhr"):
 	// Remove any parents from the children
 	$_POST['children'] = array_diff($_POST['children'], $_POST['parents']);
 
-	// Clear out all of its parents
-	$sql_temp = "DELETE FROM ".$database.".information_paths WHERE child_id=:child_id AND path_type='hierarchy'";
-	$information_parents_clear_statement = $connection_pdo->prepare($sql_temp);
-	$information_parents_clear_statement->execute(["child_id" => $_POST['entry_id']]);
-
-	// And add back any parents that were selected...
+	// Then add back any parents that were selected...
 	foreach($_POST['parents'] as $path_temp):
-		paths_check ($path_temp, "hierarchy", $_POST['entry_id']);
+		paths_check ($path_temp, $_POST['entry_id']);
 		endforeach;
 
-	// Clear out all of its children
-	$sql_temp = "DELETE FROM ".$database.".information_paths WHERE parent_id=:parent_id AND path_type='hierarchy'";
-	$information_children_clear_statement = $connection_pdo->prepare($sql_temp);
-	$information_children_clear_statement->execute(["parent_id" => $_POST['entry_id']]);
-
-	// Add back any children that were selected, too
+	// And addd back any children that were selected, too
 	foreach($_POST['children'] as $path_temp):
-		paths_check ($_POST['entry_id'], "hierarchy", $path_temp);
+		paths_check ($_POST['entry_id'], $path_temp);
 		endforeach;
 
 	json_result($domain, "success", null, "Successfully updated.");
