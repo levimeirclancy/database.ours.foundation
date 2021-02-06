@@ -157,6 +157,11 @@ foreach($connection_pdo->query($sql_temp) as $row):
 //		"appendix" => $appendix_temp,
 		];
 
+	if (empty($page_temp)):
+		$information_array[$row['entry_id']]['date_published'] = $row['date_published'];
+		$information_array[$row['entry_id']]['date_modified'] = $row['date_modified'];
+		endif;
+
 	$information_array[$row['entry_id']] = sanitize_dates($information_array[$row['entry_id']], $row);
 
 	$name_temp = [];
