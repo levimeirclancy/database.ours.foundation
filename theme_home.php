@@ -14,6 +14,7 @@ foreach ($information_array as $entry_id => $entry_info):
 	$ordered_published_array[$entry_id] = $entry_info['date_published'];
 	endforeach; 
 arsort($ordered_published_array);
+print_r($ordered_published_array);
 $ordered_published_array = array_slice($ordered_published_array, 0, 10);
 
 echo "<h2>Recently published</h2>";
