@@ -1,4 +1,10 @@
-<?  if (empty($information_array)):
+<? 
+
+if (!(empty($publisher))):
+	echo "<h1>".$publisher."</h1>";
+	endif;
+
+if (empty($information_array)):
 	echo "<p>No entries yet.</p>";
 	footer();
 	endif;
