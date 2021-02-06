@@ -187,6 +187,8 @@ function amp_header($title=null, $canonical=null) {
 		echo "<div class='sidebar-back' on='tap:".$navigation_lightboxes."' role='button' tabindex='0'>Close</div>";
 	
 		echo "<ul class='unnested-list'>";
+	
+		echo "<li><a href='/' ".$target_temp.">".$publisher."</a></li>";
 		
 		foreach ($site_info['category_array'] as $header_backend => $header_frontend):
 			echo "<li><a href='/".$header_backend."/' ".$target_temp.">";
