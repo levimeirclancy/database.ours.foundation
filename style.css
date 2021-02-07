@@ -32,6 +32,7 @@ a, a:link, a:visited, a:hover {
 	box-sizing: border-box;
 	width: 100%;
 	background: rgba(255,255,255,0);
+	border-bottom: 2px solid rgba(100,100,100,0.2);
 	padding: 10px;
 	z-index: 100;
 	margin: 0 0 50px 0;
