@@ -73,12 +73,7 @@ function amp_header($title=null, $canonical=null) {
 	if (isset($page_temp) && ($command_temp == "edit")):
 		echo '<script async custom-element="amp-date-picker" src="https://cdn.ampproject.org/v0/amp-date-picker-0.1.js"></script>';
 		endif;
-	
-	// loading fonts
-	echo '<link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">';
-	echo '<link href="https://fonts.googleapis.com/css2?family=Assistant&display=swap" rel="stylesheet">';
-	echo '<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">';
-	
+		
 	echo "<title>" . $title . "</title>";
 
 	// Theme color for browser bar
