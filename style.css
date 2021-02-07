@@ -236,7 +236,7 @@ h1 {
 	margin: 130px auto 30px;
 	font-size: 170%;
 	line-height: 130%;
-	text-align: center;
+	text-align: left;
 	font-weight: 700;
 	}
 
@@ -428,7 +428,7 @@ article th p + p, article td p + p, article li p + p {
 
 .entry-metadata-wrapper {
 	display: block;
-	text-align: center;
+	text-align: left;
 	margin: 0 0 100px;
 	}
 
