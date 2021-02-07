@@ -186,8 +186,7 @@ function amp_header($title=null, $canonical=null) {
 		echo "<li><a href='/' ".$target_temp.">".$publisher."</a></li>";
 		
 		foreach ($site_info['category_array'] as $header_backend => $header_frontend):
-			echo "<li><a href='/".$header_backend."/' ".$target_temp.">";
-			echo "<div class='sidebar-navigation-item-title'>". ucfirst($header_frontend) ."</div></a></li>";
+			echo "<li><a href='/".$header_backend."/' ".$target_temp.">". ucfirst($header_frontend) ."</a></li>";
 			endforeach;
 	
 		echo "</ul>";
@@ -209,7 +208,7 @@ function amp_header($title=null, $canonical=null) {
 		echo "<li placeholder><span class='sidebar-navigation-item-title'>Loading search results...</span></li>";
 
 		echo "<template type='amp-mustache'>";
-			echo "<li><a href='/{{entry_id}}/' ".$target_temp."><span class='sidebar-navigation-item-title' [text]='{{header}}'>{{header}}</span></a></li>";
+			echo "<li><a href='/{{entry_id}}/' ".$target_temp.">{{header}}</a></li>";
 			echo "</template>";
 	
 		echo "</amp-list>";
