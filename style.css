@@ -95,7 +95,6 @@ amp-lightbox, amp-sidebar {
 	text-align: left;
 	box-sizing: border-box;
 	position: relative;
-	line-height: 1.3em;
 	white-space: normal;
 	}
 
@@ -271,7 +270,7 @@ h4, h5, h6 {
 	display: inline-block;
 	}
 
-#sidebar-entry-info .sidebar-navigation-item-title {
+amp-sidebar .sidebar-navigation-item-title {
 	font-size: 95%;
 	}
 
