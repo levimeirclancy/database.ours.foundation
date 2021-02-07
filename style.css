@@ -32,7 +32,6 @@ a, a:link, a:visited, a:hover {
 	box-sizing: border-box;
 	width: 100%;
 	background: rgba(255,255,255,0);
-	border-bottom: 1px solid rgba(0,0,0,1);
 	padding: 10px;
 	z-index: 100;
 	margin: 0 0 50px 0;
@@ -437,7 +436,7 @@ article th p + p, article td p + p, article li p + p {
 	display: inline-block;
 	font-style: normal;
 	margin: 0;
-	font-size: 90%;
+	font-size: 100%;
 	padding: 8px 20px;
 	background: rgba(255,255,255,0.3);
 	border: 1px solid rgba(100,100,100,0);
