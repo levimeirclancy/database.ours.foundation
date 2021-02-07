@@ -13,7 +13,7 @@ a, a:link, a:visited, a:hover {
 	color: #000; }
 
 .studies { 
-	font-size: 90%; 
+	font-size: 0.9em; 
 	margin: 20px auto;
 	padding: 0;
 	width: auto; 
@@ -84,7 +84,7 @@ amp-lightbox {
 
 .sidebar-back:before {
 	content: '\293A';
-	font-size: 130%;
+	font-size: 1.3em;
 	margin: 0 5px 0 0;
 	display: inline-block; }
 
@@ -209,24 +209,24 @@ h1 span {
 
 h1 {
 	margin: 130px 0 30px;
-	font-size: 200%;
+	font-size: 2em;
 	line-height: 140%;
 	text-align: left;
 	font-weight: 400;
 	}
 
 h2 {
-	font-size: 155%;
+	font-size: 1.5em;
 	line-height: 120%;
 	font-weight: 400; }
 
 h3 {
-	font-size: 130%;
+	font-size: 1.3em;
 	font-weight: 400;
 	}
 
 h4, h5, h6 {
-	font-size: 110%;
+	font-size: 1.1em;
 	font-weight: 400;
 	text-align: left;
 	font-style: italic; }
@@ -290,29 +290,6 @@ blockquote {
 	max-width: 700px;
 	}
 
-blockquote::before, blockquote::after {
-	display: block;
-	line-height: 1;
-	font-size: 300%;
-	color: rgba(0,0,0,.2);
-	position: absolute;
-	font-weight: 700; }
-	
-blockquote::before {	
-	content: '“';
-	top: 5px;
-	left: 5px;
-	}
-
-blockquote::after {	
-	content: '”';
-	bottom: -5px;
-	right: 5px;
-	}
-
-article table blockquote::before {
-	padding-left: 0; }
-
 blockquote cite {
 	text-align: left;
 	display: block;
@@ -321,8 +298,7 @@ blockquote cite {
 
 blockquote cite, blockquote cite a {
 	color: rgba(0,0,0,0.7);
-	font-style: normal;
-	font-size: 17px; }
+	font-style: normal; }
 
 blockquote blockquote {
 	width: 80%;
@@ -332,16 +308,6 @@ blockquote blockquote {
 blockquote blockquote p {
 	margin: 20px 0;
 	width: 100%; }
-
-blockquote blockquote::before, blockquote blockquote::after {
-	color: rgba(0,0,0,0.5);
-	position: relative; }
-
-blockquote blockquote::before {
-	padding-left: 0; }
-
-blockquote blockquote::after {
-	font-size: 25px; }
 
 article table {
 	margin: 20px auto;
@@ -398,7 +364,7 @@ article th p + p, article td p + p, article li p + p {
 	display: inline-block;
 	font-style: normal;
 	margin: 0;
-	font-size: 100%;
+	font-size: 1em;
 	padding: 6px 20px;
 	background: rgba(255,255,255,0.3);
 	border: 1px solid rgba(100,100,100,0);
@@ -423,7 +389,7 @@ label, input, textarea, amp-selector, .input-button-wrapper {
 	border: 0;
 	border-radius: 6px;
 	box-sizing: border-box;
-	font-size: 90%;
+	font-size: 0.9em;
 	line-height: inherit;
 	outline: 0 none rgba(255,255,255,0);
 	}
@@ -474,7 +440,6 @@ textarea {
 	}
 
 amp-selector {
-	font-size: 90%;
 	padding: 0;
 	max-height: 365px;
 	overflow-y: auto;
@@ -612,7 +577,13 @@ ol ol ol {
 amp-sidebar ul, amp-sidebar ol, amp-sidebar amp-list {
 	font-family: Arial, Helvetica, 'Sans Serif';
 	margin: 0 0 5px 0;
-	font-size: 14px;
+	font-size: 0.95;
+	}
+
+amp-sidebar ul ul, amp-sidebar ol ul, amp-sidebar amp-list ul,
+amp-sidebar ul ol, amp-sidebar ol ol, amp-sidebar amp-list ol,
+amp-sidebar ul amp-list, amp-sidebar ol amp-list, amp-sidebar amp-list amp-list {
+	font-size: 1em;
 	}
 
 amp-sidebar ul > li:before, amp-sidebar ol > li:before, amp-sidebar amp-list > li:before {
