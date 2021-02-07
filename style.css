@@ -32,7 +32,7 @@ a, a:link, a:visited, a:hover {
 	box-sizing: border-box;
 	width: 100%;
 	background: rgba(255,255,255,0);
-	border-bottom: 2px solid rgba(100,100,100,0.2);
+	border-bottom: 1px solid rgba(0,0,0,1);
 	padding: 10px;
 	z-index: 100;
 	margin: 0 0 50px 0;
@@ -48,7 +48,7 @@ a, a:link, a:visited, a:hover {
 	display: inline-block;
 	cursor: pointer;
 	text-align: center;
-	color: rgba(30,30,30,1);
+	color: rgba(0,0,0,1);
 	font-size: 90%;
 	font-weight: 400;
 	font-family: Arial, Helvetica, 'Sans Serif';
@@ -451,125 +451,6 @@ article th p + p, article td p + p, article li p + p {
 	cursor: pointer;
 	}
 
-/* IMAGES */
-
-div.image_thumbnail {
-	text-align: left;
-	display: inline-block;
-	position: relative;
-	border: 0;
-	vertical-align: top;
-	overflow: hidden;
-	margin: 20px 20px 10px 20px;
-	padding: 0;
-	font-family: Times, Serif;
-	}
-
-div.image_thumbnail amp-img {
-	display: block;
-	max-height: 253px;
-	padding: 0 0 5px 0;
-	margin: 0;
-	border-radius: 4px; }
-
-div.image_large {
-	position: relative;
-	display: block;
-	margin: 50px 20px 60px;
-	text-align: left; }
-
-div.image_large amp-img {
-	display: inline-block;
-	border-radius: 4px; }
-
-div.image_large amp-fit-text {
-	display: block; }
-
-div.image-div-link-button {
-	background: rgba(255,255,255,1);
-	color: <? echo $color ?>;
-	font-size: 17px;
-	padding: 4px 10px;
-	border-radius: 100px;
-	position: absolute;
-	display: none;
-	top: 7px;
-	left: 6px; }
-
-div.image-div-open-button {
-	font-family: Arial, Helvetica, 'Sans Serif';
-	background: rgba(255,255,255,1);
-	color: rgba(50,50,50,0.8);
-	font-size: 13px;
-	line-height: 1.3;
-	padding: 6px 10px 5px;
-	border-radius: 4px;
-	position: absolute;
-	display: none;
-	top: 7px;
-	left: 53px; }
-
-div.image_thumbnail:hover div.image-div-link-button,
-div.image_large:hover div.image-div-link-button,
-div.image_thumbnail:hover div.image-div-open-button,
-div.image_large:hover div.image-div-open-button {
-	display: inline-block;
-	transition: 0.3s; }
-
-div.image_thumbnail:hover div.image-div-link-button:active,
-div.image_large:hover div.image-div-link-button:active {
-	display: none; }
-	
-figure {
-	margin: 0;
-	padding: 0; }
-
-figcaption {
-	display: block;
-	caption-side: bottom;
-	text-align: left; }
-
-image.amp-lightbox {
-	z-index: 10000;
-	}
-
-amp-lightbox div.image_large {
-	margin: 70px 20px 20px; }
-
-amp-lightbox figcaption {
-	display: block;
-	margin: 0;
-	padding: 0; }
-
-div.amp-lightbox-image-link-button {
-	display: inline-block;
-	text-align: right;
-	font-family: Arial, Helvetica, 'Sans Serif';
-	padding: 12px 20px 10px;
-	font-size: 14px;
-	line-height: 1.3;
-	text-transform: uppercase;
-	color: <? echo $color ?>;
-	background: #fff;
-	border: 1px solid <? echo $color ?>;
-	border-radius: 4px;
-	margin: 10px 30px 0 20px;
-	}
-
-div.amp-lightbox-media-id {
-	display: inline-block;
-	text-align: right;
-	font-family: Arial, Helvetica, 'Sans Serif';
-	padding: 12px 0 10px;
-	font-size: 13px;
-	line-height: 14px;
-	text-transform: uppercase;
-	color: rgba(50,50,50,0.7);
-	border: 0 solid <? echo $color ?>;
-	border-radius: 4px;
-	margin: 10px 20px 0; }
-
-
 /* EDIT */
 
 label, input, textarea, amp-selector, .input-button-wrapper {
@@ -669,13 +550,14 @@ amp-selector span[disabled] {
 
 #admin-page-form-snackbar {
 	position: fixed;
+	font-family: Arial, Helvetica, 'San Serif';
 	bottom: 0;
 	left: 0;
 	right: 0;
 	padding: 10px 90px 10px 10px;
 	vertical-align: middle;
 	background: rgba(255,255,255,1);
-	color: rgba(50,50,50,1);
+	color: rgba(0,0,0,1);
 	box-shadow: 0 -5px 35px -12px rgba(30,30,30,0.3);
 	}
 
