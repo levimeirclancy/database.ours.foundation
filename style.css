@@ -233,11 +233,11 @@ h1 span {
 	}
 
 h1 {
-	margin: 130px 20px 30px;
+	margin: 130px 0 30px;
 	font-size: 200%;
 	line-height: 140%;
 	text-align: left;
-	font-weight: 700;
+	font-weight: 400;
 	}
 
 h2 {
