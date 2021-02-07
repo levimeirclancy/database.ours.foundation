@@ -106,29 +106,6 @@ div.sidebar-navigation-item {
 	display: block;
 	}
 	
-.sidebar-navigation-item-title, .entries-list-item-tile {
-	font-size: inherit;
-	line-height: inherit;
-	padding: 0;
-	margin: 0;
-	vertical-align: middle;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-	overflow: hidden;
-	display: inline;
-	}
-
-.sidebar-navigation-item-button {
-	font-family: Arial, Helvetica, 'Sans Serif';
-	font-size: 60%;
-	background: rgba(200,200,200,1);
-	color: rgba(255,255,255,1);
-	font-weight: 700;
-	padding: 3px 8px;
-	margin: 0;
-	border-radius: 100px;
-	float: right;
-	}
 
 amp-sidebar label {
 	padding-top: 10px;
@@ -258,20 +235,6 @@ h4, h5, h6 {
 	float: right;
 	border: 1px solid #333;
 	padding: 8px 12px;
-	}
-
-#sidebar-entry-info-button-wrapper {
-	display: block;
-	margin: 20px 15px 0;
-	text-align: right;
-	}
-
-#sidebar-entry-info-button {
-	display: inline-block;
-	}
-
-amp-sidebar .sidebar-navigation-item-title {
-	font-size: 95%;
 	}
 
 body, article {
