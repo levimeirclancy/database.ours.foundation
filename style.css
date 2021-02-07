@@ -31,9 +31,7 @@ a, a:link, a:visited, a:hover {
 #navigation-header {
 	box-sizing: border-box;
 	width: 100%;
-/*	background: linear-gradient(0deg, rgba(255,255,255,1), rgba(255,255,255,0)); */
-	background: rgba(255,255,255,1);
-/*	box-shadow: 0 5px 40px -13px rgba(50,50,50,0.3); */
+	background: rgba(255,255,255,0);
 	padding: 10px;
 	z-index: 100;
 	margin: 0 0 50px 0;
@@ -50,8 +48,8 @@ a, a:link, a:visited, a:hover {
 	cursor: pointer;
 	text-align: center;
 	color: rgba(30,30,30,1);
-	font-size: 80%;
-	font-weight: 700;
+	font-size: 90%;
+	font-weight: 400;
 	font-family: Arial, Helvetica, 'Sans Serif';
 	}
 
