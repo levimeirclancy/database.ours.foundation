@@ -580,7 +580,7 @@ amp-list ul, amp-list ol, amp-list amp-list {
 	max-width: none;
 	margin: 0 0 5px 0;
 	padding: 2px 0 0 0;
-	font-size: inherit;
+	font-size: 100%;
 	}
 
 li {
