@@ -434,7 +434,7 @@ article th p + p, article td p + p, article li p + p {
 
 .entry-metadata, .entry-metadata-more {
 	display: inline-block;
-	font-style: italic;
+	font-style: normal;
 	margin: 0;
 	font-size: 90%;
 	padding: 8px 20px;
