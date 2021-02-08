@@ -47,6 +47,7 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 		$count_temp = $echo_section_temp = null;
 	
 		foreach ($array_output_temp as $entry_id_temp => $entry_header_temp):
+			if ($entry_id_temp == $entry_id): continue; endif; // do not show itself as its own parent etc
 			if ($information_array[$entry_id_temp]['type'] !== $header_backend): continue; endif;
 			$echo_section_temp .= "<li><a href='/".$entry_id_temp."/'><span class='sidebar-navigation-item-title'>".$entry_header_temp."</span></a></li>";
 			$count_temp++;
