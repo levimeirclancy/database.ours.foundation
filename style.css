@@ -557,7 +557,7 @@ ol ul, ol ol, ol amp-list,
 amp-list ul, amp-list ol, amp-list amp-list {
 	width: auto;
 	max-width: none;
-	margin: 3px 5px 3px 1px;
+	margin: 4px 5px 3px 1px;
 	padding: 0;
 	}
 
@@ -569,7 +569,7 @@ li {
 
 
 li:first-child {
-	padding: 3px 5px 5px 6px;
+	padding: 2px 5px 5px 6px;
 	}
 
 li:last-child {
