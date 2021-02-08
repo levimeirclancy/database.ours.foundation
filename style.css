@@ -554,13 +554,11 @@ ul > li, amp-list li {
 
 ul > li:before, amp-list > li:before {
 	content: ' ';
-	display: block;
+	display: inline-block;
 	width: 5px;
 	height: 2px;
 	background: rgba(200,200,200,0.5);
-	position: absolute;
-	top: 13px;
-	left: 0; }
+	vertical-align: middle; }
 
 ol {
 	list-style-type: decimal; }
