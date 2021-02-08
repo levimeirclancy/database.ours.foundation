@@ -567,6 +567,10 @@ li {
 	border-bottom: 2px dotted rgba(200,200,200,0.5);
 	position: relative; }
 
+li:first-child {
+	padding: 4px 5px 5px 6px;
+	}
+
 li:last-child {
 	border-bottom: 2px solid rgba(200,200,200,0.5);
 	}
