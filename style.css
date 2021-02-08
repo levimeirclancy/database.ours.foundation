@@ -309,14 +309,14 @@ blockquote:before {
 	box-sizing: border-box;
 	left: 50%;
 	font-size: 50px;
-	line-height: 0;
+	line-height: 20px;
 	vertical-align: middle;
 	text-align: center;
 	font-family: Times;
 	background: rgba(50,50,50,1);
 	border: 1px solid rgba(50,50,50,1);
 	color: rgba(255,255,255,1);
-	padding: 10px 15px;
+	padding: 15px 20px;
 	margin: -10px;
 	border-radius: 100px;
 	}
