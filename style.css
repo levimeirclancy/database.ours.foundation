@@ -305,7 +305,7 @@ blockquote blockquote {
 blockquote:before {
 	content: '”';
 	position: absolute;
-	top: -15px;
+	top: -13px;
 	box-sizing: border-box;
 	left: 50%;
 	font-size: 50px;
@@ -313,8 +313,8 @@ blockquote:before {
 	vertical-align: middle;
 	text-align: center;
 	font-family: Times;
-	background: rgba(50,50,50,1);
-	border: 1px solid rgba(50,50,50,1);
+	background: rgba(255,255,255,1);
+	border: 1px dotted rgba(50,50,50,1);
 	color: rgba(255,255,255,1);
 	padding: 25px 0 0;
 	width: 50px;
