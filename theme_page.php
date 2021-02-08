@@ -11,11 +11,11 @@ foreach ($result as $row):
 	endforeach;
 
 foreach ($entry_info['summary'] as $key_temp => $value_temp):
-	if (empty(trim($value_temp)): unset($entry_info['summary'][$key_temp]); endif;
+	if (empty(trim($value_temp))): unset($entry_info['summary'][$key_temp]); endif;
 	endforeach;
 
 foreach ($entry_info['body'] as $key_temp => $value_temp):
-	if (empty(trim($value_temp)): unset($entry_info['body'][$key_temp]); endif;
+	if (empty(trim($value_temp))): unset($entry_info['body'][$key_temp]); endif;
 	endforeach;
 
 function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
