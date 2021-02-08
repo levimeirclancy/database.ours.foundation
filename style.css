@@ -554,10 +554,10 @@ ul > li, amp-list li {
 
 ul > li:before, amp-list > li:before {
 	content: '—';
-	text-indent: -1px;
+	text-indent: -2px;
 	color: rgba(200,200,200,0.5);
-	margin: 0 8px 0 0;
-	vertical-align: middle; }
+	margin: 0 7px 0 0;
+	vertical-align: top; }
 
 ol {
 	list-style-type: decimal; }
@@ -570,7 +570,6 @@ ol ol ol {
 
 amp-sidebar ul, amp-sidebar ol, amp-sidebar amp-list {
 	font-family: Arial, Helvetica, 'Sans Serif';
-	margin: 0 0 5px 0;
 	font-size: 0.9em;
 	}
 
