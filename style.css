@@ -87,7 +87,7 @@ amp-lightbox {
 
 amp-lightbox, amp-sidebar {
 	margin: 0;
-	padding: 10px 0 10px 0;
+	padding: 10px 5px 10px 0;
 	background: rgba(255,255,255,1);
 	text-align: left;
 	box-sizing: border-box;
@@ -578,10 +578,6 @@ amp-sidebar ul ul, amp-sidebar ol ul, amp-sidebar amp-list ul,
 amp-sidebar ul ol, amp-sidebar ol ol, amp-sidebar amp-list ol,
 amp-sidebar ul amp-list, amp-sidebar ol amp-list, amp-sidebar amp-list amp-list {
 	font-size: 1em;
-	}
-
-amp-sidebar ul > li:before, amp-sidebar ol > li:before, amp-sidebar amp-list > li:before {
-	top: 14px;
 	}
 
 amp-sidebar ul li, amp-sidebar ol li, amp-sidebar amp-list li {
