@@ -309,7 +309,7 @@ blockquote:before {
 	box-sizing: border-box;
 	left: 50%;
 	font-size: 3em;
-	line-height: 0.85em;
+	line-height: 0;
 	vertical-align: middle;
 	text-align: center;
 	font-family: Times;
