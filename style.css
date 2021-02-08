@@ -280,7 +280,7 @@ p, summary, blockquote {
 	}
 
 blockquote {
-	border-width: 2px 1px;
+	border-width: 2px;
 	border-style: dotted;
 	border-color: rgba(50,50,50,1);
 	border-radius: 15px;
@@ -309,16 +309,14 @@ blockquote:before {
 	box-sizing: border-box;
 	left: 50%;
 	font-size: 3em;
-	line-height: 0.8em;
+	line-height: 0.85em;
 	vertical-align: middle;
 	text-align: center;
 	font-family: Times;
 	background: rgba(50,50,50,1);
 	border: 1px solid rgba(50,50,50,1);
 	color: rgba(255,255,255,1);
-	padding: 10px;
-	height: 40px;
-	width: 40px;
+	padding: 10px 15px;
 	margin: -10px;
 	border-radius: 100px;
 	}
