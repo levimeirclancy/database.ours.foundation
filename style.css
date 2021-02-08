@@ -307,15 +307,19 @@ blockquote blockquote p {
 	width: 100%; }
 
 blockquote:before {
-	content: '"';
+	content: '“';
 	position: absolute;
-	top: 0;
+	top: -10px;
 	left: 50%;
+	font-size: 3em;
+	line-height: 1em;
+	font-family: Times;
 	background: rgba(200,200,200,1);
 	color: rgba(255,255,255,1);
 	padding: 10px;
 	height: 10px;
 	width: 10px;
+	margin: -10px;
 	border-radius: 100px;
 	}
 
