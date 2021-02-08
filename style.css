@@ -281,6 +281,7 @@ p, summary, blockquote {
 	}
 
 blockquote {
+	background: rgba(255,255,255,1);
 	border-width: 2px;
 	border-style: dotted;
 	border-color: rgba(50,50,50,1);
