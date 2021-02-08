@@ -240,8 +240,10 @@ if ($page_temp == "edit-xhr"):
 	function clean_empty_array($array_temp) {
 		if (ctype_space($array_temp)): return null; endif;
 		foreach ($array_temp as $key_temp => $value_temp):
-			if (empty($value_temp)): unset($array_temp[$key_temp]); continue; endif;
-			if (is_array($value_temp)): $array_temp[$key_temp] = clean_empty_array($value_temp);
+//			if (empty($value_temp)): unset($array_temp[$key_temp]); continue; endif;
+			if (is_array($value_temp)):
+				$value_temp = array_unique($value_temp);
+				$array_temp[$key_temp] = clean_empty_array($value_temp);
 			else:
 				$value_temp = str_replace("[[[", "\n\n[[[", $value_temp);
 				$value_temp = str_replace("]]]", "]]]\n\n", $value_temp);
