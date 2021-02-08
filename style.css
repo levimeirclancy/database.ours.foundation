@@ -557,12 +557,12 @@ ol ul, ol ol, ol amp-list,
 amp-list ul, amp-list ol, amp-list amp-list {
 	width: auto;
 	max-width: none;
-	margin: 0 5px 3px 1px;
+	margin: 1px 5px 3px 1px;
 	padding: 0;
 	}
 
 li {
-	padding: 5px;
+	padding: 5px 5px 5px 6px;
 	margin: 0;
 	border-bottom: 2px solid rgba(200,200,200,0.5);
 	position: relative; }
