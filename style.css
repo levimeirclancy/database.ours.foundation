@@ -550,7 +550,6 @@ ul, ol, amp-list {
 	list-style-position: inside;
 	line-height: 1.4;
 	border-left: 2px solid rgba(200,200,200,0.5);
-	border-bottom: 2px solid rgba(200,200,200,0.5);
 	box-sizing: border-box; }
 
 ul ul, ul ol, ul amp-list,
@@ -563,20 +562,13 @@ amp-list ul, amp-list ol, amp-list amp-list {
 	}
 
 li {
-	padding: 2px 0 4px;
+	padding: 3px 0 4px;
 	margin: 0;
+	border-bottom: 2px solid rgba(200,200,200,0.5);
 	position: relative; }
 
 ul > li, amp-list li {
 	list-style-type: none; }
-
-ul > li:before, amp-list > li:before {
-	content: '—';
-	font-family: Arial, Helvetica, 'Sans Serif';
-	text-indent: -3px;
-	color: rgba(200,200,200,0.5);
-	margin: 0 7px 0 0;
-	vertical-align: top; }
 
 ol {
 	list-style-type: decimal; }
