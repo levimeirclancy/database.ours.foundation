@@ -280,7 +280,9 @@ p, summary, blockquote {
 	}
 
 blockquote {
-	border: 2px 1px solid rgba(50,50,50,1);
+	border-width: 2px 1px;
+	border-style: dotted;
+	border-color: rgba(50,50,50,1);
 	border-radius: 15px;
 	padding: 20px;
 	margin: 40px 20px;
