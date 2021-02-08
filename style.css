@@ -545,7 +545,7 @@ amp-list ul, amp-list ol, amp-list amp-list {
 	}
 
 li {
-	padding: 2px 0 4px;
+	padding: 2px 8px 4px;
 	margin: 0;
 	position: relative; }
 
@@ -553,7 +553,8 @@ ul > li, amp-list li {
 	list-style-type: none; }
 
 ul > li:before, amp-list > li:before {
-	content: '-';
+	content: '—';
+	text-indent: -1px;
 	color: rgba(200,200,200,0.5);
 	margin: 0 8px 0 0;
 	vertical-align: middle; }
