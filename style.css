@@ -273,7 +273,7 @@ p, summary, ul, ol, blockquote {
 	}
 	
 article, article th, article td,
-p, summary, ul, ol, blockquote {
+p, summary, blockquote {
 	font-weight: 400;
 	text-align: left;
 	font-family: Times, Serif;
@@ -540,12 +540,12 @@ ol ul, ol ol, ol amp-list,
 amp-list ul, amp-list ol, amp-list amp-list {
 	width: auto;
 	max-width: none;
-	margin: 0 0 5px 0;
-	padding: 2px 0 0 0;
+	margin: 1px 0 5px 0;
+	padding: 0 0 0 0;
 	}
 
 li {
-	padding: 3px 8px;
+	padding: 2px 8px 4px;
 	margin: 0;
 	position: relative; }
 
