@@ -285,7 +285,7 @@ blockquote {
 	border-color: rgba(50,50,50,1);
 	border-radius: 15px;
 	padding: 20px;
-	margin: 40px 20px;
+	margin: 50px 20px;
 	max-width: 700px;
 	}
 
@@ -316,9 +316,9 @@ blockquote:before {
 	background: rgba(50,50,50,1);
 	border: 1px solid rgba(50,50,50,1);
 	color: rgba(255,255,255,1);
-	padding: 20px 0;
-	width: 40px;
-	height: 40px;
+	padding: 25px 0;
+	width: 50px;
+	height: 50px;
 	margin: -10px;
 	border-radius: 100px;
 	}
