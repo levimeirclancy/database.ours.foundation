@@ -557,7 +557,7 @@ ol ul, ol ol, ol amp-list,
 amp-list ul, amp-list ol, amp-list amp-list {
 	width: auto;
 	max-width: none;
-	margin: 4px 5px 3px 1px;
+	margin: 3px 5px 3px 1px;
 	padding: 0;
 	}
 
@@ -566,11 +566,6 @@ li {
 	margin: 0;
 	border-bottom: 2px dotted rgba(200,200,200,0.5);
 	position: relative; }
-
-
-li:first-child {
-	padding: 2px 5px 5px 6px;
-	}
 
 li:last-child {
 	border-bottom: 2px solid rgba(200,200,200,0.5);
