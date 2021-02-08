@@ -151,10 +151,11 @@ echo "<amp-sidebar id='sidebar-entry-info' layout='nodisplay' side='right'>";
 				endif;
 			endif;
 		if (count($languages_temp) > 1):
-			$language_array_temp = [];
+			echo "<li>Languages<ul>";
 			foreach($languages_temp as $language_temp):
 				echo "<li><a href='#".$language_temp."'><span class='sidebar-navigation-item-title'>".ucfirst($language_temp)."</span></a></li>";
 				endforeach;
+			echo "</ul></li>";
 			endif;
 		echo "</ul></li>";
 
