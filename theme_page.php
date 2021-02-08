@@ -140,10 +140,12 @@ echo "<amp-sidebar id='sidebar-entry-info' layout='nodisplay' side='right'>";
 			$unit_temp = null;
 			foreach($entry_info['appendix']['unit'] as $entry_id_temp):
 				if (empty($information_array[$entry_id_temp]['header'])): continue; endif;
-				$unit_temp .= "<li><a href='/".$entry_id_temp."/'>". $information_array[$entry_id_temp]['header']."</a></li>";
+				$unit_temp[] = "<li><a href='/".$entry_id_temp."/'>". $information_array[$entry_id_temp]['header']."</a></li>";
 				endforeach;
 			if (!(empty($unit_temp))):
-				$unit_temp = "<li>Unit<ul>" . $unit_temp . "</ul></li>";
+				$plural_temp = null;
+				if (count($unit_temp) > 1): $plural_temp = "s"; endif;
+				$unit_temp = "<li>Unit".$plural_temp."<ul>" . $unit_temp . "</ul></li>";
 				echo $unit_temp;
 				endif;
 			endif;
