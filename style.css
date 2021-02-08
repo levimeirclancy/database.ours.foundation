@@ -557,7 +557,7 @@ ol ul, ol ol, ol amp-list,
 amp-list ul, amp-list ol, amp-list amp-list {
 	width: auto;
 	max-width: none;
-	margin: 0 5px 5px 5px;
+	margin: 0 5px 5px 0;
 	padding: 0;
 	}
 
