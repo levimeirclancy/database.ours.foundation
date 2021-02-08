@@ -280,7 +280,7 @@ p, summary, blockquote {
 	}
 
 blockquote {
-	border: 2px solid rgba(0,0,0,.2);
+	border: 2px solid rgba(200,200,200,1);
 	border-radius: 6px;
 	padding: 20px;
 	margin: 20px auto;
@@ -305,6 +305,19 @@ blockquote blockquote {
 blockquote blockquote p {
 	margin: 20px 0;
 	width: 100%; }
+
+blockquote:before {
+	content: '"';
+	position: absolute;
+	top: 0;
+	left: 50%;
+	background: rgba(200,200,200,1);
+	color: rgba(255,255,255,1);
+	padding: 10px;
+	height: 10px;
+	width: 10px;
+	border-radius: 100px;
+	}
 
 article table {
 	margin: 20px auto;
