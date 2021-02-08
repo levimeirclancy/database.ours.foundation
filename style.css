@@ -540,7 +540,7 @@ ol ul, ol ol, ol amp-list,
 amp-list ul, amp-list ol, amp-list amp-list {
 	width: auto;
 	max-width: none;
-	margin: 1px 0 5px 8px;
+	margin: 1px 8px 5px;
 	padding: 0 0 0 0;
 	}
 
@@ -571,6 +571,7 @@ ol ol ol {
 amp-sidebar ul, amp-sidebar ol, amp-sidebar amp-list {
 	font-family: Arial, Helvetica, 'Sans Serif';
 	font-size: 0.9em;
+	margin: 0;
 	}
 
 amp-sidebar ul ul, amp-sidebar ol ul, amp-sidebar amp-list ul,
