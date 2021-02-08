@@ -200,7 +200,7 @@ foreach ($languages_temp as $language_temp):
 	echo "<hr>";
 	endforeach;
 
-if (!(empty($entry_info['studies']))): echo "<div class='studies'>" . body_process(html_entity_decode(htmlspecialchars_decode($entry_info['studies']))) . "</div>"; endif;
+if (!(empty($entry_info['studies']))): echo "<div class='studies'><h2>Endnotes</h2>" . body_process(html_entity_decode(htmlspecialchars_decode($entry_info['studies']))) . "</div>"; endif;
 
 if ($entry_info['type'] == "person"):
 	// person info an terms
