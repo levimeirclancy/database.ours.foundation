@@ -167,11 +167,16 @@ foreach($connection_pdo->query($sql_temp) as $row):
 	$name_temp = [];
 	if (!(empty($row['name']))): $name_temp = json_decode($row['name'], true); endif;
 	if (!(is_array($name_temp))): $name_temp = []; endif;
+	foreach ($name_temp as $key_temp => $value_temp):
+		if (empty(trim($value_temp))): unset($name_temp[$key_temp]); endif;
+		endforeach;
 
 	if (isset($_REQUEST['summary']) && ($_REQUEST['summary'] == ["true"])):
 		$summary_temp = json_decode($row['summary'], true);
 		foreach ($summary_temp as $language_temp => $content_temp):
-			$information_array[$row['entry_id']]['summary'][$language_temp] = body_process($content_temp);
+			$content_temp = body_process($content_temp);
+			if (empty($content_temp)): continue; endif;
+			$information_array[$row['entry_id']]['summary'][$language_temp] = $content_temp;
 			endforeach;
 		endif;
 
