@@ -316,8 +316,9 @@ blockquote:before {
 	background: rgba(50,50,50,1);
 	border: 1px solid rgba(50,50,50,1);
 	color: rgba(255,255,255,1);
-	width: 50px;
-	height: 50px;
+	padding: 20px 0;
+	width: 40px;
+	height: 40px;
 	margin: -10px;
 	border-radius: 100px;
 	}
