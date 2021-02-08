@@ -280,7 +280,7 @@ p, summary, blockquote {
 	}
 
 blockquote {
-	border: 1px solid rgba(50,50,50,1);
+	border: 2px 1px solid rgba(50,50,50,1);
 	border-radius: 15px;
 	padding: 20px;
 	margin: 40px 20px;
@@ -301,14 +301,15 @@ blockquote blockquote {
 	margin: 20px; }
 
 blockquote:before {
-	content: '“';
+	content: '”';
 	position: absolute;
-	top: -15px;
+	top: -13px;
 	box-sizing: border-box;
 	left: 50%;
 	font-size: 3em;
-	line-height: 1em;
+	line-height: 0.8em;
 	vertical-align: middle;
+	text-align: center;
 	font-family: Times;
 	background: rgba(50,50,50,1);
 	border: 1px solid rgba(50,50,50,1);
