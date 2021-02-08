@@ -126,17 +126,10 @@ echo "<amp-sidebar id='sidebar-entry-info' layout='nodisplay' side='right'>";
 	echo "<ul>";
 	echo "<li><span class='sidebar-navigation-item-title'><b>Metadata</b></span>";
 		echo "<ul>";
-		echo "<li><span class='sidebar-navigation-item-title'>Type: <a href='/".$entry_info['type']."/'><span property='genre'>".$site_info['category_array'][$entry_info['type']]."</span></a></span></li>"; // Type
-		echo "<li><span class='sidebar-navigation-item-title'>Publisher: <a href='https://".$domain."'><span property='publisher'>".$publisher."</span></a></span></li>"; // Publisher
-		echo "<li><span class='sidebar-navigation-item-title'>Author: <span property='author'>".$author."</span></span></li>"; // Author
-		echo "<li><span class='sidebar-navigation-item-title'>Type: <a href='/".$entry_info['type']."/'><span property='genre'>".$site_info['category_array'][$entry_info['type']]."</span></a></span></li>"; // Type
-//		echo "<li><span class='sidebar-navigation-item-title'>Published: ".date("Y F d", strtotime($entry_info['date_published']))."</span></li>"; // Date published
-//		echo "<li><span class='sidebar-navigation-item-title'>Updated: ".date("Y F d, H:i:s", strtotime($entry_info['date_updated']))."</span></li>"; // Date updated
-		if (!(empty($entry_info['appendix']['latitude'])) && !(empty($entry_info['appendix']['longitude']))): // GPS
-			echo "<li><a href='https://".$domain."/".$entry_info['entry_id']."/map/' target='_blank'><span class='sidebar-navigation-item-title'>";
-			echo substr($entry_info['appendix']['latitude'],0,6).", ".substr($entry_info['appendix']['longitude'],0,6);
-			echo " (GPS)</span></a></li>";
-			endif;
+		echo "<li>Type: <a href='/".$entry_info['type']."/'><span property='genre'>".$site_info['category_array'][$entry_info['type']]."</span></a></span></li>"; // Type
+		echo "<li>Publisher: <a href='https://".$domain."'><span property='publisher'>".$publisher."</span></a></span></li>"; // Publisher
+		echo "<li>Author: <span property='author'>".$author."</span></li>"; // Author
+		echo "<li>Type: <a href='/".$entry_info['type']."/'><span property='genre'>".$site_info['category_array'][$entry_info['type']]."</span></a>";
 		if (!(empty($entry_info['appendix']['unit']))): 
 			$unit_temp = null;
 			foreach($entry_info['appendix']['unit'] as $entry_id_temp):
@@ -146,10 +139,17 @@ echo "<amp-sidebar id='sidebar-entry-info' layout='nodisplay' side='right'>";
 			if (!(empty($unit_temp))):
 				$plural_temp = null;
 				if (count($unit_temp) > 1): $plural_temp = "s"; endif;
-				$unit_temp = "<li>Unit".$plural_temp."<ul>" . implode(null, $unit_temp) . "</ul></li>";
-				echo $unit_temp;
+				echo "<ul>" . implode(null, $unit_temp) . "</ul>";
 				endif;
 			endif;
+//		echo "<li><span class='sidebar-navigation-item-title'>Published: ".date("Y F d", strtotime($entry_info['date_published']))."</span></li>"; // Date published
+//		echo "<li><span class='sidebar-navigation-item-title'>Updated: ".date("Y F d, H:i:s", strtotime($entry_info['date_updated']))."</span></li>"; // Date updated
+		if (!(empty($entry_info['appendix']['latitude'])) && !(empty($entry_info['appendix']['longitude']))): // GPS
+			echo "<ul><li>GPS: <a href='https://".$domain."/".$entry_info['entry_id']."/map/' target='_blank'>";
+			echo substr($entry_info['appendix']['latitude'],0,6).", ".substr($entry_info['appendix']['longitude'],0,6);
+			echo "</a></li></ul>";
+			endif;
+		echo "</li>";
 		if (count($languages_temp) > 1):
 			echo "<li>Languages<ul>";
 			foreach($languages_temp as $language_temp):
