@@ -283,7 +283,7 @@ blockquote {
 	border: 1px solid rgba(50,50,50,1);
 	border-radius: 15px;
 	padding: 20px;
-	margin: 20px;
+	margin: 40px 20px;
 	max-width: 700px;
 	}
 
@@ -298,13 +298,7 @@ blockquote cite, blockquote cite a {
 	font-style: normal; }
 
 blockquote blockquote {
-	width: 80%;
-	max-width: 850px;
-	margin: 20px auto; }
-
-blockquote blockquote p {
-	margin: 20px 0;
-	width: 100%; }
+	margin: 20px; }
 
 blockquote:before {
 	content: '“';
@@ -313,7 +307,8 @@ blockquote:before {
 	box-sizing: border-box;
 	left: 50%;
 	font-size: 3em;
-	line-height: 1em;
+	line-height: 0px;
+	vertical-align: middle;
 	font-family: Times;
 	background: rgba(50,50,50,1);
 	border: 1px solid rgba(50,50,50,1);
