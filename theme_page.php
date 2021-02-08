@@ -146,7 +146,7 @@ echo "<amp-sidebar id='sidebar-entry-info' layout='nodisplay' side='right'>";
 			if (!(empty($unit_temp))):
 				$plural_temp = null;
 				if (count($unit_temp) > 1): $plural_temp = "s"; endif;
-				$unit_temp = "<li>Unit".implode(null, $plural_temp)."<ul>" . $unit_temp . "</ul></li>";
+				$unit_temp = "<li>Unit".$plural_temp."<ul>" . implode(null, $unit_temp) . "</ul></li>";
 				echo $unit_temp;
 				endif;
 			endif;
