@@ -99,7 +99,7 @@ if (!(empty($_COOKIE['cookie']))):
 // Pull all the entries
 $order_array = $information_array = [];
 
-$order_language = null;
+$order_language = reset($site_info['languages']);
 if (isset($_REQUEST['order'])):
 	$order_language = $_REQUEST['order'];
 	unset($_REQUEST['order']); endif;
@@ -175,7 +175,7 @@ foreach($connection_pdo->query($sql_temp) as $row):
 
 	$order_array[$row['entry_id']] = null;
 	if (isset($order_language) && isset($information_array[$row['entry_id']]['name'][$order_language])): $order_array[$row['entry_id']] = $information_array[$row['entry_id']]['name'][$order_language];
-	elseif (isset($name_temp)): $order_array[$row['entry_id']] = reset($name_temp); endif;
+	elseif (isset($name_temp)): $order_array[$row['entry_id']] = reset($information_array[$row['entry_id']]['name']); endif;
 
 	endforeach;
 
