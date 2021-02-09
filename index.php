@@ -168,8 +168,9 @@ foreach($connection_pdo->query($sql_temp) as $row):
 	if (!(empty($row['name']))): $name_temp = json_decode($row['name'], true); endif;
 	if (!(is_array($name_temp))): $name_temp = []; endif;
 	foreach ($name_temp as $key_temp => $value_temp):
-		if (empty(trim($value_temp))): unset($name_temp[$key_temp]); endif;
+		if (empty(trim($value_temp))): $name_temp[$key_temp] = null; endif;
 		endforeach;
+	array_filter($name_temp);
 
 	if (isset($_REQUEST['summary']) && ($_REQUEST['summary'] == ["true"])):
 		$summary_temp = json_decode($row['summary'], true);
@@ -226,7 +227,9 @@ if (!(empty($order_array))):
 $information_array = htmlspecialchars_array($information_array);
 
 function htmlspecialchars_array($array_temp) {
-	if (!(is_array($array_temp))): return html_entity_decode($array_temp); endif;
+	if (!(is_array($array_temp))): 
+		if (empty(trim($array_temp)): return null; endif;
+		return html_entity_decode($array_temp); endif;
 	foreach ($array_temp as $key_temp => $value_temp): $array_temp[$key_temp] = htmlspecialchars_array($value_temp); endforeach;
 	return $array_temp; }
 
