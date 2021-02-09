@@ -189,6 +189,8 @@ if (empty($languages_temp)):
 	echo "<ul class='sidebar-entry-info-list'>";
 	relationships_array($page_temp, "children", "Subpages");
 	echo "</ul>";
+	echo "<br><br><br>";
+	echo "<br><br><br>";
 	endif;
 
 foreach ($languages_temp as $language_temp):
@@ -197,6 +199,8 @@ foreach ($languages_temp as $language_temp):
 		echo body_process(html_entity_decode(htmlspecialchars_decode($entry_info['summary'][$language_temp]))); endif;
 	if (!(empty($entry_info['body'][$language_temp]))):
 		echo body_process(html_entity_decode(htmlspecialchars_decode($entry_info['body'][$language_temp]))); endif;
+	echo "<br><br><br>";
+	echo "<br><br><br>";
 	endforeach;
 
 if (!(empty($entry_info['studies']))): echo "<div class='studies'><h2>Endnotes</h2>" . body_process(html_entity_decode(htmlspecialchars_decode($entry_info['studies']))) . "</div>"; endif;
