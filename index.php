@@ -100,7 +100,7 @@ if (!(empty($_COOKIE['cookie']))):
 $order_array = $information_array = [];
 
 $order_language = reset($site_info['languages']);
-if (isset($_REQUEST['order'])):
+if (isset($_REQUEST['order']) && in_array($_REQUEST['order'], $site_info['languages'])):
 	$order_language = $_REQUEST['order'];
 	unset($_REQUEST['order']); endif;
 
