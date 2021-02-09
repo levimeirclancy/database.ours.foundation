@@ -67,18 +67,22 @@ function sanitize_dates ($entry_info, $row=[]) {
 	$entry_info['date_updated'] = date("Y-m-d H:i:s", strtotime($entry_info['date_updated']));
 	$entry_info['date_published'] = date("Y-m-d", (strtotime($entry_info['date_published'])+5));
 	
-	// Add in the 'header'
+	// Prepare the name
 	$name_temp = [];
 	if (!(empty($row['name']))): $name_temp = json_decode($row['name'], true);
 	elseif (!(empty($entry_info['name']))): $name_temp = $entry_info['name']; endif;
 	if (!(is_array($name_temp))): $name_temp = []; endif;
+	
+	// Set up the name
+	$entry_info['name'] = $name_temp;
+	
+	// Now set up the header
 	foreach ($name_temp as $key_temp => $value_temp):
 		if (empty(trim($value_temp))): $name_temp[$key_temp] = null; endif;
 		endforeach;
 	$name_temp = array_filter($name_temp);
 	$entry_info['header'] = implode(" • ", $name_temp);
 
-	
 	return $entry_info; }
 
 
