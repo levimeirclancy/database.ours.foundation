@@ -164,14 +164,6 @@ foreach($connection_pdo->query($sql_temp) as $row):
 
 	$information_array[$row['entry_id']] = sanitize_dates($information_array[$row['entry_id']], $row);
 
-	$name_temp = [];
-	if (!(empty($row['name']))): $name_temp = json_decode($row['name'], true); endif;
-	if (!(is_array($name_temp))): $name_temp = []; endif;
-	foreach ($name_temp as $key_temp => $value_temp):
-		if (empty(trim($value_temp))): $name_temp[$key_temp] = null; endif;
-		endforeach;
-	array_filter($name_temp);
-
 	if (isset($_REQUEST['summary']) && ($_REQUEST['summary'] == ["true"])):
 		$summary_temp = json_decode($row['summary'], true);
 		foreach ($summary_temp as $language_temp => $content_temp):
@@ -181,11 +173,8 @@ foreach($connection_pdo->query($sql_temp) as $row):
 			endforeach;
 		endif;
 
-	$information_array[$row['entry_id']]['header'] = implode(" • ", $name_temp);
-	if (empty($information_array[$row['entry_id']]['header'])): $information_array[$row['entry_id']]['header'] = "[ No title ]"; endif;
-
 	$order_array[$row['entry_id']] = null;
-	if (isset($order_language) && isset($name_temp[$order_language])): $order_array[$row['entry_id']] = $name_temp[$order_language];
+	if (isset($order_language) && isset($information_array[$row['entry_id']]['name'][$order_language])): $order_array[$row['entry_id']] = $information_array[$row['entry_id']]['name'][$order_language];
 	elseif (isset($name_temp)): $order_array[$row['entry_id']] = reset($name_temp); endif;
 
 	endforeach;
