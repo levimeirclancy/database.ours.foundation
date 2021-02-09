@@ -158,13 +158,13 @@ echo "<amp-sidebar id='sidebar-entry-info' layout='nodisplay' side='right'>";
 			echo "</a></li></ul>";
 			endif;
 		echo "</li>";
-		if (count($languages_temp) > 1):
-			echo "<li>Languages<ul>";
-			foreach($languages_temp as $language_temp):
-				echo "<li><a href='#".$language_temp."'><span class='sidebar-navigation-item-title'>".ucfirst($language_temp)."</span></a></li>";
-				endforeach;
-			echo "</ul></li>";
-			endif;
+//		if (count($languages_temp) > 1):
+//			echo "<li>Languages<ul>";
+//			foreach($languages_temp as $language_temp):
+//				echo "<li><a href='#".$language_temp."'><span class='sidebar-navigation-item-title'>".ucfirst($language_temp)."</span></a></li>";
+//				endforeach;
+//			echo "</ul></li>";
+//			endif;
 		echo "</ul></li>";
 
 	relationships_array($page_temp, "grandparents", "Parents of parent pages");
@@ -192,19 +192,16 @@ if (empty($languages_temp)):
 	endif;
 
 foreach ($languages_temp as $language_temp):
-	echo "<span id='".$language_temp."'></span>";
+//	echo "<span id='".$language_temp."'></span>";
 	if (!(empty($entry_info['summary'][$language_temp]))):
 		echo body_process(html_entity_decode(htmlspecialchars_decode($entry_info['summary'][$language_temp]))); endif;
 	if (!(empty($entry_info['body'][$language_temp]))):
 		echo body_process(html_entity_decode(htmlspecialchars_decode($entry_info['body'][$language_temp]))); endif;
-	echo "<hr>";
 	endforeach;
 
 if (!(empty($entry_info['studies']))): echo "<div class='studies'><h2>Endnotes</h2>" . body_process(html_entity_decode(htmlspecialchars_decode($entry_info['studies']))) . "</div>"; endif;
 
 if ($entry_info['type'] == "person"):
-	// person info an terms
-//	$terms_array = get_terms(["person_id"=>$page_temp]);
 	if (!(empty($terms_array))):
 		echo "<hr><table><thead><tr><th>term</th><th>person</th><th>position</th><th>for</th><th>party</th><th>start</th><th>end</th><th>vote</th></tr></thead><tbody>";
 		foreach($terms_array as $term_id => $term_info):
