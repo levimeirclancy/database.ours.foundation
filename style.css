@@ -272,8 +272,6 @@ p, summary, ul, ol, blockquote {
 	padding: 20px;
 	text-align: left;
 	position: relative;
-	text-overflow: ellipsis;
-	overflow: hidden;
 	}
 	
 article, article th, article td,
@@ -327,6 +325,11 @@ blockquote:before {
 	height: 50px;
 	margin: -15px;
 	border-radius: 100px;
+	}
+
+p {
+	text-overflow: ellipsis;
+	overflow: hidden;
 	}
 
 article table {
