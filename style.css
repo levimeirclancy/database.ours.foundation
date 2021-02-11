@@ -273,6 +273,7 @@ p, summary, ul, ol, blockquote {
 	text-align: left;
 	position: relative;
 	text-overflow: ellipsis;
+	overflow: hidden;
 	}
 	
 article, article th, article td,
