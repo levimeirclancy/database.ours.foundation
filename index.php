@@ -334,7 +334,6 @@ if ($page_temp == "new-xhr"):
 
 	if (empty($_POST['type'])): json_result($domain, "error", null, "Needs type."); endif;
 	if (empty($site_info['category_array'][$_POST['type']])): json_result($domain, "error", null, "Type is not valid."); endif;
-	json_result($domain, "error", null, "Type ".$_POST['type']."is not valid.");
 
 	// Create a unique entry_id
 	$entry_id = random_code(7);
