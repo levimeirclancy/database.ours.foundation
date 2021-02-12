@@ -229,11 +229,14 @@ if ($page_temp == "edit-xhr"):
 			endforeach;
 		return $array_temp; }
 
+	if (empty($_POST['date_published'])): $date_published_temp = $_POST['date_published'] = time();
+	else: $date_published_temp = strtotime($_POST['date_published'])+5; endif;
+
 	$values_temp = [
 		"entry_id"		=> $_POST['entry_id'],
 		"type"			=> $_POST['type'],
-		"date_published"	=> date("Y-m-d", (strtotime($_POST['date_published'])+5)), // mySQL DATE column has format YYYY-MM-DD
-		"date_updated"		=> date("Y-m-d H:i:s", time()), // mySQL DATETIME column has format YYYY-MM-DD hh:mm:ss
+		"date_published"	=> date("Y-m-d", $date_published_temp), // mySQL DATE column has format YYYY-MM-DD
+		"date_updated"		=> date("Y-m-d H:i:s"), // mySQL DATETIME column has format YYYY-MM-DD hh:mm:ss
 		"name"			=> $_POST['name'],
 //		"alternate_name"	=> $_POST['alternate_name'],
 		"summary" 		=> $_POST['summary'],
