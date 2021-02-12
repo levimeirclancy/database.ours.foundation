@@ -27,7 +27,10 @@ function sanitize_dates ($row=[], $additions_array=[]) {
 		if (empty(trim($value_temp))): $name_temp[$key_temp] = null; endif;
 		endforeach;
 	$name_temp = array_filter($name_temp);
-	if (empty($name_temp)): $name_temp['english'] = [ "[ No title ]" ]; endif;
+	if (empty($name_temp)):
+		$language_temp = reset($site_info['languages']);
+		$name_temp = [ $language_temp => "[ No title ]" ];
+		endif;
 	
 	$entry_info = [
 		"entry_id"		=> $row['entry_id'],
