@@ -120,7 +120,7 @@ function nesty_page($page_id_temp) {
 
 	if (empty($page_id_temp)): return null; endif;
 	
-//	if (isset($information_array[$page_id_temp])): return $information_array[$page_id_temp]; endif;
+	if (!(empty($information_array[$page_id_temp]))): return $information_array[$page_id_temp]; endif;
 		
 	$domain_temp = $domain;
 	if (strpos($page_id_temp, "|")):
