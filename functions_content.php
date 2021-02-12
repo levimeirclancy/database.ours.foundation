@@ -36,8 +36,8 @@ function sanitize_dates ($row=[], $additions_array=[]) {
 	$entry_info = [
 		"entry_id"		=> $row['entry_id'],
 		"type"			=> $row['type'],
-		"date_published"	=> date("Y-m-d", time()),
-		"date_updated"		=> date("Y-m-d H:i:s", time()),
+		"date_published"	=> date("Y-m-d"),
+		"date_updated"		=> date("Y-m-d H:i:s"),
 		"name"			=> $name_temp,
 		"header"		=> null,
 		"page_id"		=> $row['entry_id'],
