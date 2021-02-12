@@ -20,12 +20,21 @@ function sanitize_dates ($row=[], $additions_array=[]) {
 	
 	global $domain;
 	
+	$name_temp = [];
+	if (!(empty(json_decode($row['name'], true)))):
+		$name_temp = json_decode($row['name'], true);
+		endif;
+	foreach ($name_temp as $key_temp => $value_temp):
+		if (empty(trim($value_temp))): $name_temp[$key_temp] = null; endif;
+		endforeach;
+	$name_temp = array_filter($name_temp);
+	
 	$entry_info = [
 		"entry_id"		=> $row['entry_id'],
 		"type"			=> $row['type'],
 		"date_published"	=> null,
 		"date_updated"		=> null,
-		"name"			=> json_decode($row['name'], true),
+		"name"			=> $name_temp,
 		"header"		=> null,
 		"page_id"		=> $row['entry_id'],
 		"link"			=> $row['link'] = "https://".$domain."/".$row['entry_id']."/",
@@ -85,10 +94,7 @@ function sanitize_dates ($row=[], $additions_array=[]) {
 	$entry_info['name'] = $name_temp;
 	
 	// Now set up the header
-	foreach ($name_temp as $key_temp => $value_temp):
-		if (empty(trim($value_temp))): $name_temp[$key_temp] = null; endif;
-		endforeach;
-	$name_temp = array_filter($name_temp);
+	$name_temp = array_filter($entry_info['name']);
 	$entry_info['header'] = implode(" • ", $name_temp);
 
 	return $entry_info; }
