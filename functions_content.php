@@ -387,7 +387,10 @@ function body_process($body_incoming) {
 		preg_match_all("/(?<=\(\(\()(.*?)(?=\)\)\))/is", $link_string, $matches_temp);
 		if (empty($matches_temp)): $matches_temp = [ [], [] ]; endif;
 		foreach ($matches_temp[0] as $temp): $link_string = str_replace("(((".$temp.")))", null, $link_string); endforeach;
-					
+		
+		// Replace with hyphen that does not break lines
+		$link_string = str_replace("-", "&#8209;", $link_string);
+	
 		$link_string = "<a href='".$link_url."'>".$link_string."</a>";
 			
 		$body_incoming = str_replace("{{{".$match_temp."}}}", $link_string, $body_incoming);
