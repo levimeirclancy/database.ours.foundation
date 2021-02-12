@@ -36,8 +36,8 @@ function sanitize_dates ($row=[], $additions_array=[]) {
 	$entry_info = [
 		"entry_id"		=> $row['entry_id'],
 		"type"			=> $row['type'],
-		"date_published"	=> null,
-		"date_updated"		=> null,
+		"date_published"	=> date("Y-m-d", time()),
+		"date_updated"		=> date("Y-m-d H:i:s", time()),
 		"name"			=> $name_temp,
 		"header"		=> null,
 		"page_id"		=> $row['entry_id'],
@@ -70,21 +70,19 @@ function sanitize_dates ($row=[], $additions_array=[]) {
 //		endif;
 	
 	// Because this column was added in an upgrade, it has to be constructed
-	if (!(empty($row['date_updated']))):
+	if (isset($row['date_updated']) && !(empty($row['date_updated']))):
 		$entry_info['date_updated'] = date("Y-m-d H:i:s", strtotime($row['date_updated']));
 	elseif (isset($row['timestamp']) && !(empty($row['timestamp']))):
 		$entry_info['date_updated'] = date("Y-m-d H:i:s", strtotime($row['timestamp']));
-	else:
-		$entry_info['date_updated'] = date("Y-m-d H:i:s", time());
 		endif;
 	
 	// Because this column was added in an upgrade, it has to be constructed
 	if (isset($row['date_published']) && !(empty($row['date_published']))):
 		$entry_info['date_published'] = date("Y-m-d", strtotime($row['date_published']));
-	elseif (!(empty($entry_info['date_updated']))):
-		$entry_info['date_published'] = date("Y-m-d", strtotime($entry_info['date_updated']));
-	else:
-		$entry_info['date_published'] = date("Y-m-d H:i:s", time());
+	elseif (isset($row['date_updated']) && !(empty($row['date_updated']))):
+		$entry_info['date_published'] = date("Y-m-d", strtotime($row['date_updated']));
+	elseif (isset($row['timestamp']) && !(empty($row['timestamp']))):
+		$entry_info['date_published'] = date("Y-m-d", strtotime($row['timestamp']));
 	endif;
 	
 	// Ensure they are formatted
