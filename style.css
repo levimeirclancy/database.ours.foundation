@@ -10,7 +10,8 @@ body {
 
 a, a:link, a:visited, a:hover {
 	text-decoration: none;
-	color: #000; }
+	color: #000;
+	white-space: break-spaces; }
 
 .studies { 
 	box-shadow: 0 0 40px -5px rgba(30,30,30,0.15);
