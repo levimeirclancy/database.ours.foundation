@@ -343,8 +343,10 @@ if ($page_temp == "new-xhr"):
 
 	// Redirect to the edit ...
 	$values_temp = [
-		"entry_id"	=>	$entry_id,
-		"type"		=>	$_POST['type'],
+		"entry_id"		=>$entry_id,
+		"type"			=> $_POST['type'],
+		"date_published"	=> date("Y-m-d", time()), // mySQL DATE column has format YYYY-MM-DD
+		"date_updated"		=> date("Y-m-d H:i:s", time()), // mySQL DATETIME column has format YYYY-MM-DD hh:mm:ss
 		];
 
 	// prepare statement
