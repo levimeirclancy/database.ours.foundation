@@ -1,7 +1,7 @@
 <? $entry_info = nesty_page($page_temp);
 $entry_info = $entry_info[$page_temp];
 
-print_r($entry_info);
+print_r($entry_info); exit;
 
 $retrieve_page->execute(["page_id"=>$page_temp]);
 $result = $retrieve_page->fetchAll();
