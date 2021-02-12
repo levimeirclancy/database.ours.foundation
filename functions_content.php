@@ -106,12 +106,12 @@ function sanitize_dates ($row=[], $additions_array=[]) {
 
 
 function nesty_page($page_id_temp) {
+
 	global $domain;
 	global $publisher;
 	global $site_info;
 	global $information_array;
 
-	
 	global $connection_pdo;
 	global $retrieve_page;
 	global $retrieve_media;
@@ -119,9 +119,11 @@ function nesty_page($page_id_temp) {
 	global $retrieve_paths;
 
 	if (empty($page_id_temp)): return null; endif;
-	
-	if (!(empty($information_array[$page_id_temp]))): return $information_array[$page_id_temp]; endif;
-		
+
+	if (!(empty($information_array[$page_id_temp]))):
+		$page_info = [ $page_id_temp => $information_array[$page_id_temp] ];
+		return $page_info; endif;
+
 	$domain_temp = $domain;
 	if (strpos($page_id_temp, "|")):
 		$domain_page_id_temp = explode("|", $page_id_temp);
@@ -132,12 +134,12 @@ function nesty_page($page_id_temp) {
 		$retrieve_page->execute(["page_id"=>$page_id_temp]);
 		$result = $retrieve_page->fetchAll();
 		foreach ($result as $row):
-	
+
 			$page_info[$row['entry_id']] = sanitize_dates($row);
-		
+
 			// Check if there is supposed to be an appendix
 			if (!(isset($site_info['appendix_array'][$page_info[$row['entry_id']]['type']]))): continue; endif;
-	
+
 			// Set up the appendix according to the authorized, pre-defined structure; discard excess
 			$appendix_sorted_temp = [];
 			$appendix_sql_temp = json_decode($row['appendix'], true);
@@ -149,8 +151,9 @@ function nesty_page($page_id_temp) {
 
 			// Update the $page_info
 			$page_info[$row['entry_id']]['appendix'] = $appendix_sorted_temp;
-	
+
 			endforeach;
+
 		$retrieve_paths->execute(["content_id"=>$page_id_temp]);
 		$result = $retrieve_paths->fetchAll();
 		foreach ($result as $row):
