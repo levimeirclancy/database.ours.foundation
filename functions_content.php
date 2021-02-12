@@ -340,7 +340,7 @@ function body_process($body_incoming) {
 //		if (empty($temp_array[2])): $temp_array[2] = null; endif;
 
 	
-		if (filter_var($temp_array[0], FILTER_VALIDATE_URL) !== FALSE) {
+		if (filter_var($temp_array[0], FILTER_VALIDATE_URL) !== FALSE):
 			$link_url = $temp_array[0];
 			$link_string = $temp_array[0];
 			if (!(empty($temp_array[1]))): $link_string = $temp_array[1]; endif;
