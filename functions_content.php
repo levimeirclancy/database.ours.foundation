@@ -16,10 +16,27 @@ $retrieve_media = $connection_pdo->prepare($sql_temp);
 $sql_temp = "SELECT * FROM $database.information_paths WHERE parent_id=:content_id OR child_id=:content_id";
 $retrieve_paths = $connection_pdo->prepare($sql_temp);
 
-function sanitize_dates ($entry_info, $row=[]) {
+function sanitize_dates ($row=[], $additions_array=[]) {
 	
-	if (!(isset($entry_info['date_updated']))): $entry_info['date_updated'] = null; endif;
-	if (!(isset($entry_info['date_published']))): $entry_info['date_published'] = null; endif;
+	global $domain;
+	
+	$entry_info = [
+		"entry_id"		=> $row['entry_id'],
+		"type"			=> $row['type'],
+		"date_published"	=> null,
+		"date_updated"		=> null,
+		"name"			=> json_decode($row['name'], true),
+		"header"		=> null,
+		"page_id"		=> $row['entry_id'],
+		"link"			=> $row['link'] = "https://".$domain."/".$row['entry_id']."/",
+		];
+	
+	if (in_array("parents", $additions_array)): $entry_info['parents'] = []; endif;
+	if (in_array("children", $additions_array)): $entry_info['parents'] = []; endif;
+	if (in_array("appendix", $additions_array)): $entry_info['parents'] = []; endif;
+	
+//	"name" => json_decode($row['name'], true),
+//	"alternate_name" => json_decode($row['alternate_name'], true),
 	
 	// Correct the header array
 	$header_array_corrections = [
@@ -36,32 +53,23 @@ function sanitize_dates ($entry_info, $row=[]) {
 		$entry_info['type'] = $header_array_corrections[$entry_info['type']];
 		endif;
 	
-	// Ensure there are hierachy elements
-	if (!(isset($entry_info['parents']))): $entry_info['parents'] = [ "hierarchy" => [] ]; endif;
-	if (!(isset($entry_info['children']))): $entry_info['children'] = [ "hierarchy" => [] ]; endif;
-
 	// Because this column was added in an upgrade, it has to be constructed
-	if (!(isset($entry_info['date_updated'])) || empty($entry_info['date_updated'])):
-		if (isset($row['date_updated']) && !(empty($row['date_updated']))):
-			$entry_info['date_updated'] = date("Y-m-d H:i:s", strtotime($row['date_updated']));
-		elseif (isset($row['timestamp']) && !(empty($row['timestamp']))):
-			$entry_info['date_updated'] = date("Y-m-d H:i:s", strtotime($row['timestamp']));
-		else:
-			$entry_info['date_updated'] = date("Y-m-d H:i:s", time());
-			endif;
+	if (!(empty($row['date_updated']))):
+		$entry_info['date_updated'] = date("Y-m-d H:i:s", strtotime($row['date_updated']));
+	elseif (isset($row['timestamp']) && !(empty($row['timestamp']))):
+		$entry_info['date_updated'] = date("Y-m-d H:i:s", strtotime($row['timestamp']));
+	else:
+		$entry_info['date_updated'] = date("Y-m-d H:i:s", time());
 		endif;
 	
 	// Because this column was added in an upgrade, it has to be constructed
-	if (!(isset($entry_info['date_published'])) || empty($entry_info['date_published'])):
-		if (isset($row['date_published']) && !(empty($row['date_published']))):
-			$entry_info['date_published'] = date("Y-m-d", strtotime($row['date_published']));
-		elseif (isset($entry_info['date_updated']) && !(empty($entry_info['date_updated']))):
-			$entry_info['date_published'] = date("Y-m-d", strtotime($entry_info['date_updated']));
-		else:
-			$entry_info['date_published'] = date("Y-m-d H:i:s", time());
-		endif;
-	
-		endif;
+	if (isset($row['date_published']) && !(empty($row['date_published']))):
+		$entry_info['date_published'] = date("Y-m-d", strtotime($row['date_published']));
+	elseif (isset($entry_info['date_updated']) && !(empty($entry_info['date_updated']))):
+		$entry_info['date_published'] = date("Y-m-d", strtotime($entry_info['date_updated']));
+	else:
+		$entry_info['date_published'] = date("Y-m-d H:i:s", time());
+	endif;
 	
 	// Ensure they are formatted
 	$entry_info['date_updated'] = date("Y-m-d H:i:s", strtotime($entry_info['date_updated']));
@@ -90,6 +98,7 @@ function nesty_page($page_id_temp) {
 	global $domain;
 	global $publisher;
 	global $site_info;
+	global $information_array;
 
 	
 	global $connection_pdo;
@@ -99,6 +108,9 @@ function nesty_page($page_id_temp) {
 	global $retrieve_paths;
 
 	if (empty($page_id_temp)): return null; endif;
+	
+	if (isset($information_array[$page_id_temp])): return $information_array[$page_id_temp]; endif;
+	
 	$domain_temp = $domain;
 	if (strpos($page_id_temp, "|")):
 		$domain_page_id_temp = explode("|", $page_id_temp);
@@ -109,20 +121,8 @@ function nesty_page($page_id_temp) {
 		$retrieve_page->execute(["page_id"=>$page_id_temp]);
 		$result = $retrieve_page->fetchAll();
 		foreach ($result as $row):
-			$page_info[$row['entry_id']] = [
-				"entry_id"		=> $row['entry_id'],
-				"type"			=> $row['type'],
-				"date_published"	=> $row['date_published'],
-				"date_updated"		=> $row['date_updated'],
-				"name"			=> json_decode($row['name'], true),
-				"alternate_name"	=> json_decode($row['alternate_name'], true),
-				"page_id"		=> $row['entry_id'],
-				"link"			=> $row['link'] = "https://".$domain_temp."/".$row['entry_id']."/",
-				"parents" 		=> [],
-				"children" 		=> [],
-				"appendix"		=> [], ];
 	
-			$page_info[$row['entry_id']] = sanitize_dates($page_info[$row['entry_id']], $row);
+			$page_info[$row['entry_id']] = sanitize_dates($row);
 		
 			// Check if there is supposed to be an appendix
 			if (!(isset($site_info['appendix_array'][$page_info[$row['entry_id']]['type']]))): continue; endif;
