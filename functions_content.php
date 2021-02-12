@@ -21,13 +21,13 @@ function sanitize_dates ($row=[], $additions_array=[]) {
 	global $domain;
 	
 	$name_temp = [];
-	if (!(empty(json_decode($row['name'], true)))):
-		$name_temp = json_decode($row['name'], true);
-		endif;
+	if (!(empty(json_decode($row['name'], true)))): $name_temp = json_decode($row['name'], true); endif;
+	if (!(is_array($name_temp))): $name_temp = []; endif;
 	foreach ($name_temp as $key_temp => $value_temp):
 		if (empty(trim($value_temp))): $name_temp[$key_temp] = null; endif;
 		endforeach;
 	$name_temp = array_filter($name_temp);
+	if (empty($name_temp)): $name_temp['english'] = [ "[ No title ]" ]; endif;
 	
 	$entry_info = [
 		"entry_id"		=> $row['entry_id'],
