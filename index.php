@@ -138,31 +138,7 @@ foreach($connection_pdo->query($sql_temp) as $row):
 			endif;
 		endif;
 
-	$appendix_temp = json_decode($row['appendix'], true);
-//	foreach ($_REQUEST as $appendix_key => $appendix_value):
-//		if (in_array($appendix_key, [ "entry_id", "type", "search", "summary" ])): continue; endif;
-//		if (!(isset($appendix_temp[$appendix_key]))): continue 2; endif;
-//		if (!(array_intersect($appendix_temp[$appendix_key], $appendix_value))): continue 2; endif;
-//		endforeach;
-
-	// Mix the $appendix_temp with $site_info['appendix_array'][TYPE]
-
-	$information_array[$row['entry_id']] = [
-		"entry_id" => $row['entry_id'],
-		"link" => "https://".$domain."/".$row['entry_id']."/",
-		"type" => $row['type'],
-//		"name" => json_decode($row['name'], true),
-//		"alternate_name" => json_decode($row['alternate_name'], true),
-		"header" => null,
-//		"appendix" => $appendix_temp,
-		];
-
-	if (empty($page_temp)):
-		$information_array[$row['entry_id']]['date_published'] = $row['date_published'];
-		$information_array[$row['entry_id']]['date_modified'] = $row['date_modified'];
-		endif;
-
-	$information_array[$row['entry_id']] = sanitize_dates($information_array[$row['entry_id']], $row);
+	$information_array[$row['entry_id']] = sanitize_dates($row);
 
 	if (isset($_REQUEST['summary']) && ($_REQUEST['summary'] == ["true"])):
 		$summary_temp = json_decode($row['summary'], true);
