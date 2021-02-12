@@ -1,6 +1,8 @@
 <? $entry_info = nesty_page($page_temp);
 $entry_info = $entry_info[$page_temp];
 
+
+
 $retrieve_page->execute(["page_id"=>$page_temp]);
 $result = $retrieve_page->fetchAll();
 foreach ($result as $row):
@@ -11,6 +13,8 @@ foreach ($result as $row):
 
 $new_page = null;
 if ($page_temp == "new"): $new_page = "yes"; endif;
+
+print_r($information_array);
 
 print_r($entry_info);
 
