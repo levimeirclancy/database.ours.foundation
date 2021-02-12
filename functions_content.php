@@ -81,7 +81,7 @@ function sanitize_dates ($row=[], $additions_array=[]) {
 	// Because this column was added in an upgrade, it has to be constructed
 	if (isset($row['date_published']) && !(empty($row['date_published']))):
 		$entry_info['date_published'] = date("Y-m-d", strtotime($row['date_published']));
-	elseif (isset($entry_info['date_updated']) && !(empty($entry_info['date_updated']))):
+	elseif (!(empty($entry_info['date_updated']))):
 		$entry_info['date_published'] = date("Y-m-d", strtotime($entry_info['date_updated']));
 	else:
 		$entry_info['date_published'] = date("Y-m-d H:i:s", time());
