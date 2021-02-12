@@ -4,6 +4,7 @@ $entry_info = $entry_info[$page_temp];
 $retrieve_page->execute(["page_id"=>$page_temp]);
 $result = $retrieve_page->fetchAll();
 foreach ($result as $row):
+	$entry_info['name']		= json_decode($row['name'], true);
 	$entry_info['summary']		= json_decode($row['summary'], true);
 	$entry_info['body']		= json_decode($row['body'], true);
 	$entry_info['studies']		= $row['studies'];
