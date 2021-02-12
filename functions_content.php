@@ -65,9 +65,9 @@ function sanitize_dates ($row=[], $additions_array=[]) {
 	if (isset($header_array_corrections[$entry_info['type']])):
 		$entry_info['type'] = $header_array_corrections[$entry_info['type']];
 		endif;
-	if (empty($entry_info['type']) || empty($ite_info['category_array'][$entry_info['type']])):
-		$entry_info['type'] = array_key_first($ite_info['category_array']);
-		endif;
+//	if (empty($entry_info['type']) || empty($ite_info['category_array'][$entry_info['type']])):
+//		$entry_info['type'] = array_key_first($ite_info['category_array']);
+//		endif;
 	
 	// Because this column was added in an upgrade, it has to be constructed
 	if (!(empty($row['date_updated']))):
