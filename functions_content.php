@@ -19,6 +19,7 @@ $retrieve_paths = $connection_pdo->prepare($sql_temp);
 function sanitize_dates ($row=[], $additions_array=[]) {
 	
 	global $domain;
+	global $site_info;
 	
 	$name_temp = [];
 	if (!(empty(json_decode($row['name'], true)))): $name_temp = json_decode($row['name'], true); endif;
@@ -63,6 +64,9 @@ function sanitize_dates ($row=[], $additions_array=[]) {
 		];
 	if (isset($header_array_corrections[$entry_info['type']])):
 		$entry_info['type'] = $header_array_corrections[$entry_info['type']];
+		endif;
+	if (!(isset($ite_info['categories_array'][$entry_info['type']]))):
+		$entry_info['type'] = array_key_first($ite_info['categories_array']);
 		endif;
 	
 	// Because this column was added in an upgrade, it has to be constructed
