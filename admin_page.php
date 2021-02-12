@@ -12,6 +12,8 @@ foreach ($result as $row):
 $new_page = null;
 if ($page_temp == "new"): $new_page = "yes"; endif;
 
+print_r($entry_info);
+
 // Do a delete popover ... redirect if deletion works ...
 echo "<amp-lightbox id='delete-popover' layout='nodisplay'>";
 
