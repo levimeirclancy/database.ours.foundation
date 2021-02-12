@@ -138,7 +138,7 @@ foreach($connection_pdo->query($sql_temp) as $row):
 			endif;
 		endif;
 
-	$information_array[$row['entry_id']] = sanitize_dates($row);
+	$information_array[$row['entry_id']] = sanitize_dates($row, ["parents", "children, "appendix"]);
 
 	if (isset($_REQUEST['summary']) && ($_REQUEST['summary'] == ["true"])):
 		$summary_temp = json_decode($row['summary'], true);
