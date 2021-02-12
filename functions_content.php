@@ -110,7 +110,7 @@ function nesty_page($page_id_temp) {
 	if (empty($page_id_temp)): return null; endif;
 	
 	if (isset($information_array[$page_id_temp])): return $information_array[$page_id_temp]; endif;
-	
+		
 	$domain_temp = $domain;
 	if (strpos($page_id_temp, "|")):
 		$domain_page_id_temp = explode("|", $page_id_temp);
@@ -337,39 +337,46 @@ function body_process($body_incoming) {
 	
 		if (empty($temp_array[0])): $temp_array[0] = null; endif;
 		if (empty($temp_array[1])): $temp_array[1] = null; endif;
-		if (empty($temp_array[2])): $temp_array[2] = null; endif;
+//		if (empty($temp_array[2])): $temp_array[2] = null; endif;
 
-		$anchor_temp = null;
-		if (strpos($temp_array[0], "#") !== FALSE):
-			$temp_array[0] = explode("#", $temp_array[0]);
-			if (!(empty($temp_array[0][1]))): $anchor_temp = "#".$temp_array[0][1]; endif;
-			$temp_array[0] = $temp_array[0][0];
+	
+		if (filter_var($temp_array[0], FILTER_VALIDATE_URL) !== FALSE) {
+			$link_url = $temp_array[0];
+			$link_string = $temp_array[0];
+			if (!(empty($temp_array[1]))): $link_string = $temp_array[1]; endif;
+		else:
+
+			$anchor_temp = null;
+			if (strpos($temp_array[0], "#") !== FALSE):
+				$temp_array[0] = explode("#", $temp_array[0]);
+				if (!(empty($temp_array[0][1]))): $anchor_temp = "#".$temp_array[0][1]; endif;
+				$temp_array[0] = $temp_array[0][0];
+				endif;
+	
+			if (strpos($temp_array[0], "_") !== FALSE): $link_info = nesty_media($temp_array[0], "short");
+			else: $link_info = nesty_page($temp_array[0]); endif; // check if the page exists
+	
+			$link_id_temp = $temp_array[0];
+			if (strpos($temp_array[0], "|")):
+				$domain_id_temp = explode("|", $temp_array[0]);
+				if (strpos($domain_id_temp[0], ".")): $link_id_temp = $domain_id_temp[1];
+				else: $link_id_temp = $domain_id_temp[0]; endif;
+				endif;
+
+			if (!(empty($temp_array[1]))): $link_string = $temp_array[1];
+			elseif (!(empty($link_info[$link_id_temp]['header']))): $link_string = $link_info[$link_id_temp]['header']; endif;
+
+			if (empty($link_info[$link_id_temp])):
+				$body_incoming = str_replace("{{{".$match_temp."}}}", $link_string, $body_incoming);
+				continue; endif; // page id does not exist so skip it
+
+			if (empty($link_string)): $link_string = "<i class='material-icons'>link</i>"; endif;
+	
+//			if ($link_type == "button"): $link_type = "tile"; endif;
+			
+			$link_url = $link_info[$link_id_temp]['link'].$anchor_temp;
+			
 			endif;
-	
-		if (strpos($temp_array[0], "_") !== FALSE): $link_info = nesty_media($temp_array[0], "short");
-		else: $link_info = nesty_page($temp_array[0]); endif; // check if the page exists
-	
-		$link_id_temp = $temp_array[0];
-		if (strpos($temp_array[0], "|")):
-			$domain_id_temp = explode("|", $temp_array[0]);
-			if (strpos($domain_id_temp[0], ".")): $link_id_temp = $domain_id_temp[1];
-			else: $link_id_temp = $domain_id_temp[0]; endif;
-			endif;
-
-		if (in_array($temp_array[1], ["button", "tile", "link"])): $link_type = $temp_array[1]; unset($temp_array[1]);
-		elseif (in_array($temp_array[2], ["button", "tile", "link"])): $link_type = $temp_array[2]; unset($temp_array[2]); endif;
-
-		if (!(empty($temp_array[1]))): $link_string = $temp_array[1];
-		elseif (!(empty($temp_array[2]))): $link_string = $temp_array[2];
-		elseif (!(empty($link_info[$link_id_temp]['header']))): $link_string = $link_info[$link_id_temp]['header']; endif;
-
-		if (empty($link_info[$link_id_temp])):
-			$body_incoming = str_replace("{{{".$match_temp."}}}", $link_string, $body_incoming);
-			continue; endif; // page id does not exist so skip it
-
-		if (empty($link_string)): $link_string = "<i class='material-icons'>link</i>"; endif;
-	
-		if ($link_type == "button"): $link_type = "tile"; endif;
 	
 		// remove all images inside links
 		preg_match_all("/(?<=\[\[\[)(.*?)(?=\]\]\])/is", $link_string, $matches_temp);
@@ -380,18 +387,9 @@ function body_process($body_incoming) {
 		preg_match_all("/(?<=\(\(\()(.*?)(?=\)\)\))/is", $link_string, $matches_temp);
 		if (empty($matches_temp)): $matches_temp = [ [], [] ]; endif;
 		foreach ($matches_temp[0] as $temp): $link_string = str_replace("(((".$temp.")))", null, $link_string); endforeach;
-	
-		if ($link_type == "tile"):
-			$link_string = "<div class='tile'><a href='".$link_info[$link_id_temp]['link'].$anchor_temp."'>".$link_string;
-			$link_string .= "<div class='tile-read-more background_".rand(1,10)."'>Read more</div></a>";
-			if (!(empty($login)) && ($link_info[$link_id_temp]['domain'] == $domain)):
-				$link_string .= "<a href='".$link_info[$link_id_temp]['link']."edit/'><div class='tile-edit'>Edit</div></a>";
-				endif;
-			$link_string .= "</div>";
-		else:
-			$link_string = "<a href='".$link_info[$link_id_temp]['link'].$anchor_temp."'>".$link_string."</a>";
-			endif;
-	
+		
+		$link_string = "<a href='".$link_url."'>".$link_string."</a>";
+			
 		$body_incoming = str_replace("{{{".$match_temp."}}}", $link_string, $body_incoming);
 	
 		endforeach;
