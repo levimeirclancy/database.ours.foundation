@@ -45,6 +45,9 @@ function amp_header($title=null, $canonical=null) {
 	// for the navigation sidebar
 	echo '<script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>';
 	
+	// Required
+//	echo '<script async custom-element="amp-script" src="https://cdn.ampproject.org/v0/amp-script-0.1.js"></script>';
+	
 	// for amp-form
 	echo '<script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>';
 
@@ -70,9 +73,9 @@ function amp_header($title=null, $canonical=null) {
 	echo '<script async custom-element="amp-mathml" src="https://cdn.ampproject.org/v0/amp-mathml-0.1.js"></script>';
 	
 	// for the amp-date-picker in the edit interface
-	if (isset($page_temp) && ($command_temp == "edit")):
-		echo '<script async custom-element="amp-date-picker" src="https://cdn.ampproject.org/v0/amp-date-picker-0.1.js"></script>';
-		endif;
+//	if (isset($page_temp) && ($command_temp == "edit")):
+//		echo '<script async custom-element="amp-date-picker" src="https://cdn.ampproject.org/v0/amp-date-picker-0.1.js"></script>';
+//		endif;
 		
 	echo "<title>" . $title . "</title>";
 
