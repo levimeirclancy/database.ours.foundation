@@ -1,5 +1,5 @@
-<? $background_color = null;
-$font_color = null;
+<? if (empty($background_color)): $background_color = "rgba(255,255,255,1)"; endif;
+if (empty($font_color)): $font_color = "rgba(20,20,20,1)"; endif;
 
 $style_array = [
 	
@@ -12,10 +12,13 @@ $style_array = [
 		"margin"	=> "0",
 		"padding"	=> "0",
 		],
+	];
 
 output_css($style_array)
 
 function output_css ($array, $container=null) {
+	
+	
 	
 	}
 
