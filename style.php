@@ -1,12 +1,26 @@
-body {
-	text-align: left;
-	font-family: Times, Serif;
-	font-size: 17px;
-	line-height: 1.3;
-	background: rgba(255,255,255,1);
-	margin: 0;
-	padding: 0;
+<? $background_color = null;
+$font_color = null;
+
+$style_array = [
+	
+	"body"	=> [
+		"text-align" 	=> "left",
+		"font-family"	=> "Times, Serif",
+		"font-size"	=> "17px",
+		"line-height"	=> "1.3",
+		"background"	=> $background_color,
+		"margin"	=> "0",
+		"padding"	=> "0",
+		],
+
+output_css($style_array)
+
+function output_css ($array, $container=null) {
+	
 	}
+
+?>
+
 
 a, a:link, a:visited, a:hover {
 	text-decoration: none;
