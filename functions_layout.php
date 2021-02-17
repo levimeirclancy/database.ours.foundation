@@ -86,7 +86,7 @@ function amp_header($title=null, $canonical=null) {
 	echo "<meta name='viewport' content='width=device-width,minimum-scale=1,initial-scale=1'>"; // must define viewport for amp
 
 	echo "<style amp-custom>";
-	include_once('style.css');
+	include_once('style.php');
 	echo "</style>";
 
 	echo "</head><body>";
