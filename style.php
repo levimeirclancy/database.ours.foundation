@@ -893,7 +893,7 @@ $style_array = [
 		"padding"		=> "0",
 		"list-style-position"	=> "inside",
 		"line-height"		=> "1.4",
-		"border-left"		=> "2px solid ".output_rgba($font_color, 1),
+		"border-left"		=> "2px solid ".output_rgba($font_color, 0.5),
 		"box-sizing"		=> "border-box",
 		], ],
 
