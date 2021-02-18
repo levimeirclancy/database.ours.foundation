@@ -1004,7 +1004,7 @@ $style_array = [
 	
 	];
 
-output_css($style_array)
+output_css($style_array);
 
 function output_css ($array) {
 	
