@@ -797,13 +797,19 @@ $style_array = [
 			], ],
 
 		[
-		"css_tags" => "article th + th, article td + td, article th + td, article td + th",
+		"css_tags" =>
+			[
+			"article th + th",
+			"article td + td",
+			"article th + td",
+			"article td + th",
+			],
 		"css_contents" =>
 			[
 			"border-left"	=> "none",
 			"border-top"	=> "2px solid rgba(200,200,200,0.12)",
 			], ],
-		], ],
+		],
 	
 	[
 	"css_tags" => "@media print",
