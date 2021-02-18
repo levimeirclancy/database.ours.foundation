@@ -1015,7 +1015,7 @@ function output_css ($array) {
 			$sub_array_temp['css_tags'] = implode(",", $sub_array_temp['css_tags']);
 			endif;
 		
-		echo $sub_array_temp['css_tags']." {";
+		echo trim($sub_array_temp['css_tags']) ." {";
 	
 		if (isset($sub_array_temp['css_contents']['css_tags'])): 
 			output_css($sub_array_temp['css_contents']);
@@ -1024,7 +1024,7 @@ function output_css ($array) {
 			endif;
 	
 		foreach ($sub_array_temp['css_contents'] as $property_temp => $value_temp):
-			echo $property_temp .":". $value_temp .";"
+			echo trim($property_temp) .":". trim($value_temp) ."; ";
 			endforeach;
 
 		echo "} ";
