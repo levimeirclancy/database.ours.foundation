@@ -1069,11 +1069,11 @@ $style_array = [
 	];
 
 function output_rgba($rgba_array, $opacity) {
-	echo "rgba(";
-	echo implode(",",$rgba_array);
-	echo ",";
-	echo $opacity;
-	echo ")";
+	$output_rgba = "rgba(";
+	$output_rgba .= implode(",",$rgba_array);
+	$output_rgba .= ",";
+	$output_rgba .= $opacity;
+	$output_rgba .= ")";
 	}
 
 function output_css ($array) {
