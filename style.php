@@ -1036,11 +1036,18 @@ $style_array = [
 		[
 		"margin"		=> "0",
 		"padding"		=> "10px",
-		"border-bottom"		=> "2px solid ".output_rgba($font_color, 1),
+		"border-bottom"		=> "2px solid ".output_rgba($font_color, 0.7),
 		"border-left"		=> "0",
 		"text-overflow"		=> "ellipsis",
 		"white-space"		=> "nowrap",
 		"overflow"		=> "hidden",
+		], ],
+
+		[
+	"css_tags" => ".unnested-list li:first-child",
+	"css_contents" =>
+		[
+		"border-top"		=> "2px solid ".output_rgba($font_color, 0.7),
 		], ],
 
 	[
