@@ -318,7 +318,8 @@ $style_array = [
 		[
 		"font-size"		=> "1.5em",
 		"line-height"		=> "120%",
-		"font-weight"		=> "400", }
+		"font-weight"		=> "400",
+		], ],
 
 	[
 	"css_tags" => "h3",
@@ -954,7 +955,7 @@ $style_array = [
 	"css_tags" => ".show",
 	"css_contents" =>
 		[
-		"display"		x=> "inline-block",
+		"display"		=> "inline-block",
 		], ],
 
 	
