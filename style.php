@@ -1040,6 +1040,9 @@ output_css($style_array);
 
 function output_css ($array) {
 	
+	global $background_color;
+	global $font_color;
+	
 	// First, check 
 	foreach ($array as $sub_array_temp):
 	
