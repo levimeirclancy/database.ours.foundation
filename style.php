@@ -5,7 +5,7 @@ $style_array = [
 	
 	[
 	"css_tags" => "body",
-	"css_properties" =>
+	"css_contents" =>
 		[
 		"text-align" 		=> "left",
 		"font-family"		=> "Times, Serif",
@@ -1036,8 +1036,6 @@ $style_array = [
 	
 	];
 
-output_css($style_array);
-
 function output_css ($array) {
 	
 	global $background_color;
@@ -1066,5 +1064,7 @@ function output_css ($array) {
 	
 		endforeach;
 	}
+
+output_css($style_array);
 
 ?>
