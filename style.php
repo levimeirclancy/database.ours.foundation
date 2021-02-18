@@ -291,6 +291,7 @@ $style_array = [
 	"css_tags" => "h1, h2, h3, h4, h5, h6",
 	"css_contents" =>
 		[
+		"color"			=> $font_color,
 		"width"			=> "auto",
 		"max-width"		=> "850px", 
 		"border"		=> "0",
