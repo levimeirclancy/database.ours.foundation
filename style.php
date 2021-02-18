@@ -1,5 +1,5 @@
-<? if (empty($background_color)): $background_color = "rgba(70,70,75,1)"; endif;
-if (empty($font_color)): $font_color = "rgba(240,240,240,1)"; endif;
+<? if (empty($background_color)): $background_color = "rgba(235,235,235,1)"; endif;
+if (empty($font_color)): $font_color = "rgba(20,20,20,1)"; endif;
 
 $style_array = [
 	
