@@ -184,7 +184,7 @@ $style_array = [
 	"css_tags" => 
 		[
 		"#login-popover-submit",
-		"#logout-popover-submit",
+//		"#logout-popover-submit",
 		"#new-popover-submit",
 		"#delete-popover-submit",
 		"#search-submit",
