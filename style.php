@@ -128,7 +128,7 @@ $style_array = [
 	"css_tags" => ".sidebar-back:before",
 	"css_contents" =>
 		[
-		"content"		=> "'\293A'",
+		"content"		=> "⤺",
 		"font-size"		=> "1.3em",
 		"margin"		=> "0 5px 0 0",
 		"display"		=> "inline-block",
