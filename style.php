@@ -446,7 +446,8 @@ $style_array = [
 		], ],
 	
 	[
-	"css_tags" => "blockquote cite, blockquote cite a"
+	"css_tags" => "blockquote cite, blockquote cite a",
+	"css_contents" =>
 		[
 		"color"			=> "rgba(0,0,0,0.7)",
 		"font-style"		=> "normal",
