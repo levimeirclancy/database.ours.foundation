@@ -4,7 +4,10 @@ if (empty($font_color)): $font_color = "rgba(20,20,20,1)"; endif;
 $style_array = [
 	
 	[
-	"css_tags" => "body",
+	"css_tags" => 
+		[
+		"body",
+		],
 	"css_contents" =>
 		[
 		"text-align" 		=> "left",
@@ -17,7 +20,13 @@ $style_array = [
 		], ],
 
 	[
-	"css_tags" => "a, a:link, a:visited, a:hover",
+	"css_tags" =>
+		[
+		"a",
+		"a:link",
+		"a:visited",
+		"a:hover",
+		],
 	"css_contents" =>
 		[
 		"text-decoration"	=> "none",
@@ -26,7 +35,10 @@ $style_array = [
 		], ],
 	
 	[
-	"css_tags" => ".studies",
+	"css_tags" => 
+		[
+		".studies",
+		],
 	"css_contents" =>
 		[
 		"box-shadow"		=> "0 0 40px -5px rgba(30,30,30,0.15)",
@@ -79,12 +91,12 @@ $style_array = [
 		"font-family"		=> "Arial, Helvetica, 'Sans Serif'",
 		], ],
 	
-	[
-	"css_tags" => ".navigation-header-item::first-letter, .sidebar-back::first-letter",
-	"css_contents" =>
-		[
-		"vertical-align"	=> "top",
-		], ],
+//	[
+//	"css_tags" => ".navigation-header-item::first-letter, .sidebar-back::first-letter",
+//	"css_contents" =>
+//		[
+//		"vertical-align"	=> "top",
+//		], ],
 	
 	[
 	"css_tags" => 
