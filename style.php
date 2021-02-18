@@ -687,7 +687,7 @@ $style_array = [
 		"color"			=> output_rgba($font_color, 1),
 		"padding"		=> "15px",
 		"max-width"		=> "850px",
-		"background"		=> output_rgba($background_color, 1),
+		"background"		=> output_rgba($background_color, 0.7),
 		"border"		=> "1px solid ".output_rgba($font_color, 1),
 		"box-shadow"		=> "3px 12px 15px -9px rgba(50,50,50,0.1)",
 		], ],
@@ -1036,7 +1036,7 @@ $style_array = [
 		[
 		"margin"		=> "0",
 		"padding"		=> "10px",
-		"border-bottom"		=> "2px solid ".output_rgba($font_color, 0.7),
+		"border-bottom"		=> "2px solid ".output_rgba($font_color, 0.5),
 		"border-left"		=> "0",
 		"text-overflow"		=> "ellipsis",
 		"white-space"		=> "nowrap",
@@ -1047,7 +1047,7 @@ $style_array = [
 	"css_tags" => ".unnested-list li:first-child",
 	"css_contents" =>
 		[
-		"border-top"		=> "2px solid ".output_rgba($font_color, 0.7),
+		"border-top"		=> "2px solid ".output_rgba($font_color, 0.5),
 		], ],
 
 	[
