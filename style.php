@@ -361,7 +361,7 @@ $style_array = [
 		], ],
 	
 	[
-	"css_tags" => "body, article",
+	"css_tags" => "body, article, amp-mathml",
 	"css_contents" =>
 		[
 		"position"		=> "relative",
