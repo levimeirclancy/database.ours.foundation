@@ -556,6 +556,7 @@ $style_array = [
 	
 	[
 	"css_tags" => "article th p + p, article td p + p, article li p + p"
+	"css_contents" =>
 		[
 		"margin-top"		=> "10px",
 		], ],
@@ -807,7 +808,8 @@ $style_array = [
 
 	/// Lists ... ul, ol, amp-list
 
-	"ul, ol, amp-list",
+	[
+	"css_tags" => "ul, ol, amp-list",
 	"css_contents" =>
 		[
 		"position"		=> "relative",
@@ -825,9 +827,7 @@ $style_array = [
 		], ],
 	
 	[
-	"css_tags" => "ul ul, ul ol, ul amp-list,
-	ol ul, ol ol, ol amp-list,
-	amp-list ul, amp-list ol, amp-list amp-list",
+	"css_tags" => "ul ul, ul ol, ul amp-list, ol ul, ol ol, ol amp-list, amp-list ul, amp-list ol, amp-list amp-list",
 	"css_contents" =>
 		[
 		"width"			=> "auto",
@@ -897,16 +897,30 @@ $style_array = [
 		], ],
 	
 	[
-	"css_tags" => "amp-sidebar ul ul, amp-sidebar ol ul, amp-sidebar amp-list ul,
-	amp-sidebar ul ol, amp-sidebar ol ol, amp-sidebar amp-list ol,
-	amp-sidebar ul amp-list, amp-sidebar ol amp-list, amp-sidebar amp-list amp-list",
+	"css_tags" => 
+		[
+		"amp-sidebar ul ul",
+		"amp-sidebar ol ul",
+		"amp-sidebar amp-list ul",
+		"amp-sidebar ul ol",
+		"amp-sidebar ol ol",
+		"amp-sidebar amp-list ol",
+		"amp-sidebar ul amp-list",
+		"amp-sidebar ol amp-list",
+		"amp-sidebar amp-list amp-list",
+		],
 	"css_contents" =>
 		[
 		"font-size"		=> "1em",
 		], ],
 	
 	[
-	"css_tags" => "amp-sidebar ul li, amp-sidebar ol li, amp-sidebar amp-list li",
+	"css_tags" => 
+		[
+		"amp-sidebar ul li",
+		"amp-sidebar ol li",
+		"amp-sidebar amp-list li",
+		],
 	"css_contents" =>
 		[
 		"text-overflow"		=> "ellipsis",
@@ -969,6 +983,10 @@ function output_css ($array) {
 	// First, check 
 	foreach ($array as $sub_array_temp):
 	
+		if (is_array($sub_array_temp['css_tags'])):
+			$sub_array_temp['css_tags'] = implode(",", $sub_array_temp['css_tags']);
+			endif;
+		
 		echo $sub_array_temp['css_tags']." {";
 	
 		if (isset($sub_array_temp['css_contents']['css_tags'])): 
