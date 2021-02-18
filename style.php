@@ -201,6 +201,7 @@ $style_array = [
 		"color"			=> $background_color,
 		"box-shadow"		=> "none",
 		"box-sizing"		=> "border-box",
+		"opacity"		=> "0.8",
 		], ],
 	
 	[
