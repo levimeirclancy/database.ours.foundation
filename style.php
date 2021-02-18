@@ -1074,7 +1074,7 @@ function output_rgba($rgba_array, $opacity) {
 	$output_rgba .= ",";
 	$output_rgba .= $opacity;
 	$output_rgba .= ")";
-	return $outpout_rgba;
+	return $output_rgba;
 	}
 
 function output_css ($array) {
