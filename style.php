@@ -547,7 +547,12 @@ $style_array = [
 		], ],
 	
 	[
-	"css_tags" => "article th p, article td p, article li p",
+	"css_tags" => 
+		[
+		"article th p",
+		"article td p",
+		"article li p",
+		],
 	"css_contents" =>
 		[
 		"margin"		=> "0",
@@ -555,7 +560,12 @@ $style_array = [
 		], ],
 	
 	[
-	"css_tags" => "article th p + p, article td p + p, article li p + p"
+	"css_tags" => 
+		[
+		"article th p + p"
+		"article td p + p",
+		"article li p + p",
+		],
 	"css_contents" =>
 		[
 		"margin-top"		=> "10px",
