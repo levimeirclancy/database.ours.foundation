@@ -503,8 +503,8 @@ $style_array = [
 		"vertical-align"	=> "middle",
 		"text-align"		=> "center",
 		"font-family"		=> "Times",
-		"background"		=> "rgba(255,255,255,1)",
-		"border"		=> "2px dotted rgba(50,50,50,1)",
+		"background"		=> $background_color,
+		"border"		=> "2px dotted ".$font_color,
 		"color"			=> $font_color,
 		"padding"		=> "25px 0 0",
 		"width"			=> "50px",
@@ -530,7 +530,7 @@ $style_array = [
 		"table-layout"		=> "auto",
 		"border-collapse"	=> "collapse",
 		"overflow"		=> "auto",
-		"border"		=> "2px solid rgba(245,245,245,1)",
+		"border"		=> "1px solid ".$font_color,
 		], ],
 	
 	[
@@ -540,19 +540,19 @@ $style_array = [
 		"margin"		=> "20px 0",
 		], ],
 	
-	[
-	"css_tags" => "article tbody tr:nth-child(odd) td",
-	"css_contents" =>
-		[
+//	[
+//	"css_tags" => "article tbody tr:nth-child(odd) td",
+//	"css_contents" =>
+//		[
 //		"background"		=> "rgba(255,255,255,1)",
-		], ],
+//		], ],
 	
-	[
-	"css_tags" => "article tbody tr:nth-child(even) td",
-	"css_contents" =>
-		[
+//	[
+//	"css_tags" => "article tbody tr:nth-child(even) td",
+//	"css_contents" =>
+//		[
 //		"background"		=> "rgba(250,250,250,1)",
-		], ],
+//		], ],
 
 
 	[
@@ -564,7 +564,7 @@ $style_array = [
 		"font-weight"		=> "400",
 		"text-align"		=> "left",
 		"margin"		=> "0",
-		"border"		=> "2px solid rgba(245,245,245,1)",
+		"border"		=> "1px solid ".$font_color,
 		], ],
 	
 	[
@@ -629,7 +629,7 @@ $style_array = [
 		[
 		"font-style"		=> "normal",
 		"margin"		=> "8px 20px",
-		"border"		=> "1px solid rgba(100,100,100,0.8)",
+		"border"		=> "1px solid ".$font_color,
 		"cursor"		=> "pointer",
 		], ],
 
@@ -688,7 +688,7 @@ $style_array = [
 		"padding"		=> "15px",
 		"max-width"		=> "850px",
 		"background"		=> $background_color,
-		"border"		=> "1px solid rgba(100,100,100,0.5)",
+		"border"		=> "1px solid ".$font_color,
 		"box-shadow"		=> "3px 12px 15px -9px rgba(50,50,50,0.1)",
 		], ],
 	
@@ -724,7 +724,7 @@ $style_array = [
 		"color"			=> $font_color,
 		"opacity"		=> "0.8",
 		"padding"		=> "7px 16px",
-		"border"		=> "1px solid rgba(100,100,100,0.8)",
+		"border"		=> "1px solid ".$font_color,
 		"border-radius"		=> "100px",
 		"display"		=> "inline-block",
 		], ],
@@ -861,7 +861,7 @@ $style_array = [
 		"css_contents" =>
 			[
 			"border-left"	=> "none",
-			"border-top"	=> "2px solid rgba(200,200,200,0.12)",
+			"border-top"	=> "2px solid ".$font_color,
 			],
 		], ],
 	
@@ -893,7 +893,7 @@ $style_array = [
 		"padding"		=> "0",
 		"list-style-position"	=> "inside",
 		"line-height"		=> "1.4",
-		"border-left"		=> "2px solid rgba(200,200,200,0.5)",
+		"border-left"		=> "2px solid ".$font_color,
 		"box-sizing"		=> "border-box",
 		], ],
 	
@@ -918,7 +918,7 @@ $style_array = [
 		[
 		"padding"		=> "5px 5px 5px 6px",
 		"margin"		=> "0",
-		"border-bottom"		=> "2px dotted rgba(200,200,200,0.5)",
+		"border-bottom"		=> "2px dotted ".$font_color,
 		"position"		=> "relative",
 		], ],
 	
@@ -926,14 +926,33 @@ $style_array = [
 	"css_tags" => "li:first-child",
 	"css_contents" =>
 		[
+		"border-top"		=> "2px dotted ".$font_color,
 		"padding"		=> "4px 5px 5px 6px",
+		], ],
+	
+		[
+	"css_tags" => 
+		[
+		"ul ul li:first-child",
+		"ul ol li:first-child",
+		"ul amp-list li:first-child",
+		"ol ol li:first-child",
+		"ol ul li:first-child",
+		"ol amp-list li:first-child",
+		"amp-list amp-list li:first-child",
+		"amp-list ul li:first-child",
+		"amp-list ol li:first-child",
+		],
+	"css_contents" =>
+		[
+		"border-top"		=> "none",
 		], ],
 	
 	[
 	"css_tags" => "li:last-child",
 	"css_contents" =>
 		[
-		"border-bottom"		=> "2px solid rgba(200,200,200,0.5)",
+		"border-bottom"		=> "2px solid ".$font_color,
 		], ],
 	
 	[
@@ -1017,7 +1036,7 @@ $style_array = [
 		[
 		"margin"		=> "0",
 		"padding"		=> "10px",
-		"border-bottom"		=> "2px solid rgba(200,200,200,0.8)",
+		"border-bottom"		=> "2px solid ".$font_color,
 		"border-left"		=> "0",
 		"text-overflow"		=> "ellipsis",
 		"white-space"		=> "nowrap",
