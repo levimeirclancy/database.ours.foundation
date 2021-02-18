@@ -165,7 +165,14 @@ $style_array = [
 		], ],
 	
 	[
-	"css_tags" => "#login-popover-submit, #logout-popover-submit, #new-popover-submit, #delete-popover-submit, #search-submit",
+	"css_tags" => 
+		[
+		"#login-popover-submit",
+		"#logout-popover-submit",
+		"#new-popover-submit",
+		"#delete-popover-submit",
+		"#search-submit",
+		],
 	"css_contents" =>
 		[
 		"display"		=> "table",
@@ -253,19 +260,19 @@ $style_array = [
 
 	/// MISCELLANEOUS
 
-	[
-	"css_tags" => ".material-icons",
-	"css_contents" =>
-		[
-		"vertical-align"	=> "middle",
-		], ],
+//	[
+//	"css_tags" => ".material-icons",
+//	"css_contents" =>
+//		[
+//		"vertical-align"	=> "middle",
+//		], ],
 	
-	[
-	"css_tags" => ".fadeout",
-	"css_contents" =>
-		[ 
-		"opacity"		=> "0.25",
-		], ],
+//	[
+//	"css_tags" => ".fadeout",
+//	"css_contents" =>
+//		[ 
+//		"opacity"		=> "0.25",
+//		], ],
 	
 	/// ARTICLE
 
@@ -418,7 +425,7 @@ $style_array = [
 		[
 		"font-weight"		=> "400",
 		"text-align"		=> "left",
-		"font-family"		=> "Times, Serif",
+//		"font-family"		=> "Times, Serif",
 		], ],
 	
 	[
@@ -608,7 +615,14 @@ $style_array = [
 	/// EDIT
 
 	[
-	"css_tags" => "label, input, textarea, amp-selector, .input-button-wrapper",
+	"css_tags" => 
+		[
+		"label",
+		"input",
+		"textarea",
+		"amp-selector",
+		".input-button-wrapper",
+		],
 	"css_contents" =>
 		[
 		"display"		=> "block",
@@ -625,7 +639,12 @@ $style_array = [
 		], ],
 	
 	[
-	"css_tags" => "input + .input-button-wrapper, textarea + .input-button-wrapper, amp-selector + .input-button-wrapper",
+	"css_tags" =>
+		[
+		"input + .input-button-wrapper",
+		"textarea + .input-button-wrapper",
+		"amp-selector + .input-button-wrapper",
+		],
 	"css_contents" =>
 		[
 		"text-align"		=> "right",
@@ -782,15 +801,18 @@ $style_array = [
 	"css_tags" => "@media only screen and (max-width: 500px)",
 	"css_contents" => 
 
-		[
-		"css_tags" => "blockquote cite",
-		"css_contents" =>
-			[
-			"width"		=> "100%",
-			], ],
+//		[
+//		"css_tags" => "blockquote cite",
+//		"css_contents" =>
+//			[
+//			"width"		=> "100%",
+//			], ],
 
 		[
-		"css_tags" => "article th, article td",
+		"css_tags" => [
+			"article th",
+			"article td",
+			],
 		"css_contents" =>
 			[
 			"display"	=> "block",
@@ -846,15 +868,9 @@ $style_array = [
 	[
 	"css_tags" => 
 		[
-		"ul ul",
-		"ul ol",
-		"ul amp-list",
-		"ol ul",
-		"ol ol",
-		"ol amp-list",
-		"amp-list ul",
-		"amp-list ol",
-		"amp-list amp-list",
+		"ul ul", "ul ol", "ul amp-list",
+		"ol ul", "ol ol", "ol amp-list",
+		"amp-list ul", "amp-list ol", "amp-list amp-list",
 		],
 	"css_contents" =>
 		[
