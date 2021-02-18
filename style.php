@@ -4,7 +4,7 @@ if (empty($font_color)): $font_color = "rgba(20,20,20,1)"; endif;
 $style_array = [
 	
 	[
-	"css_tag" => "body",
+	"css_tags" => "body",
 	"css_properties" =>
 		[
 		"text-align" 		=> "left",
