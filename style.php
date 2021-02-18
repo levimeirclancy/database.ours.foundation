@@ -808,17 +808,18 @@ $style_array = [
 			[
 			"border-left"	=> "none",
 			"border-top"	=> "2px solid rgba(200,200,200,0.12)",
-			], ],
-		],
+			],
+		], ],
 	
 	[
 	"css_tags" => "@media print",
 	"css_contents" =>
 		[ 
-		"#navigation-header, #footer-formula" =>
+		"css_tags" => "#navigation-header, #footer-formula",
+		"css_contents" =>
 			[
 			"display"	=> "none",
-			], ],
+			],
 		], ],
 
 
@@ -843,7 +844,18 @@ $style_array = [
 		], ],
 	
 	[
-	"css_tags" => "ul ul, ul ol, ul amp-list, ol ul, ol ol, ol amp-list, amp-list ul, amp-list ol, amp-list amp-list",
+	"css_tags" => 
+		[
+		"ul ul",
+		"ul ol",
+		"ul amp-list",
+		"ol ul",
+		"ol ol",
+		"ol amp-list",
+		"amp-list ul",
+		"amp-list ol",
+		"amp-list amp-list",
+		],
 	"css_contents" =>
 		[
 		"width"			=> "auto",
