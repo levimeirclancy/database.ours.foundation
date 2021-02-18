@@ -14,7 +14,7 @@ $style_array = [
 		"font-family"		=> "Times, Serif",
 		"font-size"		=> "17px",
 		"line-height"		=> "1.3",
-		"background"		=> $background_color,
+		"background"		=> output_rgba($background_color, 1),
 		"margin"		=> "0",
 		"padding"		=> "0",
 		], ],
@@ -30,7 +30,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"text-decoration"	=> "none",
-		"color"			=> $font_color,
+		"color"			=> output_rgba($font_color, 1),
 		"white-space"		=> "break-spaces",
 		], ],
 	
@@ -42,7 +42,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"box-shadow"		=> "0 0 40px -5px rgba(30,30,30,0.15)",
-		"background"		=> $background_color,
+		"background"		=> output_rgba($background_color, 1),
 		"padding"		=> "50px 0",
 		"margin"		=> "150px 0",
 		], ],
@@ -67,7 +67,7 @@ $style_array = [
 		[
 		"box-sizing"		=> "border-box",
 		"width"			=> "100%",
-//		"background"		=> $background_color,
+//		"background"		=> output_rgba($background_color, 1),
 		"padding"		=> "10px",
 		"z-index"		=> "100",
 		"margin"		=> "0 0 50px 0",
@@ -82,11 +82,11 @@ $style_array = [
 		"margin"		=> "5px 10px",
 		"padding"		=> "8px 10px",
 		"border-radius"		=> "100px",
-//		"background"		=> $background_color,
+//		"background"		=> output_rgba($background_color, 1),
 		"display"		=> "inline-block",
 		"cursor"		=> "pointer",
 		"text-align"		=> "center",
-		"color"			=> $font_color,
+		"color"			=> output_rgba($font_color, 1),
 		"font-weight"		=> "400",
 		"font-family"		=> "Arial, Helvetica, 'Sans Serif'",
 		], ],
@@ -117,7 +117,7 @@ $style_array = [
 		[
 		"margin"		=> "0",
 		"padding"		=> "80px 20px 20px",
-		"background"		=> $background_color,
+		"background"		=> output_rgba($background_color, 1),
 		"box-shadow"		=> "0 0 30px 0 rgba(30,30,30,0.3)",
 		"text-align"		=> "left",
 		"box-sizing"		=> "border-box",
@@ -152,7 +152,7 @@ $style_array = [
 		[
 		"margin"		=> "0",
 		"padding"		=> "10px 5px 10px 0",
-		"background"		=> $background_color,
+		"background"		=> output_rgba($background_color, 1),
 		"text-align"		=> "left",
 		"box-sizing"		=> "border-box",
 		"position"		=> "relative",
@@ -197,8 +197,8 @@ $style_array = [
 		"padding"		=> "10px 60px",
 		"border"		=> "0",
 		"border-radius"		=> "100px",
-		"background"		=> $font_color,
-		"color"			=> $background_color,
+		"background"		=> output_rgba($font_color, 1),
+		"color"			=> output_rgba($background_color, 1),
 		"box-shadow"		=> "none",
 		"box-sizing"		=> "border-box",
 		"opacity"		=> "0.8",
@@ -304,7 +304,7 @@ $style_array = [
 	"css_tags" => "h1, h2, h3, h4, h5, h6",
 	"css_contents" =>
 		[
-		"color"			=> $font_color,
+		"color"			=> output_rgba($font_color, 1),
 		"width"			=> "auto",
 		"max-width"		=> "850px", 
 		"border"		=> "0",
@@ -378,7 +378,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"position"		=> "relative",
-		"color"			=> $font_color,
+		"color"			=> output_rgba($font_color, 1),
 		], ],
 	
 	[
@@ -392,14 +392,14 @@ $style_array = [
 	"css_tags" => "article a",
 	"css_contents" =>
 		[
-		"color"			=> $font_color,
+		"color"			=> output_rgba($font_color, 1),
 		], ],
 	
 	[
 	"css_tags" => "article a:hover",
 	"css_contents" =>
 		[
-		"color"			=> $font_color,
+		"color"			=> output_rgba($font_color, 1),
 		], ],
 	
 	[
@@ -411,7 +411,7 @@ $style_array = [
 		"text-align"		=> "center",
 		"margin"		=> "60px 20px 70px",
 		"height"		=> "2px",
-		"background"		=> $font_color,
+		"background"		=> output_rgba($font_color, 1),
 		"border"		=> "0",
 		], ],
 	
@@ -436,7 +436,7 @@ $style_array = [
 		"padding"		=> "20px",
 		"text-align"		=> "left",
 		"position"		=> "relative",
-		"color"			=> $font_color,
+		"color"			=> output_rgba($font_color, 1),
 		], ],
 	
 	[
@@ -452,10 +452,10 @@ $style_array = [
 	"css_tags" => "blockquote",
 	"css_contents" =>
 		[
-		"background"		=> $background_color,
+		"background"		=> output_rgba($background_color, 1),
 		"border-width"		=> "2px",
 		"border-style"		=> "dotted",
-		"border-color"		=> $font_color,
+		"border-color"		=> output_rgba($font_color, 1),
 		"border-radius"		=> "15px",
 		"padding"		=> "20px",
 		"margin"		=> "50px 20px",
@@ -476,7 +476,7 @@ $style_array = [
 	"css_tags" => "blockquote cite, blockquote cite a",
 	"css_contents" =>
 		[
-		"color"			=> $font_color,
+		"color"			=> output_rgba($font_color, 1),
 		"font-style"		=> "normal",
 		"opacity"		=> "0.6",
 		], ],
@@ -503,9 +503,9 @@ $style_array = [
 		"vertical-align"	=> "middle",
 		"text-align"		=> "center",
 		"font-family"		=> "Times",
-		"background"		=> $background_color,
-		"border"		=> "2px dotted ".$font_color,
-		"color"			=> $font_color,
+		"background"		=> output_rgba($background_color, 1),
+		"border"		=> "2px dotted ".output_rgba($font_color, 1),
+		"color"			=> output_rgba($font_color, 1),
 		"padding"		=> "25px 0 0",
 		"width"			=> "50px",
 		"height"		=> "50px",
@@ -530,7 +530,7 @@ $style_array = [
 		"table-layout"		=> "auto",
 		"border-collapse"	=> "collapse",
 		"overflow"		=> "auto",
-		"border"		=> "1px solid ".$font_color,
+		"border"		=> "1px solid ".output_rgba($font_color, 1),
 		], ],
 	
 	[
@@ -564,7 +564,7 @@ $style_array = [
 		"font-weight"		=> "400",
 		"text-align"		=> "left",
 		"margin"		=> "0",
-		"border"		=> "1px solid ".$font_color,
+		"border"		=> "1px solid ".output_rgba($font_color, 1),
 		], ],
 	
 	[
@@ -618,8 +618,8 @@ $style_array = [
 		"margin"		=> "0",
 		"font-size"		=> "1em",
 		"padding"		=> "6px 20px",
-//		"background"		=> $background_color,
-		"border"		=> $font_color,
+//		"background"		=> output_rgba($background_color, 1),
+		"border"		=> output_rgba($font_color, 1),
 		"border-radius"		=> "100px",
 		], ],
 	
@@ -629,7 +629,7 @@ $style_array = [
 		[
 		"font-style"		=> "normal",
 		"margin"		=> "8px 20px",
-		"border"		=> "1px solid ".$font_color,
+		"border"		=> "1px solid ".output_rgba($font_color, 1),
 		"cursor"		=> "pointer",
 		], ],
 
@@ -684,11 +684,11 @@ $style_array = [
 		"font-family"		=> "Arial, Helvetica, 'Sans Serif'",
 		"margin"		=> "5px 13px",
 		"border-radius"		=> "10px",
-		"color"			=> $font_color,
+		"color"			=> output_rgba($font_color, 1),
 		"padding"		=> "15px",
 		"max-width"		=> "850px",
-		"background"		=> $background_color,
-		"border"		=> "1px solid ".$font_color,
+		"background"		=> output_rgba($background_color, 1),
+		"border"		=> "1px solid ".output_rgba($font_color, 1),
 		"box-shadow"		=> "3px 12px 15px -9px rgba(50,50,50,0.1)",
 		], ],
 	
@@ -704,7 +704,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"font-style"		=> "italic",
-		"color"			=> $font_color,
+		"color"			=> output_rgba($font_color, 1),
 		"padding"		=> "40px 16px 5px",
 		"opacity"		=> "0.8",
 		], ],
@@ -721,10 +721,10 @@ $style_array = [
 	"css_contents" =>
 		[
 		"cursor"		=> "pointer",
-		"color"			=> $font_color,
+		"color"			=> output_rgba($font_color, 1),
 		"opacity"		=> "0.8",
 		"padding"		=> "7px 16px",
-		"border"		=> "1px solid ".$font_color,
+		"border"		=> "1px solid ".output_rgba($font_color, 1),
 		"border-radius"		=> "100px",
 		"display"		=> "inline-block",
 		], ],
@@ -773,8 +773,8 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-		"background"		=> $font_color,
-		"color"			=> $background_color,
+		"background"		=> output_rgba($font_color, 1),
+		"color"			=> output_rgba($background_color, 1),
 		"border"		=> "0 none rgba(255,255,255,0)",
 		"outline"		=> "0 none rgba(255,255,255,0)",
 		], ],
@@ -784,7 +784,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"font-weight"		=> "400",
-		"color"			=> $font_color,
+		"color"			=> output_rgba($font_color, 1),
 		"opacity"		=> "0.6",
 		], ],
 	
@@ -800,7 +800,7 @@ $style_array = [
 		"padding"		=> "10px 90px 10px 10px",
 		"vertical-align"	=> "middle",
 		"background"		=> "rgba(255,255,255,1)",
-		"color"			=> $font_color,
+		"color"			=> output_rgba($font_color, 1),
 		"box-shadow"		=> "0 -5px 35px -12px rgba(30,30,30,0.3)",
 		], ],
 	
@@ -811,8 +811,8 @@ $style_array = [
 		"position"		=> "fixed",
 		"bottom"		=> "0",
 		"right"			=> "0",
-		"background"		=> $font_color,
-		"color"			=> $background_color,
+		"background"		=> output_rgba($font_color, 1),
+		"color"			=> output_rgba($background_color, 1),
 		"padding"		=> "10px 25px",
 		"vertical-align"	=> "middle",
 		"border-radius"		=> "0",
@@ -861,7 +861,7 @@ $style_array = [
 		"css_contents" =>
 			[
 			"border-left"	=> "none",
-			"border-top"	=> "2px solid ".$font_color,
+			"border-top"	=> "2px solid ".output_rgba($font_color, 1),
 			],
 		], ],
 	
@@ -893,10 +893,10 @@ $style_array = [
 		"padding"		=> "0",
 		"list-style-position"	=> "inside",
 		"line-height"		=> "1.4",
-		"border-left"		=> "2px solid ".$font_color,
+		"border-left"		=> "2px solid ".output_rgba($font_color, 1),
 		"box-sizing"		=> "border-box",
 		], ],
-	
+
 	[
 	"css_tags" => 
 		[
@@ -911,26 +911,26 @@ $style_array = [
 		"margin"		=> "3px 5px 3px 1px",
 		"padding"		=> "0",
 		], ],
-	
+
 	[
 	"css_tags" => "li",
 	"css_contents" =>
 		[
 		"padding"		=> "5px 5px 5px 6px",
 		"margin"		=> "0",
-		"border-bottom"		=> "2px dotted ".$font_color,
+		"border-bottom"		=> "2px dotted ".output_rgba($font_color, 0.5),
 		"position"		=> "relative",
 		], ],
-	
+
 	[
 	"css_tags" => "li:first-child",
 	"css_contents" =>
 		[
-		"border-top"		=> "2px dotted ".$font_color,
+		"border-top"		=> "2px dotted ".output_rgba($font_color, 0.5),
 		"padding"		=> "4px 5px 5px 6px",
 		], ],
-	
-		[
+
+	[
 	"css_tags" => 
 		[
 		"ul ul li:first-child",
@@ -947,42 +947,42 @@ $style_array = [
 		[
 		"border-top"		=> "none",
 		], ],
-	
+
 	[
 	"css_tags" => "li:last-child",
 	"css_contents" =>
 		[
-		"border-bottom"		=> "2px solid ".$font_color,
+		"border-bottom"		=> "2px solid ".output_rgba($font_color, 0.5),
 		], ],
-	
+
 	[
 	"css_tags" => "ul > li, amp-list li",
 	"css_contents" =>
 		[
 		"list-style-type"	=> "none",
 		], ],
-	
+
 	[
 	"css_tags" => "ol",
 	"css_contents" =>
 		[
 		"list-style-type"	=> "decimal",
 		], ],
-	
+
 	[
 	"css_tags" => "ol ol",
 	"css_contents" =>
 		[
 		"list-style-type"	=> "lower-roman",
 		], ],
-	
+
 	[
 	"css_tags" => "ol ol ol",
 	"css_contents" =>
 		[
 		"list-style-type"	=> "lower-alpha",
 		], ],
-	
+
 	[
 	"css_tags" => "amp-sidebar ul, amp-sidebar ol, amp-sidebar amp-list",
 	"css_contents" =>
@@ -990,7 +990,7 @@ $style_array = [
 		"font-family"		=> "Arial, Helvetica, 'Sans Serif'",
 		"font-size"		=> "0.9em",
 		], ],
-	
+
 	[
 	"css_tags" => 
 		[
@@ -1008,7 +1008,7 @@ $style_array = [
 		[
 		"font-size"		=> "1em",
 		], ],
-	
+
 	[
 	"css_tags" => 
 		[
@@ -1022,27 +1022,27 @@ $style_array = [
 		"white-space"		=> "nowrap",
 		"overflow"		=> "hidden",
 		], ],
-	
+
 	[
 	"css_tags" => ".unnested-list",
 	"css_contents" =>
 		[
 		"border"		=> "0",
 		], ],
-	
+
 	[
 	"css_tags" => ".unnested-list li",
 	"css_contents" =>
 		[
 		"margin"		=> "0",
 		"padding"		=> "10px",
-		"border-bottom"		=> "2px solid ".$font_color,
+		"border-bottom"		=> "2px solid ".output_rgba($font_color, 1),
 		"border-left"		=> "0",
 		"text-overflow"		=> "ellipsis",
 		"white-space"		=> "nowrap",
 		"overflow"		=> "hidden",
 		], ],
-	
+
 	[
 	"css_tags" => ".unnested-list li:before",
 	"css_contents" =>
@@ -1050,9 +1050,7 @@ $style_array = [
 		"display"		=> "none",
 		], ],
 
-
 	/// Toggle classes
-
 
 	[
 	"css_tags" => ".hide",
@@ -1060,7 +1058,7 @@ $style_array = [
 		[
 		"display"		=> "none",
 		], ],
-	
+
 	[
 	"css_tags" => ".show",
 	"css_contents" =>
@@ -1068,8 +1066,15 @@ $style_array = [
 		"display"		=> "inline-block",
 		], ],
 
-	
 	];
+
+function output_rgba($rgba_array, $opacity) {
+	echo "rgba(";
+	echo implode(",",$rgba_array);
+	echo ",";
+	echo $opacity;
+	echo ")";
+	}
 
 function output_css ($array) {
 	
