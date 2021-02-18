@@ -365,6 +365,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"position"		=> "relative",
+		"color"			=> $font_color,
 		], ],
 	
 	[
@@ -422,6 +423,7 @@ $style_array = [
 		"padding"		=> "20px",
 		"text-align"		=> "left",
 		"position"		=> "relative",
+		"color"			=> $font_color,
 		], ],
 	
 	[
