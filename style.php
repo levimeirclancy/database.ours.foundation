@@ -562,7 +562,7 @@ $style_array = [
 	[
 	"css_tags" => 
 		[
-		"article th p + p"
+		"article th p + p",
 		"article td p + p",
 		"article li p + p",
 		],
