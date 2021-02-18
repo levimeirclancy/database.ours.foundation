@@ -124,15 +124,15 @@ $style_array = [
 		"margin"		=> "10px 0 20px 0",
 		], ],
 	
-	[
-	"css_tags" => ".sidebar-back:before",
-	"css_contents" =>
-		[
-		"content"		=> "⤺",
-		"font-size"		=> "1.3em",
-		"margin"		=> "0 5px 0 0",
-		"display"		=> "inline-block",
-		], ],
+//	[
+//	"css_tags" => ".sidebar-back:before",
+//	"css_contents" =>
+//		[
+//		"content"		=> "⤺",
+//		"font-size"		=> "1.3em",
+//		"margin"		=> "0 5px 0 0",
+//		"display"		=> "inline-block",
+//		], ],
 	
 	[
 	"css_tags" => "amp-lightbox, amp-sidebar",
