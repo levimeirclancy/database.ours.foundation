@@ -30,7 +30,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"box-shadow"		=> "0 0 40px -5px rgba(30,30,30,0.15)",
-		"background"		=> "rgba(255,255,255,1)",
+		"background"		=> $background_color,
 		"padding"		=> "50px 0",
 		"margin"		=> "150px 0",
 		], ],
@@ -55,7 +55,7 @@ $style_array = [
 		[
 		"box-sizing"		=> "border-box",
 		"width"			=> "100%",
-		"background"		=> "rgba(255,255,255,0)",
+//		"background"		=> $background_color,
 		"padding"		=> "10px",
 		"z-index"		=> "100",
 		"margin"		=> "0 0 50px 0",
@@ -70,11 +70,11 @@ $style_array = [
 		"margin"		=> "5px 10px",
 		"padding"		=> "8px 10px",
 		"border-radius"		=> "100px",
-		"background"		=> "rgba(255,255,255,0)",
+//		"background"		=> $background_color,
 		"display"		=> "inline-block",
 		"cursor"		=> "pointer",
 		"text-align"		=> "center",
-		"color"			=> "rgba(0,0,0,1)",
+		"color"			=> $font_color,
 		"font-weight"		=> "400",
 		"font-family"		=> "Arial, Helvetica, 'Sans Serif'",
 		], ],
@@ -87,7 +87,11 @@ $style_array = [
 		], ],
 	
 	[
-	"css_tags" => "#entries-list-alphabetical .navigation-header-item, #entries-list-hierarchical .navigation-header-item",
+	"css_tags" => 
+		[
+		"#entries-list-alphabetical .navigation-header-item",
+		"#entries-list-hierarchical .navigation-header-item",
+		],
 	"css_contents" =>
 		[
 		"top"			=> "0",
@@ -101,7 +105,7 @@ $style_array = [
 		[
 		"margin"		=> "0",
 		"padding"		=> "80px 20px 20px",
-		"background"		=> "rgba(255,255,255,1)",
+		"background"		=> $background_color,
 		"box-shadow"		=> "0 0 30px 0 rgba(30,30,30,0.3)",
 		"text-align"		=> "left",
 		"box-sizing"		=> "border-box",
@@ -136,7 +140,7 @@ $style_array = [
 		[
 		"margin"		=> "0",
 		"padding"		=> "10px 5px 10px 0",
-		"background"		=> "rgba(255,255,255,1)",
+		"background"		=> $background_color,
 		"text-align"		=> "left",
 		"box-sizing"		=> "border-box",
 		"position"		=> "relative",
@@ -181,8 +185,8 @@ $style_array = [
 		"padding"		=> "10px 60px",
 		"border"		=> "0",
 		"border-radius"		=> "100px",
-		"background-image"	=> "linear-gradient(80deg, rgba(50,50,50,0.5), rgba(20,20,20,0.5))",
-		"color"			=> "rgba(255,255,255,1)",
+		"background-image"	=> $font_color,
+		"color"			=> $background_color,
 		"box-shadow"		=> "none",
 		"box-sizing"		=> "border-box",
 		], ],
@@ -392,7 +396,7 @@ $style_array = [
 		"text-align"		=> "center",
 		"margin"		=> "60px 20px 70px",
 		"height"		=> "2px",
-		"background"		=> "rgba(200,200,200,0.5)",
+		"background"		=> $font_color,
 		"border"		=> "0",
 		], ],
 	
@@ -432,10 +436,10 @@ $style_array = [
 	"css_tags" => "blockquote",
 	"css_contents" =>
 		[
-		"background"		=> "rgba(255,255,255,1)",
+		"background"		=> $background_color,
 		"border-width"		=> "2px",
 		"border-style"		=> "dotted",
-		"border-color"		=> "rgba(50,50,50,1)",
+		"border-color"		=> $font_color,
 		"border-radius"		=> "15px",
 		"padding"		=> "20px",
 		"margin"		=> "50px 20px",
@@ -456,8 +460,9 @@ $style_array = [
 	"css_tags" => "blockquote cite, blockquote cite a",
 	"css_contents" =>
 		[
-		"color"			=> "rgba(0,0,0,0.7)",
+		"color"			=> $font_color,
 		"font-style"		=> "normal",
+		"opacity"		=> "0.6",
 		], ],
 	
 	[
@@ -484,7 +489,7 @@ $style_array = [
 		"font-family"		=> "Times",
 		"background"		=> "rgba(255,255,255,1)",
 		"border"		=> "2px dotted rgba(50,50,50,1)",
-		"color"			=> "rgba(50,50,50,1)",
+		"color"			=> $font_color,
 		"padding"		=> "25px 0 0",
 		"width"			=> "50px",
 		"height"		=> "50px",
@@ -523,14 +528,14 @@ $style_array = [
 	"css_tags" => "article tbody tr:nth-child(odd) td",
 	"css_contents" =>
 		[
-		"background"		=> "rgba(255,255,255,1)",
+//		"background"		=> "rgba(255,255,255,1)",
 		], ],
 	
 	[
 	"css_tags" => "article tbody tr:nth-child(even) td",
 	"css_contents" =>
 		[
-		"background"		=> "rgba(250,250,250,1)",
+//		"background"		=> "rgba(250,250,250,1)",
 		], ],
 
 
@@ -597,8 +602,8 @@ $style_array = [
 		"margin"		=> "0",
 		"font-size"		=> "1em",
 		"padding"		=> "6px 20px",
-		"background"		=> "rgba(255,255,255,0.3)",
-		"border"		=> "1px solid rgba(100,100,100,0)",
+//		"background"		=> $background_color,
+		"border"		=> $font_color,
 		"border-radius"		=> "100px",
 		], ],
 	
@@ -652,16 +657,21 @@ $style_array = [
 		], ],
 	
 	[
-	"css_tags" => "input, textarea, amp-selector",
+	"css_tags" => 
+		[
+		"input",
+		"textarea",
+		"amp-selector",
+		],
 	"css_contents" =>
 		[
 		"font-family"		=> "Arial, Helvetica, 'Sans Serif'",
 		"margin"		=> "5px 13px",
 		"border-radius"		=> "10px",
-		"color"			=> "rgba(0,0,0,1)",
+		"color"			=> $font_color,
 		"padding"		=> "15px",
 		"max-width"		=> "850px",
-		"background"		=> "rgba(255,255,255,1)",
+		"background"		=> $background_color,
 		"border"		=> "1px solid rgba(100,100,100,0.5)",
 		"box-shadow"		=> "3px 12px 15px -9px rgba(50,50,50,0.1)",
 		], ],
@@ -678,8 +688,9 @@ $style_array = [
 	"css_contents" =>
 		[
 		"font-style"		=> "italic",
-		"color"			=> "rgba(100,100,100,0.8)",
+		"color"			=> $font_color,
 		"padding"		=> "40px 16px 5px",
+		"opacity"		=> "0.8",
 		], ],
 	
 	[
@@ -694,7 +705,8 @@ $style_array = [
 	"css_contents" =>
 		[
 		"cursor"		=> "pointer",
-		"color"			=> "rgba(100,100,100,0.8)",
+		"color"			=> $font_color,
+		"opacity"		=> "0.8",
 		"padding"		=> "7px 16px",
 		"border"		=> "1px solid rgba(100,100,100,0.8)",
 		"border-radius"		=> "100px",
@@ -738,11 +750,15 @@ $style_array = [
 		], ],
 	
 	[
-	"css_tags" => "amp-selector span[selected], amp-selector span[aria-selected=\"true\"]",
+	"css_tags" => 
+		[
+		"amp-selector span[selected]",
+		"amp-selector span[aria-selected=\"true\"]",
+		],
 	"css_contents" =>
 		[
-		"background"		=> "rgba(100,100,100,1)",
-		"color"			=> "rgba(255,255,255,1)",
+		"background"		=> $font_color,
+		"color"			=> $background_color,
 		"border"		=> "0 none rgba(255,255,255,0)",
 		"outline"		=> "0 none rgba(255,255,255,0)",
 		], ],
@@ -752,8 +768,8 @@ $style_array = [
 	"css_contents" =>
 		[
 		"font-weight"		=> "400",
-		"color"			=> "rgba(200,200,200,1)",
-		"opacity"		=> "0.9",
+		"color"			=> $font_color,
+		"opacity"		=> "0.6",
 		], ],
 	
 	[
@@ -768,7 +784,7 @@ $style_array = [
 		"padding"		=> "10px 90px 10px 10px",
 		"vertical-align"	=> "middle",
 		"background"		=> "rgba(255,255,255,1)",
-		"color"			=> "rgba(0,0,0,1)",
+		"color"			=> $font_color,
 		"box-shadow"		=> "0 -5px 35px -12px rgba(30,30,30,0.3)",
 		], ],
 	
@@ -779,8 +795,8 @@ $style_array = [
 		"position"		=> "fixed",
 		"bottom"		=> "0",
 		"right"			=> "0",
-		"background"		=> "rgba(150,150,150,1)",
-		"color"			=> "rgba(255,255,255,1)",
+		"background"		=> $font_color,
+		"color"			=> $background_color,
 		"padding"		=> "10px 25px",
 		"vertical-align"	=> "middle",
 		"border-radius"		=> "0",
