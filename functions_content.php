@@ -295,7 +295,7 @@ function body_process($body_incoming) {
 	global $retrieve_page;
 	global $retrieve_media;
 //	global $retrieve_entry;
-		
+			
 	// Standardize line breaks
 	$body_incoming = str_replace("\r", "\n", $body_incoming);
 	
@@ -562,8 +562,11 @@ function body_process($body_incoming) {
 	preg_match_all("'<amp-mathml (.*?)</amp-mathml>'si", $body_incoming, $matches);
 	foreach ($matches[1] as $match_temp):
 		$link_string = $match_temp;
-		$link_string = str_replace("\n", " ", $link_string);
+//		$link_string = preg_replace('/\n\r+/', ' ', $link_string);
+		$link_string = preg_replace('/\n+/', ' ', $link_string);
 		$link_string = trim($link_string);
+//		$apostrophe_temp = random_code(10);
+		$link_string = str_replace("'", "^{\prime}", $link_string);
 		$body_incoming = str_replace("<amp-mathml ".$match_temp."</amp-mathml>", "<amp-mathml ".$link_string."</amp-mathml>", $body_incoming);
 		endforeach;
 			
@@ -602,8 +605,9 @@ function body_process($body_incoming) {
 	$body_final = str_replace("\n", "<br>", $body_final);
 	$body_final = str_replace("><br>", ">", $body_final);
 	
-	// Sanitize ' marks
+	// Sanitize some more
 	$body_final = str_replace("&#039;", "'", $body_final);
+//	$link_string = str_replace("'", $apostrophe_temp, $link_string);
 	$body_final = preg_replace('!\s+!', ' ', $body_final);
 
 	return $body_final; }
