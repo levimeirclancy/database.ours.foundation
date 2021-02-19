@@ -563,7 +563,6 @@ function body_process($body_incoming) {
 	foreach ($matches[1] as $match_temp):
 		$link_string = $match_temp;
 		$link_string = str_replace("\n", " ", $link_string);
-		$link_string = str_replace("'", "\apos ", $link_string);
 		$link_string = trim($link_string);
 		$body_incoming = str_replace("<amp-mathml ".$match_temp."</amp-mathml>", "<amp-mathml ".$link_string."</amp-mathml>", $body_incoming);
 		endforeach;
@@ -605,7 +604,7 @@ function body_process($body_incoming) {
 	
 	// Sanitize ' marks
 	$body_final = str_replace("&#039;", "'", $body_final);
-	$body_final = str_replace(" ", " ", $body_final);
+	$body_final = preg_replace('!\s+!', ' ', $body_final);
 
 	return $body_final; }
 
