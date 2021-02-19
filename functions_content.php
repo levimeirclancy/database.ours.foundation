@@ -552,22 +552,14 @@ function body_process($body_incoming) {
 	if (empty($matches)): $matches = [ [], [], ]; endif;
 	$matches = $matches[0]; // We will not array_unique because we want to skip all odd (interstitial) content
 	foreach ($matches as $key_temp => $match_temp):
-		if ( ($key_temp !== 0) && ($key_temp % 2 !== 0) ): continue; endif;	
-		$link_string = "<amp-mathml inline layout='container' data-formula='\[".trim(preg_replace("/\n/", " ", $match_temp))."\]'></amp-mathml>";
-		$body_incoming = str_replace("$$$".$match_temp."$$$", $link_string, $body_incoming);
-		endforeach;
-
-	// Find all MathML expressions
-	$matches = [];
-	preg_match_all("'<amp-mathml (.*?)</amp-mathml>'si", $body_incoming, $matches);
-	foreach ($matches[1] as $match_temp):
+		if ( ($key_temp !== 0) && ($key_temp % 2 !== 0) ): continue; endif;
 		$link_string = $match_temp;
-//		$link_string = preg_replace('/\n\r+/', ' ', $link_string);
-		$link_string = preg_replace('/\n+/', ' ', $link_string);
-		$link_string = trim($link_string);
-//		$apostrophe_temp = random_code(10);
+		$link_string = preg_replace("/\n/", " ", $link_string);
+		$link_string = preg_replace("/\n+/", " ", $link_string);
 		$link_string = str_replace("'", "^{\prime}", $link_string);
-		$body_incoming = str_replace("<amp-mathml ".$match_temp."</amp-mathml>", "<amp-mathml ".$link_string."</amp-mathml>", $body_incoming);
+		$link_string = trim($link_string);
+		$link_string = "<amp-mathml inline layout='container' data-formula='\[".$link_string."\]'></amp-mathml>";
+		$body_incoming = str_replace("$$$".$match_temp."$$$", $link_string, $body_incoming);
 		endforeach;
 			
 	$skip_array = [
