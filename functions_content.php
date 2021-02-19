@@ -556,7 +556,9 @@ function body_process($body_incoming) {
 		$link_string = $match_temp;
 		$link_string = preg_replace("/\n/", " ", $link_string);
 		$link_string = preg_replace("/\n+/", " ", $link_string);
-		$link_string = str_replace("'", "^{\prime}", $link_string);
+//		$link_string = str_replace("'", "^{\prime}", $link_string);
+		$link_string = str_replace("\'", "^{\prime}", $link_string);
+		$link_string = str_replace("'", "&#x27;", $link_string);
 		$link_string = trim($link_string);
 		$link_string = "<amp-mathml inline layout='container' data-formula='\[".$link_string."\]'></amp-mathml>";
 		$body_incoming = str_replace("$$$".$match_temp."$$$", $link_string, $body_incoming);
