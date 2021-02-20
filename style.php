@@ -419,7 +419,7 @@ $style_array = [
 		], ],
 	
 	[ // The organizational elements, except for tables
-	"css_tags" => "p, ul, ol, blockquote, dt, dd",
+	"css_tags" => "p, ul, ol, blockquote, dl, dt, dd",
 	"css_contents" =>
 		[
 		"margin"		=> "0",
@@ -443,6 +443,7 @@ $style_array = [
 	"css_tags" => "dl",
 	"css_contents" =>
 		[
+		"margin"		=> "20px",
 		"padding"		=> "0 20px",
 		"border"		=> "1px dotted ".output_rgba($font_color, 0.5),
 		], ],
