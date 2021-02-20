@@ -543,7 +543,7 @@ $style_array = [
 	"css_tags" => "article tbody tr:nth-child(even) td",
 	"css_contents" =>
 		[
-		"background"		=> .output_rgba($font_color, 0.05),
+		"background"		=> output_rgba($font_color, 0.05),
 		], ],
 
 
