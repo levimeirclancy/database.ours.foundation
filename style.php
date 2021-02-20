@@ -443,7 +443,7 @@ $style_array = [
 	"css_tags" => "dl",
 	"css_contents" =>
 		[
-		"padding"		=> "20px",
+		"padding"		=> "0 20px",
 		"border"		=> "1px dotted ".output_rgba($font_color, 0.5),
 		], ],
 	
