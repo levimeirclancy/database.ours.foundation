@@ -408,7 +408,7 @@ $style_array = [
 		"display"		=> "none",
 		], ],
 	
-	[
+	[ // Text only
 	"css_tags" => "article, summary, p, ul, ol, blockquote, table, dt, dd",
 	"css_contents" =>
 		[
@@ -418,7 +418,7 @@ $style_array = [
 		"color"			=> output_rgba($font_color, 1),
 		], ],
 	
-		[
+	[ // The organizational elements, except for tables
 	"css_tags" => "article, summary, p, ul, ol, blockquote, dt, dd",
 	"css_contents" =>
 		[
@@ -471,9 +471,10 @@ $style_array = [
 		], ],
 	
 	[
-	"css_tags" => "blockquote cite, blockquote cite a",
+	"css_tags" => "blockquote cite",
 	"css_contents" =>
 		[
+		"display"		=> "block",
 		"color"			=> output_rgba($font_color, 1),
 		"font-style"		=> "normal",
 		"opacity"		=> "0.6",
@@ -524,7 +525,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"margin"		=> "20px",
-		"display"		=> "block",		
+		"display"		=> "block",
 		"box-sizing"		=> "border-box",
 		"table-layout"		=> "auto",
 		"border-collapse"	=> "collapse",
