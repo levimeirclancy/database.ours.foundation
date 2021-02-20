@@ -30,7 +30,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"text-decoration"	=> "none",
-		"color"			=> output_rgba($font_color, 1),
+		"color"			=> output_rgba($font_color, 0.7),
 		"white-space"		=> "break-spaces",
 		], ],
 	
@@ -389,20 +389,6 @@ $style_array = [
 		], ],
 	
 	[
-	"css_tags" => "article a",
-	"css_contents" =>
-		[
-		"color"			=> output_rgba($font_color, 1),
-		], ],
-	
-	[
-	"css_tags" => "article a:hover",
-	"css_contents" =>
-		[
-		"color"			=> output_rgba($font_color, 1),
-		], ],
-	
-	[
 	"css_tags" => "hr",
 	"css_contents" =>
 		[
@@ -423,29 +409,35 @@ $style_array = [
 		], ],
 	
 	[
-	"css_tags" => "p, summary, ul, ol, blockquote",
+	"css_tags" => "article, summary, p, ul, ol, blockquote, table, dt, dd",
 	"css_contents" =>
 		[
-		"width"			=> "auto",
-		"max-width"		=> "850px", 
+		"margin"		=> "0",
 		"border"		=> "0",
 		"display"		=> "block",
 		"clear"			=> "both",
 		"vertical-align"	=> "top",
-		"margin"		=> "0",
-		"padding"		=> "20px",
+		"font-weight"		=> "400",
 		"text-align"		=> "left",
 		"position"		=> "relative",
 		"color"			=> output_rgba($font_color, 1),
+		"width"			=> "auto",
+		"max-width"		=> "850px", 
 		], ],
 	
 	[
-	"css_tags" => "article, article th, article td, p, summary, blockquote",
+	"css_tags" => "p",
 	"css_contents" =>
 		[
-		"font-weight"		=> "400",
-		"text-align"		=> "left",
-//		"font-family"		=> "Times, Serif",
+		"padding"		=> "20px",
+		], ],
+
+	
+		[
+	"css_tags" => "dd",
+	"css_contents" =>
+		[
+		"border-bottom"		=> "1px double ".output_rgba($font_color, 0.5),
 		], ],
 	
 	[
@@ -525,7 +517,7 @@ $style_array = [
 	"css_tags" => "article table",
 	"css_contents" =>
 		[
-		"margin"		=> "20px auto",
+		"margin"		=> "20px",
 		"box-sizing"		=> "border-box",
 		"table-layout"		=> "auto",
 		"border-collapse"	=> "collapse",
@@ -540,19 +532,19 @@ $style_array = [
 		"margin"		=> "20px 0",
 		], ],
 	
-//	[
-//	"css_tags" => "article tbody tr:nth-child(odd) td",
-//	"css_contents" =>
-//		[
-//		"background"		=> "rgba(255,255,255,1)",
-//		], ],
+	[
+	"css_tags" => "article tbody tr:nth-child(odd) td",
+	"css_contents" =>
+		[
+		"background"		=> output_rgba($font_color, 0),
+		], ],
 	
-//	[
-//	"css_tags" => "article tbody tr:nth-child(even) td",
-//	"css_contents" =>
-//		[
-//		"background"		=> "rgba(250,250,250,1)",
-//		], ],
+	[
+	"css_tags" => "article tbody tr:nth-child(even) td",
+	"css_contents" =>
+		[
+		"background"		=> .output_rgba($font_color, 0.05),
+		], ],
 
 
 	[
