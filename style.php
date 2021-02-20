@@ -525,12 +525,12 @@ $style_array = [
 	"css_contents" =>
 		[
 		"margin"		=> "20px",
-		"display"		=> "block",
+		"display"		=> "table",
 		"box-sizing"		=> "border-box",
 		"table-layout"		=> "auto",
 		"border-collapse"	=> "collapse",
 		"overflow"		=> "auto",
-		"border"		=> "1px solid ".output_rgba($font_color, 1),
+		"border"		=> "0",
 		], ],
 	
 	[
@@ -544,14 +544,14 @@ $style_array = [
 	"css_tags" => "article tbody tr:nth-child(odd) td",
 	"css_contents" =>
 		[
-		"background"		=> output_rgba($font_color, 0),
+//		"background"		=> output_rgba($font_color, 0),
 		], ],
 	
 	[
 	"css_tags" => "article tbody tr:nth-child(even) td",
 	"css_contents" =>
 		[
-		"background"		=> output_rgba($font_color, 0.02),
+//		"background"		=> output_rgba($font_color, 0.02),
 		], ],
 
 
