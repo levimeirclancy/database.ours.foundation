@@ -334,7 +334,13 @@ function body_process($body_incoming) {
 	$body_incoming = str_replace("<td colspan='2'>", "<td colspan='2'>".$delimiter, $body_incoming);
 	$body_incoming = str_replace("<td colspan='3'>", "<td colspan='3'>".$delimiter, $body_incoming);
 	$body_incoming = str_replace("<td colspan='4'>", "<td colspan='4'>".$delimiter, $body_incoming);
-		
+
+	$body_incoming = str_replace("<dt>", "<dt>".$delimiter, $body_incoming);
+	$body_incoming = str_replace("<dd>", "<dd>".$delimiter, $body_incoming);
+	$body_incoming = str_replace("</dt>", $delimiter."</dt>", $body_incoming);
+	$body_incoming = str_replace("</dd>", $delimiter."</dd>", $body_incoming);
+
+	
 	$image_lightbox_array = [];
 	
 	// process links first
