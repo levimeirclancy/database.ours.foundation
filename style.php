@@ -440,10 +440,10 @@ $style_array = [
 
 	
 		[
-	"css_tags" => "dd",
+	"css_tags" => "dd p:last-child",
 	"css_contents" =>
 		[
-		"border-bottom"		=> "1px double ".output_rgba($font_color, 0.5),
+		"border-bottom"		=> "1px solid ".output_rgba($font_color, 0.5),
 		], ],
 	
 	[
