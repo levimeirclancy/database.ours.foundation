@@ -409,7 +409,7 @@ $style_array = [
 		], ],
 	
 	[ // Text only
-	"css_tags" => "article, summary, p, ul, ol, blockquote, table, dt, dd",
+	"css_tags" => "article, summary, p, ul, ol, blockquote, table, dt, dd, th, td",
 	"css_contents" =>
 		[
 		"vertical-align"	=> "top",
@@ -560,9 +560,6 @@ $style_array = [
 	"css_contents" =>
 		[
 		"padding"		=> "10px",
-		"vertical-align"	=> "top",
-		"font-weight"		=> "400",
-		"text-align"		=> "left",
 		"margin"		=> "0",
 		"border"		=> "1px solid ".output_rgba($font_color, 1),
 		], ],
