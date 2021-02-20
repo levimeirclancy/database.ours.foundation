@@ -419,7 +419,7 @@ $style_array = [
 		], ],
 	
 	[ // The organizational elements, except for tables
-	"css_tags" => "article, summary, p, ul, ol, blockquote, dt, dd",
+	"css_tags" => "p, ul, ol, blockquote, dt, dd",
 	"css_contents" =>
 		[
 		"margin"		=> "0",
