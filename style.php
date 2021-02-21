@@ -19,7 +19,7 @@ $style_array = [
 		"padding"		=> "0",
 		], ],
 
-	[
+	[ // In general, we do not want any special formatting for URLs
 	"css_tags" =>
 		[
 		"a",
@@ -30,8 +30,18 @@ $style_array = [
 	"css_contents" =>
 		[
 		"text-decoration"	=> "none",
-		"color"			=> output_rgba($font_color, 0.7),
+		"color"			=> output_rgba($font_color, 01),
 		"white-space"		=> "break-spaces",
+		], ],
+	
+	[ // But in the articles, we want an underline
+	"css_tags" =>
+		[
+		"article a",
+		],
+	"css_contents" =>
+		[
+		"text-decoration"	=> "underline",
 		], ],
 	
 	[
