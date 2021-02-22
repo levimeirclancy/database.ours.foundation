@@ -184,7 +184,7 @@ function amp_header($title=null, $canonical=null) {
 
 		echo "<div class='sidebar-back' on='tap:".$navigation_lightboxes."' role='button' tabindex='0'>Close</div>";
 	
-		echo "<ul>";
+		echo "<ul class='navigation-list'>";
 	
 		echo "<li><a href='/' ".$target_temp.">".$publisher."</a></li>";
 		
@@ -206,7 +206,7 @@ function amp_header($title=null, $canonical=null) {
 		echo "<div id='search-submit' role='button' tabindex='0' on='tap:sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search-list.changeToLayoutContainer()'>Search</div>";
 		
 	
-		echo "<amp-list id='sidebar-navigation-lightbox-search-list' credentials='include' layout='responsive' width='800' height='300' max-items='100' binding='refresh' reset-on-refresh='always' items='searchResults' [src]=\"'/api/search/?search=' + pageState.searchTerm\">";
+		echo "<amp-list class='navigation-list' id='sidebar-navigation-lightbox-search-list' credentials='include' layout='responsive' width='800' height='300' max-items='100' binding='refresh' reset-on-refresh='always' items='searchResults' [src]=\"'/api/search/?search=' + pageState.searchTerm\">";
 
 		echo "<li placeholder>Loading search results...</li>";
 		echo "<li fallback>No search results.</li>";
