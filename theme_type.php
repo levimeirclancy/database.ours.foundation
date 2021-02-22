@@ -77,7 +77,7 @@ $entries_array  = print_row_loop ($page_temp, array_keys($information_array), []
 
 $indent_ever = 0;
 
-echo "<ul  class='unnested-list' id='entries-list-hierarchical'>";
+echo "<ul id='entries-list-hierarchical'>";
 
 	$echo_temp = null;
 
@@ -85,15 +85,13 @@ echo "<ul  class='unnested-list' id='entries-list-hierarchical'>";
 
 		$count_temp = 0;
 		if (!(is_int($entry_info['indent_count']))): $entry_info['indent_count'] = 0; endif;
-		$echo_temp .= "<li><span class='categories-item-indent-wrapper'>";
+		$echo_temp .= "";
 		while ($count_temp < $entry_info['indent_count']):
-			$echo_temp .= "<span class='categories-item-indent'></span>";
-			$count_temp++;
+//			$echo_temp .= "<span class='categories-item-indent'></span>";
+//			$count_temp++;
 			$indent_ever++;
 			endwhile;
-		$echo_temp .= "</span><a href='/".$entry_info['entry_id']."/'><span class='sidebar-navigation-item-title'>";
-	
-		$echo_temp .= $information_array[$entry_info['entry_id']]['header'] . "</span></a></li>";
+		$echo_temp .= "<li><a href='/".$entry_info['entry_id']."/'><p>" . $information_array[$entry_info['entry_id']]['header'] . "</p></a></li>";
 
 		endforeach;
 
@@ -113,7 +111,7 @@ echo "<ul  class='unnested-list' id='entries-list-hierarchical'>";
 
 if ($indent_ever == 0): footer(); endif;
 
-echo "<ul class='unnested-list' id='entries-list-alphabetical' hidden>";
+echo "<ul id='entries-list-alphabetical' hidden>";
 
 	$tap_temp = [
 		"entries-list-alphabetical.hide",
@@ -127,9 +125,9 @@ echo "<ul class='unnested-list' id='entries-list-alphabetical' hidden>";
 
 		if ($entry_info['type'] !== $page_temp): continue; endif;
 
-		echo "<li><a href='/".$entry_info['entry_id']."/'><span class='sidebar-navigation-item-title'>";
+		echo "<li><a href='/".$entry_info['entry_id']."/'><p>";
 	
-		echo $information_array[$entry_info['entry_id']]['header'] . "</span></a></li>";
+		echo $information_array[$entry_info['entry_id']]['header'] . "</p></a></li>";
 
 		endforeach;
 
