@@ -945,6 +945,7 @@ $style_array = [
 		"padding"		=> "5px 5px 5px 6px",
 		"margin"		=> "0",
 		"border-left"		=> "1px solid ".output_rgba($font_color, 0.2),
+		"border-right"		=> "1px solid ".output_rgba($font_color, 0.2),
 		"border-bottom"		=> "1px dotted ".output_rgba($font_color, 0.2),
 		"position"		=> "relative",
 		], ],
