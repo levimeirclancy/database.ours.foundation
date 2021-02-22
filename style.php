@@ -176,12 +176,13 @@ $style_array = [
 		"width"			=> "650px",
 		], ],
 
-//	[
-//	"css_tags" => "amp-sidebar ul",
-//	"css_contents" =>
-//		[
-//		"display"		=> "block",
-//		], ],
+	[
+	"css_tags" => "amp-sidebar ul p",
+	"css_contents" =>
+		[
+		"margin"		=> "5px",
+		"padding"		=> "0",
+		], ],
 	
 	[
 	"css_tags" => "#sidebar-navigation, #sidebar-entry-info",
@@ -1123,40 +1124,6 @@ $style_array = [
 		"white-space"		=> "nowrap",
 		"overflow"		=> "hidden",
 		], ],
-
-//	[
-//	"css_tags" => ".unnested-list",
-//	"css_contents" =>
-//		[
-//		"border"		=> "0",
-//		], ],
-
-//	[
-//	"css_tags" => ".unnested-list li",
-//	"css_contents" =>
-//		[
-//		"margin"		=> "0",
-//		"padding"		=> "10px",
-//		"border-bottom"		=> "2px solid ".output_rgba($font_color, 0.5),
-//		"border-left"		=> "0",
-//		"text-overflow"		=> "ellipsis",
-//		"white-space"		=> "nowrap",
-//		"overflow"		=> "hidden",
-//		], ],
-
-//		[
-//	"css_tags" => ".unnested-list li:first-child",
-//	"css_contents" =>
-//		[
-//		"border-top"		=> "2px solid ".output_rgba($font_color, 0.5),
-//		], ],
-
-//	[
-//	"css_tags" => ".unnested-list li:before",
-//	"css_contents" =>
-//		[
-//		"display"		=> "none",
-//		], ],
 
 	/// Toggle classes
 
