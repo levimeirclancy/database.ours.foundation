@@ -173,7 +173,7 @@ $style_array = [
 	"css_tags" => "amp-sidebar",
 	"css_contents" =>
 		[
-		"width"			=> "650px",
+		"max-width"			=> "650px",
 		], ],
 	
 	[
@@ -1082,16 +1082,16 @@ $style_array = [
 	"css_contents" =>
 		[
 		"font-family"		=> "Arial, Helvetica, 'Sans Serif'",
-		"font-size"		=> "0.9em",
-		"min-width"		=> "300px",
+		"font-size"		=> "0.85em",
+		"min-width"		=> "350px",
 		], ],
 
 	[
 	"css_tags" => 
 		[
-		".navigation-list > ul",
-		".navigation-list > ol",
-		".navigation-list > amp-list",
+		".navigation-list ul",
+		".navigation-list ol",
+		".navigation-list amp-list",
 		],
 	"css_contents" =>
 		[
