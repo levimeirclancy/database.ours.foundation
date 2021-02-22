@@ -187,7 +187,7 @@ $style_array = [
 	"css_tags" => "#sidebar-navigation, #sidebar-entry-info",
 	"css_contents" =>
 		[
-		"min-width"		=> "300px",
+		"min-width"		=> "400px",
 		"width"			=> "auto",
 		"max-width"		=> "650px",
 		], ],
