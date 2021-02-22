@@ -1112,7 +1112,7 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-		"padding"		=> "10px",
+		"padding"		=> "10px 20px",
 		"text-overflow"		=> "ellipsis",
 		"white-space"		=> "nowrap",
 		"overflow"		=> "hidden",
