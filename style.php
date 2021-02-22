@@ -913,14 +913,7 @@ $style_array = [
 		"border-left"		=> "1px solid ".output_rgba($font_color, 0.2),
 		"box-sizing"		=> "border-box",
 		], ],
-	
-		[
-	"css_tags" => "li:marker",
-	"css_contents" =>
-		[
-		"display"		=> "inline",
-		], ],
-	
+		
 
 	[
 	"css_tags" => 
@@ -952,6 +945,23 @@ $style_array = [
 	"css_contents" =>
 		[
 		"border-top"		=> "1px dotted ".output_rgba($font_color, 0.2),
+		], ],
+	
+		[
+	"css_tags" => "li:marker",
+	"css_contents" =>
+		[
+		"display"		=> "block",
+		"margin"		=> "0 auto",
+		"font-size"		=> "80%",
+		"opacity"		=> "0.75",
+		], ],
+	
+		[
+	"css_tags" => "li:marker:before,
+	"css_contents" =>
+		[
+		"content"		=> ".",
 		], ],
 
 	[
@@ -992,7 +1002,7 @@ $style_array = [
 		[
 		"list-style-type"	=> "decimal",
 		], ],
-
+	
 	[
 	"css_tags" => "ol ol",
 	"css_contents" =>
