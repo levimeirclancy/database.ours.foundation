@@ -948,7 +948,7 @@ $style_array = [
 		], ],
 	
 	[
-	"css_tags" => "li:marker",
+	"css_tags" => "li::marker",
 	"css_contents" =>
 		[
 		"display"		=> "block",
@@ -958,7 +958,7 @@ $style_array = [
 		], ],
 	
 	[
-	"css_tags" => "li:marker:before",
+	"css_tags" => "li::marker:before",
 	"css_contents" =>
 		[
 		"content"		=> ".",
