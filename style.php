@@ -1015,15 +1015,15 @@ $style_array = [
 		"list-style-type"	=> "none",
 		], ],
 	
-//	[
-//	"css_tags" => "ol > li",
-//	"css_contents" =>
-//		[
-//		"padding"		=> "6px 8px 6px 40px",
-//		], ],
+	[
+	"css_tags" => "ol > li",
+	"css_contents" =>
+		[
+		"padding"		=> "4px 8px 6px",
+		], ],
 	
 		[
-	"css_tags" => "li",
+	"css_tags" => "ul > li",
 	"css_contents" =>
 		[
 		"padding"		=> "6px 8px",
