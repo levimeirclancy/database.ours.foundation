@@ -959,10 +959,11 @@ $style_array = [
 	"css_tags" => "li",
 	"css_contents" =>
 		[
+		"margin"		=> "0",
+		"padding"		=> "5px 0",
 		"border-width"		=> "1px 0 0",
 		"border-style"		=> "solid",
 		"border-color"		=> output_rgba($font_color, 0.6),
-		"position"		=> "relative",
 		"counter-increment"	=> "list-counter",
 		], ],
 	
@@ -1025,7 +1026,7 @@ $style_array = [
 	"css_tags" => "ul > li",
 	"css_contents" =>
 		[
-		"padding"		=> "6px 0 6px 10px",
+//		"padding"		=> "6px 0 6px 10px",
 		], ],
 	
 	[
