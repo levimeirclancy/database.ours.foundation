@@ -908,6 +908,7 @@ $style_array = [
 	"css_tags" => "ul, ol, amp-list",
 	"css_contents" =>
 		[
+		"display"		=> "table",
 		"position"		=> "relative",
 		"text-align"		=> "left",
 		"vertical-align"	=> "top",
