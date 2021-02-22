@@ -579,13 +579,23 @@ function body_process($body_incoming) {
 		"<amp-img", "amp-img>",
 		"<amp-fit-text", "amp-fit-text>", "<amp-accordion", "amp-accordion>" ];
 	
-	$body_incoming = preg_replace('/<li(.*?)>/', $delimiter.'<li$1>'.$delimiter, $body_incoming);
-	$body_incoming = preg_replace('/<ul(.*?)>/', $delimiter.'<ul$1>'.$delimiter, $body_incoming);
-	$body_incoming = preg_replace('/<ol(.*?)>/', $delimiter.'<ol$1>'.$delimiter, $body_incoming);
-	$body_incoming = str_replace("</li>", $delimiter."</li>".$delimiter, $body_incoming);
-	$body_incoming = str_replace("</ul>", $delimiter."</ul>".$delimiter, $body_incoming);
-	$body_incoming = str_replace("</ol>", $delimiter."</ol>".$delimiter, $body_incoming);
-
+	$paragraphize_array = [
+		'/<li(.*?)>/'	=> '<li$1>',
+		'/<ul(.*?)>/'	=> '<ul$1>',
+		'/<ol(.*?)>/'	=> '<ol$1>',
+		'</li>'		=> '</li>',
+		'</ul>'		=> '</ul>',
+		'</ol>'		=> '</ol>',
+		'<details>'	=> '<details>',
+		'</details>'	=> '</details>',
+		'<summary>'	=> '<summary>',
+		'</summary>'	=> '</summary>',
+		]
+	
+	foreach ($paragraphize_array as $key_temp => $value_temp):
+		$body_incoming = preg_replace($key_temp, $delimiter.$value_temp.$delimiter, $body_incoming);	
+		endforeach;
+	
 	$body_temp = explode($delimiter, $body_incoming);
 	$body_incoming = $body_final = null;
 
