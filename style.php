@@ -916,10 +916,12 @@ $style_array = [
 		"max-width"		=> "850px",
 		"margin"		=> "20px",
 		"padding"		=> "0",
-		"list-style-position"	=> "inside",
+		"list-style"		=> "none",
+//		"list-style-position"	=> "inside",
 		"line-height"		=> "1.4",
 //		"border-left"		=> "1px solid ".output_rgba($font_color, 0.2),
 		"box-sizing"		=> "border-box",
+		"counter-reset"		=> "list-counter",
 		], ],
 		
 
@@ -948,6 +950,7 @@ $style_array = [
 		"border-right"		=> "1px solid ".output_rgba($font_color, 0.4),
 		"border-bottom"		=> "1px dotted ".output_rgba($font_color, 0.4),
 		"position"		=> "relative",
+		"counter-increment"	=> "list-counter";
 		], ],
 	
 	[
@@ -996,24 +999,24 @@ $style_array = [
 		], ],
 
 	[
-	"css_tags" => "ol",
+	"css_tags" => "ol li::before",
 	"css_contents" =>
 		[
-		"list-style-type"	=> "decimal",
+		"content"		=> "counter(list-counter, decimal)",
 		], ],
 	
 	[
-	"css_tags" => "ol ol",
+	"css_tags" => "ol ol li::before",
 	"css_contents" =>
 		[
-		"list-style-type"	=> "lower-roman",
+		"content"		=> "counter(list-counter, lower-roman)",
 		], ],
 
 	[
-	"css_tags" => "ol ol ol",
+	"css_tags" => "ol ol ol li::before",
 	"css_contents" =>
 		[
-		"list-style-type"	=> "lower-alpha",
+		"content"		=> "counter(list-counter, lower-alpha)",
 		], ],
 	
 		
