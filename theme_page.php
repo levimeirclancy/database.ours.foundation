@@ -83,9 +83,9 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp, $list
 	elseif (array_sum($counter_section) == 1): $results_temp = null;
 	else: $echo_section = null; endif;
 
-//	$echo_section_final = 		"<li><b><span class='sidebar-navigation-item-title'>".
-//					$descriptor_temp . $results_temp . "</span></b>".
-//					$echo_section . "</li>";
+	$echo_section_final = 		"<b><span class='sidebar-navigation-item-title'>".
+					$descriptor_temp . $results_temp . "</span></b>".
+					$echo_section;
 
 	if ($list_item == "yes"): $echo_section = "<li>". $echo_section . "</li>"; endif;
 	
@@ -188,9 +188,9 @@ echo "<div class='entry-metadata-wrapper'>";
 echo "<span property='articleBody'>";
 
 if (empty($languages_temp)):
-//	echo "<ul class='sidebar-entry-info-list'>";
+	echo "<ul class='navigation-list'>";
 	relationships_array($page_temp, "children", "Subpages");
-//	echo "</ul>";
+	echo "</ul>";
 	echo "<br><br><br>";
 	echo "<br><br><br>";
 	endif;
