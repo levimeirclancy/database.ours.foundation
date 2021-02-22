@@ -1083,6 +1083,7 @@ $style_array = [
 		[
 		"font-family"		=> "Arial, Helvetica, 'Sans Serif'",
 		"font-size"		=> "0.9em",
+		"min-width"		=> "300px",
 		], ],
 
 	[
@@ -1111,7 +1112,7 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-		"padding"		=> "15px",
+		"padding"		=> "10px",
 		"text-overflow"		=> "ellipsis",
 		"white-space"		=> "nowrap",
 		"overflow"		=> "hidden",
