@@ -1021,6 +1021,10 @@ $style_array = [
 	"css_contents" =>
 		[
 		"display"		=> "block",
+		"position"		=> "absolute",
+		"top"			=> "0",
+		"bottom"		=> "0",
+		"left"			=> "0",
 		"float"			=> "left",
 		"height"		=> "100%",
 		"font-size"		=> "70%",
