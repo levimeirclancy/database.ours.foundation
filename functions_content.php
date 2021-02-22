@@ -590,7 +590,7 @@ function body_process($body_incoming) {
 		'</details>'	=> '</details>',
 		'<summary>'	=> '<summary>',
 		'</summary>'	=> '</summary>',
-		]
+		];
 	
 	foreach ($paragraphize_array as $key_temp => $value_temp):
 		$body_incoming = preg_replace($key_temp, $delimiter.$value_temp.$delimiter, $body_incoming);	
