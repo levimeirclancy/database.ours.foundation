@@ -76,7 +76,7 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp, $list
 
 		endforeach;
 	
-	$echo_section = "<ul class='navigation-list'>".implode("</ul><ul class='navigation-list'>", $echo_section)."</ul>";
+	$echo_section = "<ul>".implode("</ul><ul>", $echo_section)."</ul>";
 	
 	// Pluralize
 	if (array_sum($counter_section) > 1): $results_temp = " (".number_format(array_sum($counter_section))." results)";
@@ -87,7 +87,7 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp, $list
 					$descriptor_temp . $results_temp . "</span></b>".
 					$echo_section;
 
-	if ($list_item == "yes"): $echo_section = "<li>". $echo_section . "</li>"; endif;
+	$echo_section = "<li>". $echo_section . "</li>";
 	
 	echo $echo_section; }
 
@@ -133,7 +133,7 @@ echo "<article><div vocab='http://schema.org/' typeof='Article'>";
 // Sidebar
 echo "<amp-sidebar id='sidebar-entry-info' layout='nodisplay' side='right'>";
 	echo "<div class='sidebar-back' on='tap:sidebar-entry-info.close' role='button' tabindex='0'>Close</div>";
-	echo "<ul>";
+	echo "<ul class='navigation-list'>";
 //	echo "<li><span class='sidebar-navigation-item-title'><b>Metadata</b></span>";
 //		echo "<ul>";
 		echo "<li>Type: <a href='/".$entry_info['type']."/'><span property='genre'>".$site_info['category_array'][$entry_info['type']]."</span></a></span></li>"; // Type
