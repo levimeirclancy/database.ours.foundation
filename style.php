@@ -1111,7 +1111,7 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-		"padding"		=> "10px 20px",
+		"padding"		=> "15px",
 		"text-overflow"		=> "ellipsis",
 		"white-space"		=> "nowrap",
 		"overflow"		=> "hidden",
