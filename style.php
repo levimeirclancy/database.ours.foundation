@@ -973,6 +973,8 @@ $style_array = [
 	"css_contents" =>
 		[
 		"border-top"		=> "none",
+		"margin-top"		=> "0",
+		"padding-top"		=> "5px",
 		], ],
 
 	[
