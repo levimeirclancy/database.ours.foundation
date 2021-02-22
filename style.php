@@ -1016,14 +1016,14 @@ $style_array = [
 		], ],
 	
 	[
-	"css_tags" => "ol li",
+	"css_tags" => "ol > li",
 	"css_contents" =>
 		[
 		"padding"		=> "6px 8px 6px 40px",
 		], ],
 	
 		[
-	"css_tags" => "ul li",
+	"css_tags" => "ul > li",
 	"css_contents" =>
 		[
 		"padding"		=> "6px 8px",
