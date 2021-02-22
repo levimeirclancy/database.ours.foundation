@@ -76,7 +76,7 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 
 		endforeach;
 	
-	$echo_section = "<ul>".implode("</ul><ul>", $echo_section)."</ul>";
+	$echo_section = "<ul class='navigation-list'>".implode("</ul><ul class='navigation-list'>", $echo_section)."</ul>";
 	
 	// Pluralize
 	if (array_sum($counter_section) > 1): $results_temp = " (".number_format(array_sum($counter_section))." results)";
@@ -190,9 +190,9 @@ echo "<div class='entry-metadata-wrapper'>";
 echo "<span property='articleBody'>";
 
 if (empty($languages_temp)):
-	echo "<ul class='sidebar-entry-info-list'>";
+//	echo "<ul class='sidebar-entry-info-list'>";
 	relationships_array($page_temp, "children", "Subpages");
-	echo "</ul>";
+//	echo "</ul>";
 	echo "<br><br><br>";
 	echo "<br><br><br>";
 	endif;
