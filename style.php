@@ -1089,9 +1089,9 @@ $style_array = [
 	[
 	"css_tags" => 
 		[
-		".navigation-list ul",
-		".navigation-list ol",
-		".navigation-list amp-list",
+		".navigation-list > ul",
+		".navigation-list > ol",
+		".navigation-list > amp-list",
 		],
 	"css_contents" =>
 		[
