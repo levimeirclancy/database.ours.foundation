@@ -6,6 +6,8 @@ function hierarchize_entry($entry_id, $indent_array=[]) {
 	
 	global $page_temp;
 	
+	$echo_temp = null;
+	
 	if (!(isset($information_array[$entry_id]))): return; endif;
 	$entry_info = $information_array[$entry_id];
 	
@@ -24,7 +26,7 @@ function hierarchize_entry($entry_id, $indent_array=[]) {
 	
 		endif;
 	
-	echo "<li><a href='/".$entry_id."'>".$entry_info['header']."</a>";
+	$echo_temp .= "<li><a href='/".$entry_id."'>".$entry_info['header']."</a>";
 	
 	// If we're doing the first round but it already has parents
 	if (!(empty($entry_info['children']))):
@@ -50,7 +52,7 @@ function hierarchize_entry($entry_id, $indent_array=[]) {
 	
 			$indent_array[] = $entry_id;
 	
-			echo "<ul>";
+			$echo_temp .= "<ul>";
 	
 			foreach ($children_array as $entry_id_temp):
 
@@ -58,15 +60,15 @@ function hierarchize_entry($entry_id, $indent_array=[]) {
 	
 				endforeach;
 		
-			echo "</ul>";
+			$echo_temp .= "</ul>";
 	
 			endif;
 	
 		endif;
 	
-	echo "</li>";
+	$echo_temp .= "</li>";
 	
-	return 1;
+	return $echo_temp;
 	
 	}
 
@@ -78,21 +80,14 @@ echo "<ul id='entries-list-hierarchical'>";
 
 	foreach ($information_array as $entry_id => $entry_info):
 
-		$return_temp = hierarchize_entry($entry_id);
-		$indent_ever += $return_temp;
+		$echo_temp .= hierarchize_entry($entry_id);
 		
-//		$count_temp = 0;
-//		if (!(is_int($entry_info['indent_count']))): $entry_info['indent_count'] = 0; endif;
-//		$echo_temp .= "";
-//		while ($count_temp < $entry_info['indent_count']):
-///			$echo_temp .= "<span class='categories-item-indent'></span>";
-//			$count_temp++;
-			$indent_ever++;
-//			endwhile;
-//		$echo_temp .= "<li><a href='/".$entry_info['entry_id']."/'><p>" . $information_array[$entry_info['entry_id']]['header'] . "</p></a></li>";
-
 		endforeach;
 
+	$indent_ever = 0;
+	if (strpos($echo_temp, "<ul>") !== FALSE): $indent_ever = 1; endif;
+
+	// If we have indenting
 	if ($indent_ever !== 0):
 		$tap_temp = [
 			"entries-list-alphabetical.show",
