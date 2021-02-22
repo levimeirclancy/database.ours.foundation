@@ -419,7 +419,7 @@ $style_array = [
 		], ],
 	
 	[ // Text only
-	"css_tags" => "article, summary, p, ul, ol, blockquote, table, dt, dd, th, td",
+	"css_tags" => "article, summary, p, ul, ol, blockquote, table, dt, dd, th, td, details, summary",
 	"css_contents" =>
 		[
 		"vertical-align"	=> "top",
@@ -442,7 +442,7 @@ $style_array = [
 		], ],
 	
 	[
-	"css_tags" => "p",
+	"css_tags" => "p, details",
 	"css_contents" =>
 		[
 		"padding"		=> "20px",
@@ -953,6 +953,7 @@ $style_array = [
 		[
 		"display"		=> "block",
 		"margin"		=> "0 auto",
+		"text-align"		=> "center",
 		"font-size"		=> "80%",
 		"opacity"		=> "0.75",
 		], ],
