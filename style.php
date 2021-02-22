@@ -1021,7 +1021,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"display"		=> "block",
-		"position"		=> "absolute",
+		"position"		=> "relative",
 		"top"			=> "0",
 		"bottom"		=> "0",
 		"left"			=> "0",
