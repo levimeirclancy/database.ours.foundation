@@ -1010,7 +1010,7 @@ $style_array = [
 	
 		
 	[
-	"css_tags" => "li::marker",
+	"css_tags" => "ol li::marker",
 	"css_contents" =>
 		[
 		"display"		=> "block",
