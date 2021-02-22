@@ -938,6 +938,13 @@ $style_array = [
 		"border-bottom"		=> "1px dotted ".output_rgba($font_color, 0.2),
 		"position"		=> "relative",
 		], ],
+	
+	[
+	"css_tags" => "li:first-child",
+	"css_contents" =>
+		[
+		"border-top"		=> "1px dotted ".output_rgba($font_color, 0.2),
+		], ],
 
 	[
 	"css_tags" => 
