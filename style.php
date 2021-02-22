@@ -1095,7 +1095,7 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-		"margin-top"		=> "5px",
+		"margin-top"		=> "6px",
 		"font-size"		=> "1em",
 		], ],
 
