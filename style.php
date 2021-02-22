@@ -942,6 +942,7 @@ $style_array = [
 	"css_tags" => "li",
 	"css_contents" =>
 		[
+		"display"		=> "block",
 		"padding"		=> "6px 6px 6px 8px",
 		"margin"		=> "0",
 		"border-left"		=> "1px solid ".output_rgba($font_color, 0.4),
