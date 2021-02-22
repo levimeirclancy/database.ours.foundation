@@ -1015,13 +1015,20 @@ $style_array = [
 		[
 		"list-style-type"	=> "none",
 		], ],
-
+	
+	[
+	"css_tags" => "ol li",
+	"css_contents" =>
+		[
+		"padding-left"		=> "40px",
+		], ],
+	
 	[
 	"css_tags" => "ol li::before",
 	"css_contents" =>
 		[
 		"display"		=> "block",
-		"position"		=> "relative",
+		"position"		=> "absolute",
 		"top"			=> "0",
 		"bottom"		=> "0",
 		"left"			=> "0",
