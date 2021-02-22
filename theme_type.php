@@ -118,9 +118,7 @@ echo "<ul id='entries-list-alphabetical' hidden>";
 
 		if ($entry_info['type'] !== $page_temp): continue; endif;
 
-		echo "<li><a href='/".$entry_info['entry_id']."/'><p>";
-	
-		echo $information_array[$entry_info['entry_id']]['header'] . "</p></a></li>";
+		echo "<li><a href='/".$entry_info['entry_id']."/'" . $information_array[$entry_info['entry_id']]['header'] . "</a></li>";
 
 		endforeach;
 
