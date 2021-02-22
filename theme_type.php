@@ -114,11 +114,11 @@ echo "<ul id='entries-list-alphabetical' hidden>";
 		];
 	echo "<li><div role='button' tabindex='0' id='entries-button-hierarchical' class='navigation-header-item' on='tap:". implode(", ", $tap_temp) ."'>Switch to hierarchical</div><br></li>";
 
-	foreach ($information_array as $entry_info):
+	foreach ($information_array as $entry_id => $entry_info):
 
 		if ($entry_info['type'] !== $page_temp): continue; endif;
 
-		echo "<li><a href='/".$entry_info['entry_id']."/'" . $information_array[$entry_info['entry_id']]['header'] . "</a></li>";
+		echo "<li><a href='/".$entry_info['entry_id']."/'" . $entry_info['header'] . "</a></li>";
 
 		endforeach;
 
