@@ -132,8 +132,8 @@ echo "<article><div vocab='http://schema.org/' typeof='Article'>";
 echo "<amp-sidebar id='sidebar-entry-info' layout='nodisplay' side='right'>";
 	echo "<div class='sidebar-back' on='tap:sidebar-entry-info.close' role='button' tabindex='0'>Close</div>";
 	echo "<ul>";
-	echo "<li><span class='sidebar-navigation-item-title'><b>Metadata</b></span>";
-		echo "<ul>";
+//	echo "<li><span class='sidebar-navigation-item-title'><b>Metadata</b></span>";
+//		echo "<ul>";
 		echo "<li>Type: <a href='/".$entry_info['type']."/'><span property='genre'>".$site_info['category_array'][$entry_info['type']]."</span></a></span></li>"; // Type
 		echo "<li>Publisher: <a href='https://".$domain."'><span property='publisher'>".$publisher."</span></a></span></li>"; // Publisher
 		echo "<li>Author: <span property='author'>".$author."</span></li>"; // Author
@@ -165,7 +165,7 @@ echo "<amp-sidebar id='sidebar-entry-info' layout='nodisplay' side='right'>";
 //				endforeach;
 //			echo "</ul></li>";
 //			endif;
-		echo "</ul></li>";
+//		echo "</ul></li>";
 
 	relationships_array($page_temp, "grandparents", "Parents of parent pages");
 	relationships_array($page_temp, "parents", "Parent pages");
