@@ -177,7 +177,7 @@ $style_array = [
 		], ],
 
 	[
-	"css_tags" => "amp-sidebar ul p",
+	"css_tags" => "amp-sidebar li p",
 	"css_contents" =>
 		[
 		"margin"		=> "5px",
