@@ -87,9 +87,9 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp, $list
 //					$descriptor_temp . $results_temp . "</span></b>".
 //					$echo_section . "</li>";
 
-	if ($list_item == "yes"): $echo_section_final = "<li>". $echo_section . "</li>"; endif;
+	if ($list_item == "yes"): $echo_section = "<li>". $echo_section . "</li>"; endif;
 	
-	echo $echo_section_final; }
+	echo $echo_section; }
 
 // Check for language and content
 $languages_temp = [];
