@@ -78,7 +78,7 @@ function hierarchize_entry($entry_id, $indent_array=[]) {
 
 $indent_ever = 0;
 
-echo "<ul id='entries-list-hierarchical'>";
+echo "<ul class='entries-list' id='entries-list-hierarchical'>";
 
 	$echo_temp = null;
 
@@ -108,7 +108,7 @@ echo "<ul id='entries-list-hierarchical'>";
 
 if ($indent_ever == 0): footer(); endif;
 
-echo "<ul id='entries-list-alphabetical' hidden>";
+echo "<ul class='entries-list' id='entries-list-alphabetical' hidden>";
 
 	$tap_temp = [
 		"entries-list-alphabetical.hide",
