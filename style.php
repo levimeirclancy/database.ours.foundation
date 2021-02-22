@@ -950,7 +950,7 @@ $style_array = [
 		"border-right"		=> "1px solid ".output_rgba($font_color, 0.4),
 		"border-bottom"		=> "1px dotted ".output_rgba($font_color, 0.4),
 		"position"		=> "relative",
-		"counter-increment"	=> "list-counter";
+		"counter-increment"	=> "list-counter",
 		], ],
 	
 	[
