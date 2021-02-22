@@ -965,6 +965,7 @@ $style_array = [
 		"border-style"		=> "solid",
 		"border-color"		=> output_rgba($font_color, 0.6),
 		"counter-increment"	=> "list-counter",
+		"list-style-type"	=> "none",
 		], ],
 	
 	[
@@ -1005,28 +1006,27 @@ $style_array = [
 		[
 		"border"		=> "0",
 //		"margin-top"		=> "0",
+//		"padding-bottom"	=> "0",
+		], ],
+	
+		[
+	"css_tags" => 
+		[
+		"ul ul li:last-child",
+		"ul ol li:last-child",
+		"ul amp-list li:last-child",
+		"ol ol li:last-child",
+		"ol ul li:last-child",
+		"ol amp-list li:last-child",
+		"amp-list amp-list li:last-child",
+		"amp-list ul li:last-child",
+		"amp-list ol li:last-child",
+		],
+	"css_contents" =>
+		[
 		"padding-bottom"	=> "0",
-		], ],
-
-	[
-	"css_tags" => "ul > li, amp-list li",
-	"css_contents" =>
-		[
-		"list-style-type"	=> "none",
-		], ],
-	
-	[
-	"css_tags" => "ol > li",
-	"css_contents" =>
-		[
-//		"padding"		=> "0 0 6px 10px",
-		], ],
-	
-		[
-	"css_tags" => "ul > li",
-	"css_contents" =>
-		[
-//		"padding"		=> "6px 0 6px 10px",
+//		"margin-top"		=> "0",
+//		"padding-bottom"	=> "0",
 		], ],
 	
 	[
