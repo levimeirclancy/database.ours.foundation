@@ -550,6 +550,7 @@ $style_array = [
 		"border-collapse"	=> "collapse",
 		"overflow"		=> "auto",
 		"border"		=> "0",
+		"border-radius"		=> "7px",
 		], ],
 	
 	[
