@@ -955,8 +955,8 @@ $style_array = [
 	"css_contents" =>
 		[
 		"border-top"		=> "1px dotted ".output_rgba($font_color, 0.5),
-		"border-radius-top-left-radius"		=> "8px",
-		"border-radius-top-right-radius"	=> "5px/12px",
+		"border-top-left-radius"	=> "5px/12px",
+		"border-top-right-radius"	=> "5px/12px",
 		], ],
 	
 	[
@@ -964,8 +964,8 @@ $style_array = [
 	"css_contents" =>
 		[
 		"border-bottom"		=> "1px solid ".output_rgba($font_color, 0.3),
-		"border-radius-bottom-left-radius"	=> "5px/12px",
-		"border-radius-bottom-right-radius"	=> "5px/12px",
+		"border-bottom-left-radius"	=> "5px/12px",
+		"border-bottom-right-radius"	=> "5px/12px",
 		], ],
 	
 	[
