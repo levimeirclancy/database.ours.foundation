@@ -175,11 +175,19 @@ $style_array = [
 		[
 		"width"			=> "650px",
 		], ],
+
+	[
+	"css_tags" => "amp-sidebar ul",
+	"css_contents" =>
+		[
+		"display"		=> "block",
+		], ],
 	
 	[
 	"css_tags" => "#sidebar-navigation, #sidebar-entry-info",
 	"css_contents" =>
 		[
+		"min-width"		=> "300px",
 		"width"			=> "auto",
 		"max-width"		=> "650px",
 		], ],
