@@ -957,7 +957,15 @@ $style_array = [
 		"border-top"		=> "1px dotted ".output_rgba($font_color, 0.5),
 		"border-radius"		=> "0 12px 0 0 ",
 		], ],
-
+	
+	[
+	"css_tags" => "li:last-child",
+	"css_contents" =>
+		[
+		"border-bottom"		=> "1px solid ".output_rgba($font_color, 0.3),
+		"border-radius"		=> "0 0 12px 12px",
+		], ],
+	
 	[
 	"css_tags" => 
 		[
@@ -976,14 +984,6 @@ $style_array = [
 //		"border-top"		=> "none",
 //		"margin-top"		=> "0",
 //		"padding-top"		=> "2px",
-		], ],
-
-	[
-	"css_tags" => "li:last-child",
-	"css_contents" =>
-		[
-		"border-bottom"		=> "1px solid ".output_rgba($font_color, 0.3),
-		"border-radius"		=> "0 0 8px 8px",
 		], ],
 
 	[
