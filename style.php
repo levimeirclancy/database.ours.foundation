@@ -1005,7 +1005,7 @@ $style_array = [
 		[
 		"border"		=> "0",
 //		"margin-top"		=> "0",
-//		"padding-top"		=> "2px",
+		"padding-bottom"	=> "0",
 		], ],
 
 	[
