@@ -1015,12 +1015,12 @@ $style_array = [
 		"list-style-type"	=> "none",
 		], ],
 	
-	[
-	"css_tags" => "ol > li",
-	"css_contents" =>
-		[
-		"padding"		=> "6px 8px 6px 40px",
-		], ],
+//	[
+//	"css_tags" => "ol > li",
+//	"css_contents" =>
+//		[
+//		"padding"		=> "6px 8px 6px 40px",
+//		], ],
 	
 		[
 	"css_tags" => "ul > li",
@@ -1033,18 +1033,13 @@ $style_array = [
 	"css_tags" => "ol li::before",
 	"css_contents" =>
 		[
-		"display"		=> "block",
-		"position"		=> "absolute",
-		"top"			=> "0",
-		"bottom"		=> "0",
-		"left"			=> "0",
+		"display"		=> "inline",
 		"float"			=> "left",
-//		"height"		=> "100%",
 		"font-size"		=> "70%",
-		"margin"		=> "0 10px 0 0",
-		"padding"		=> "10px 12px 10px 11px",
+//		"margin"		=> "0 10px 0 0",
+		"padding"		=> "10px",
 //		"background"		=> output_rgba($background_color, 1),
-		"border-right"		=> "1px solid ".output_rgba($font_color, 1),
+//		"border-right"		=> "1px solid ".output_rgba($font_color, 1),
 		"color"			=> output_rgba($font_color, 1),
 		"opacity"		=> "0.6",
 		"content"		=> "counter(list-counter, decimal)",
