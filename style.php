@@ -175,14 +175,6 @@ $style_array = [
 		[
 		"width"			=> "650px",
 		], ],
-
-	[
-	"css_tags" => "amp-sidebar li p",
-	"css_contents" =>
-		[
-		"margin"		=> "5px",
-		"padding"		=> "0",
-		], ],
 	
 	[
 	"css_tags" => "#sidebar-navigation, #sidebar-entry-info",
@@ -1120,11 +1112,12 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
+		"padding"		=> "5px 10px",
 		"text-overflow"		=> "ellipsis",
 		"white-space"		=> "nowrap",
 		"overflow"		=> "hidden",
 		], ],
-
+	
 	/// Toggle classes
 
 	[
