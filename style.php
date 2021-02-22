@@ -955,8 +955,8 @@ $style_array = [
 	"css_contents" =>
 		[
 		"border-top"		=> "1px dotted ".output_rgba($font_color, 0.5),
-		"border-top-left-radius"	=> "5px/12px",
-		"border-top-right-radius"	=> "5px/12px",
+		"border-top-left-radius"	=> "10px",
+		"border-top-right-radius"	=> "10px",
 		], ],
 	
 	[
