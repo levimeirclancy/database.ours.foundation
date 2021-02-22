@@ -1019,7 +1019,7 @@ $style_array = [
 	"css_tags" => "ol > li",
 	"css_contents" =>
 		[
-		"padding"		=> "4px 8px 6px",
+		"padding"		=> "0 8px 6px",
 		], ],
 	
 		[
@@ -1037,7 +1037,7 @@ $style_array = [
 		"text-align"		=> "center",
 		"font-size"		=> "70%",
 //		"margin"		=> "0 10px 0 0",
-		"padding"		=> "0 5px 2px",
+		"padding"		=> "4px 5px 4px",
 		"margin"		=> "0 0 6px 0",
 //		"background"		=> output_rgba($background_color, 1),
 		"border-bottom"		=> "1px dotted ".output_rgba($font_color, 0.4),
