@@ -173,6 +173,14 @@ $style_array = [
 	"css_tags" => "amp-sidebar",
 	"css_contents" =>
 		[
+		"width"			=> "650px",
+		], ],
+	
+	[
+	"css_tags" => "#sidebar-entry-info",
+	"css_contents" =>
+		[
+		"width"			=> "auto",
 		"max-width"		=> "650px",
 		], ],
 	
