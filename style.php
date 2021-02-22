@@ -942,8 +942,6 @@ $style_array = [
 	"css_tags" => "li",
 	"css_contents" =>
 		[
-		"display"		=> "flex",
-		"align-items"		=> "center",
 		"padding"		=> "6px 6px 6px 8px",
 		"margin"		=> "0",
 		"border-left"		=> "1px solid ".output_rgba($font_color, 0.4),
@@ -1025,9 +1023,10 @@ $style_array = [
 		[
 		"content"		=> ".",
 		"display"		=> "block",
+		"float"			=> "none",
 		"margin"		=> "0 auto",
 		"text-align"		=> "center",
-		"padding-left"		=> "48%",
+		"padding"		=> "0",
 		"width"			=> "100%",
 		"clear"			=> "both",
 		"font-size"		=> "80%",
