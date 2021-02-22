@@ -18,7 +18,7 @@ foreach ($entry_info['body'] as $key_temp => $value_temp):
 	if (empty(trim($value_temp))): unset($entry_info['body'][$key_temp]); endif;
 	endforeach;
 
-function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp, $list_item="yes") {
+function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp, $list_item=null) {
 	
 	global $information_array;
 	global $site_info;
