@@ -1034,10 +1034,10 @@ $style_array = [
 	"css_contents" =>
 		[
 		"display"		=> "block",
-		"text-align"		=> "center",
+		"text-align"		=> "left",
 		"font-size"		=> "70%",
 //		"margin"		=> "0 10px 0 0",
-		"padding"		=> "4px 5px 4px",
+		"padding"		=> "10px 5px 10px",
 		"margin"		=> "0 0 6px 0",
 //		"background"		=> output_rgba($background_color, 1),
 		"border-bottom"		=> "1px dotted ".output_rgba($font_color, 0.4),
