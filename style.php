@@ -1018,7 +1018,7 @@ $style_array = [
 	"css_tags" => "ol li::marker",
 	"css_contents" =>
 		[
-		"display"		=> "block",
+		"display"		=> "table",
 		"margin"		=> "0 auto",
 		"text-align"		=> "center",
 		"width"			=> "100%",
