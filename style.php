@@ -954,24 +954,6 @@ $style_array = [
 		[
 		"border-top"		=> "1px dotted ".output_rgba($font_color, 0.2),
 		], ],
-	
-	[
-	"css_tags" => "li::marker",
-	"css_contents" =>
-		[
-		"display"		=> "block",
-		"margin"		=> "0 auto",
-		"text-align"		=> "center",
-		"font-size"		=> "80%",
-		"opacity"		=> "0.75",
-		], ],
-	
-	[
-	"css_tags" => "li::marker:before",
-	"css_contents" =>
-		[
-		"content"		=> ".",
-		], ],
 
 	[
 	"css_tags" => 
@@ -1024,6 +1006,25 @@ $style_array = [
 	"css_contents" =>
 		[
 		"list-style-type"	=> "lower-alpha",
+		], ],
+	
+		
+	[
+	"css_tags" => "li::marker",
+	"css_contents" =>
+		[
+		"display"		=> "block",
+		"margin"		=> "0 auto",
+		"text-align"		=> "center",
+		"font-size"		=> "80%",
+		"opacity"		=> "0.75",
+		], ],
+	
+	[
+	"css_tags" => "li::marker:before",
+	"css_contents" =>
+		[
+		"content"		=> ".",
 		], ],
 
 	[
