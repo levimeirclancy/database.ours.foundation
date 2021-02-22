@@ -57,7 +57,7 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 		foreach ($array_output_temp as $entry_id_temp => $entry_header_temp):
 			if ($entry_id_temp == $entry_id): continue; endif; // do not show itself as its own parent etc
 			if ($information_array[$entry_id_temp]['type'] !== $header_backend): continue; endif;
-			$echo_section_temp .= "<li><a href='/".$entry_id_temp."/'><span class='sidebar-navigation-item-title'>".$entry_header_temp."</span></a></li>";
+			$echo_section_temp .= "<li><a href='/".$entry_id_temp."/'><p>".$entry_header_temp."</p></a></li>";
 			$count_temp++;
 			if (!(isset($counter_section[$header_backend]))): $counter_section[$header_backend] = 0; endif;
 			$counter_section[$header_backend]++;
@@ -68,10 +68,10 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 		elseif ($count_temp == 1): $results_temp = null;
 		else: continue; endif;
 	
-		$echo_section[] =	"<li><i><span class='sidebar-navigation-item-title'>".
+		$echo_section[] =	"<li><i><p>".
 					$descriptor_temp.
 					" / <a href='/".$header_backend."/'>".$header_frontend."</a>".
-					" ".$results_temp."</span></i></li>".
+					" ".$results_temp."</p></i></li>".
 					$echo_section_temp;
 
 		endforeach;
