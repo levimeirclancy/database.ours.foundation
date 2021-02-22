@@ -932,6 +932,9 @@ $style_array = [
 //		"border-left"		=> "1px solid ".output_rgba($font_color, 0.2),
 		"box-sizing"		=> "border-box",
 		"counter-reset"		=> "list-counter",
+		"border-width"		=> "0 0 1px 0",
+		"border-style"		=> "solid",
+		"border-color"		=> output_rgba($font_color, 0.6),		
 		], ],
 		
 
@@ -944,6 +947,7 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
+		"border-width"		=> "0",
 		"display"		=> "block",
 		"width"			=> "auto",
 		"max-width"		=> "none",
@@ -998,7 +1002,7 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-//		"border-top"		=> "none",
+		"border"		=> "0",
 //		"margin-top"		=> "0",
 //		"padding-top"		=> "2px",
 		], ],
