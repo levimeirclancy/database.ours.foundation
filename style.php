@@ -972,17 +972,17 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-		"border-top"		=> "none",
-		"margin-top"		=> "0",
-		"padding-top"		=> "2px",
+//		"border-top"		=> "none",
+//		"margin-top"		=> "0",
+//		"padding-top"		=> "2px",
 		], ],
 
 	[
 	"css_tags" => "li:last-child",
 	"css_contents" =>
 		[
-		"border-bottom"		=> "2px solid ".output_rgba($font_color, 0.3),
-		"border-radius"		=> "0 0 0 8px",
+		"border-bottom"		=> "1px solid ".output_rgba($font_color, 0.3),
+		"border-radius"		=> "0 0 8px 8px",
 		], ],
 
 	[
