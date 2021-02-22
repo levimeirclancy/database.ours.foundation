@@ -942,12 +942,11 @@ $style_array = [
 	"css_tags" => "li",
 	"css_contents" =>
 		[
-		"padding"		=> "9px 5px 5px 6px",
-		"margin"		=> "-4px 0 0 0",
+		"padding"		=> "5px 5px 5px 6px",
+		"margin"		=> "0",
 		"border-left"		=> "1px solid ".output_rgba($font_color, 0.2),
 		"border-bottom"		=> "1px dotted ".output_rgba($font_color, 0.2),
 		"position"		=> "relative",
-		"border-radius"		=> "0 0 0 8px",
 		], ],
 	
 	[
@@ -974,7 +973,7 @@ $style_array = [
 		[
 		"border-top"		=> "none",
 		"margin-top"		=> "0",
-		"padding-top"		=> "5px",
+		"padding-top"		=> "2px",
 		], ],
 
 	[
@@ -982,6 +981,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"border-bottom"		=> "2px solid ".output_rgba($font_color, 0.3),
+		"border-radius"		=> "0 0 0 8px",
 		], ],
 
 	[
