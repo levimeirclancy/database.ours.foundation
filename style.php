@@ -558,7 +558,7 @@ $style_array = [
 		"border-collapse"	=> "collapse",
 		"overflow"		=> "auto",
 		"border"		=> "0",
-		"border-radius"		=> "7px",
+//		"border-radius"		=> "7px",
 		], ],
 	
 	[
@@ -946,6 +946,7 @@ $style_array = [
 		"margin"		=> "0",
 		"border-bottom"		=> "1px dotted ".output_rgba($font_color, 0.2),
 		"position"		=> "relative",
+		"border-radius"		=> "0 0 0 7px",
 		], ],
 	
 	[
