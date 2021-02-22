@@ -962,7 +962,6 @@ $style_array = [
 	"css_tags" => "li",
 	"css_contents" =>
 		[
-		"padding"		=> "6px 8px",
 		"margin"		=> "0",
 		"border-width"		=> "0 1px 1px 1px",
 		"border-style"		=> "solid",
@@ -1020,7 +1019,14 @@ $style_array = [
 	"css_tags" => "ol li",
 	"css_contents" =>
 		[
-		"padding-left"		=> "40px",
+		"padding"		=> "6px 8px 6px 40px",
+		], ],
+	
+		[
+	"css_tags" => "ul li",
+	"css_contents" =>
+		[
+		"padding"		=> "6px 8px",
 		], ],
 	
 	[
@@ -1036,7 +1042,7 @@ $style_array = [
 //		"height"		=> "100%",
 		"font-size"		=> "70%",
 		"margin"		=> "0 10px 0 0",
-		"padding"		=> "10px 20px 10px 10px",
+		"padding"		=> "10px 13px 10px 10px",
 //		"background"		=> output_rgba($background_color, 1),
 		"border-right"		=> "1px solid ".output_rgba($font_color, 1),
 		"color"			=> output_rgba($font_color, 1),
