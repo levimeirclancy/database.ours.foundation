@@ -948,9 +948,9 @@ $style_array = [
 		[
 		"padding"		=> "6px 6px 6px 8px",
 		"margin"		=> "0",
-		"border-left"		=> "1px solid ".output_rgba($font_color, 0.6),
-		"border-right"		=> "1px solid ".output_rgba($font_color, 0.6),
-		"border-bottom"		=> "1px solid ".output_rgba($font_color, 0.6),
+		"border-width"		=> "0 1px 1px 1px"
+		"border-style"		=> "solid"
+		"border-color"		=> output_rgba($font_color, 0.6),
 		"position"		=> "relative",
 		"counter-increment"	=> "list-counter",
 		], ],
@@ -959,7 +959,7 @@ $style_array = [
 	"css_tags" => "li:first-child",
 	"css_contents" =>
 		[
-		"border-top"		=> "1px solid ".output_rgba($font_color, 0.6),
+		"border-width"		=> "1px 1px 1px 1px",
 		"border-top-left-radius"	=> "8px",
 		"border-top-right-radius"	=> "8px",
 		], ],
@@ -968,7 +968,7 @@ $style_array = [
 	"css_tags" => "li:last-child",
 	"css_contents" =>
 		[
-		"border-bottom"		=> "1px solid ".output_rgba($font_color, 0.6),
+//		"border-bottom"		=> "1px solid ".output_rgba($font_color, 0.6),
 		"border-bottom-left-radius"	=> "8px",
 		"border-bottom-right-radius"	=> "8px",
 		], ],
