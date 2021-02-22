@@ -540,6 +540,14 @@ $style_array = [
 		], ],
 	
 	[
+	"css_tags" => "summary p:first-child",
+	"css_contents" =>
+		[
+		"margin-top"		=> "0",
+		"padding-top"		=> "0",
+		], ],
+
+	[
 	"css_tags" => "table",
 	"css_contents" =>
 		[
