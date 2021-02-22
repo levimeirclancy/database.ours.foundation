@@ -1015,13 +1015,14 @@ $style_array = [
 	
 		
 	[
-	"css_tags" => "ol li::marker",
+	"css_tags" => "li::marker",
 	"css_contents" =>
 		[
-		"display"		=> "table",
+		"display"		=> "block",
 		"margin"		=> "0 auto",
 		"text-align"		=> "center",
 		"width"			=> "100%",
+		"clear"			=> "both",
 		"font-size"		=> "80%",
 		"opacity"		=> "0.75",
 		], ],
