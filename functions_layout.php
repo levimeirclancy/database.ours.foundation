@@ -184,7 +184,7 @@ function amp_header($title=null, $canonical=null) {
 
 		echo "<div class='sidebar-back' on='tap:".$navigation_lightboxes."' role='button' tabindex='0'>Close</div>";
 	
-		echo "<ul class='unnested-list'>";
+		echo "<ul>";
 	
 		echo "<li><a href='/' ".$target_temp."><p>".$publisher."</p></a></li>";
 		
@@ -205,13 +205,13 @@ function amp_header($title=null, $canonical=null) {
 		echo "<input type='text' id='search-input' required pattern=\".{1,}\" placeholder='...' on=\"input-throttled:AMP.setState({pageState:{searchTerm: event.value}}),sidebar-navigation-lightbox-search-list.changeToLayoutContainer()\">";
 		echo "<div id='search-submit' role='button' tabindex='0' on='tap:sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search-list.changeToLayoutContainer()'>Search</div>";
 	
-		echo "<amp-list class='unnested-list' id='sidebar-navigation-lightbox-search-list' credentials='include' layout='responsive' width='800' height='300' max-items='100' binding='refresh' reset-on-refresh='always' items='searchResults' [src]=\"'/api/search/?search=' + pageState.searchTerm\">";
+		echo "<amp-list id='sidebar-navigation-lightbox-search-list' credentials='include' layout='responsive' width='800' height='300' max-items='100' binding='refresh' reset-on-refresh='always' items='searchResults' [src]=\"'/api/search/?search=' + pageState.searchTerm\">";
 
 		echo "<li fallback><p>No search results.</p></li>";
 		echo "<li placeholder><p>Loading search results...</p></li>";
 
 		echo "<template type='amp-mustache'>";
-			echo "<li><a href='/{{entry_id}}/' ".$target_temp.">{{header}}</a></li>";
+			echo "<li><a href='/{{entry_id}}/' ".$target_temp."><p>{{header}}</p></a></li>";
 			echo "</template>";
 	
 		echo "</amp-list>";
