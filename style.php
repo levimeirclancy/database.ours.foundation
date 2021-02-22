@@ -947,7 +947,7 @@ $style_array = [
 		"display"		=> "block",
 		"width"			=> "auto",
 		"max-width"		=> "none",
-		"margin"		=> "4px 2px 3px 8px",
+		"margin"		=> "4px 0 3px 8px",
 		"padding"		=> "0",
 		], ],
 
@@ -967,9 +967,9 @@ $style_array = [
 	"css_tags" => "li:first-child",
 	"css_contents" =>
 		[
-		"border-width"		=> "1px 1px 1px 1px",
-		"border-top-left-radius"	=> "8px",
-		"border-top-right-radius"	=> "8px",
+		"border-width"		=> "1px 0 1px 0",
+//		"border-top-left-radius"	=> "8px",
+//		"border-top-right-radius"	=> "8px",
 		], ],
 	
 	[
@@ -1012,14 +1012,14 @@ $style_array = [
 	"css_tags" => "ol > li",
 	"css_contents" =>
 		[
-		"padding"		=> "0 8px 6px",
+		"padding"		=> "0 0 6px 10px",
 		], ],
 	
 		[
 	"css_tags" => "ul > li",
 	"css_contents" =>
 		[
-		"padding"		=> "6px 8px",
+		"padding"		=> "6px 0 6px 10px",
 		], ],
 	
 	[
