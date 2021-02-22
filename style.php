@@ -942,11 +942,11 @@ $style_array = [
 	"css_tags" => "li",
 	"css_contents" =>
 		[
-		"padding"		=> "5px 5px 5px 6px",
+		"padding"		=> "6px",
 		"margin"		=> "0",
-		"border-left"		=> "1px solid ".output_rgba($font_color, 0.2),
-		"border-right"		=> "1px solid ".output_rgba($font_color, 0.2),
-		"border-bottom"		=> "1px dotted ".output_rgba($font_color, 0.2),
+		"border-left"		=> "1px solid ".output_rgba($font_color, 0.4),
+		"border-right"		=> "1px solid ".output_rgba($font_color, 0.4),
+		"border-bottom"		=> "1px dotted ".output_rgba($font_color, 0.4),
 		"position"		=> "relative",
 		], ],
 	
@@ -954,7 +954,7 @@ $style_array = [
 	"css_tags" => "li:first-child",
 	"css_contents" =>
 		[
-		"border-top"		=> "1px dotted ".output_rgba($font_color, 0.2),
+		"border-top"		=> "1px dotted ".output_rgba($font_color, 0.4),
 		], ],
 
 	[
