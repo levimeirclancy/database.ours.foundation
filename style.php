@@ -951,7 +951,7 @@ $style_array = [
 		"display"		=> "block",
 		"width"			=> "auto",
 		"max-width"		=> "none",
-		"margin"		=> "0 0 3px 20px",
+		"margin"		=> "0 0 0 20px",
 		"padding"		=> "0",
 		], ],
 
@@ -1101,7 +1101,7 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-		"margin-top"		=> "6px",
+		"margin-top"		=> "0",
 		"font-size"		=> "1em",
 		], ],
 
@@ -1112,7 +1112,7 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-		"padding"		=> "10px 0",
+//		"padding"		=> "10px 0",
 		"text-overflow"		=> "ellipsis",
 		"white-space"		=> "nowrap",
 		"overflow"		=> "hidden",
