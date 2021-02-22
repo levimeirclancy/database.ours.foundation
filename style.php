@@ -1021,6 +1021,8 @@ $style_array = [
 	"css_tags" => "li::marker",
 	"css_contents" =>
 		[
+		"display"		=> "flex",
+		"align-items"		=> "center",
 		"content"		=> ".",
 		"display"		=> "block",
 		"margin"		=> "0 auto",
