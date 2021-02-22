@@ -908,11 +908,19 @@ $style_array = [
 		"max-width"		=> "850px",
 		"margin"		=> "20px",
 		"padding"		=> "0",
-		"list-style-position"	=> "outside",
+		"list-style-position"	=> "inside",
 		"line-height"		=> "1.4",
 		"border-left"		=> "1px solid ".output_rgba($font_color, 0.2),
 		"box-sizing"		=> "border-box",
 		], ],
+	
+		[
+	"css_tags" => "li:marker",
+	"css_contents" =>
+		[
+		"display"		=> "inline",
+		], ],
+	
 
 	[
 	"css_tags" => 
