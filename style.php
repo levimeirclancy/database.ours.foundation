@@ -962,7 +962,7 @@ $style_array = [
 	"css_tags" => "li",
 	"css_contents" =>
 		[
-		"padding"		=> "6px 6px 6px 8px",
+		"padding"		=> "6px 8px",
 		"margin"		=> "0",
 		"border-width"		=> "0 1px 1px 1px",
 		"border-style"		=> "solid",
