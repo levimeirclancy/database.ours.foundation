@@ -18,6 +18,8 @@ function hierarchize_entry($entry_id, $indent_array=[]) {
 		
 		// We are going to check all the parents
 		foreach ($entry_info['parents'] as $entry_id_temp):
+	
+			if (in_array($entry_id_temp, $indent_array)): continue; endif;
 		
 			// If it has one parent that is the same type, skip now and get to it as a child then
 			if ($information_array[$entry_id_temp]['type'] !== $page_temp): return; endif;
@@ -39,6 +41,8 @@ function hierarchize_entry($entry_id, $indent_array=[]) {
 		foreach ($information_array as $entry_id_temp => $entry_info_temp):
 	
 			if ($entry_id == $entry_id_temp): continue; endif;
+	
+			if (in_array($entry_id_temp, $indent_array)): continue; endif;
 	
 			if (!(in_array($entry_id_temp, $entry_info['children']))): continue; endif;
 	
