@@ -326,19 +326,16 @@ function body_process($body_incoming) {
 	$body_incoming = str_replace("<td colspan='3'>***", "<td colspan='4'>", $body_incoming);
 
 	// Add delimiter
-	$body_incoming = str_replace("<th>", "<th>".$delimiter, $body_incoming);
-	$body_incoming = str_replace("<th colspan='2'>", "<th colspan='2'>".$delimiter, $body_incoming);
-	$body_incoming = str_replace("<th colspan='3'>", "<th colspan='3'>".$delimiter, $body_incoming);
-	$body_incoming = str_replace("<th colspan='4'>", "<th colspan='4'>".$delimiter, $body_incoming);
-	$body_incoming = str_replace("<td>", "<td>".$delimiter, $body_incoming);
-	$body_incoming = str_replace("<td colspan='2'>", "<td colspan='2'>".$delimiter, $body_incoming);
-	$body_incoming = str_replace("<td colspan='3'>", "<td colspan='3'>".$delimiter, $body_incoming);
-	$body_incoming = str_replace("<td colspan='4'>", "<td colspan='4'>".$delimiter, $body_incoming);
-
-	$body_incoming = str_replace("<dt>", "<dt>".$delimiter, $body_incoming);
-	$body_incoming = str_replace("<dd>", "<dd>".$delimiter, $body_incoming);
-	$body_incoming = str_replace("</dt>", $delimiter."</dt>", $body_incoming);
-	$body_incoming = str_replace("</dd>", $delimiter."</dd>", $body_incoming);
+	$paragraphize_array = [
+		"th", "td",
+		"ul", "ol", "li",
+		"summary", "details",
+		"dt", "dd",
+		];
+	foreach ($paragraphize_array as $tag_temp):
+		$body_incoming = preg_replace('/<'.$tag_temp.'(.*?)>/', $delimiter.'<'.$tag_temp.'$1>'.$delimiter, $body_incoming);	
+		$body_incoming = preg_replace('</'.$tag_temp.'>', $delimiter.'</'.$tag_temp.'>'.$delimiter, $body_incoming);	
+		endforeach;
 
 	
 	$image_lightbox_array = [];
@@ -579,23 +576,6 @@ function body_process($body_incoming) {
 		"<summary", "summary>", "<details", "details>",
 		"<amp-img", "amp-img>",
 		"<amp-fit-text", "amp-fit-text>", "<amp-accordion", "amp-accordion>" ];
-	
-	$paragraphize_array = [
-		'/<li(.*?)>/'	=> '<li$1>',
-		'/<ul(.*?)>/'	=> '<ul$1>',
-		'/<ol(.*?)>/'	=> '<ol$1>',
-		'</li>'		=> '</li>',
-		'</ul>'		=> '</ul>',
-		'</ol>'		=> '</ol>',
-		'<summary>'	=> '<summary>',
-		'</summary>'	=> '</summary>',
-		'<details>'	=> '<details>',
-		'</details>'	=> '</details>',
-		];
-	
-	foreach ($paragraphize_array as $key_temp => $value_temp):
-		$body_incoming = preg_replace($key_temp, $delimiter.$value_temp.$delimiter, $body_incoming);	
-		endforeach;
 	
 	$body_temp = explode($delimiter, $body_incoming);
 	$body_incoming = $body_final = null;
