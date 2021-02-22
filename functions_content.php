@@ -333,8 +333,8 @@ function body_process($body_incoming) {
 		"dt", "dd",
 		];
 	foreach ($paragraphize_array as $tag_temp):
-		$body_incoming = preg_replace('/<'.$tag_temp.'(.*?)>/', $delimiter.'<'.$tag_temp.'$1>'.$delimiter, $body_incoming);	
-		$body_incoming = preg_replace('</'.$tag_temp.'>', $delimiter.'</'.$tag_temp.'>'.$delimiter, $body_incoming);	
+//		$body_incoming = preg_replace('/<'.$tag_temp.'(.*?)>/', $delimiter.'<'.$tag_temp.'$1>'.$delimiter, $body_incoming);	
+//		$body_incoming = preg_replace('</'.$tag_temp.'>', $delimiter.'</'.$tag_temp.'>'.$delimiter, $body_incoming);	
 		endforeach;
 
 	
