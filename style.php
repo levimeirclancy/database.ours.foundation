@@ -934,7 +934,7 @@ $style_array = [
 		[
 		"width"			=> "auto",
 		"max-width"		=> "none",
-		"margin"		=> "3px 5px 3px 1px",
+		"margin"		=> "4px 5px 3px 0",
 		"padding"		=> "0",
 		], ],
 
