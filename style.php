@@ -1005,7 +1005,8 @@ $style_array = [
 		[
 		"display"		=> "table",
 		"font-size"		=> "70%",
-		"margin"		=> "0 auto 6px",
+//		"margin"		=> "0 auto 6px",
+		"margin"		=> "0 0 6px",
 		"padding"		=> "2px 20px",
 		"background"		=> output_rgba($background_color, 1),
 		"border"		=> "1px solid ".output_rgba($font_color, 1),
