@@ -18,7 +18,7 @@ foreach ($entry_info['body'] as $key_temp => $value_temp):
 	if (empty(trim($value_temp))): unset($entry_info['body'][$key_temp]); endif;
 	endforeach;
 
-function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
+function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp, $list_item="yes") {
 	
 	global $information_array;
 	global $site_info;
@@ -87,9 +87,7 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp) {
 //					$descriptor_temp . $results_temp . "</span></b>".
 //					$echo_section . "</li>";
 
-	$echo_section_final = 		"<li>".
-					$echo_section . "</li>";
-
+	if ($list_item == "yes"): $echo_section_final = "<li>". $echo_section . "</li>"; endif;
 	
 	echo $echo_section_final; }
 
@@ -171,10 +169,10 @@ echo "<amp-sidebar id='sidebar-entry-info' layout='nodisplay' side='right'>";
 //			endif;
 //		echo "</ul></li>";
 
-	relationships_array($page_temp, "grandparents", "Parents of parent pages");
-	relationships_array($page_temp, "parents", "Parent pages");
-	relationships_array($page_temp, "children", "Subpages");
-	relationships_array($page_temp, "mentions", "Mentions");
+	relationships_array($page_temp, "grandparents", "Parents of parent pages", "yes");
+	relationships_array($page_temp, "parents", "Parent pages", "yes");
+	relationships_array($page_temp, "children", "Subpages", "yes");
+	relationships_array($page_temp, "mentions", "Mentions", "yes");
 
 	echo "</ul>";
 	echo "</amp-sidebar>";
