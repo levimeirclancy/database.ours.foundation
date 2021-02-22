@@ -1033,6 +1033,7 @@ $style_array = [
 	"css_tags" => "ol li::before",
 	"css_contents" =>
 		[
+		"font-weight"		=> "700",
 		"display"		=> "block",
 		"text-align"		=> "left",
 		"font-size"		=> "70%",
