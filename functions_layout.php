@@ -186,7 +186,7 @@ function amp_header($title=null, $canonical=null) {
 	
 		echo "<ul>";
 	
-		echo "<li><a href='/' ".$target_temp."><p>".$publisher."</p></a></li>";
+		echo "<li><a href='/' ".$target_temp.">".$publisher."</a></li>";
 		
 		foreach ($site_info['category_array'] as $header_backend => $header_frontend):
 			echo "<li><a href='/".$header_backend."/' ".$target_temp.">". ucfirst($header_frontend) ."</a></li>";
@@ -208,11 +208,11 @@ function amp_header($title=null, $canonical=null) {
 	
 		echo "<amp-list id='sidebar-navigation-lightbox-search-list' credentials='include' layout='responsive' width='800' height='300' max-items='100' binding='refresh' reset-on-refresh='always' items='searchResults' [src]=\"'/api/search/?search=' + pageState.searchTerm\">";
 
-		echo "<li placeholder><p>Loading search results...</p></li>";
-		echo "<li fallback><p>No search results.</p></li>";
+		echo "<li placeholder>Loading search results...</li>";
+		echo "<li fallback>No search results.</li>";
 
 		echo "<template type='amp-mustache'>";
-			echo "<li><a href='/{{entry_id}}/' ".$target_temp."><p>{{header}}</p></a></li>";
+			echo "<li><a href='/{{entry_id}}/' ".$target_temp.">{{header}}</a></li>";
 			echo "</template>";
 	
 		echo "</amp-list>";
