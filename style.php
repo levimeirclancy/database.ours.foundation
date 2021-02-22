@@ -1078,7 +1078,7 @@ $style_array = [
 		], ],
 
 	[
-	"css_tags" => "amp-sidebar ul, amp-sidebar ol, amp-sidebar amp-list",
+	"css_tags" => ".navigation-list",
 	"css_contents" =>
 		[
 		"font-family"		=> "Arial, Helvetica, 'Sans Serif'",
@@ -1089,26 +1089,20 @@ $style_array = [
 	[
 	"css_tags" => 
 		[
-		"amp-sidebar ul ul",
-		"amp-sidebar ol ul",
-		"amp-sidebar amp-list ul",
-		"amp-sidebar ul ol",
-		"amp-sidebar ol ol",
-		"amp-sidebar amp-list ol",
-		"amp-sidebar ul amp-list",
-		"amp-sidebar ol amp-list",
-		"amp-sidebar amp-list amp-list",
+		".navigation-list ul",
+		".navigation-list ol",
+		".navigation-list amp-list",
 		],
 	"css_contents" =>
 		[
+		"margin-top"		=> "5px",
 		"font-size"		=> "1em",
 		], ],
 
 	[
 	"css_tags" => 
 		[
-		"amp-sidebar li",
-		".entries-list li",
+		".navigation-list li",
 		],
 	"css_contents" =>
 		[
