@@ -948,8 +948,8 @@ $style_array = [
 		[
 		"padding"		=> "6px 6px 6px 8px",
 		"margin"		=> "0",
-		"border-width"		=> "0 1px 1px 1px"
-		"border-style"		=> "solid"
+		"border-width"		=> "0 1px 1px 1px",
+		"border-style"		=> "solid",
 		"border-color"		=> output_rgba($font_color, 0.6),
 		"position"		=> "relative",
 		"counter-increment"	=> "list-counter",
