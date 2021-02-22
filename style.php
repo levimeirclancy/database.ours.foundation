@@ -947,7 +947,7 @@ $style_array = [
 		"border-top"		=> "1px dotted ".output_rgba($font_color, 0.2),
 		], ],
 	
-		[
+	[
 	"css_tags" => "li:marker",
 	"css_contents" =>
 		[
@@ -957,8 +957,8 @@ $style_array = [
 		"opacity"		=> "0.75",
 		], ],
 	
-		[
-	"css_tags" => "li:marker:before,
+	[
+	"css_tags" => "li:marker:before",
 	"css_contents" =>
 		[
 		"content"		=> ".",
