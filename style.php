@@ -1021,7 +1021,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"display"		=> "block",
-		"position"		=> "absolute",
+//		"position"		=> "absolute",
 		"top"			=> "0",
 		"bottom"		=> "0",
 		"left"			=> "0",
@@ -1030,7 +1030,7 @@ $style_array = [
 		"font-size"		=> "70%",
 		"margin"		=> "0 10px 0 0",
 		"padding"		=> "10px",
-		"background"		=> output_rgba($background_color, 1),
+//		"background"		=> output_rgba($background_color, 1),
 		"border-right"		=> "1px solid ".output_rgba($font_color, 1),
 		"color"			=> output_rgba($font_color, 1),
 		"opacity"		=> "0.6",
