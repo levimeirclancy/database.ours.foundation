@@ -177,7 +177,7 @@ $style_array = [
 		], ],
 	
 	[
-	"css_tags" => "#sidebar-entry-info",
+	"css_tags" => "#sidebar-navigation, #sidebar-entry-info",
 	"css_contents" =>
 		[
 		"width"			=> "auto",
