@@ -1022,7 +1022,7 @@ $style_array = [
 		], ],
 	
 	[
-	"css_tags" => "li::marker:before",
+	"css_tags" => "li::marker::before",
 	"css_contents" =>
 		[
 		"content"		=> ".",
