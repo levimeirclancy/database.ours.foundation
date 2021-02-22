@@ -942,7 +942,8 @@ $style_array = [
 	"css_tags" => "li",
 	"css_contents" =>
 		[
-		"display"		=> "block",
+		"display"		=> "flex",
+		"align-items"		=> "center",
 		"padding"		=> "6px 6px 6px 8px",
 		"margin"		=> "0",
 		"border-left"		=> "1px solid ".output_rgba($font_color, 0.4),
@@ -1022,8 +1023,6 @@ $style_array = [
 	"css_tags" => "li::marker",
 	"css_contents" =>
 		[
-		"display"		=> "flex",
-		"align-items"		=> "center",
 		"content"		=> ".",
 		"display"		=> "block",
 		"margin"		=> "0 auto",
