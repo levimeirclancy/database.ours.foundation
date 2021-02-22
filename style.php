@@ -935,6 +935,7 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
+		"display"		=> "block",
 		"width"			=> "auto",
 		"max-width"		=> "none",
 		"margin"		=> "4px 2px 3px 0",
