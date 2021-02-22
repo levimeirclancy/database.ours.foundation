@@ -918,7 +918,7 @@ $style_array = [
 		"padding"		=> "0",
 		"list-style-position"	=> "inside",
 		"line-height"		=> "1.4",
-		"border-left"		=> "1px solid ".output_rgba($font_color, 0.2),
+//		"border-left"		=> "1px solid ".output_rgba($font_color, 0.2),
 		"box-sizing"		=> "border-box",
 		], ],
 		
@@ -944,6 +944,7 @@ $style_array = [
 		[
 		"padding"		=> "5px 5px 5px 6px",
 		"margin"		=> "0",
+		"border-left"		=> "1px solid ".output_rgba($font_color, 0.2),
 		"border-bottom"		=> "1px dotted ".output_rgba($font_color, 0.2),
 		"position"		=> "relative",
 		"border-radius"		=> "0 0 0 7px",
