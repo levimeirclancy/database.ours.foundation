@@ -1023,7 +1023,7 @@ $style_array = [
 //		], ],
 	
 		[
-	"css_tags" => "ul > li",
+	"css_tags" => "li",
 	"css_contents" =>
 		[
 		"padding"		=> "6px 8px",
@@ -1033,8 +1033,8 @@ $style_array = [
 	"css_tags" => "ol li::before",
 	"css_contents" =>
 		[
-		"display"		=> "inline",
-		"float"			=> "left",
+		"display"		=> "block",
+		"text-align"		=> "center",
 		"font-size"		=> "70%",
 //		"margin"		=> "0 10px 0 0",
 		"padding"		=> "10px",
