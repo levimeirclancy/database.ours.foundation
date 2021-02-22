@@ -1106,9 +1106,8 @@ $style_array = [
 	[
 	"css_tags" => 
 		[
-		"amp-sidebar ul li",
-		"amp-sidebar ol li",
-		"amp-sidebar amp-list li",
+		"amp-sidebar li",
+		".entries-list li",
 		],
 	"css_contents" =>
 		[
