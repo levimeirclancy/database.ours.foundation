@@ -942,12 +942,12 @@ $style_array = [
 	"css_tags" => "li",
 	"css_contents" =>
 		[
-		"padding"		=> "10px 5px 5px 6px",
-		"margin"		=> "-5px 0 0 0",
+		"padding"		=> "9px 5px 5px 6px",
+		"margin"		=> "-4px 0 0 0",
 		"border-left"		=> "1px solid ".output_rgba($font_color, 0.2),
 		"border-bottom"		=> "1px dotted ".output_rgba($font_color, 0.2),
 		"position"		=> "relative",
-		"border-radius"		=> "0 0 0 7px",
+		"border-radius"		=> "0 0 0 8px",
 		], ],
 	
 	[
