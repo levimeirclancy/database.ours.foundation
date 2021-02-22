@@ -8,10 +8,10 @@ function hierarchize_entry($entry_id, $indent_array=[]) {
 	
 	$echo_temp = null;
 	
-	if (!(isset($information_array[$entry_id]))): return; endif;
+	if (!(isset($information_array[$entry_id]))): return $echo_temp; endif;
 	$entry_info = $information_array[$entry_id];
 	
-	if ($entry_info['type'] !== $page_temp): return; endif;
+	if ($entry_info['type'] !== $page_temp): return $echo_temp; endif;
 	
 	// If we're doing the first round but it already has parents
 	if (!(empty($entry_info['parents']))):
