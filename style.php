@@ -1127,6 +1127,13 @@ $style_array = [
 		[
 		"display"		=> "inline-block",
 		], ],
+	
+	[
+	"css_tags" => ".no-border",
+	"css_contents" =>
+		[
+		"border-color"		=> "rgba(255,255,255,0)",
+		], ],	
 
 	];
 
