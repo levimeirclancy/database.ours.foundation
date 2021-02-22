@@ -83,7 +83,7 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp, $list
 	elseif (array_sum($counter_section) == 1): $results_temp = null;
 	else: $echo_section = null; endif;
 
-	$echo_section_final = 		"<b><span class='sidebar-navigation-item-title'>".
+	$echo_section = 		"<b><span class='sidebar-navigation-item-title'>".
 					$descriptor_temp . $results_temp . "</span></b>".
 					$echo_section;
 
