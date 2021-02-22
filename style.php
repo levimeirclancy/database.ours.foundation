@@ -1016,6 +1016,7 @@ $style_array = [
 		"display"		=> "block",
 		"margin"		=> "0 auto",
 		"text-align"		=> "center",
+		"width"			=> "100%",
 		"font-size"		=> "80%",
 		"opacity"		=> "0.75",
 		], ],
