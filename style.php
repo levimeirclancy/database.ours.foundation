@@ -1003,11 +1003,13 @@ $style_array = [
 	"css_contents" =>
 		[
 		"display"		=> "table",
-		"font-size"		=> "80%",
+		"font-size"		=> "70%",
 		"margin"		=> "5px auto",
-		"padding"		=> "5px 20px",
-		"background"		=> output_rgba($font_color, 0.8),
-		"color"			=> output_rgba($background_color, 1),
+		"padding"		=> "3px 20px",
+		"background"		=> output_rgba($background_color, 1),
+		"border"		=> "1px solid ".output_rgba($font_color, 1),
+		"border-radius"		=> "100px",
+		"color"			=> output_rgba($font_color, 1),
 		"content"		=> "counter(list-counter, decimal)",
 		], ],
 	
