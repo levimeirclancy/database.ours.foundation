@@ -1018,6 +1018,7 @@ $style_array = [
 	"css_tags" => "li::marker",
 	"css_contents" =>
 		[
+		"content"		=> ".",
 		"display"		=> "block",
 		"margin"		=> "0 auto",
 		"text-align"		=> "center",
