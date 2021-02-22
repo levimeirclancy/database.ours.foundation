@@ -1002,10 +1002,10 @@ $style_array = [
 	"css_tags" => "ol li::before",
 	"css_contents" =>
 		[
-		"display"		=> "inline-block",
+		"display"		=> "table",
 		"font-size"		=> "80%",
 		"margin"		=> "5px auto",
-		"padding"		=> "5px 10px",
+		"padding"		=> "5px 20px",
 		"background"		=> output_rgba($font_color, 0.8),
 		"color"			=> output_rgba($background_color, 1),
 		"content"		=> "counter(list-counter, decimal)",
