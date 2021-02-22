@@ -576,6 +576,7 @@ function body_process($body_incoming) {
 		"<h1", "h1>", "<h2", "h2>", "<h3", "h3>", "<h4", "h4>", "<h5", "h5>", "<h6", "h6>", "<hr", 
 		"<ul", "ul>", "<ol", "ol>", "<li", "li>", "<section", "section>", 
 		"<dt", "dt>", "<dd", "dd>",
+		"<summary", "summary>", "<details", "details>",
 		"<amp-img", "amp-img>",
 		"<amp-fit-text", "amp-fit-text>", "<amp-accordion", "amp-accordion>" ];
 	
@@ -586,10 +587,10 @@ function body_process($body_incoming) {
 		'</li>'		=> '</li>',
 		'</ul>'		=> '</ul>',
 		'</ol>'		=> '</ol>',
-		'<details>'	=> '<details>',
-		'</details>'	=> '</details>',
 		'<summary>'	=> '<summary>',
 		'</summary>'	=> '</summary>',
+		'<details>'	=> '<details>',
+		'</details>'	=> '</details>',
 		];
 	
 	foreach ($paragraphize_array as $key_temp => $value_temp):
