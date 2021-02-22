@@ -88,7 +88,7 @@ echo "<ul id='entries-list-hierarchical'>";
 		$echo_temp .= "";
 		while ($count_temp < $entry_info['indent_count']):
 //			$echo_temp .= "<span class='categories-item-indent'></span>";
-//			$count_temp++;
+			$count_temp++;
 			$indent_ever++;
 			endwhile;
 		$echo_temp .= "<li><a href='/".$entry_info['entry_id']."/'><p>" . $information_array[$entry_info['entry_id']]['header'] . "</p></a></li>";
