@@ -142,7 +142,7 @@ $style_array = [
 		"display"		=> "block",
 		"cursor"		=> "pointer",
 		"text-align"		=> "right",
-		"padding"		=> "3px 15px",
+		"padding"		=> "3px 20px",
 		"margin"		=> "10px 0 20px 0",
 		], ],
 	
@@ -680,7 +680,7 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-		"display"		=> "block",
+		"display"		=> "table",
 		"margin"		=> "5px 20px",
 		"padding"		=> "8px",
 		"width"			=> "95%",
