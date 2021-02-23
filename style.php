@@ -89,8 +89,8 @@ $style_array = [
 		[
 		"font-size"		=> "85%",
 		"line-height"		=> "1em",
-		"margin"		=> "5px 10px",
-		"padding"		=> "8px 10px",
+		"margin"		=> "5px 0",
+		"padding"		=> "8px 0",
 		"border-radius"		=> "100px",
 //		"background"		=> output_rgba($background_color, 1),
 		"display"		=> "inline-block",
