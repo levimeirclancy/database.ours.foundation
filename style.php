@@ -905,6 +905,7 @@ $style_array = [
 		[
 		"border"		=> "1px solid ".output_rgba($font_color, 1),
 		"box-sizing"		=> "border-box",
+		"padding"		=> "10px",
 		], ],
 
 	[
