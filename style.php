@@ -170,7 +170,7 @@ $style_array = [
 		], ],
 	
 		[
-	"css_tags" => "amp-lightbox ul, amp-sidebar ul, amp-lightbox input, amp-sidebar input",
+	"css_tags" => "amp-lightbox ul, amp-sidebar ul, #search-popover input,  #search-popover input",
 	"css_contents" =>
 		[
 		"margin-left"		=> "auto",
