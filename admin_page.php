@@ -248,17 +248,14 @@ function create_inputs($entry_info, $input_backend, $language_temp, $input_descr
 
 foreach ($languages_array as $language_temp):
 
-	create_inputs($entry_info, "name", $language_temp, "title", "input-text", $hidden_temp);
+	create_inputs($entry_info, "name", $language_temp, "title", "input-text", $toggle_array["wrapper-".$language_temp."-title"]);
 
-	$hidden_temp = "hidden"; if (!(empty(trim($entry_info['summary'][$language_temp])))): $hidden_temp = null; endif;
-	create_inputs($entry_info, "summary", $language_temp, "headline", "textarea-small", $hidden_temp);
+	create_inputs($entry_info, "summary", $language_temp, "headline", "textarea-small", $toggle_array["wrapper-".$language_temp."-headline"]);
 								 
-	$hidden_temp = "hidden"; if (!(empty(trim($entry_info['body'][$language_temp])))): $hidden_temp = null; endif;
-	create_inputs($entry_info, "body", $language_temp, "body", "textarea-big", $hidden_temp);
+	create_inputs($entry_info, "body", $language_temp, "body", "textarea-big", $toggle_array["wrapper-".$language_temp."-body"]);
 	endforeach;
 
-$hidden_temp = "hidden"; if (!(empty(trim($entry_info['studies'])))): $hidden_temp = null; endif;
-create_inputs($entry_info, "studies", null, "endnotes", "textarea-big", $hidden_temp);
+create_inputs($entry_info, "studies", null, "endnotes", "textarea-big", $toggle_array["wrapper-endnotes"]);
 
 if (!(isset($site_info['appendix_array'][$entry_info['type']]))): $site_info['appendix_array'][$entry_info['type']] = []; endif;
 foreach ($site_info['appendix_array'][$entry_info['type']] as $appendix_key => $appendix_type):
