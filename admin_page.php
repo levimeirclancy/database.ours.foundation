@@ -148,6 +148,8 @@ function create_inputs($entry_info, $input_backend, $language_temp, $input_descr
 
 	$echo_temp .= "<div class='wrapper-input' id='wrapper-".$id_temp."' ".$hidden_temp.">";
 	
+	print_r($hidden_temp);
+	
 	$echo_temp .= "<label for='".$name_temp."'>". $placeholder_temp ."</label>";
 	
 	if (in_array($input_type, ["amp-selector-single", "amp-selector-multiple"])):
