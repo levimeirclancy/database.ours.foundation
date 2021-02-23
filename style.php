@@ -1008,7 +1008,7 @@ $style_array = [
 		"margin-left"		=> "-25px",
 		"padding-left"		=> "25px",
 //		"border"		=> "0",
-		"border-style"		=> "dotted",
+		"border-style"		=> "solid",
 		"margin-top"		=> "8px",
 //		"padding-bottom"	=> "0",
 		], ],
