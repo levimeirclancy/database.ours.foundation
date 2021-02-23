@@ -60,7 +60,7 @@ foreach ($languages_array as $language_temp):
 	echo "</tr>";
 	endforeach;
 
-	$toggle_array_diff = [ "wrapper-studies", ];
+	$toggle_array_diff = [ "wrapper-endnotes", ];
 	$toggle_array_temp = array_diff ($toggle_array, $toggle_array_diff);
 	echo "<tr>";
 	echo "<td colspan='4'></td>";
@@ -225,13 +225,13 @@ foreach ($site_info['appendix_array'][$entry_info['type']] as $appendix_key => $
 
 echo "<div id='wrapper-more' hidden>";
 
-	create_inputs($entry_info, "date_published", null, "Published date", "input-date");
-
 	echo "<label for='entry-link'><a href='https://".$domain."/".$page_temp."/' target='_blank'>Entry URL ►</a></label>";
 	echo "<input name='entry-link' type='text' value='".$domain."/".$page_temp."/' readonly>";
 	echo "<div class='input-button-wrapper'>";
 		echo "<div class='input-button' role='button' tabindex='0' on='tap:delete-popover'>&#x2B19; Delete entry</div>";
 		echo "</div>";
+
+	create_inputs($entry_info, "date_published", null, "Published date", "input-date");
 
 	$possibilities_array = [];
 	foreach ($information_array as $entry_id_temp => $entry_info_temp):
