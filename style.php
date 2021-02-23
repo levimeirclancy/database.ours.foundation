@@ -169,6 +169,14 @@ $style_array = [
 		"white-space"		=> "normal",
 		], ],
 	
+		[
+	"css_tags" => "amp-lightbox ul, amp-sidebar ul, amp-lightbox input, amp-sidebar input",
+	"css_contents" =>
+		[
+		"margin-left"		=> "0",
+		"margin-right"		=> "0",
+		], ],
+	
 	[
 	"css_tags" => "amp-sidebar",
 	"css_contents" =>
