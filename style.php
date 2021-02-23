@@ -193,7 +193,7 @@ $style_array = [
 		], ],
 	
 	[
-	"css_tags" => "#search-popover",
+	"css_tags" => "#sidebar-search",
 	"css_contents" =>
 		[
 		"width"			=> "650px",
