@@ -150,7 +150,7 @@ function create_inputs($entry_info, $input_backend, $language_temp, $input_descr
 		
 	$echo_temp .= "<label for='".$name_temp."'>". $placeholder_temp ."</label>";
 	
-	$properties_temp = "name='".$name_temp."' placeholder='". $placeholder_temp;
+	$properties_temp = "name='".$name_temp."' placeholder='". $placeholder_temp ."'";
 	
 	if (in_array($input_type, ["amp-selector-single", "amp-selector-multiple"])):
 		if (!(is_array($value_temp))): $value_temp = [ $value_temp ]; endif;
