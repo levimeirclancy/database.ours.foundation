@@ -792,6 +792,7 @@ $style_array = [
 		[
 		"height"		=> "600px",
 		"max-height"		=> "none",
+		"overflow"		=> "scroll",
 		], ],
 	
 	[
