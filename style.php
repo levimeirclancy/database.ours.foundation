@@ -9,7 +9,7 @@ $style_array = [
 		"body",
 		],
 	"css_contents" =>
-		
+		[
 		"text-align" 		=> "left",
 		"font-family"		=> "Times, Serif",
 		"font-size"		=> "17px",
