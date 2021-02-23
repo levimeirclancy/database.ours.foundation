@@ -37,7 +37,7 @@ foreach ($languages_array as $language_temp):
 $toggle_array[] = "wrapper-endnotes";
 $toggle_array[] = "wrapper-more";
 
-echo "<table>";
+echo "<table class='admin-page-table'>";
 echo "<thead><tr><th></th><th>Title</th><th>Headline</th><th>Body</th><th>...</th></tr></thead>";
 echo "<tbody>";
 foreach ($languages_array as $language_temp):
