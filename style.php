@@ -889,6 +889,33 @@ $style_array = [
 		], ],
 	
 	[
+	"css_tags" => ".admin-page-table",
+	"css_contents" =>
+		[
+		"font-size"		=> "90%",
+		"margin"		=> "20px auto",
+		"border"		=> "1px solid ".output_rgba($font_color, 1),
+		"border-radius"		=> "8px",
+		], ],
+	
+	[
+	"css_tags" => ".admin-page-table th, .admin-page-table td",
+	"css_contents" =>
+		[
+		"border"		=> "1px solid ".output_rgba($font_color, 1),
+		], ],
+
+	[
+	"css_tags" => ".admin-page-table span",
+	"css_contents" =>
+		[
+		"border"		=> "1px solid ".output_rgba($font_color, 1),
+		"cursor"		=> "pointer",
+		"padding"		=> "5px 10px",
+		], ],
+	
+	
+	[
 	"css_tags" => "#footer-formula",
 	"css_contents" =>
 		[
