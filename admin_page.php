@@ -30,12 +30,24 @@ $languages_array = array_unique($languages_array);
 // Make toggles now
 $toggle_array = [];
 foreach ($languages_array as $language_temp):
-	$toggle_array[] = "wrapper-".$language_temp."-title";
-	$toggle_array[] = "wrapper-".$language_temp."-headline";
-	$toggle_array[] = "wrapper-".$language_temp."-body";
+	$hidden_temp = "hidden";
+	if (!(empty($entry_info['name'][$language_temp]))): $hidden_temp = null; endif;
+	$toggle_array["wrapper-".$language_temp."-title"] = $hidden_temp;
+
+	$hidden_temp = "hidden";
+	if (!(empty($entry_info['summary'][$language_temp]))): $hidden_temp = null; endif;
+	$toggle_array["wrapper-".$language_temp."-headline"] = $hidden_temp;
+
+	$hidden_temp = "hidden";
+	if (!(empty($entry_info['body'][$language_temp]))): $hidden_temp = null; endif;
+	$toggle_array["wrapper-".$language_temp."-body"] = $hidden_temp;
 	endforeach;
-$toggle_array[] = "wrapper-endnotes";
-$toggle_array[] = "wrapper-more";
+
+$hidden_temp = "hidden";
+if (!(empty($entry_info['studies']))): $hidden_temp = null; endif;
+$toggle_array["wrapper-endnotes"] = $hidden_temp;
+
+$toggle_array["wrapper-more"] = "hidden";
 
 echo "<table class='admin-page-table'>";
 echo "<thead><tr><th></th><th>Title</th><th>Headline</th><th>Body</th><th>...</th></tr></thead>";
@@ -44,34 +56,59 @@ foreach ($languages_array as $language_temp):
 	echo "<tr>";
 	echo "<td>".ucfirst($language_temp)."</td>";
 
-	$toggle_array_diff = [ "wrapper-".$language_temp."-title", ];
-	$toggle_array_temp = array_diff ($toggle_array, $toggle_array_diff);
-	echo "<td><span tabindex='0' role='button' on='tap:".implode(".hide,", $toggle_array_temp).".hide,".implode("", $toggle_array_diff).".show'>Open</span></td>";
+	$toggle_array_diff = "wrapper-".$language_temp."-title";
+	$toggle_array_temp = $toggle_array; $toggle_array_temp = unset($toggle_array_temp[$toggle_array_diff]);
+	$show_hidden_temp = null; $hide_hidden_temp = "hidden";
+	if ($toggle_array[$toggle_array_diff] == "hidden"): $show_hidden_temp = "hidden"; $hide_hidden_temp = null; endif;
+	echo "<td>";
+	echo "<span id='".$toggle_array_diff"-show' tabindex='0' role='button' on='tap:".implode(".hide,", $toggle_array_temp).".hide,".$toggle_array_diff.".show,".$toggle_array_diff."-show.hide,".$toggle_array_diff."-hide.show' ".$show_hidden_temp.">Show</span>";
+	echo "<span id='".$toggle_array_diff"-hide' tabindex='0' role='button' on='tap:".implode(".hide,", $toggle_array_temp).".hide,".$toggle_array_diff.".show,".$toggle_array_diff."-hide.hide,".$toggle_array_diff."-hide.show' ".$hide_hidden_temp.">Hide</span>";
+	echo "</td>";
 
-	$toggle_array_diff = [ "wrapper-".$language_temp."-headline", ];
-	$toggle_array_temp = array_diff ($toggle_array, $toggle_array_diff);
-	echo "<td><span tabindex='0' role='button' on='tap:".implode(".hide,", $toggle_array_temp).".hide,".implode("", $toggle_array_diff).".show'>Open</span></td>";
+	$toggle_array_diff = "wrapper-".$language_temp."-headline";
+	$toggle_array_temp = $toggle_array; $toggle_array_temp = array_diff ($toggle_array_temp, $toggle_array_diff);
+	$show_hidden_temp = null; $hide_hidden_temp = "hidden";
+	if ($toggle_array[$toggle_array_diff] == "hidden"): $show_hidden_temp = "hidden"; $hide_hidden_temp = null; endif;
+	echo "<td>";
+	echo "<span id='".$toggle_array_diff"-show' tabindex='0' role='button' on='tap:".implode(".hide,", $toggle_array_temp).".hide,".$toggle_array_diff.".show,".$toggle_array_diff."-show.hide,".$toggle_array_diff."-hide.show' ".$show_hidden_temp.">Show</span>";
+	echo "<span id='".$toggle_array_diff"-hide' tabindex='0' role='button' on='tap:".implode(".hide,", $toggle_array_temp).".hide,".$toggle_array_diff.".show,".$toggle_array_diff."-hide.hide,".$toggle_array_diff."-hide.show' ".$hide_hidden_temp.">Hide</span>";
+	echo "</td>";
 
-	$toggle_array_diff = [ "wrapper-".$language_temp."-body", ];
-	$toggle_array_temp = array_diff ($toggle_array, $toggle_array_diff);
-	echo "<td><span tabindex='0' role='button' on='tap:".implode(".hide,", $toggle_array_temp).".hide,".implode("", $toggle_array_diff).".show'>Open</span></td>";
+	$toggle_array_diff = "wrapper-".$language_temp."-body";
+	$toggle_array_temp = $toggle_array; $toggle_array_temp = array_diff ($toggle_array_temp, $toggle_array_diff);
+	$show_hidden_temp = null; $hide_hidden_temp = "hidden";
+	if ($toggle_array[$toggle_array_diff] == "hidden"): $show_hidden_temp = "hidden"; $hide_hidden_temp = null; endif;
+	echo "<td>";
+	echo "<span id='".$toggle_array_diff"-show' tabindex='0' role='button' on='tap:".implode(".hide,", $toggle_array_temp).".hide,".$toggle_array_diff.".show,".$toggle_array_diff."-show.hide,".$toggle_array_diff."-hide.show' ".$show_hidden_temp.">Show</span>";
+	echo "<span id='".$toggle_array_diff"-hide' tabindex='0' role='button' on='tap:".implode(".hide,", $toggle_array_temp).".hide,".$toggle_array_diff.".show,".$toggle_array_diff."-hide.hide,".$toggle_array_diff."-hide.show' ".$hide_hidden_temp.">Hide</span>";
+	echo "</td>";
 
 	echo "<td></td>";
 	echo "</tr>";
 	endforeach;
 
-	$toggle_array_diff = [ "wrapper-endnotes", ];
-	$toggle_array_temp = array_diff ($toggle_array, $toggle_array_diff);
+	$toggle_array_diff = "wrapper-endnotes";
+	$toggle_array_temp = $toggle_array; $toggle_array_temp = array_diff ($toggle_array_temp, $toggle_array_diff);
+	$show_hidden_temp = null; $hide_hidden_temp = "hidden";
+	if ($toggle_array[$toggle_array_diff] == "hidden"): $show_hidden_temp = "hidden"; $hide_hidden_temp = null; endif;
 	echo "<tr>";
 	echo "<td colspan='4'>Endnotes</td>";
-	echo "<td><span tabindex='0' role='button' on='tap:".implode(".hide,", $toggle_array_temp).".hide,".implode("", $toggle_array_diff).".show'>Open</span></td>";
+	echo "<td>";
+	echo "<span id='".$toggle_array_diff"-show' tabindex='0' role='button' on='tap:".implode(".hide,", $toggle_array_temp).".hide,".$toggle_array_diff.".show,".$toggle_array_diff."-show.hide,".$toggle_array_diff."-hide.show' ".$show_hidden_temp.">Show</span>";
+	echo "<span id='".$toggle_array_diff"-hide' tabindex='0' role='button' on='tap:".implode(".hide,", $toggle_array_temp).".hide,".$toggle_array_diff.".show,".$toggle_array_diff."-hide.hide,".$toggle_array_diff."-hide.show' ".$hide_hidden_temp.">Hide</span>";
+	echo "</td>";
 	echo "</tr>";
 
-	$toggle_array_diff = [ "wrapper-more", ];
-	$toggle_array_temp = array_diff ($toggle_array, $toggle_array_diff);
+	$toggle_array_diff = "wrapper-more";
+	$toggle_array_temp = $toggle_array; $toggle_array_temp = array_diff ($toggle_array_temp, $toggle_array_diff);
+	$show_hidden_temp = null; $hide_hidden_temp = "hidden";
+	if ($toggle_array[$toggle_array_diff] == "hidden"): $show_hidden_temp = "hidden"; $hide_hidden_temp = null; endif;
 	echo "<tr>";
 	echo "<td colspan='4'>More...</td>";
-	echo "<td><span tabindex='0' role='button' on='tap:".implode(".hide,", $toggle_array_temp).".hide,".implode("", $toggle_array_diff).".show'>Open</span></td>";
+	echo "<td>";
+	echo "<span id='".$toggle_array_diff"-show' tabindex='0' role='button' on='tap:".implode(".hide,", $toggle_array_temp).".hide,".$toggle_array_diff.".show,".$toggle_array_diff."-show.hide,".$toggle_array_diff."-hide.show' ".$show_hidden_temp.">Show</span>";
+	echo "<span id='".$toggle_array_diff"-hide' tabindex='0' role='button' on='tap:".implode(".hide,", $toggle_array_temp).".hide,".$toggle_array_diff.".show,".$toggle_array_diff."-hide.hide,".$toggle_array_diff."-hide.show' ".$hide_hidden_temp.">Hide</span>";
+	echo "</td>";
 	echo "</tr>";
 
 	echo "</tbody>";
@@ -194,7 +231,6 @@ function create_inputs($entry_info, $input_backend, $language_temp, $input_descr
 
 foreach ($languages_array as $language_temp):
 
-	$hidden_temp = "hidden"; if (!(empty(trim($entry_info['name'][$language_temp])))): $hidden_temp = null; endif;
 	create_inputs($entry_info, "name", $language_temp, "title", "input-text", $hidden_temp);
 
 	$hidden_temp = "hidden"; if (!(empty(trim($entry_info['summary'][$language_temp])))): $hidden_temp = null; endif;
