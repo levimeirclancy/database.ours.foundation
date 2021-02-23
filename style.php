@@ -142,7 +142,7 @@ $style_array = [
 		"display"		=> "block",
 		"cursor"		=> "pointer",
 		"text-align"		=> "right",
-		"padding"		=> "3px 20px",
+		"padding"		=> "3px 0",
 		"margin"		=> "10px 0 0 0",
 		], ],
 	
