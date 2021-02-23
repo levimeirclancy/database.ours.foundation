@@ -896,6 +896,7 @@ $style_array = [
 		"margin"		=> "20px auto",
 		"border"		=> "1px solid ".output_rgba($font_color, 1),
 		"border-radius"		=> "8px",
+		"font-family"		=> "Arial, Helvetica, 'Sans Serif'",
 		], ],
 	
 	[
@@ -903,6 +904,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"border"		=> "1px solid ".output_rgba($font_color, 1),
+		"box-sizing"		=> "border-box",
 		], ],
 
 	[
@@ -912,6 +914,8 @@ $style_array = [
 		"border"		=> "1px solid ".output_rgba($font_color, 1),
 		"cursor"		=> "pointer",
 		"padding"		=> "5px 10px",
+		"box-sizing"		=> "border-box",
+		"border-radius"		=> "100px",
 		], ],
 	
 	
