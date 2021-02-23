@@ -60,10 +60,16 @@ function wrapper_buttons ($wrapper_temp) {
 
 	echo "<td>";
 	echo "<span id='".$toggle_array_diff."-show' tabindex='0' role='button' on='tap:".$toggle_array_diff.".show,".$toggle_array_diff."-show.hide,".$toggle_array_diff."-hide.show' ".$show_hidden_temp.">Show</span>";
-	echo "<span id='".$toggle_array_diff."-hide' tabindex='0' role='button' on='tap:".$toggle_array_diff.".hide,".$toggle_array_diff."-hide.hide,".$toggle_array_diff."-hide.show' ".$hide_hidden_temp.">Hide</span>";
+	echo "<span id='".$toggle_array_diff."-hide' tabindex='0' role='button' on='tap:".$toggle_array_diff.".hide,".$toggle_array_diff."-show.show,".$toggle_array_diff."-hide.hide' ".$hide_hidden_temp.">Hide</span>";
 	echo "</td>";
 	echo "<td>";
-	echo "<span id='".$toggle_array_diff."-hide' tabindex='0' role='button' on='tap:".implode(".hide", $toggle_array_temp).".hide,".$toggle_array_diff.".show,".$toggle_array_diff."-hide.hide,".$toggle_array_diff."-hide.show' ".$hide_hidden_temp.">Spotlight</span>";
+	echo "<span id='".$toggle_array_diff."-hide' tabindex='0' role='button' on='tap:";
+	foreach ($toggle_array_temp as $toggle_temp):
+		echo $toggle_temp.".hide,";
+		echo $toggle_temp."-show.show,";
+		echo $toggle_temp."-hide.hide,";
+		endforeach;
+	echo $toggle_array_diff.".show,".$toggle_array_diff."-hide.show,".$toggle_array_diff."-show.show' ".$hide_hidden_temp.">Spotlight</span>";
 	echo "</td>";
 
 	}
