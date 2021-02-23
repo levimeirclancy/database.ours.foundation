@@ -934,7 +934,7 @@ $style_array = [
 		"counter-reset"		=> "list-counter",
 		"border-width"		=> "0 0 1px 0",
 		"border-style"		=> "solid",
-		"border-color"		=> output_rgba($font_color, 0.6),		
+		"border-color"		=> output_rgba($font_color, 0.4),		
 		], ],
 		
 
@@ -964,7 +964,7 @@ $style_array = [
 		"padding"		=> "5px 0",
 		"border-width"		=> "1px 0 0",
 		"border-style"		=> "solid",
-		"border-color"		=> output_rgba($font_color, 0.6),
+		"border-color"		=> output_rgba($font_color, 0.4),
 		"counter-increment"	=> "list-counter",
 		"list-style-type"	=> "none",
 		], ],
