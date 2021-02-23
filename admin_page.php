@@ -147,9 +147,7 @@ function create_inputs($entry_info, $input_backend, $language_temp, $input_descr
 //	$echo_temp .= "<div class='input-button-wrapper'><span role='button' tabindex='0' class='input-button' id='wrapper-".$id_temp."-button' on='tap:wrapper-".$id_temp.".show,wrapper-".$id_temp."-button.hide' ".$button_hidden_temp.">Show:  ".$placeholder_temp."</span></div>";
 
 	$echo_temp .= "<div class='wrapper-input' id='wrapper-".$id_temp."' ".$hidden_temp.">";
-	
-	print_r($hidden_temp);
-	
+		
 	$echo_temp .= "<label for='".$name_temp."'>". $placeholder_temp ."</label>";
 	
 	if (in_array($input_type, ["amp-selector-single", "amp-selector-multiple"])):
@@ -232,10 +230,10 @@ echo "<div id='wrapper-more' hidden>";
 	foreach ($information_array as $entry_id_temp => $entry_info_temp):
 		$possibilities_array[$entry_id_temp] = $entry_info_temp['header'] . " • ". $site_info['category_array'][$entry_info_temp['type']];
 		endforeach;
-	create_inputs($entry_info, "parents", null, "parents", "amp-selector-multiple", $possibilities_array);
-	create_inputs($entry_info, "children", null, "children", "amp-selector-multiple", $possibilities_array);
+	create_inputs($entry_info, "parents", null, "parents", "amp-selector-multiple", null, $possibilities_array);
+	create_inputs($entry_info, "children", null, "children", "amp-selector-multiple", null, $possibilities_array);
 
-	create_inputs($entry_info, "type", null, "Type", "amp-selector-single", $site_info['category_array']);
+	create_inputs($entry_info, "type", null, "Type", "amp-selector-single", null, $site_info['category_array']);
 
 	echo "</div>";
 
