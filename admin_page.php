@@ -38,7 +38,7 @@ $toggle_array[] = "wrapper-endnotes";
 $toggle_array[] = "wrapper-more";
 
 echo "<table>";
-echo "<thead><tr><th>Language</th><th>Title</th><th>Headline</th><th>Body</th><th>...</th></tr></thead>";
+echo "<thead><tr><th></th><th>Title</th><th>Headline</th><th>Body</th><th>...</th></tr></thead>";
 echo "<tbody>";
 foreach ($languages_array as $language_temp):
 	echo "<tr>";
