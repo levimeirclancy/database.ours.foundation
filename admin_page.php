@@ -188,7 +188,8 @@ foreach ($languages_array as $language_temp):
 	create_inputs($entry_info, "body", $language_temp, "body", "textarea-big", $hidden_temp);
 	endforeach;
 
-create_inputs($entry_info, "studies", null, "endnotes", "textarea-big");
+$hidden_temp = "hidden"; if (!(empty($entry_info['studies']))): $hidden_temp = null; endif;
+create_inputs($entry_info, "studies", null, "endnotes", "textarea-big", $hidden_temp);
 
 if (!(isset($site_info['appendix_array'][$entry_info['type']]))): $site_info['appendix_array'][$entry_info['type']] = []; endif;
 foreach ($site_info['appendix_array'][$entry_info['type']] as $appendix_key => $appendix_type):
