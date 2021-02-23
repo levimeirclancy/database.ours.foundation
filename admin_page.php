@@ -178,17 +178,17 @@ function create_inputs($entry_info, $input_backend, $language_temp, $input_descr
 
 foreach ($languages_array as $language_temp):
 
-	$hidden_temp = "hidden"; if (!(empty($entry_info['name'][$language_temp]))): $hidden_temp = null; endif;
+	$hidden_temp = "hidden"; if (!(empty(trim($entry_info['name'][$language_temp])))): $hidden_temp = null; endif;
 	create_inputs($entry_info, "name", $language_temp, "title", "input-text", $hidden_temp);
 
-	$hidden_temp = "hidden"; if (!(empty($entry_info['summary'][$language_temp]))): $hidden_temp = null; endif;
+	$hidden_temp = "hidden"; if (!(empty(trim($entry_info['summary'][$language_temp])))): $hidden_temp = null; endif;
 	create_inputs($entry_info, "summary", $language_temp, "headline", "textarea-small", $hidden_temp);
 								 
-	$hidden_temp = "hidden"; if (!(empty($entry_info['body'][$language_temp]))): $hidden_temp = null; endif;
+	$hidden_temp = "hidden"; if (!(empty(trim($entry_info['body'][$language_temp])))): $hidden_temp = null; endif;
 	create_inputs($entry_info, "body", $language_temp, "body", "textarea-big", $hidden_temp);
 	endforeach;
 
-$hidden_temp = "hidden"; if (!(empty($entry_info['studies']))): $hidden_temp = null; endif;
+$hidden_temp = "hidden"; if (!(empty(trim($entry_info['studies'])))): $hidden_temp = null; endif;
 create_inputs($entry_info, "studies", null, "endnotes", "textarea-big", $hidden_temp);
 
 if (!(isset($site_info['appendix_array'][$entry_info['type']]))): $site_info['appendix_array'][$entry_info['type']] = []; endif;
