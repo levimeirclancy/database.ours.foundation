@@ -161,7 +161,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"margin"		=> "0",
-		"padding"		=> "10px 0 10px 0",
+		"padding"		=> "10px 20px 10px",
 		"background"		=> output_rgba($background_color, 1),
 		"text-align"		=> "left",
 		"box-sizing"		=> "border-box",
