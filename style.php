@@ -791,7 +791,17 @@ $style_array = [
 	"css_contents" =>
 		[
 		"height"		=> "600px",
-		"max-height"		=> "90%",
+		"max-height"		=> "80%",
+		"overflow-y"		=> "scroll",
+		"resize"		=> "none",
+		], ],
+	
+	[
+	"css_tags" => ".textarea-small",
+	"css_contents" =>
+		[
+		"height"		=> "400px",
+		"max-height"		=> "80%",
 		"overflow-y"		=> "scroll",
 		"resize"		=> "none",
 		], ],
