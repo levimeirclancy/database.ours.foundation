@@ -932,9 +932,9 @@ $style_array = [
 //		"border-left"		=> "1px solid ".output_rgba($font_color, 0.2),
 		"box-sizing"		=> "border-box",
 		"counter-reset"		=> "list-counter",
-		"border-width"		=> "0 0 1px 0",
+		"border-width"		=> "0 0 2px 0",
 		"border-style"		=> "solid",
-		"border-color"		=> output_rgba($font_color, 0.4),		
+		"border-color"		=> output_rgba($font_color, 0.35),		
 		], ],
 		
 
@@ -962,9 +962,9 @@ $style_array = [
 		[
 		"margin"		=> "0",
 		"padding"		=> "5px 0",
-		"border-width"		=> "1px 0 0",
+		"border-width"		=> "2px 0 0",
 		"border-style"		=> "solid",
-		"border-color"		=> output_rgba($font_color, 0.4),
+		"border-color"		=> output_rgba($font_color, 0.35),
 		"counter-increment"	=> "list-counter",
 		"list-style-type"	=> "none",
 		], ],
@@ -973,7 +973,7 @@ $style_array = [
 	"css_tags" => "li:first-child",
 	"css_contents" =>
 		[
-		"border-width"		=> "1px 0 0",
+		"border-width"		=> "2px 0 0",
 //		"border-top-left-radius"	=> "8px",
 //		"border-top-right-radius"	=> "8px",
 		], ],
@@ -982,7 +982,7 @@ $style_array = [
 	"css_tags" => "li:last-child",
 	"css_contents" =>
 		[
-		"border-width"		=> "1px 0 0 0",
+		"border-width"		=> "2px 0 0 0",
 //		"padding-bottom"	=> "0",
 //		"margin-bottom"		=> "0",
 //		"border-bottom"		=> "1px solid ".output_rgba($font_color, 0.6),
@@ -1043,7 +1043,7 @@ $style_array = [
 		"padding"		=> "2px 3px 3px 5px",
 		"margin"		=> "0 0 6px 0",
 //		"background"		=> output_rgba($background_color, 1),
-		"border-bottom"		=> "1px dotted ".output_rgba($font_color, 0.4),
+		"border-bottom"		=> "1px dotted ".output_rgba($font_color, 0.35),
 		"color"			=> output_rgba($font_color, 0.5),
 		"content"		=> "counter(list-counter, decimal)",
 		], ],
