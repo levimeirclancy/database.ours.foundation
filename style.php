@@ -954,6 +954,22 @@ $style_array = [
 		"margin"		=> "0 0 0 20px",
 		"padding"		=> "0",
 		], ],
+	
+		[
+	"css_tags" => 
+		[
+		"ul ul:before", "ul ol:before", "ul amp-list:before",
+		"ol ul:before", "ol ol:before", "ol amp-list:before",
+		"amp-list ul:before", "amp-list ol:before", "amp-list amp-list:before",
+		],
+	"css_contents" =>
+		[
+		"content"		=> "ᐅ",
+		"left"			=> "-20px",
+		"top"			=> "0",
+		"display"		=> "block",
+		"position"		=> "absolute",
+		], ],
 
 	[
 	"css_tags" => "li",
