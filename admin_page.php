@@ -14,18 +14,23 @@ $new_page = null;
 if ($page_temp == "new"): $new_page = "yes"; endif;
 
 // Form list of languages
-$languages_array_temp = $site_info['languages'];
-$languages_array_temp = array_merge(array_keys($entry_info['title']), $languages_array_temp);
-$languages_array_temp = array_merge(array_keys($entry_info['headline']), $languages_array_temp);
-$languages_array_temp = array_merge(array_keys($entry_info['body']), $languages_array_temp);
-$languages_array_temp = array_unique($languages_array_temp);
-print_r($languages_array_temp); exit;
+$languages_array = $site_info['languages'];
 
+$languages_array_temp = array_keys($entry_info['title']);
+$languages_array = array_merge($languages_array_temp, $languages_array)
 
+$languages_array_temp = array_keys($entry_info['headline']);
+$languages_array = array_merge($languages_array_temp, $languages_array)
+
+$languages_array_temp = array_keys($entry_info['body']);
+$languages_array = array_merge($languages_array_temp, $languages_array)
+
+$languages_array = array_unique($languages_array);
+print_r($languages_array); exit;
 
 // Make toggles now
 $toggle_array = [];
-foreach ($languages_array_temp as $language_temp):
+foreach ($languages_array as $language_temp):
 	$toggle_array[] = "wrapper-".$language_temp."-title";
 	$toggle_array[] = "wrapper-".$language_temp."-headline";
 	$toggle_array[] = "wrapper-".$language_temp."-body";
@@ -36,7 +41,7 @@ $toggle_array[] = "wrapper-more";
 echo "<table>";
 echo "<thead><tr><th>Language</th><th>Title</th><th>Headline</th><th>Body</th><th>More...</th></tr></thead>";
 echo "<tbody>";
-foreach ($languages_array_temp as $language_temp):
+foreach ($languages_array as $language_temp):
 	echo "<tr>";
 	echo "<td>".ucfirst($language_temp)."</td>";
 	echo "<td><span tabindex='0' role='button' on='tap:".implode(".hide;", $toggle_array).".hide;wrapper-".$language_temp."-title.show'>Open</span></td>";
@@ -103,16 +108,6 @@ echo "<input type='hidden' name='entry_id' value='$page_temp'>";
 function create_inputs($entry_info, $input_backend, $language_temp, $input_descriptor, $input_type, $hidden_temp = null, $possibilities_array = []) {
 
 	global $site_info;
-		
-	$languages_array_temp = [ "placeholder" ];
-	if ($language_toggle == "on"):
-		if (!(isset($entry_info[$input_backend])) || empty($entry_info[$input_backend])):
-			$entry_info[$input_backend] = [];
-			endif;
-		$languages_array_temp = array_keys($entry_info[$input_backend]);
-		$languages_array_temp = array_merge($site_info['languages'], $languages_array_temp);
-		$languages_array_temp = array_unique($languages_array_temp);
-		endif;
 	
 //	$echo_section = null;
 
@@ -182,7 +177,7 @@ function create_inputs($entry_info, $input_backend, $language_temp, $input_descr
 
 	}
 
-foreach ($languages_array_temp as $language_temp):
+foreach ($languages_array as $language_temp):
 
 	$hidden_temp = "hidden"; if (!(empty($entry_info['name'][$language_temp]))): $hidden_temp = null; endif;
 	create_inputs($entry_info, "name", $language_temp, "title", "input-text", $hidden_temp);
