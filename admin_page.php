@@ -150,11 +150,13 @@ function create_inputs($entry_info, $input_backend, $language_temp, $input_descr
 		
 	$echo_temp .= "<label for='".$name_temp."'>". $placeholder_temp ."</label>";
 	
+	$properties_temp = "name='".$name_temp."' placeholder='". $placeholder_temp;
+	
 	if (in_array($input_type, ["amp-selector-single", "amp-selector-multiple"])):
 		if (!(is_array($value_temp))): $value_temp = [ $value_temp ]; endif;
 		$value_temp = array_unique($value_temp);
 		$echo_temp .= "<input type='hidden' name='".$name_temp."' value=' '>";
-		$echo_temp .= "<amp-selector layout='container' name='".$name_temp."' ".$multiple_temp.">";
+		$echo_temp .= "<amp-selector layout='container' ".$properties_temp." ".$multiple_temp.">";
 		foreach ($value_temp as $value_temp_temp):
 			if (empty(trim($value_temp_temp))): continue; endif;
 			if (!(isset($possibilities_array[$value_temp_temp]))): continue; endif;
@@ -166,13 +168,13 @@ function create_inputs($entry_info, $input_backend, $language_temp, $input_descr
 			endforeach;
 		$echo_temp .= "</amp-selector>";
 	elseif ($input_type == "textarea-big"):
-		$echo_temp .= "<textarea	name='".$name_temp."' placeholder='". $placeholder_temp ."' id='".$id_temp."'>".$value_temp."</textarea>";
+		$echo_temp .= "<textarea ".$properties_temp.">".$value_temp."</textarea>";
 	elseif ($input_type == "textarea-small"):
-		$echo_temp .= "<textarea	name='".$name_temp."' placeholder='". $placeholder_temp ."' id='".$id_temp."' class='textarea-small'>".$value_temp."</textarea>";
+		$echo_temp .= "<textarea ".$properties_temp." class='textarea-small'>".$value_temp."</textarea>";
 	elseif ($input_type == "input-date"):
-		$echo_temp .= "<input		name='".$name_temp."' placeholder='". $placeholder_temp ."' id='".$id_temp."' type='date' value='".htmlspecialchars($value_temp, ENT_QUOTES)."'>";
+		$echo_temp .= "<input ".$properties_temp." type='date' value='".htmlspecialchars($value_temp, ENT_QUOTES)."'>";
 	else:
-		$echo_temp .= "<input		name='".$name_temp."' placeholder='". $placeholder_temp ."' id='".$id_temp."' type='text' value='".htmlspecialchars($value_temp, ENT_QUOTES)."' maxlength='150'>";
+		$echo_temp .= "<input ".$properties_temp." type='text' value='".htmlspecialchars($value_temp, ENT_QUOTES)."' maxlength='150'>";
 		endif;	
 
 //	$echo_temp .= "<div class='input-button-wrapper'><span class='input-button' role='button' tabindex='0' on='tap:wrapper-".$id_temp.".hide,wrapper-".$id_temp."-button.show'>Hide: ".$placeholder_temp."</span></div>";
