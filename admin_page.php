@@ -1,6 +1,4 @@
-<? echo "test<br>test<br>test<br>test<br>test<br>test<br>test<br>test<br>test<br>test<br>test<br>test<br>test<br>test<br>test<br>test<br>test<br>test<br>test<br>test<br>test<br>test<br>"; exit;
-
-$entry_info = nesty_page($page_temp);
+<? $entry_info = nesty_page($page_temp);
 $entry_info = $entry_info[$page_temp];
 
 $retrieve_page->execute(["page_id"=>$page_temp]);
@@ -178,8 +176,6 @@ function create_inputs($entry_info, $input_backend, $language_temp, $input_descr
 //	$echo_temp .= "<div class='input-button-wrapper'><span class='input-button' role='button' tabindex='0' on='tap:wrapper-".$id_temp.".toggleVisibility'>Toggle: ".$placeholder_temp."</span></div>";
 	
 	echo $echo_temp; // Because it's stored as a string, we can also use this format to prepend or append onto $echo_section
-
-	if ($language_toggle !== "on"): break; endif; // If no more languages, stop there
 
 	}
 
