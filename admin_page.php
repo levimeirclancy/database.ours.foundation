@@ -26,7 +26,6 @@ if (empty($languages_array_temp)): $languages_array_temp = []; endif;
 $languages_array = array_merge($languages_array_temp, $languages_array);
 
 $languages_array = array_unique($languages_array);
-print_r($languages_array); exit;
 
 // Make toggles now
 $toggle_array = [];
