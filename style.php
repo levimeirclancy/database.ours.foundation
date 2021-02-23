@@ -169,12 +169,20 @@ $style_array = [
 		"white-space"		=> "normal",
 		], ],
 	
-		[
-	"css_tags" => "amp-lightbox ul, amp-sidebar ul, #search-popover input,  #search-popover input",
+	[
+	"css_tags" => "amp-lightbox ul, amp-sidebar ul, amp-sidebar input",
 	"css_contents" =>
 		[
 		"margin-left"		=> "auto",
 		"margin-right"		=> "auto",
+		], ],
+	
+	[
+	"css_tags" => "amp-lightbox input",
+	"css_contents" =>
+		[
+		"margin-left"		=> "0",
+		"margin-right"		=> "0",
 		], ],
 	
 	[
