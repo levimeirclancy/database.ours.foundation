@@ -703,7 +703,7 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-		"display"		=> "table",
+		"display"		=> "block",
 		"margin"		=> "5px 20px",
 		"padding"		=> "8px",
 		"width"			=> "95%",
