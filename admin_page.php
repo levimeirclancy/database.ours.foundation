@@ -38,13 +38,22 @@ $toggle_array[] = "wrapper-endnotes";
 $toggle_array[] = "wrapper-more";
 
 echo "<table>";
-echo "<thead><tr><th>Language</th><th>Title</th><th>Headline</th><th>Body</th><th>More...</th></tr></thead>";
+echo "<thead><tr><th>Language</th><th>Title</th><th>Headline</th><th>Body</th><th>...</th></tr></thead>";
 echo "<tbody>";
 foreach ($languages_array as $language_temp):
 	echo "<tr>";
 	echo "<td>".ucfirst($language_temp)."</td>";
-	echo "<td><span class='input-button' tabindex='0' role='button' on='tap:".implode(".hide,", $toggle_array).".hide;wrapper-".$language_temp."-title.show'>Open</span></td>";
+
+	$toggle_array_diff = [ "wrapper-".$language_temp."-title", ];
+	$toggle_array_temp = array_diff ($toggle_array, $toggle_array_diff);
+	echo "<td><span class='input-button' tabindex='0' role='button' on='tap:".implode(".hide,", ).".hide;".implode("", $toggle_array_diff).".show'>Open</span></td>";
+
+	$toggle_array_diff = [ "wrapper-".$language_temp."-headline", ];
+	$toggle_array_temp = array_diff ($toggle_array, $toggle_array_diff);
 	echo "<td></td>";
+
+	$toggle_array_diff = [ "wrapper-".$language_temp."-body", ];
+	$toggle_array_temp = array_diff ($toggle_array, $toggle_array_diff);
 	echo "<td></td>";
 	echo "<td></td>";
 	echo "</tr>";
