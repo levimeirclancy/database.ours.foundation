@@ -30,6 +30,8 @@ foreach ($languages_array_temp as $language_temp):
 $toggle_array[] = "wrapper-endnotes";
 $toggle_array[] = "wrapper-more";
 
+echo "test"; exit;
+
 echo "<table>";
 echo "<thead><tr><th>Language</th><th>Title</th><th>Headline</th><th>Body</th><th>More...</th></tr></thead>";
 echo "<tbody>";
