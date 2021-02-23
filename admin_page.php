@@ -46,7 +46,7 @@ foreach ($languages_array as $language_temp):
 
 	$toggle_array_diff = [ "wrapper-".$language_temp."-title", ];
 	$toggle_array_temp = array_diff ($toggle_array, $toggle_array_diff);
-	echo "<td><span class='input-button' tabindex='0' role='button' on='tap:".implode(".hide,", ).".hide;".implode("", $toggle_array_diff).".show'>Open</span></td>";
+	echo "<td><span class='input-button' tabindex='0' role='button' on='tap:".implode(".hide,", $toggle_array_temp).".hide;".implode("", $toggle_array_diff).".show'>Open</span></td>";
 
 	$toggle_array_diff = [ "wrapper-".$language_temp."-headline", ];
 	$toggle_array_temp = array_diff ($toggle_array, $toggle_array_diff);
