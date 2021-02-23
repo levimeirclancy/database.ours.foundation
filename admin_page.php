@@ -15,12 +15,12 @@ if ($page_temp == "new"): $new_page = "yes"; endif;
 
 // Form list of languages
 $languages_array_temp = $site_info['languages'];
+
+print_r($languages_array_temp); exit;
 $languages_array_temp = array_merge(array_keys($entry_info['title']), $languages_array_temp);
 $languages_array_temp = array_merge(array_keys($entry_info['headline']), $languages_array_temp);
 $languages_array_temp = array_merge(array_keys($entry_info['body']), $languages_array_temp);
 $languages_array_temp = array_unique($languages_array_temp);
-
-print_r($languages_array_temp); exit;
 
 // Make toggles now
 $toggle_array = [];
