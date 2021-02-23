@@ -16,7 +16,17 @@ if ($page_temp == "new"): $new_page = "yes"; endif;
 // Form list of languages
 $languages_array = $site_info['languages'];
 
+$languages_array_temp = array_keys($entry_info['name']);
+if (empty($languages_array_temp)): $languages_array_temp = []; endif;
+$languages_array = array_merge($languages_array_temp, $languages_array)
 
+$languages_array_temp = array_keys($entry_info['summary']);
+if (empty($languages_array_temp)): $languages_array_temp = []; endif;
+$languages_array = array_merge($languages_array_temp, $languages_array)
+
+$languages_array_temp = array_keys($entry_info['body']);
+if (empty($languages_array_temp)): $languages_array_temp = []; endif;
+$languages_array = array_merge($languages_array_temp, $languages_array)
 
 array_unique($languages_array);
 print_r($languages_array); exit;
