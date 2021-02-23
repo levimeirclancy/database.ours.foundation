@@ -80,7 +80,7 @@ echo "<th></th>";
 echo "<th colspan='2'>Title</th>";
 echo "<th colspan='2'>Headline</th>";
 echo "<th colspan='2'>Body</th>";
-ceho "<th colspan='2'>...</th>";
+echo "<th colspan='2'>...</th>";
 echo "</tr></thead>";
 echo "<tbody>";
 foreach ($languages_array as $language_temp):
