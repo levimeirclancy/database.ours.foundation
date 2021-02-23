@@ -13,40 +13,6 @@ foreach ($result as $row):
 $new_page = null;
 if ($page_temp == "new"): $new_page = "yes"; endif;
 
-// Do a delete popover ... redirect if deletion works ...
-echo "<amp-lightbox id='delete-popover' layout='nodisplay'>";
-
-	echo "<form action-xhr='/delete-xhr/' method='post' id='delete' target='_top' class='admin-page-form' on=\"
-		submit:
-			delete-popover-submit.hide;
-		submit-error:
-			delete-popover-submit.show
-		\">";
-
-	echo "<input type='hidden' name='entry_id' value='".$page_temp."'>";
-
-	echo "<p>Do you really want to delete this entry?</p>";
-
-	// Submit button ...
-	echo "<br><span id='delete-popover-submit' role='button' tabindex='0' on='tap:delete.submit'>Delete</span>";
-
-	echo "<div class='form-feedback' submitting>Submitting...</div>";
-	echo "<div class='form-feedback' submit-error><template type='amp-mustache'>Error. {{{message}}}</template></div>";
-	echo "<div class='form-feedback' submit-success><template type='amp-mustache'>{{{message}}}</template></div>";
-
-	echo "</form>";
-
-	echo "</amp-lightbox>";
-
-echo "<form action-xhr='/edit-xhr/' method='post' class='admin-page-form' id='save' on=\"
-		submit:
-			admin-page-form-snackbar-ready.hide,
-			admin-page-form-save.hide;
-		submit-error:
-			admin-page-form-save.show;
-		submit-success:
-			admin-page-form-save.show
-		\">";
 // Form list of languages
 $languages_array_temp = array_keys($entry_info['title']);
 $languages_array_temp = array_merge($site_info['languages'], $languages_array_temp);
@@ -91,6 +57,41 @@ foreach ($languages_array_temp as $language_temp):
 	echo "</table>";
 
 // Add a reset button that shows only if there is content inside
+
+// Do a delete popover ... redirect if deletion works ...
+echo "<amp-lightbox id='delete-popover' layout='nodisplay'>";
+
+	echo "<form action-xhr='/delete-xhr/' method='post' id='delete' target='_top' class='admin-page-form' on=\"
+		submit:
+			delete-popover-submit.hide;
+		submit-error:
+			delete-popover-submit.show
+		\">";
+
+	echo "<input type='hidden' name='entry_id' value='".$page_temp."'>";
+
+	echo "<p>Do you really want to delete this entry?</p>";
+
+	// Submit button ...
+	echo "<br><span id='delete-popover-submit' role='button' tabindex='0' on='tap:delete.submit'>Delete</span>";
+
+	echo "<div class='form-feedback' submitting>Submitting...</div>";
+	echo "<div class='form-feedback' submit-error><template type='amp-mustache'>Error. {{{message}}}</template></div>";
+	echo "<div class='form-feedback' submit-success><template type='amp-mustache'>{{{message}}}</template></div>";
+
+	echo "</form>";
+
+	echo "</amp-lightbox>";
+
+echo "<form action-xhr='/edit-xhr/' method='post' class='admin-page-form' id='save' on=\"
+		submit:
+			admin-page-form-snackbar-ready.hide,
+			admin-page-form-save.hide;
+		submit-error:
+			admin-page-form-save.show;
+		submit-success:
+			admin-page-form-save.show
+		\">";
 
 echo "<input type='hidden' name='entry_id' value='$page_temp'>";
 
