@@ -487,8 +487,6 @@ if (!(empty($page_temp)) && !(isset($site_info['category_array'][$page_temp]))):
 	if (($command_temp == "edit") && !(empty($login))):
 		$url_temp .= "edit/";
 		if ($_SERVER['REQUEST_URI'] !== $url_temp): permanent_redirect("https://".$domain.$url_temp); endif;
-
-		echo "text.psdfgosdfgsdklgndf"; exit;
 		amp_header();
 		include_once('admin_page.php');
 		footer(); endif;
