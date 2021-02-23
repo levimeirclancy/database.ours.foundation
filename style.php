@@ -903,6 +903,8 @@ $style_array = [
 	"css_tags" => ".admin-page-table th, .admin-page-table td",
 	"css_contents" =>
 		[
+		"width"			=> "auto",
+		"height"		=> "auto",
 		"border"		=> "1px solid ".output_rgba($font_color, 0.5),
 		"box-sizing"		=> "border-box",
 		"padding"		=> "0 2px",
