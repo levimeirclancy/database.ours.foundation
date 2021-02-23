@@ -63,14 +63,14 @@ foreach ($languages_array as $language_temp):
 	$toggle_array_diff = [ "wrapper-endnotes", ];
 	$toggle_array_temp = array_diff ($toggle_array, $toggle_array_diff);
 	echo "<tr>";
-	echo "<td colspan='4'></td>";
+	echo "<td colspan='4'>Endnotes</td>";
 	echo "<td><span tabindex='0' role='button' on='tap:".implode(".hide,", $toggle_array_temp).".hide,".implode("", $toggle_array_diff).".show'>Open</span></td>";
 	echo "</tr>";
 
 	$toggle_array_diff = [ "wrapper-more", ];
 	$toggle_array_temp = array_diff ($toggle_array, $toggle_array_diff);
 	echo "<tr>";
-	echo "<td colspan='4'></td>";
+	echo "<td colspan='4'>More...</td>";
 	echo "<td><span tabindex='0' role='button' on='tap:".implode(".hide,", $toggle_array_temp).".hide,".implode("", $toggle_array_diff).".show'>Open</span></td>";
 	echo "</tr>";
 
