@@ -185,13 +185,13 @@ function create_inputs($entry_info, $input_backend, $language_temp, $input_descr
 
 foreach ($languages_array_temp as $language_temp):
 
-	$hidden_temp = "hidden"; if (!(empty($entry_info['name'][$language_temp))): $hidden_temp = null; endif;
+	$hidden_temp = "hidden"; if (!(empty($entry_info['name'][$language_temp]))): $hidden_temp = null; endif;
 	create_inputs($entry_info, "name", $language_temp, "title", "input-text", $hidden_temp);
 
-	$hidden_temp = "hidden"; if (!(empty($entry_info['name'][$language_temp))): $hidden_temp = null; endif;
+	$hidden_temp = "hidden"; if (!(empty($entry_info['name'][$language_temp]))): $hidden_temp = null; endif;
 	create_inputs($entry_info, "summary", $language_temp, "headline", "textarea-small", $hidden_temp);
 								 
-	$hidden_temp = "hidden"; if (!(empty($entry_info['name'][$language_temp))): $hidden_temp = null; endif;
+	$hidden_temp = "hidden"; if (!(empty($entry_info['name'][$language_temp]))): $hidden_temp = null; endif;
 	create_inputs($entry_info, "body", $language_temp, "body", "textarea-big", $hidden_temp);
 	endforeach;
 
