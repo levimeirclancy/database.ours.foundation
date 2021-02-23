@@ -61,11 +61,11 @@ foreach ($languages_array as $language_temp):
 	$show_hidden_temp = null; $hide_hidden_temp = "hidden";
 	if ($toggle_array[$toggle_array_diff] == "hidden"): $show_hidden_temp = "hidden"; $hide_hidden_temp = null; endif;
 	echo "<td>";
-	echo "<span id='".$toggle_array_diff"-show' tabindex='0' role='button' on='tap:".$toggle_array_diff.".show,".$toggle_array_diff."-show.hide,".$toggle_array_diff."-hide.show' ".$show_hidden_temp.">Show</span>";
-	echo "<span id='".$toggle_array_diff"-hide' tabindex='0' role='button' on='tap:".$toggle_array_diff.".hide,".$toggle_array_diff."-hide.hide,".$toggle_array_diff."-hide.show' ".$hide_hidden_temp.">Hide</span>";
+	echo "<span id='".$toggle_array_diff."-show' tabindex='0' role='button' on='tap:".$toggle_array_diff.".show,".$toggle_array_diff."-show.hide,".$toggle_array_diff."-hide.show' ".$show_hidden_temp.">Show</span>";
+	echo "<span id='".$toggle_array_diff."-hide' tabindex='0' role='button' on='tap:".$toggle_array_diff.".hide,".$toggle_array_diff."-hide.hide,".$toggle_array_diff."-hide.show' ".$hide_hidden_temp.">Hide</span>";
 	echo "</td>";
 	echo "<td>";
-	echo "<span id='".$toggle_array_diff"-hide' tabindex='0' role='button' on='tap:".$toggle_array_temp).".hide,".$toggle_array_diff.".show,".$toggle_array_diff."-hide.hide,".$toggle_array_diff."-hide.show' ".$hide_hidden_temp.">Spotlight</span>";
+	echo "<span id='".$toggle_array_diff."-hide' tabindex='0' role='button' on='tap:".$toggle_array_temp).".hide,".$toggle_array_diff.".show,".$toggle_array_diff."-hide.hide,".$toggle_array_diff."-hide.show' ".$hide_hidden_temp.">Spotlight</span>";
 	echo "</td>";
 
 	$toggle_array_diff = "wrapper-".$language_temp."-headline";
@@ -73,11 +73,11 @@ foreach ($languages_array as $language_temp):
 	$show_hidden_temp = null; $hide_hidden_temp = "hidden";
 	if ($toggle_array[$toggle_array_diff] == "hidden"): $show_hidden_temp = "hidden"; $hide_hidden_temp = null; endif;
 	echo "<td>";
-	echo "<span id='".$toggle_array_diff"-show' tabindex='0' role='button' on='tap:".$toggle_array_diff.".show,".$toggle_array_diff."-show.hide,".$toggle_array_diff."-hide.show' ".$show_hidden_temp.">Show</span>";
-	echo "<span id='".$toggle_array_diff"-hide' tabindex='0' role='button' on='tap:".$toggle_array_diff.".hide,".$toggle_array_diff."-hide.hide,".$toggle_array_diff."-hide.show' ".$hide_hidden_temp.">Hide</span>";
+	echo "<span id='".$toggle_array_diff."-show' tabindex='0' role='button' on='tap:".$toggle_array_diff.".show,".$toggle_array_diff."-show.hide,".$toggle_array_diff."-hide.show' ".$show_hidden_temp.">Show</span>";
+	echo "<span id='".$toggle_array_diff."-hide' tabindex='0' role='button' on='tap:".$toggle_array_diff.".hide,".$toggle_array_diff."-hide.hide,".$toggle_array_diff."-hide.show' ".$hide_hidden_temp.">Hide</span>";
 	echo "</td>";
 	echo "<td>";
-	echo "<span id='".$toggle_array_diff"-hide' tabindex='0' role='button' on='tap:".$toggle_array_temp).".hide,".$toggle_array_diff.".show,".$toggle_array_diff."-hide.hide,".$toggle_array_diff."-hide.show' ".$hide_hidden_temp.">Spotlight</span>";
+	echo "<span id='".$toggle_array_diff."-hide' tabindex='0' role='button' on='tap:".$toggle_array_temp).".hide,".$toggle_array_diff.".show,".$toggle_array_diff."-hide.hide,".$toggle_array_diff."-hide.show' ".$hide_hidden_temp.">Spotlight</span>";
 	echo "</td>";
 
 	$toggle_array_diff = "wrapper-".$language_temp."-body";
@@ -85,11 +85,11 @@ foreach ($languages_array as $language_temp):
 	$show_hidden_temp = null; $hide_hidden_temp = "hidden";
 	if ($toggle_array[$toggle_array_diff] == "hidden"): $show_hidden_temp = "hidden"; $hide_hidden_temp = null; endif;
 	echo "<td>";
-	echo "<span id='".$toggle_array_diff"-show' tabindex='0' role='button' on='tap:".$toggle_array_diff.".show,".$toggle_array_diff."-show.hide,".$toggle_array_diff."-hide.show' ".$show_hidden_temp.">Show</span>";
-	echo "<span id='".$toggle_array_diff"-hide' tabindex='0' role='button' on='tap:".$toggle_array_diff.".hide,".$toggle_array_diff."-hide.hide,".$toggle_array_diff."-hide.show' ".$hide_hidden_temp.">Hide</span>";
+	echo "<span id='".$toggle_array_diff."-show' tabindex='0' role='button' on='tap:".$toggle_array_diff.".show,".$toggle_array_diff."-show.hide,".$toggle_array_diff."-hide.show' ".$show_hidden_temp.">Show</span>";
+	echo "<span id='".$toggle_array_diff."-hide' tabindex='0' role='button' on='tap:".$toggle_array_diff.".hide,".$toggle_array_diff."-hide.hide,".$toggle_array_diff."-hide.show' ".$hide_hidden_temp.">Hide</span>";
 	echo "</td>";
 	echo "<td>";
-	echo "<span id='".$toggle_array_diff"-hide' tabindex='0' role='button' on='tap:".$toggle_array_temp).".hide,".$toggle_array_diff.".show,".$toggle_array_diff."-hide.hide,".$toggle_array_diff."-hide.show' ".$hide_hidden_temp.">Spotlight</span>";
+	echo "<span id='".$toggle_array_diff."-hide' tabindex='0' role='button' on='tap:".$toggle_array_temp).".hide,".$toggle_array_diff.".show,".$toggle_array_diff."-hide.hide,".$toggle_array_diff."-hide.show' ".$hide_hidden_temp.">Spotlight</span>";
 	echo "</td>";
 
 	echo "<td></td>";
@@ -104,11 +104,11 @@ foreach ($languages_array as $language_temp):
 	$show_hidden_temp = null; $hide_hidden_temp = "hidden";
 	if ($toggle_array[$toggle_array_diff] == "hidden"): $show_hidden_temp = "hidden"; $hide_hidden_temp = null; endif;
 	echo "<td>";
-	echo "<span id='".$toggle_array_diff"-show' tabindex='0' role='button' on='tap:".$toggle_array_diff.".show,".$toggle_array_diff."-show.hide,".$toggle_array_diff."-hide.show' ".$show_hidden_temp.">Show</span>";
-	echo "<span id='".$toggle_array_diff"-hide' tabindex='0' role='button' on='tap:".$toggle_array_diff.".hide,".$toggle_array_diff."-hide.hide,".$toggle_array_diff."-hide.show' ".$hide_hidden_temp.">Hide</span>";
+	echo "<span id='".$toggle_array_diff."-show' tabindex='0' role='button' on='tap:".$toggle_array_diff.".show,".$toggle_array_diff."-show.hide,".$toggle_array_diff."-hide.show' ".$show_hidden_temp.">Show</span>";
+	echo "<span id='".$toggle_array_diff."-hide' tabindex='0' role='button' on='tap:".$toggle_array_diff.".hide,".$toggle_array_diff."-hide.hide,".$toggle_array_diff."-hide.show' ".$hide_hidden_temp.">Hide</span>";
 	echo "</td>";
 	echo "<td>";
-	echo "<span id='".$toggle_array_diff"-hide' tabindex='0' role='button' on='tap:".$toggle_array_temp).".hide,".$toggle_array_diff.".show,".$toggle_array_diff."-hide.hide,".$toggle_array_diff."-hide.show' ".$hide_hidden_temp.">Spotlight</span>";
+	echo "<span id='".$toggle_array_diff."-hide' tabindex='0' role='button' on='tap:".$toggle_array_temp).".hide,".$toggle_array_diff.".show,".$toggle_array_diff."-hide.hide,".$toggle_array_diff."-hide.show' ".$hide_hidden_temp.">Spotlight</span>";
 	echo "</td>";
 
 	echo "</tr>";
@@ -121,11 +121,11 @@ foreach ($languages_array as $language_temp):
 	$show_hidden_temp = null; $hide_hidden_temp = "hidden";
 	if ($toggle_array[$toggle_array_diff] == "hidden"): $show_hidden_temp = "hidden"; $hide_hidden_temp = null; endif;
 	echo "<td>";
-	echo "<span id='".$toggle_array_diff"-show' tabindex='0' role='button' on='tap:".$toggle_array_diff.".show,".$toggle_array_diff."-show.hide,".$toggle_array_diff."-hide.show' ".$show_hidden_temp.">Show</span>";
-	echo "<span id='".$toggle_array_diff"-hide' tabindex='0' role='button' on='tap:".$toggle_array_diff.".hide,".$toggle_array_diff."-hide.hide,".$toggle_array_diff."-hide.show' ".$hide_hidden_temp.">Hide</span>";
+	echo "<span id='".$toggle_array_diff."-show' tabindex='0' role='button' on='tap:".$toggle_array_diff.".show,".$toggle_array_diff."-show.hide,".$toggle_array_diff."-hide.show' ".$show_hidden_temp.">Show</span>";
+	echo "<span id='".$toggle_array_diff."-hide' tabindex='0' role='button' on='tap:".$toggle_array_diff.".hide,".$toggle_array_diff."-hide.hide,".$toggle_array_diff."-hide.show' ".$hide_hidden_temp.">Hide</span>";
 	echo "</td>";
 	echo "<td>";
-	echo "<span id='".$toggle_array_diff"-hide' tabindex='0' role='button' on='tap:".$toggle_array_temp).".hide,".$toggle_array_diff.".show,".$toggle_array_diff."-hide.hide,".$toggle_array_diff."-hide.show' ".$hide_hidden_temp.">Spotlight</span>";
+	echo "<span id='".$toggle_array_diff."-hide' tabindex='0' role='button' on='tap:".$toggle_array_temp).".hide,".$toggle_array_diff.".show,".$toggle_array_diff."-hide.hide,".$toggle_array_diff."-hide.show' ".$hide_hidden_temp.">Spotlight</span>";
 	echo "</td>";	echo "</tr>";
 
 	echo "</tbody>";
