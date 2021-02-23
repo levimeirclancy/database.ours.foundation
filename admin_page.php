@@ -137,7 +137,7 @@ function create_inputs($entry_info, $input_backend, $language_temp, $input_descr
 
 //	$echo_temp .= "<div class='input-button-wrapper'><span role='button' tabindex='0' class='input-button' id='wrapper-".$id_temp."-button' on='tap:wrapper-".$id_temp.".show,wrapper-".$id_temp."-button.hide' ".$button_hidden_temp.">Show:  ".$placeholder_temp."</span></div>";
 
-	$echo_temp .= "<div class='wrapper-input' id='wrapper-".$id_temp."' ".$input_hidden_temp.">";
+	$echo_temp .= "<div class='wrapper-input' id='wrapper-".$id_temp."' ".$hidden_temp.">";
 	
 	$echo_temp .= "<label for='".$name_temp."'>". $placeholder_temp ."</label>";
 	
