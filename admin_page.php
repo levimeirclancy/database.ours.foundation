@@ -43,7 +43,7 @@ echo "<tbody>";
 foreach ($languages_array as $language_temp):
 	echo "<tr>";
 	echo "<td>".ucfirst($language_temp)."</td>";
-	echo "<td><span tabindex='0' role='button' on='tap:".implode(".hide;", $toggle_array).".hide;wrapper-".$language_temp."-title.show'>Open</span></td>";
+	echo "<td><span tabindex='0' role='button' on='tap:".implode(".hide,", $toggle_array).".hide;wrapper-".$language_temp."-title.show'>Open</span></td>";
 	echo "<td><span>Open</span></td>";
 	echo "<td><span>Open</span></td>";
 	echo "<td></td>";
