@@ -60,12 +60,12 @@ foreach ($languages_array as $language_temp):
 	endforeach;
 
 	echo "<tr>";
-	echo "<td colpan='4'></td>";
+	echo "<td colspan='4'></td>";
 	echo "<td><span>Endnotes</span></td>";
 	echo "</tr>";
 
 	echo "<tr>";
-	echo "<td colpan='4'></td>";
+	echo "<td colspan='4'></td>";
 	echo "<td><span>More...</span></td>";
 	echo "</tr>";
 
