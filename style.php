@@ -894,7 +894,7 @@ $style_array = [
 		[
 		"font-size"		=> "90%",
 		"margin"		=> "20px auto",
-		"border"		=> "1px solid ".output_rgba($font_color, 1),
+		"border"		=> "1px solid ".output_rgba($font_color, 0.5),
 		"border-radius"		=> "8px",
 		"font-family"		=> "Arial, Helvetica, 'Sans Serif'",
 		], ],
@@ -903,7 +903,7 @@ $style_array = [
 	"css_tags" => ".admin-page-table th, .admin-page-table td",
 	"css_contents" =>
 		[
-		"border"		=> "1px solid ".output_rgba($font_color, 1),
+		"border"		=> "1px solid ".output_rgba($font_color, 0.5),
 		"box-sizing"		=> "border-box",
 		"padding"		=> "10px",
 		], ],
