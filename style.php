@@ -800,7 +800,8 @@ $style_array = [
 	"css_tags" => ".textarea-small",
 	"css_contents" =>
 		[
-		"height"		=> "400px",
+		"height"		=> "250px",
+		"max-width"		=> "650px",
 		"max-height"		=> "80%",
 		"overflow-y"		=> "scroll",
 		"resize"		=> "none",
