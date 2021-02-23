@@ -60,14 +60,18 @@ foreach ($languages_array as $language_temp):
 	echo "</tr>";
 	endforeach;
 
+	$toggle_array_diff = [ "wrapper-studies", ];
+	$toggle_array_temp = array_diff ($toggle_array, $toggle_array_diff);
 	echo "<tr>";
 	echo "<td colspan='4'></td>";
-	echo "<td><span>Endnotes</span></td>";
+	echo "<td><span class='input-button' tabindex='0' role='button' on='tap:".implode(".hide,", $toggle_array_temp).".hide,".implode("", $toggle_array_diff).".show'>Open</span></td>";
 	echo "</tr>";
 
+	$toggle_array_diff = [ "wrapper-more", ];
+	$toggle_array_temp = array_diff ($toggle_array, $toggle_array_diff);
 	echo "<tr>";
 	echo "<td colspan='4'></td>";
-	echo "<td><span>More...</span></td>";
+	echo "<td><span class='input-button' tabindex='0' role='button' on='tap:".implode(".hide,", $toggle_array_temp).".hide,".implode("", $toggle_array_diff).".show'>Open</span></td>";
 	echo "</tr>";
 
 	echo "</tbody>";
