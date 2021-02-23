@@ -973,6 +973,8 @@ $style_array = [
 	"css_tags" => "li:first-child",
 	"css_contents" =>
 		[
+		"margin-left"		=> "-25px",
+		"padding-left"		=> "25px",
 		"border-width"		=> "1px 0 0",
 //		"border-top-left-radius"	=> "8px",
 //		"border-top-right-radius"	=> "8px",
