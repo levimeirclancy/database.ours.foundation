@@ -47,17 +47,57 @@ echo "<form action-xhr='/edit-xhr/' method='post' class='admin-page-form' id='sa
 		submit-success:
 			admin-page-form-save.show
 		\">";
+// Form list of languages
+$languages_array_temp = array_keys($entry_info['title']);
+$languages_array_temp = array_merge($site_info['languages'], $languages_array_temp);
+$languages_array_temp = array_merge(array_keys($entry_info['headline']), $languages_array_temp);
+$languages_array_temp = array_merge(array_keys($entry_info['body']), $languages_array_temp);
+$languages_array_temp = array_unique($languages_array_temp);
+
+// Make toggles now
+$toggle_array = [];
+foreach ($languages_array_temp as $language_temp):
+	$toggle_array[] = "wrapper-".$language_temp."-title";
+	$toggle_array[] = "wrapper-".$language_temp."-headline";
+	$toggle_array[] = "wrapper-".$language_temp."-body";
+	endforeach;
+$toggle_array[] = "wrapper-endnotes";
+$toggle_array[] = "wrapper-more";
+
+echo "<table>";
+echo "<thead><tr><th>Language</th><th>Title</th><th>Headline</th><th>Body</th><th>More...</th></tr></thead>";
+echo "<tbody>";
+foreach ($languages_array_temp as $language_temp):
+	echo "<tr>";
+	echo "<td>".ucfirst($language_temp)."</td>";
+	echo "<td><span tabindex='0' role='button' on='tap:".implode(".hide;", $toggle_array).".hide;wrapper-".$language_temp."-title.show'>Open</span></td>";
+	echo "<td><span>Open</span></td>";
+	echo "<td><span>Open</span></td>";
+	echo "<td></td>";
+	echo "</tr>";
+	endforeach;
+
+	echo "<tr>";
+	echo "<td colpan='4'></td>";
+	echo "<td><span>Endnotes</span></td>";
+	echo "</tr>";
+
+	echo "<tr>";
+	echo "<td colpan='4'></td>";
+	echo "<td><span>More...</span></td>";
+	echo "</tr>";
+
+	echo "</tbody>";
+	echo "</table>";
+
+// Add a reset button that shows only if there is content inside
 
 echo "<input type='hidden' name='entry_id' value='$page_temp'>";
 
-echo "<label for='entry-link'><a href='https://".$domain."/".$page_temp."/' target='_blank'>Entry URL ►</a></label>";
-echo "<input name='entry-link' type='text' value='".$domain."/".$page_temp."/' readonly>";
-echo "<div class='input-button-wrapper'>";
-	echo "<div class='input-button' role='button' tabindex='0' on='tap:delete-popover'>&#x2B19; Delete entry</div>";
-	echo "</div>";
+// function create_inputs($entry_info, $input_backend, $input_descriptor, $input_type = "input-text", $language_toggle = "on", $visibility_manual = null, $possibilities_array = []) {
 
-function create_inputs($entry_info, $input_backend, $input_descriptor, $input_type = "input-text", $language_toggle = "on", $visibility_manual = null, $possibilities_array = []) {
-	
+function create_inputs($entry_info, $input_backend, $language_temp, $input_descriptor, $input_type, $hidden_temp = null, $possibilities_array = []) {
+
 	global $site_info;
 		
 	$languages_array_temp = [ "placeholder" ];
@@ -72,94 +112,87 @@ function create_inputs($entry_info, $input_backend, $input_descriptor, $input_ty
 	
 //	$echo_section = null;
 
-	foreach ($languages_array_temp as $language_temp):
-
-		$echo_temp = $button_hidden_temp = $input_hidden_temp = $value_temp = null;
-		
-		if ($language_toggle == "on"):
-			$placeholder_temp = ucfirst($input_descriptor)." / ". ucfirst($language_temp);
-			$id_temp = $input_backend."-".$language_temp;
-			$name_temp = $input_backend."[".$language_temp."]";
-			if (isset($entry_info[$input_backend][$language_temp])): $value_temp = trim($entry_info[$input_backend][$language_temp]); endif;
-		else:
-			$placeholder_temp = ucfirst($input_descriptor);
-			$id_temp = $input_backend;
-			$name_temp = $input_backend;
-			if (isset($entry_info[$input_backend])):
-				$value_temp = $entry_info[$input_backend];
-			elseif (isset($entry_info['appendix'][$input_backend])):
-//				$name_temp = "appendix[".$name_temp."]";
-				$value_temp = $entry_info['appendix'][$input_backend]; endif;
-			if (!(is_array($value_temp))): $value_temp = trim($value_temp); endif;
-			endif;
+	if (!(empty($language_temp))):
+		$placeholder_temp = ucfirst($input_descriptor)." / ". ucfirst($language_temp);
+		$id_temp = $language_temp."-".$input_descriptor;
+		$name_temp = $input_backend."[".$language_temp."]";
+		if (isset($entry_info[$input_backend][$language_temp])): $value_temp = trim($entry_info[$input_backend][$language_temp]); endif;
+	else:
+		$placeholder_temp = ucfirst($input_descriptor);
+		$id_temp = $input_descriptor;
+		$name_temp = $input_backend;
+		if (isset($entry_info[$input_backend])):
+			$value_temp = $entry_info[$input_backend];
+		elseif (isset($entry_info['appendix'][$input_backend])):
+//			$name_temp = "appendix[".$name_temp."]";
+			$value_temp = $entry_info['appendix'][$input_backend]; endif;
+		if (!(is_array($value_temp))): $value_temp = trim($value_temp); endif;
+		endif;
 	
-		$multiple_temp = null;
-		if ($input_type == "amp-selector-single"):
-			endif;
-		if ($input_type == "amp-selector-multiple"):
-			$name_temp .= "[]";
-			$multiple_temp = "multiple";
-			endif;
-			
-		if (($visibility_manual !== "off") && ( !(empty($value_temp)) || ([$input_backend,$language_temp] == ["name", "english"]))): // Set it up so name, english is open by default ... in the future make it pick first item in inputs array, first item in languages array
-			$button_hidden_temp = "hidden";
-			$input_hidden_temp = null;
-		elseif (($visibility_manual == "off") || empty($value_temp)):
-			$button_hidden_temp = null;
-			$input_hidden_temp = "hidden";
-			endif;
+	$multiple_temp = null;
+	if ($input_type == "amp-selector-single"):
+		endif;
+	if ($input_type == "amp-selector-multiple"):
+		$name_temp .= "[]";
+		$multiple_temp = "multiple";
+		endif;
 
-		$echo_temp .= "<div class='input-button-wrapper'><span role='button' tabindex='0' class='input-button' id='admin-page-".$id_temp."-button' on='tap:admin-page-".$id_temp.".show,admin-page-".$id_temp."-button.hide' ".$button_hidden_temp.">Show:  ".$placeholder_temp."</span></div>";
+//	$echo_temp .= "<div class='input-button-wrapper'><span role='button' tabindex='0' class='input-button' id='wrapper-".$id_temp."-button' on='tap:wrapper-".$id_temp.".show,wrapper-".$id_temp."-button.hide' ".$button_hidden_temp.">Show:  ".$placeholder_temp."</span></div>";
 
-		$echo_temp .= "<div class='admin-page-input' id='admin-page-".$id_temp."' ".$input_hidden_temp.">";
-			$echo_temp .= "<label for='".$name_temp."'>". $placeholder_temp ."</label>";
+	$echo_temp .= "<div class='wrapper-input' id='wrapper-".$id_temp."' ".$input_hidden_temp.">";
 	
-			if (in_array($input_type, ["amp-selector-single", "amp-selector-multiple"])):
-				if (!(is_array($value_temp))): $value_temp = [ $value_temp ]; endif;
-				$value_temp = array_unique($value_temp);
-				$echo_temp .= "<input type='hidden' name='".$name_temp."' value=' '>";
-				$echo_temp .= "<amp-selector layout='container' name='".$name_temp."' ".$multiple_temp.">";
-				foreach ($value_temp as $value_temp_temp):
-					if (empty(trim($value_temp_temp))): continue; endif;
-					if (!(isset($possibilities_array[$value_temp_temp]))): continue; endif;
-					$echo_temp .= "<span option='".$value_temp_temp."' selected>".$possibilities_array[$value_temp_temp]."</span>";
-					endforeach;
-				foreach ($possibilities_array as $value_temp_temp => $frontend_temp_temp):
-					if (in_array($value_temp_temp, $value_temp)): continue; endif;
-					$echo_temp .= "<span option='".$value_temp_temp."'>".$frontend_temp_temp."</span>";
-					endforeach;
-				$echo_temp .= "</amp-selector>";
-			elseif ($input_type == "textarea-big"):
-				$echo_temp .= "<textarea	name='".$name_temp."' placeholder='". $placeholder_temp ."' id='".$id_temp."'>".$value_temp."</textarea>";
-			elseif ($input_type == "textarea-small"):
-				$echo_temp .= "<textarea	name='".$name_temp."' placeholder='". $placeholder_temp ."' id='".$id_temp."' class='textarea-small'>".$value_temp."</textarea>";
-			elseif ($input_type == "input-date"):
-				$echo_temp .= "<input		name='".$name_temp."' placeholder='". $placeholder_temp ."' id='".$id_temp."' type='date' value='".htmlspecialchars($value_temp, ENT_QUOTES)."'>";
-			else:
-				$echo_temp .= "<input		name='".$name_temp."' placeholder='". $placeholder_temp ."' id='".$id_temp."' type='text' value='".htmlspecialchars($value_temp, ENT_QUOTES)."' maxlength='150'>";
-				endif;	
-
-			$echo_temp .= "<div class='input-button-wrapper'><span class='input-button' role='button' tabindex='0' on='tap:admin-page-".$id_temp.".hide,admin-page-".$id_temp."-button.show'>Hide: ".$placeholder_temp."</span></div>";
-			
-			$echo_temp .= "</div>";
-
-//		$echo_temp .= "<div class='input-button-wrapper'><span class='input-button' role='button' tabindex='0' on='tap:admin-page-".$id_temp.".toggleVisibility'>Toggle: ".$placeholder_temp."</span></div>";
+	$echo_temp .= "<label for='".$name_temp."'>". $placeholder_temp ."</label>";
 	
-		echo $echo_temp; // Because it's stored as a string, we can also use this format to prepend or append onto $echo_section
+	if (in_array($input_type, ["amp-selector-single", "amp-selector-multiple"])):
+		if (!(is_array($value_temp))): $value_temp = [ $value_temp ]; endif;
+		$value_temp = array_unique($value_temp);
+		$echo_temp .= "<input type='hidden' name='".$name_temp."' value=' '>";
+		$echo_temp .= "<amp-selector layout='container' name='".$name_temp."' ".$multiple_temp.">";
+		foreach ($value_temp as $value_temp_temp):
+			if (empty(trim($value_temp_temp))): continue; endif;
+			if (!(isset($possibilities_array[$value_temp_temp]))): continue; endif;
+			$echo_temp .= "<span option='".$value_temp_temp."' selected>".$possibilities_array[$value_temp_temp]."</span>";
+			endforeach;
+		foreach ($possibilities_array as $value_temp_temp => $frontend_temp_temp):
+			if (in_array($value_temp_temp, $value_temp)): continue; endif;
+			$echo_temp .= "<span option='".$value_temp_temp."'>".$frontend_temp_temp."</span>";
+			endforeach;
+		$echo_temp .= "</amp-selector>";
+	elseif ($input_type == "textarea-big"):
+		$echo_temp .= "<textarea	name='".$name_temp."' placeholder='". $placeholder_temp ."' id='".$id_temp."'>".$value_temp."</textarea>";
+	elseif ($input_type == "textarea-small"):
+		$echo_temp .= "<textarea	name='".$name_temp."' placeholder='". $placeholder_temp ."' id='".$id_temp."' class='textarea-small'>".$value_temp."</textarea>";
+	elseif ($input_type == "input-date"):
+		$echo_temp .= "<input		name='".$name_temp."' placeholder='". $placeholder_temp ."' id='".$id_temp."' type='date' value='".htmlspecialchars($value_temp, ENT_QUOTES)."'>";
+	else:
+		$echo_temp .= "<input		name='".$name_temp."' placeholder='". $placeholder_temp ."' id='".$id_temp."' type='text' value='".htmlspecialchars($value_temp, ENT_QUOTES)."' maxlength='150'>";
+		endif;	
 
-		if ($language_toggle !== "on"): break; endif; // If no more languages, stop there
+//	$echo_temp .= "<div class='input-button-wrapper'><span class='input-button' role='button' tabindex='0' on='tap:wrapper-".$id_temp.".hide,wrapper-".$id_temp."-button.show'>Hide: ".$placeholder_temp."</span></div>";
+
+	$echo_temp .= "</div>";
+
+//	$echo_temp .= "<div class='input-button-wrapper'><span class='input-button' role='button' tabindex='0' on='tap:wrapper-".$id_temp.".toggleVisibility'>Toggle: ".$placeholder_temp."</span></div>";
 	
-		endforeach;
-	
+	echo $echo_temp; // Because it's stored as a string, we can also use this format to prepend or append onto $echo_section
+
+	if ($language_toggle !== "on"): break; endif; // If no more languages, stop there
+
 	}
-	
-create_inputs($entry_info, "name", "title");
-// create_inputs($entry_info['alternate_name'], "alternate_name", "full name");
-create_inputs($entry_info, "summary", "headline", "textarea-small");
-create_inputs($entry_info, "body", "body", "textarea-big");
-create_inputs($entry_info, "studies", "studies", "textarea-big", "off");
-create_inputs($entry_info, "date_published", "Published date", "input-date", "off", "off");
 
+foreach ($languages_array_temp as $language_temp):
+
+	$hidden_temp = "hidden"; if (!(empty($entry_info['name'][$language_temp))): $hidden_temp = null; endif;
+	create_inputs($entry_info, "name", $language_temp, "title", "input-text", $hidden_temp);
+
+	$hidden_temp = "hidden"; if (!(empty($entry_info['name'][$language_temp))): $hidden_temp = null; endif;
+	create_inputs($entry_info, "summary", $language_temp, "headline", "textarea-small", $hidden_temp);
+								 
+	$hidden_temp = "hidden"; if (!(empty($entry_info['name'][$language_temp))): $hidden_temp = null; endif;
+	create_inputs($entry_info, "body", $language_temp, "body", "textarea-big", $hidden_temp);
+	endforeach;
+
+create_inputs($entry_info, "studies", null, "endnotes", "textarea-big");
 
 if (!(isset($site_info['appendix_array'][$entry_info['type']]))): $site_info['appendix_array'][$entry_info['type']] = []; endif;
 foreach ($site_info['appendix_array'][$entry_info['type']] as $appendix_key => $appendix_type):
@@ -174,17 +207,29 @@ foreach ($site_info['appendix_array'][$entry_info['type']] as $appendix_key => $
 			endforeach;
 		endif;
 
-	create_inputs($entry_info, $appendix_key, str_replace("_", " ", $appendix_key), $appendix_type, "off", null, $possibilities_array);
+	create_inputs($entry_info, $appendix_key, null, str_replace("_", " ", $appendix_key), $appendix_type, null, $possibilities_array);
 	endforeach;
 
-$possibilities_array = [];
-foreach ($information_array as $entry_id_temp => $entry_info_temp):
-	$possibilities_array[$entry_id_temp] = $entry_info_temp['header'] . " • ". $site_info['category_array'][$entry_info_temp['type']];
-	endforeach;
-create_inputs($entry_info, "parents", "parents", "amp-selector-multiple", "off", "off", $possibilities_array);
-create_inputs($entry_info, "children", "children", "amp-selector-multiple", "off", "off", $possibilities_array);
+echo "<div id='wrapper-more' hidden>";
 
-create_inputs($entry_info, "type", "Type", "amp-selector-single", "off", "off", $site_info['category_array']);
+	create_inputs($entry_info, "date_published", null, "Published date", "input-date");
+
+	echo "<label for='entry-link'><a href='https://".$domain."/".$page_temp."/' target='_blank'>Entry URL ►</a></label>";
+	echo "<input name='entry-link' type='text' value='".$domain."/".$page_temp."/' readonly>";
+	echo "<div class='input-button-wrapper'>";
+		echo "<div class='input-button' role='button' tabindex='0' on='tap:delete-popover'>&#x2B19; Delete entry</div>";
+		echo "</div>";
+
+	$possibilities_array = [];
+	foreach ($information_array as $entry_id_temp => $entry_info_temp):
+		$possibilities_array[$entry_id_temp] = $entry_info_temp['header'] . " • ". $site_info['category_array'][$entry_info_temp['type']];
+		endforeach;
+	create_inputs($entry_info, "parents", null, "parents", "amp-selector-multiple", $possibilities_array);
+	create_inputs($entry_info, "children", null, "children", "amp-selector-multiple", $possibilities_array);
+
+	create_inputs($entry_info, "type", null, "Type", "amp-selector-single", $site_info['category_array']);
+
+	echo "</div>";
 
 echo "<br><br><br><br><br>";
 
