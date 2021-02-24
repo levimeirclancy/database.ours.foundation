@@ -1170,6 +1170,14 @@ $style_array = [
 		"font-size"		=> "0.85em",
 		"width"			=> "350px",
 		], ],
+	
+	[
+	"css_tags" => "#entries-list-hierarchical, #entries-list-alphabetical",
+	"css_contents" =>
+		[
+		"width"			=> "700px",
+		"font-size"		=> "1em",
+		], ],
 
 	[
 	"css_tags" => 
