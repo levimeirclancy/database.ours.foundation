@@ -113,7 +113,7 @@ foreach ($languages_array as $language_temp):
 
 	if (isset($site_info['appendix_array'][$entry_info['type']])):
 		echo "<tr>";
-		echo "<td><b>Endnotes</b></td>";
+		echo "<td><b>Appendices</b></td>";
 		wrapper_buttons("wrapper-appendices", 3);
 		echo "</tr>";
 		endif;
