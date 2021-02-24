@@ -139,10 +139,10 @@ echo "<amp-sidebar id='sidebar-inputs' layout='nodisplay' side='right' on='sideb
 			echo "</li>";
 		endforeach;
 
-	echo "<li>" . wrapper_buttons(["endnotes"], "Endnotes") . "</li>";
+	echo "<li>" . wrapper_buttons([ "endnotes" ], "Endnotes") . "</li>";
 
 	if (isset($site_info['appendix_array'][$entry_info['type']])):
-		echo "<li>" . wrapper_buttons( "appendices"], "Appendices") . "</li>";
+		echo "<li>" . wrapper_buttons([ "appendices"], "Appendices") . "</li>";
 		endif;
 
 	echo "<li>" . wrapper_buttons([ "metadata"], "Metadata") . "</li>";
