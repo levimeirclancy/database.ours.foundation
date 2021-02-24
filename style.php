@@ -894,7 +894,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"bottom"		=> "60px",
-		"right"			=> "100px",
+		"right"			=> "140px",
 		"background"		=> output_rgba($font_color, 1),
 		"color"			=> output_rgba($background_color, 1),
 		"padding"		=> "7px 40px 8px",
