@@ -227,6 +227,7 @@ function create_inputs($entry_info, $input_backend, $language_temp, $input_descr
 
 foreach ($languages_array as $language_temp):
 	create_inputs($entry_info, "name", $language_temp, "title", "input-text", $toggle_array["wrapper-".$language_temp."-title"]);
+	endforeach;
 
 foreach ($languages_array as $language_temp):
 	create_inputs($entry_info, "summary", $language_temp, "headline", "textarea-small", $toggle_array["wrapper-".$language_temp."-headline"]);
