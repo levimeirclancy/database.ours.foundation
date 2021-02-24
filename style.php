@@ -916,7 +916,7 @@ $style_array = [
 	"css_tags" => ".admin-page-table th:first-child, .admin-page-table td:first-child",
 	"css_contents" =>
 		[
-		"text-align"		=> "left",
+		"text-align"		=> "right",
 		], ],
 
 	[
