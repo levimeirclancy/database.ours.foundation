@@ -928,6 +928,7 @@ $style_array = [
 		"padding"		=> "3px 10px",
 		"box-sizing"		=> "border-box",
 		"border-radius"		=> "100px",
+		"display"		=> "inline-block",
 		], ],
 	
 	
