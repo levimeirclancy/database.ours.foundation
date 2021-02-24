@@ -364,6 +364,8 @@ function body_process($body_incoming) {
 				$replace_temp .= "<li>";
 				endif;
 	
+			$indent_position_temp = $indent_current_temp;
+	
 			$next_position_temp = strpos($digestion_temp, '+++');
 
 			if ($next_position_temp === FALSE):
@@ -373,7 +375,15 @@ function body_process($body_incoming) {
 				$add_temp = substr($digestion_temp, 0, $next_position_temp);
 				$digestion_temp = substr($digestion_temp, $next_position_temp);
 				endif;
+	
+			$replace_temp .= $add_temp;
 
+			endwhile;
+	
+		$indent_position_temp = 0;
+		while ($indent_current_temp > $indent_position_temp):
+			$replace_temp .= "</li></ul>";
+			$indent_position_temp++;
 			endwhile;
 			
 		$body_incoming = str_replace("+-+-+".$match_temp."+-+-+", $replace_temp, $body_incoming);
