@@ -955,12 +955,12 @@ $style_array = [
 
 		[
 		"css_tags" => [
-			"tr",
-//			"tr",
+			"th",
+			"td",
 			],
 		"css_contents" =>
 			[
-			"display"	=> "grid",
+			"display"	=> "block",
 			], ],
 
 		[
