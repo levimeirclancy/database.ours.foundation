@@ -929,6 +929,7 @@ $style_array = [
 	"css_tags" => ".admin-page-table b",
 	"css_contents" =>
 		[
+		"display"		=> "block",
 		"font-weight"		=> "400",
 		"font-style"		=> "italic",
 		"border-color"		=> output_rgba($background_color, 1),
