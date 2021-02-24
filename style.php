@@ -903,7 +903,7 @@ $style_array = [
 	"css_tags" => "#sidebar-inputs",
 	"css_contents" =>
 		[
-		"width"			=> "350px",
+//		"width"			=> "350px",
 		], ],
 
 	[
@@ -912,7 +912,7 @@ $style_array = [
 		[
 //		"font-size"		=> "80%",
 //		"border"		=> "1px solid ".output_rgba($font_color, 0.5),
-		"font-family"		=> "Arial, Helvetica, 'Sans Serif'",
+//		"font-family"		=> "Arial, Helvetica, 'Sans Serif'",
 		], ],
 	
 //	[
@@ -1148,7 +1148,8 @@ $style_array = [
 		[
 		"font-family"		=> "Arial, Helvetica, 'Sans Serif'",
 		"font-size"		=> "0.85em",
-		"min-width"		=> "350px",
+		"width"			=> "auto",
+		"max-width"		=> "350px",
 		], ],
 
 	[
