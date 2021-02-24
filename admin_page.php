@@ -76,7 +76,7 @@ function wrapper_buttons ($switch_array, $descriptor_temp) {
 	if (empty($descriptor_temp)): $descriptor_temp = ucwords(str_replace("-", " • ", str_replace("wrapper-", null, $wrapper_temp))); endif;
 
 	// We will assume that it is hidden
-	$hidden_check = 0;
+	$hidden_check = 1;
 	$found_temp = null;
 	$found_counter = 0;
 	
@@ -102,13 +102,13 @@ function wrapper_buttons ($switch_array, $descriptor_temp) {
 		$toggle_hide_temp[] = $toggle_temp."-show.show";
 		$toggle_hide_temp[] = $toggle_temp."-hide.hide";
 	
-		if ($toggle_array[$toggle_temp] == "hidden"): $hidden_check = 1; endif;
+		if ($toggle_array[$toggle_temp] !== "hidden"): $hidden_check = 0; endif;
 	
 		endforeach;
 	
 	$hide_hidden_temp = "hidden";
 	$show_hidden_temp = null;
-	if ($hidden_check !== 1):
+	if ($hidden_check == 1):
 		$hide_hidden_temp = null;
 		$show_hidden_temp = "hidden";
 		endif;
@@ -139,13 +139,13 @@ echo "<amp-sidebar id='sidebar-inputs' layout='nodisplay' side='right' on='sideb
 			echo "</li>";
 		endforeach;
 
-	echo "<li>" . wrapper_buttons([$language_temp, "endnotes"], "Endnotes") . "</li>";
+	echo "<li>" . wrapper_buttons(["endnotes"], "Endnotes") . "</li>";
 
 	if (isset($site_info['appendix_array'][$entry_info['type']])):
-		echo "<li>" . wrapper_buttons([$language_temp, "appendices"], "Appendices") . "</li>";
+		echo "<li>" . wrapper_buttons( "appendices"], "Appendices") . "</li>";
 		endif;
 
-	echo "<li>" . wrapper_buttons([$language_temp, "metadata"], "Metadata") . "</li>";
+	echo "<li>" . wrapper_buttons([ "metadata"], "Metadata") . "</li>";
 
 	echo "</ul>";
 
