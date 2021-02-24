@@ -91,12 +91,11 @@ function wrapper_buttons ($wrapper_temp, $descriptor_temp) {
 	$toggle_show_temp = $toggle_hide_temp = [];
 	foreach ($toggle_array_temp as $toggle_temp => $discard_temp):
 		foreach ($switch_array as $switch_temp):
+			$toggle_show_temp[] = $toggle_temp.".show,";
+			$toggle_show_temp[] = $toggle_temp."-show.hide,";
+			$toggle_show_temp[] = $toggle_temp."-hide.show,";
 			if (strpos($toggle_temp, $switch_temp) !== FALSE): continue; endif;
 			endforeach;
-	
-		$toggle_show_temp[] = $toggle_temp.".show,";
-		$toggle_show_temp[] = $toggle_temp."-show.hide,";
-		$toggle_show_temp[] = $toggle_temp."-hide.show,";
 	
 		$toggle_hide_temp[] = $toggle_temp.".hide,";
 		$toggle_hide_temp[] = $toggle_temp."-show.show,";
