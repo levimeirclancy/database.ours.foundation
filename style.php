@@ -855,27 +855,14 @@ $style_array = [
 		"color"			=> output_rgba($font_color, 1),
 		"opacity"		=> "0.6",
 		], ],
-	
+
 	[
-	"css_tags" => "#admin-page-form-snackbar",
-	"css_contents" =>
+	"css_tags" => 
 		[
-		"position"		=> "fixed",
-		"font-size"		=> "85%",
-		"font-family"		=> "Arial, Helvetica, 'San Serif'",
-		"bottom"		=> "10px",
-		"right"			=> "10px",
-		"padding"		=> "10px",
-		"width"			=> "auto",
-		"vertical-align"	=> "middle",
-		"background"		=> "rgba(255,255,255,1)",
-		"color"			=> output_rgba($font_color, 1),
-		"border-radius"		=> "100px",
-		"box-shadow"		=> "0 -5px 35px -12px rgba(30,30,30,0.3)",
-		], ],
-	
-	[
-	"css_tags" => "#admin-page-form-save, #sidebar-inputs-button",
+		"#admin-page-form-snackbar",
+		"#admin-page-form-save",
+		"#sidebar-inputs-button",
+		],
 	"css_contents" =>
 		[
 		"display"		=> "inline-block",
@@ -886,12 +873,25 @@ $style_array = [
 		"cursor"		=> "pointer",
 		"box-shadow"		=> "3px 3px 20px -3px rgba(50,50,50,0.35)",
 		], ],
+		], ],
 	
+	[
+	"css_tags" => "#admin-page-form-snackbar",
+	"css_contents" =>
 		[
+		"font-size"		=> "85%",
+		"font-family"		=> "Arial, Helvetica, 'San Serif'",
+		"bottom"		=> "10px",
+		"padding"		=> "7px 15px",
+		"background"		=> "rgba(255,255,255,1)",
+		"color"			=> output_rgba($font_color, 1),
+		], ],
+	
+	[
 	"css_tags" => "#admin-page-form-save",
 	"css_contents" =>
 		[
-		"bottom"		=> "45px",
+		"bottom"		=> "60px",
 		"background"		=> output_rgba($font_color, 1),
 		"color"			=> output_rgba($background_color, 1),
 		"padding"		=> "7px 40px 8px",
@@ -901,7 +901,7 @@ $style_array = [
 	"css_tags" => "#sidebar-inputs-button",
 	"css_contents" =>
 		[
-		"bottom"		=> "100px",
+		"bottom"		=> "115px",
 		"background"		=> output_rgba($background_color, 1),
 		"color"			=> output_rgba($font_color, 1),
 		"padding"		=> "7px 25px 8px",
