@@ -884,7 +884,7 @@ $style_array = [
 		"font-family"		=> "Arial, Helvetica, 'San Serif'",
 		"bottom"		=> "15px",
 		"font-style"		=> "italic",
-		"padding"		=> "7px 20px",
+		"padding"		=> "7px 30px",
 		"background"		=> "rgba(255,255,255,1)",
 		"color"			=> output_rgba($font_color, 1),
 		], ],
@@ -907,7 +907,7 @@ $style_array = [
 		"bottom"		=> "65px",
 		"background"		=> output_rgba($background_color, 1),
 		"color"			=> output_rgba($font_color, 1),
-		"padding"		=> "7px 25px 8px",
+		"padding"		=> "7px 20px 8px",
 		], ],
 	
 	
