@@ -1179,7 +1179,7 @@ $style_array = [
 		], ],
 	
 	[
-	"css_tags" => "#entries-list-hierarchical, #entries-list-alphabetical",
+	"css_tags" => "#entries-list-hierarchical, #entries-list-alphabetical, .home-list",
 	"css_contents" =>
 		[
 		"display"		=> "block",
