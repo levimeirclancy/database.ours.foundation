@@ -953,7 +953,7 @@ $style_array = [
 	/// Table breaks for mobile
 
 	[
-	"css_tags" => "@media only screen and (max-width: 500px)",
+	"css_tags" => "@media only screen and (min-width: 500px)",
 	"css_contents" => 
 
 //		[
