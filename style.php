@@ -898,7 +898,7 @@ $style_array = [
 		"white-space"		=> "break-spaces",
 		"border"		=> "1px solid ".output_rgba($font_color, 0.5),
 		"box-sizing"		=> "border-box",
-		"padding"		=> "1px",
+		"padding"		=> "1px 3px",
 		"vertical-align"	=> "middle",
 		], ],
 	
@@ -916,7 +916,7 @@ $style_array = [
 		"border"		=> "1px solid ".output_rgba($font_color, 1),
 		"cursor"		=> "pointer",
 		"margin"		=> "5px",
-		"padding"		=> "2px 10px",
+		"padding"		=> "2px 11px",
 		"box-sizing"		=> "border-box",
 		"border-radius"		=> "100px",
 		"display"		=> "inline-block",
