@@ -65,7 +65,8 @@ function wrapper_buttons ($wrapper_temp, $colspan_temp = 0) {
 
 	if ( !(is_int($colspan_temp)) || ($colspan_temp < 0) ): $colspan_temp = 0; endif;
 	
-	echo "<td colspan='".$colspan_temp."'>";
+	echo "<div colspan='".$colspan_temp."'>";
+	echo ucwords(str_replace("-", " / ", $wrapper_temp));
 	echo "<span id='".$wrapper_temp."-toggle' class='admin-page-table-toggle-button' tabindex='0' role='button' on='tap:";
 	foreach ($toggle_array_temp as $toggle_temp => $discard_temp):
 		echo $toggle_temp.".hide,";
@@ -73,45 +74,32 @@ function wrapper_buttons ($wrapper_temp, $colspan_temp = 0) {
 		echo $toggle_temp."-hide.hide,";
 		endforeach;
 	echo $wrapper_temp.".show,".$wrapper_temp."-hide.show,".$wrapper_temp."-show.hide'>Ѫ</span>";
-//	echo "<td>";
-//	echo "</td>";
 	echo "<span id='".$wrapper_temp."-show' class='admin-page-table-show-hide-button' tabindex='0' role='button' on='tap:".$wrapper_temp.".show,".$wrapper_temp."-show.hide,".$wrapper_temp."-hide.show' ".$show_hidden_temp.">Show</span>";
 	echo "<span id='".$wrapper_temp."-hide' class='admin-page-table-show-hide-button' tabindex='0' role='button' on='tap:".$wrapper_temp.".hide,".$wrapper_temp."-show.show,".$wrapper_temp."-hide.hide' ".$hide_hidden_temp.">Hide</span>";
-	echo "</td>";
+	echo "</div>";
 
 	}
 
 echo "<div class='admin-page-table' amp-fx='parallax' data-parallax-factor='1.2'>";
 foreach ($languages_array as $language_temp):
 
-	echo "<div>Title / ".ucfirst($language_temp);
 	wrapper_buttons("wrapper-".$language_temp."-title");
-	echo "</div>";
 
-	echo "<div>Headline / ".ucfirst($language_temp);
 	wrapper_buttons("wrapper-".$language_temp."-headline");
-	echo "</div>";
 
-	echo "<div>Body / ".ucfirst($language_temp);
 	wrapper_buttons("wrapper-".$language_temp."-body");
 
 	endforeach;
 
 	echo "<hr>";
 
-	echo "<div>Endnotes";
 	wrapper_buttons("wrapper-endnotes", 3);
-	echo "</div>";
 
 	if (isset($site_info['appendix_array'][$entry_info['type']])):
-		echo "<div>Appendices";
 		wrapper_buttons("wrapper-appendices", 3);
-		echo "</div>";
 		endif;
 
-	echo "<div>More...";
 	wrapper_buttons("wrapper-more", 3);
-	echo "</div>";
 
 	echo "</div>";
 
