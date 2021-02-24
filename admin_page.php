@@ -98,12 +98,12 @@ foreach ($languages_array as $language_temp):
 	endforeach;
 
 	echo "<tr>";
-	echo "<td colspan='3'>Endnotes</td>";
+	echo "<td colspan='4'>Endnotes</td>";
 	wrapper_buttons("wrapper-endnotes");
 	echo "</tr>";
 
 	echo "<tr>";
-	echo "<td colspan='3'>More...</td>";
+	echo "<td colspan='4'>More...</td>";
 	wrapper_buttons("wrapper-more");
 	echo "</tr>";
 
