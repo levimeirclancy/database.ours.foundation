@@ -861,10 +861,10 @@ $style_array = [
 	"css_contents" =>
 		[
 		"position"		=> "fixed",
-		"font-size"		=> "90%",
+		"font-size"		=> "85%",
 		"font-family"		=> "Arial, Helvetica, 'San Serif'",
 		"bottom"		=> "10px",
-		"left"			=> "10px",
+		"right"			=> "10px",
 		"padding"		=> "10px",
 		"width"			=> "auto",
 		"vertical-align"	=> "middle",
