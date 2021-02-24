@@ -353,17 +353,14 @@ function body_process($body_incoming) {
 				endwhile;
 	
 			$specifier_temp = null;
-			if (strpos($digestion_temp, "ul".$list_delimiter) == ($indent_current_temp*3)):
+			if (strpos($digestion_temp, "ul".$list_delimiter) === 0):
 				$specifier_temp = "ul";
 				$digestion_temp = trim(substr($digestion_temp, 5));
-			elseif (strpos($digestion_temp, "ol".$list_delimiter) == ($indent_current_temp*3)):
+			elseif (strpos($digestion_temp, "ol".$list_delimiter) === 0):
 				$specifier_temp = "ol";
 				$digestion_temp = trim(substr($digestion_temp, 5));
 				endif;
-	
-			echo $digestion_temp."<br><br>".$specifier_temp."<br><br>";
-			
-	
+		
 			if ($indent_position_temp == $indent_current_temp):
 				if ($specifier_temp !== null):
 					$replace_temp .= "</li></".array_shift($list_array) . "><".$specifier_temp."><li>";
