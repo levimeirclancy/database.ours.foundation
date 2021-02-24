@@ -325,6 +325,11 @@ function body_process($body_incoming) {
 	$body_incoming = str_replace("<td colspan='2'>***", "<td colspan='3'>", $body_incoming);
 	$body_incoming = str_replace("<td colspan='3'>***", "<td colspan='4'>", $body_incoming);
 
+	// Quotes
+	$body_incoming = str_replace("<<<", "<q>", $body_incoming);
+	$body_incoming = str_replace(">>>", "</q>", $body_incoming);
+
+	
 	// Add delimiter
 	$paragraphize_array = [
 		"th", "td",
