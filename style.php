@@ -885,7 +885,7 @@ $style_array = [
 		"bottom"		=> "15px",
 		"background"		=> output_rgba($font_color, 1),
 		"color"			=> output_rgba($background_color, 1),
-		"padding"		=> "7px 40px",
+		"padding"		=> "7px 40px 8px",
 		], ],
 	
 		[
@@ -895,7 +895,7 @@ $style_array = [
 		"bottom"		=> "70px",
 		"background"		=> output_rgba($background_color, 1),
 		"color"			=> output_rgba($font_color, 1),
-		"padding"		=> "7px 25px",
+		"padding"		=> "7px 25px 8px",
 		], ],
 	
 	
