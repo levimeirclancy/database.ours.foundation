@@ -341,6 +341,8 @@ function body_process($body_incoming) {
 	
 		$digestion_temp = trim($match_temp);
 	
+		$list_array = [];
+	
 		while (strlen($digestion_temp) > 0):
 	
 			$indent_current_temp = 0;
@@ -349,19 +351,42 @@ function body_process($body_incoming) {
 				$digestion_temp = substr($digestion_temp, 3);
 				$indent_current_temp++;
 				endwhile;
-		
+	
+			$specifier_temp = null;
+			if (strpos(strtoupper($digestion_temp), "UL***") === ($indent_current_temp*3)):
+				$specifier_temp = "ul";
+				$digestion_temp = trim(substr($digestion_temp, 5));
+			elseif strpos(strtoupper($digestion_temp), "OL***") === ($indent_current_temp*3)):
+				$specifier_temp = "ol";
+				$digestion_temp = trim(substr($digestion_temp, 5));
+				endif;
+			
+	
 			if ($indent_position_temp == $indent_current_temp):
-				$replace_temp .= "</li><li>";
+				if ($specifier_temp !== null):
+					$replace_temp .= "</li></".array_shift($list_array) . "><".$specifier_temp."><li>";
+					array_unshift($list_array, $specifier_temp);
+				else:
+					$replace_temp .= "</li><li>";
+					endif;
 			elseif ($indent_position_temp < $indent_current_temp):
+				if (empty($specifier_temp))): $specifier_temp = "ul";
+				$list_array[] = "ul";
 				while ($indent_position_temp < $indent_current_temp):
-					$replace_temp .= "<ul><li>";
+					$replace_temp .= "<".end($list_array)."><li>";
 					$indent_position_temp++;
 					endwhile;
 			elseif ($indent_position_temp > $indent_current_temp):
 				while ($indent_position_temp > $indent_current_temp):
-					$replace_temp .= "</li></ul></li>";
+					$replace_temp .= "</li></".array_shift($list_array)."></li>";
 					$indent_position_temp--;
 					endwhile;
+				if ($specifier_temp !== null):
+					$replace_temp .= "</li></".array_shift($list_array) . "><".$specifier_temp."><li>";
+					array_unshift($list_array, $specifier_temp);
+				else:
+					$replace_temp .= "<li>";
+					endif;
 				$replace_temp .= "<li>";
 				endif;
 	
