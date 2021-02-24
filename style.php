@@ -892,7 +892,7 @@ $style_array = [
 		], ],
 	
 	[
-	"css_tags" => ".admin-page-table div",
+	"css_tags" => ".admin-page-table p",
 	"css_contents" =>
 		[
 		"text-align"		=> "center",
@@ -900,6 +900,7 @@ $style_array = [
 		"border"		=> "1px solid ".output_rgba($font_color, 0.5),
 		"box-sizing"		=> "border-box",
 		"padding"		=> "1px 3px",
+		"margin"		=> "20px 0 0 20px",
 		"vertical-align"	=> "middle",
 		"display"		=> "inline-block",
 		], ],
