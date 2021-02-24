@@ -911,15 +911,13 @@ $style_array = [
 		"bottom"		=> "60px",
 		"right"			=> "20px",
 		"background"		=> output_rgba($background_color, 1),
-		"padding"		=> "15px",
-		"width"			=> "30px",
-		"height"		=> "30px",
-		"box-sizing"		=> "border-box",
+		"padding"		=> "10px 25px",
 		"border-radius"		=> "100px",
 		"cursor"		=> "pointer",
 		"color"			=> output_rgba($font_color, 1),
 		"font-size"		=> "1em",
-		"box-shadow"		=> "10px 10px 25px -5px rgba(50,50,50,0.25)",
+		"display"		=> "inline-block",
+		"box-shadow"		=> "10px 10px 25px -5px rgba(50,50,50,0.4)",
 		], ],
 	
 	[
