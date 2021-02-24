@@ -76,7 +76,7 @@ function wrapper_buttons ($switch_array, $descriptor_temp) {
 	if (empty($descriptor_temp)): $descriptor_temp = ucwords(str_replace("-", " • ", str_replace("wrapper-", null, $wrapper_temp))); endif;
 
 	// We will assume that it is hidden
-	$hidden_check = 1;
+	$hidden_check = 0;
 	$found_temp = null;
 	$found_counter = 0;
 	
@@ -102,7 +102,7 @@ function wrapper_buttons ($switch_array, $descriptor_temp) {
 		$toggle_hide_temp[] = $toggle_temp."-show.show";
 		$toggle_hide_temp[] = $toggle_temp."-hide.hide";
 	
-		if ($toggle_array[$toggle_temp] == "hidden"): $hidden_check = 0; endif;
+		if ($toggle_array[$toggle_temp] == "hidden"): $hidden_check = 1; endif;
 	
 		endforeach;
 	
