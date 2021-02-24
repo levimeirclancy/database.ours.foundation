@@ -70,6 +70,8 @@ $toggle_array["wrapper-metadata"] = "hidden";
 function wrapper_buttons ($switch_array, $descriptor_temp) {
 
 	global $toggle_array;
+	
+	global $languages_array;
 
 	if ( !(is_int($colspan_temp)) || ($colspan_temp < 0) ): $colspan_temp = 0; endif;
 	
@@ -82,10 +84,10 @@ function wrapper_buttons ($switch_array, $descriptor_temp) {
 	
 	$toggle_others_temp = $toggle_show_temp = $toggle_hide_temp = [];
 	
-	foreach ($language_array as $language_temp):
+	foreach ($languages_array as $language_temp):
 
 		if (!(in_array($language_temp, $switch_array))): 
-			$toggle_others_temp[] = "wrapper-".$language_temp.".hide";
+//			$toggle_others_temp[] = "wrapper-".$language_temp.".hide";
 			$toggle_others_temp[] = "wrapper-".$language_temp."-show.show";
 			$toggle_others_temp[] = "wrapper-".$language_temp."-hide.hide";
 			continue; endif;
