@@ -894,6 +894,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"bottom"		=> "60px",
+		"right"			=> "100px",
 		"background"		=> output_rgba($font_color, 1),
 		"color"			=> output_rgba($background_color, 1),
 		"padding"		=> "7px 40px 8px",
@@ -903,7 +904,7 @@ $style_array = [
 	"css_tags" => "#sidebar-inputs-button",
 	"css_contents" =>
 		[
-		"bottom"		=> "115px",
+		"bottom"		=> "60px",
 		"background"		=> output_rgba($background_color, 1),
 		"color"			=> output_rgba($font_color, 1),
 		"padding"		=> "7px 25px 8px",
