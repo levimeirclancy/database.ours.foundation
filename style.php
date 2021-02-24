@@ -966,7 +966,6 @@ $style_array = [
 		[
 		"border"		=> "1px solid ".output_rgba($font_color, 1),
 		"padding"		=> "2px 11px",
-		"float"			=> "left",
 		], ],
 
 	
