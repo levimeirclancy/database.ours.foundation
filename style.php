@@ -908,6 +908,7 @@ $style_array = [
 		[
 		"padding"		=> "0",
 		"margin"		=> "0",
+		"opacity"		=> "0",
 		], ],
 	
 	[
