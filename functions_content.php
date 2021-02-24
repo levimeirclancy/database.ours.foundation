@@ -360,6 +360,8 @@ function body_process($body_incoming) {
 				$specifier_temp = "ol";
 				$digestion_temp = trim(substr($digestion_temp, 5));
 				endif;
+	
+			echo $digestion_temp."<br>";
 			
 	
 			if ($indent_position_temp == $indent_current_temp):
