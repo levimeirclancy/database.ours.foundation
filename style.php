@@ -901,6 +901,7 @@ $style_array = [
 		"box-sizing"		=> "border-box",
 		"padding"		=> "1px 3px",
 		"vertical-align"	=> "middle",
+		"display"		=> "inline-block",
 		], ],
 	
 	[
