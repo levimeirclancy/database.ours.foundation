@@ -955,13 +955,7 @@ $style_array = [
 	[
 	"css_tags" => "@media only screen and (max-width: 600px)",
 	"css_contents" => 
-
-//		[
-//		"css_tags" => "blockquote cite",
-//		"css_contents" =>
-//			[
-//			"width"		=> "100%",
-//			], ],
+		[
 
 		[
 		"css_tags" => [
@@ -1002,8 +996,8 @@ $style_array = [
 		"css_contents" =>
 			[
 			"border-left"	=> "none",
-			"border-top"	=> "2px solid ".output_rgba($font_color, 1),
-			],
+			"border-top"	=> "1px dotted ".output_rgba($font_color, 0.5),
+			], ],
 		], ],
 	
 	[
