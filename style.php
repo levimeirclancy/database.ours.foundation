@@ -893,7 +893,7 @@ $style_array = [
 	"css_tags" => "#admin-page-form-save",
 	"css_contents" =>
 		[
-		"bottom"		=> "60px",
+		"bottom"		=> "65px",
 		"right"			=> "125px",
 		"background"		=> output_rgba($font_color, 1),
 		"color"			=> output_rgba($background_color, 1),
@@ -904,7 +904,7 @@ $style_array = [
 	"css_tags" => "#sidebar-inputs-button",
 	"css_contents" =>
 		[
-		"bottom"		=> "60px",
+		"bottom"		=> "65px",
 		"background"		=> output_rgba($background_color, 1),
 		"color"			=> output_rgba($font_color, 1),
 		"padding"		=> "7px 25px 8px",
