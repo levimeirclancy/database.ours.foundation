@@ -112,11 +112,13 @@ function wrapper_buttons ($wrapper_temp, $descriptor_temp) {
 		$show_hidden_temp = "hidden";
 		endif;
 	
-	echo "<span id='".$wrapper_temp."-toggle' class='sidebar-inputs-toggle-button' tabindex='0' role='button' on='tap:". implode(",", $toggle_others_temp) .",". $toggle_show_temp ."'>Ѫ</span>";
-	echo "<span id='".$wrapper_temp."-hide' class='sidebar-inputs-hide-button' tabindex='0' role='button' on='tap:". implode(",", $toggle_hide_temp) ."' ".$hide_hidden_temp.">Hide ".$descriptor_temp."</span>";
-	echo "<span id='".$wrapper_temp."-show' class='sidebar-inputs-show-button' tabindex='0' role='button' on='tap:". implode(",", $toggle_show_temp) ."'".$show_hidden_temp.">Show ".$descriptor_temp."</span>";
+	$echo_temp = null;
 	
-	}
+	$echo_temp .= "<span id='".$wrapper_temp."-toggle' class='sidebar-inputs-toggle-button' tabindex='0' role='button' on='tap:". implode(",", $toggle_others_temp) .",". $toggle_show_temp ."'>Ѫ</span>";
+	$echo_temp .= "<span id='".$wrapper_temp."-hide' class='sidebar-inputs-hide-button' tabindex='0' role='button' on='tap:". implode(",", $toggle_hide_temp) ."' ".$hide_hidden_temp.">Hide ".$descriptor_temp."</span>";
+	$echo_temp .= "<span id='".$wrapper_temp."-show' class='sidebar-inputs-show-button' tabindex='0' role='button' on='tap:". implode(",", $toggle_show_temp) ."'".$show_hidden_temp.">Show ".$descriptor_temp."</span>";
+	
+	return $echo_temp; }
 
 echo "<amp-sidebar id='sidebar-inputs' layout='nodisplay' side='right' on='sidebarOpen:login-popover.close,settings-popover.close,new-popover.close,search-popover.close,delete-popover.close' open>";
 
@@ -125,24 +127,23 @@ echo "<div class='sidebar-back' on='tap:sidebar-inputs.close' role='button' tabi
 echo "<ul class='navigation-list'>";
 foreach ($languages_array as $language_temp):
 
-	echo "<li>";
-	wrapper_buttons([$language_temp], ucfirst($language_temp));
+	echo "<li>" . wrapper_buttons([$language_temp], ucfirst($language_temp));
 		echo "<ul>";
-		wrapper_buttons([$language_temp, "title"], "Title");
-		wrapper_buttons([$language_temp, "headline"], "Headline");
-		wrapper_buttons([$language_temp, "body"], "Body");
+		echo "<li>" . wrapper_buttons([$language_temp, "title"], "Title") . "</li>";
+		echo "<li>" . wrapper_buttons([$language_temp, "headline"], "Headline") . "</li>";
+		echo "<li>" . wrapper_buttons([$language_temp, "body"], "Body") . "</li>";
 		echo "</ul>";
 		echo "</li>";
 
 	endforeach;
 
-	wrapper_buttons([$language_temp, "endnotes"], "Endnotes");
+	echo "<li>" . wrapper_buttons([$language_temp, "endnotes"], "Endnotes") . "</li>";
 
 	if (isset($site_info['appendix_array'][$entry_info['type']])):
-		wrapper_buttons([$language_temp, "appendices"], "Appendices");
+		echo "<li>" . wrapper_buttons([$language_temp, "appendices"], "Appendices") . "</li>";
 		endif;
 
-	wrapper_buttons([$language_temp, "metadata"], "Metadata");
+	echo "<li>" . wrapper_buttons([$language_temp, "metadata"], "Metadata") . "</li>";
 
 	echo "</ul>";
 
