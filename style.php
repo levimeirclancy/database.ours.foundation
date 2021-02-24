@@ -908,7 +908,7 @@ $style_array = [
 		"white-space"		=> "break-spaces",
 		"border"		=> "1px solid ".output_rgba($font_color, 0.5),
 		"box-sizing"		=> "border-box",
-		"padding"		=> "3px 0",
+		"padding"		=> "3px",
 		"vertical-align"	=> "middle",
 		], ],
 	
