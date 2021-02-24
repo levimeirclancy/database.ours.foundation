@@ -370,8 +370,8 @@ function body_process($body_incoming) {
 					$replace_temp .= "</li><li>";
 					endif;
 			elseif ($indent_position_temp < $indent_current_temp):
-				if (empty($specifier_temp)): $specifier_temp = "ul";
-				$list_array[] = "ul";
+				if (empty($specifier_temp)): $specifier_temp = "ul"; endif;
+				$list_array[] = $specifier_temp;
 				while ($indent_position_temp < $indent_current_temp):
 					$replace_temp .= "<".end($list_array)."><li>";
 					$indent_position_temp++;
