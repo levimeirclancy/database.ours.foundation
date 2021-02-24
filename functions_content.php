@@ -338,12 +338,13 @@ function body_process($body_incoming) {
 	foreach ($matches as $match_temp):
 		$replace_temp = null;
 		$indent_position_temp = 0;
-		$indent_current_temp = 0;
 	
 		$digestion_temp = trim($match_temp);
 	
 		while (strlen($digestion_temp) > 0):
 	
+			$indent_current_temp = 0;
+
 			while (strpos($digestion_temp, $list_delimiter) === 0):
 				$digestion_temp = substr($digestion_temp, 3);
 				$indent_current_temp++;
