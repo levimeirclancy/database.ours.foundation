@@ -947,14 +947,14 @@ $style_array = [
 	"css_tags" => "#sidebar-inputs span:first-child",
 	"css_contents" =>
 		[
-		"float"			=> "left",
+		"float"			=> "right",
 		], ],
 	
 	[
 	"css_tags" => "#sidebar-inputs span:last-child",
 	"css_contents" =>
 		[
-		"float"			=> "right",
+		"float"			=> "left",
 		], ],
 	
 //	[
