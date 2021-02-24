@@ -59,17 +59,17 @@ function wrapper_buttons ($wrapper_temp) {
 	if ($toggle_array[$wrapper_temp] !== "hidden"): $show_hidden_temp = "hidden"; $hide_hidden_temp = null; endif;
 
 	echo "<td>";
-	echo "<span id='".$wrapper_temp."-show' tabindex='0' role='button' on='tap:".$wrapper_temp.".show,".$wrapper_temp."-show.hide,".$wrapper_temp."-hide.show' ".$show_hidden_temp.">Show</span>";
-	echo "<span id='".$wrapper_temp."-hide' tabindex='0' role='button' on='tap:".$wrapper_temp.".hide,".$wrapper_temp."-show.show,".$wrapper_temp."-hide.hide' ".$hide_hidden_temp.">Hide</span>";
-//	echo "</td>";
-//	echo "<td>";
 	echo "<span id='".$wrapper_temp."-hide' tabindex='0' role='button' on='tap:";
-	foreach ($toggle_array_temp as $toggle_temp):
+	foreach ($toggle_array_temp as $toggle_temp => $discard_temp):
 		echo $toggle_temp.".hide,";
 		echo $toggle_temp."-show.show,";
 		echo $toggle_temp."-hide.hide,";
 		endforeach;
 	echo $wrapper_temp.".show,".$wrapper_temp."-hide.show,".$wrapper_temp."-show.show'>Ѫ</span>";
+//	echo "<td>";
+//	echo "</td>";
+	echo "<span id='".$wrapper_temp."-show' tabindex='0' role='button' on='tap:".$wrapper_temp.".show,".$wrapper_temp."-show.hide,".$wrapper_temp."-hide.show' ".$show_hidden_temp.">Show</span>";
+	echo "<span id='".$wrapper_temp."-hide' tabindex='0' role='button' on='tap:".$wrapper_temp.".hide,".$wrapper_temp."-show.show,".$wrapper_temp."-hide.hide' ".$hide_hidden_temp.">Hide</span>";
 	echo "</td>";
 
 	}
