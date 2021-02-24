@@ -134,7 +134,7 @@ echo "<amp-lightbox id='delete-popover' layout='nodisplay'>";
 
 	echo "</amp-lightbox>";
 
-echo "<span id='sidebar-inputs-button' role='button' tabindex='0' on='tap:sidebar-inputs.open'>☰</span>";
+echo "<span id='sidebar-inputs-button' role='button' tabindex='0' on='tap:sidebar-inputs.open'>Inputs</span>";
 
 echo "<form action-xhr='/edit-xhr/' method='post' class='admin-page-form' id='save' on=\"
 		submit:
