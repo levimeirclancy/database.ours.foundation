@@ -879,6 +879,14 @@ $style_array = [
 		], ],
 	
 	[
+	"css_tags" => "#sidebar-inputs",
+	"css_contents" =>
+		[
+		"width"			=> "650px",
+		], ],
+	
+	
+	[
 	"css_tags" => ".admin-page-table",
 	"css_contents" =>
 		[
