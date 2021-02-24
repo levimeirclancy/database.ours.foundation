@@ -49,7 +49,7 @@ $toggle_array["wrapper-endnotes"] = $hidden_temp;
 
 $toggle_array["wrapper-more"] = "hidden";
 
-function wrapper_buttons ($wrapper_temp) {
+function wrapper_buttons ($wrapper_temp, $colspan_temp = 0) {
 
 	global $toggle_array;
 
@@ -58,7 +58,9 @@ function wrapper_buttons ($wrapper_temp) {
 	$show_hidden_temp = null; $hide_hidden_temp = "hidden";
 	if ($toggle_array[$wrapper_temp] !== "hidden"): $show_hidden_temp = "hidden"; $hide_hidden_temp = null; endif;
 
-	echo "<td>";
+	if ( !(is_int($colspan_temp)) || ($colspan_temp < 0) ): $colspan_temp = 0; endif;
+	
+	echo "<td colspan='".$colspan_temp."'>";
 	echo "<span id='".$wrapper_temp."-toggle' class='admin-page-table-toggle-button' tabindex='0' role='button' on='tap:";
 	foreach ($toggle_array_temp as $toggle_temp => $discard_temp):
 		echo $toggle_temp.".hide,";
@@ -80,7 +82,6 @@ echo "<th></th>";
 echo "<th><b>Title</b></th>";
 echo "<th><b>Headline</b></th>";
 echo "<th><b>Body</b></th>";
-echo "<th><b>...</b></th>";
 echo "</tr></thead>";
 echo "<tbody>";
 foreach ($languages_array as $language_temp):
@@ -93,18 +94,26 @@ foreach ($languages_array as $language_temp):
 
 	wrapper_buttons("wrapper-".$language_temp."-body");
 
-	echo "<td></td>";
 	echo "</tr>";
 	endforeach;
 
 	echo "<tr>";
-	echo "<td colspan='4'><b>Endnotes</b></td>";
-	wrapper_buttons("wrapper-endnotes");
+	echo "<td colspan='4'><hr></td>";
 	echo "</tr>";
 
 	echo "<tr>";
-	echo "<td colspan='4'><b>More ...</b></td>";
-	wrapper_buttons("wrapper-more");
+	echo "<td><b>Endnotes</b></td>";
+	wrapper_buttons("wrapper-endnotes");
+	echo "</tr>";
+	
+	echo "<tr>";
+	echo "<td><b>Endnotes</b></td>";
+	wrapper_buttons("wrapper-endnotes", 3);
+	echo "</tr>";
+
+	echo "<tr>";
+	echo "<td><b>More ...</b></td>";
+	wrapper_buttons("wrapper-more", 3);
 	echo "</tr>";
 
 	echo "</tbody>";
