@@ -914,19 +914,22 @@ $style_array = [
 		"width"			=> "auto",
 		"max-width"		=> "100%",
 		], ],
-	
 
-	
 	[
-	"css_tags" => ".admin-page-table",
+	"css_tags" => "#sidebar-inputs",
 	"css_contents" =>
 		[
-		"display"		=> "table",
 		"font-size"		=> "80%",
-		"margin"		=> "20px auto",
 //		"border"		=> "1px solid ".output_rgba($font_color, 0.5),
 		"font-family"		=> "Arial, Helvetica, 'Sans Serif'",
-		"column-count"		=> "3",
+		], ],
+	
+	[
+	"css_tags" => "#sidebar-inputs ul",
+	"css_contents" =>
+		[
+//		"font-size"		=> "80%",
+//		"border"		=> "1px solid ".output_rgba($font_color, 0.5),
 		], ],
 	
 	[
