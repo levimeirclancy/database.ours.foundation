@@ -896,7 +896,6 @@ $style_array = [
 	"css_contents" =>
 		[
 		"border"		=> "1px solid ".output_rgba($font_color, 1),
-		"margin"		=> "0 5px",
 		"box-sizing"		=> "border-box",
 		"border-radius"		=> "100px",
 		"display"		=> "inline-block",
@@ -906,6 +905,7 @@ $style_array = [
 	"css_tags" => ".admin-page-table span",
 	"css_contents" =>
 		[
+		"margin"		=> "0 5px",
 		"padding"		=> "2px 11px",
 		"float"			=> "right",
 		"cursor"		=> "pointer",
@@ -915,6 +915,7 @@ $style_array = [
 	"css_tags" => ".admin-page-table b",
 	"css_contents" =>
 		[
+		"margin"		=> "0 5px 0 0",
 //		"display"		=> "block",
 		"font-weight"		=> "400",
 		"font-style"		=> "italic",
