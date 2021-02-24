@@ -80,13 +80,13 @@ function wrapper_buttons ($wrapper_temp, $descriptor_temp) {
 	$found_temp = null;
 	$found_counter = 0;
 	
-	$toggle_show_temp = $toggle_hide_temp = [];
+	$toggle_others_temp = $toggle_show_temp = $toggle_hide_temp = [];
 	foreach ($toggle_array as $toggle_temp => $discard_temp):
 		foreach ($switch_array as $switch_temp):
 			if (strpos($toggle_temp, $switch_temp) === FALSE):
-				$toggle_others_temp[] = $toggle_temp.".hide,";
-				$toggle_others_temp[] = $toggle_temp."-show.show,";
-				$toggle_others_temp[] = $toggle_temp."-hide.hide,";
+				$toggle_others_temp[] = $toggle_temp.".hide";
+				$toggle_others_temp[] = $toggle_temp."-show.show";
+				$toggle_others_temp[] = $toggle_temp."-hide.hide";
 				continue 2; endif;
 			endforeach;
 	
@@ -94,13 +94,13 @@ function wrapper_buttons ($wrapper_temp, $descriptor_temp) {
 	
 		$found_temp = $toggle_temp;
 	
-		$toggle_show_temp[] = $toggle_temp.".show,";
-		$toggle_show_temp[] = $toggle_temp."-show.hide,";
-		$toggle_show_temp[] = $toggle_temp."-hide.show,";
+		$toggle_show_temp[] = $toggle_temp.".show";
+		$toggle_show_temp[] = $toggle_temp."-show.hide";
+		$toggle_show_temp[] = $toggle_temp."-hide.show";
 
-		$toggle_hide_temp[] = $toggle_temp.".hide,";
-		$toggle_hide_temp[] = $toggle_temp."-show.show,";
-		$toggle_hide_temp[] = $toggle_temp."-hide.hide,";
+		$toggle_hide_temp[] = $toggle_temp.".hide";
+		$toggle_hide_temp[] = $toggle_temp."-show.show";
+		$toggle_hide_temp[] = $toggle_temp."-hide.hide";
 	
 		if ($toggle_array[$toggle_temp] == "hidden"): $hidden_check = 0; endif;
 	
