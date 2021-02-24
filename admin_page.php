@@ -102,7 +102,7 @@ function wrapper_buttons ($switch_array, $descriptor_temp) {
 		$toggle_hide_temp[] = $toggle_temp."-show.show";
 		$toggle_hide_temp[] = $toggle_temp."-hide.hide";
 	
-		if ($toggle_array[$toggle_temp] !== "hidden"): $hidden_check = 0; endif;
+		if ($toggle_array[$toggle_temp] == "hidden"): $hidden_check = 0; endif;
 	
 		endforeach;
 	
