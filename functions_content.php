@@ -359,7 +359,7 @@ function body_process($body_incoming) {
 					endwhile;
 			elseif ($indent_position_temp > $indent_current_temp):
 				while ($indent_position_temp > $indent_current_temp):
-					$replace_temp .= "</li></ul>";
+					$replace_temp .= "</li></ul></li>";
 					$indent_current_temp++;
 					endwhile;
 				$replace_temp .= "<li>";
