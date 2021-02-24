@@ -972,6 +972,24 @@ $style_array = [
 			[
 			"display"	=> "block",
 			], ],
+		
+		[
+		"css_tags" => [
+			"admin-page-table-show-hide-button",
+			],
+		"css_contents" =>
+			[
+			"display"	=> "none",
+			], ],
+		
+		[
+		"css_tags" => [
+			"admin-page-table-toggle-button",
+			],
+		"css_contents" =>
+			[
+			"margin"	=> "0",
+			], ],
 
 		[
 		"css_tags" =>
