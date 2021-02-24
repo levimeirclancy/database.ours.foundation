@@ -1,8 +1,6 @@
 <? $entry_info = nesty_page($page_temp);
 $entry_info = $entry_info[$page_temp];
 
-print_r($entry_info);
-
 $retrieve_page->execute(["page_id"=>$page_temp]);
 $result = $retrieve_page->fetchAll();
 foreach ($result as $row):
@@ -10,6 +8,7 @@ foreach ($result as $row):
 	$entry_info['summary']		= json_decode($row['summary'], true);
 	$entry_info['body']		= json_decode($row['body'], true);
 	$entry_info['studies']		= $row['studies'];
+	$entry_info['appendix'] = json_decode($row['appendix'],true);
 
 	$empty_temp = 1;
 	if (!(empty($row['name']))): $empty_temp = 0; endif;
