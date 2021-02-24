@@ -17,7 +17,7 @@ if (!(empty($ordered_published_array))):
 	arsort($ordered_published_array);
 	$ordered_published_array = array_slice($ordered_published_array, 0, 10);
 	echo "<h2>Recently published</h2>";
-	echo "<ul>";
+	echo "<ul class='navigation-list'>";
 	foreach($ordered_published_array as $entry_id => $discard_info):
 		echo "<li><a href='/".$entry_id."/'>".$information_array[$entry_id]['header']."</a></li>";
 		endforeach;
