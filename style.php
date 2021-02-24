@@ -902,7 +902,7 @@ $style_array = [
 		"padding"		=> "1px 3px",
 		"margin"		=> "20px 0 0 20px",
 		"vertical-align"	=> "middle",
-		"display"		=> "inline-block",
+		"display"		=> "inline",
 		], ],
 	
 	[
