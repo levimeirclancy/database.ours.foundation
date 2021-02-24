@@ -919,7 +919,7 @@ $style_array = [
 		"padding"		=> "3px 10px",
 		"box-sizing"		=> "border-box",
 		"border-radius"		=> "100px",
-		"display"		=> "inline-block",
+		"display"		=> "inline",
 		], ],
 	
 	[
@@ -1212,7 +1212,6 @@ $style_array = [
 		"css_contents" =>
 			[
 			"display"	=> "none",
-			"opacity"	=> "0",
 			], ],
 		
 		[
