@@ -975,7 +975,7 @@ $style_array = [
 		
 		[
 		"css_tags" => [
-			"admin-page-table-show-hide-button",
+			".admin-page-table-show-hide-button",
 			],
 		"css_contents" =>
 			[
@@ -984,7 +984,7 @@ $style_array = [
 		
 		[
 		"css_tags" => [
-			"admin-page-table-toggle-button",
+			".admin-page-table-toggle-button",
 			],
 		"css_contents" =>
 			[
