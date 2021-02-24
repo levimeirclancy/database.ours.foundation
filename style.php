@@ -915,13 +915,13 @@ $style_array = [
 		"font-family"		=> "Arial, Helvetica, 'Sans Serif'",
 		], ],
 	
-	[
-	"css_tags" => "#sidebar-inputs ul",
-	"css_contents" =>
-		[
-		"width"			=> "auto",
-		"display"		=> "block",
-		], ],
+//	[
+//	"css_tags" => "#sidebar-inputs ul",
+//	"css_contents" =>
+//		[
+//		"width"			=> "auto",
+//		"display"		=> "block",
+//		], ],
 	
 	[
 	"css_tags" => "#sidebar-inputs span, #sidebar-inputs b",
