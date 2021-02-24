@@ -328,7 +328,60 @@ function body_process($body_incoming) {
 	// Quotes
 	$body_incoming = str_replace("<<<", "<q>", $body_incoming);
 	$body_incoming = str_replace(">>>", "</q>", $body_incoming);
+	
+	// process links first
+	$matches = [];
+	preg_match_all("/(?<=\+\-\+\-\+)(.*?)(?=\+\-\+\-\+)/is", $body_incoming, $matches);
+	if (empty($matches)): $matches = [ [], [] ]; endif;
+	$matches = array_unique($matches[0]);
+	$list_delimiter = "+++";
+	foreach ($matches as $match_temp):
+		$replace_temp = null;
+		$indent_position_temp = 0;
+		$indent_current_temp = 0;
+	
+		$digestion_temp = trim($match_temp);
+	
+		while (strlen($digestion_temp) > 0):
+	
+			while (strpos($digestion_temp, $list_delimiter) === 0):
+				$digestion_temp = substr($digestion_temp, 3);
+				$indent_current_temp++;
+				endwhile;
+		
+			if ($indent_position_temp == $indent_current_temp):
+				$replace_temp .= "</li><li>";
+			elseif ($indent_position_temp < $indent_current_temp):
+				while ($indent_position_temp < $indent_current_temp):
+					$replace_temp .= "<ul><li>";
+					$indent_position_temp++;
+					endwhile;
+			elseif ($indent_position_temp > $indent_current_temp):
+				while ($indent_position_temp > $indent_current_temp):
+					$replace_temp .= "</li></ul>";
+					$indent_position_temp++;
+					endwhile;
+				$replace_temp .= "<li>";
+				endif;
+	
+			$next_position_temp = strpos($digestion_temp, '+++');
 
+			if ($next_position_temp === FALSE):
+				$add_temp = $digestion_temp;
+				$digestion_temp = null;
+			else:
+				$add_temp = substr($digestion_temp, 0, $next_position_temp);
+				$digestion_temp = substr($digestion_temp, $next_position_temp);
+				endif;
+
+			endwhile;
+			
+		$body_incoming = str_replace("+-+-+".$match_temp."+-+-+", $replace_temp, $body_incoming);
+	
+		$digestion_temp = trim($digestion_temp);
+
+		endforeach;
+	
 	
 	// Add delimiter
 	$paragraphize_array = [
