@@ -1148,8 +1148,7 @@ $style_array = [
 		[
 		"font-family"		=> "Arial, Helvetica, 'Sans Serif'",
 		"font-size"		=> "0.85em",
-		"width"			=> "auto",
-		"max-width"		=> "350px",
+		"width"			=> "350px",
 		], ],
 
 	[
