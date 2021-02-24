@@ -47,6 +47,11 @@ $hidden_temp = "hidden";
 if (!(empty($entry_info['studies']))): $hidden_temp = null; endif;
 $toggle_array["wrapper-endnotes"] = $hidden_temp;
 
+if (isset($site_info['appendix_array'][$entry_info['type']])):
+	$toggle_array["wrapper-appendices"] = "hidden";
+	endif;
+
+
 $toggle_array["wrapper-more"] = "hidden";
 
 function wrapper_buttons ($wrapper_temp, $colspan_temp = 0) {
@@ -105,6 +110,14 @@ foreach ($languages_array as $language_temp):
 	echo "<td><b>Endnotes</b></td>";
 	wrapper_buttons("wrapper-endnotes", 3);
 	echo "</tr>";
+
+	if (isset($site_info['appendix_array'][$entry_info['type']])):
+		echo "<tr>";
+		echo "<td><b>Endnotes</b></td>";
+		wrapper_buttons("wrapper-appendices", 3);
+		echo "</tr>";
+		endif;
+
 
 	echo "<tr>";
 	echo "<td><b>More ...</b></td>";
@@ -243,21 +256,24 @@ foreach ($languages_array as $language_temp):
 
 create_inputs($entry_info, "studies", null, "endnotes", "textarea-big", $toggle_array["wrapper-endnotes"]);
 
-if (!(isset($site_info['appendix_array'][$entry_info['type']]))): $site_info['appendix_array'][$entry_info['type']] = []; endif;
-foreach ($site_info['appendix_array'][$entry_info['type']] as $appendix_key => $appendix_type):
+if (isset($site_info['appendix_array'][$entry_info['type']])):
+	echo "<div class='wrapper-input' id='wrapper-appendices'>";
+	foreach ($site_info['appendix_array'][$entry_info['type']] as $appendix_key => $appendix_type):
 
-	$possibilities_array = [];
+		$possibilities_array = [];
 
-	// For a "unit" only give it offices and units
-	if ($appendix_key == "unit"):
-		foreach ($information_array as $entry_id_temp => $entry_info_temp):
-			if ($entry_info_temp['type'] !== "offices-units"): continue; endif;
-			$possibilities_array[$entry_id_temp] = $entry_info_temp['header'] . " • ". $site_info['category_array'][$entry_info_temp['type']];
-			endforeach;
-		endif;
+		// For a "unit" only give it offices and units
+		if ($appendix_key == "unit"):
+			foreach ($information_array as $entry_id_temp => $entry_info_temp):
+				if ($entry_info_temp['type'] !== "offices-units"): continue; endif;
+				$possibilities_array[$entry_id_temp] = $entry_info_temp['header'] . " • ". $site_info['category_array'][$entry_info_temp['type']];
+				endforeach;
+			endif;
 
-	create_inputs($entry_info, $appendix_key, null, str_replace("_", " ", $appendix_key), $appendix_type, null, $possibilities_array);
-	endforeach;
+		create_inputs($entry_info, $appendix_key, null, str_replace("_", " ", $appendix_key), $appendix_type, null, $possibilities_array);
+		endforeach;
+	echo "</div>";
+	endif;
 
 echo "<div id='wrapper-more' hidden>";
 
