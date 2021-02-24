@@ -80,7 +80,7 @@ function wrapper_buttons ($wrapper_temp, $descriptor_temp) {
 	if (empty($descriptor_temp)): $descriptor_temp = ucwords(str_replace("-", " • ", str_replace("wrapper-", null, $wrapper_temp))); endif;
 	
 	echo "<li>";
-	echo "<b>".$descriptor_temp."</b>";
+	echo $descriptor_temp;
 	echo "<span id='".$wrapper_temp."-toggle' class='admin-page-table-toggle-button' tabindex='0' role='button' on='tap:";
 	foreach ($toggle_array_temp as $toggle_temp => $discard_temp):
 		echo $toggle_temp.".hide,";
