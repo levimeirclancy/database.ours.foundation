@@ -85,7 +85,7 @@ echo "</tr></thead>";
 echo "<tbody>";
 foreach ($languages_array as $language_temp):
 	echo "<tr>";
-	echo "<td>".ucfirst($language_temp)."</td>";
+	echo "<td><b>".ucfirst($language_temp)."</b></td>";
 
 	wrapper_buttons("wrapper-".$language_temp."-title");
 
