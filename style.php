@@ -882,9 +882,15 @@ $style_array = [
 	"css_tags" => "#sidebar-inputs",
 	"css_contents" =>
 		[
-		"width"			=> "650px",
+		"width"			=> "300px",
 		], ],
 	
+	[
+	"css_tags" => "#sidebar-inputs ul",
+	"css_contents" =>
+		[
+		"display"		=> "block",
+		], ],
 	
 	[
 	"css_tags" => ".admin-page-table",
