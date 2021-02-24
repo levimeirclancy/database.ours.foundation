@@ -903,6 +903,14 @@ $style_array = [
 		], ],
 	
 	[
+	"css_tags" => ".admin-page-table hr",
+	"css_contents" =>
+		[
+		"padding"		=> "0",
+		"margin"		=> "0",
+		], ],
+	
+	[
 	"css_tags" => ".admin-page-table th:first-child, .admin-page-table td:first-child",
 	"css_contents" =>
 		[
