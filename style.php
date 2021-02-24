@@ -863,13 +863,14 @@ $style_array = [
 		"position"		=> "fixed",
 		"font-size"		=> "90%",
 		"font-family"		=> "Arial, Helvetica, 'San Serif'",
-		"bottom"		=> "0",
-		"left"			=> "0",
-		"right"			=> "0",
-		"padding"		=> "10px 90px 10px 10px",
+		"bottom"		=> "10px",
+		"left"			=> "10px",
+		"padding"		=> "10px",
+		"width"			=> "auto",
 		"vertical-align"	=> "middle",
 		"background"		=> "rgba(255,255,255,1)",
 		"color"			=> output_rgba($font_color, 1),
+		"border-radius"		=> "100px",
 		"box-shadow"		=> "0 -5px 35px -12px rgba(30,30,30,0.3)",
 		], ],
 	
@@ -890,7 +891,7 @@ $style_array = [
 	"css_tags" => "#admin-page-form-save",
 	"css_contents" =>
 		[
-		"bottom"		=> "15px",
+		"bottom"		=> "45px",
 		"background"		=> output_rgba($font_color, 1),
 		"color"			=> output_rgba($background_color, 1),
 		"padding"		=> "7px 40px 8px",
@@ -900,7 +901,7 @@ $style_array = [
 	"css_tags" => "#sidebar-inputs-button",
 	"css_contents" =>
 		[
-		"bottom"		=> "70px",
+		"bottom"		=> "100px",
 		"background"		=> output_rgba($background_color, 1),
 		"color"			=> output_rgba($font_color, 1),
 		"padding"		=> "7px 25px 8px",
