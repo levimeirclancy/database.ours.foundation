@@ -1177,7 +1177,7 @@ $style_array = [
 		[
 		"width"			=> "auto",
 		"max-width"		=> "700px",
-		"font-size"		=> ".95em",
+		"font-size"		=> ".9em",
 		], ],
 
 	[
