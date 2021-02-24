@@ -1212,6 +1212,7 @@ $style_array = [
 		"css_contents" =>
 			[
 			"display"	=> "none",
+			"opacity"	=> "0",
 			], ],
 		
 		[
