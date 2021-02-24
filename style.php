@@ -905,15 +905,6 @@ $style_array = [
 		[
 		"width"			=> "350px",
 		], ],
-	
-	[
-	"css_tags" => "#sidebar-inputs ul",
-	"css_contents" =>
-		[
-		"display"		=> "table",
-		"width"			=> "auto",
-		"max-width"		=> "100%",
-		], ],
 
 	[
 	"css_tags" => "#sidebar-inputs",
@@ -933,7 +924,7 @@ $style_array = [
 		], ],
 	
 	[
-	"css_tags" => ".admin-page-table span, .admin-page-table b",
+	"css_tags" => "#sidebar-inputs span, #sidebar-inputs b",
 	"css_contents" =>
 		[
 		"border"		=> "1px solid ".output_rgba($font_color, 1),
@@ -943,7 +934,7 @@ $style_array = [
 		], ],
 	
 	[
-	"css_tags" => ".admin-page-table span",
+	"css_tags" => "#sidebar-inputs span",
 	"css_contents" =>
 		[
 		"margin"		=> "0 5px",
@@ -953,7 +944,7 @@ $style_array = [
 		], ],
 	
 	[
-	"css_tags" => ".admin-page-table b",
+	"css_tags" => "#sidebar-inputs b",
 	"css_contents" =>
 		[
 		"margin"		=> "0 5px 0 0",
