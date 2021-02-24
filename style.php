@@ -882,14 +882,14 @@ $style_array = [
 	"css_tags" => "#sidebar-inputs",
 	"css_contents" =>
 		[
-		"width"			=> "300px",
+		"width"			=> "350px",
 		], ],
 	
 	[
 	"css_tags" => "#sidebar-inputs ul",
 	"css_contents" =>
 		[
-		"width"			=> "auto",
+		"width"			=> "350px",
 		"max-width"		=> "100%",
 		], ],
 	
