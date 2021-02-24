@@ -870,11 +870,12 @@ $style_array = [
 	"css_contents" =>
 		[
 		"position"		=> "fixed",
-		"bottom"		=> "0",
-		"right"			=> "0",
+		"bottom"		=> "10px",
+		"right"			=> "10px",
 		"background"		=> output_rgba($font_color, 1),
 		"color"			=> output_rgba($background_color, 1),
 		"padding"		=> "10px 25px",
+		"border-radius"		=> "100px",
 		"vertical-align"	=> "middle",
 		"border-radius"		=> "0",
 		], ],
@@ -883,7 +884,7 @@ $style_array = [
 	"css_tags" => "#admin-page-form-save:hover",
 	"css_contents" =>
 		[
-		"font-style"		=> "italic",
+//		"font-style"		=> "italic",
 		], ],
 	
 	[
@@ -906,7 +907,7 @@ $style_array = [
 	"css_tags" => "#sidebar-inputs-button",
 	"css_contents" =>
 		[
-		"position"		=> "absolute",
+		"position"		=> "fixed",
 		"bottom"		=> "60px",
 		"right"			=> "20px",
 		"background"		=> output_rgba($background_color, 1),
