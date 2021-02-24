@@ -922,21 +922,15 @@ $style_array = [
 //		"width"			=> "auto",
 //		"display"		=> "block",
 //		], ],
-	
+		
 	[
-	"css_tags" => "#sidebar-inputs span, #sidebar-inputs b",
+	"css_tags" => "#sidebar-inputs span",
 	"css_contents" =>
 		[
 		"border"		=> "1px solid ".output_rgba($font_color, 1),
 		"box-sizing"		=> "border-box",
 		"border-radius"		=> "100px",
 		"display"		=> "inline-block",
-		], ],
-	
-	[
-	"css_tags" => "#sidebar-inputs span",
-	"css_contents" =>
-		[
 		"margin"		=> "0",
 		"padding"		=> "2px 11px",
 //		"float"			=> "right",
@@ -951,18 +945,28 @@ $style_array = [
 		], ],
 	
 	[
-	"css_tags" => "#sidebar-inputs span:first-child",
+	"css_tags" => ".sidebar-inputs-toggle-button",
 	"css_contents" =>
 		[
 		"float"			=> "right",
 		], ],
 	
 	[
-	"css_tags" => "#sidebar-inputs span:last-child",
+	"css_tags" => ".sidebar-inputs-show-button",
 	"css_contents" =>
 		[
-		"float"			=> "right",
+		"border-color"		=> output_rgba($font_color, 1),
+		"float"			=> "left",
 		], ],
+	
+	[
+	"css_tags" => ".sidebar-inputs-hide-button",
+	"css_contents" =>
+		[
+		"float"			=> "left",
+		], ],
+
+	
 	
 //	[
 //	"css_tags" => "#sidebar-inputs b",
@@ -1248,24 +1252,6 @@ $style_array = [
 		"css_contents" =>
 			[
 			"display"	=> "block",
-			], ],
-		
-		[
-		"css_tags" => [
-			".admin-page-table-show-hide-button",
-			],
-		"css_contents" =>
-			[
-			"display"	=> "none",
-			], ],
-		
-		[
-		"css_tags" => [
-			".admin-page-table-toggle-button",
-			],
-		"css_contents" =>
-			[
-			"margin"	=> "0",
 			], ],
 
 		[
