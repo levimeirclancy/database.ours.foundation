@@ -59,7 +59,7 @@ function wrapper_buttons ($wrapper_temp) {
 	if ($toggle_array[$wrapper_temp] !== "hidden"): $show_hidden_temp = "hidden"; $hide_hidden_temp = null; endif;
 
 	echo "<td>";
-	echo "<span id='".$wrapper_temp."-hide' tabindex='0' role='button' on='tap:";
+	echo "<span id='".$wrapper_temp."-toggle' tabindex='0' role='button' on='tap:";
 	foreach ($toggle_array_temp as $toggle_temp => $discard_temp):
 		echo $toggle_temp.".hide,";
 		echo $toggle_temp."-show.show,";
