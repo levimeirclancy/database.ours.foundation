@@ -351,10 +351,10 @@ function body_process($body_incoming) {
 				endwhile;
 		
 			if ($indent_position_temp == $indent_current_temp):
-				$replace_temp .= "</li><li>".$indent_position_temp."|".$indent_current_temp."|";
+				$replace_temp .= "</li><li>";
 			elseif ($indent_position_temp < $indent_current_temp):
 				while ($indent_position_temp < $indent_current_temp):
-					$replace_temp .= "<ul><li>".$indent_position_temp."|".$indent_current_temp."|";
+					$replace_temp .= "<ul><li>";
 					$indent_position_temp++;
 					endwhile;
 			elseif ($indent_position_temp > $indent_current_temp):
@@ -362,7 +362,7 @@ function body_process($body_incoming) {
 					$replace_temp .= "</li></ul></li>";
 					$indent_position_temp--;
 					endwhile;
-				$replace_temp .= "<li>".$indent_position_temp."|".$indent_current_temp."|";
+				$replace_temp .= "<li>";
 				endif;
 	
 //			$indent_position_temp = $indent_current_temp;
