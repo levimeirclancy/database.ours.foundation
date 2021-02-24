@@ -95,6 +95,9 @@ function wrapper_buttons ($wrapper_temp, $descriptor_temp) {
 	}
 
 echo "<amp-sidebar id='sidebar-inputs' layout='nodisplay' side='right' on='sidebarOpen:login-popover.close,settings-popover.close,new-popover.close,search-popover.close,delete-popover.close' open>";
+
+echo "<div class='sidebar-back' on='tap:sidebar-inputs.close' role='button' tabindex='0'>Close</div>";
+
 echo "<ul>";
 foreach ($languages_array as $language_temp):
 
