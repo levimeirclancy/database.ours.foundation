@@ -885,13 +885,14 @@ $style_array = [
 		"display"		=> "table",
 		"font-size"		=> "80%",
 		"margin"		=> "20px auto",
-		"border"		=> "1px solid ".output_rgba($font_color, 0.5),
+//		"border"		=> "1px solid ".output_rgba($font_color, 0.5),
 		"border-radius"		=> "8px",
 		"font-family"		=> "Arial, Helvetica, 'Sans Serif'",
+		"column-count"		=> "3",
 		], ],
 	
 	[
-	"css_tags" => ".admin-page-table th, .admin-page-table td",
+	"css_tags" => ".admin-page-table div",
 	"css_contents" =>
 		[
 		"text-align"		=> "center",
@@ -911,13 +912,6 @@ $style_array = [
 		"opacity"		=> "0",
 		], ],
 	
-	[
-	"css_tags" => ".admin-page-table th:first-child, .admin-page-table td:first-child",
-	"css_contents" =>
-		[
-		"text-align"		=> "right",
-		], ],
-
 	[
 	"css_tags" => ".admin-page-table span, .admin-page-table b",
 	"css_contents" =>
