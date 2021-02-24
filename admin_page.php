@@ -107,7 +107,7 @@ foreach ($languages_array as $language_temp):
 	wrapper_buttons("wrapper-more", 3);
 	echo "</li>";
 
-	echo "</div>";
+	echo "</ul>";
 
 // Add a reset button that shows only if there is content inside
 
