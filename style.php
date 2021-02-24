@@ -871,7 +871,8 @@ $style_array = [
 		"border-radius"		=> "100px",
 		"vertical-align"	=> "middle",
 		"cursor"		=> "pointer",
-		"box-shadow"		=> "3px 3px 20px -3px rgba(50,50,50,0.35)",
+		"border"		=> "1px solid ".output_rgba($font_color, 0.35),
+//		"box-shadow"		=> "3px 3px 20px -3px rgba(50,50,50,0.35)",
 		], ],
 	
 	[
@@ -882,7 +883,8 @@ $style_array = [
 		"font-size"		=> "85%",
 		"font-family"		=> "Arial, Helvetica, 'San Serif'",
 		"bottom"		=> "15px",
-		"padding"		=> "7px 15px",
+		"font-style"		=> "italic",
+		"padding"		=> "7px 20px",
 		"background"		=> "rgba(255,255,255,1)",
 		"color"			=> output_rgba($font_color, 1),
 		], ],
@@ -895,7 +897,6 @@ $style_array = [
 		"background"		=> output_rgba($font_color, 1),
 		"color"			=> output_rgba($background_color, 1),
 		"padding"		=> "7px 40px 8px",
-		"box-shadow"		=> "3px 3px 20px -3px rgba(50,50,50,0.8)",
 		], ],
 	
 		[
