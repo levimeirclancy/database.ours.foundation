@@ -955,7 +955,7 @@ $style_array = [
 	"css_tags" => ".sidebar-inputs-show-button",
 	"css_contents" =>
 		[
-		"border-color"		=> output_rgba($font_color, 1),
+		"border-color"		=> output_rgba($background_color, 1),
 		"float"			=> "left",
 		], ],
 	
