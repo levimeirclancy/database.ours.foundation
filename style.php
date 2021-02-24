@@ -266,11 +266,14 @@ $style_array = [
 	"css_tags" => "@media only screen and (min-width: 650px)",
 	"css_contents" =>
 		[
+			
+		[
 		"css_tags" => ".categories-item-button",
 		"css_contents" =>
 			[
 			"display"	=> "inline-block",
-			]
+			], ],
+			
 		], ],
 	
 	[
@@ -1004,11 +1007,14 @@ $style_array = [
 	"css_tags" => "@media print",
 	"css_contents" =>
 		[ 
+			
+		[
 		"css_tags" => "#navigation-header, #footer-formula",
 		"css_contents" =>
 			[
 			"display"	=> "none",
-			],
+			], ],
+			
 		], ],
 
 
