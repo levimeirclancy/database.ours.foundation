@@ -873,7 +873,6 @@ $style_array = [
 		"cursor"		=> "pointer",
 		"box-shadow"		=> "3px 3px 20px -3px rgba(50,50,50,0.35)",
 		], ],
-		], ],
 	
 	[
 	"css_tags" => "#admin-page-form-snackbar",
