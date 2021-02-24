@@ -77,10 +77,10 @@ function wrapper_buttons ($wrapper_temp) {
 echo "<table class='admin-page-table'>";
 echo "<thead><tr>";
 echo "<th></th>";
-echo "<th>Title</th>";
-echo "<th>Headline</th>";
-echo "<th>Body</th>";
-echo "<th>...</th>";
+echo "<th><b>Title</b></th>";
+echo "<th><b>Headline</b></th>";
+echo "<th><b>Body</b></th>";
+echo "<th><b>...</b></th>";
 echo "</tr></thead>";
 echo "<tbody>";
 foreach ($languages_array as $language_temp):
@@ -98,12 +98,12 @@ foreach ($languages_array as $language_temp):
 	endforeach;
 
 	echo "<tr>";
-	echo "<td colspan='4'>Endnotes</td>";
+	echo "<td colspan='4'><b>Endnotes</b></td>";
 	wrapper_buttons("wrapper-endnotes");
 	echo "</tr>";
 
 	echo "<tr>";
-	echo "<td colspan='4'>More...</td>";
+	echo "<td colspan='4'><b>More...</b></td>";
 	wrapper_buttons("wrapper-more");
 	echo "</tr>";
 
