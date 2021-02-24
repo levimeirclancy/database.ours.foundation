@@ -353,10 +353,10 @@ function body_process($body_incoming) {
 				endwhile;
 	
 			$specifier_temp = null;
-			if (strpos(strtoupper($digestion_temp), "UL".$list_delimiter) == ($indent_current_temp*3)):
+			if (strpos($digestion_temp, "UL".$list_delimiter) == ($indent_current_temp*3)):
 				$specifier_temp = "ul";
 				$digestion_temp = trim(substr($digestion_temp, 5));
-			elseif (strpos(strtoupper($digestion_temp), "OL".$list_delimiter) == ($indent_current_temp*3)):
+			elseif (strpos($digestion_temp, "OL".$list_delimiter) == ($indent_current_temp*3)):
 				$specifier_temp = "ol";
 				$digestion_temp = trim(substr($digestion_temp, 5));
 				endif;
