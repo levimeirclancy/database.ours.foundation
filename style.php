@@ -1274,15 +1274,20 @@ function output_css ($array) {
 		
 		echo trim($sub_array_temp['css_tags']) ." {";
 	
-		if (isset($sub_array_temp['css_contents']['css_tags'])): 
-			output_css($sub_array_temp['css_contents']);
-			echo "} ";
-			continue;
-			endif;
+		$echo_temp = null;
 	
 		foreach ($sub_array_temp['css_contents'] as $property_temp => $value_temp):
-			echo trim($property_temp) .":". trim($value_temp) ."; ";
+	
+			if (isset($value_temp['css_tags'])):
+				output_css($sub_array_temp['css_contents']);
+				$echo_temp = null;
+				break; endif;
+	
+			$echo_temp .= trim($property_temp) .":". trim($value_temp) ."; ";
+	
 			endforeach;
+	
+		echo $echo_temp;
 
 		echo "} ";
 	
