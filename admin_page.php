@@ -65,8 +65,8 @@ function wrapper_buttons ($wrapper_temp, $colspan_temp = 0) {
 
 	if ( !(is_int($colspan_temp)) || ($colspan_temp < 0) ): $colspan_temp = 0; endif;
 	
-	echo "<div colspan='".$colspan_temp."'>";
-	echo "<b>".ucwords(str_replace("-", " / ", str_replace("wrapper-", null, $wrapper_temp)))."</b>";
+	echo "<p>";
+	echo "<b>".ucwords(str_replace("-", " • ", str_replace("wrapper-", null, $wrapper_temp)))."</b>";
 	echo "<span id='".$wrapper_temp."-toggle' class='admin-page-table-toggle-button' tabindex='0' role='button' on='tap:";
 	foreach ($toggle_array_temp as $toggle_temp => $discard_temp):
 		echo $toggle_temp.".hide,";
@@ -76,7 +76,7 @@ function wrapper_buttons ($wrapper_temp, $colspan_temp = 0) {
 	echo $wrapper_temp.".show,".$wrapper_temp."-hide.show,".$wrapper_temp."-show.hide'>Ѫ</span>";
 	echo "<span id='".$wrapper_temp."-show' class='admin-page-table-show-hide-button' tabindex='0' role='button' on='tap:".$wrapper_temp.".show,".$wrapper_temp."-show.hide,".$wrapper_temp."-hide.show' ".$show_hidden_temp.">Show</span>";
 	echo "<span id='".$wrapper_temp."-hide' class='admin-page-table-show-hide-button' tabindex='0' role='button' on='tap:".$wrapper_temp.".hide,".$wrapper_temp."-show.show,".$wrapper_temp."-hide.hide' ".$hide_hidden_temp.">Hide</span>";
-	echo "</div>";
+	echo "</p>";
 
 	}
 
