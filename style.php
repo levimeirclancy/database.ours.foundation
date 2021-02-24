@@ -877,7 +877,7 @@ $style_array = [
 		"padding"		=> "10px 25px",
 		"border-radius"		=> "100px",
 		"vertical-align"	=> "middle",
-		"border-radius"		=> "0",
+		"cursor"		=> "pointer",
 		], ],
 	
 	[
