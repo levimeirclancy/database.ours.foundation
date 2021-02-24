@@ -65,7 +65,7 @@ function wrapper_buttons ($wrapper_temp, $colspan_temp = 0) {
 
 	if ( !(is_int($colspan_temp)) || ($colspan_temp < 0) ): $colspan_temp = 0; endif;
 	
-	echo "<p>";
+	echo "<li>";
 	echo "<b>".ucwords(str_replace("-", " • ", str_replace("wrapper-", null, $wrapper_temp)))."</b>";
 	echo "<span id='".$wrapper_temp."-toggle' class='admin-page-table-toggle-button' tabindex='0' role='button' on='tap:";
 	foreach ($toggle_array_temp as $toggle_temp => $discard_temp):
@@ -76,30 +76,36 @@ function wrapper_buttons ($wrapper_temp, $colspan_temp = 0) {
 	echo $wrapper_temp.".show,".$wrapper_temp."-hide.show,".$wrapper_temp."-show.hide'>Ѫ</span>";
 	echo "<span id='".$wrapper_temp."-show' class='admin-page-table-show-hide-button' tabindex='0' role='button' on='tap:".$wrapper_temp.".show,".$wrapper_temp."-show.hide,".$wrapper_temp."-hide.show' ".$show_hidden_temp.">Show</span>";
 	echo "<span id='".$wrapper_temp."-hide' class='admin-page-table-show-hide-button' tabindex='0' role='button' on='tap:".$wrapper_temp.".hide,".$wrapper_temp."-show.show,".$wrapper_temp."-hide.hide' ".$hide_hidden_temp.">Hide</span>";
-	echo "</p>";
-
+	echo "</li>";
+	
 	}
 
-echo "<div class='admin-page-table' amp-fx='parallax' data-parallax-factor='1.2'>";
+echo "<ul class='admin-page-table' amp-fx='parallax' data-parallax-factor='1.2'>";
 foreach ($languages_array as $language_temp):
 
-	wrapper_buttons("wrapper-".$language_temp."-title");
-
-	wrapper_buttons("wrapper-".$language_temp."-headline");
-
-	wrapper_buttons("wrapper-".$language_temp."-body");
+	echo "<li>".ucfirst($language_temp);
+		echo "<ul>";
+		wrapper_buttons("wrapper-".$language_temp."-title");
+		wrapper_buttons("wrapper-".$language_temp."-headline");
+		wrapper_buttons("wrapper-".$language_temp."-body");
+		echo "</ul>";
+		echo "</li>";
 
 	endforeach;
 
-	echo "<hr>";
-
+	echo "<li>";
 	wrapper_buttons("wrapper-endnotes", 3);
+	echo "</li>";
 
 	if (isset($site_info['appendix_array'][$entry_info['type']])):
+		echo "<li>";
 		wrapper_buttons("wrapper-appendices", 3);
+		echo "</li>";
 		endif;
 
+	echo "<li>";
 	wrapper_buttons("wrapper-more", 3);
+	echo "</li>";
 
 	echo "</div>";
 
