@@ -910,7 +910,7 @@ $style_array = [
 	"css_tags" => "#sidebar-inputs",
 	"css_contents" =>
 		[
-		"font-size"		=> "80%",
+//		"font-size"		=> "80%",
 //		"border"		=> "1px solid ".output_rgba($font_color, 0.5),
 		"font-family"		=> "Arial, Helvetica, 'Sans Serif'",
 		], ],
