@@ -875,7 +875,7 @@ $style_array = [
 		"border-radius"		=> "100px",
 		"vertical-align"	=> "middle",
 		"cursor"		=> "pointer",
-		"box-shadow"		=> "10px 10px 20px -5px rgba(50,50,50,0.4)",
+		"box-shadow"		=> "6px 6px 20px -5px rgba(50,50,50,0.35)",
 		], ],
 	
 		[
