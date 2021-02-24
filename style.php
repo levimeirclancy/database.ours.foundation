@@ -900,10 +900,10 @@ $style_array = [
 	
 	
 	[
-	"css_tags" => "#sidebar-inputs",
+	"css_tags" => "#sidebar-inputs ul",
 	"css_contents" =>
 		[
-//		"width"			=> "350px",
+		"width"			=> "270px",
 		], ],
 
 	[
