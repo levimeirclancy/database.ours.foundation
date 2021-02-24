@@ -261,20 +261,7 @@ $style_array = [
 		"padding"		=> "10px",
 		"text-align"		=> "center",
 		], ],
-	
-	[
-	"css_tags" => "@media only screen and (min-width: 650px)",
-	"css_contents" =>
-		[
-			
-		[
-		"css_tags" => ".categories-item-button",
-		"css_contents" =>
-			[
-			"display"	=> "inline-block",
-			], ],
-			
-		], ],
+
 	
 	[
 	"css_tags" => ".categories-item-indent-wrapper",
@@ -952,71 +939,7 @@ $style_array = [
 		"text-direction"	=> "rtl",
 		"margin"		=> "20px 0 50px",
 		], ],
-
-	/// Table breaks for mobile
-
-	[
-	"css_tags" => "@media only screen and (max-width: 600px)",
-	"css_contents" => 
-		[
-
-		[
-		"css_tags" => [
-			"th",
-			"td",
-			],
-		"css_contents" =>
-			[
-			"display"	=> "block",
-			], ],
-		
-		[
-		"css_tags" => [
-			".admin-page-table-show-hide-button",
-			],
-		"css_contents" =>
-			[
-			"display"	=> "none",
-			], ],
-		
-		[
-		"css_tags" => [
-			".admin-page-table-toggle-button",
-			],
-		"css_contents" =>
-			[
-			"margin"	=> "0",
-			], ],
-
-		[
-		"css_tags" =>
-			[
-			"th + th",
-			"td + td",
-			"th + td",
-			"td + th",
-			],
-		"css_contents" =>
-			[
-			"border-left"	=> "none",
-			"border-top"	=> "1px dotted ".output_rgba($font_color, 0.5),
-			], ],
-		], ],
 	
-	[
-	"css_tags" => "@media print",
-	"css_contents" =>
-		[ 
-			
-		[
-		"css_tags" => "#navigation-header, #footer-formula",
-		"css_contents" =>
-			[
-			"display"	=> "none",
-			], ],
-			
-		], ],
-
 
 	/// Lists ... ul, ol, amp-list
 
@@ -1252,7 +1175,83 @@ $style_array = [
 		[
 		"border-color"		=> "rgba(255,255,255,0)",
 		], ],	
+	
+	[
+	"css_tags" => "@media only screen and (min-width: 650px)",
+	"css_contents" =>
+		[
+			
+		[
+		"css_tags" => ".categories-item-button",
+		"css_contents" =>
+			[
+			"display"	=> "inline-block",
+			], ],
+			
+		], ],
+	
+	[
+	"css_tags" => "@media only screen and (max-width: 600px)",
+	"css_contents" => 
+		[
 
+		[
+		"css_tags" => [
+			"th",
+			"td",
+			],
+		"css_contents" =>
+			[
+			"display"	=> "block",
+			], ],
+		
+		[
+		"css_tags" => [
+			".admin-page-table-show-hide-button",
+			],
+		"css_contents" =>
+			[
+			"display"	=> "none",
+			], ],
+		
+		[
+		"css_tags" => [
+			".admin-page-table-toggle-button",
+			],
+		"css_contents" =>
+			[
+			"margin"	=> "0",
+			], ],
+
+		[
+		"css_tags" =>
+			[
+			"th + th",
+			"td + td",
+			"th + td",
+			"td + th",
+			],
+		"css_contents" =>
+			[
+			"border-left"	=> "none",
+			"border-top"	=> "1px dotted ".output_rgba($font_color, 0.5),
+			], ],
+		], ],
+	
+	[
+	"css_tags" => "@media print",
+	"css_contents" =>
+		[ 
+			
+		[
+		"css_tags" => "#navigation-header, #footer-formula",
+		"css_contents" =>
+			[
+			"display"	=> "none",
+			], ],
+			
+		], ],
+	
 	];
 
 function output_rgba($rgba_array, $opacity) {
