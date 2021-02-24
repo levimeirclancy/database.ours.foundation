@@ -1175,7 +1175,8 @@ $style_array = [
 	"css_tags" => "#entries-list-hierarchical, #entries-list-alphabetical",
 	"css_contents" =>
 		[
-		"width"			=> "700px",
+		"width"			=> "auto",
+		"max-width"		=> "700px",
 		"font-size"		=> ".95em",
 		], ],
 
