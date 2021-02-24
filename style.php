@@ -939,21 +939,35 @@ $style_array = [
 		[
 		"margin"		=> "0 5px",
 		"padding"		=> "2px 11px",
-		"float"			=> "right",
+//		"float"			=> "right",
 		"cursor"		=> "pointer",
 		], ],
 	
 	[
-	"css_tags" => "#sidebar-inputs b",
+	"css_tags" => "#sidebar-inputs span:first-child",
 	"css_contents" =>
 		[
-		"margin"		=> "0 5px 0 0",
-//		"display"		=> "block",
-		"font-weight"		=> "400",
-		"font-style"		=> "italic",
-		"padding"		=> "2px 0",
-		"border-color"		=> output_rgba($background_color, 1),
+		"float"			=> "left",
 		], ],
+	
+	[
+	"css_tags" => "#sidebar-inputs span:last-child",
+	"css_contents" =>
+		[
+		"float"			=> "right",
+		], ],
+	
+//	[
+//	"css_tags" => "#sidebar-inputs b",
+//	"css_contents" =>
+//		[
+//		"margin"		=> "0 5px 0 0",
+//		"display"		=> "block",
+//		"font-weight"		=> "400",
+//		"font-style"		=> "italic",
+//		"padding"		=> "2px 0",
+//		"border-color"		=> output_rgba($background_color, 1),
+//		], ],
 	
 	[
 	"css_tags" => "#footer-formula",
