@@ -931,7 +931,6 @@ $style_array = [
 		"border-radius"		=> "100px",
 		"display"		=> "inline-block",
 		"margin"		=> "0",
-		"padding"		=> "2px 11px",
 //		"float"			=> "right",
 		"cursor"		=> "pointer",
 		], ],
@@ -941,6 +940,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"border"		=> "1px solid ".output_rgba($font_color, 1),
+		"padding"		=> "2px 11px",
 		"float"			=> "right",
 		], ],
 	
@@ -957,6 +957,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"border"		=> "1px solid ".output_rgba($font_color, 1),
+		"padding"		=> "2px 11px",
 		"float"			=> "left",
 		], ],
 
