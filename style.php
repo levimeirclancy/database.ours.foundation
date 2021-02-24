@@ -1176,7 +1176,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"width"			=> "700px",
-		"font-size"		=> "1em",
+		"font-size"		=> ".95em",
 		], ],
 
 	[
