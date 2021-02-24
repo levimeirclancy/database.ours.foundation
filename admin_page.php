@@ -8,6 +8,13 @@ foreach ($result as $row):
 	$entry_info['summary']		= json_decode($row['summary'], true);
 	$entry_info['body']		= json_decode($row['body'], true);
 	$entry_info['studies']		= $row['studies'];
+
+	$empty_temp = 1;
+	if (!(empty($row['name']))): $empty_temp = 0; endif;
+	if (!(empty($row['summary']))): $empty_temp = 0; endif;
+	if (!(empty($row['body']))): $empty_temp = 0; endif;
+	if (!(empty($row['studies']))): $empty_temp = 0; endif;
+
 	endforeach;
 
 // Form list of languages
@@ -32,6 +39,12 @@ $toggle_array = [];
 foreach ($languages_array as $language_temp):
 	$hidden_temp = "hidden";
 	if (!(empty($entry_info['name'][$language_temp]))): $hidden_temp = null; endif;
+
+	// If it's an empty entry...
+	if ( ($empty_temp == 1) && ($languages_array[0] == $language_temp)):
+		$hidden_temp = null;
+		endif;
+
 	$toggle_array["wrapper-".$language_temp."-title"] = $hidden_temp;
 
 	$hidden_temp = "hidden";
@@ -82,7 +95,7 @@ function wrapper_buttons ($wrapper_temp, $descriptor_temp) {
 	}
 
 echo "<amp-sidebar id='sidebar-inputs' layout='nodisplay' side='right' on='sidebarOpen:login-popover.close,settings-popover.close,new-popover.close,search-popover.close,delete-popover.close' open>";
-echo "<ul class='admin-page-table' amp-fx='parallax' data-parallax-factor='1.2'>";
+echo "<ul>";
 foreach ($languages_array as $language_temp):
 
 	echo "<li>".ucfirst($language_temp);
