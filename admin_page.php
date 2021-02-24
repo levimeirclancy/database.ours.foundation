@@ -255,7 +255,7 @@ foreach ($languages_array as $language_temp):
 create_inputs($entry_info, "studies", null, "endnotes", "textarea-big", $toggle_array["wrapper-endnotes"]);
 
 if (isset($site_info['appendix_array'][$entry_info['type']])):
-	echo "<div class='wrapper-input' id='wrapper-appendices'>";
+	echo "<div class='wrapper-input' id='wrapper-appendices' ".$toggle_array["wrapper-appendices"].">";
 	foreach ($site_info['appendix_array'][$entry_info['type']] as $appendix_key => $appendix_type):
 
 		$possibilities_array = [];
