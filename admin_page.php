@@ -57,7 +57,7 @@ foreach ($languages_array as $language_temp):
 	endforeach;
 
 $hidden_temp = "hidden";
-if (!(empty($entry_info['studies']))): $hidden_temp = null; endif;
+if (!(empty(trim($entry_info['studies'])))): $hidden_temp = null; endif;
 $toggle_array["wrapper-endnotes"] = $hidden_temp;
 
 if (isset($site_info['appendix_array'][$entry_info['type']])):
