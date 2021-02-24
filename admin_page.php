@@ -103,7 +103,7 @@ foreach ($languages_array as $language_temp):
 	echo "</tr>";
 
 	echo "<tr>";
-	echo "<td colspan='4'><b>More...</b></td>";
+	echo "<td colspan='4'><b>More ...</b></td>";
 	wrapper_buttons("wrapper-more");
 	echo "</tr>";
 
