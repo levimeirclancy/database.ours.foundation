@@ -51,10 +51,9 @@ if (isset($site_info['appendix_array'][$entry_info['type']])):
 	$toggle_array["wrapper-appendices"] = "hidden";
 	endif;
 
-
 $toggle_array["wrapper-more"] = "hidden";
 
-function wrapper_buttons ($wrapper_temp, $colspan_temp = 0) {
+function wrapper_buttons ($wrapper_temp, $descriptor_temp) {
 
 	global $toggle_array;
 
@@ -65,8 +64,10 @@ function wrapper_buttons ($wrapper_temp, $colspan_temp = 0) {
 
 	if ( !(is_int($colspan_temp)) || ($colspan_temp < 0) ): $colspan_temp = 0; endif;
 	
+	if (empty($descriptor_temp)): $descriptor_temp = ucwords(str_replace("-", " • ", str_replace("wrapper-", null, $wrapper_temp))); endif;
+	
 	echo "<li>";
-	echo "<b>".ucwords(str_replace("-", " • ", str_replace("wrapper-", null, $wrapper_temp)))."</b>";
+	echo "<b>".$descriptor_temp."</b>";
 	echo "<span id='".$wrapper_temp."-toggle' class='admin-page-table-toggle-button' tabindex='0' role='button' on='tap:";
 	foreach ($toggle_array_temp as $toggle_temp => $discard_temp):
 		echo $toggle_temp.".hide,";
@@ -86,27 +87,21 @@ foreach ($languages_array as $language_temp):
 
 	echo "<li>".ucfirst($language_temp);
 		echo "<ul>";
-		wrapper_buttons("wrapper-".$language_temp."-title");
-		wrapper_buttons("wrapper-".$language_temp."-headline");
-		wrapper_buttons("wrapper-".$language_temp."-body");
+		wrapper_buttons("wrapper-".$language_temp."-title", "Title");
+		wrapper_buttons("wrapper-".$language_temp."-headline", "Headline");
+		wrapper_buttons("wrapper-".$language_temp."-body", "Body");
 		echo "</ul>";
 		echo "</li>";
 
 	endforeach;
 
-	echo "<li>";
-	wrapper_buttons("wrapper-endnotes", 3);
-	echo "</li>";
+	wrapper_buttons("wrapper-endnotes", "Endnotes");
 
 	if (isset($site_info['appendix_array'][$entry_info['type']])):
-		echo "<li>";
-		wrapper_buttons("wrapper-appendices", 3);
-		echo "</li>";
+		wrapper_buttons("wrapper-appendices", "Appendices");
 		endif;
 
-	echo "<li>";
-	wrapper_buttons("wrapper-more", 3);
-	echo "</li>";
+	wrapper_buttons("wrapper-more", "More...");
 
 	echo "</ul>";
 
@@ -139,7 +134,7 @@ echo "<amp-lightbox id='delete-popover' layout='nodisplay'>";
 
 	echo "</amp-lightbox>";
 
-echo "<span class='input-button' role='button' tabindex='0' on='tap:sidebar-inputs.open'>Toggle inputs</span>";
+echo "<span class='input-button-wrapper'><span class='input-button' role='button' tabindex='0' on='tap:sidebar-inputs.open'>Toggle inputs</span></span>";
 
 echo "<form action-xhr='/edit-xhr/' method='post' class='admin-page-form' id='save' on=\"
 		submit:
