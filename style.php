@@ -907,14 +907,14 @@ $style_array = [
 	"css_contents" =>
 		[
 		"position"		=> "absolute",
-		"bottom"		=> "50px",
-		"right"			=> "50px%",
+		"bottom"		=> "60px",
+		"right"			=> "20px",
 		"background"		=> output_rgba($background_color, 1),
-		"padding"		=> "20px",
+		"padding"		=> "15px",
 		"border-radius"		=> "100px",
 		"cursor"		=> "pointer",
 		"color"			=> output_rgba($font_color, 1),
-		"font-size"		=> "3em",
+		"font-size"		=> "2em",
 		"box-shadow"		=> "10px 10px 25px -5px rgba(50,50,50,0.25)",
 		], ],
 	
