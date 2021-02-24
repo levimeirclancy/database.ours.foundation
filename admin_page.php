@@ -65,7 +65,7 @@ function wrapper_buttons ($wrapper_temp) {
 		echo $toggle_temp."-show.show,";
 		echo $toggle_temp."-hide.hide,";
 		endforeach;
-	echo $wrapper_temp.".show,".$wrapper_temp."-hide.show,".$wrapper_temp."-show.show'>Ѫ</span>";
+	echo $wrapper_temp.".show,".$wrapper_temp."-hide.show,".$wrapper_temp."-show.hide'>Ѫ</span>";
 //	echo "<td>";
 //	echo "</td>";
 	echo "<span id='".$wrapper_temp."-show' tabindex='0' role='button' on='tap:".$wrapper_temp.".show,".$wrapper_temp."-show.hide,".$wrapper_temp."-hide.show' ".$show_hidden_temp.">Show</span>";
