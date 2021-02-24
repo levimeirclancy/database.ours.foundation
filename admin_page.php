@@ -74,34 +74,36 @@ function wrapper_buttons ($wrapper_temp, $descriptor_temp) {
 	if ( !(is_int($colspan_temp)) || ($colspan_temp < 0) ): $colspan_temp = 0; endif;
 	
 	if (empty($descriptor_temp)): $descriptor_temp = ucwords(str_replace("-", " • ", str_replace("wrapper-", null, $wrapper_temp))); endif;
-	
-	$toggle_hide_temp = [];
-	foreach ($toggle_array_temp as $toggle_temp => $discard_temp):
-		foreach ($switch_array as $switch_temp):
-			if (strpos($toggle_temp, $switch_temp) === FALSE): continue; endif;
-			endforeach;
-		$toggle_others_temp[] = $toggle_temp.".hide,";
-		$toggle_others_temp[] = $toggle_temp."-show.show,";
-		$toggle_others_temp[] = $toggle_temp."-hide.hide,";
-		endforeach;
 
 	// We will assume that it is hidden
 	$hidden_check = 1;
+	$found_temp = null;
+	$found_counter = 0;
 	
 	$toggle_show_temp = $toggle_hide_temp = [];
-	foreach ($toggle_array_temp as $toggle_temp => $discard_temp):
+	foreach ($toggle_array as $toggle_temp => $discard_temp):
 		foreach ($switch_array as $switch_temp):
-			$toggle_show_temp[] = $toggle_temp.".show,";
-			$toggle_show_temp[] = $toggle_temp."-show.hide,";
-			$toggle_show_temp[] = $toggle_temp."-hide.show,";
-			if (strpos($toggle_temp, $switch_temp) !== FALSE): continue; endif;
+			if (strpos($toggle_temp, $switch_temp) === FALSE):
+				$toggle_others_temp[] = $toggle_temp.".hide,";
+				$toggle_others_temp[] = $toggle_temp."-show.show,";
+				$toggle_others_temp[] = $toggle_temp."-hide.hide,";
+				continue 2; endif;
 			endforeach;
 	
+		$found_counter++;
+	
+		$found_temp = $toggle_temp;
+	
+		$toggle_show_temp[] = $toggle_temp.".show,";
+		$toggle_show_temp[] = $toggle_temp."-show.hide,";
+		$toggle_show_temp[] = $toggle_temp."-hide.show,";
+
 		$toggle_hide_temp[] = $toggle_temp.".hide,";
 		$toggle_hide_temp[] = $toggle_temp."-show.show,";
 		$toggle_hide_temp[] = $toggle_temp."-hide.hide,";
 	
 		if ($toggle_array[$toggle_temp] == "hidden"): $hidden_check = 0; endif;
+	
 		endforeach;
 	
 	$hide_hidden_temp = "hidden";
@@ -111,30 +113,31 @@ function wrapper_buttons ($wrapper_temp, $descriptor_temp) {
 		$show_hidden_temp = "hidden";
 		endif;
 	
+	if ($found_count == 1): $wrapper_temp = $found_temp;
+	else: $wrapper_temp = "wrapper-".implode("-", $wrapper_temp); endif;
+	
 	$echo_temp = null;
 	
-	$echo_temp .= "<span id='".$wrapper_temp."-toggle' class='sidebar-inputs-toggle-button' tabindex='0' role='button' on='tap:". implode(",", $toggle_others_temp) .",". $toggle_show_temp ."'>Ѫ</span>";
-	$echo_temp .= "<span id='".$wrapper_temp."-hide' class='sidebar-inputs-hide-button' tabindex='0' role='button' on='tap:". implode(",", $toggle_hide_temp) ."' ".$hide_hidden_temp.">Hide ".$descriptor_temp."</span>";
-	$echo_temp .= "<span id='".$wrapper_temp."-show' class='sidebar-inputs-show-button' tabindex='0' role='button' on='tap:". implode(",", $toggle_show_temp) ."'".$show_hidden_temp.">Show ".$descriptor_temp."</span>";
+	$echo_temp .= "<span id='".$wrapper_temp."-toggle' class='sidebar-inputs-toggle-button' tabindex='0' role='button' on='tap:". implode(",", $toggle_others_temp) .",". $toggle_show_temp .",". $wrapper_temp ."-hide.show,". $wrapper_temp ."-show.hide'>Ѫ</span>";
+	$echo_temp .= "<span id='".$wrapper_temp."-hide' class='sidebar-inputs-hide-button' tabindex='0' role='button' on='tap:". implode(",", $toggle_hide_temp) .",". $wrapper_temp ."-hide.hide,". $wrapper_temp ."-show.show' ".$hide_hidden_temp.">Hide ".$descriptor_temp."</span>";
+	$echo_temp .= "<span id='".$wrapper_temp."-show' class='sidebar-inputs-show-button' tabindex='0' role='button' on='tap:". implode(",", $toggle_show_temp) .",". $wrapper_temp ."-hide.show,". $wrapper_temp ."-show.hide' ".$show_hidden_temp.">Show ".$descriptor_temp."</span>";
 	
 	return $echo_temp; }
 
 echo "<amp-sidebar id='sidebar-inputs' layout='nodisplay' side='right' on='sidebarOpen:login-popover.close,settings-popover.close,new-popover.close,search-popover.close,delete-popover.close' open>";
 
-echo "<div class='sidebar-back' on='tap:sidebar-inputs.close' role='button' tabindex='0'>Close</div>";
+	echo "<div class='sidebar-back' on='tap:sidebar-inputs.close' role='button' tabindex='0'>Close</div>";
 
-echo "<ul class='navigation-list'>";
-foreach ($languages_array as $language_temp):
-
-	echo "<li>" . wrapper_buttons([$language_temp], ucfirst($language_temp));
-		echo "<ul>";
-		echo "<li>" . wrapper_buttons([$language_temp, "title"], "Title") . "</li>";
-		echo "<li>" . wrapper_buttons([$language_temp, "headline"], "Headline") . "</li>";
-		echo "<li>" . wrapper_buttons([$language_temp, "body"], "Body") . "</li>";
-		echo "</ul>";
-		echo "</li>";
-
-	endforeach;
+	echo "<ul class='navigation-list'>";
+	foreach ($languages_array as $language_temp):
+		echo "<li>" . wrapper_buttons([$language_temp], ucfirst($language_temp));
+			echo "<ul>";
+			echo "<li>" . wrapper_buttons([$language_temp, "title"], "Title") . "</li>";
+			echo "<li>" . wrapper_buttons([$language_temp, "headline"], "Headline") . "</li>";
+			echo "<li>" . wrapper_buttons([$language_temp, "body"], "Body") . "</li>";
+			echo "</ul>";
+			echo "</li>";
+		endforeach;
 
 	echo "<li>" . wrapper_buttons([$language_temp, "endnotes"], "Endnotes") . "</li>";
 
