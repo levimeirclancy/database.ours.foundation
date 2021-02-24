@@ -66,7 +66,7 @@ function wrapper_buttons ($wrapper_temp, $colspan_temp = 0) {
 	if ( !(is_int($colspan_temp)) || ($colspan_temp < 0) ): $colspan_temp = 0; endif;
 	
 	echo "<div colspan='".$colspan_temp."'>";
-	echo "<b>".ucwords(str_replace("-", " / ", $wrapper_temp))."</b>";
+	echo "<b>".ucwords(str_replace("-", " / ", str_repalce("wrapper-", null, $wrapper_temp)))."</b>";
 	echo "<span id='".$wrapper_temp."-toggle' class='admin-page-table-toggle-button' tabindex='0' role='button' on='tap:";
 	foreach ($toggle_array_temp as $toggle_temp => $discard_temp):
 		echo $toggle_temp.".hide,";
