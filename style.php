@@ -947,7 +947,7 @@ $style_array = [
 	"css_tags" => "#sidebar-inputs span + span",
 	"css_contents" =>
 		[
-		"margin"		=> "0 10px",
+		"margin"		=> "0 10px 0 0",
 		], ],
 	
 	[
