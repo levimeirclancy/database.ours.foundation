@@ -928,6 +928,13 @@ $style_array = [
 		], ],
 	
 	[
+	"css_tags" => ".admin-page-table span",
+	"css_contents" =>
+		[
+		"float"			=> "right",
+		], ],
+	
+	[
 	"css_tags" => ".admin-page-table b",
 	"css_contents" =>
 		[
