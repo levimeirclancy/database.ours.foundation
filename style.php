@@ -896,7 +896,6 @@ $style_array = [
 	"css_contents" =>
 		[
 		"border"		=> "1px solid ".output_rgba($font_color, 1),
-		"cursor"		=> "pointer",
 		"margin"		=> "0 5px",
 		"padding"		=> "2px 11px",
 		"box-sizing"		=> "border-box",
@@ -909,6 +908,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"float"			=> "right",
+		"cursor"		=> "pointer",
 		], ],
 	
 	[
