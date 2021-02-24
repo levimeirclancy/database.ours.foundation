@@ -80,6 +80,7 @@ function wrapper_buttons ($wrapper_temp, $colspan_temp = 0) {
 	
 	}
 
+echo "<amp-sidebar id='sidebar-inputs' layout='nodisplay' side='right' on='sidebarOpen:login-popover.close,settings-popover.close,new-popover.close,search-popover.close,delete-popover.close' open>";
 echo "<ul class='admin-page-table' amp-fx='parallax' data-parallax-factor='1.2'>";
 foreach ($languages_array as $language_temp):
 
@@ -109,6 +110,8 @@ foreach ($languages_array as $language_temp):
 
 	echo "</ul>";
 
+	echo "</amp-sidebar>";
+
 // Add a reset button that shows only if there is content inside
 
 // Do a delete popover ... redirect if deletion works ...
@@ -135,6 +138,8 @@ echo "<amp-lightbox id='delete-popover' layout='nodisplay'>";
 	echo "</form>";
 
 	echo "</amp-lightbox>";
+
+echo "<span class='input-button' role='button' tabindex='0' on='tap:sidebar-inputs.open'>Toggle inputs</span>";
 
 echo "<form action-xhr='/edit-xhr/' method='post' class='admin-page-form' id='save' on=\"
 		submit:
