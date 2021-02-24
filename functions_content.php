@@ -356,7 +356,7 @@ function body_process($body_incoming) {
 			if (strpos(strtoupper($digestion_temp), "UL***") === ($indent_current_temp*3)):
 				$specifier_temp = "ul";
 				$digestion_temp = trim(substr($digestion_temp, 5));
-			elseif strpos(strtoupper($digestion_temp), "OL***") === ($indent_current_temp*3)):
+			elseif (strpos(strtoupper($digestion_temp), "OL***") === ($indent_current_temp*3)):
 				$specifier_temp = "ol";
 				$digestion_temp = trim(substr($digestion_temp, 5));
 				endif;
