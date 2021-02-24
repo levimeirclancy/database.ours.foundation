@@ -65,33 +65,59 @@ if (isset($site_info['appendix_array'][$entry_info['type']])):
 	$toggle_array["wrapper-appendices"] = "hidden";
 	endif;
 
-$toggle_array["wrapper-more"] = "hidden";
+$toggle_array["wrapper-metadata"] = "hidden";
 
 function wrapper_buttons ($wrapper_temp, $descriptor_temp) {
 
 	global $toggle_array;
 
-	$toggle_array_temp = $toggle_array;
-	unset($toggle_array_temp[$wrapper_temp]);
 	$show_hidden_temp = null; $hide_hidden_temp = "hidden";
-	if ($toggle_array[$wrapper_temp] !== "hidden"): $show_hidden_temp = "hidden"; $hide_hidden_temp = null; endif;
+	 $show_hidden_temp = "hidden"; $hide_hidden_temp = null; endif;
 
 	if ( !(is_int($colspan_temp)) || ($colspan_temp < 0) ): $colspan_temp = 0; endif;
 	
 	if (empty($descriptor_temp)): $descriptor_temp = ucwords(str_replace("-", " • ", str_replace("wrapper-", null, $wrapper_temp))); endif;
 	
-	echo "<li>";
-	echo "<span id='".$wrapper_temp."-toggle' class='sidebar-inputs-toggle-button' tabindex='0' role='button' on='tap:";
+	$toggle_hide_temp = [];
 	foreach ($toggle_array_temp as $toggle_temp => $discard_temp):
-		echo $toggle_temp.".hide,";
-		echo $toggle_temp."-show.show,";
-		echo $toggle_temp."-hide.hide,";
+		foreach ($switch_array as $switch_temp):
+			if (strpos($toggle_temp, $switch_temp) === FALSE): continue; endif;
+			endforeach;
+		$toggle_others_temp[] = $toggle_temp.".hide,";
+		$toggle_others_temp[] = $toggle_temp."-show.show,";
+		$toggle_others_temp[] = $toggle_temp."-hide.hide,";
 		endforeach;
-	echo $wrapper_temp.".show,".$wrapper_temp."-hide.show,".$wrapper_temp."-show.hide'>Ѫ</span>";
-	echo "<span id='".$wrapper_temp."-hide' class='sidebar-inputs-hide-button' tabindex='0' role='button' on='tap:".$wrapper_temp.".hide,".$wrapper_temp."-show.show,".$wrapper_temp."-hide.hide' ".$hide_hidden_temp.">Hide ".$descriptor_temp."</span>";
-	echo "<span id='".$wrapper_temp."-show' class='sidebar-inputs-show-button' tabindex='0' role='button' on='tap:".$wrapper_temp.".show,".$wrapper_temp."-show.hide,".$wrapper_temp."-hide.show' ".$show_hidden_temp.">Show ".$descriptor_temp."</span>";
-//	echo $descriptor_temp;
-	echo "</li>";
+
+	// We will assume that it is hidden
+	$hidden_check = 1;
+	
+	$toggle_show_temp = $toggle_hide_temp = [];
+	foreach ($toggle_array_temp as $toggle_temp => $discard_temp):
+		foreach ($switch_array as $switch_temp):
+			if (strpos($toggle_temp, $switch_temp) !== FALSE): continue; endif;
+			endforeach;
+	
+		$toggle_show_temp[] = $toggle_temp.".show,";
+		$toggle_show_temp[] = $toggle_temp."-show.hide,";
+		$toggle_show_temp[] = $toggle_temp."-hide.show,";
+	
+		$toggle_hide_temp[] = $toggle_temp.".hide,";
+		$toggle_hide_temp[] = $toggle_temp."-show.show,";
+		$toggle_hide_temp[] = $toggle_temp."-hide.hide,";
+	
+		if ($toggle_array[$toggle_temp] == "hidden"): $hidden_check = 0; endif;
+		endforeach;
+	
+	$hide_hidden_temp = "hidden";
+	$show_hidden_temp = null;
+	if ($hidden_check !== 1):
+		$hide_hidden_temp = null;
+		$show_hidden_temp = "hidden";
+		endif;
+	
+	echo "<span id='".$wrapper_temp."-toggle' class='sidebar-inputs-toggle-button' tabindex='0' role='button' on='tap:". implode(",", $toggle_others_temp) .",". $toggle_show_temp ."'>Ѫ</span>";
+	echo "<span id='".$wrapper_temp."-hide' class='sidebar-inputs-hide-button' tabindex='0' role='button' on='tap:". implode(",", $toggle_hide_temp) ."' ".$hide_hidden_temp.">Hide ".$descriptor_temp."</span>";
+	echo "<span id='".$wrapper_temp."-show' class='sidebar-inputs-show-button' tabindex='0' role='button' on='tap:". implode(",", $toggle_show_temp) ."'".$show_hidden_temp.">Show ".$descriptor_temp."</span>";
 	
 	}
 
@@ -102,23 +128,24 @@ echo "<div class='sidebar-back' on='tap:sidebar-inputs.close' role='button' tabi
 echo "<ul class='navigation-list'>";
 foreach ($languages_array as $language_temp):
 
-	echo "<li>".ucfirst($language_temp);
+	echo "<li>";
+	wrapper_buttons([$language_temp], ucfirst($language_temp));
 		echo "<ul>";
-		wrapper_buttons("wrapper-".$language_temp."-title", "Title");
-		wrapper_buttons("wrapper-".$language_temp."-headline", "Headline");
-		wrapper_buttons("wrapper-".$language_temp."-body", "Body");
+		wrapper_buttons([$language_temp, "title"], "Title");
+		wrapper_buttons([$language_temp, "headline"], "Headline");
+		wrapper_buttons([$language_temp, "body"], "Body");
 		echo "</ul>";
 		echo "</li>";
 
 	endforeach;
 
-	wrapper_buttons("wrapper-endnotes", "Endnotes");
+	wrapper_buttons([$language_temp, "endnotes"], "Endnotes");
 
 	if (isset($site_info['appendix_array'][$entry_info['type']])):
-		wrapper_buttons("wrapper-appendices", "Appendices");
+		wrapper_buttons([$language_temp, "appendices"], "Appendices");
 		endif;
 
-	wrapper_buttons("wrapper-more", "Metadata");
+	wrapper_buttons([$language_temp, "metadata"], "Metadata");
 
 	echo "</ul>";
 
@@ -274,7 +301,7 @@ if (isset($site_info['appendix_array'][$entry_info['type']])):
 	echo "</div>";
 	endif;
 
-echo "<div id='wrapper-more' hidden>";
+echo "<div id='wrapper-metadata' hidden>";
 
 	echo "<label for='entry-link'><a href='https://".$domain."/".$page_temp."/' target='_blank'>Entry URL ►</a></label>";
 	echo "<input name='entry-link' type='text' value='".$domain."/".$page_temp."/' readonly>";
