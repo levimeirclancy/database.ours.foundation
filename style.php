@@ -196,7 +196,8 @@ $style_array = [
 	"css_tags" => "#sidebar-search",
 	"css_contents" =>
 		[
-		"width"			=> "650px",
+		"width"			=> "auto",
+		"max-width"		=> "650px",
 		], ],
 	
 	[
