@@ -919,8 +919,8 @@ $style_array = [
 	"css_tags" => "#sidebar-inputs ul",
 	"css_contents" =>
 		[
-//		"font-size"		=> "80%",
-//		"border"		=> "1px solid ".output_rgba($font_color, 0.5),
+		"width"			=> "auto",
+		"display"		=> "block",
 		], ],
 	
 	[
