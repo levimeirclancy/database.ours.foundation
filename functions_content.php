@@ -351,7 +351,7 @@ function body_process($body_incoming) {
 				endwhile;
 		
 			if ($indent_position_temp == $indent_current_temp):
-				$replace_temp .= "</li><li>".$indent_position_temp."|.$indent_current_temp."|";
+				$replace_temp .= "</li><li>".$indent_position_temp."|".$indent_current_temp."|";
 			elseif ($indent_position_temp < $indent_current_temp):
 				while ($indent_position_temp < $indent_current_temp):
 					$replace_temp .= "<ul><li>".$indent_position_temp."|".$indent_current_temp."|";
