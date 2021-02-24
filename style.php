@@ -908,7 +908,7 @@ $style_array = [
 		"white-space"		=> "break-spaces",
 		"border"		=> "1px solid ".output_rgba($font_color, 0.5),
 		"box-sizing"		=> "border-box",
-		"padding"		=> "10px 7px",
+		"padding"		=> "3px 0",
 		], ],
 	
 	[
@@ -924,7 +924,7 @@ $style_array = [
 		[
 		"border"		=> "1px solid ".output_rgba($font_color, 1),
 		"cursor"		=> "pointer",
-		"margin"		=> "5px 5px",
+		"margin"		=> "5px",
 		"padding"		=> "3px 10px",
 		"box-sizing"		=> "border-box",
 		"border-radius"		=> "100px",
