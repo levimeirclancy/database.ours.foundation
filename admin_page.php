@@ -67,7 +67,7 @@ if (isset($site_info['appendix_array'][$entry_info['type']])):
 
 $toggle_array["wrapper-metadata"] = "hidden";
 
-function wrapper_buttons ($wrapper_temp, $descriptor_temp) {
+function wrapper_buttons ($switch_array, $descriptor_temp) {
 
 	global $toggle_array;
 
@@ -114,7 +114,7 @@ function wrapper_buttons ($wrapper_temp, $descriptor_temp) {
 		endif;
 	
 	if ($found_count == 1): $wrapper_temp = $found_temp;
-	else: $wrapper_temp = "wrapper-".implode("-", $wrapper_temp); endif;
+	else: $wrapper_temp = "wrapper-".implode("-", $switch_array); endif;
 	
 	$echo_temp = null;
 	
