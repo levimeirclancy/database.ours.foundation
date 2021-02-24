@@ -100,11 +100,6 @@ foreach ($languages_array as $language_temp):
 	echo "<tr>";
 	echo "<td colspan='4'><hr></td>";
 	echo "</tr>";
-
-	echo "<tr>";
-	echo "<td><b>Endnotes</b></td>";
-	wrapper_buttons("wrapper-endnotes");
-	echo "</tr>";
 	
 	echo "<tr>";
 	echo "<td><b>Endnotes</b></td>";
