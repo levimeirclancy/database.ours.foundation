@@ -991,10 +991,10 @@ $style_array = [
 		[
 		"css_tags" =>
 			[
-			"article th + th",
-			"article td + td",
-			"article th + td",
-			"article td + th",
+			"th + th",
+			"td + td",
+			"th + td",
+			"td + th",
 			],
 		"css_contents" =>
 			[
