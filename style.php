@@ -878,6 +878,7 @@ $style_array = [
 	"css_tags" => "#admin-page-form-snackbar",
 	"css_contents" =>
 		[
+		"cursor"		=> "default",
 		"font-size"		=> "85%",
 		"font-family"		=> "Arial, Helvetica, 'San Serif'",
 		"bottom"		=> "10px",
