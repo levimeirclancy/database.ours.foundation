@@ -85,9 +85,9 @@ function wrapper_buttons ($switch_array, $descriptor_temp) {
 	foreach ($language_array as $language_temp):
 
 		if (!(in_array($language_temp, $switch_array))): 
-			$toggle_others_temp[] = $toggle_temp.".hide";
-			$toggle_others_temp[] = $toggle_temp."-show.show";
-			$toggle_others_temp[] = $toggle_temp."-hide.hide";
+			$toggle_others_temp[] = "wrapper-".$language_temp.".hide";
+			$toggle_others_temp[] = "wrapper-".$language_temp."-show.show";
+			$toggle_others_temp[] = "wrapper-".$language_temp."-hide.hide";
 			continue; endif;
 	
 		endforeach;
