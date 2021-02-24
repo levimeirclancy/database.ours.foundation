@@ -892,35 +892,12 @@ $style_array = [
 		], ],
 	
 	[
-	"css_tags" => ".admin-page-table p",
-	"css_contents" =>
-		[
-		"text-align"		=> "center",
-		"white-space"		=> "break-spaces",
-		"border"		=> "1px solid ".output_rgba($font_color, 0.5),
-		"box-sizing"		=> "border-box",
-		"padding"		=> "1px 3px",
-		"margin"		=> "20px 0 0 20px",
-		"vertical-align"	=> "middle",
-		"display"		=> "inline",
-		], ],
-	
-	[
-	"css_tags" => ".admin-page-table hr",
-	"css_contents" =>
-		[
-		"padding"		=> "0",
-		"margin"		=> "0",
-		"opacity"		=> "0",
-		], ],
-	
-	[
 	"css_tags" => ".admin-page-table span, .admin-page-table b",
 	"css_contents" =>
 		[
 		"border"		=> "1px solid ".output_rgba($font_color, 1),
 		"cursor"		=> "pointer",
-		"margin"		=> "5px",
+		"margin"		=> "0 5px",
 		"padding"		=> "2px 11px",
 		"box-sizing"		=> "border-box",
 		"border-radius"		=> "100px",
