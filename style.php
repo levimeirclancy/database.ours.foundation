@@ -1263,7 +1263,7 @@ function output_css ($array) {
 	global $background_color;
 	global $font_color;
 	
-	if (isset($array['css_tags'])): $array = [ $array ]; endif;
+//	if (isset($array['css_tags'])): $array = [ $array ]; endif;
 	
 	// First, check 
 	foreach ($array as $sub_array_temp):
