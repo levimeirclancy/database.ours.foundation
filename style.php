@@ -892,6 +892,7 @@ $style_array = [
 	"css_tags" => ".admin-page-table",
 	"css_contents" =>
 		[
+		"white-space"		=> "break-spaces",
 		"font-size"		=> "80%",
 		"margin"		=> "20px auto",
 		"border"		=> "1px solid ".output_rgba($font_color, 0.5),
