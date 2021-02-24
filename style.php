@@ -892,7 +892,7 @@ $style_array = [
 	"css_tags" => ".admin-page-table",
 	"css_contents" =>
 		[
-		"white-space"		=> "break-spaces",
+		"display"		=> "table",
 		"font-size"		=> "80%",
 		"margin"		=> "20px auto",
 		"border"		=> "1px solid ".output_rgba($font_color, 0.5),
@@ -904,9 +904,18 @@ $style_array = [
 	"css_tags" => ".admin-page-table th, .admin-page-table td",
 	"css_contents" =>
 		[
+		"text-align"		=> "center",
+		"white-space"		=> "break-spaces",
 		"border"		=> "1px solid ".output_rgba($font_color, 0.5),
 		"box-sizing"		=> "border-box",
 		"padding"		=> "10px 7px",
+		], ],
+	
+	[
+	"css_tags" => ".admin-page-table th:first-child, .admin-page-table td:first-child",
+	"css_contents" =>
+		[
+		"text-align"		=> "left",
 		], ],
 
 	[
