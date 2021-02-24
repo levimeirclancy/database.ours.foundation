@@ -71,9 +71,6 @@ function wrapper_buttons ($wrapper_temp, $descriptor_temp) {
 
 	global $toggle_array;
 
-	$show_hidden_temp = null; $hide_hidden_temp = "hidden";
-	 $show_hidden_temp = "hidden"; $hide_hidden_temp = null; endif;
-
 	if ( !(is_int($colspan_temp)) || ($colspan_temp < 0) ): $colspan_temp = 0; endif;
 	
 	if (empty($descriptor_temp)): $descriptor_temp = ucwords(str_replace("-", " • ", str_replace("wrapper-", null, $wrapper_temp))); endif;
