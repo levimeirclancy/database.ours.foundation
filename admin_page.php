@@ -81,51 +81,39 @@ function wrapper_buttons ($wrapper_temp, $colspan_temp = 0) {
 
 	}
 
-echo "<table class='admin-page-table' amp-fx='parallax' data-parallax-factor='1.2'>";
-echo "<thead><tr>";
-echo "<th></th>";
-echo "<th><b>Title</b></th>";
-echo "<th><b>Headline</b></th>";
-echo "<th><b>Body</b></th>";
-echo "</tr></thead>";
-echo "<tbody>";
+echo "<div class='admin-page-table' amp-fx='parallax' data-parallax-factor='1.2'>";
 foreach ($languages_array as $language_temp):
-	echo "<tr>";
-	echo "<td><b>".ucfirst($language_temp)."</b></td>";
 
+	echo "<div>Title / ".ucfirst($language_temp);
 	wrapper_buttons("wrapper-".$language_temp."-title");
+	echo "</div>";
 
+	echo "<div>Headline / ".ucfirst($language_temp);
 	wrapper_buttons("wrapper-".$language_temp."-headline");
+	echo "</div>";
 
+	echo "<div>Body / ".ucfirst($language_temp);
 	wrapper_buttons("wrapper-".$language_temp."-body");
 
-	echo "</tr>";
 	endforeach;
 
-	echo "<tr>";
-	echo "<td colspan='4'><hr></td>";
-	echo "</tr>";
-	
-	echo "<tr>";
-	echo "<td><b>Endnotes</b></td>";
+	echo "<hr>";
+
+	echo "<div>Endnotes";
 	wrapper_buttons("wrapper-endnotes", 3);
-	echo "</tr>";
+	echo "</div>";
 
 	if (isset($site_info['appendix_array'][$entry_info['type']])):
-		echo "<tr>";
-		echo "<td><b>Appendices</b></td>";
+		echo "<div>Appendices";
 		wrapper_buttons("wrapper-appendices", 3);
-		echo "</tr>";
+		echo "</div>";
 		endif;
 
-
-	echo "<tr>";
-	echo "<td><b>More ...</b></td>";
+	echo "<div>More...";
 	wrapper_buttons("wrapper-more", 3);
-	echo "</tr>";
+	echo "</div>";
 
-	echo "</tbody>";
-	echo "</table>";
+	echo "</div>";
 
 // Add a reset button that shows only if there is content inside
 
