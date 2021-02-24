@@ -853,7 +853,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"position"		=> "fixed",
-		"font-size"		=> "80%",
+		"font-size"		=> "90%",
 		"font-family"		=> "Arial, Helvetica, 'San Serif'",
 		"bottom"		=> "0",
 		"left"			=> "0",
@@ -870,8 +870,8 @@ $style_array = [
 	"css_contents" =>
 		[
 		"position"		=> "fixed",
-		"bottom"		=> "10px",
-		"right"			=> "10px",
+		"bottom"		=> "15px",
+		"right"			=> "20px",
 		"background"		=> output_rgba($font_color, 1),
 		"color"			=> output_rgba($background_color, 1),
 		"padding"		=> "10px 25px",
@@ -908,7 +908,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"position"		=> "fixed",
-		"bottom"		=> "60px",
+		"bottom"		=> "70px",
 		"right"			=> "20px",
 		"background"		=> output_rgba($background_color, 1),
 		"padding"		=> "10px 25px",
