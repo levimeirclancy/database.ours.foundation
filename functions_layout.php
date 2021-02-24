@@ -199,7 +199,7 @@ function amp_header($title=null, $canonical=null) {
 	// This is the popover for searching
 	echo "<amp-sidebar id='sidebar-search' layout='nodisplay' side='left' on='sidebarOpen:login-popover.close,settings-popover.close,new-popover.close'>";
 	
-		echo "<div class='sidebar-back' on='tap:".$navigation_lightboxes."' role='button' tabindex='0'>Close</div>";
+		echo "<div class='sidebar-back' on='tap:sidebar-search.close' role='button' tabindex='0'>Close</div>";
 		
 		echo "<label for='search-input'>Search the database</label>";
 		echo "<input type='text' id='search-input' required pattern=\".{1,}\" placeholder='...' on=\"input-throttled:AMP.setState({pageState:{searchTerm: event.value}}),sidebar-navigation-lightbox-search-list.changeToLayoutContainer()\">";
