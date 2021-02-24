@@ -866,26 +866,37 @@ $style_array = [
 		], ],
 	
 	[
-	"css_tags" => "#admin-page-form-save",
+	"css_tags" => "#admin-page-form-save, #sidebar-inputs-button",
 	"css_contents" =>
 		[
+		"display"		=> "inline-block",
 		"position"		=> "fixed",
-		"bottom"		=> "15px",
 		"right"			=> "20px",
-		"background"		=> output_rgba($font_color, 1),
-		"color"			=> output_rgba($background_color, 1),
-		"padding"		=> "10px 25px",
 		"border-radius"		=> "100px",
 		"vertical-align"	=> "middle",
 		"cursor"		=> "pointer",
+		"box-shadow"		=> "10px 10px 20px -5px rgba(50,50,50,0.4)",
 		], ],
 	
-	[
-	"css_tags" => "#admin-page-form-save:hover",
+		[
+	"css_tags" => "#admin-page-form-save",
 	"css_contents" =>
 		[
-//		"font-style"		=> "italic",
+		"bottom"		=> "15px",
+		"background"		=> output_rgba($font_color, 1),
+		"color"			=> output_rgba($background_color, 1),
+		"padding"		=> "10px 40px",
 		], ],
+	
+		[
+	"css_tags" => "#sidebar-inputs-button",
+	"css_contents" =>
+		[
+		"bottom"		=> "70px",
+		"background"		=> output_rgba($background_color, 1),
+		"color"			=> output_rgba($font_color, 1),
+		], ],
+	
 	
 	[
 	"css_tags" => "#sidebar-inputs",
@@ -903,22 +914,7 @@ $style_array = [
 		"max-width"		=> "100%",
 		], ],
 	
-	[
-	"css_tags" => "#sidebar-inputs-button",
-	"css_contents" =>
-		[
-		"position"		=> "fixed",
-		"bottom"		=> "70px",
-		"right"			=> "20px",
-		"background"		=> output_rgba($background_color, 1),
-		"padding"		=> "10px 25px",
-		"border-radius"		=> "100px",
-		"cursor"		=> "pointer",
-		"color"			=> output_rgba($font_color, 1),
-		"font-size"		=> "1em",
-		"display"		=> "inline-block",
-		"box-shadow"		=> "10px 10px 25px -5px rgba(50,50,50,0.4)",
-		], ],
+
 	
 	[
 	"css_tags" => ".admin-page-table",
