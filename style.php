@@ -909,6 +909,7 @@ $style_array = [
 		"border"		=> "1px solid ".output_rgba($font_color, 0.5),
 		"box-sizing"		=> "border-box",
 		"padding"		=> "3px 0",
+		"vertical-align"	=> "middle",
 		], ],
 	
 	[
@@ -919,7 +920,7 @@ $style_array = [
 		], ],
 
 	[
-	"css_tags" => ".admin-page-table span",
+	"css_tags" => ".admin-page-table span, .admin-page-table b",
 	"css_contents" =>
 		[
 		"border"		=> "1px solid ".output_rgba($font_color, 1),
@@ -931,6 +932,12 @@ $style_array = [
 		"display"		=> "inline-block",
 		], ],
 	
+	[
+	"css_tags" => ".admin-page-table b",
+	"css_contents" =>
+		[
+		"border-color"		=> output_rgba($background_color, 1),
+		], ],
 	
 	[
 	"css_tags" => "#footer-formula",
