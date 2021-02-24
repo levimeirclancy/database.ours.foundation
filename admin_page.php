@@ -118,7 +118,7 @@ function wrapper_buttons ($switch_array, $descriptor_temp) {
 	
 	$echo_temp = null;
 	
-	$echo_temp .= "<span id='".$wrapper_temp."-toggle' class='sidebar-inputs-toggle-button' tabindex='0' role='button' on='tap:". implode(",", $toggle_others_temp) .",". $toggle_show_temp .",". $wrapper_temp ."-hide.show,". $wrapper_temp ."-show.hide'>Ѫ</span>";
+	$echo_temp .= "<span id='".$wrapper_temp."-toggle' class='sidebar-inputs-toggle-button' tabindex='0' role='button' on='tap:". implode(",", $toggle_others_temp) .",". implode(",", $toggle_show_temp) .",". $wrapper_temp ."-hide.show,". $wrapper_temp ."-show.hide'>Ѫ</span>";
 	$echo_temp .= "<span id='".$wrapper_temp."-hide' class='sidebar-inputs-hide-button' tabindex='0' role='button' on='tap:". implode(",", $toggle_hide_temp) .",". $wrapper_temp ."-hide.hide,". $wrapper_temp ."-show.show' ".$hide_hidden_temp.">Hide ".$descriptor_temp."</span>";
 	$echo_temp .= "<span id='".$wrapper_temp."-show' class='sidebar-inputs-show-button' tabindex='0' role='button' on='tap:". implode(",", $toggle_show_temp) .",". $wrapper_temp ."-hide.show,". $wrapper_temp ."-show.hide' ".$show_hidden_temp.">Show ".$descriptor_temp."</span>";
 	
