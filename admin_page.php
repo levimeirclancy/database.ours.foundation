@@ -74,7 +74,7 @@ function wrapper_buttons ($wrapper_temp) {
 
 	}
 
-echo "<table class='admin-page-table'>";
+echo "<table class='admin-page-table' amp-fx='parallax' data-parallax-factor='1.2'>";
 echo "<thead><tr>";
 echo "<th></th>";
 echo "<th><b>Title</b></th>";
