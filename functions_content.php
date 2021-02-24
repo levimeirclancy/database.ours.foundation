@@ -360,12 +360,12 @@ function body_process($body_incoming) {
 			elseif ($indent_position_temp > $indent_current_temp):
 				while ($indent_position_temp > $indent_current_temp):
 					$replace_temp .= "</li></ul></li>";
-					$indent_current_temp++;
+					$indent_position_temp--;
 					endwhile;
 				$replace_temp .= "<li>".$indent_position_temp."|".$indent_current_temp."|";
 				endif;
 	
-			$indent_position_temp = $indent_current_temp;
+//			$indent_position_temp = $indent_current_temp;
 	
 			$next_position_temp = strpos($digestion_temp, '+++');
 
