@@ -927,7 +927,6 @@ $style_array = [
 	"css_tags" => "#sidebar-inputs span",
 	"css_contents" =>
 		[
-		"border"		=> "1px solid ".output_rgba($font_color, 1),
 		"box-sizing"		=> "border-box",
 		"border-radius"		=> "100px",
 		"display"		=> "inline-block",
@@ -941,6 +940,7 @@ $style_array = [
 	"css_tags" => "span.sidebar-inputs-toggle-button",
 	"css_contents" =>
 		[
+		"border"		=> "1px solid ".output_rgba($font_color, 1),
 		"float"			=> "right",
 		], ],
 	
@@ -948,14 +948,15 @@ $style_array = [
 	"css_tags" => "span.sidebar-inputs-show-button",
 	"css_contents" =>
 		[
-		"border-color"		=> output_rgba($background_color, 1),
+		"border"		=> "1px solid ".output_rgba($background_color, 1),
 		"padding"		=> "2px 0",
 		], ],
 	
 	[
-	"css_tags" => ".sidebar-inputs-hide-button",
+	"css_tags" => "span.sidebar-inputs-hide-button",
 	"css_contents" =>
 		[
+		"border"		=> "1px solid ".output_rgba($font_color, 1),
 		"float"			=> "left",
 		], ],
 
