@@ -98,7 +98,7 @@ echo "<amp-sidebar id='sidebar-inputs' layout='nodisplay' side='right' on='sideb
 
 echo "<div class='sidebar-back' on='tap:sidebar-inputs.close' role='button' tabindex='0'>Close</div>";
 
-echo "<ul>";
+echo "<ul class='navigation-list'>";
 foreach ($languages_array as $language_temp):
 
 	echo "<li>".ucfirst($language_temp);
