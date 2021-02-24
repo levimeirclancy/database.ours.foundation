@@ -938,19 +938,18 @@ $style_array = [
 		], ],
 	
 	[
-	"css_tags" => ".sidebar-inputs-toggle-button",
+	"css_tags" => "span.sidebar-inputs-toggle-button",
 	"css_contents" =>
 		[
 		"float"			=> "right",
 		], ],
 	
 	[
-	"css_tags" => ".sidebar-inputs-show-button",
+	"css_tags" => "span.sidebar-inputs-show-button",
 	"css_contents" =>
 		[
 		"border-color"		=> output_rgba($background_color, 1),
 		"padding"		=> "2px 0",
-		"float"			=> "left",
 		], ],
 	
 	[
