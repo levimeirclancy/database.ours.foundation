@@ -374,10 +374,10 @@ function body_process($body_incoming) {
 				$digestion_temp = null;
 			else:
 				$add_temp = substr($digestion_temp, 0, $next_position_temp);
-				$digestion_temp = substr($digestion_temp, $next_position_temp);
+				$digestion_temp = trim(substr($digestion_temp, $next_position_temp));
 				endif;
 	
-			$replace_temp .= $add_temp;
+			$replace_temp .= trim($add_temp);
 
 			endwhile;
 	
