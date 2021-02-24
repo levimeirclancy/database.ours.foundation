@@ -853,6 +853,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"position"		=> "fixed",
+		"font-size"		=> "80%",
 		"font-family"		=> "Arial, Helvetica, 'San Serif'",
 		"bottom"		=> "0",
 		"left"			=> "0",
@@ -879,6 +880,13 @@ $style_array = [
 		], ],
 	
 	[
+	"css_tags" => "#admin-page-form-save:hover",
+	"css_contents" =>
+		[
+		"font-style"		=> "italic",
+		], ],
+	
+	[
 	"css_tags" => "#sidebar-inputs",
 	"css_contents" =>
 		[
@@ -889,8 +897,25 @@ $style_array = [
 	"css_tags" => "#sidebar-inputs ul",
 	"css_contents" =>
 		[
-		"width"			=> "350px",
+		"display"		=> "table",
+		"width"			=> "auto",
 		"max-width"		=> "100%",
+		], ],
+	
+	[
+	"css_tags" => "#sidebar-inputs-button",
+	"css_contents" =>
+		[
+		"position"		=> "absolute",
+		"bottom"		=> "50px",
+		"right"			=> "50px%",
+		"background"		=> output_rgba($background_color, 1),
+		"padding"		=> "20px",
+		"border-radius"		=> "100px",
+		"cursor"		=> "pointer",
+		"color"			=> output_rgba($font_color, 1),
+		"font-size"		=> "3em",
+		"box-shadow"		=> "10px 10px 25px -5px rgba(50,50,50,0.25)",
 		], ],
 	
 	[
