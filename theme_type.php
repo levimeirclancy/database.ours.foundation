@@ -28,7 +28,7 @@ function hierarchize_entry($entry_id, $indent_array=[]) {
 	
 		endif;
 	
-	$echo_temp .= "\n\n";
+	$echo_temp .= "\n\r";
 	
 	$counter_temp = 0;
 	while ($counter_temp <= count($indent_array)):
@@ -74,7 +74,7 @@ function hierarchize_entry($entry_id, $indent_array=[]) {
 	
 		endif;
 		
-	return "+-+-+\n\n".$echo_temp."\n\n+-+-+";
+	return "+-+-+\n\r".$echo_temp."\n\r+-+-+";
 	
 	}
 
@@ -129,7 +129,7 @@ foreach ($information_array as $entry_id => $entry_info):
 
 	if ($entry_info['type'] !== $page_temp): continue; endif;
 
-	$echo_temp .= "\n\n+++{{{".$entry_id."}}}";
+	$echo_temp .= "\n\r+++{{{".$entry_id."}}}";
 
 	endforeach;
 
