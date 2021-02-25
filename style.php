@@ -1034,6 +1034,18 @@ $style_array = [
 		"margin-top"		=> "0",
 		"border-width"		=> "0",
 		], ],
+	
+		[
+	"css_tags" =>
+		[
+		"ul + ul li:first-child", "ul + ol li:first-child", "ul + amp-list li:first-child",
+		"ol + ul li:first-child", "ol + ol li:first-child", "ol + amp-list li:first-child",
+		"amp-list + ul li:first-child", "amp-list + ol li:first-child", "amp-list + amp-list li:first-child",
+		],
+	"css_contents" =>
+		[
+		"border-width"		=> "0",
+		], ],
 
 	[
 	"css_tags" => 
