@@ -2,10 +2,6 @@
 if (empty($font_color)): $font_color = [20,20,20]; endif;
 if (empty($default_width)): $default_width = 850; endif;
 
-function output_width($default, $difference=0) {
-	return ($default + $difference) ."px";
-	}
-
 $style_array = [
 	
 	[
@@ -1323,6 +1319,10 @@ $style_array = [
 		], ],
 	
 	];
+
+function output_width($default, $difference=0) {
+	return ($default + $difference) ."px";
+	}
 
 function output_rgba($rgba_array, $opacity) {
 	$output_rgba = "rgba(";
