@@ -1000,13 +1000,12 @@ $style_array = [
 	[
 	"css_tags" => 
 		[
-		"ul",
-		"ol",
-		"amp-list",
+		"wrapper-list",
 		],
 	"css_contents" =>
 		[
 		"display"		=> "table",
+		"max-width"		=> "850px",
 		], ],
 
 	[
