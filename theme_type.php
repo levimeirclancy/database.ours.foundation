@@ -73,7 +73,9 @@ function hierarchize_entry($entry_id, $indent_array=[]) {
 			endif;
 	
 		endif;
-		
+	
+	if (empty($indent_array)): return $echo_temp; endif;
+	
 	return "+-+-+\n\r".$echo_temp."\n\r+-+-+";
 	
 	}
