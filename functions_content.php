@@ -407,7 +407,7 @@ function body_process($body_incoming) {
 			endwhile;
 	
 		while (!(empty($list_array))):
-			$replace_temp .= "</li></".pop($list_array).">";
+			$replace_temp .= "</li></".array_pop($list_array).">";
 			endwhile;
 
 //		$indent_position_temp = 0;
