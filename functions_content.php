@@ -363,10 +363,10 @@ function body_process($body_incoming) {
 		
 			if ($indent_position_temp == $indent_current_temp):
 				if ($specifier_temp !== null):
-					$replace_temp .= "</li></".array_shift($list_array) . "><".$specifier_temp."><li>";
+					$replace_temp .= "BBB</li></".array_shift($list_array) . "><".$specifier_temp."><li>";
 					array_unshift($list_array, $specifier_temp);
 				else:
-					$replace_temp .= "</li><li>";
+					$replace_temp .= "AAA</li><li>";
 					endif;
 			elseif ($indent_position_temp < $indent_current_temp):
 				if (empty($specifier_temp)): $specifier_temp = "ul"; endif;
