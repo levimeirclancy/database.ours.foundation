@@ -335,6 +335,7 @@ function body_process($body_incoming) {
 	if (empty($matches)): $matches = [ [], [] ]; endif;
 	$matches = array_unique($matches[0]);
 	$list_delimiter = "+++";
+	$counter_temp = 0;
 	foreach ($matches as $match_temp):
 		$replace_temp = null;
 		$indent_position_temp = 0;
@@ -343,27 +344,66 @@ function body_process($body_incoming) {
 	
 		while (strlen($digestion_temp) > 0):
 	
+			// So we know if we just began
+			$counter_temp++;
+	
 			$indent_current_temp = 0;
-
+	
+			$order_tag_temp = null;
+//			foreach (["ul", "ol",] as $tag_temp):
+			if (stripos($digestion_temp, "ol".$list_delimiter) === 0):
+				$digestion_temp = substr($digestion_temp, 2);
+				$order_tag_temp = " class='ordered-list'";
+				endif;
+			if (stripos($digestion_temp, "ul".$list_delimiter) === 0):
+				$digestion_temp = substr($digestion_temp, 2);
+				$order_tag_temp = " class='unordered-list'";
+				endif;
+	
 			while (strpos($digestion_temp, $list_delimiter) === 0):
 				$digestion_temp = substr($digestion_temp, 3);
 				$indent_current_temp++;
 				endwhile;
-		
-			if ($indent_position_temp == $indent_current_temp):
-				$replace_temp .= "</li><li>";
-			elseif ($indent_position_temp < $indent_current_temp):
-				while ($indent_position_temp < $indent_current_temp):
+	
+			// We are going to want to add in some nested lists
+			if ($indent_position_temp < $indent_current_temp):
+				while ($indent_position_temp < ($indent_current_temp - 1):
 					$replace_temp .= "<ul><li>";
 					$indent_position_temp++;
 					endwhile;
+				   
+				// And the last one will always start a new <ul> so no special conditional
+				$replace_temp .= "<ul ".$order_tag_temp.">";
+				$indent_position_temp++;
+
+			// We want to close out the books
 			elseif ($indent_position_temp > $indent_current_temp):
 				while ($indent_position_temp > $indent_current_temp):
 					$replace_temp .= "</li></ul></li>";
 					$indent_position_temp--;
 					endwhile;
-				$replace_temp .= "<li>";
+				       
+				// But if we have our tag, we have to force a new list
+				if (!(empty($order_tag_temp))):
+					$replace_temp .= "</ul><ul ".$order_tag_temp.">";
+					endif;
+
+			// If we are at the same indent level...
+			elseif ($indent_position_temp == $indent_current_temp):
+
+				// If we have the tag, we have to close the books
+				if (empty($counter_temp)):
+					$replace_temp .= "<ul ".$order_tag_temp.">";
+				elseif (!(empty($order_tag_temp))):
+					$replace_temp .= "</li></ul><ul ".$order_tag_temp.">";
+				elseif (empty($order_tag_temp)):
+					$replace_temp .= "</li>";
+					endif;
+				       
 				endif;
+				       
+				       
+			$replace_temp .= "<li>";
 	
 //			$indent_position_temp = $indent_current_temp;
 	
