@@ -858,7 +858,6 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-		"cursor"		=> "default",
 		"font-size"		=> "85%",
 		"font-family"		=> "Arial, Helvetica, 'San Serif'",
 		"bottom"		=> "17px",
@@ -870,10 +869,21 @@ $style_array = [
 	[
 	"css_tags" =>
 		[
+		".navigation-list-button",
+		],
+	"css_contents" =>
+		[
+		"cursor"		=> "pointer",
+		], ],
+	
+	[
+	"css_tags" =>
+		[
 		"#admin-page-form-snackbar",
 		],
 	"css_contents" =>
 		[
+		"cursor"		=> "default",
 		"font-style"		=> "italic",
 		], ],
 	
