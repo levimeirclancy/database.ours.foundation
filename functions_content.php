@@ -335,7 +335,7 @@ function body_process($body_incoming) {
 	if (empty($matches)): $matches = [ [], [] ]; endif;
 	$matches = array_unique($matches[0]);
 	$list_delimiter = "+++";
-	$counter_temp = 0;
+//	$counter_temp = 0;
 	foreach ($matches as $match_temp):
 		$replace_temp = null;
 		$indent_position_temp = 0;
@@ -345,7 +345,7 @@ function body_process($body_incoming) {
 		while (strlen($digestion_temp) > 0):
 	
 			// So we know if we just began
-			$counter_temp++;
+//			$counter_temp++;
 	
 			$indent_current_temp = 0;
 	
@@ -367,7 +367,7 @@ function body_process($body_incoming) {
 	
 			// We are going to want to add in some nested lists
 			if ($indent_position_temp < $indent_current_temp):
-				while ($indent_position_temp < ($indent_current_temp - 1):
+				while ($indent_position_temp < ($indent_current_temp - 1)):
 					$replace_temp .= "<ul><li>";
 					$indent_position_temp++;
 					endwhile;
@@ -391,10 +391,10 @@ function body_process($body_incoming) {
 			// If we are at the same indent level...
 			elseif ($indent_position_temp == $indent_current_temp):
 
-				// If we have the tag, we have to close the books
-				if (empty($counter_temp)):
-					$replace_temp .= "<ul ".$order_tag_temp.">";
-				elseif (!(empty($order_tag_temp))):
+				// If we have the tag, we have to close the books... Wait, this is impossible because it'll be from 0 to 1
+//				if (empty($counter_temp)):
+//					$replace_temp .= "<ul ".$order_tag_temp.">";
+				if (!(empty($order_tag_temp))):
 					$replace_temp .= "</li></ul><ul ".$order_tag_temp.">";
 				elseif (empty($order_tag_temp)):
 					$replace_temp .= "</li>";
