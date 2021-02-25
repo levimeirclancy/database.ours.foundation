@@ -28,7 +28,15 @@ function hierarchize_entry($entry_id, $indent_array=[]) {
 	
 		endif;
 	
-	$echo_temp .= "<li><a href='/".$entry_id."'>".$entry_info['header']."</a>";
+	$echo_temp .= "\n\n";
+	
+	$counter_temp = 0;
+	while ($counter_temp <= count($indent_array)):
+		$echo_temp .= "+++";
+		$counter_temp++;
+		endwhile;
+	
+	$echo_temp .= "{{{".$entry_id."}}}";
 	
 	// If we're doing the first round but it already has parents
 	if (!(empty($entry_info['children']))):
@@ -55,75 +63,72 @@ function hierarchize_entry($entry_id, $indent_array=[]) {
 		if (!(empty($children_array))):
 	
 			$indent_array[] = $entry_id;
-	
-			$echo_temp .= "<ul>";
-	
+		
 			foreach ($children_array as $entry_id_temp):
 
 				$echo_temp .= hierarchize_entry($entry_id_temp, $indent_array);
 	
 				endforeach;
 		
-			$echo_temp .= "</ul>";
-	
 			endif;
 	
 		endif;
-	
-	$echo_temp .= "</li>";
-	
-	return $echo_temp;
+		
+	return "+-+-+\n\n".$echo_temp."\n\n+-+-+";
 	
 	}
 
 $indent_ever = 0;
 
-echo "<ul class='navigation-list' id='entries-list-hierarchical'>";
+$echo_temp = null;
 
-	$echo_temp = null;
+foreach ($information_array as $entry_id => $entry_info):
 
-	foreach ($information_array as $entry_id => $entry_info):
-
-		$echo_temp .= hierarchize_entry($entry_id);
+	$echo_temp .= hierarchize_entry($entry_id);
 		
-		endforeach;
+	endforeach;
 
-	$indent_ever = 0;
-	if (strpos($echo_temp, "<ul>") !== FALSE): $indent_ever = 1; endif;
+$indent_ever = 0;
+if (strpos($echo_temp, "<ul>") !== FALSE): $indent_ever = 1; endif;
 
-	// If we have indenting
-	if ($indent_ever !== 0):
-		$tap_temp = [
-			"entries-list-alphabetical.show",
-			"entries-list-hierarchical.hide",
-			"entries-button-alphabetical.hide",
-			"entries-button-hierarchical.show",
-			];
-		echo "<li><div role='button' tabindex='0' id='entries-button-alphabetical' class='navigation-header-item' on='tap:". implode(", ", $tap_temp) ."'>Switch to alphabetical</div><br></li>";
-		endif;
+// If we have indenting
+if ($indent_ever !== 0):
+	$tap_temp = [
+		"entries-list-alphabetical.show",
+		"entries-list-hierarchical.hide",
+		"entries-button-alphabetical.hide",
+		"entries-button-hierarchical.show",
+		];
+	echo "<div role='button' tabindex='0' id='entries-button-alphabetical' class='navigation-header-item' on='tap:". implode(", ", $tap_temp) ."'>Switch to alphabetical</div>";
+	endif;
 
-	echo $echo_temp;
+echo "<div class='navigation-list' id='entries-list-hierarchical'>";
 
-	echo "</ul>";
+echo body_process($echo_temp);
+
+echo "</div>";
 
 if ($indent_ever == 0): footer(); endif;
 
-echo "<ul class='navigation-list' id='entries-list-alphabetical' hidden>";
+$tap_temp = [
+	"entries-list-alphabetical.hide",
+	"entries-list-hierarchical.show",
+	"entries-button-alphabetical.show",
+	"entries-button-hierarchical.hide",
+	];
 
-	$tap_temp = [
-		"entries-list-alphabetical.hide",
-		"entries-list-hierarchical.show",
-		"entries-button-alphabetical.show",
-		"entries-button-hierarchical.hide",
-		];
-	echo "<li><div role='button' tabindex='0' id='entries-button-hierarchical' class='navigation-header-item' on='tap:". implode(", ", $tap_temp) ."'>Switch to hierarchical</div><br></li>";
+echo "<div class='navigation-list' id='entries-list-alphabetical' hidden>";
 
-	foreach ($information_array as $entry_id => $entry_info):
+echo "<div role='button' tabindex='0' id='entries-button-hierarchical' class='navigation-header-item' on='tap:". implode(", ", $tap_temp) ."'>Switch to hierarchical</div><br>";
 
-		if ($entry_info['type'] !== $page_temp): continue; endif;
+$echo_temp = null;
 
-		echo "<li><a href='/".$entry_id."/'>" . $entry_info['header'] . "</a></li>";
+foreach ($information_array as $entry_id => $entry_info):
 
-		endforeach;
+	if ($entry_info['type'] !== $page_temp): continue; endif;
 
-	echo "</ul>"; ?>
+	$echo_temp .= "\n\n+++{{{".$entry_id."}}}";
+
+	endforeach;
+
+echo body_process($echo_temp); ?>
