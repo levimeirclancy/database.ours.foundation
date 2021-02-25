@@ -1119,7 +1119,11 @@ $style_array = [
 		], ],
 	
 	[
-	"css_tags" => "ol li::before",
+	"css_tags" => 
+		[
+		"ol li::before",
+		".ordered-list li::before",
+		],
 	"css_contents" =>
 		[
 		"font-weight"		=> "700",
@@ -1136,14 +1140,28 @@ $style_array = [
 		], ],
 	
 	[
-	"css_tags" => "ol ol li::before",
+	"css_tags" => 
+		[
+		"ol ol li::before",
+		"ol .ordered-list li::before",
+		".ordered-list .ordered-list li::before",
+		".ordered-list ol li::before",
+		],
 	"css_contents" =>
 		[
 		"content"		=> "counter(list-counter, lower-roman)",
 		], ],
 
 	[
-	"css_tags" => "ol ol ol li::before",
+	"css_tags" => [
+		"ol ol ol li::before",
+		"ol ol .ordered-list li::before",
+		"ol .ordered-list ol li::before",
+		".ordered-list ol ol li::before",
+		"ol .ordered-list .ordered-list li::before",
+		".ordered-list .ordered-list ol li::before",
+		".ordered-list .ordered-list .ordered-list li::before",
+		],
 	"css_contents" =>
 		[
 		"content"		=> "counter(list-counter, lower-alpha)",
