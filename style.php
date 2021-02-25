@@ -1012,7 +1012,7 @@ $style_array = [
 	"css_tags" => "ul, ol, amp-list",
 	"css_contents" =>
 		[
-		"display"		=> "table",
+		"display"		=> "block",
 		"position"		=> "relative",
 		"text-align"		=> "left",
 		"vertical-align"	=> "top",
@@ -1041,7 +1041,7 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-		"display"		=> "block",
+//		"display"		=> "block",
 		"margin-top"		=> "0",
 		"border-width"		=> "0",
 		], ],
