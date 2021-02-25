@@ -835,6 +835,7 @@ $style_array = [
 		"#admin-page-form-snackbar",
 		"#admin-page-form-save",
 		"#sidebar-inputs-button",
+		".navigation-list-button",
 		],
 	"css_contents" =>
 		[
@@ -849,7 +850,11 @@ $style_array = [
 		], ],
 	
 	[
-	"css_tags" => "#admin-page-form-snackbar",
+	"css_tags" =>
+		[
+		".navigation-list-button",
+		"#admin-page-form-snackbar",
+		],
 	"css_contents" =>
 		[
 		"cursor"		=> "default",
@@ -1214,7 +1219,7 @@ $style_array = [
 		"overflow"		=> "hidden",
 		], ],
 	
-		[
+	[
 	"css_tags" => 
 		[
 		".navigation-list p",
@@ -1223,7 +1228,7 @@ $style_array = [
 		[
 		"padding"		=> "0",
 		"margin"		=> "0",
-		], ],
+		], ],		
 	
 	/// Toggle classes
 
