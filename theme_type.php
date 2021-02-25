@@ -104,8 +104,6 @@ if ($indent_ever !== 0):
 
 echo "<div class='navigation-list' id='entries-list-hierarchical'>";
 
-echo $echo_temp; exit;
-
 echo body_process("+-+-+\n\n".$echo_temp."\n\n+-+-+");
 
 echo "</div>";
