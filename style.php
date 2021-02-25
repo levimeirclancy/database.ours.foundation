@@ -1022,24 +1022,18 @@ $style_array = [
 		"border-color"		=> output_rgba($font_color, 0.35),		
 		], ],
 	
+	[
+	"css_tags" =>
 		[
-	"css_tags" => [
-		"ul + ul",
-		"ul + ol",
-		"ul + amp-list",
-		"ol + ul",
-		"ol + ol",
-		"ol + amp-list",
-		"amp-list + ul",
-		"amp-list + ol",
-		"amp-list + amp-list",
-		]
+		"ul + ul", "ul + ol", "ul + amp-list",
+		"ol + ul", "ol + ol", "ol + amp-list",
+		"amp-list + ul", "amp-list + ol", "amp-list + amp-list",
+		],
 	"css_contents" =>
 		[
 		"margin-top"		=> "0",
 		"border-width"		=> "0",
 		], ],
-		
 
 	[
 	"css_tags" => 
@@ -1082,7 +1076,10 @@ $style_array = [
 		], ],
 	
 	[
-	"css_tags" => "li:last-child",
+	"css_tags" => 
+		[
+		"li:last-child",
+		],
 	"css_contents" =>
 		[
 		"border-width"		=> "1px 0 0 0",
@@ -1171,7 +1168,8 @@ $style_array = [
 		], ],
 
 	[
-	"css_tags" => [
+	"css_tags" =>
+		[
 		"ol ol ol li::before",
 		"ol ol .ordered-list li::before",
 		"ol .ordered-list ol li::before",
