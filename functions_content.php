@@ -377,7 +377,7 @@ function body_process($body_incoming) {
 					endwhile;
 			elseif ($indent_position_temp > $indent_current_temp):
 				while ($indent_position_temp > $indent_current_temp):
-					$replace_temp .= "CCC</li></".array_shift($list_array).">";
+					$replace_temp .= "CCC</li>JJJ</".array_shift($list_array).">";
 					$indent_position_temp--;
 					endwhile;
 				if ($specifier_temp !== null):
