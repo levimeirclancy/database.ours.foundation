@@ -1330,6 +1330,7 @@ $style_array = [
 			[
 			"display"	=> "block",
 			"min-width"	=> "0",
+			"width"		=> "auto",
 			], ],
 			
 		[
