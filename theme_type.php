@@ -28,7 +28,7 @@ function hierarchize_entry($entry_id, $indent_array=[]) {
 	
 		endif;
 	
-	$echo_temp .= "\n\r";
+	$echo_temp .= "\n\n";
 	
 	$counter_temp = 0;
 	while ($counter_temp <= count($indent_array)):
@@ -74,9 +74,7 @@ function hierarchize_entry($entry_id, $indent_array=[]) {
 	
 		endif;
 	
-	if (empty($indent_array)): return $echo_temp; endif;
-	
-	return "+-+-+\n\r".$echo_temp."\n\r+-+-+";
+	return $echo_temp;
 	
 	}
 
@@ -91,7 +89,7 @@ foreach ($information_array as $entry_id => $entry_info):
 	endforeach;
 
 $indent_ever = 0;
-if (strpos($echo_temp, "<ul>") !== FALSE): $indent_ever = 1; endif;
+if (!(empty($echo_temp))): $indent_ever = 1; endif;
 
 // If we have indenting
 if ($indent_ever !== 0):
@@ -108,7 +106,7 @@ echo "<div class='navigation-list' id='entries-list-hierarchical'>";
 
 echo $echo_temp; exit;
 
-echo body_process($echo_temp);
+echo body_process("+-+-+\n\n".$echo_temp."\n\n+-+-+");
 
 echo "</div>";
 
