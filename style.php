@@ -1324,6 +1324,15 @@ $style_array = [
 
 		[
 		"css_tags" => [
+			"table",
+			],
+		"css_contents" =>
+			[
+			"min-width"	=> "0",
+			], ],
+			
+		[
+		"css_tags" => [
 			"th",
 			"td",
 			],
