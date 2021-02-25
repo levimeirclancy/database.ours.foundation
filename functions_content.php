@@ -381,12 +381,14 @@ function body_process($body_incoming) {
 					$indent_position_temp--;
 					endwhile;
 				if ($specifier_temp !== null):
-					$replace_temp .= "</li></".array_shift($list_array) . "><".$specifier_temp."><li>";
+					$replace_temp .= "<".$specifier_temp."><li>";
+//					$replace_temp .= "</li></".array_shift($list_array) . "><".$specifier_temp."><li>";
 					array_unshift($list_array, $specifier_temp);
 				else:
 					$replace_temp .= "<li>";
 					endif;
 				endif;
+	
 	
 //			$indent_position_temp = $indent_current_temp;
 	
@@ -404,11 +406,15 @@ function body_process($body_incoming) {
 
 			endwhile;
 	
-		$indent_position_temp = 0;
-		while ($indent_current_temp > $indent_position_temp):
-			$replace_temp .= "</li></ul>";
-			$indent_position_temp++;
+		while (!(empty($list_array))):
+			$replace_temp .= "</li></".pop($list_array).">";
 			endwhile;
+
+//		$indent_position_temp = 0;
+//		while ($indent_current_temp > $indent_position_temp):
+//			$replace_temp .= "</li></ul>";
+//			$indent_position_temp++;
+//			endwhile;
 			
 		$body_incoming = str_replace("+-+-+".$match_temp."+-+-+", $replace_temp, $body_incoming);
 	
