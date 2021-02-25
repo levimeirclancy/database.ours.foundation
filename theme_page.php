@@ -133,7 +133,7 @@ echo "<article><div vocab='http://schema.org/' typeof='Article'>";
 // Sidebar
 echo "<amp-sidebar id='sidebar-entry-info' layout='nodisplay' side='right'>";
 	echo "<div class='sidebar-back' on='tap:sidebar-entry-info.close' role='button' tabindex='0'>Close</div>";
-	echo "<ul class='navigation-list'>";
+	echo "<div class='wrapper-list'><ul class='navigation-list'>";
 //	echo "<li><span class='sidebar-navigation-item-title'><b>Metadata</b></span>";
 //		echo "<ul>";
 		echo "<li>Type: <a href='/".$entry_info['type']."/'><span property='genre'>".$site_info['category_array'][$entry_info['type']]."</span></a></span></li>"; // Type
@@ -174,7 +174,7 @@ echo "<amp-sidebar id='sidebar-entry-info' layout='nodisplay' side='right'>";
 	relationships_array($page_temp, "children", "Subpages", "yes");
 	relationships_array($page_temp, "mentions", "Mentions", "yes");
 
-	echo "</ul>";
+	echo "</ul></div>";
 	echo "</amp-sidebar>";
 
 echo "<header><h1 property='name' amp-fx='parallax' data-parallax-factor='1.3'>" . $entry_info['header'] . "</h1></header>";
