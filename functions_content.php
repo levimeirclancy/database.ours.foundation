@@ -427,7 +427,7 @@ function body_process($body_incoming) {
 			$indent_position_temp++;
 			endwhile;
 			
-		$body_incoming = str_replace("+-+-+".$match_temp."+-+-+", $replace_temp, $body_incoming);
+		$body_incoming = str_replace("+-+-+".$match_temp."+-+-+", "<div class='wrapper-list'>".$replace_temp."</div>", $body_incoming);
 	
 		$digestion_temp = trim($digestion_temp);
 
