@@ -839,6 +839,7 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
+		"z-index"		=> "1000",
 		"display"		=> "inline-block",
 		"position"		=> "fixed",
 		"right"			=> "20px",
@@ -862,7 +863,7 @@ $style_array = [
 		"font-family"		=> "Arial, Helvetica, 'San Serif'",
 		"bottom"		=> "17px",
 		"padding"		=> "7px 30px",
-		"background"		=> "rgba(255,255,255,1)",
+		"background"		=> output_rgba($background_color, 1),
 		"color"			=> output_rgba($font_color, 1),
 		], ],
 	
