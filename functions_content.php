@@ -366,26 +366,42 @@ function body_process($body_incoming) {
 				endif;
 
 			if ($indent_position_temp < $indent_current_temp):
+
 				$specifier_temp_temp = "ul";
 				if (!(empty($specifier_temp))): $specifier_temp_temp = $specifier_temp; endif;
+	
 				$list_array[] = $specifier_temp;
+
 				while ($indent_position_temp < $indent_current_temp):
-					$replace_temp .= "<".end($list_array)."><li>4444";
+					$replace_temp .= "<".end($list_array)."><li>";
 					$indent_position_temp++;
 					endwhile;
+
 			elseif ($indent_position_temp > $indent_current_temp):
+
 				while ($indent_position_temp > $indent_current_temp):
-					$replace_temp .= "</li></".array_shift($list_array).">";
+	
+					$specifier_temp_temp = array_shift($list_array);
+					if (empty($specifier_temp_temp)): $specifier_temp_temp = "ul"; endif;
+	
+					$replace_temp .= "</li></".$specfier_temp_temp.">";
+	
 					$indent_position_temp--;
+
 					endwhile;
+
 				echo "</li>";
 			elseif ( ($indent_position_temp == $indent_current_temp) && !(empty($specifier_temp))):
+
 				$replace_temp .= "</li>";
 				$replace_temp .= "</".array_shift($list_array) . ">";
-				$replace_temp .= "<".$specifier_temp.">2222";
+				$replace_temp .= "<".$specifier_temp.">";
 				array_unshift($list_array, $specifier_temp);
+
 			else:
-				$replace_temp .= "</li><li>3333";
+
+				$replace_temp .= "</li><li>";
+
 				endif;
 
 //			$indent_position_temp = $indent_current_temp;
