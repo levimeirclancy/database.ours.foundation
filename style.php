@@ -997,6 +997,17 @@ $style_array = [
 	
 
 	/// Lists ... ul, ol, amp-list
+	[
+	"css_tags" => 
+		[
+		"ul",
+		"ol",
+		"amp-list",
+		],
+	"css_contents" =>
+		[
+		"display"		=> "table",
+		], ],
 
 	[
 	"css_tags" => "ul, ol, amp-list",
@@ -1031,6 +1042,7 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
+		"display"		=> "block",
 		"margin-top"		=> "0",
 		"border-width"		=> "0",
 		], ],
