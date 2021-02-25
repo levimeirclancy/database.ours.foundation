@@ -1167,28 +1167,25 @@ $style_array = [
 		"content"		=> "counter(list-counter, lower-alpha)",
 		], ],
 	
-		
 	[
-	"css_tags" => "li::marker",
+	"css_tags" => 
+		[
+		"ul li::before",
+		".unordered-list li::before",
+		],
 	"css_contents" =>
 		[
-		"content"		=> ".",
-		"display"		=> "block",
-		"float"			=> "none",
-		"margin"		=> "0 auto",
-		"text-align"		=> "center",
+//		"font-weight"		=> "700",
+		"display"		=> "none",
+//		"text-align"		=> "left",
+//		"font-size"		=> "70%",
+//		"margin"		=> "0 10px 0 0",
 		"padding"		=> "0",
-		"width"			=> "100%",
-		"clear"			=> "both",
-		"font-size"		=> "80%",
-		"opacity"		=> "0.75",
-		], ],
-	
-	[
-	"css_tags" => "li::marker::before",
-	"css_contents" =>
-		[
-		"content"		=> ".",
+		"margin"		=> "0",
+//		"background"		=> output_rgba($background_color, 1),
+		"border-bottom"		=> "0",
+//		"color"			=> output_rgba($font_color, 0.5),
+		"content"		=> "",
 		], ],
 
 	[
