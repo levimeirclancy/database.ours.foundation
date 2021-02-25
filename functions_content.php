@@ -336,74 +336,35 @@ function body_process($body_incoming) {
 	$matches = array_unique($matches[0]);
 	$list_delimiter = "+++";
 	foreach ($matches as $match_temp):
-
 		$replace_temp = null;
-		
-		// The previous line's indentation. We start with zero.
 		$indent_position_temp = 0;
 	
 		$digestion_temp = trim($match_temp);
 	
-		$list_array = [];
-	
 		while (strlen($digestion_temp) > 0):
 	
-			// We must establish the current line's indentation.
 			$indent_current_temp = 0;
 
 			while (strpos($digestion_temp, $list_delimiter) === 0):
-				$digestion_temp = trim(substr($digestion_temp, 3));
+				$digestion_temp = substr($digestion_temp, 3);
 				$indent_current_temp++;
 				endwhile;
-	
-			$specifier_temp = null;
-			if (stripos($digestion_temp, "ul".$list_delimiter) === 0):
-				$specifier_temp = "ul";
-				$digestion_temp = trim(substr($digestion_temp, 5));
-			elseif (stripos($digestion_temp, "ol".$list_delimiter) === 0):
-				$specifier_temp = "ol";
-				$digestion_temp = trim(substr($digestion_temp, 5));
-				endif;
-
-			if ($indent_position_temp < $indent_current_temp):
-
-				$specifier_temp_temp = "ul";
-				if (!(empty($specifier_temp))): $specifier_temp_temp = $specifier_temp; endif;
-	
-				$list_array[] = $specifier_temp;
-
+		
+			if ($indent_position_temp == $indent_current_temp):
+				$replace_temp .= "</li><li>";
+			elseif ($indent_position_temp < $indent_current_temp):
 				while ($indent_position_temp < $indent_current_temp):
-					$replace_temp .= "<".end($list_array)."><li>";
+					$replace_temp .= "<ul><li>";
 					$indent_position_temp++;
 					endwhile;
-
 			elseif ($indent_position_temp > $indent_current_temp):
-
 				while ($indent_position_temp > $indent_current_temp):
-	
-					$specifier_temp_temp = array_shift($list_array);
-					if (empty($specifier_temp_temp)): $specifier_temp_temp = "ul"; endif;
-	
-					$replace_temp .= "</li></".$specfier_temp_temp.">";
-	
+					$replace_temp .= "</li></ul></li>";
 					$indent_position_temp--;
-
 					endwhile;
-
-				echo "</li>";
-			elseif ( ($indent_position_temp == $indent_current_temp) && !(empty($specifier_temp))):
-
-				$replace_temp .= "</li>";
-				$replace_temp .= "</".array_shift($list_array) . ">";
-				$replace_temp .= "<".$specifier_temp.">";
-				array_unshift($list_array, $specifier_temp);
-
-			else:
-
-				$replace_temp .= "</li><li>";
-
+				$replace_temp .= "<li>";
 				endif;
-
+	
 //			$indent_position_temp = $indent_current_temp;
 	
 			$next_position_temp = strpos($digestion_temp, '+++');
@@ -420,8 +381,10 @@ function body_process($body_incoming) {
 
 			endwhile;
 	
-		while (!(empty($list_array))):
-			$replace_temp .= "</li></".array_pop($list_array).">";
+		$indent_position_temp = 0;
+		while ($indent_current_temp > $indent_position_temp):
+			$replace_temp .= "</li></ul>";
+			$indent_position_temp++;
 			endwhile;
 			
 		$body_incoming = str_replace("+-+-+".$match_temp."+-+-+", $replace_temp, $body_incoming);
