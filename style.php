@@ -216,6 +216,13 @@ $style_array = [
 		"max-width"		=> "650px",
 		], ],
 	
+		[
+	"css_tags" => "#sidebar-entry-info .wrapper-list",
+	"css_contents" =>
+		[
+		"max-width"		=> "350px",
+		], ],	
+	
 	[
 	"css_tags" => "div.sidebar-navigation-item",
 	"css_contents" =>
