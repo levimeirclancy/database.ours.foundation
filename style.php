@@ -1318,7 +1318,7 @@ $style_array = [
 		], ],
 	
 	[
-	"css_tags" => "@media only screen and (max-width: 600px)",
+	"css_tags" => "@media only screen and (max-width: 850px)",
 	"css_contents" => 
 		[
 
@@ -1342,7 +1342,7 @@ $style_array = [
 			],
 		"css_contents" =>
 			[
-			"border-left"	=> "none",
+//			"border-left"	=> "none",
 			"border-top"	=> "1px dotted ".output_rgba($font_color, 0.5),
 			], ],
 		], ],
