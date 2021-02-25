@@ -1339,6 +1339,7 @@ $style_array = [
 		"css_contents" =>
 			[
 			"display"	=> "block",
+			"width"		=> "auto",
 			], ],
 
 		[
@@ -1352,7 +1353,7 @@ $style_array = [
 		"css_contents" =>
 			[
 //			"border-left"	=> "none",
-			"border-top"	=> "1px dotted ".output_rgba($font_color, 0.5),
+//			"border-top"	=> "1px dotted ".output_rgba($font_color, 0.5),
 			], ],
 		], ],
 	
