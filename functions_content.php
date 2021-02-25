@@ -351,12 +351,12 @@ function body_process($body_incoming) {
 	
 			$order_tag_temp = null;
 //			foreach (["ul", "ol",] as $tag_temp):
-			if (stripos($digestion_temp, "ol".$list_delimiter) === 0):
-				$digestion_temp = substr($digestion_temp, 2);
+			if (stripos($digestion_temp, $list_delimiter."ol".$list_delimiter) === 0):
+				$digestion_temp = substr($digestion_temp, 5);
 				$order_tag_temp = " class='ordered-list'";
 				endif;
-			if (stripos($digestion_temp, "ul".$list_delimiter) === 0):
-				$digestion_temp = substr($digestion_temp, 2);
+			if (stripos($digestion_temp, $list_delimiter."ul".$list_delimiter) === 0):
+				$digestion_temp = substr($digestion_temp, 5);
 				$order_tag_temp = " class='unordered-list'";
 				endif;
 	
