@@ -361,14 +361,8 @@ function body_process($body_incoming) {
 				$digestion_temp = trim(substr($digestion_temp, 5));
 				endif;
 		
-			if ($indent_position_temp == $indent_current_temp):
-				if ($specifier_temp !== null):
-					$replace_temp .= "</li></".array_shift($list_array) . "><".$specifier_temp."><li>2222";
-					array_unshift($list_array, $specifier_temp);
-				else:
-					$replace_temp .= "</li><li>3333";
-					endif;
-			elseif ($indent_position_temp < $indent_current_temp):
+
+			if ($indent_position_temp < $indent_current_temp):
 				if (empty($specifier_temp)): $specifier_temp = "ul"; endif;
 				$list_array[] = $specifier_temp;
 				while ($indent_position_temp < $indent_current_temp):
@@ -376,18 +370,18 @@ function body_process($body_incoming) {
 					$indent_position_temp++;
 					endwhile;
 			elseif ($indent_position_temp > $indent_current_temp):
-				$indent_position_temp--;
 				while ($indent_position_temp > $indent_current_temp):
 					$replace_temp .= "</li></".array_shift($list_array).">";
 					$indent_position_temp--;
 					endwhile;
-				if ($specifier_temp !== null):
-					$replace_temp .= "<".$specifier_temp."><li>1111";
-//					$replace_temp .= "</li></".array_shift($list_array) . "><".$specifier_temp."><li>";
-					array_unshift($list_array, $specifier_temp);
-				else:
-					$replace_temp .= "<li>5555";
-					endif;
+				endif;
+	
+			if ($specifier_temp !== null):
+				$replace_temp .= "</li></".array_shift($list_array) . ">";
+				$replace_temp .= "<".$specifier_temp."><li>2222";
+				array_unshift($list_array, $specifier_temp);
+			else:
+				$replace_temp .= "<li>3333";
 				endif;
 	
 	
