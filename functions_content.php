@@ -348,15 +348,15 @@ function body_process($body_incoming) {
 			$indent_current_temp = 0;
 
 			while (strpos($digestion_temp, $list_delimiter) === 0):
-				$digestion_temp = substr($digestion_temp, 3);
+				$digestion_temp = trim(substr($digestion_temp, 3));
 				$indent_current_temp++;
 				endwhile;
 	
 			$specifier_temp = null;
-			if (strpos($digestion_temp, "ul".$list_delimiter) === 0):
+			if (stripos($digestion_temp, "ul".$list_delimiter) === 0):
 				$specifier_temp = "ul";
 				$digestion_temp = trim(substr($digestion_temp, 5));
-			elseif (strpos($digestion_temp, "ol".$list_delimiter) === 0):
+			elseif (stripos($digestion_temp, "ol".$list_delimiter) === 0):
 				$specifier_temp = "ol";
 				$digestion_temp = trim(substr($digestion_temp, 5));
 				endif;
