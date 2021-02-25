@@ -363,10 +363,10 @@ function body_process($body_incoming) {
 		
 			if ($indent_position_temp == $indent_current_temp):
 				if ($specifier_temp !== null):
-					$replace_temp .= "</li>GGG</".array_shift($list_array) . "><".$specifier_temp."><li>EEE";
+					$replace_temp .= "</li></".array_shift($list_array) . "><".$specifier_temp."><li>";
 					array_unshift($list_array, $specifier_temp);
 				else:
-					$replace_temp .= "</li><li>FFF";
+					$replace_temp .= "</li><li>";
 					endif;
 			elseif ($indent_position_temp < $indent_current_temp):
 				if (empty($specifier_temp)): $specifier_temp = "ul"; endif;
@@ -377,14 +377,14 @@ function body_process($body_incoming) {
 					endwhile;
 			elseif ($indent_position_temp > $indent_current_temp):
 				while ($indent_position_temp > $indent_current_temp):
-					$replace_temp .= "CCC</li>JJJ</".array_shift($list_array).">";
+					$replace_temp .= "</li></".array_shift($list_array).">";
 					$indent_position_temp--;
 					endwhile;
 				if ($specifier_temp !== null):
 					$replace_temp .= "</li></".array_shift($list_array) . "><".$specifier_temp."><li>";
 					array_unshift($list_array, $specifier_temp);
 				else:
-					$replace_temp .= "<li>DDD";
+					$replace_temp .= "<li>";
 					endif;
 				endif;
 	
