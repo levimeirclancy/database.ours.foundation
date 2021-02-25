@@ -1218,6 +1218,17 @@ $style_array = [
 		"overflow"		=> "hidden",
 		], ],
 	
+		[
+	"css_tags" => 
+		[
+		".navigation-list p",
+		],
+	"css_contents" =>
+		[
+		"padding"		=> "0",
+		"margin"		=> "0",
+		], ],
+	
 	/// Toggle classes
 
 	[
