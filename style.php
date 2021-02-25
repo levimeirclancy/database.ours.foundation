@@ -168,6 +168,7 @@ $style_array = [
 		"box-sizing"		=> "border-box",
 		"position"		=> "relative",
 		"white-space"		=> "normal",
+		"z-index"		=> "1000",
 		], ],
 	
 	[
@@ -839,7 +840,7 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-		"z-index"		=> "1000",
+		"z-index"		=> "100",
 		"display"		=> "inline-block",
 		"position"		=> "fixed",
 		"right"			=> "20px",
