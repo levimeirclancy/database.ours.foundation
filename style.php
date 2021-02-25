@@ -595,6 +595,7 @@ $style_array = [
 		"border-collapse"	=> "collapse",
 		"overflow"		=> "auto",
 		"border"		=> "0",
+		"min-width"		=> "850px",
 //		"border-radius"		=> "7px",
 		], ],
 	
