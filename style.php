@@ -1,5 +1,10 @@
 <? if (empty($background_color)): $background_color = [255,255,255]; endif;
 if (empty($font_color)): $font_color = [20,20,20]; endif;
+if (empty($default_width)): $default_width = 850; endif;
+
+function output_width($default, $difference=0) {
+	return ($default + $difference) ."px";
+	}
 
 $style_array = [
 	
@@ -196,7 +201,7 @@ $style_array = [
 	"css_tags" => "amp-sidebar",
 	"css_contents" =>
 		[
-		"max-width"		=> "650px",
+		"max-width"		=> output_width($default_width,-200),
 		], ],
 	
 	[
@@ -204,23 +209,22 @@ $style_array = [
 	"css_contents" =>
 		[
 		"width"			=> "auto",
-		"max-width"		=> "650px",
+		"max-width"		=> output_width($default_width-200),
 		], ],
 	
 	[
 	"css_tags" => "#sidebar-navigation, #sidebar-entry-info",
 	"css_contents" =>
 		[
-//		"min-width"		=> "400px",
 		"width"			=> "auto",
-		"max-width"		=> "650px",
+		"max-width"		=> output_width($default_width,-200),
 		], ],
 	
 		[
 	"css_tags" => "#sidebar-entry-info .wrapper-list",
 	"css_contents" =>
 		[
-		"max-width"		=> "350px",
+		"max-width"		=> output_width($default_width/2),
 		], ],	
 	
 	[
@@ -249,7 +253,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"display"		=> "table",
-		"max-width"		=> "300px",
+		"max-width"		=> output_width($default_width/2),
 		"margin"		=> "30px 50px",
 		"padding"		=> "10px 60px",
 		"border"		=> "0",
@@ -275,34 +279,6 @@ $style_array = [
 		"margin"		=> "15px auto 15px",
 		"padding"		=> "10px",
 		"text-align"		=> "center",
-		], ],
-
-	
-	[
-	"css_tags" => ".categories-item-indent-wrapper",
-	"css_contents" =>
-		[
-		"display"		=> "inline",
-		"max-width"		=> "400px",
-		"overflow"		=> "hidden",
-		], ],
-	
-	[
-	"css_tags" => ".categories-item-indent",
-	"css_contents" =>
-		[
-		"float"			=> "left",
-		"display"		=> "inline",
-		"height"		=> "100%",
-		"width"			=> "30px",
-		"height"		=> "30px",
-		], ],
-	
-	[
-	"css_tags" => ".categories-item-indent::before",
-	"css_contents" =>
-		[
-		"content"		=> "' '",
 		], ],
 
 	/// FORMS
@@ -353,7 +329,7 @@ $style_array = [
 		[
 		"color"			=> output_rgba($font_color, 1),
 		"width"			=> "auto",
-		"max-width"		=> "850px", 
+		"max-width"		=> output_width($default_width), 
 		"border"		=> "0",
 		"display"		=> "block",
 		"clear"			=> "both",
@@ -475,7 +451,7 @@ $style_array = [
 		"clear"			=> "both",
 		"position"		=> "relative",
 		"width"			=> "auto",
-		"max-width"		=> "850px", 
+		"max-width"		=> output_width($default_width), 
 		], ],
 	
 	[
@@ -513,7 +489,7 @@ $style_array = [
 		"border-radius"		=> "15px",
 		"padding"		=> "20px",
 		"margin"		=> "50px 20px",
-		"max-width"		=> "700px",
+		"max-width"		=> output_width($default_width,-150),
 		], ],
 	
 	[
@@ -523,14 +499,7 @@ $style_array = [
 		"text-align"		=> "left",
 		"display"		=> "block",
 		"width"			=> "60%",
-		"max-width"		=> "750px",
-		], ],
-	
-	[
-	"css_tags" => "blockquote cite",
-	"css_contents" =>
-		[
-		"display"		=> "block",
+//		"max-width"		=> output_width($default_width),
 		"color"			=> output_rgba($font_color, 1),
 		"font-style"		=> "normal",
 		"opacity"		=> "0.6",
@@ -595,7 +564,7 @@ $style_array = [
 		"border-collapse"	=> "collapse",
 		"overflow"		=> "auto",
 		"border"		=> "0",
-		"min-width"		=> "850px",
+		"min-width"		=> output_width($default_width),
 //		"border-radius"		=> "7px",
 		], ],
 	
@@ -732,7 +701,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"text-align"		=> "right",
-		"max-width"		=> "850px",
+		"max-width"		=> output_width($default_width),
 		], ],
 	
 	[
@@ -749,7 +718,7 @@ $style_array = [
 		"border-radius"		=> "10px",
 		"color"			=> output_rgba($font_color, 0.7),
 		"padding"		=> "15px",
-		"max-width"		=> "850px",
+		"max-width"		=> output_width($default_width),
 		"background"		=> output_rgba($background_color, 1),
 		"border"		=> "1px solid ".output_rgba($font_color, 1),
 		"box-shadow"		=> "3px 12px 15px -9px rgba(50,50,50,0.1)",
@@ -807,7 +776,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"height"		=> "250px",
-		"max-width"		=> "650px",
+		"max-width"		=> output_width($default_width,-200),
 		"max-height"		=> "80%",
 		"overflow-y"		=> "scroll",
 		"resize"		=> "none",
@@ -923,25 +892,8 @@ $style_array = [
 	"css_tags" => "#sidebar-inputs ul",
 	"css_contents" =>
 		[
-		"width"			=> "270px",
+		"width"			=> output_width($default_width/3),
 		], ],
-
-	[
-	"css_tags" => "#sidebar-inputs",
-	"css_contents" =>
-		[
-//		"font-size"		=> "80%",
-//		"border"		=> "1px solid ".output_rgba($font_color, 0.5),
-//		"font-family"		=> "Arial, Helvetica, 'Sans Serif'",
-		], ],
-	
-//	[
-//	"css_tags" => "#sidebar-inputs ul",
-//	"css_contents" =>
-//		[
-//		"width"			=> "auto",
-//		"display"		=> "block",
-//		], ],
 		
 	[
 	"css_tags" => "#sidebar-inputs span",
@@ -980,20 +932,6 @@ $style_array = [
 		"padding"		=> "2px 11px",
 		], ],
 
-	
-	
-//	[
-//	"css_tags" => "#sidebar-inputs b",
-//	"css_contents" =>
-//		[
-//		"margin"		=> "0 5px 0 0",
-//		"display"		=> "block",
-//		"font-weight"		=> "400",
-//		"font-style"		=> "italic",
-//		"padding"		=> "2px 0",
-//		"border-color"		=> output_rgba($background_color, 1),
-//		], ],
-	
 	[
 	"css_tags" => "#footer-formula",
 	"css_contents" =>
@@ -1013,7 +951,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"display"		=> "table",
-		"max-width"		=> "850px",
+		"max-width"		=> output_width($default_width),
 		], ],
 
 	[
@@ -1026,7 +964,7 @@ $style_array = [
 		"vertical-align"	=> "top",
 		"clear"			=> "both",
 		"width"			=> "auto",
-		"max-width"		=> "850px",
+		"max-width"		=> output_width($default_width),
 		"margin"		=> "20px 20px 0 20px",
 		"padding"		=> "0",
 		"list-style"		=> "none",
@@ -1241,7 +1179,7 @@ $style_array = [
 		[
 		"font-family"		=> "Arial, Helvetica, 'Sans Serif'",
 		"font-size"		=> "0.85em",
-		"width"			=> "350px",
+		"width"			=> output_width($default_width/2),
 		], ],
 	
 	[
@@ -1250,7 +1188,7 @@ $style_array = [
 		[
 		"display"		=> "block",
 		"width"			=> "auto",
-		"max-width"		=> "700px",
+		"max-width"		=> output_width($default_width,-150),
 		"font-size"		=> ".9em",
 		], ],
 
@@ -1318,7 +1256,7 @@ $style_array = [
 		], ],
 	
 	[
-	"css_tags" => "@media only screen and (max-width: 850px)",
+	"css_tags" => "@media only screen and (max-width: ".output_width($default_width,40).")",
 	"css_contents" => 
 		[
 
@@ -1341,7 +1279,7 @@ $style_array = [
 		"css_contents" =>
 			[
 			"display"	=> "block",
-			"width"		=> "auto",
+			"width"		=> "100%",
 			], ],
 
 		[
