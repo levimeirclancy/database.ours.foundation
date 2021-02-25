@@ -1009,7 +1009,7 @@ $style_array = [
 		"clear"			=> "both",
 		"width"			=> "auto",
 		"max-width"		=> "850px",
-		"margin"		=> "20px",
+		"margin"		=> "20px 20px 0 20px",
 		"padding"		=> "0",
 		"list-style"		=> "none",
 //		"list-style-position"	=> "inside",
@@ -1020,6 +1020,24 @@ $style_array = [
 		"border-width"		=> "0 0 1px 0",
 		"border-style"		=> "solid",
 		"border-color"		=> output_rgba($font_color, 0.35),		
+		], ],
+	
+		[
+	"css_tags" => [
+		"ul + ul",
+		"ul + ol",
+		"ul + amp-list",
+		"ol + ul",
+		"ol + ol",
+		"ol + amp-list",
+		"amp-list + ul",
+		"amp-list + ol",
+		"amp-list + amp-list",
+		]
+	"css_contents" =>
+		[
+		"margin-top"		=> "0",
+		"border-width"		=> "0",
 		], ],
 		
 
