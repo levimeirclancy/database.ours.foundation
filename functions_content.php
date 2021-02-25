@@ -376,6 +376,7 @@ function body_process($body_incoming) {
 					$indent_position_temp++;
 					endwhile;
 			elseif ($indent_position_temp > $indent_current_temp):
+				$indent_position_temp--;
 				while ($indent_position_temp > $indent_current_temp):
 					$replace_temp .= "</li></".array_shift($list_array).">";
 					$indent_position_temp--;
