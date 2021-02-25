@@ -168,7 +168,6 @@ $style_array = [
 		"box-sizing"		=> "border-box",
 		"position"		=> "relative",
 		"white-space"		=> "normal",
-		"z-index"		=> "1000",
 		], ],
 	
 	[
