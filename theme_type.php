@@ -91,8 +91,6 @@ foreach ($information_array as $entry_id => $entry_info):
 $indent_ever = 0;
 if (!(empty($echo_temp))): $indent_ever = 1; endif;
 
-echo "<div class='navigation-list' id='entries-list-hierarchical'>";
-
 // If we have indenting
 if ($indent_ever !== 0):
 	$tap_temp = [
@@ -103,6 +101,8 @@ if ($indent_ever !== 0):
 		];
 	echo "<div role='button' tabindex='0' id='entries-button-alphabetical' class='navigation-header-item' on='tap:". implode(", ", $tap_temp) ."'>Switch to alphabetical</div>";
 	endif;
+
+echo "<div class='navigation-list' id='entries-list-hierarchical'>";
 
 echo body_process("+-+-+\n\n".$echo_temp."\n\n+-+-+");
 
@@ -117,9 +117,10 @@ $tap_temp = [
 	"entries-button-hierarchical.hide",
 	];
 
-echo "<div class='navigation-list' id='entries-list-alphabetical' hidden>";
 
-echo "<div role='button' tabindex='0' id='entries-button-hierarchical' class='navigation-header-item' on='tap:". implode(", ", $tap_temp) ."'>Switch to hierarchical</div><br>";
+echo "<div role='button' tabindex='0' id='entries-button-hierarchical' class='navigation-header-item' on='tap:". implode(", ", $tap_temp) ."'>Switch to hierarchical</div>";
+
+echo "<div class='navigation-list' id='entries-list-alphabetical' hidden>";
 
 $echo_temp = null;
 
