@@ -131,4 +131,4 @@ foreach ($information_array as $entry_id => $entry_info):
 
 	endforeach;
 
-echo body_process($echo_temp); ?>
+echo body_process("+-+-+\n\n".$echo_temp."\n\n+-+-+"); ?>
