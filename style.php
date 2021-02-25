@@ -861,10 +861,19 @@ $style_array = [
 		"font-size"		=> "85%",
 		"font-family"		=> "Arial, Helvetica, 'San Serif'",
 		"bottom"		=> "17px",
-		"font-style"		=> "italic",
 		"padding"		=> "7px 30px",
 		"background"		=> "rgba(255,255,255,1)",
 		"color"			=> output_rgba($font_color, 1),
+		], ],
+	
+	[
+	"css_tags" =>
+		[
+		"#admin-page-form-snackbar",
+		],
+	"css_contents" =>
+		[
+		"font-style"		=> "italic",
 		], ],
 	
 	[
