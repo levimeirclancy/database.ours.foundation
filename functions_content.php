@@ -363,7 +363,7 @@ function body_process($body_incoming) {
 		
 			if ($indent_position_temp == $indent_current_temp):
 				if ($specifier_temp !== null):
-					$replace_temp .= "</li></".array_shift($list_array) . "><".$specifier_temp."><li>EEE";
+					$replace_temp .= "</li>GGG</".array_shift($list_array) . "><".$specifier_temp."><li>EEE";
 					array_unshift($list_array, $specifier_temp);
 				else:
 					$replace_temp .= "</li><li>FFF";
