@@ -1099,6 +1099,7 @@ $style_array = [
 		"overflow"		=> "hidden",
 		"font-family"		=> "Arial, Helvetica, 'Sans Serif'",
 		"font-size"		=> "0.85em",
+		"line-height"		=> "1.2em",
 		], ],	
 	
 		[
