@@ -629,7 +629,7 @@ $style_array = [
 		"border-radius"		=> "10px",
 		"color"			=> output_rgba($font_color, 0.7),
 		"padding"		=> "15px",
-		"max-width"		=> output_width($default_width),
+//		"max-width"		=> output_width($default_width),
 		"background"		=> output_rgba($background_color, 1),
 		"border"		=> "1px solid ".output_rgba($font_color, 1),
 		"box-shadow"		=> "3px 12px 15px -9px rgba(50,50,50,0.1)",
@@ -639,7 +639,7 @@ $style_array = [
 	"css_tags" => "input[type=\"date\"]",
 	"css_contents" =>
 		[
-		"max-width"		=> "300px",
+		"width"			=> "300px",
 		], ],
 	
 	[
