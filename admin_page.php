@@ -142,26 +142,28 @@ echo "<amp-sidebar id='sidebar-inputs' layout='nodisplay' side='right' on='sideb
 
 	echo "<div class='sidebar-back' on='tap:sidebar-inputs.close' role='button' tabindex='0'>Close</div>";
 
-	echo "<ul class='navigation-list'>";
+	echo "<div class='navigation-list'>";
+
+	$list_temp = null;
+
 	foreach ($languages_array as $language_temp):
-		echo "<li>" . wrapper_buttons([$language_temp], ucfirst($language_temp));
-			echo "<ul>";
-			echo "<li>" . wrapper_buttons([$language_temp, "title"], "Title") . "</li>";
-			echo "<li>" . wrapper_buttons([$language_temp, "headline"], "Headline") . "</li>";
-			echo "<li>" . wrapper_buttons([$language_temp, "body"], "Body") . "</li>";
-			echo "</ul>";
-			echo "</li>";
+		$list_temp .= "+++" . wrapper_buttons([$language_temp], ucfirst($language_temp));
+			$list_temp .= "++++++" . wrapper_buttons([$language_temp, "title"], "Title");
+			$list_temp .= "++++++" . wrapper_buttons([$language_temp, "headline"], "Headline");
+			$list_temp .= "++++++" . wrapper_buttons([$language_temp, "body"], "Body");
 		endforeach;
 
-	echo "<li>" . wrapper_buttons([ "endnotes" ], "Endnotes") . "</li>";
+	$list_temp .= "+++" . wrapper_buttons([ "endnotes" ], "Endnotes");
 
 	if (isset($site_info['appendix_array'][$entry_info['type']])):
-		echo "<li>" . wrapper_buttons([ "appendices"], "Appendices") . "</li>";
+		$list_temp .= "+++" . wrapper_buttons([ "appendices"], "Appendices");
 		endif;
 
-	echo "<li>" . wrapper_buttons([ "metadata"], "Metadata") . "</li>";
+	$list_temp .= "+++" . wrapper_buttons([ "metadata"], "Metadata");
 
-	echo "</ul>";
+	echo body_process("+-+-+".$list_temp."+-+-+");
+
+	echo "</div>";
 
 	echo "</amp-sidebar>";
 
