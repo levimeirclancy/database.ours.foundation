@@ -931,6 +931,7 @@ $style_array = [
 		"border-color"		=> output_rgba($font_color, 0.35),
 		"counter-increment"	=> "list-counter",
 		"list-style-type"	=> "none",
+		"width"			=> "auto",
 		], ],
 
 	[
