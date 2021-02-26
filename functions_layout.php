@@ -184,15 +184,19 @@ function amp_header($title=null, $canonical=null) {
 
 		echo "<div class='sidebar-back' on='tap:".$navigation_lightboxes."' role='button' tabindex='0'>Close</div>";
 	
-		echo "<ul class='navigation-list'>";
+		echo "<div class='navigation-list'>";
 	
-		echo "<li><a href='/' ".$target_temp.">".$publisher."</a></li>";
+		$list_temp = null;
+	
+		$list_temp .= "+++<a href='/' ".$target_temp.">".$publisher."</a>";
 		
 		foreach ($site_info['category_array'] as $header_backend => $header_frontend):
-			echo "<li><a href='/".$header_backend."/' ".$target_temp.">". ucfirst($header_frontend) ."</a></li>";
+			$list_temp .= "+++<a href='/".$header_backend."/' ".$target_temp.">". ucfirst($header_frontend) ."</a>";
 			endforeach;
 	
-		echo "</ul>";
+		echo body_process("+-+-+".$list_temp."+-+-+");
+	
+		echo "</div>";
 	
 		echo "</amp-sidebar>";
 	
@@ -205,7 +209,6 @@ function amp_header($title=null, $canonical=null) {
 		echo "<input type='text' id='search-input' required pattern=\".{1,}\" placeholder='...' on=\"input-throttled:AMP.setState({pageState:{searchTerm: event.value}}),sidebar-navigation-lightbox-search-list.changeToLayoutContainer()\">";
 		echo "<div id='search-submit' role='button' tabindex='0' on='tap:sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search-list.changeToLayoutContainer()'>Search</div>";
 		
-	
 		echo "<amp-list class='navigation-list' id='sidebar-navigation-lightbox-search-list' credentials='include' layout='responsive' width='800' height='300' max-items='100' binding='refresh' reset-on-refresh='always' items='searchResults' [src]=\"'/api/search/?search=' + pageState.searchTerm\">";
 
 		echo "<li class='no-border' placeholder>Loading search results...</li>";
@@ -250,8 +253,6 @@ function amp_header($title=null, $canonical=null) {
 			echo "<span class='input-button' role='button' tabindex='0' id='inputPasswordTypeText' on=\"tap:AMP.setState({pageState:{login: {inputPasswordType: 'text'}}}),inputPasswordTypeText.hide,inputPasswordTypePassword.show\">Show password</span>";
 			echo "<span class='input-button' role='button' tabindex='0' id='inputPasswordTypePassword' on=\"tap:AMP.setState({pageState:{login: {inputPasswordType: 'password'}}}),inputPasswordTypeText.show,inputPasswordTypePassword.hide\">Hide password</span>";
 			echo "</div>";
-	
-	
 	
 		echo "<br><span id='login-popover-submit' role='button' tabindex='0' on='tap:login.submit'>Log in</span>";
 
