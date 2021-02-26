@@ -101,13 +101,7 @@ $style_array = [
 		"font-weight"		=> "400",
 		"font-family"		=> "Arial, Helvetica, 'Sans Serif'",
 		], ],
-	
-//	[
-//	"css_tags" => ".navigation-header-item::first-letter, .sidebar-back::first-letter",
-//	"css_contents" =>
-//		[
-//		"vertical-align"	=> "top",
-//		], ],
+
 	
 	[
 	"css_tags" => 
@@ -133,16 +127,6 @@ $style_array = [
 		"padding"		=> "3px 0",
 		"margin"		=> "10px 20px 0",
 		], ],
-	
-//	[
-//	"css_tags" => ".sidebar-back:before",
-//	"css_contents" =>
-//		[
-//		"content"		=> "⤺",
-//		"font-size"		=> "1.3em",
-//		"margin"		=> "0 5px 0 0",
-//		"display"		=> "inline-block",
-//		], ],
 			
 	[
 	"css_tags" => "div.sidebar-navigation-item",
@@ -1144,7 +1128,7 @@ $style_array = [
 	"css_tags" => "amp-lightbox",
 	"css_contents" =>
 		[
-		"padding"		=> "80px 0 20px",
+		"padding"		=> "10px 0 20px",
 		"width"			=> "auto",
 		], ],
 	
