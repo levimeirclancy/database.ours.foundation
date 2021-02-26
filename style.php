@@ -1178,7 +1178,7 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-		"margin-top"		=> "0",
+		"margin-top"		=> "5px",
 		"font-size"		=> "1em",
 		], ],
 
@@ -1202,6 +1202,9 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
+		"text-overflow"		=> "ellipsis",
+		"white-space"		=> "nowrap",
+		"overflow"		=> "hidden",
 		"padding"		=> "0",
 		"margin"		=> "0",
 		], ],		
