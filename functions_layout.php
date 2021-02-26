@@ -208,8 +208,9 @@ function amp_header($title=null, $canonical=null) {
 		echo "<label for='search-input'>Search the database</label>";
 		echo "<input type='text' id='search-input' required pattern=\".{1,}\" placeholder='...' on=\"input-throttled:AMP.setState({pageState:{searchTerm: event.value}}),sidebar-navigation-lightbox-search-list.changeToLayoutContainer()\">";
 		echo "<div id='search-submit' role='button' tabindex='0' on='tap:sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search-list.changeToLayoutContainer()'>Search</div>";
-		
-		echo "<amp-list class='navigation-list' id='sidebar-navigation-lightbox-search-list' credentials='include' layout='responsive' width='800' height='300' max-items='100' binding='refresh' reset-on-refresh='always' items='searchResults' [src]=\"'/api/search/?search=' + pageState.searchTerm\">";
+
+		echo "<div class='navigation-list'>";
+		echo "<amp-list id='sidebar-navigation-lightbox-search-list' credentials='include' layout='responsive' width='800' height='300' max-items='100' binding='refresh' reset-on-refresh='always' items='searchResults' [src]=\"'/api/search/?search=' + pageState.searchTerm\">";
 
 		echo "<li class='no-border' placeholder>Loading search results...</li>";
 		echo "<li class='no-border' fallback>No search results.</li>";
@@ -219,6 +220,7 @@ function amp_header($title=null, $canonical=null) {
 			echo "</template>";
 	
 		echo "</amp-list>";
+		echo "</div>";
 	
 		echo "</amp-sidebar>";
 	
