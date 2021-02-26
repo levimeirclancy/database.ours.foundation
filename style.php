@@ -32,7 +32,7 @@ $style_array = [
 		[
 		"text-decoration"	=> "none",
 		"color"			=> output_rgba($font_color, 01),
-		"white-space"		=> "break-spaces",
+//		"white-space"		=> "break-spaces",
 		], ],
 	
 	[ // But in the articles, we want an underline
@@ -431,15 +431,7 @@ $style_array = [
 		"margin"		=> "-15px",
 		"border-radius"		=> "100px",
 		], ],
-	
-	[
-	"css_tags" => "p",
-	"css_contents" =>
-		[
-		"text-overflow"		=> "ellipsis",
-		"overflow"		=> "hidden",
-		], ],
-	
+		
 	[
 	"css_tags" => "summary p:first-child",
 	"css_contents" =>
@@ -1102,7 +1094,7 @@ $style_array = [
 		"text-align"		=> "left",
 		"box-sizing"		=> "border-box",
 		"position"		=> "relative",
-		"white-space"		=> "normal",
+//		"white-space"		=> "normal",
 //		"display"		=> "block",
 		"padding"		=> "10px 0 20px",
 		], ],
