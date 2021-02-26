@@ -583,6 +583,7 @@ $style_array = [
 		[
 		"label",
 		"input",
+		".input-text",
 		"textarea",
 		"amp-selector",
 		".input-button-wrapper",
