@@ -1067,10 +1067,11 @@ $style_array = [
 	"css_tags" => ".navigation-list, .navigation-list > .wrapper-list",
 	"css_contents" =>
 		[
+		"display"		=> "block",
 		"margin"		=> "15px 0 0 0",
 		"font-family"		=> "Arial, Helvetica, 'Sans Serif'",
 		"font-size"		=> "0.95em",
-//		"width"			=> output_width($default_width*.7),
+		"max-width"		=> output_width($default_width*.7),
 //		"font-size"		=> ".9em",
 		], ],
 
