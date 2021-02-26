@@ -1105,7 +1105,7 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-		"padding-bottom"	=> "0",
+//		"padding-bottom"	=> "0",
 //		"margin-top"		=> "0",
 //		"padding-bottom"	=> "0",
 		], ],
