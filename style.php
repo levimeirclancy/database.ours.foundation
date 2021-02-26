@@ -968,7 +968,7 @@ $style_array = [
 	[ // This simply ensures it has the correct alignment and width...
 	"css_tags" => 
 		[
-		"wrapper-list",
+		".wrapper-list",
 		],
 	"css_contents" =>
 		[
