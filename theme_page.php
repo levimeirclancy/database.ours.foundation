@@ -149,7 +149,7 @@ echo "<amp-sidebar id='sidebar-entry-info' layout='nodisplay' side='right'>";
 //				$plural_temp = null;
 //				if (count($unit_temp) > 1): $plural_temp = "s"; endif;
 //				echo "<ul>" . implode(null, $unit_temp) . "</ul>";
-				endif;
+//				endif;
 			endif;
 //		echo "<li><span class='sidebar-navigation-item-title'>Published: ".date("Y F d", strtotime($entry_info['date_published']))."</span></li>"; // Date published
 //		echo "<li><span class='sidebar-navigation-item-title'>Updated: ".date("Y F d, H:i:s", strtotime($entry_info['date_updated']))."</span></li>"; // Date updated
