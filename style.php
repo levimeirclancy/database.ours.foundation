@@ -972,7 +972,7 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-		"display"		=> "table",
+		"display"		=> "block",
 		"max-width"		=> output_width($default_width),
 		"position"		=> "relative",
 		], ],
