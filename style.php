@@ -1166,8 +1166,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"display"		=> "block",
-//		"margin-left"		=> "0",
-//		"margin-right"		=> "0",
+		"margin"		=> "10px 0",
 		"width"			=> "100%",
 		"max-width"		=> "none",
 		], ],
