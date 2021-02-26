@@ -131,7 +131,7 @@ $style_array = [
 		"cursor"		=> "pointer",
 		"text-align"		=> "right",
 		"padding"		=> "3px 0",
-		"margin"		=> "10px 0 0 0",
+		"margin"		=> "10px 20px 0",
 		], ],
 	
 //	[
