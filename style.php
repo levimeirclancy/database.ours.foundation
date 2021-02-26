@@ -988,7 +988,7 @@ $style_array = [
 		"clear"			=> "both",
 //		"width"			=> "auto",
 //		"max-width"		=> output_width($default_width),
-		"margin"		=> "20px",
+		"margin"		=> "50px 20px",
 		"padding"		=> "0 0 7px 0",
 		"list-style"		=> "none",
 //		"list-style-position"	=> "inside",
@@ -1166,15 +1166,6 @@ $style_array = [
 		"font-family"		=> "Arial, Helvetica, 'Sans Serif'",
 		"font-size"		=> "0.85em",
 		"width"			=> output_width($default_width/2),
-		], ],
-	
-	[
-	"css_tags" => "#entries-list-hierarchical, #entries-list-alphabetical, .home-list",
-	"css_contents" =>
-		[
-		"display"		=> "block",
-		"width"			=> "auto",
-		"max-width"		=> output_width($default_width,-150),
 		"font-size"		=> ".9em",
 		], ],
 
