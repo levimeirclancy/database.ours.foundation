@@ -573,7 +573,7 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-		"display"		=> "block",
+		"display"		=> "inline-block",
 		"margin"		=> "5px 100px 5px 20px",
 		"padding"		=> "8px",
 		"width"			=> output_width($default_width),
