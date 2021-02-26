@@ -1090,7 +1090,7 @@ $style_array = [
 	[
 	"css_tags" => 
 		[
-		".navigation-list li",
+		".navigation-list li p",
 		],
 	"css_contents" =>
 		[
