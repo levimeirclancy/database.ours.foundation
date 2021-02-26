@@ -1069,10 +1069,7 @@ $style_array = [
 		[
 		"display"		=> "block",
 		"margin"		=> "15px 0 0 0",
-		"font-family"		=> "Arial, Helvetica, 'Sans Serif'",
-		"font-size"		=> "0.95em",
 		"max-width"		=> output_width($default_width*.7),
-		"font-size"		=> ".9em",
 		], ],
 
 	[
@@ -1094,11 +1091,13 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-//		"padding"		=> "0",
-//		"margin"		=> "0",
-//		"text-overflow"		=> "ellipsis",
-//		"white-space"		=> "nowrap",
-//		"overflow"		=> "hidden",
+		"padding"		=> "0",
+		"margin"		=> "0",
+		"text-overflow"		=> "ellipsis",
+		"white-space"		=> "nowrap",
+		"overflow"		=> "hidden",
+		"font-family"		=> "Arial, Helvetica, 'Sans Serif'",
+		"font-size"		=> "0.90em",
 		], ],	
 	
 		[
