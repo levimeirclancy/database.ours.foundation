@@ -1087,17 +1087,18 @@ $style_array = [
 	[
 	"css_tags" => 
 		[
-		".navigation-list li p",
+		".navigation-list p",
 		],
 	"css_contents" =>
 		[
 		"padding"		=> "0",
 		"margin"		=> "0",
+		"display"		=> "inline-block",
 		"text-overflow"		=> "ellipsis",
 		"white-space"		=> "nowrap",
 		"overflow"		=> "hidden",
 		"font-family"		=> "Arial, Helvetica, 'Sans Serif'",
-		"font-size"		=> "0.90em",
+		"font-size"		=> "0.85em",
 		], ],	
 	
 		[
