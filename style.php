@@ -1080,7 +1080,7 @@ $style_array = [
 		[
 		"margin"		=> "15px 0 0 0",
 		"font-family"		=> "Arial, Helvetica, 'Sans Serif'",
-		"font-size"		=> "0.95em",
+		"font-size"		=> "0.9em",
 //		"width"			=> output_width($default_width*.7),
 //		"font-size"		=> ".9em",
 		], ],
@@ -1176,13 +1176,16 @@ $style_array = [
 	"css_contents" =>
 		[
 		"padding-top"		=> "10px",
-		"margin-left"		=> "auto",
-		"margin-right"		=> "auto",
 		], ],
 
 	
 	[
-	"css_tags" => "amp-lightbox label, amp-lightbox input, amp-lightbox .input-button-wrapper",
+	"css_tags" => 
+		[
+		"amp-lightbox label",
+		"amp-lightbox input",
+		"amp-lightbox .input-button-wrapper",
+		],
 	"css_contents" =>
 		[
 		"margin-left"		=> "0",
