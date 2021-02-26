@@ -893,7 +893,12 @@ $style_array = [
 		], ],
 
 	[ // This is the basic design
-	"css_tags" => "ul, ol, amp-list",
+	"css_tags" =>
+		[
+		"ul",
+		"ol",
+		"amp-list",
+		],
 	"css_contents" =>
 		[
 		"display"		=> "block",
@@ -1140,7 +1145,7 @@ $style_array = [
 	"css_tags" => "amp-lightbox",
 	"css_contents" =>
 		[
-		"padding"		=> "80px 20px 20px",
+		"padding"		=> "80px 0 20px",
 		"width"			=> "auto",
 		], ],
 	
@@ -1149,7 +1154,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"max-width"		=> "90%",
-		"padding"		=> "10px 20px 10px",
+		"padding"		=> "10px 0 10px",
 		"width"			=> output_width($default_width*.55),
 		], ],
 
@@ -1166,7 +1171,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"display"		=> "block",
-		"margin"		=> "20px 0 0",
+//		"margin"		=> "20px 0 0",
 		"width"			=> "100%",
 		"max-width"		=> "none",
 		], ],
