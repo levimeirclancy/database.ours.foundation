@@ -1163,10 +1163,10 @@ $style_array = [
 	"css_tags" => ".navigation-list",
 	"css_contents" =>
 		[
-		"margin"		=> "10px 0 0 0",
+		"margin"		=> "15px 0 0 0",
 		"font-family"		=> "Arial, Helvetica, 'Sans Serif'",
 		"font-size"		=> "0.85em",
-		"width"			=> output_width($default_width/2),
+		"width"			=> output_width($default_width*7),
 		"font-size"		=> ".9em",
 		], ],
 
@@ -1306,7 +1306,7 @@ $style_array = [
 	];
 
 function output_width($default, $difference=0) {
-	return ($default + $difference) ."px";
+	return round(($default + $difference),0) ."px";
 	}
 
 function output_rgba($rgba_array, $opacity) {
