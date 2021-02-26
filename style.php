@@ -998,20 +998,7 @@ $style_array = [
 		"border-style"		=> "solid",
 		"border-color"		=> output_rgba($font_color, 0.35),		
 		], ],
-	
-	[
-	"css_tags" =>
-		[
-		"ul + ul", "ul + ol", "ul + amp-list",
-		"ol + ul", "ol + ol", "ol + amp-list",
-		"amp-list + ul", "amp-list + ol", "amp-list + amp-list",
-		],
-	"css_contents" =>
-		[
-//		"display"		=> "block",
-		"margin-top"		=> "0",
-//		"border-width"		=> "0",
-		], ],
+
 	
 		[
 	"css_tags" =>
@@ -1193,6 +1180,21 @@ $style_array = [
 //		"color"			=> output_rgba($font_color, 0.5),
 		"content"		=> "",
 		], ],
+	
+	[
+	"css_tags" =>
+		[
+		"ul + ul", "ul + ol", "ul + amp-list",
+		"ol + ul", "ol + ol", "ol + amp-list",
+		"amp-list + ul", "amp-list + ol", "amp-list + amp-list",
+		],
+	"css_contents" =>
+		[
+//		"display"		=> "block",
+		"margin-top"		=> "0",
+		"border-width"		=> "1px 0 0 0",
+		], ],
+
 
 	[
 	"css_tags" => ".navigation-list",
