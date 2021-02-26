@@ -593,7 +593,7 @@ $style_array = [
 		"margin"		=> "5px 40px 5px 20px",
 		"padding"		=> "8px",
 		"width"			=> output_width($default_width),
-		"max-width"		=> "100%",
+		"max-width"		=> "90%",
 		"text-align"		=> "left",
 		"border"		=> "0",
 		"border-radius"		=> "6px",
@@ -1158,39 +1158,6 @@ $style_array = [
 		"padding"		=> "10px 0 10px",
 		"width"			=> output_width($default_width*.55),
 		], ],
-
-	[
-	"css_tags" => 
-		[
-		"amp-sidebar ul",
-		"amp-sidebar ol",
-		"amp-sidebar amp-list",
-		"amp-sidebar label",
-		"amp-sidebar input",
-		"amp-sidebar .input-button-wrapper",
-		],
-	"css_contents" =>
-		[
-//		"display"		=> "block",
-//		"margin"		=> "20px 0 0",
-//		"width"			=> "100%",
-//		"max-width"		=> "none",
-		], ],
-	
-	[
-	"css_tags" => 
-		[
-		"amp-sidebar label",
-		"amp-sidebar input",
-		"amp-sidebar .input-button-wrapper",
-		],
-	"css_contents" =>
-		[
-//		"display"		=> "block",
-//		"margin"		=> "20px 20px 0",
-//		"width"			=> "100%",
-//		"max-width"		=> "none",
-		], ],
 	
 	[
 	"css_tags" => "amp-sidebar label",
@@ -1199,19 +1166,6 @@ $style_array = [
 		"padding-top"		=> "10px",
 		], ],
 
-	
-	[
-	"css_tags" => 
-		[
-		"amp-lightbox label",
-		"amp-lightbox input",
-		"amp-lightbox .input-button-wrapper",
-		],
-	"css_contents" =>
-		[
-		"margin-left"		=> "0",
-		"margin-right"		=> "0",
-		], ],
 	
 	/// Toggle classes
 
