@@ -212,7 +212,7 @@ $style_array = [
 	"css_tags" => "#sidebar-navigation, #sidebar-entry-info",
 	"css_contents" =>
 		[
-		"width"			=> output_width($default_width,-300),
+		"width"			=> output_width($default_width*.6),
 		], ],
 		
 	[
@@ -1158,8 +1158,8 @@ $style_array = [
 		"margin"		=> "15px 0 0 0",
 		"font-family"		=> "Arial, Helvetica, 'Sans Serif'",
 		"font-size"		=> "0.85em",
-		"width"			=> output_width($default_width*.7),
-		"font-size"		=> ".9em",
+//		"width"			=> output_width($default_width*.7),
+//		"font-size"		=> ".9em",
 		], ],
 
 	[
