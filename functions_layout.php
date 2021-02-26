@@ -210,7 +210,7 @@ function amp_header($title=null, $canonical=null) {
 		echo "<div id='search-submit' role='button' tabindex='0' on='tap:sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search-list.changeToLayoutContainer()'>Search</div>";
 
 		echo "<br><div class='navigation-list'><div class='wrapper-list'>";
-		echo "<amp-list id='sidebar-navigation-lightbox-search-list' credentials='include' layout='responsive' width='800' height='10' max-items='100' binding='refresh' reset-on-refresh='always' items='searchResults' [src]=\"'/api/search/?search=' + pageState.searchTerm\">";
+		echo "<amp-list id='sidebar-navigation-lightbox-search-list' credentials='include' layout='responsive' width='800' height='100' max-items='100' binding='refresh' reset-on-refresh='always' items='searchResults' [src]=\"'/api/search/?search=' + pageState.searchTerm\">";
 
 		echo "<span placeholder>Loading search results...</span>";
 		echo "<span fallback>No search results.</span>";
