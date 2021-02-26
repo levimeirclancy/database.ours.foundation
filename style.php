@@ -583,14 +583,13 @@ $style_array = [
 		[
 		"label",
 		"input",
-		".input-text",
 		"textarea",
 		"amp-selector",
 		".input-button-wrapper",
 		],
 	"css_contents" =>
 		[
-		"display"		=> "table-row",
+		"display"		=> "block",
 		"margin"		=> "5px 100px 5px 20px",
 		"padding"		=> "8px",
 		"width"			=> output_width($default_width),
