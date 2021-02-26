@@ -212,8 +212,7 @@ $style_array = [
 	"css_tags" => "#sidebar-navigation, #sidebar-entry-info",
 	"css_contents" =>
 		[
-		"width"			=> "auto",
-		"max-width"		=> output_width($default_width,-200),
+		"width"			=> output_width($default_width,-300),
 		], ],
 		
 	[
