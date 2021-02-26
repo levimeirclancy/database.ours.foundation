@@ -625,7 +625,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"font-family"		=> "Arial, Helvetica, 'Sans Serif'",
-		"margin"		=> "5px 20px",
+//		"margin"		=> "5px 20px",
 		"border-radius"		=> "10px",
 		"color"			=> output_rgba($font_color, 0.7),
 		"padding"		=> "15px",
