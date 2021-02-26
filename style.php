@@ -1086,7 +1086,7 @@ $style_array = [
 		"padding-left"		=> "25px",
 //		"border"		=> "0",
 		"border-style"		=> "dotted",
-		"margin-top"		=> "0",
+//		"margin-top"		=> "0",
 //		"padding-bottom"	=> "0",
 		], ],
 	
@@ -1191,7 +1191,7 @@ $style_array = [
 	"css_contents" =>
 		[
 //		"display"		=> "block",
-		"margin-top"		=> "0",
+//		"margin-top"		=> "0",
 		"border-width"		=> "1px 0 0 0",
 		], ],
 
