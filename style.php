@@ -452,7 +452,7 @@ $style_array = [
 	"css_tags" => "table",
 	"css_contents" =>
 		[
-		"margin"		=> "20px 0",
+		"margin"		=> "20px",
 		"display"		=> "table",
 		"box-sizing"		=> "border-box",
 		"table-layout"		=> "auto",
