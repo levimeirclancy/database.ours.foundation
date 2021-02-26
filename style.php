@@ -200,16 +200,9 @@ $style_array = [
 		"max-width"		=> output_width($default_width,-200),
 		], ],
 	
-	[
-	"css_tags" => "#sidebar-search",
-	"css_contents" =>
-		[
-		"width"			=> "auto",
-		"max-width"		=> output_width($default_width-200),
-		], ],
 	
 	[
-	"css_tags" => "#sidebar-navigation, #sidebar-entry-info",
+	"css_tags" => "#sidebar-navigation, #sidebar-entry-info, #sidebar-search",
 	"css_contents" =>
 		[
 		"width"			=> output_width($default_width*.6),
@@ -1157,7 +1150,7 @@ $style_array = [
 		[
 		"margin"		=> "15px 0 0 0",
 		"font-family"		=> "Arial, Helvetica, 'Sans Serif'",
-		"font-size"		=> "0.85em",
+		"font-size"		=> "0.9em",
 //		"width"			=> output_width($default_width*.7),
 //		"font-size"		=> ".9em",
 		], ],
