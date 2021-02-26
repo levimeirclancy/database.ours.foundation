@@ -1010,7 +1010,7 @@ $style_array = [
 		[
 //		"display"		=> "block",
 		"margin-top"		=> "0",
-		"border-width"		=> "0",
+//		"border-width"		=> "0",
 		], ],
 	
 		[
