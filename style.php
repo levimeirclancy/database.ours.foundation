@@ -1149,7 +1149,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"max-width"		=> "90%",
-		"padding"		=> "10px 0 10px",
+		"padding"		=> "10px 20px 10px",
 		"width"			=> output_width($default_width*.55),
 		], ],
 
