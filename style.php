@@ -1100,7 +1100,7 @@ $style_array = [
 	[
 	"css_tags" => 
 		[
-		".navigation-list ul li p",
+		".navigation-list li p",
 		],
 	"css_contents" =>
 		[
