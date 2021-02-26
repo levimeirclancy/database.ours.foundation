@@ -932,6 +932,7 @@ $style_array = [
 		"counter-increment"	=> "list-counter",
 		"list-style-type"	=> "none",
 		"width"			=> "auto",
+		"display"		=> "block",
 		], ],
 
 	[
