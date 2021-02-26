@@ -1172,7 +1172,7 @@ $style_array = [
 		[
 		"display"		=> "block",
 //		"margin"		=> "20px 0 0",
-		"width"			=> "100%",
+//		"width"			=> "100%",
 		"max-width"		=> "none",
 		], ],
 	
