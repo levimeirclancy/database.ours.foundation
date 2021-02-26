@@ -1009,6 +1009,7 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
+		"padding-top"		=> "0",
 		"border-width"		=> "0",
 		], ],
 
