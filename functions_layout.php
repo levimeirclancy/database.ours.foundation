@@ -216,7 +216,7 @@ function amp_header($title=null, $canonical=null) {
 		echo "<span fallback>No search results.</span>";
 
 		echo "<template type='amp-mustache'>";
-			echo "<li><a href='/{{entry_id}}/' ".$target_temp.">{{header}}</a></li>";
+			echo "<li><p><a href='/{{entry_id}}/' ".$target_temp.">{{header}}</a></p></li>";
 			echo "</template>";
 	
 		echo "</amp-list>";
