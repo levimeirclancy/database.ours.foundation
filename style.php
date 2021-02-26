@@ -1160,7 +1160,7 @@ $style_array = [
 		], ],
 
 	[ // These are just a few basic formatting specs for some significant tables...
-	"css_tags" => ".navigation-list > .wrapper-list",
+	"css_tags" => ".navigation-list, .navigation-list > .wrapper-list",
 	"css_contents" =>
 		[
 		"margin"		=> "15px 0 0 0",
