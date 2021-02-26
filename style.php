@@ -1148,13 +1148,6 @@ $style_array = [
 		"padding-top"		=> "10px",
 		], ],
 
-	[
-	"css_tags" => "#sidebar-search amp-list",
-	"css_contents" =>
-		[
-		"border-width"		=> "0",
-		], ],
-
 	
 	
 	/// Toggle classes
