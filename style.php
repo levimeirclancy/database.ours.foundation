@@ -1139,6 +1139,7 @@ $style_array = [
 		"box-sizing"		=> "border-box",
 		"position"		=> "relative",
 		"white-space"		=> "normal",
+		"display"		=> "block",
 		], ],
 
 	[
