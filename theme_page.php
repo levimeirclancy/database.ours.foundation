@@ -57,7 +57,7 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp, $list
 		foreach ($array_output_temp as $entry_id_temp => $entry_header_temp):
 			if ($entry_id_temp == $entry_id): continue; endif; // do not show itself as its own parent etc
 			if ($information_array[$entry_id_temp]['type'] !== $header_backend): continue; endif;
-			$echo_section_temp .= "<li><a href='/".$entry_id_temp."/'><p>".$entry_header_temp."</p></a></li>";
+			$echo_section_temp .= "++++++{{{".$entry_id_temp."}}}";
 			$count_temp++;
 			if (!(isset($counter_section[$header_backend]))): $counter_section[$header_backend] = 0; endif;
 			$counter_section[$header_backend]++;
@@ -68,28 +68,27 @@ function relationships_array($entry_id, $hierarchy_temp, $descriptor_temp, $list
 		elseif ($count_temp == 1): $results_temp = null;
 		else: continue; endif;
 	
-		$echo_section[] =	"<li><i><p>".
+		$echo_section[] =	"++++++<i>".
 					$descriptor_temp.
-					" / <a href='/".$header_backend."/'>".$header_frontend."</a>".
-					" ".$results_temp."</p></i></li>".
+//					" / {{{https://"./".$header_backend."/'>".$header_frontend."</a>".
+					" / ".$header_frontend .
+					" ".$results_temp."</i>".
 					$echo_section_temp;
 
 		endforeach;
 	
-	$echo_section = "<ul>".implode("</ul><ul>", $echo_section)."</ul>";
+	$echo_section = implode(null, $echo_section);
 	
 	// Pluralize
 	if (array_sum($counter_section) > 1): $results_temp = " (".number_format(array_sum($counter_section))." results)";
 	elseif (array_sum($counter_section) == 1): $results_temp = null;
 	else: $echo_section = null; endif;
 
-	$echo_section = 		"<i>".
+	$echo_section = 		"+++<i>".
 					$descriptor_temp . $results_temp . "</i>".
 					$echo_section;
-
-	$echo_section = "<li>". $echo_section . "</li>";
 	
-	echo $echo_section; }
+	return $echo_section; }
 
 // Check for language and content
 $languages_temp = [];
@@ -133,33 +132,33 @@ echo "<article><div vocab='http://schema.org/' typeof='Article'>";
 // Sidebar
 echo "<amp-sidebar id='sidebar-entry-info' layout='nodisplay' side='right'>";
 	echo "<div class='sidebar-back' on='tap:sidebar-entry-info.close' role='button' tabindex='0'>Close</div>";
-	echo "<div class='wrapper-list'><ul class='navigation-list'>";
-//	echo "<li><span class='sidebar-navigation-item-title'><b>Metadata</b></span>";
-//		echo "<ul>";
-		echo "<li>Type: <a href='/".$entry_info['type']."/'><span property='genre'>".$site_info['category_array'][$entry_info['type']]."</span></a></span></li>"; // Type
-		echo "<li>Publisher: <a href='https://".$domain."'><span property='publisher'>".$publisher."</span></a></span></li>"; // Publisher
-		echo "<li>Author: <span property='author'>".$author."</span></li>"; // Author
-		echo "<li>Type: <a href='/".$entry_info['type']."/'><span property='genre'>".$site_info['category_array'][$entry_info['type']]."</span></a>";
+	echo "<div class='navigation-list'>";
+	$list_temp = null;
+	$list_temp .= "Type: <a href='/".$entry_info['type']."/'><span property='genre'>".$site_info['category_array'][$entry_info['type']]."</span></a>"; // Type
+	$list_temp .= "Publisher: <a href='https://".$domain."'><span property='publisher'>".$publisher."</span></a>"; // Publisher
+	$list_temp .= "Author: <span property='author'>".$author."</span>"; // Author
+	$list_temp .= "Type: <a href='/".$entry_info['type']."/'><span property='genre'>".$site_info['category_array'][$entry_info['type']]."</span></a>";
 		if (!(empty($entry_info['appendix']['unit']))): 
 			$unit_temp = null;
 			foreach($entry_info['appendix']['unit'] as $entry_id_temp):
 				if (empty($information_array[$entry_id_temp]['header'])): continue; endif;
-				$unit_temp[] = "<li><a href='/".$entry_id_temp."/'>". $information_array[$entry_id_temp]['header']."</a></li>";
+				$list_temp .= "++++++<a href='/".$entry_id_temp."/'>". $information_array[$entry_id_temp]['header']."</a>";
+//				$unit_temp[] = "++++++<a href='/".$entry_id_temp."/'>". $information_array[$entry_id_temp]['header']."</a>";
 				endforeach;
-			if (!(empty($unit_temp))):
-				$plural_temp = null;
-				if (count($unit_temp) > 1): $plural_temp = "s"; endif;
-				echo "<ul>" . implode(null, $unit_temp) . "</ul>";
+//			if (!(empty($unit_temp))):
+//				$plural_temp = null;
+//				if (count($unit_temp) > 1): $plural_temp = "s"; endif;
+//				echo "<ul>" . implode(null, $unit_temp) . "</ul>";
 				endif;
 			endif;
 //		echo "<li><span class='sidebar-navigation-item-title'>Published: ".date("Y F d", strtotime($entry_info['date_published']))."</span></li>"; // Date published
 //		echo "<li><span class='sidebar-navigation-item-title'>Updated: ".date("Y F d, H:i:s", strtotime($entry_info['date_updated']))."</span></li>"; // Date updated
 		if (!(empty($entry_info['appendix']['latitude'])) && !(empty($entry_info['appendix']['longitude']))): // GPS
-			echo "<ul><li>GPS: <a href='https://".$domain."/".$entry_info['entry_id']."/map/' target='_blank'>";
-			echo substr($entry_info['appendix']['latitude'],0,6).", ".substr($entry_info['appendix']['longitude'],0,6);
-			echo "</a></li></ul>";
+			$list_temp .= "++++++GPS: <a href='https://".$domain."/".$entry_info['entry_id']."/map/' target='_blank'>";
+			$list_temp .= substr($entry_info['appendix']['latitude'],0,6).", ".substr($entry_info['appendix']['longitude'],0,6);
+			$list_temp .= "</a>";
 			endif;
-		echo "</li>";
+//		echo "</li>";
 //		if (count($languages_temp) > 1):
 //			echo "<li>Languages<ul>";
 //			foreach($languages_temp as $language_temp):
@@ -169,12 +168,14 @@ echo "<amp-sidebar id='sidebar-entry-info' layout='nodisplay' side='right'>";
 //			endif;
 //		echo "</ul></li>";
 
-	relationships_array($page_temp, "grandparents", "Parents of parent pages", "yes");
-	relationships_array($page_temp, "parents", "Parent pages", "yes");
-	relationships_array($page_temp, "children", "Subpages", "yes");
-	relationships_array($page_temp, "mentions", "Mentions", "yes");
+	$list_temp .=relationships_array($page_temp, "grandparents", "Parents of parent pages", "yes");
+	$list_temp .=relationships_array($page_temp, "parents", "Parent pages", "yes");
+	$list_temp .=relationships_array($page_temp, "children", "Subpages", "yes");
+	$list_temp .=relationships_array($page_temp, "mentions", "Mentions", "yes");
 
-	echo "</ul></div>";
+	echo body_process("+-+-+".$list_temp."+-+-+");
+
+	echo "</div>";
 	echo "</amp-sidebar>";
 
 echo "<header><h1 property='name' amp-fx='parallax' data-parallax-factor='1.3'>" . $entry_info['header'] . "</h1></header>";
@@ -188,9 +189,10 @@ echo "<div class='entry-metadata-wrapper'>";
 echo "<span property='articleBody'>";
 
 if (empty($languages_temp)):
-	echo "<ul class='navigation-list'>";
-	relationships_array($page_temp, "children", "Subpages");
-	echo "</ul>";
+	echo "<div class='navigation-list'>";
+	$list_temp = relationships_array($page_temp, "children", "Subpages");
+	echo body_process("+-+-+".$list_temp."+-+-+");
+	echo "</div>";
 	echo "<br><br><br>";
 	echo "<br><br><br>";
 	endif;
@@ -205,26 +207,10 @@ foreach ($languages_temp as $language_temp):
 	echo "<br><br><br>";
 	endforeach;
 
-if (!(empty($entry_info['studies']))): echo "<div class='studies'><h2>Endnotes</h2>" . body_process(html_entity_decode(htmlspecialchars_decode($entry_info['studies']))) . "</div>"; endif;
-
-if ($entry_info['type'] == "person"):
-	if (!(empty($terms_array))):
-		echo "<hr><table><thead><tr><th>term</th><th>person</th><th>position</th><th>for</th><th>party</th><th>start</th><th>end</th><th>vote</th></tr></thead><tbody>";
-		foreach($terms_array as $term_id => $term_info):
-			$information_array = get_entries(["entry_id"=>$term_info]);
-			echo "<tr><td><a href='?term_id=$term_id'>$term_id</a></td>";
-			if (empty($term_info['person_id'])): echo "<td></td>";
-			else: echo "<td><a href='?entry_id=".$term_info['person_id']."'>".$information_array[$term_info['person_id']]['name_english'][0]."</a></td>"; endif;
-			echo "<td><a href='?entry_id=".$term_info['person_id']."'>".$information_array[$term_info['position_id']]['name_english'][0]."</a></td>";
-			echo "<td><a href='?entry_id=".$term_info['person_id']."'>".$information_array[$term_info['for']]['name_english'][0]."</a></td>";
-			echo "<td><a href='?entry_id=".$term_info['person_id']."'>".$information_array[$term_info['party_id']]['name_english'][0]."</a></td>";
-			echo "<td><a href='?event_id=".$term_info['start_event']."'>".$information_array[$term_info['start_event']]['name_english'][0]."</a></td>";
-			if ($term_info['end_event'] == "active"): echo "<td>active</td>";
-			else: echo "<td><a href='?event_id=".$term_info['end_event']."'>".$information_array[$term_info['end_event']]['name_english'][0]."</a></td>"; endif;
-			echo "<td>".$term_info['vote']."</a></td></tr>";
-			endforeach;
-		echo "</tbody></table><hr>";
-		endif;
+if (!(empty($entry_info['studies']))):
+	echo "<div class='studies'><h2>Endnotes</h2>";
+	echo body_process(html_entity_decode(htmlspecialchars_decode($entry_info['studies'])));
+	echo "</div>";
 	endif;
 
 echo "</span>";
