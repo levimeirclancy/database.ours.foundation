@@ -1077,12 +1077,23 @@ $style_array = [
 		[
 		"padding"		=> "1px 0 0 0",
 		"margin"		=> "0",
-		"display"		=> "inline",
 		"text-overflow"		=> "'...'",
 		"white-space"		=> "nowrap",
 		"overflow"		=> "hidden",
 		"font-family"		=> "Arial, Helvetica, 'Sans Serif'",
 		"font-size"		=> "0.85em",
+		], ],
+
+	[
+	"css_tags" => 
+		[
+		".navigation-list p, .navigation-list a",
+		],
+	"css_contents" =>
+		[
+		"text-overflow"		=> "'...'",
+		"white-space"		=> "nowrap",
+		"overflow"		=> "hidden",
 		], ],	
 	
 		[
