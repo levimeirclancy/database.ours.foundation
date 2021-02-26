@@ -1163,6 +1163,7 @@ $style_array = [
 	"css_tags" => ".navigation-list",
 	"css_contents" =>
 		[
+		"margin"		=> "10px 0 0 0",
 		"font-family"		=> "Arial, Helvetica, 'Sans Serif'",
 		"font-size"		=> "0.85em",
 		"width"			=> output_width($default_width/2),
@@ -1178,7 +1179,7 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-		"margin-top"		=> "5px",
+		"margin-top"		=> "0",
 		"font-size"		=> "1em",
 		], ],
 
