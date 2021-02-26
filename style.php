@@ -1017,21 +1017,6 @@ $style_array = [
 		"margin"		=> "7px 0 0 25px",
 		"padding"		=> "0",
 		], ],
-	
-	[ // If we have back-to-back tables, especially inside of another tables
-	"css_tags" =>
-		[
-		"ul + ul", "ul + ol", "ul + amp-list",
-		"ol + ul", "ol + ol", "ol + amp-list",
-		"amp-list + ul", "amp-list + ol", "amp-list + amp-list",
-		],
-	"css_contents" =>
-		[
-//		"display"		=> "block",
-		"margin-top"		=> "7px",
-		"padding-top"		=> "0",
-		"border-width"		=> "1px 0 0 0",
-		], ],
 
 	[
 	"css_tags" => "li",
@@ -1081,6 +1066,21 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
+		], ],
+	
+	[ // If we have back-to-back tables, especially inside of another tables
+	"css_tags" =>
+		[
+		"ul + ul", "ul + ol", "ul + amp-list",
+		"ol + ul", "ol + ol", "ol + amp-list",
+		"amp-list + ul", "amp-list + ol", "amp-list + amp-list",
+		],
+	"css_contents" =>
+		[
+//		"display"		=> "block",
+		"margin-top"		=> "7px",
+		"padding-top"		=> "0",
+		"border-width"		=> "1px 0 0 0",
 		], ],
 	
 	[
