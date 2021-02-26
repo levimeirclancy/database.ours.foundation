@@ -898,7 +898,7 @@ $style_array = [
 	"css_tags" => "#sidebar-inputs",
 	"css_contents" =>
 		[
-		"width"			=> output_width($default_width/3),
+		"width"			=> output_width($default_width*.4),
 		], ],
 		
 	[
