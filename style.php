@@ -592,7 +592,8 @@ $style_array = [
 		"display"		=> "block",
 		"margin"		=> "5px 20px",
 		"padding"		=> "8px",
-		"width"			=> "85%",
+		"width"			=> "auto",
+		"max-width"		=> output_width($default_width),
 		"text-align"		=> "left",
 		"border"		=> "0",
 		"border-radius"		=> "6px",
@@ -612,7 +613,6 @@ $style_array = [
 	"css_contents" =>
 		[
 		"text-align"		=> "right",
-		"max-width"		=> output_width($default_width),
 		], ],
 	
 	[
