@@ -1165,7 +1165,6 @@ $style_array = [
 	"css_contents" =>
 		[
 		"margin-top"		=> "0",
-		"font-size"		=> "1em",
 		], ],
 
 	[
