@@ -206,7 +206,7 @@ function amp_header($title=null, $canonical=null) {
 		echo "<div class='sidebar-back' on='tap:sidebar-search.close' role='button' tabindex='0'>Close</div>";
 		
 		echo "<label for='search-input'>Search the database</label>";
-		echo "<input type='text' id='search-input' required pattern=\".{1,}\" placeholder='...' on=\"input-throttled:AMP.setState({pageState:{searchTerm: event.value}}),sidebar-navigation-lightbox-search-list.changeToLayoutContainer()\">";
+		echo "<div class='input-text' role='textbox' contenteditable id='search-input' required pattern=\".{1,}\" placeholder='...' on=\"input-throttled:AMP.setState({pageState:{searchTerm: event.value}}),sidebar-navigation-lightbox-search-list.changeToLayoutContainer()\">...</div>";
 		echo "<div id='search-submit' role='button' tabindex='0' on='tap:sidebar-navigation-lightbox-search-list.refresh,sidebar-navigation-lightbox-search-list.changeToLayoutContainer()'>Search</div>";
 
 		echo "<div class='navigation-list'>";
