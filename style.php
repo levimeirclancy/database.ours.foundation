@@ -1078,9 +1078,6 @@ $style_array = [
 		[
 		"padding"		=> "1px 0 0 0",
 		"margin"		=> "0",
-		"white-space"		=> "nowrap",
-		"text-overflow"		=> "ellipsis",
-		"overflow"		=> "hidden",
 		"font-family"		=> "Arial, Helvetica, 'Sans Serif'",
 		"font-size"		=> "0.85em",
 		], ],
