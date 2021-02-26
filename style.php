@@ -1171,6 +1171,7 @@ $style_array = [
 		[
 //		"display"		=> "block",
 //		"margin-top"		=> "0",
+		"padding-top"		=> "0",
 		"border-width"		=> "1px 0 0 0",
 		], ],
 
