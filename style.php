@@ -1086,29 +1086,19 @@ $style_array = [
 		[
 		"margin-top"		=> "0",
 		], ],
-
-	[
-	"css_tags" => 
-		[
-		".navigation-list",
-		],
-	"css_contents" =>
-		[
-//		"padding"		=> "10px 0",
-		"text-overflow"		=> "ellipsis",
-		"white-space"		=> "nowrap",
-		"overflow"		=> "hidden",
-		], ],
 	
 	[
 	"css_tags" => 
 		[
-		".navigation-list li p",
+		".navigation-list li",
 		],
 	"css_contents" =>
 		[
 		"padding"		=> "0",
 		"margin"		=> "0",
+		"text-overflow"		=> "ellipsis",
+		"white-space"		=> "nowrap",
+		"overflow"		=> "hidden",
 		], ],		
 	
 		[
