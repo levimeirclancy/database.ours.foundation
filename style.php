@@ -1083,9 +1083,9 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-		"padding"		=> "2px 0 0 0",
+		"padding"		=> "1px 0 0 0",
 		"margin"		=> "0",
-		"display"		=> "block",
+		"display"		=> "inline",
 		"text-overflow"		=> "ellipsis",
 		"white-space"		=> "nowrap",
 		"overflow"		=> "hidden",
