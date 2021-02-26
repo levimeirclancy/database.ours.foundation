@@ -1013,6 +1013,13 @@ $style_array = [
 		], ],
 
 	[
+	"css_tags" => "li:first-child",
+	"css_contents" =>
+		[
+		"border-width"		=> "1px 0 0",
+		], ],
+	
+	[
 	"css_tags" => 
 		[
 		"ul ul", "ul ol", "ul amp-list",
@@ -1043,14 +1050,7 @@ $style_array = [
 		"list-style-type"	=> "none",
 		], ],
 	
-	[
-	"css_tags" => "li:first-child",
-	"css_contents" =>
-		[
-		"border-width"		=> "1px 0 0",
-//		"border-top-left-radius"	=> "8px",
-//		"border-top-right-radius"	=> "8px",
-		], ],
+
 	
 	[
 	"css_tags" => 
@@ -1060,11 +1060,6 @@ $style_array = [
 	"css_contents" =>
 		[
 		"border-width"		=> "1px 0 0 0",
-//		"padding-bottom"	=> "0",
-//		"margin-bottom"		=> "0",
-//		"border-bottom"		=> "1px solid ".output_rgba($font_color, 0.6),
-//		"border-bottom-left-radius"	=> "8px",
-//		"border-bottom-right-radius"	=> "8px",
 		], ],
 	
 	[
@@ -1084,10 +1079,7 @@ $style_array = [
 		[
 		"margin-left"		=> "-25px",
 		"padding-left"		=> "25px",
-//		"border"		=> "0",
 		"border-style"		=> "dotted",
-//		"margin-top"		=> "0",
-//		"padding-bottom"	=> "0",
 		], ],
 	
 		[
@@ -1105,9 +1097,6 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-//		"padding-bottom"	=> "0",
-//		"margin-top"		=> "0",
-//		"padding-bottom"	=> "0",
 		], ],
 	
 	[
@@ -1122,10 +1111,8 @@ $style_array = [
 		"display"		=> "block",
 		"text-align"		=> "left",
 		"font-size"		=> "70%",
-//		"margin"		=> "0 10px 0 0",
 		"padding"		=> "2px 3px 3px 5px",
 		"margin"		=> "0 0 6px 0",
-//		"background"		=> output_rgba($background_color, 1),
 		"border-bottom"		=> "1px dotted ".output_rgba($font_color, 0.35),
 		"color"			=> output_rgba($font_color, 0.5),
 		"content"		=> "counter(list-counter, decimal)",
@@ -1191,7 +1178,7 @@ $style_array = [
 	"css_contents" =>
 		[
 //		"display"		=> "block",
-//		"margin-top"		=> "0",
+		"margin-top"		=> "0",
 		"border-width"		=> "1px 0 0 0",
 		], ],
 
