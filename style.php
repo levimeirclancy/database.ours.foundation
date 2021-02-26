@@ -1080,7 +1080,7 @@ $style_array = [
 		[
 		"margin"		=> "15px 0 0 0",
 		"font-family"		=> "Arial, Helvetica, 'Sans Serif'",
-		"font-size"		=> "0.9em",
+		"font-size"		=> "0.95em",
 //		"width"			=> output_width($default_width*.7),
 //		"font-size"		=> ".9em",
 		], ],
@@ -1156,9 +1156,9 @@ $style_array = [
 	[
 	"css_tags" => 
 		[
-		"amp-sidebar ul",
-		"amp-sidebar ol",
-		"amp-sidebar amp-list",
+//		"amp-sidebar ul",
+//		"amp-sidebar ol",
+//		"amp-sidebar amp-list",
 		"amp-sidebar label",
 		"amp-sidebar input",
 		"amp-sidebar .input-button-wrapper",
