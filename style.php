@@ -30,9 +30,10 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
+		"text-overflow"		=> "ellipsis",
+		"overflow"		=> "hidden",
 		"text-decoration"	=> "none",
 		"color"			=> output_rgba($font_color, 01),
-//		"white-space"		=> "break-spaces",
 		], ],
 	
 	[ // But in the articles, we want an underline
@@ -1077,8 +1078,8 @@ $style_array = [
 		[
 		"padding"		=> "1px 0 0 0",
 		"margin"		=> "0",
-		"text-overflow"		=> "ellipsis",
 		"white-space"		=> "nowrap",
+		"text-overflow"		=> "ellipsis",
 		"overflow"		=> "hidden",
 		"font-family"		=> "Arial, Helvetica, 'Sans Serif'",
 		"font-size"		=> "0.85em",
