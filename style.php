@@ -215,14 +215,7 @@ $style_array = [
 		"width"			=> "auto",
 		"max-width"		=> output_width($default_width,-200),
 		], ],
-	
-		[
-	"css_tags" => "#sidebar-entry-info .wrapper-list",
-	"css_contents" =>
-		[
-		"max-width"		=> output_width($default_width/2),
-		], ],	
-	
+		
 	[
 	"css_tags" => "div.sidebar-navigation-item",
 	"css_contents" =>
