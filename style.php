@@ -1170,10 +1170,25 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-		"display"		=> "block",
+//		"display"		=> "block",
 //		"margin"		=> "20px 0 0",
 //		"width"			=> "100%",
 		"max-width"		=> "none",
+		], ],
+	
+	[
+	"css_tags" => 
+		[
+		"amp-sidebar label",
+		"amp-sidebar input",
+		"amp-sidebar .input-button-wrapper",
+		],
+	"css_contents" =>
+		[
+//		"display"		=> "block",
+		"margin"		=> "20px 0 0",
+//		"width"			=> "100%",
+//		"max-width"		=> "none",
 		], ],
 	
 	[
