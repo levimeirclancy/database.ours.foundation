@@ -212,8 +212,8 @@ function amp_header($title=null, $canonical=null) {
 		echo "<div class='navigation-list'>";
 		echo "<amp-list id='sidebar-navigation-lightbox-search-list' credentials='include' layout='responsive' width='800' height='300' max-items='100' binding='refresh' reset-on-refresh='always' items='searchResults' [src]=\"'/api/search/?search=' + pageState.searchTerm\">";
 
-		echo "<li class='no-border' placeholder>Loading search results...</li>";
-		echo "<li class='no-border' fallback>No search results.</li>";
+		echo "<span placeholder>Loading search results...</span>";
+		echo "<span fallback>No search results.</span>";
 
 		echo "<template type='amp-mustache'>";
 			echo "<li><a href='/{{entry_id}}/' ".$target_temp.">{{header}}</a></li>";
