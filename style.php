@@ -1089,7 +1089,7 @@ $style_array = [
 	[
 	"css_tags" => 
 		[
-		".navigation-list amp-list li",
+		".navigation-list",
 		],
 	"css_contents" =>
 		[
@@ -1106,11 +1106,6 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-		"text-overflow"		=> "ellipsis",
-		"white-space"		=> "nowrap",
-		"overflow"		=> "hidden",
-		"display"		=> "block",
-		"width"			=> "100%",
 		"padding"		=> "0",
 		"margin"		=> "0",
 		], ],		
