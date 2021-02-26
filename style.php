@@ -185,6 +185,8 @@ $style_array = [
 		"display"		=> "block",
 		"margin-left"		=> "auto",
 		"margin-right"		=> "auto",
+		"width"			=> "auto",
+		"max-width"		=> "none",
 		], ],
 	
 	[
