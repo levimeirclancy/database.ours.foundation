@@ -1165,9 +1165,9 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-		"display"		=> "table",
-		"margin-left"		=> "auto",
-		"margin-right"		=> "auto",
+		"display"		=> "block",
+		"margin-left"		=> "0",
+		"margin-right"		=> "0",
 		"width"			=> "auto",
 		"max-width"		=> "none",
 		], ],
@@ -1177,6 +1177,8 @@ $style_array = [
 	"css_contents" =>
 		[
 		"padding-top"		=> "10px",
+		"margin-left"		=> "auto",
+		"margin-right"		=> "auto",
 		], ],
 
 	
