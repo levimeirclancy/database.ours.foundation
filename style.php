@@ -1089,7 +1089,7 @@ $style_array = [
 	[
 	"css_tags" => 
 		[
-		".navigation-list li",
+		".navigation-list amp-list li",
 		],
 	"css_contents" =>
 		[
