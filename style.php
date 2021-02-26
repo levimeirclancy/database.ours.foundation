@@ -122,19 +122,6 @@ $style_array = [
 		"position"		=> "absolute",
 		], ],
 	
-	[
-	"css_tags" => "amp-lightbox",
-	"css_contents" =>
-		[
-		"margin"		=> "0",
-		"padding"		=> "80px 20px 20px",
-		"background"		=> output_rgba($background_color, 1),
-		"box-shadow"		=> "0 0 30px 0 rgba(30,30,30,0.3)",
-		"text-align"		=> "left",
-		"box-sizing"		=> "border-box",
-		"position"		=> "relative",
-		"width"			=> "auto",
-		], ],
 	
 	[
 	"css_tags" => ".sidebar-back",
@@ -156,63 +143,6 @@ $style_array = [
 //		"margin"		=> "0 5px 0 0",
 //		"display"		=> "inline-block",
 //		], ],
-	
-	[
-	"css_tags" => "amp-lightbox, amp-sidebar",
-	"css_contents" =>
-		[
-		"margin"		=> "0",
-		"padding"		=> "10px 20px 10px",
-		"background"		=> output_rgba($background_color, 1),
-		"text-align"		=> "left",
-		"box-sizing"		=> "border-box",
-		"position"		=> "relative",
-		"white-space"		=> "normal",
-		], ],
-	
-	[
-	"css_tags" => 
-		[
-		"amp-sidebar ul",
-		"amp-sidebar ol",
-		"amp-sidebar amp-list",
-		"amp-sidebar label",
-		"amp-sidebar input",
-		"amp-sidebar .input-button-wrapper",
-		],
-	"css_contents" =>
-		[
-		"display"		=> "block",
-		"margin-left"		=> "auto",
-		"margin-right"		=> "auto",
-		"width"			=> "auto",
-		"max-width"		=> "none",
-		], ],
-	
-	[
-	"css_tags" => "amp-sidebar label",
-	"css_contents" =>
-		[
-		"padding-top"		=> "10px",
-		], ],
-
-	
-	[
-	"css_tags" => "amp-lightbox label, amp-lightbox input, amp-lightbox .input-button-wrapper",
-	"css_contents" =>
-		[
-		"margin-left"		=> "0",
-		"margin-right"		=> "0",
-		], ],
-	
-	[
-	"css_tags" => "amp-sidebar",
-	"css_contents" =>
-		[
-		"max-width"		=> "90%",
-		"width"			=> output_width($default_width*.55),
-		], ],
-	
 			
 	[
 	"css_tags" => "div.sidebar-navigation-item",
@@ -1193,6 +1123,70 @@ $style_array = [
 		"padding"		=> "0",
 		"margin"		=> "0",
 		], ],		
+	
+		[
+	"css_tags" => "amp-lightbox, amp-sidebar",
+	"css_contents" =>
+		[
+		"margin"		=> "0",
+		"padding"		=> "10px 20px 10px",
+		"background"		=> output_rgba($background_color, 1),
+		"text-align"		=> "left",
+		"box-sizing"		=> "border-box",
+		"position"		=> "relative",
+		"white-space"		=> "normal",
+		], ],
+
+	[
+	"css_tags" => "amp-lightbox",
+	"css_contents" =>
+		[
+		"padding"		=> "80px 20px 20px",
+		"width"			=> "auto",
+		], ],
+	
+	[
+	"css_tags" => "amp-sidebar",
+	"css_contents" =>
+		[
+		"max-width"		=> "90%",
+		"width"			=> output_width($default_width*.55),
+		], ],
+
+	[
+	"css_tags" => 
+		[
+		"amp-sidebar ul",
+		"amp-sidebar ol",
+		"amp-sidebar amp-list",
+		"amp-sidebar label",
+		"amp-sidebar input",
+		"amp-sidebar .input-button-wrapper",
+		],
+	"css_contents" =>
+		[
+		"display"		=> "block",
+		"margin-left"		=> "auto",
+		"margin-right"		=> "auto",
+		"width"			=> "auto",
+		"max-width"		=> "none",
+		], ],
+	
+	[
+	"css_tags" => "amp-sidebar label",
+	"css_contents" =>
+		[
+		"padding-top"		=> "10px",
+		], ],
+
+	
+	[
+	"css_tags" => "amp-lightbox label, amp-lightbox input, amp-lightbox .input-button-wrapper",
+	"css_contents" =>
+		[
+		"margin-left"		=> "0",
+		"margin-right"		=> "0",
+		], ],
 	
 	/// Toggle classes
 
