@@ -174,6 +174,7 @@ $style_array = [
 	"css_tags" => 
 		[
 		"amp-sidebar ul",
+		"amp-sidebar ol",
 		"amp-sidebar amp-list",
 		"amp-sidebar label",
 		"amp-sidebar input",
@@ -181,9 +182,18 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
+		"display"		=> "block",
 		"margin-left"		=> "auto",
 		"margin-right"		=> "auto",
 		], ],
+	
+	[
+	"css_tags" => "amp-sidebar label",
+	"css_contents" =>
+		[
+		"padding-top"		=> "10px",
+		], ],
+
 	
 	[
 	"css_tags" => "amp-lightbox label, amp-lightbox input, amp-lightbox .input-button-wrapper",
@@ -209,12 +219,6 @@ $style_array = [
 		"display"		=> "block",
 		], ],
 
-	[
-	"css_tags" => "amp-sidebar label",
-	"css_contents" =>
-		[
-		"padding-top"		=> "10px",
-		], ],
 	
 	[
 	"css_tags" => 
