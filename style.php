@@ -1109,6 +1109,8 @@ $style_array = [
 		"text-overflow"		=> "ellipsis",
 		"white-space"		=> "nowrap",
 		"overflow"		=> "hidden",
+		"display"		=> "block",
+		"width"			=> "100%",
 		"padding"		=> "0",
 		"margin"		=> "0",
 		], ],		
