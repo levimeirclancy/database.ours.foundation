@@ -1062,7 +1062,7 @@ $style_array = [
 		"border-bottom"		=> "0",
 		"content"		=> "",
 		], ],
-
+	
 	[ // These are just a few basic formatting specs for some significant tables...
 	"css_tags" => ".navigation-list, .navigation-list > .wrapper-list",
 	"css_contents" =>
@@ -1096,10 +1096,11 @@ $style_array = [
 		[
 		"padding"		=> "0",
 		"margin"		=> "0",
+		"max-width"		=> "100%",
 		"text-overflow"		=> "ellipsis",
 		"white-space"		=> "nowrap",
 		"overflow"		=> "hidden",
-		], ],		
+		], ],	
 	
 		[
 	"css_tags" => "amp-lightbox, amp-sidebar",
@@ -1111,14 +1112,14 @@ $style_array = [
 		"box-sizing"		=> "border-box",
 		"position"		=> "relative",
 		"white-space"		=> "normal",
-		"display"		=> "block",
+//		"display"		=> "block",
+		"padding"		=> "10px 0 20px",
 		], ],
 
 	[
 	"css_tags" => "amp-lightbox",
 	"css_contents" =>
 		[
-		"padding"		=> "10px 0 20px",
 		"width"			=> "auto",
 		], ],
 	
@@ -1127,7 +1128,6 @@ $style_array = [
 	"css_contents" =>
 		[
 		"max-width"		=> "90%",
-		"padding"		=> "10px 0 10px",
 		"width"			=> output_width($default_width*.55),
 		], ],
 	
@@ -1138,7 +1138,7 @@ $style_array = [
 		"padding-top"		=> "10px",
 		], ],
 	
-		[
+	[
 	"css_tags" => "amp-sidebar amp-list",
 	"css_contents" =>
 		[
