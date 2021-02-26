@@ -1025,7 +1025,7 @@ $style_array = [
 		"display"		=> "block",
 		"width"			=> "auto",
 		"max-width"		=> "none",
-		"margin"		=> "0 0 0 25px",
+		"margin"		=> "8px 0 0 25px",
 		"padding"		=> "0",
 		], ],
 	
@@ -1034,8 +1034,8 @@ $style_array = [
 	"css_tags" => "li",
 	"css_contents" =>
 		[
-		"margin"		=> "0",
-		"padding"		=> "7px 0",
+		"margin"		=> "7px 0 0",
+		"padding"		=> "7px 0 0",
 		"border-width"		=> "1px 0 0",
 		"border-style"		=> "solid",
 		"border-color"		=> output_rgba($font_color, 0.35),
