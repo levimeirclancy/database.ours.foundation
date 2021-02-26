@@ -197,17 +197,11 @@ $style_array = [
 	"css_tags" => "amp-sidebar",
 	"css_contents" =>
 		[
-		"max-width"		=> output_width($default_width,-200),
+		"max-width"		=> "90%",
+		"width"			=> output_width($default_width*.55),
 		], ],
 	
-	
-	[
-	"css_tags" => "#sidebar-navigation, #sidebar-entry-info, #sidebar-search",
-	"css_contents" =>
-		[
-		"width"			=> output_width($default_width*.6),
-		], ],
-		
+			
 	[
 	"css_tags" => "div.sidebar-navigation-item",
 	"css_contents" =>
