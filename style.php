@@ -438,7 +438,7 @@ $style_array = [
 		], ],
 	
 	[ // The organizational elements, except for tables
-	"css_tags" => "p, ul, ol, blockquote, dl, dt, dd",
+	"css_tags" => "p, blockquote, dl, dt, dd",
 	"css_contents" =>
 		[
 		"margin"		=> "0",
@@ -1086,7 +1086,7 @@ $style_array = [
 		"padding-left"		=> "25px",
 //		"border"		=> "0",
 		"border-style"		=> "dotted",
-		"margin-top"		=> "8px",
+		"margin-top"		=> "0",
 //		"padding-bottom"	=> "0",
 		], ],
 	
