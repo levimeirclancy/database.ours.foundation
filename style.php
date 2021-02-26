@@ -452,7 +452,7 @@ $style_array = [
 	"css_tags" => "table",
 	"css_contents" =>
 		[
-		"margin"		=> "20px",
+		"margin"		=> "20px 0",
 		"display"		=> "table",
 		"box-sizing"		=> "border-box",
 		"table-layout"		=> "auto",
@@ -464,21 +464,14 @@ $style_array = [
 		], ],
 	
 	[
-	"css_tags" => "table table",
-	"css_contents" =>
-		[
-		"margin"		=> "20px 0",
-		], ],
-	
-	[
-	"css_tags" => "article tbody tr:nth-child(odd) td",
+	"css_tags" => "tbody tr:nth-child(odd) td",
 	"css_contents" =>
 		[
 //		"background"		=> output_rgba($font_color, 0),
 		], ],
 	
 	[
-	"css_tags" => "article tbody tr:nth-child(even) td",
+	"css_tags" => "tbody tr:nth-child(even) td",
 	"css_contents" =>
 		[
 //		"background"		=> output_rgba($font_color, 0.02),
@@ -486,7 +479,7 @@ $style_array = [
 
 
 	[
-	"css_tags" => "article th, article td",
+	"css_tags" => "th, td",
 	"css_contents" =>
 		[
 		"padding"		=> "10px",
@@ -495,7 +488,7 @@ $style_array = [
 		], ],
 	
 	[
-	"css_tags" => "article th",
+	"css_tags" => "th",
 	"css_contents" =>
 		[
 		"font-style"		=> "italic",
@@ -504,9 +497,8 @@ $style_array = [
 	[
 	"css_tags" => 
 		[
-		"article th p",
-		"article td p",
-		"article li p",
+		"th p",
+		"td p",
 		],
 	"css_contents" =>
 		[
@@ -517,9 +509,9 @@ $style_array = [
 	[
 	"css_tags" => 
 		[
-		"article th p + p",
-		"article td p + p",
-		"article li p + p",
+		"th p + p",
+		"td p + p",
+		"li p + p",
 		],
 	"css_contents" =>
 		[
@@ -1099,7 +1091,6 @@ $style_array = [
 		"overflow"		=> "hidden",
 		"font-family"		=> "Arial, Helvetica, 'Sans Serif'",
 		"font-size"		=> "0.85em",
-		"line-height"		=> "1.2em",
 		], ],	
 	
 		[
