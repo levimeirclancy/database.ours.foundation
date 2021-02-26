@@ -128,4 +128,8 @@ foreach ($information_array as $entry_id => $entry_info):
 	$echo_temp .= "\n\r+++{{{".$entry_id."}}}";
 	endforeach;
 
-echo body_process("+-+-+\n\n".$echo_temp."\n\n+-+-+"); ?>
+echo body_process("+-+-+\n\n".$echo_temp."\n\n+-+-+");
+
+echo "</div>";
+
+?>
