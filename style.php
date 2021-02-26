@@ -1165,7 +1165,7 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-		"display"		=> "block",
+		"display"		=> "table",
 		"margin-left"		=> "auto",
 		"margin-right"		=> "auto",
 		"width"			=> "auto",
