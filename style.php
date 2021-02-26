@@ -1047,23 +1047,6 @@ $style_array = [
 		], ],
 
 	[
-	"css_tags" => "li:first-child",
-	"css_contents" =>
-		[
-//		"border-width"		=> "1px 0 0",
-		], ],
-
-	[
-	"css_tags" => 
-		[
-		"li:last-child",
-		],
-	"css_contents" =>
-		[
-//		"border-width"		=> "1px 0 0 0",
-		], ],
-
-	[
 	"css_tags" => 
 		[
 		"ul ul li:first-child",
