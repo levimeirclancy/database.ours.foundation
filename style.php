@@ -1129,7 +1129,6 @@ $style_array = [
 	"css_contents" =>
 		[
 		"margin"		=> "0",
-		"padding"		=> "10px 20px 10px",
 		"background"		=> output_rgba($background_color, 1),
 		"text-align"		=> "left",
 		"box-sizing"		=> "border-box",
@@ -1150,6 +1149,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"max-width"		=> "90%",
+		"padding"		=> "10px 20px 10px",
 		"width"			=> output_width($default_width*.55),
 		], ],
 
@@ -1168,7 +1168,7 @@ $style_array = [
 		"display"		=> "block",
 		"margin-left"		=> "0",
 		"margin-right"		=> "0",
-		"width"			=> "auto",
+		"width"			=> "100%",
 		"max-width"		=> "none",
 		], ],
 	
