@@ -1088,12 +1088,12 @@ $style_array = [
 	[
 	"css_tags" => 
 		[
-//		".navigation-list p, .navigation-list a",
 		".navigation-list p",
+		".navigation-list a",
 		],
 	"css_contents" =>
 		[
-		"text-overflow"		=> "'...'",
+		"text-overflow"		=> "ellipsis",
 		"white-space"		=> "nowrap",
 		"overflow"		=> "hidden",
 		], ],	
