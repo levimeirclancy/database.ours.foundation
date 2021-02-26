@@ -1131,12 +1131,12 @@ $style_array = [
 		"padding-top"		=> "10px",
 		], ],
 	
-	[
-	"css_tags" => "amp-sidebar amp-list",
-	"css_contents" =>
-		[
-		"border"		=> "0",
-		], ],
+//	[
+//	"css_tags" => "amp-sidebar amp-list",
+//	"css_contents" =>
+//		[
+//		"border"		=> "0",
+//		], ],
 
 	
 	
