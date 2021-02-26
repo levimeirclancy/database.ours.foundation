@@ -1028,7 +1028,7 @@ $style_array = [
 	"css_contents" =>
 		[
 //		"display"		=> "block",
-//		"margin-top"		=> "0",
+		"margin-top"		=> "7px",
 		"padding-top"		=> "0",
 		"border-width"		=> "1px 0 0 0",
 		], ],
