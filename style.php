@@ -964,7 +964,8 @@ $style_array = [
 	
 
 	/// Lists ... ul, ol, amp-list
-	[
+	
+	[ // This simply ensures it has the correct alignment and width...
 	"css_tags" => 
 		[
 		"wrapper-list",
@@ -973,9 +974,10 @@ $style_array = [
 		[
 		"display"		=> "table",
 		"max-width"		=> output_width($default_width),
+		"position"		=> "relative",
 		], ],
 
-	[
+	[ // This is the basic design
 	"css_tags" => "ul, ol, amp-list",
 	"css_contents" =>
 		[
@@ -984,9 +986,9 @@ $style_array = [
 		"text-align"		=> "left",
 		"vertical-align"	=> "top",
 		"clear"			=> "both",
-		"width"			=> "auto",
-		"max-width"		=> output_width($default_width),
-		"margin"		=> "20px 20px 0 20px",
+//		"width"			=> "auto",
+//		"max-width"		=> output_width($default_width),
+		"margin"		=> "20px",
 		"padding"		=> "0 0 7px 0",
 		"list-style"		=> "none",
 //		"list-style-position"	=> "inside",
@@ -999,28 +1001,7 @@ $style_array = [
 		"border-color"		=> output_rgba($font_color, 0.35),		
 		], ],
 
-	
-		[
-	"css_tags" =>
-		[
-		"ul + ul li:first-child", "ul + ol li:first-child", "ul + amp-list li:first-child",
-		"ol + ul li:first-child", "ol + ol li:first-child", "ol + amp-list li:first-child",
-		"amp-list + ul li:first-child", "amp-list + ol li:first-child", "amp-list + amp-list li:first-child",
-		],
-	"css_contents" =>
-		[
-		"padding-top"		=> "0",
-		"border-width"		=> "0",
-		], ],
-
-	[
-	"css_tags" => "li:first-child",
-	"css_contents" =>
-		[
-		"border-width"		=> "1px 0 0",
-		], ],
-	
-	[
+	[ // A table inside a table
 	"css_tags" => 
 		[
 		"ul ul", "ul ol", "ul amp-list",
@@ -1030,13 +1011,27 @@ $style_array = [
 	"css_contents" =>
 		[
 		"border-width"		=> "0",
-		"display"		=> "block",
-		"width"			=> "auto",
-		"max-width"		=> "none",
+//		"display"		=> "block",
+//		"width"			=> "auto",
+//		"max-width"		=> "none",
 		"margin"		=> "7px 0 0 25px",
 		"padding"		=> "0",
 		], ],
 	
+	[ // If we have back-to-back tables, especially inside of another tables
+	"css_tags" =>
+		[
+		"ul + ul", "ul + ol", "ul + amp-list",
+		"ol + ul", "ol + ol", "ol + amp-list",
+		"amp-list + ul", "amp-list + ol", "amp-list + amp-list",
+		],
+	"css_contents" =>
+		[
+//		"display"		=> "block",
+//		"margin-top"		=> "0",
+		"padding-top"		=> "0",
+		"border-width"		=> "1px 0 0 0",
+		], ],
 
 	[
 	"css_tags" => "li",
@@ -1052,15 +1047,22 @@ $style_array = [
 		], ],
 
 	[
+	"css_tags" => "li:first-child",
+	"css_contents" =>
+		[
+//		"border-width"		=> "1px 0 0",
+		], ],
+
+	[
 	"css_tags" => 
 		[
 		"li:last-child",
 		],
 	"css_contents" =>
 		[
-		"border-width"		=> "1px 0 0 0",
+//		"border-width"		=> "1px 0 0 0",
 		], ],
-	
+
 	[
 	"css_tags" => 
 		[
@@ -1096,6 +1098,19 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
+		], ],
+	
+	[
+	"css_tags" =>
+		[
+		"ul + ul li:first-child", "ul + ol li:first-child", "ul + amp-list li:first-child",
+		"ol + ul li:first-child", "ol + ol li:first-child", "ol + amp-list li:first-child",
+		"amp-list + ul li:first-child", "amp-list + ol li:first-child", "amp-list + amp-list li:first-child",
+		],
+	"css_contents" =>
+		[
+		"padding-top"		=> "0",
+		"border-width"		=> "0",
 		], ],
 	
 	[
@@ -1146,7 +1161,7 @@ $style_array = [
 		"content"		=> "counter(list-counter, lower-alpha)",
 		], ],
 	
-	[
+	[ // Just to confirm that there is nothing for an unordered list...
 	"css_tags" => 
 		[
 		"ul li::before",
@@ -1160,24 +1175,8 @@ $style_array = [
 		"border-bottom"		=> "0",
 		"content"		=> "",
 		], ],
-	
-	[
-	"css_tags" =>
-		[
-		"ul + ul", "ul + ol", "ul + amp-list",
-		"ol + ul", "ol + ol", "ol + amp-list",
-		"amp-list + ul", "amp-list + ol", "amp-list + amp-list",
-		],
-	"css_contents" =>
-		[
-//		"display"		=> "block",
-//		"margin-top"		=> "0",
-		"padding-top"		=> "0",
-		"border-width"		=> "1px 0 0 0",
-		], ],
 
-
-	[
+	[ // These are just a few basic formatting specs for some significant tables...
 	"css_tags" => ".navigation-list",
 	"css_contents" =>
 		[
