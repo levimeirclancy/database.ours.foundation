@@ -134,10 +134,10 @@ echo "<amp-sidebar id='sidebar-entry-info' layout='nodisplay' side='right'>";
 	echo "<div class='sidebar-back' on='tap:sidebar-entry-info.close' role='button' tabindex='0'>Close</div>";
 	echo "<div class='navigation-list'>";
 	$list_temp = null;
-	$list_temp .= "Type: <a href='/".$entry_info['type']."/'><span property='genre'>".$site_info['category_array'][$entry_info['type']]."</span></a>"; // Type
-	$list_temp .= "Publisher: <a href='https://".$domain."'><span property='publisher'>".$publisher."</span></a>"; // Publisher
-	$list_temp .= "Author: <span property='author'>".$author."</span>"; // Author
-	$list_temp .= "Type: <a href='/".$entry_info['type']."/'><span property='genre'>".$site_info['category_array'][$entry_info['type']]."</span></a>";
+	$list_temp .= "+++Type: <a href='/".$entry_info['type']."/'><span property='genre'>".$site_info['category_array'][$entry_info['type']]."</span></a>"; // Type
+	$list_temp .= "+++Publisher: <a href='https://".$domain."'><span property='publisher'>".$publisher."</span></a>"; // Publisher
+	$list_temp .= "+++Author: <span property='author'>".$author."</span>"; // Author
+	$list_temp .= "+++Type: <a href='/".$entry_info['type']."/'><span property='genre'>".$site_info['category_array'][$entry_info['type']]."</span></a>";
 		if (!(empty($entry_info['appendix']['unit']))): 
 			$unit_temp = null;
 			foreach($entry_info['appendix']['unit'] as $entry_id_temp):
