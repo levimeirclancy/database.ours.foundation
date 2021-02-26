@@ -1156,9 +1156,9 @@ $style_array = [
 	[
 	"css_tags" => 
 		[
-//		"amp-sidebar ul",
-//		"amp-sidebar ol",
-//		"amp-sidebar amp-list",
+		"amp-sidebar ul",
+		"amp-sidebar ol",
+		"amp-sidebar amp-list",
 		"amp-sidebar label",
 		"amp-sidebar input",
 		"amp-sidebar .input-button-wrapper",
@@ -1166,7 +1166,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"display"		=> "block",
-		"margin"		=> "10px 0",
+		"margin"		=> "20px 0 0",
 		"width"			=> "100%",
 		"max-width"		=> "none",
 		], ],
