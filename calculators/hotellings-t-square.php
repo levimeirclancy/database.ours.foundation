@@ -75,6 +75,8 @@ $hypothetical_mean = [
 	[ 75 ],
 	];
 
+print_r(transpose_matrix($hypothetical_mean)); exit;
+
 $sample_mean = [
 	[ 624.0 ],
 	[ 11.1 ],
@@ -116,23 +118,6 @@ foreach( $variance_covariance as $row_temp):
 	$column_count = count($row_temp);
 	break;
 	endforeach;
-
-$matrix_one = [
-	[1,2,3,4],
-	[5,6,7,8],
-	];
-$matrix_two = [
-	[2,4,6,8,10],
-	[12,14,16,18,20],
-	[22,24,26,28,30],
-	[32,34,36,38,40],
-	];
-
-// 96	120
-// 258	336
-
-$product_temp = multiply_matrices($matrix_one, $matrix_two);
-print_r($product_temp); exit;
 
 // Calculate inverse of the variance-covariance matrix,
 // $variance_covariance
