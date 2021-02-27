@@ -26,10 +26,10 @@ function multiply_matrices($matrix_one, $matrix_two) {
 		foreach ($matrix_two as $matrix_two_row_count => $matrix_two_row):
 			foreach ($matrix_two_row as $matrix_two_column_count => $matrix_two_value):
 				foreach ($matrix_one_row as $matrix_one_value):
-					if (!(isset($product_temp[$matrix_one_row_count][$matrix_two_column_count]))):
-						$product_temp[$matrix_one_row_count][$matrix_two_column_count] = 0;
+					if (!(isset($product_temp[$matrix_two_column_count][$matrix_one_row_count]))):
+						$product_temp[$matrix_two_column_count][$matrix_one_row_count] = 0;
 						endif;
-					$product_temp[$matrix_one_row_count][$matrix_two_column_count] += ( $matrix_one_value * $matrix_two_value );
+					$product_temp[$matrix_two_column_count][$matrix_one_row_count] += ( $matrix_one_value * $matrix_two_value );
 					endforeach;
 				endforeach;
 			endforeach;
