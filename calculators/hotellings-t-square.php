@@ -15,6 +15,7 @@ function multiply_matrices($matrix_one, $matrix_two) {
 		if ( ($column_count_one !== null) && ($column_count_one !== count($row_temp)) ):
 			error("Column count not consistent.");
 			endif;
+		$column_count_one = count($row_temp);
 		endforeach;
 	if ($column_count_one !== count($matrix_two)):
 		error("Cannot multiply matrices: first has ".$column_count_one." columns; second has ".count($matrix_two)." rows." );
