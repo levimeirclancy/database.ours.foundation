@@ -1048,6 +1048,31 @@ $style_array = [
 		"content"		=> "",
 		], ],
 	
+	[ // Just to confirm that there is nothing for an unordered list...
+	"css_tags" => 
+		[
+		"ul p",
+		"ol p",
+		"amp-list p",
+		],
+	"css_contents" =>
+		[
+		"padding"		=> "0",
+		"margin"		=> "0",
+		], ],
+	
+	[ // Just to confirm that there is nothing for an unordered list...
+	"css_tags" => 
+		[
+		"ul p + p",
+		"ol p + p",
+		"amp-list p + p",
+		],
+	"css_contents" =>
+		[
+		"margin"		=> "20px 0 0 0",
+		], ],
+	
 	[ // These are just a few basic formatting specs for some significant tables...
 	"css_tags" => ".navigation-list, .navigation-list > .wrapper-list",
 	"css_contents" =>
@@ -1077,7 +1102,6 @@ $style_array = [
 	"css_contents" =>
 		[
 		"padding"		=> "1px 0 0 0",
-		"margin"		=> "0",
 		"font-family"		=> "Arial, Helvetica, 'Sans Serif'",
 		"font-size"		=> "0.85em",
 		], ],
