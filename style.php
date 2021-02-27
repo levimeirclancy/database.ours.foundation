@@ -988,6 +988,17 @@ $style_array = [
 	[
 	"css_tags" => 
 		[
+		"ol li",
+		".ordered-list li",
+		],
+	"css_contents" =>
+		[
+		"padding-top"		=> "3px",
+		], ],
+	
+	[
+	"css_tags" => 
+		[
 		"ol li::before",
 		".ordered-list li::before",
 		],
@@ -998,7 +1009,7 @@ $style_array = [
 		"text-align"		=> "left",
 		"font-size"		=> "70%",
 		"padding"		=> "0 3px 3px 5px",
-		"margin"		=> "-2px 0 6px 0",
+		"margin"		=> "0 0 6px 0",
 		"border-bottom"		=> "1px dotted ".output_rgba($font_color, 0.35),
 		"color"			=> output_rgba($font_color, 0.5),
 		"content"		=> "counter(list-counter, decimal)",
