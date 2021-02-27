@@ -27,7 +27,7 @@ if (count($information_array) > 1):
 
 	$list_temp = null;
 	$list_temp .= "+++Entries in the database";
-	$list_temp .= "++++++".number_format(count($information_array));
+	$list_temp .= "++++++".number_format(count($information_array))." entries";
 
 	if ($count_published_recent > 1):
 		$list_temp .= "+++Entries published in last 28 days";
