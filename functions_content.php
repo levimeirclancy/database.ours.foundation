@@ -308,22 +308,27 @@ function body_process($body_incoming) {
 	$body_incoming = $delimiter.$body_incoming.$delimiter;
 	
 	$body_incoming = str_replace($delimiter."|||***", $delimiter."<table><thead><tr><th>", $body_incoming);
-	$body_incoming = str_replace("\n|||***", $delimiter."</th><th>", $body_incoming);
-	$body_incoming = str_replace("|||***", $delimiter."<table><thead><tr><th>", $body_incoming);
-	$body_incoming = str_replace($delimiter."---\n---".$delimiter."***", $delimiter."</th></tr></thead><tbody>\n<tr><td>", $body_incoming);
+	$body_incoming = str_replace("\n|||***", $delimiter."</th><th colspan='1'>", $body_incoming);
+	$body_incoming = str_replace("|||***", $delimiter."<table><thead><tr><th colspan='1'>", $body_incoming);
+	$body_incoming = str_replace($delimiter."---\n---".$delimiter."***", $delimiter."</th></tr></thead><tbody>\n<tr><td colspan='1'>", $body_incoming);
 	$body_incoming = str_replace($delimiter."---\n---", $delimiter."</td></tr></tbody></table>".$delimiter, $body_incoming);
-	$body_incoming = str_replace($delimiter."---".$delimiter."***", $delimiter."</td></tr>\n<tr><td>", $body_incoming);
-	$body_incoming = str_replace("\n***", $delimiter."</td><td>", $body_incoming);
+	$body_incoming = str_replace($delimiter."---".$delimiter."***", $delimiter."</td></tr>\n<tr><td colspan='1'>", $body_incoming);
+	$body_incoming = str_replace("\n***", $delimiter."</td><td colspan='1'>", $body_incoming);
 	$body_incoming = str_replace("<blockquote>", $delimiter."<blockquote>".$delimiter, $body_incoming);
 	$body_incoming = str_replace("</blockquote>", $delimiter."</blockquote>".$delimiter, $body_incoming);
 
-	// Add COLSPAN, but only up to four columns
-	$body_incoming = str_replace("<th>***", "<th colspan='2'>", $body_incoming);
-	$body_incoming = str_replace("<th colspan='2'>***", "<th colspan='3'>", $body_incoming);
-	$body_incoming = str_replace("<th colspan='3'>***", "<th colspan='4'>", $body_incoming);
-	$body_incoming = str_replace("<td>***", "<td colspan='2'>", $body_incoming);
-	$body_incoming = str_replace("<td colspan='2'>***", "<td colspan='3'>", $body_incoming);
-	$body_incoming = str_replace("<td colspan='3'>***", "<td colspan='4'>", $body_incoming);
+	// Add COLSPAN
+	foreach ( ["th", "td"] as $tag_temp):
+		$counter_limit = 25;
+		$colspan_temp = 1;
+		$search_temp = "<".$tag_temp." colspan='".$colspan_temp."'>***";
+		while (strpos($body_incoming, $search_temp) !== FALSE):
+			$colspan_temp++;
+			$replace_temp = "<".$tag_temp." colspan='".$colspan_temp."'>***";
+			$body_incoming = str_replace($search_temp, $replace_temp, $body_incoming);
+			if ($colspan_temp >= $counter_limit): break; endif;
+			endwhile;
+		endforeach;
 
 	// Quotes
 	$body_incoming = str_replace("<<<", "<q>", $body_incoming);
