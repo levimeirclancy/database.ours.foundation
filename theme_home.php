@@ -6,35 +6,51 @@ if (!(empty($publisher))):
 
 if (empty($information_array)):
 	echo "<p>No entries yet.</p>";
-	footer();
-	endif;
+	footer(); endif;
 
-$ordered_published_array = [];
+
+$ordered_published_array = $ordered_updated_array = [];
+$count_published_recent = $count_updated_recent = 0;
 foreach ($information_array as $entry_id => $entry_info):
+
 	$ordered_published_array[$entry_id] = $entry_info['date_published'];
-	endforeach; 
-if (!(empty($ordered_published_array))):
-	arsort($ordered_published_array);
-	$ordered_published_array = array_slice($ordered_published_array, 0, 10);
-	echo "<h2>Recently published</h2>";
-	echo "<div class='navigation-list'>";
-	$list_temp = null;
-	foreach($ordered_published_array as $entry_id => $discard_info):
-		$list_temp .= "+++{{{".$entry_id."}}}";
-		endforeach;
-	echo body_process("+-+-+".$list_temp."+-+-+");
-	echo "</div>";
-	endif;
+	if (strtotime($entry_info['date_published']) > strtotime("-28 days")): $count_published_recent++; endif;
 
-$ordered_updated_array = [];
-foreach ($information_array as $entry_id => $entry_info):
 	if (empty($entry_info['date_updated'])): continue; endif;
+
+	// If published and updated on the same day...
+//	if (round(strtotime($entry_info['date_published'])/1440, 0) >= round(strtotime($entry_info['date_updated'])/1440, 0)): continue; endif;
+
+	if (strtotime($entry_info['date_updated']) > strtotime("-28 days")): $count_updated_recent++; endif;
 	if (isset($ordered_published_array[$entry_id])): continue; endif;
 	$ordered_updated_array[$entry_id] = $entry_info['date_updated'];
+	
 	endforeach; 
+
+
+if (count($information_array) > 1):
+	echo "<p>There are ".number_format(count($information_array))." entries.";
+	if ($count_published_recent > 1): " There have been ".number_format($count_published_recent)." entries published in the last 28 days."; endif;
+	if (($count_updated_recent - $count_published_recent) > 1): " There have also been an additional ".number_format($count_updated_recent - $count_published_recent)." entries updated in the last 28 days."; endif;
+	echo "</p>";
+	endif;
+
+arsort($ordered_published_array);
+$ordered_published_array = array_slice($ordered_published_array, 0, 10);
+
+echo "<h2>Recently published</h2>";
+echo "<div class='navigation-list'>";
+$list_temp = null;
+foreach($ordered_published_array as $entry_id => $discard_info):
+	$list_temp .= "+++{{{".$entry_id."}}}";
+	endforeach;
+echo body_process("+-+-+".$list_temp."+-+-+");
+echo "</div>";
+
+arsort($ordered_updated_array);
+$ordered_updated_array = array_diff_key($ordered_updated_array, $ordered_published_array);
+$ordered_updated_array = array_slice($ordered_updated_array, 0, 10);
 if (!(empty($ordered_updated_array))):
-	arsort($ordered_updated_array);
-	$ordered_updated_array = array_slice($ordered_updated_array, 0, 10);
 	echo "<h2>Other updated posts</h2>";
 	$list_temp = null;
 	echo "<div class='navigation-list'>";
