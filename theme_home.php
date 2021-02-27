@@ -18,7 +18,7 @@ foreach ($information_array as $entry_id => $entry_info):
 
 	if (empty($entry_info['date_updated'])): continue; endif;
 
-	if (strtotime($entry_info['date_updated']) >= intval(strtotime("-28 days")): $count_updated_recent++; endif;
+	if (strtotime($entry_info['date_updated']) >= strtotime("-28 days")): $count_updated_recent++; endif;
 	$ordered_updated_array[$entry_id] = $entry_info['date_updated'];	
 
 	endforeach; 
