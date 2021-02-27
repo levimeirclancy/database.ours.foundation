@@ -25,13 +25,21 @@ foreach ($information_array as $entry_id => $entry_info):
 
 if (count($information_array) > 1):
 
-	echo "<p>There are ".number_format(count($information_array))." entries in the database.";
+	$list_temp = null
+	$list_temp .= "+++Entries in the datase";
+	$list_temp .= "++++++".number_format(count($information_array));
 
-	if ($count_published_recent > 1): echo " There have been ".number_format($count_published_recent)." entries published in the last 28 days."; endif;
+	if ($count_published_recent > 1):
+		$list_temp .= "+++Entries published in last 28 days";
+		$list_temp .= "++++++".number_format($count_published_recent);
+		endif;
 
-	if (($count_updated_recent - $count_published_recent) > 1): echo " Also, there have been an additional ".number_format($count_updated_recent - $count_published_recent)." entries updated in the same period."; endif;
+	if (($count_updated_recent - $count_published_recent) > 1):
+		$list_temp .= "+++Entries updated in last 28 days";
+		$list_temp .= "++++++".number_format($count_updated_recent - $count_published_recent);
+		endif;
 
-	echo "</p>";
+	echo body_process("+-+-+".$list_temp."+-+-+");
 
 	endif;
 
