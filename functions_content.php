@@ -327,6 +327,7 @@ function body_process($body_incoming) {
 			$colspan_temp++;
 			$replace_temp = "<".$tag_temp." colspan='".$colspan_temp."'>";
 			$body_incoming = str_replace($search_temp."***", $replace_temp, $body_incoming);
+			$search_temp = $replace_temp;
 			if ($colspan_temp >= $counter_limit): break; endif;
 			endwhile;
 		endforeach;
