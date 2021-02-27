@@ -87,9 +87,9 @@ $sample_size = 737;
 
 // We wind up with one number because a 1 x 5 matrix is multiplied by a 5 x 5 matrix, resulting in a 1 x 5 matrix. Then, that is multiplied by a 5 x 1 matrix, resulting in a scalar.
 
-if (count($hypothetical_mean) !== count($sample_mean)): echo "Hypothetical mean vector and sample mean vector must have equal number of values."; exit; endif;
+if (count($hypothetical_mean) !== count($sample_mean)): error("Hypothetical mean vector and sample mean vector must have equal number of values."); endif;
 
-$mean_difference = []
+$mean_difference = [];
 foreach ($hypothetical_mean as $key_temp => $value_temp):
 	$mean_difference[] = ( $sample_mean[$key_temp] - $hypothetical_mean[$key_temp] );
 	endforeach;
@@ -99,13 +99,23 @@ foreach( $variance_covariance as $row_temp):
 	break;
 	endforeach;
 
+$matrix_one = [
+	[1,4,7],
+	[10,13,16],
+	];
+$matrix_two = [
+	[2,4],
+	[6,8],
+	[10,12],
+	];
+
+$product_temp = multiply_matrices($matrix_one, $matrix_two);
+print_r($product_temp); exit;
 
 // Calculate inverse of the variance-covariance matrix,
 // $variance_covariance
 
 $product_temp = multiply_matrices(transpose_matrix($mean_difference), $variance_covariance_inverse);
-													   
-print_r($product_temp); exit;
 $product_temp = multiply_matrices($product_temp, $mean_difference);
 
 print_r($product_temp);
