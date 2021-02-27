@@ -50,7 +50,7 @@ function multiply_matrices($matrix_one, $matrix_two) {
 						$product_temp[$matrix_one_row_count][$matrix_two_column_count] = 0;
 						endif;
 	
-					$product_temp[$matrix_one_row_count][$matrix_two_column_count] += ( $value_one_value * $matrix_two_value );
+					$product_temp[$matrix_one_row_count][$matrix_two_column_count] += ( $matrix_one_value * $matrix_two_value );
 						
 					endforeach;
 
