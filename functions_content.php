@@ -325,8 +325,8 @@ function body_process($body_incoming) {
 		$body_incoming = str_replace("<".$tag_temp.">", $search_temp, $body_incoming);
 		while (strpos($body_incoming, $search_temp) !== FALSE):
 			$colspan_temp++;
-			$replace_temp = "<".$tag_temp." colspan='".$colspan_temp."'>***";
-			$body_incoming = str_replace($search_temp, $replace_temp, $body_incoming);
+			$replace_temp = "<".$tag_temp." colspan='".$colspan_temp."'>";
+			$body_incoming = str_replace($search_temp."***", $replace_temp, $body_incoming);
 			if ($colspan_temp >= $counter_limit): break; endif;
 			endwhile;
 		endforeach;
