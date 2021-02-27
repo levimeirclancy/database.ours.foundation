@@ -91,7 +91,7 @@ if (count($hypothetical_mean) !== count($sample_mean)): error("Hypothetical mean
 
 $mean_difference = [];
 foreach ($hypothetical_mean as $key_temp => $value_temp):
-	$mean_difference[] = ( $sample_mean[$key_temp] - $hypothetical_mean[$key_temp] );
+	$mean_difference[] = [ $sample_mean[$key_temp][0] - $hypothetical_mean[$key_temp][0] ];
 	endforeach;
 
 foreach( $variance_covariance as $row_temp):
