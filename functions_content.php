@@ -318,10 +318,10 @@ function body_process($body_incoming) {
 	$body_incoming = str_replace("</blockquote>", $delimiter."</blockquote>".$delimiter, $body_incoming);
 
 	// Add COLSPAN
+	$counter_limit = 25;
 	foreach ( ["th", "td"] as $tag_temp):
-		$counter_limit = 25;
 		$colspan_temp = 1;
-		$search_temp = "<".$tag_temp." colspan='".$colspan_temp."'>***";
+		$search_temp = "<".$tag_temp." colspan='".$colspan_temp."'>";
 		$body_incoming = str_replace("<".$tag_temp.">", $search_temp, $body_incoming);
 		while (strpos($body_incoming, $search_temp) !== FALSE):
 			$colspan_temp++;
