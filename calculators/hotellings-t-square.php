@@ -26,7 +26,7 @@ function multiply_matrices($matrix_one, $matrix_two) {
 		$column_count_temp = 0;
 		while($column_count_temp < count($matrix_two)):
 			// https://www.php.net/manual/en/function.array-column.php
-			foreach (array_column($variance_covariance_inverse, $column_count_temp) as $value_two_temp):
+			foreach (array_column($matrix_two, $column_count_temp) as $value_two_temp):
 				if (!(isset($product_temp[$row_count_temp][$column_count_temp]))): $product_temp[$row_count_temp][$column_count_temp] = 0; endif;
 				if (!(isset($matrix_two[$column_count_temp][$row_count_temp]))): error("Matrix two does not work."); endif;
 				$value_temp = ( $matrix_one[$row_count_temp][$column_count_temp] * $matrix_two[$column_count_temp][$row_count_temp] );
@@ -109,6 +109,9 @@ $matrix_two = [
 	[6,8],
 	[10,12],
 	];
+
+// 96	120
+// 258	336
 
 $product_temp = multiply_matrices($matrix_one, $matrix_two);
 print_r($product_temp); exit;
