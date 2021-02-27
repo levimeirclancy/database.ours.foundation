@@ -45,6 +45,8 @@ function multiply_matrices($matrix_one, $matrix_two) {
 			foreach($matrix_two as $matrix_two_row_count => $matrix_two_row):
 	
 				foreach($matrix_two_row as $matrix_two_column_count => $matrix_two_value):
+	
+					if ($matrix_one_column_count !== $matrix_two_row_count): continue; endif;
 
 					if (!(isset($product_temp[$matrix_one_row_count][$matrix_two_column_count]))):
 						$product_temp[$matrix_one_row_count][$matrix_two_column_count] = 0;
