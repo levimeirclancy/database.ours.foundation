@@ -25,7 +25,7 @@ foreach ($information_array as $entry_id => $entry_info):
 
 if (count($information_array) > 1):
 
-	$list_temp = null
+	$list_temp = null;
 	$list_temp .= "+++Entries in the datase";
 	$list_temp .= "++++++".number_format(count($information_array));
 
