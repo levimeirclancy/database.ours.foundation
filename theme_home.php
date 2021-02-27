@@ -14,7 +14,7 @@ $count_published_recent = $count_updated_recent = 0;
 foreach ($information_array as $entry_id => $entry_info):
 
 	$ordered_published_array[$entry_id] = $entry_info['date_published'];
-	if (intval(strtotime($entry_info['date_published'])) >= intval(strtotime("-28 days"))): $count_published_recent++; endif;
+	if (intval(strtotime($entry_info['date_published'])) >= intval(strtotime("-28 days"))): echo "yes"; $count_published_recent++; endif;
 
 	if (empty($entry_info['date_updated'])): continue; endif;
 
