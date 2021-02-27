@@ -23,16 +23,6 @@ function multiply_matrices($matrix_one, $matrix_two) {
 	
 	$product_temp = [];
 	
-	// 1a	1b
-	// 1c	1d
-	// x
-	// 2a	2b
-	// 2c	2d
-	// =
-	// 1a*2a + 1b*2c	1a*2b + 1b*2d
-	// 1c*2a + 1c*2c	1c*2b + 1d*2d
-	
-	
 	// Get the row ... now we need to keep this and multiply it by each column
 	foreach ($matrix_one as $matrix_one_row_count => $matrix_one_row):
 	
@@ -128,13 +118,14 @@ foreach( $variance_covariance as $row_temp):
 	endforeach;
 
 $matrix_one = [
-	[1,4,7],
-	[10,13,16],
+	[1,2,3,4],
+	[5,6,7,8],
 	];
 $matrix_two = [
-	[2,4],
-	[6,8],
-	[10,12],
+	[2,4,6,8,10],
+	[12,14,16,18,20],
+	[22,24,26,28,30],
+	[32,34,36,38,40],
 	];
 
 // 96	120
