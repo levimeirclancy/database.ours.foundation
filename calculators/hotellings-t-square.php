@@ -4,9 +4,51 @@ function error($message) {
 	echo $message;
 	exit;
 	}
+// https://stackoverflow.com/questions/1811250/php-inverse-of-a-matrix
+function inverse_matrix($m1) {
+    $rows = $this->rows($m1);
+    $cols = $this->columns($m1);
+    if ($rows != $cols)
+    {
+        die("Matrim1 is not square. Can not be inverted.");
+    }
 
-function inverse_matrix($matrix_array) {
-	
+    $m2 = $this->eye($rows);
+
+    for ($j = 0; $j < $cols; $j++)
+    {
+        $factor = $m1[$j][$j];
+        if ($this->debug)
+        {
+            fms_writeln('Divide Row [' . $j . '] by ' . $m1[$j][$j] . ' (to
+                                                  give us a "1" in the desired position):');
+        }
+        $m1 = $this->rref_div($m1, $j, $factor);
+        $m2 = $this->rref_div($m2, $j, $factor);
+        if ($this->debug)
+        {
+            $this->disp2($m1, $m2);
+        }
+        for ($i = 0; $i < $rows; $i++)
+        {
+            if ($i != $j)
+            {
+                $factor = $m1[$i][$j];
+                if ($this->debug)
+                {
+                    $this->writeln('Row[' . $i . '] - ' . number_format($factor, 4) . ' ×
+                                                Row[' . $j . '] (to give us 0 in the desired position):');
+                }
+                $m1 = $this->rref_sub($m1, $i, $factor, $j);
+                $m2 = $this->rref_sub($m2, $i, $factor, $j);
+                if ($this->debug)
+                {
+                    $this->disp2($m1, $m2);
+                }
+            }
+        }
+    }
+    return $m2;
 	}
 
 function multiply_matrices($matrix_one, $matrix_two) {
@@ -75,8 +117,6 @@ $hypothetical_mean = [
 	[ 75 ],
 	];
 
-print_r(transpose_matrix($hypothetical_mean)); exit;
-
 $sample_mean = [
 	[ 624.0 ],
 	[ 11.1 ],
@@ -114,17 +154,22 @@ foreach ($hypothetical_mean as $key_temp => $value_temp):
 	$mean_difference[] = [ $sample_mean[$key_temp][0] - $hypothetical_mean[$key_temp][0] ];
 	endforeach;
 
-foreach( $variance_covariance as $row_temp):
-	$column_count = count($row_temp);
-	break;
-	endforeach;
-
 // Calculate inverse of the variance-covariance matrix,
-// $variance_covariance
+$variance_covariance_inverse = inverse_matrix($variance_covariance);
+
+print_r($variance_covariance_inverse);
+
+$variance_covariance_inverse = [
+	[ 157829.4,	940.1,	6075.8,	102411.1,	6701.6 ],
+	[ 940.1, 	35.8, 	114.1, 	2383.2, 	137.7 ],
+	[ 6075.8, 	114.1, 	934.9, 	7330.1, 	477.2 ],
+	[ 102411.1, 	2382.2, 7330.1, 2668452.4, 	22063.3],
+	[ 6701.6, 	137.7, 	477.2, 	22063.3, 	5416.3 ],
+	];
 
 $product_temp = multiply_matrices(transpose_matrix($mean_difference), $variance_covariance_inverse);
 $product_temp = multiply_matrices($product_temp, $mean_difference);
 
-print_r($product_temp);
+echo $product_temp[0][0]*$sample_size;
 
 ?>
