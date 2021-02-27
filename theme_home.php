@@ -26,17 +26,17 @@ foreach ($information_array as $entry_id => $entry_info):
 if (count($information_array) > 1):
 
 	$list_temp = null;
-	$list_temp .= "+++Entries in the datase";
+	$list_temp .= "+++Entries in the database";
 	$list_temp .= "++++++".number_format(count($information_array));
 
 	if ($count_published_recent > 1):
 		$list_temp .= "+++Entries published in last 28 days";
-		$list_temp .= "++++++".number_format($count_published_recent);
+		$list_temp .= "++++++".number_format($count_published_recent)." entries";
 		endif;
 
 	if (($count_updated_recent - $count_published_recent) > 1):
 		$list_temp .= "+++Entries updated in last 28 days";
-		$list_temp .= "++++++".number_format($count_updated_recent - $count_published_recent);
+		$list_temp .= "++++++".number_format($count_updated_recent - $count_published_recent)." entries";
 		endif;
 
 	echo body_process("+-+-+".$list_temp."+-+-+");
