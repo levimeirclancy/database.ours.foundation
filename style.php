@@ -488,30 +488,6 @@ $style_array = [
 		], ],
 	
 	[
-	"css_tags" => 
-		[
-		"th p",
-		"td p",
-		],
-	"css_contents" =>
-		[
-		"margin"		=> "0",
-		"padding"		=> "0",
-		], ],
-	
-	[
-	"css_tags" => 
-		[
-		"th p + p",
-		"td p + p",
-		"li p + p",
-		],
-	"css_contents" =>
-		[
-		"margin-top"		=> "10px",
-		], ],
-	
-	[
 	"css_tags" => ".entry-metadata-wrapper",
 	"css_contents" =>
 		[
@@ -1062,9 +1038,9 @@ $style_array = [
 	[ // Just to confirm that there is nothing for an unordered list...
 	"css_tags" => 
 		[
-		"ul p",
-		"ol p",
-		"amp-list p",
+		"th p + p",
+		"td p + p",
+		"li p + p",
 		],
 	"css_contents" =>
 		[
@@ -1075,12 +1051,13 @@ $style_array = [
 	[ // Just to confirm that there is nothing for an unordered list...
 	"css_tags" => 
 		[
-		"ul p + p",
-		"ol p + p",
-		"amp-list p + p",
+		"th p + p",
+		"td p + p",
+		"li p + p",
 		],
 	"css_contents" =>
 		[
+		"padding"		=> "0",
 		"margin"		=> "20px 0 0 0",
 		], ],
 	
