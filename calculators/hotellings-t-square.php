@@ -201,7 +201,7 @@ foreach ($hypothetical_mean as $key_temp => $value_temp):
 // Calculate inverse of the variance-covariance matrix,
 $variance_covariance_inverse = inverse_matrix($variance_covariance);
 
-print_r($variance_covariance_inverse);
+// print_r($variance_covariance_inverse);
 
 $variance_covariance_inverse = [
 	[ 157829.4,	940.1,	6075.8,	102411.1,	6701.6 ],
