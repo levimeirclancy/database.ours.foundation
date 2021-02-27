@@ -194,22 +194,6 @@ $style_array = [
 		[
 		"display"		=> "inline",
 		], ],
-
-	/// MISCELLANEOUS
-
-//	[
-//	"css_tags" => ".material-icons",
-//	"css_contents" =>
-//		[
-//		"vertical-align"	=> "middle",
-//		], ],
-	
-//	[
-//	"css_tags" => ".fadeout",
-//	"css_contents" =>
-//		[ 
-//		"opacity"		=> "0.25",
-//		], ],
 	
 	/// ARTICLE
 
@@ -1143,15 +1127,6 @@ $style_array = [
 		[
 		"padding-top"		=> "10px",
 		], ],
-	
-//	[
-//	"css_tags" => "amp-sidebar amp-list",
-//	"css_contents" =>
-//		[
-//		"border"		=> "0",
-//		], ],
-
-	
 	
 	/// Toggle classes
 
