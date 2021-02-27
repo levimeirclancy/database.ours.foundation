@@ -57,7 +57,7 @@ $style_array = [
 		"box-shadow"		=> "0 0 40px -5px rgba(30,30,30,0.15)",
 		"background"		=> output_rgba($background_color, 1),
 		"padding"		=> "50px 0",
-		"margin"		=> "150px 0",
+		"margin"		=> "50px 0",
 		], ],
 	
 	[
