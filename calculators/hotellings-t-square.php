@@ -30,7 +30,7 @@ function multiply_matrices($matrix_one, $matrix_two) {
 //				$product_temp[$row_count_temp][$column_count_temp] += $value_temp;
 //				$value_one_temp = $matrix_one[$row_count_temp][$column_count_temp];
 //				$value_two_temp = $matrix_two[$column_count_temp][$row_count_temp];
-				$product_temp[$row_count_temp][$column_count_temp] += ( $value_one_temp * $value_two_temp );
+				$product_temp[$column_count_temp][$row_count_temp] += ( $value_one_temp * $value_two_temp );
 				endforeach;
 			endforeach;
 		endforeach;
