@@ -198,6 +198,8 @@ foreach ($hypothetical_mean as $key_temp => $value_temp):
 	$mean_difference[] = [ $sample_mean[$key_temp][0] - $hypothetical_mean[$key_temp][0] ];
 	endforeach;
 
+print_r($mean_difference); exit;
+
 // Calculate inverse of the variance-covariance matrix,
 $variance_covariance_inverse = inverse_matrix($variance_covariance);
 
