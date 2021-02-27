@@ -14,21 +14,27 @@ $count_published_recent = $count_updated_recent = 0;
 foreach ($information_array as $entry_id => $entry_info):
 
 	$ordered_published_array[$entry_id] = $entry_info['date_published'];
-	if (strtotime($entry_info['date_published']) > strtotime("-28 days")): $count_published_recent++; endif;
+	if (strtotime($entry_info['date_published']) >= strtotime("-28 days")): $count_published_recent++; endif;
+
+echo strtotime("-28 days")."<br>".strtotime($entry_info['date_published'])."<br>";
 
 	if (empty($entry_info['date_updated'])): continue; endif;
 
-	if (strtotime($entry_info['date_updated']) > strtotime("-28 days")): $count_updated_recent++; endif;
+	if (strtotime($entry_info['date_updated']) >= strtotime("-28 days")): $count_updated_recent++; endif;
 	$ordered_updated_array[$entry_id] = $entry_info['date_updated'];	
 
 	endforeach; 
 
-
 if (count($information_array) > 1):
-	echo "<p>There are ".number_format(count($information_array))." entries.";
+
+	echo "<p>There are ".number_format(count($information_array))." entries in the database.";
+
 	if ($count_published_recent > 1): " There have been ".number_format($count_published_recent)." entries published in the last 28 days."; endif;
-	if (($count_updated_recent - $count_published_recent) > 1): " There have also been an additional ".number_format($count_updated_recent - $count_published_recent)." entries updated in the last 28 days."; endif;
+
+	if (($count_updated_recent - $count_published_recent) > 1): " Also, there have been an additional ".number_format($count_updated_recent - $count_published_recent)." entries updated in the same period."; endif;
+
 	echo "</p>";
+
 	endif;
 
 arsort($ordered_published_array);
