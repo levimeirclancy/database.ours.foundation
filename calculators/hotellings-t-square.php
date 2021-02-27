@@ -84,6 +84,17 @@ function inverse_matrix($A, $debug = FALSE) {
 	return $Inv;
 }
 
+
+function identity_matrix($n) {
+	$I = array();
+	for ($i = 0; $i < $n; ++ $i) {
+		for ($j = 0; $j < $n; ++ $j) {
+			$I[$i][$j] = ($i == $j) ? 1 : 0;
+		}
+	}
+	return $I;
+	}
+
 function multiply_matrices($matrix_one, $matrix_two) {
 	$column_count_one = null;
 	foreach ($matrix_one as $row_temp):
