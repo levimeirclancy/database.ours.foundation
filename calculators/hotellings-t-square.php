@@ -17,7 +17,7 @@ function multiply_matrices($matrix_one, $matrix_two) {
 			endif;
 		endforeach;
 	if ($column_count_one !== count($matrix_two)):
-		error("Cannot multiply matrices.");
+		error("Cannot multiply matrices: first has ".$column_count_one." columns; second has ".count($matrix_two)." rows." );
 		endif;
 	$product_temp = [];
 	foreach ($matrix_one as $row_count_temp => $row_temp):
