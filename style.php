@@ -31,7 +31,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"text-overflow"		=> "ellipsis",
-		"white-space"		=> "break-spaces",
+		"white-space"		=> "pre-line",
 		"overflow"		=> "hidden",
 		"text-decoration"	=> "none",
 		"color"			=> output_rgba($font_color, 01),
