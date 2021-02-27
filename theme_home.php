@@ -18,13 +18,9 @@ foreach ($information_array as $entry_id => $entry_info):
 
 	if (empty($entry_info['date_updated'])): continue; endif;
 
-	// If published and updated on the same day...
-//	if (round(strtotime($entry_info['date_published'])/1440, 0) >= round(strtotime($entry_info['date_updated'])/1440, 0)): continue; endif;
-
 	if (strtotime($entry_info['date_updated']) > strtotime("-28 days")): $count_updated_recent++; endif;
-	if (isset($ordered_published_array[$entry_id])): continue; endif;
-	$ordered_updated_array[$entry_id] = $entry_info['date_updated'];
-	
+	$ordered_updated_array[$entry_id] = $entry_info['date_updated'];	
+
 	endforeach; 
 
 
