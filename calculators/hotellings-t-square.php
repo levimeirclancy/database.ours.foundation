@@ -25,10 +25,13 @@ function multiply_matrices($matrix_one, $matrix_two) {
 		if (!(isset($product_temp[$row_count_temp]))): $product_temp[$row_count_temp] = []; endif;
 		foreach ($row_temp as $column_count_temp => $value_one_temp):
 			if (!(isset($product_temp[$row_count_temp][$column_count_temp]))): $product_temp[$row_count_temp][$column_count_temp] = 0; endif;
-//			$value_temp = ( $matrix_one[$row_count_temp][$column_count_temp] * $matrix_two[$column_count_temp][$row_count_temp] );
-//			$product_temp[$row_count_temp][$column_count_temp] += $value_temp;
-			$value_two_temp = $matrix_two[$column_count_temp][$row_count_temp];
-			$product_temp[$column_count_temp][$row_count_temp] += ( $value_one_temp * $value_two_temp );
+			foreach(array_column($matrix_two, $column_count_temp) as $value_two_temp):
+//				$value_temp = ( $matrix_one[$row_count_temp][$column_count_temp] * $matrix_two[$column_count_temp][$row_count_temp] );
+//				$product_temp[$row_count_temp][$column_count_temp] += $value_temp;
+//				$value_one_temp = $matrix_one[$row_count_temp][$column_count_temp];
+//				$value_two_temp = $matrix_two[$column_count_temp][$row_count_temp];
+				$product_temp[$row_count_temp][$column_count_temp] += ( $value_one_temp * $value_two_temp );
+				endforeach;
 			endforeach;
 		endforeach;
 	return $product_temp;
