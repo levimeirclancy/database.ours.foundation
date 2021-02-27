@@ -39,7 +39,7 @@ if (count($information_array) > 1):
 		$list_temp .= "++++++".number_format($count_updated_recent - $count_published_recent)." entries";
 		endif;
 
-	echo body_process("+-+-+".$list_temp."+-+-+");
+	echo "<div class='navigation-list'>" . body_process("+-+-+".$list_temp."+-+-+") . "</div>";
 
 	endif;
 
@@ -47,13 +47,12 @@ arsort($ordered_published_array);
 $ordered_published_array = array_slice($ordered_published_array, 0, 10);
 
 echo "<h2>Recently published</h2>";
-echo "<div class='navigation-list'>";
+
 $list_temp = null;
 foreach($ordered_published_array as $entry_id => $discard_info):
 	$list_temp .= "+++{{{".$entry_id."}}}";
 	endforeach;
-echo body_process("+-+-+".$list_temp."+-+-+");
-echo "</div>";
+echo "<div class='navigation-list'>" . body_process("+-+-+".$list_temp."+-+-+") . "</div>";
 
 arsort($ordered_updated_array);
 $ordered_updated_array = array_diff_key($ordered_updated_array, $ordered_published_array);
@@ -61,11 +60,9 @@ $ordered_updated_array = array_slice($ordered_updated_array, 0, 10);
 if (!(empty($ordered_updated_array))):
 	echo "<h2>Other updated posts</h2>";
 	$list_temp = null;
-	echo "<div class='navigation-list'>";
 		foreach($ordered_updated_array as $entry_id => $discard_info):
 		$list_temp .= "+++{{{".$entry_id."}}}";
 		endforeach;
-	echo body_process("+-+-+".$list_temp."+-+-+");
-	echo "</div>"; 
+	echo "<div class='navigation-list'>" . body_process("+-+-+".$list_temp."+-+-+") . "</div>";
 	endif;
 ?>
