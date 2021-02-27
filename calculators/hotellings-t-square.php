@@ -4,52 +4,85 @@ function error($message) {
 	echo $message;
 	exit;
 	}
-// https://stackoverflow.com/questions/1811250/php-inverse-of-a-matrix
-function inverse_matrix($m1) {
-    $rows = $this->rows($m1);
-    $cols = $this->columns($m1);
-    if ($rows != $cols)
-    {
-        die("Matrim1 is not square. Can not be inverted.");
-    }
 
-    $m2 = $this->eye($rows);
+// https://gist.github.com/unix1/7510208
+function inverse_matrix($A, $debug = FALSE) {
+	/// @todo check rows = columns
 
-    for ($j = 0; $j < $cols; $j++)
-    {
-        $factor = $m1[$j][$j];
-        if ($this->debug)
-        {
-            fms_writeln('Divide Row [' . $j . '] by ' . $m1[$j][$j] . ' (to
-                                                  give us a "1" in the desired position):');
-        }
-        $m1 = $this->rref_div($m1, $j, $factor);
-        $m2 = $this->rref_div($m2, $j, $factor);
-        if ($this->debug)
-        {
-            $this->disp2($m1, $m2);
-        }
-        for ($i = 0; $i < $rows; $i++)
-        {
-            if ($i != $j)
-            {
-                $factor = $m1[$i][$j];
-                if ($this->debug)
-                {
-                    $this->writeln('Row[' . $i . '] - ' . number_format($factor, 4) . ' ×
-                                                Row[' . $j . '] (to give us 0 in the desired position):');
-                }
-                $m1 = $this->rref_sub($m1, $i, $factor, $j);
-                $m2 = $this->rref_sub($m2, $i, $factor, $j);
-                if ($this->debug)
-                {
-                    $this->disp2($m1, $m2);
-                }
-            }
-        }
-    }
-    return $m2;
+	$n = count($A);
+
+	// get and append identity matrix
+	$I = identity_matrix($n);
+	for ($i = 0; $i < $n; ++ $i) {
+		$A[$i] = array_merge($A[$i], $I[$i]);
 	}
+
+	if ($debug) {
+		echo "\nStarting matrix: ";
+		print_matrix($A);
+	}
+
+	// forward run
+	for ($j = 0; $j < $n-1; ++ $j) {
+		// for all remaining rows (diagonally)
+		for ($i = $j+1; $i < $n; ++ $i) {
+			// if the value is not already 0
+			if ($A[$i][$j] !== 0) {
+				// adjust scale to pivot row
+				// subtract pivot row from current
+				$scalar = $A[$j][$j] / $A[$i][$j];
+				for ($jj = $j; $jj < $n*2; ++ $jj) {
+					$A[$i][$jj] *= $scalar;
+					$A[$i][$jj] -= $A[$j][$jj];
+				}
+			}
+		}
+		if ($debug) {
+			echo "\nForward iteration $j: ";
+			print_matrix($A);
+		}
+	}
+
+	// reverse run
+	for ($j = $n-1; $j > 0; -- $j) {
+		for ($i = $j-1; $i >= 0; -- $i) {
+			if ($A[$i][$j] !== 0) {
+				$scalar = $A[$j][$j] / $A[$i][$j];
+				for ($jj = $i; $jj < $n*2; ++ $jj) {
+					$A[$i][$jj] *= $scalar;
+					$A[$i][$jj] -= $A[$j][$jj];
+				}
+			}
+		}
+		if ($debug) {
+			echo "\nReverse iteration $j: ";
+			print_matrix($A);
+		}
+	}
+
+	// last run to make all diagonal 1s
+	/// @note this can be done in last iteration (i.e. reverse run) too!
+	for ($j = 0; $j < $n; ++ $j) {
+		if ($A[$j][$j] !== 1) {
+			$scalar = 1 / $A[$j][$j];
+			for ($jj = $j; $jj < $n*2; ++ $jj) {
+				$A[$j][$jj] *= $scalar;
+			}
+		}
+		if ($debug) {
+			echo "\n1-out iteration $j: ";
+			print_matrix($A);
+		}
+	}
+
+	// take out the matrix inverse to return
+	$Inv = array();
+	for ($i = 0; $i < $n; ++ $i) {
+		$Inv[$i] = array_slice($A[$i], $n);
+	}
+
+	return $Inv;
+}
 
 function multiply_matrices($matrix_one, $matrix_two) {
 	$column_count_one = null;
