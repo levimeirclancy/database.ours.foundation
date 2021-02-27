@@ -20,20 +20,46 @@ function multiply_matrices($matrix_one, $matrix_two) {
 	if ($column_count_one !== count($matrix_two)):
 		error("Cannot multiply matrices: first has ".$column_count_one." columns; second has ".count($matrix_two)." rows." );
 		endif;
+	
 	$product_temp = [];
+	
+	// 1a	1b
+	// 1c	1d
+	// x
+	// 2a	2b
+	// 2c	2d
+	// =
+	// 1a*2a + 1b*2c	1a*2b + 1b*2d
+	// 1c*2a + 1c*2c	1c*2b + 1d*2d
+	
+	
+	// Get the row ... now we need to keep this and multiply it by each column
 	foreach ($matrix_one as $matrix_one_row_count => $matrix_one_row):
-		if (!(isset($product_temp[$matrix_one_row_count]))): $product_temp[$matrix_one_row_count] = []; endif;
-		foreach ($matrix_two as $matrix_two_row_count => $matrix_two_row):
-			foreach ($matrix_two_row as $matrix_two_column_count => $matrix_two_value):
-				foreach ($matrix_one_row as $matrix_one_value):
-					if (!(isset($product_temp[$matrix_two_column_count][$matrix_one_row_count]))):
-						$product_temp[$matrix_two_column_count][$matrix_one_row_count] = 0;
+	
+		if (!(isset($product_temp[$matrix_one_row_count]))):
+			$product_temp[$matrix_one_row_count] = [];
+			endif;
+	
+		foreach ($matrix_one_row as $matrix_one_column_count => $matrix_one_value):
+	
+			foreach($matrix_two as $matrix_two_row_count => $matrix_two_row):
+	
+				foreach($matrix_two_row as $matrix_two_column_count => $matrix_two_value):
+
+					if (!(isset($product_temp[$matrix_one_row_count][$matrix_two_column_count]))):
+						$product_temp[$matrix_one_row_count][$matrix_two_column_count] = 0;
 						endif;
-					$product_temp[$matrix_two_column_count][$matrix_one_row_count] += ( $matrix_one_value * $matrix_two_value );
+	
+					$product_temp[$matrix_one_row_count][$matrix_two_column_count] += $value_one_value * $matrix_two_value
+						
 					endforeach;
+
 				endforeach;
+	
 			endforeach;
+
 		endforeach;
+					
 	return $product_temp;
 	}
 
