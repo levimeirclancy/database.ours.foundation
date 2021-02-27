@@ -14,13 +14,11 @@ $count_published_recent = $count_updated_recent = 0;
 foreach ($information_array as $entry_id => $entry_info):
 
 	$ordered_published_array[$entry_id] = $entry_info['date_published'];
-	if (strtotime($entry_info['date_published']) >= strtotime("-28 days")): $count_published_recent++; endif;
-
-echo "Last".strtotime("-28 days")."<br>"."Post".strtotime($entry_info['date_published'])."<br>";
+	if (intval(strtotime($entry_info['date_published'])) >= intval(strtotime("-28 days"))): $count_published_recent++; endif;
 
 	if (empty($entry_info['date_updated'])): continue; endif;
 
-	if (strtotime($entry_info['date_updated']) >= strtotime("-28 days")): $count_updated_recent++; endif;
+	if (intval(strtotime($entry_info['date_updated'])) >= intval(strtotime("-28 days"))): $count_updated_recent++; endif;
 	$ordered_updated_array[$entry_id] = $entry_info['date_updated'];	
 
 	endforeach; 
