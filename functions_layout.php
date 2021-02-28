@@ -345,30 +345,9 @@ function json_result($domain, $result, $redirect, $message) {
 	exit; }
 
 
-function generate_messenger_code ($entry_id) {
-	global $page_access_token;
-	if (empty($entry_id)): return null; endif;
-	unlink("messenger/".$entry_id.".png");
-	$postdata = [
-		"type"		=> "standard",
-		"image_size"	=> 1000,
-		"data"		=> ["ref"=>"entry_id=".$entry_id]
-		];
-	$opts = ["http" => ["method"=>"POST", "header"=>"Content-type: application/json", "content"=>http_build_query($postdata)]];
-	$context = stream_context_create($opts);
-	$result = file_get_contents("https://graph.facebook.com/v3.0/me/messenger_codes?access_token=".$page_access_token, false, $context);
-	$json_decoded = json_decode($result, true);
-	if (empty($json_decoded['uri'])): return null; endif;
-	$photo = imagecreatefrompng($json_decoded['uri']);
-	imagepng($photo, "messenger/".$entry_id.".png");
-//	copy ($json_decoded['uri'], "messenger/".$entry_id.".png");
-	}
-
-
 function notfound() {
 	echo "<p>404ed</p>";
 	footer(); }
-
 
 function footer() {
 	echo '<amp-mathml id="footer-formula" layout="container" data-formula="\[ 1 = 5 = 613 = \infty \]"></amp-mathml>';
