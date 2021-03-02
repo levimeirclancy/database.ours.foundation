@@ -470,8 +470,19 @@ function body_process($body_incoming) {
 	
 		if (empty($temp_array[0])): $temp_array[0] = null; endif;
 		if (empty($temp_array[1])): $temp_array[1] = null; endif;
-//		if (empty($temp_array[2])): $temp_array[2] = null; endif;
-
+		if (empty($temp_array[2])): $temp_array[2] = null; endif;
+	
+		$match_lowercase_temp = array_map('strtolower', $match_temp);
+		$match_lowercase_temp = array_map('trim', $match_lowercase_temp);
+		$tag_check = 0;
+		foreach (["h1", "h2", "h3", "h4", "h6", "h6"] as $tag_temp):
+			$tag_check = in_array($tag_temp, $match_lowercase_temp);
+			if ($tag_check !== FALSE):
+				unset($match_temp[$tag_check]);
+				$tag_check = 1;
+				break; endif;
+			$tag_check = 0;
+			endforeach;
 	
 		if (filter_var($temp_array[0], FILTER_VALIDATE_URL) !== FALSE):
 			$link_url = $temp_array[0];
@@ -523,6 +534,10 @@ function body_process($body_incoming) {
 		
 		// Replace with hyphen that does not break lines
 		$link_string = str_replace("-", "&#8209;", $link_string);
+
+		if ($tag_check == 1):
+			$link_string = "<".$tag_temp.">".$link_string."</".$tag_temp.">";
+			endif;
 	
 		$link_string = "<a href='".$link_url."'>".$link_string."</a>";
 			
