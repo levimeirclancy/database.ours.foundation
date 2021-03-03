@@ -117,6 +117,10 @@ function nesty_page($page_id_temp) {
 	global $retrieve_media;
 //	global $retrieve_entry;
 	global $retrieve_paths;
+	
+	// Capture #anchor and add to array
+	
+	// Check for $domain
 
 	if (empty($page_id_temp)): return null; endif;
 
@@ -255,38 +259,38 @@ function nesty_media($media_id_temp, $response_temp="full") {
 
 
 
-function nesty_entry($entry_id_temp) {
-	return null; // no entries here
-	global $domain;
-	global $publisher;
+// function nesty_entry($entry_id_temp) {
+//	return null; // no entries here
+//	global $domain;
+//	global $publisher;
 
 //	global $connection_pdo;
-	global $retrieve_page;
-	global $retrieve_media;
+//	global $retrieve_page;
+//	global $retrieve_media;
 //	global $retrieve_entry;
 
-	if (empty($entry_id_temp)): return null; endif;
-	if (strpos($entry_id_temp, "|")):
-		$domain_entry_id_temp = explode("|", $entry_id_temp);
-		if (strpos($domain_entry_id_temp[0], ".")): $domain_temp = $domain_entry_id_temp[0]; $entry_id_temp = $domain_entry_id_temp[1];
-		else: $domain_temp = $domain_entry_id_temp[1]; $entry_id_temp = $domain_entry_id_temp[0]; endif; endif;
-	if (empty($domain_temp) || ($domain == $domain_temp)):
-		return null; // there are no entries in this CMS
-		$entry_confirmed = [];
-		$retrieve_entry->execute(["entry_id"=>(string)$entry_id_temp]);
-		$result = $retrieve_entry->fetchAll();
-		foreach ($result as $row): $entry_confirmed = $row; endforeach;
-		if (empty($entry_confirmed)): return null; endif;
-		$entry_confirmed['body'] = body_process($entry_confirmed['body']);
-		$entry_confirmed['domain'] = $domain;
-		$entry_confirmed['publisher'] = $publisher;
-		$entry_info = [ $entry_confirmed['entry_id'] => $entry_confirmed ];
-	else:
-		$entry_info = file_get_contents("https://$domain/e/".(string)$entry_id_temp."/ping/"); // check if the media exists
-		$entry_info = json_decode($entry_info, true); // decode the json
-		endif;
-	if (empty($entry_info[$entry_id_temp])): return null; endif;
-	return $entry_info; }
+//	if (empty($entry_id_temp)): return null; endif;
+//	if (strpos($entry_id_temp, "|")):
+//		$domain_entry_id_temp = explode("|", $entry_id_temp);
+//		if (strpos($domain_entry_id_temp[0], ".")): $domain_temp = $domain_entry_id_temp[0]; $entry_id_temp = $domain_entry_id_temp[1];
+//		else: $domain_temp = $domain_entry_id_temp[1]; $entry_id_temp = $domain_entry_id_temp[0]; endif; endif;
+//	if (empty($domain_temp) || ($domain == $domain_temp)):
+//		return null; // there are no entries in this CMS
+//		$entry_confirmed = [];
+//		$retrieve_entry->execute(["entry_id"=>(string)$entry_id_temp]);
+//		$result = $retrieve_entry->fetchAll();
+//		foreach ($result as $row): $entry_confirmed = $row; endforeach;
+//		if (empty($entry_confirmed)): return null; endif;
+//		$entry_confirmed['body'] = body_process($entry_confirmed['body']);
+//		$entry_confirmed['domain'] = $domain;
+///		$entry_confirmed['publisher'] = $publisher;
+//		$entry_info = [ $entry_confirmed['entry_id'] => $entry_confirmed ];
+//	else:
+//		$entry_info = file_get_contents("https://$domain/e/".(string)$entry_id_temp."/ping/"); // check if the media exists
+//		$entry_info = json_decode($entry_info, true); // decode the json
+//		endif;
+//	if (empty($entry_info[$entry_id_temp])): return null; endif;
+//	return $entry_info; }
 
 
 function body_process($body_incoming) {
@@ -503,7 +507,7 @@ function body_process($body_incoming) {
 			endforeach;
 	
 		// Re-index the array
-		$match_temp = array_values($temp_array);	
+		$temp_array = array_values($temp_array);	
 	
 		$link_url = $contents_string = null;
 	
@@ -523,21 +527,6 @@ function body_process($body_incoming) {
 				if (!(empty($temp_array[1]))): $contents_string = $temp_array[1];
 				elseif (!(empty($link_info[$link_id_temp]['header']))): $contents_string = $link_info[$link_id_temp]['header'];
 				else: $contents_string = "<i class='material-icons'>link</i>"; endif;
-
-//				$anchor_temp = null;
-//				if (strpos($temp_array[0], "#") !== FALSE):
-//					$temp_array[0] = explode("#", $temp_array[0]);
-//					if (!(empty($temp_array[0][1]))): $anchor_temp = "#".$temp_array[0][1]; endif;
-//					$temp_array[0] = $temp_array[0][0];
-//					endif;
-//				$link_id_temp = $temp_array[0];
-//				if (strpos($temp_array[0], "|")):
-//					$domain_id_temp = explode("|", $temp_array[0]);
-//					if (strpos($domain_id_temp[0], ".")): $link_id_temp = $domain_id_temp[1];
-//					else: $link_id_temp = $domain_id_temp[0]; endif;
-//					endif;
-//				if (strpos($temp_array[0], "_") !== FALSE): $link_info = nesty_media($temp_array[0], "short");
-//				else: $link_info = ; endif; // check if the page exists
 	
 				$link_url = $link_info[$link_id_temp]['link'].$anchor_temp;
 				endif;
@@ -563,7 +552,7 @@ function body_process($body_incoming) {
 		foreach ($matches_temp[0] as $temp): $contents_string = str_replace("[[[".$temp."]]]", null, $contents_string); endforeach;
 
 		// remove all citations inside links
-		preg_match_all("/(?<=\(\(\()(.*?)(?=\)\)\))/is", $contents-string, $matches_temp);
+		preg_match_all("/(?<=\(\(\()(.*?)(?=\)\)\))/is", $contents_string, $matches_temp);
 		if (empty($matches_temp)): $matches_temp = [ [], [] ]; endif;
 		foreach ($matches_temp[0] as $temp): $contents_string = str_replace("(((".$temp.")))", null, $contents_string); endforeach;
 		
