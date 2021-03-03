@@ -364,7 +364,7 @@ $style_array = [
 		[
 		"text-align"		=> "left",
 		"display"		=> "block",
-		"margin-top"		=> "20px",
+		"margin-top"		=> "15px",
 //		"width"			=> "60%",
 //		"max-width"		=> output_width($default_width),
 		"color"			=> output_rgba($font_color, 1),
