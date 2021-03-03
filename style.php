@@ -313,17 +313,9 @@ $style_array = [
 		"position"		=> "relative",
 		"color"			=> output_rgba($font_color, 1),
 		"border"		=> "0",
+		"wudth"			=> "auto",
+		"min-width"		=> "0px",
 		"max-width"		=> output_width($default_width),
-		], ],
-	
-	[ // The organizational elements, except for tables
-	"css_tags" => [
-		"* + p",
-		"* + table",
-		],
-	"css_contents" =>
-		[
-//		"margin"		=> "20px 20px 0",
 		], ],
 	
 	[ // Text only
@@ -334,7 +326,7 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-		"margin"		=> "10px 20px",
+		"margin"		=> "20px",
 		], ],
 
 	[ // Text only
@@ -1003,22 +995,7 @@ $style_array = [
 		"content"		=> "",
 		], ],
 	
-	[ // Just to confirm that there is nothing for an unordered list...
-	"css_tags" => 
-		[
-		"table p",
-		"li p",
-		"table table",
-		"li table",
-		"blockquote p",
-		"table blockquote",
-		],
-	"css_contents" =>
-		[
-		"width"			=> "auto",
-		"min-width"		=> "0px",
-		], ],
-	
+
 	[ // Just to confirm that there is nothing for an unordered list...
 	"css_tags" => 
 		[
