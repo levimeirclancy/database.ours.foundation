@@ -321,6 +321,7 @@ $style_array = [
 		"font-weight"		=> "400",
 		"text-align"		=> "left",
 		"color"			=> output_rgba($font_color, 1),
+		"max-width"		=> output_width($default_width),
 		], ],
 	
 	[ // The organizational elements, except for tables
@@ -332,9 +333,8 @@ $style_array = [
 		"display"		=> "table",
 		"clear"			=> "both",
 		"position"		=> "relative",
-//		"width"			=> output_width($default_width),
-		"width"			=> "auto",
-		"max-width"		=> "80%", 
+//		"width"			=> "auto",
+//		"max-width"		=> "80%", 
 		], ],
 	
 	[
