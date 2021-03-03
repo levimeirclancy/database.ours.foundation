@@ -1024,9 +1024,10 @@ $style_array = [
 	[ // Just to confirm that there is nothing for an unordered list...
 	"css_tags" => 
 		[
-		"th p",
-		"td p",
+		"table p",
 		"li p",
+		"table table",
+		"li table",
 		],
 	"css_contents" =>
 		[
@@ -1037,9 +1038,14 @@ $style_array = [
 	[ // Just to confirm that there is nothing for an unordered list...
 	"css_tags" => 
 		[
-		"th p + p",
-		"td p + p",
+		"table p + p",
 		"li p + p",
+		"table table + table",
+		"li table + table",
+		"table table + p",
+		"li table + p",
+		"table p + table",
+		"li p + table",
 		],
 	"css_contents" =>
 		[
