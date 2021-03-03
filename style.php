@@ -319,6 +319,7 @@ $style_array = [
 	[ // The organizational elements, except for tables
 	"css_tags" => [
 		"* + p",
+		"* + table",
 		],
 	"css_contents" =>
 		[
@@ -357,6 +358,15 @@ $style_array = [
 		"border-radius"		=> "15px",
 		"padding"		=> "20px 0 20px 0",
 		"max-width"		=> output_width($default_width,-150),
+		], ],
+	
+	[ // The organizational elements, except for tables
+	"css_tags" => [
+		"* + blockquote",
+		],
+	"css_contents" =>
+		[
+		"margin"		=> "50px 20px 0",
 		], ],
 	
 	[
@@ -1028,22 +1038,7 @@ $style_array = [
 		"margin-right"		=> "0",
 //		"min-width"		=> "0px",
 		], ],
-	
-	[ // Just to confirm that there is nothing for an unordered list...
-	"css_tags" => 
-		[
-		"table * + p",
-		"table * + table",
-		"li * + p",
-		"li * + table",
-		"blockquote * + p",
-		"blockquote * + table",
-		],
-	"css_contents" =>
-		[
-//		"padding"		=> "0",
-//		"margin"		=> "20px 0 0 0",
-		], ],
+
 	
 	[ // Just to confirm that there is nothing for an unordered list...
 	"css_tags" => 
