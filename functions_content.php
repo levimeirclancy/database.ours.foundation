@@ -519,12 +519,19 @@ function body_process($body_incoming) {
 			else: $contents_string = $temp_array[0]; endif;
 			endif;
 	
-		$link_check = 0;
-		if (empty($contents_string)):
+		// If there is no link yet...
+		if ($link_check !== 1):
+			
+			// First check if there is a page result
 			if (NULL == $link_info = nesty_page($temp_array[0])):
-				$link_info = nesty_media($temp_array[0], "short");
+	
+				// If there is no page result, check if there is a media result
+				$link_info = nesty_media($temp_array[0]);
 				endif;
+	
+			// If we did get a $link_info just now
 			if ($link_info !== NULL):
+	
 				$link_check = 1;
 				$link_id_temp = array_key_first($link_info);
 				if (!(empty($temp_array[1]))): $contents_string = $temp_array[1];
@@ -532,21 +539,12 @@ function body_process($body_incoming) {
 				else: $contents_string = "<i class='material-icons'>link</i>"; endif;
 				$link_url = $link_info[$link_id_temp]['link'].$anchor_temp;
 				endif;
+	
 			endif;
 
 		if (empty($contents_string)):
 			$contents_string = $temp_array[0];
 			endif;
-	
-//			continue; endif; // page id does not exist so skip it
-
-//			if (empty($link_string)): $link_string =  endif;
-	
-//			if ($link_type == "button"): $link_type = "tile"; endif;
-			
-//			$link_url = $link_info[$link_id_temp]['link'].$anchor_temp;
-			
-//			endif;
 	
 		// remove all images inside links
 		preg_match_all("/(?<=\[\[\[)(.*?)(?=\]\]\])/is", $contents_string, $matches_temp);
