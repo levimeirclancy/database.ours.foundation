@@ -193,7 +193,7 @@ if (empty($languages_temp)):
 	$list_temp = relationships_array($page_temp, "children", "Subpages");
 	echo body_process("+-+-+".$list_temp."+-+-+");
 	echo "</div>";
-	echo "<br><br><br>";
+//	echo "<br><br><br>";
 	echo "<br><br><br>";
 	endif;
 
@@ -203,7 +203,7 @@ foreach ($languages_temp as $language_temp):
 		echo body_process(html_entity_decode(htmlspecialchars_decode($entry_info['summary'][$language_temp]))); endif;
 	if (!(empty($entry_info['body'][$language_temp]))):
 		echo body_process(html_entity_decode(htmlspecialchars_decode($entry_info['body'][$language_temp]))); endif;
-	echo "<br><br><br>";
+//	echo "<br><br><br>";
 	echo "<br><br><br>";
 	endforeach;
 
