@@ -508,9 +508,12 @@ function body_process($body_incoming) {
 		// Re-index the array
 		$temp_array = array_values($temp_array);	
 	
+		$link_check = 0;
+	
 		$link_url = $contents_string = null;
 	
 		if (filter_var($temp_array[0], FILTER_VALIDATE_URL) !== FALSE):
+			$link_check = 1;
 			$link_url = $temp_array[0];
 			if (!(empty($temp_array[1]))): $contents_string = $temp_array[1];
 			else: $contents_string = $temp_array[0]; endif;
