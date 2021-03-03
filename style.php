@@ -452,6 +452,7 @@ $style_array = [
 		"box-sizing"		=> "border-box",
 //		"left"			=> "50%",
 		"font-size"		=> "40px",
+		"white-space"		=> "pre",
 		"line-height"		=> "30px",
 		"vertical-align"	=> "middle",
 		"text-align"		=> "center",
