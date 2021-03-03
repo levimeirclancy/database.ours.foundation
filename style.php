@@ -329,10 +329,11 @@ $style_array = [
 		[
 		"margin"		=> "0",
 		"border"		=> "0",
-		"display"		=> "block",
+		"display"		=> "table",
 		"clear"			=> "both",
 		"position"		=> "relative",
 //		"width"			=> output_width($default_width),
+		"width"			=> "auto",
 		"max-width"		=> "80%", 
 		], ],
 	
