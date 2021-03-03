@@ -494,14 +494,14 @@ function body_process($body_incoming) {
 		foreach (["h1", "h2", "h3", "h4", "h6", "h6"] as $tag_temp):
 			$tag_check = in_array($tag_temp, $match_lowercase_temp);
 			if ($tag_check !== FALSE):
-				unset($match_lowercase_temp[$tag_check]);
+				unset($temp_array[$tag_check]);
 				$tag_check = 1;
 				break; endif;
 			$tag_check = 0;
 			endforeach;
 	
 		// Re-index the array
-		$match_temp = array_values($match_temp);	
+		$match_temp = array_values($temp_array);	
 	
 		$link_url = $contents_string = null;
 	
