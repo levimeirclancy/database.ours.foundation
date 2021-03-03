@@ -1006,7 +1006,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"width"			=> "auto",
-		"padding"		=> "0",
+//		"padding"		=> "0",
 		"margin"		=> "0",
 		"min-width"		=> "0px",
 		], ],
