@@ -354,7 +354,7 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-		"margin"		=> "10px",
+//		"margin"		=> "10px",
 		], ],
 	
 	[ // Text only
@@ -416,7 +416,7 @@ $style_array = [
 		"border-style"		=> "solid",
 		"border-color"		=> output_rgba($font_color, 0.8),
 		"border-radius"		=> "15px",
-		"padding"		=> "15px 10px",
+		"padding"		=> "15px 0 0",
 		"max-width"		=> output_width($default_width,-150),
 		], ],
 		
