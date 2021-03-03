@@ -331,7 +331,7 @@ $style_array = [
 	
 	[ // Text only
 	"css_tags" => [
-		"th p",
+		"table p",
 		"blockquote p",
 		],
 	"css_contents" =>
