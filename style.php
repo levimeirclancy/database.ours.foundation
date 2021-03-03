@@ -215,7 +215,7 @@ $style_array = [
 		"display"		=> "block",
 		"clear"			=> "both",
 		"vertical-align"	=> "top",
-		"margin"		=> "80px 20px 50px",
+		"margin"		=> "50px 20px 50px",
 		"padding"		=> "0",
 		"text-align"		=> "left",
 		"word-break"		=> "normal",
@@ -234,7 +234,7 @@ $style_array = [
 	"css_tags" => "h1",
 	"css_contents" =>
 		[
-//		"margin"		=> "130px 0 30px",
+		"margin-top"		=> "100px",
 		"font-size"		=> "2em",
 		"line-height"		=> "140%",
 		"text-align"		=> "left",
