@@ -337,12 +337,26 @@ $style_array = [
 	"css_tags" => [
 		"table p",
 		"blockquote p",
+		"table table",
+		"blockquote table",
+		"table blockquote",
+		"blockquote blockquote",
+		"table h2",
+		"blockquote h2",
+		"table h3",
+		"blockquote h3",
+		"table h4",
+		"blockquote h4",
+		"table h5",
+		"blockquote h5",
+		"table h6",
+		"blockquote h6",
 		],
 	"css_contents" =>
 		[
-//		"margin"		=> "15px",
+		"margin"		=> "20px",
 		], ],
-
+	
 	[ // Text only
 	"css_tags" => [
 		"table",
@@ -358,7 +372,6 @@ $style_array = [
 		"margin-top"		=> "40px",
 		], ],
 	
-	
 	[ // Text only
 	"css_tags" => [
 		"table + *",
@@ -373,6 +386,7 @@ $style_array = [
 		[
 		"margin-top"		=> "40px",
 		], ],
+
 	
 	[
 	"css_tags" => "dl",
