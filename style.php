@@ -1001,6 +1001,7 @@ $style_array = [
 		"table table",
 		"li table",
 		"blockquote p",
+		"table blockquote",
 		],
 	"css_contents" =>
 		[
@@ -1017,14 +1018,21 @@ $style_array = [
 		"table p + table",
 		"table table + table",
 		"table table + p",
+		"table p + blockquote",
+		"table table + blockquote",
+		"table blockquote + blockquote",
 		"li p + p",
 		"li p + table",
 		"li table + table",
 		"li table + p",
+		"li p + blockquote",
+		"li table + blockquote",
+		"li blockquote + blockquote",
 		"blockquote p + p",
 		"blockquote p + table",
 		"blockquote table + table",
 		"blockquote table + p",
+		"blockquote blockquote + blockquote",
 		],
 	"css_contents" =>
 		[
