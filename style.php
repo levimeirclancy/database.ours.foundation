@@ -326,16 +326,28 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-		"margin"		=> "15px 20px",
+		"margin"		=> "20px",
+		], ],
+	
+	[ // Text only
+	"css_tags" => [
+		"th p",
+		"blockquote p",
+		],
+	"css_contents" =>
+		[
+		"margin"		=> "15px",
 		], ],
 
 	[ // Text only
 	"css_tags" => [
+		"table",
 		"blockquote",
 		],
 	"css_contents" =>
 		[
-		"margin-top"		=> "50px",
+		"margin-top"		=> "40px",
+		"margin-bottom"		=> "40px",
 		], ],
 	
 	[
