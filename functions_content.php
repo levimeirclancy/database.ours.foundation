@@ -184,6 +184,8 @@ function nesty_page($page_id_temp) {
 function nesty_media($media_id_temp, $response_temp="full") {
 	global $domain;
 	global $publisher;
+	
+	return;
 
 	global $connection_pdo;
 	global $retrieve_page;
