@@ -304,7 +304,7 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-		"margin"		=> "0 20px 50px",
+		"margin"		=> "0 20px",
 		"box-sizing"		=> "border-box",
 		"vertical-align"	=> "top",
 		"font-weight"		=> "400",
@@ -312,16 +312,17 @@ $style_array = [
 		"clear"			=> "both",
 		"position"		=> "relative",
 		"color"			=> output_rgba($font_color, 1),
+		"border"		=> "0",
+		"max-width"		=> output_width($default_width),
 		], ],
 	
 	[ // The organizational elements, except for tables
 	"css_tags" => [
-		"p",
+		"* + p",
 		],
 	"css_contents" =>
 		[
-		"border"		=> "0",
-		"max-width"		=> output_width($default_width),
+		"margin"		=> "20px 20px 0",
 		], ],
 	
 	
@@ -354,7 +355,7 @@ $style_array = [
 		"border-style"		=> "dotted",
 		"border-color"		=> output_rgba($font_color, 1),
 		"border-radius"		=> "15px",
-		"padding"		=> "20px",
+		"padding"		=> "0 0 20px 0",
 		"max-width"		=> output_width($default_width,-150),
 		], ],
 	
@@ -408,15 +409,15 @@ $style_array = [
 	"css_tags" => "summary p:first-child",
 	"css_contents" =>
 		[
-		"margin-top"		=> "0",
-		"padding-top"		=> "0",
+//		"margin-top"		=> "0",
+//		"padding-top"		=> "0",
 		], ],
 
 	[
 	"css_tags" => "table",
 	"css_contents" =>
 		[
-		"margin"		=> "20px",
+		"margin"		=> "10px 20px",
 //		"display"		=> "table",
 		"box-sizing"		=> "border-box",
 		"table-layout"		=> "auto",
@@ -429,11 +430,14 @@ $style_array = [
 	
 
 	[
-	"css_tags" => "th, td",
+	"css_tags" => [
+		"th",
+		"td",
+		],
 	"css_contents" =>
 		[
 		"box-sizing"		=> "border-box",
-		"padding"		=> "10px",
+//		"padding"		=> "10px",
 		"margin"		=> "0",
 		"border"		=> "1px solid ".output_rgba($font_color, 1),
 		], ],
@@ -1030,26 +1034,18 @@ $style_array = [
 	"css_contents" =>
 		[
 //		"padding"		=> "0",
-		"margin"		=> "20px 0 0 0",
+//		"margin"		=> "20px 0 0 0",
 		], ],
 	
 	[ // Just to confirm that there is nothing for an unordered list...
 	"css_tags" => 
 		[
-		"table p + blockquote",
-		"table table + blockquote",
-		"table blockquote + blockquote",
-		"li p + blockquote",
-		"li table + blockquote",
-		"li blockquote + blockquote",
-		"blockquote p + blockquote",
-		"blockquote table + blockquote",
-		"blockquote blockquote + blockquote",
+		"* + blockquote",
 		],
 	"css_contents" =>
 		[
-//		"padding"		=> "0",
-		"margin"		=> "50px 0 0 0",
+		"padding"		=> "0",
+		"margin"		=> "50px 20px 0",
 		], ],
 	
 	[ // These are just a few basic formatting specs for some significant tables...
