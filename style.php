@@ -315,14 +315,6 @@ $style_array = [
 	[ // Text only
 	"css_tags" => [
 		"p",
-		"blockquote",
-//		"dl",
-//		"dt",
-//		"dd",
-//		"th",
-//		"td",
-//		"details",
-//		"summary",
 		],
 	"css_contents" =>
 		[
@@ -343,24 +335,14 @@ $style_array = [
 	"css_contents" =>
 		[
 		"border"		=> "0",
-//		"display"		=> "table",
 		"max-width"		=> output_width($default_width),
-//		"width"			=> "auto",
-//		"max-width"		=> "80%", 
 		], ],
 	
-//	[
-//	"css_tags" => "p, details",
-//	"css_contents" =>
-//		[
-//		"padding"		=> "20px",
-//		], ],
 	
 	[
 	"css_tags" => "dl",
 	"css_contents" =>
 		[
-		"margin"		=> "20px",
 		"padding"		=> "0 20px",
 		"border"		=> "1px dotted ".output_rgba($font_color, 0.5),
 		], ],
@@ -376,6 +358,11 @@ $style_array = [
 	"css_tags" => "blockquote",
 	"css_contents" =>
 		[
+		"box-sizing"		=> "border-box",
+		"vertical-align"	=> "top",
+		"clear"			=> "both",
+		"position"		=> "relative",			
+		"margin-top"		=> "20px 20px 50px",
 		"background"		=> output_rgba($background_color, 1),
 		"border-width"		=> "2px",
 		"border-style"		=> "dotted",
@@ -391,7 +378,8 @@ $style_array = [
 		[
 		"text-align"		=> "left",
 		"display"		=> "block",
-		"width"			=> "60%",
+		"margin-top"		=> "20px",
+//		"width"			=> "60%",
 //		"max-width"		=> output_width($default_width),
 		"color"			=> output_rgba($font_color, 1),
 		"font-style"		=> "normal",
@@ -453,20 +441,6 @@ $style_array = [
 //		"border-radius"		=> "7px",
 		], ],
 	
-	[
-	"css_tags" => "tbody tr:nth-child(odd) td",
-	"css_contents" =>
-		[
-//		"background"		=> output_rgba($font_color, 0),
-		], ],
-	
-	[
-	"css_tags" => "tbody tr:nth-child(even) td",
-	"css_contents" =>
-		[
-//		"background"		=> output_rgba($font_color, 0.02),
-		], ],
-
 
 	[
 	"css_tags" => "th, td",
