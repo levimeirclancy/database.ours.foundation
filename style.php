@@ -422,7 +422,7 @@ $style_array = [
 	"css_tags" => "blockquote:before",
 	"css_contents" =>
 		[
-		"content"		=> "'“   ”'",
+		"content"		=> "'“ • ”'",
 		"font-weight"		=> "700",
 //		"position"		=> "absolute",
 //		"top"			=> "-8px",
