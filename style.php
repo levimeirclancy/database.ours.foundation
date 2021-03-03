@@ -354,7 +354,7 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-		"margin"		=> "10px",
+//		"margin"		=> "10px",
 		], ],
 	
 	[ // Text only
