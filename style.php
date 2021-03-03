@@ -326,7 +326,7 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-		"margin"		=> "20px",
+		"margin"		=> "15px 20px",
 		], ],
 
 	[ // Text only
