@@ -201,7 +201,6 @@ $style_array = [
 		"display"		=> "block",
 		"clear"			=> "both",
 		"vertical-align"	=> "top",
-		"margin"		=> "50px 20px 50px",
 		"padding"		=> "0",
 		"text-align"		=> "left",
 		"word-break"		=> "normal",
@@ -343,11 +342,31 @@ $style_array = [
 	"css_tags" => [
 		"table",
 		"blockquote",
+		"h2",
+		"h3",
+		"h4",
+		"h5",
+		"h6",
 		],
 	"css_contents" =>
 		[
 		"margin-top"		=> "40px",
-		"margin-bottom"		=> "40px",
+		], ],
+	
+	
+	[ // Text only
+	"css_tags" => [
+		"table + *",
+		"blockquote + *",
+		"h2 + *",
+		"h3 + *",
+		"h4 + *",
+		"h5 + *",
+		"h6 + *",
+		],
+	"css_contents" =>
+		[
+		"margin-top"		=> "40px",
 		], ],
 	
 	[
