@@ -215,26 +215,26 @@ $style_array = [
 		"display"		=> "block",
 		"clear"			=> "both",
 		"vertical-align"	=> "top",
-		"margin"		=> "30px 0",
-		"padding"		=> "20px",
+		"margin"		=> "80px 20px 50px",
+		"padding"		=> "0",
 		"text-align"		=> "left",
 		"word-break"		=> "normal",
 		"font-family"		=> "Times, Serif",
 		], ],
 	
-	[
-	"css_tags" => "h1 span",
-	"css_contents" =>
-		[
-		"display"		=> "block",
-		"margin"		=> "10px auto",
-		], ],
+//	[
+//	"css_tags" => "h1 span",
+//	"css_contents" =>
+//		[
+//		"display"		=> "block",
+//		"margin"		=> "10px auto",
+//		], ],
 	
 	[
 	"css_tags" => "h1",
 	"css_contents" =>
 		[
-		"margin"		=> "130px 0 30px",
+//		"margin"		=> "130px 0 30px",
 		"font-size"		=> "2em",
 		"line-height"		=> "140%",
 		"text-align"		=> "left",
