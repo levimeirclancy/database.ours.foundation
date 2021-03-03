@@ -354,22 +354,22 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-//		"margin"		=> "10px",
+		"margin"		=> "10px",
 		], ],
 	
 	[ // Text only
 	"css_tags" => [
-		"* * + table",
-		"* * + blockquote",
-		"* * + h2",
-		"* * + h3",
-		"* * + h4",
-		"* * + h5",
-		"* * + h6",
+		"* + table",
+		"* + blockquote",
+		"* + h2",
+		"* + h3",
+		"* + h4",
+		"* + h5",
+		"* + h6",
 		],
 	"css_contents" =>
 		[
-		"margin-top"		=> "40px",
+		"margin-top"		=> "30px",
 		], ],
 	
 	[ // Text only
@@ -384,7 +384,7 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-		"margin-top"		=> "40px",
+		"margin-top"		=> "30px",
 		], ],
 
 	
