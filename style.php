@@ -1036,7 +1036,7 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-		"padding"		=> "0",
+//		"padding"		=> "0",
 		"margin"		=> "20px 0 0 0",
 		], ],
 	
