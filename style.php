@@ -437,7 +437,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"box-sizing"		=> "border-box",
-//		"padding"		=> "10px",
+		"padding"		=> "20px 0",
 		"margin"		=> "0",
 		"border"		=> "1px solid ".output_rgba($font_color, 1),
 		], ],
