@@ -498,8 +498,10 @@ function body_process($body_incoming) {
 		$match_lowercase_temp = array_map('strtolower', $temp_array);
 		$tag_check = 0;
 		foreach (["h1", "h2", "h3", "h4", "h6", "h6"] as $tag_temp):
-			$tag_check = in_array($tag_temp, $match_lowercase_temp);
-			if ($tag_check !== FALSE):
+			if (FALSE !== $tag_check = array_search($tag_temp, $match_lowercase_temp)):
+	
+				echo $tag_chec
+	
 				unset($temp_array[$tag_check]);
 				$tag_check = 1;
 				break; endif;
@@ -518,16 +520,14 @@ function body_process($body_incoming) {
 			endif;
 	
 		if (empty($contents_string)):
-			$link_info = nesty_page($temp_array[0]);
-			if ($link_info == null):
+			if (NULL == $link_info = nesty_page($temp_array[0])):
 				$link_info = nesty_media($temp_array[0], "short");
 				endif;
-			if ($link_info !== null):
+			if ($link_info !== NULL):
 				$link_id_temp = array_key_first($link_info);
 				if (!(empty($temp_array[1]))): $contents_string = $temp_array[1];
 				elseif (!(empty($link_info[$link_id_temp]['header']))): $contents_string = $link_info[$link_id_temp]['header'];
 				else: $contents_string = "<i class='material-icons'>link</i>"; endif;
-	
 				$link_url = $link_info[$link_id_temp]['link'].$anchor_temp;
 				endif;
 			endif;
