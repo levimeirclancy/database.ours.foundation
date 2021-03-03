@@ -377,7 +377,7 @@ $style_array = [
 	"css_tags" => "blockquote blockquote",
 	"css_contents" =>
 		[
-		"margin"		=> "20px",
+//		"margin"		=> "20px",
 		], ],
 	
 	[
@@ -1038,7 +1038,7 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-		"padding"		=> "0",
+//		"padding"		=> "0",
 		"margin"		=> "50px 20px 0",
 		], ],
 	
