@@ -421,12 +421,12 @@ $style_array = [
 		], ],
 		
 	[
-	"css_tags" => "blockquote cite",
+	"css_tags" => "cite",
 	"css_contents" =>
 		[
-		"text-align"		=> "left",
-		"display"		=> "block",
-		"margin-top"		=> "15px",
+//		"text-align"		=> "left",
+//		"display"		=> "block",
+//		"margin-top"		=> "15px",
 //		"width"			=> "60%",
 //		"max-width"		=> output_width($default_width),
 		"color"			=> output_rgba($font_color, 1),
@@ -464,7 +464,7 @@ $style_array = [
 		"display"		=> "block",
 //		"width"			=> "40px",
 //		"height"		=> "40px",
-		"margin"		=> "0 10px 20px",
+		"margin"		=> "0 20px 20px",
 //		"border-radius"		=> "100px",
 		], ],
 
