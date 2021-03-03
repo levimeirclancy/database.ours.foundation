@@ -313,7 +313,7 @@ $style_array = [
 		], ],
 	
 	[ // Text only
-	"css_tags" => "p, ul, ol, blockquote, table, dt, dd, th, td, details, summary",
+	"css_tags" => "p, blockquote, dt, dd, th, td, details, summary",
 	"css_contents" =>
 		[
 		"box-sizing"		=> "border-box",
