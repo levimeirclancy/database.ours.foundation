@@ -322,6 +322,11 @@ $style_array = [
 		"p",
 		"table",
 		"blockquote",
+		"h2",
+		"h3",
+		"h4",
+		"h5",
+		"h6",
 		],
 	"css_contents" =>
 		[
@@ -335,7 +340,7 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-		"margin"		=> "15px",
+//		"margin"		=> "15px",
 		], ],
 
 	[ // Text only
