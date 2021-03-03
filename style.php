@@ -1015,8 +1015,17 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-		"margin-left"		=> "0",
-		"margin-right"		=> "0",
+		"margin"		=> "0",
+		], ],
+	
+	[ // Just to confirm that there is nothing for an unordered list...
+	"css_tags" => 
+		[
+		"li * + p",
+		],
+	"css_contents" =>
+		[
+		"margin-top"		=> "10px",
 		], ],
 
 	
