@@ -333,31 +333,7 @@ $style_array = [
 		"margin"		=> "20px",
 		], ],
 	
-	[ // Text only
-	"css_tags" => [
-		"table p",
-		"blockquote p",
-		"table table",
-		"blockquote table",
-		"table blockquote",
-		"blockquote blockquote",
-		"table h2",
-		"blockquote h2",
-		"table h3",
-		"blockquote h3",
-		"table h4",
-		"blockquote h4",
-		"table h5",
-		"blockquote h5",
-		"table h6",
-		"blockquote h6",
-		],
-	"css_contents" =>
-		[
-//		"margin"		=> "10px",
-		], ],
-	
-	[ // Text only
+	[ // Add extra margins
 	"css_tags" => [
 		"* + table",
 		"* + blockquote",
@@ -366,25 +342,17 @@ $style_array = [
 		"* + h4",
 		"* + h5",
 		"* + h6",
+		"table + *",
+		"blockquote + *",
+		"h2 + *",
+		"h3 + *",
+		"h4 + *",
+		"h5 + *",
+		"h6 + *",
 		],
 	"css_contents" =>
 		[
-		"margin-top"		=> "30px",
-		], ],
-	
-	[ // Text only
-	"css_tags" => [
-		"* table + *",
-		"* blockquote + *",
-		"* h2 + *",
-		"* h3 + *",
-		"* h4 + *",
-		"* h5 + *",
-		"* h6 + *",
-		],
-	"css_contents" =>
-		[
-		"margin-top"		=> "30px",
+		"margin-top"		=> "40px",
 		], ],
 
 	
@@ -424,14 +392,23 @@ $style_array = [
 	"css_tags" => "cite",
 	"css_contents" =>
 		[
-//		"text-align"		=> "left",
-//		"display"		=> "block",
-//		"margin-top"		=> "15px",
-//		"width"			=> "60%",
-//		"max-width"		=> output_width($default_width),
 		"color"			=> output_rgba($font_color, 1),
 		"font-style"		=> "normal",
 		"opacity"		=> "0.6",
+		], ],
+	
+	[
+	"css_tags" => "cite:before",
+	"css_contents" =>
+		[
+		"content"		=> "'('",
+		], ],
+
+	[
+	"css_tags" => "cite:after",
+	"css_contents" =>
+		[
+		"content"		=> "')'",
 		], ],
 	
 	[
