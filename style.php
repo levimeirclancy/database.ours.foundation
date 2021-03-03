@@ -359,13 +359,13 @@ $style_array = [
 	
 	[ // Text only
 	"css_tags" => [
-		"* + table",
-		"* + blockquote",
-		"* + h2",
-		"* + h3",
-		"* + h4",
-		"* + h5",
-		"* + h6",
+		"* * + table",
+		"* * + blockquote",
+		"* * + h2",
+		"* * + h3",
+		"* * + h4",
+		"* * + h5",
+		"* * + h6",
 		],
 	"css_contents" =>
 		[
@@ -374,13 +374,13 @@ $style_array = [
 	
 	[ // Text only
 	"css_tags" => [
-		"table + *",
-		"blockquote + *",
-		"h2 + *",
-		"h3 + *",
-		"h4 + *",
-		"h5 + *",
-		"h6 + *",
+		"* table + *",
+		"* blockquote + *",
+		"* h2 + *",
+		"* h3 + *",
+		"* h4 + *",
+		"* h5 + *",
+		"* h6 + *",
 		],
 	"css_contents" =>
 		[
