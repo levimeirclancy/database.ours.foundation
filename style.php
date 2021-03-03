@@ -460,6 +460,7 @@ $style_array = [
 	"css_tags" => "th, td",
 	"css_contents" =>
 		[
+		"box-sizing"		=> "border-box",
 		"padding"		=> "10px",
 		"margin"		=> "0",
 		"border"		=> "1px solid ".output_rgba($font_color, 1),
