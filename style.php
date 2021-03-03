@@ -1018,6 +1018,20 @@ $style_array = [
 	[ // Just to confirm that there is nothing for an unordered list...
 	"css_tags" => 
 		[
+		"li p",
+		],
+	"css_contents" =>
+		[
+//		"width"			=> "auto",
+//		"padding"		=> "0",
+		"margin-left"		=> "0",
+		"margin-right"		=> "0",
+//		"min-width"		=> "0px",
+		], ],
+	
+	[ // Just to confirm that there is nothing for an unordered list...
+	"css_tags" => 
+		[
 		"table * + p",
 		"table * + table",
 		"li * + p",
