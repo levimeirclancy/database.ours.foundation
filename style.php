@@ -313,7 +313,17 @@ $style_array = [
 		], ],
 	
 	[ // Text only
-	"css_tags" => "p, blockquote, dt, dd, th, td, details, summary",
+	"css_tags" => [
+		"p",
+		"blockquote",
+//		"dl",
+		"dt",
+		"dd",
+		"th",
+		"td",
+		"details",
+		"summary",
+		],
 	"css_contents" =>
 		[
 		"box-sizing"		=> "border-box",
@@ -321,11 +331,12 @@ $style_array = [
 		"font-weight"		=> "400",
 		"text-align"		=> "left",
 		"color"			=> output_rgba($font_color, 1),
-		"max-width"		=> output_width($default_width),
 		], ],
 	
 	[ // The organizational elements, except for tables
-	"css_tags" => "p, blockquote, dl, dt, dd",
+	"css_tags" => [
+		"p",
+		],
 	"css_contents" =>
 		[
 		"margin"		=> "0",
@@ -333,17 +344,17 @@ $style_array = [
 		"display"		=> "table",
 		"clear"			=> "both",
 		"position"		=> "relative",
+		"max-width"		=> output_width($default_width),
 //		"width"			=> "auto",
 //		"max-width"		=> "80%", 
 		], ],
 	
-	[
-	"css_tags" => "p, details",
-	"css_contents" =>
-		[
-		"padding"		=> "20px",
-		], ],
-
+//	[
+//	"css_tags" => "p, details",
+//	"css_contents" =>
+//		[
+//		"padding"		=> "20px",
+//		], ],
 	
 	[
 	"css_tags" => "dl",
