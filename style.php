@@ -1018,26 +1018,38 @@ $style_array = [
 		"table p + table",
 		"table table + table",
 		"table table + p",
-		"table p + blockquote",
-		"table table + blockquote",
-		"table blockquote + blockquote",
 		"li p + p",
 		"li p + table",
 		"li table + table",
 		"li table + p",
-		"li p + blockquote",
-		"li table + blockquote",
-		"li blockquote + blockquote",
 		"blockquote p + p",
 		"blockquote p + table",
 		"blockquote table + table",
 		"blockquote table + p",
-		"blockquote blockquote + blockquote",
 		],
 	"css_contents" =>
 		[
 //		"padding"		=> "0",
 		"margin"		=> "20px 0 0 0",
+		], ],
+	
+	[ // Just to confirm that there is nothing for an unordered list...
+	"css_tags" => 
+		[
+		"table p + blockquote",
+		"table table + blockquote",
+		"table blockquote + blockquote",
+		"li p + blockquote",
+		"li table + blockquote",
+		"li blockquote + blockquote",
+		"blockquote p + blockquote",
+		"blockquote table + blockquote",
+		"blockquote blockquote + blockquote",
+		],
+	"css_contents" =>
+		[
+//		"padding"		=> "0",
+		"margin"		=> "50px 0 0 0",
 		], ],
 	
 	[ // These are just a few basic formatting specs for some significant tables...
