@@ -1047,7 +1047,7 @@ $style_array = [
 		"width"			=> "auto",
 		"padding"		=> "0",
 		"margin"		=> "0",
-		"min-width"		=> "none",
+		"min-width"		=> "0px",
 		], ],
 	
 	[ // Just to confirm that there is nothing for an unordered list...
@@ -1199,7 +1199,7 @@ $style_array = [
 		"css_contents" =>
 			[
 			"display"	=> "block",
-			"min-width"	=> "0",
+			"min-width"	=> "0px",
 			"width"		=> "auto",
 			], ],
 			
