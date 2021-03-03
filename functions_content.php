@@ -541,7 +541,7 @@ function body_process($body_incoming) {
 				endif;
 			endif;
 
-		if (empty($contents_string));
+		if (empty($contents_string)):
 			$contents_string = $temp_array[0];
 			endif;
 	
