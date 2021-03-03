@@ -444,11 +444,11 @@ $style_array = [
 	"css_contents" =>
 		[
 		"margin"		=> "20px",
-		"display"		=> "table",
+//		"display"		=> "table",
 		"box-sizing"		=> "border-box",
 		"table-layout"		=> "auto",
 		"border-collapse"	=> "collapse",
-		"overflow"		=> "auto",
+//		"overflow"		=> "auto",
 		"border"		=> "0",
 		"min-width"		=> output_width($default_width),
 //		"border-radius"		=> "7px",
@@ -1047,6 +1047,7 @@ $style_array = [
 		"width"			=> "auto",
 		"padding"		=> "0",
 		"margin"		=> "0",
+		"min-width"		=> "none",
 		], ],
 	
 	[ // Just to confirm that there is nothing for an unordered list...
