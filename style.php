@@ -304,7 +304,7 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-		"margin"		=> "0 20px",
+//		"margin"		=> "10px 20px",
 		"box-sizing"		=> "border-box",
 		"vertical-align"	=> "top",
 		"font-weight"		=> "400",
@@ -323,9 +323,30 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-		"margin"		=> "20px 20px 0",
+//		"margin"		=> "20px 20px 0",
 		], ],
 	
+	[ // Text only
+	"css_tags" => [
+		"p",
+		"table",
+		"blockquote",
+//		"blockquote",
+		],
+	"css_contents" =>
+		[
+		"margin"		=> "10px 20px",
+		], ],
+
+	[ // Text only
+	"css_tags" => [
+		"blockquote",
+//		"blockquote",
+		],
+	"css_contents" =>
+		[
+		"margin-top"		=> "50px",
+		], ],
 	
 	[
 	"css_tags" => "dl",
@@ -350,7 +371,7 @@ $style_array = [
 		"vertical-align"	=> "top",
 		"clear"			=> "both",
 		"position"		=> "relative",			
-		"margin"		=> "80px 20px 50px",
+//		"margin"		=> "80px 20px 50px",
 		"background"		=> output_rgba($background_color, 1),
 		"border-width"		=> "2px",
 		"border-style"		=> "dotted",
@@ -359,16 +380,7 @@ $style_array = [
 		"padding"		=> "20px 0 20px 0",
 		"max-width"		=> output_width($default_width,-150),
 		], ],
-	
-	[ // The organizational elements, except for tables
-	"css_tags" => [
-		"* + blockquote",
-		],
-	"css_contents" =>
-		[
-		"margin"		=> "50px 20px 0",
-		], ],
-	
+		
 	[
 	"css_tags" => "blockquote cite",
 	"css_contents" =>
@@ -414,30 +426,17 @@ $style_array = [
 		"margin"		=> "-15px",
 		"border-radius"		=> "100px",
 		], ],
-		
-	[
-	"css_tags" => "summary p:first-child",
-	"css_contents" =>
-		[
-//		"margin-top"		=> "0",
-//		"padding-top"		=> "0",
-		], ],
 
 	[
 	"css_tags" => "table",
 	"css_contents" =>
 		[
-		"margin"		=> "10px 20px",
-//		"display"		=> "table",
 		"box-sizing"		=> "border-box",
 		"table-layout"		=> "auto",
 		"border-collapse"	=> "collapse",
-//		"overflow"		=> "auto",
 		"border"		=> "0",
 		"min-width"		=> output_width($default_width),
-//		"border-radius"		=> "7px",
-		], ],
-	
+		], ],	
 
 	[
 	"css_tags" => [
@@ -447,7 +446,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"box-sizing"		=> "border-box",
-		"padding"		=> "20px 0",
+		"padding"		=> "10px 0",
 		"margin"		=> "0",
 		"border"		=> "1px solid ".output_rgba($font_color, 1),
 		], ],
