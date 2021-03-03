@@ -316,6 +316,7 @@ $style_array = [
 	"css_tags" => "article, summary, p, ul, ol, blockquote, table, dt, dd, th, td, details, summary",
 	"css_contents" =>
 		[
+		"box-sizing"		=> "border-box",
 		"vertical-align"	=> "top",
 		"font-weight"		=> "400",
 		"text-align"		=> "left",
@@ -331,8 +332,8 @@ $style_array = [
 		"display"		=> "block",
 		"clear"			=> "both",
 		"position"		=> "relative",
-		"width"			=> "auto",
-		"max-width"		=> output_width($default_width), 
+		"width"			=> output_width($default_width),
+		"max-width"		=> "100%", 
 		], ],
 	
 	[
