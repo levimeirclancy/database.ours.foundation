@@ -355,7 +355,7 @@ $style_array = [
 		"border-style"		=> "dotted",
 		"border-color"		=> output_rgba($font_color, 1),
 		"border-radius"		=> "15px",
-		"padding"		=> "0 0 20px 0",
+		"padding"		=> "20px 0 20px 0",
 		"max-width"		=> output_width($default_width,-150),
 		], ],
 	
