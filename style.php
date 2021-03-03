@@ -331,7 +331,6 @@ $style_array = [
 		"p",
 		"table",
 		"blockquote",
-//		"blockquote",
 		],
 	"css_contents" =>
 		[
@@ -341,7 +340,6 @@ $style_array = [
 	[ // Text only
 	"css_tags" => [
 		"blockquote",
-//		"blockquote",
 		],
 	"css_contents" =>
 		[
@@ -370,14 +368,13 @@ $style_array = [
 		"box-sizing"		=> "border-box",
 		"vertical-align"	=> "top",
 		"clear"			=> "both",
-		"position"		=> "relative",			
-//		"margin"		=> "80px 20px 50px",
+		"position"		=> "relative",
 		"background"		=> output_rgba($background_color, 1),
 		"border-width"		=> "2px",
 		"border-style"		=> "dotted",
 		"border-color"		=> output_rgba($font_color, 1),
 		"border-radius"		=> "15px",
-		"padding"		=> "20px 0 20px 0",
+		"padding"		=> "10px 0",
 		"max-width"		=> output_width($default_width,-150),
 		], ],
 		
@@ -1019,8 +1016,6 @@ $style_array = [
 	"css_contents" =>
 		[
 		"width"			=> "auto",
-//		"padding"		=> "0",
-//		"margin"		=> "0",
 		"min-width"		=> "0px",
 		], ],
 	
@@ -1031,24 +1026,10 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-//		"width"			=> "auto",
-//		"padding"		=> "0",
 		"margin-left"		=> "0",
 		"margin-right"		=> "0",
-//		"min-width"		=> "0px",
 		], ],
 
-	
-	[ // Just to confirm that there is nothing for an unordered list...
-	"css_tags" => 
-		[
-		"* + blockquote",
-		],
-	"css_contents" =>
-		[
-//		"padding"		=> "0",
-		"margin"		=> "50px 20px 0",
-		], ],
 	
 	[ // These are just a few basic formatting specs for some significant tables...
 	"css_tags" => ".navigation-list, .navigation-list > .wrapper-list",
