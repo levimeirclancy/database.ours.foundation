@@ -468,12 +468,28 @@ function body_process($body_incoming) {
 	
 		$temp_array = explode("}{", $match_temp."}{");
 	
-		if (empty($temp_array[0])): $temp_array[0] = null; endif;
-		if (empty($temp_array[1])): $temp_array[1] = null; endif;
-		if (empty($temp_array[2])): $temp_array[2] = null; endif;
+		// Set up the array
+		$content_check = 0;
+
+		// Sanitize temp array so we have three in place
+		$count_temp = 0;
+		while ($count_temp < 3):
+			if (empty($temp_array[$count_temp])):
+				$temp_array[$count_temp] = null;
+			else:
+				$temp_array[$count_temp] = trim($temp_array[$count_temp]);
+				$content_check = 1;
+				endif;
+			$count_temp++;
+			endwhile;
+
+		// If there is nothing, just skip it...
+		if ($content_check == 0):
+			$body_incoming = str_replace("{{{".$match_temp."}}}", null, $body_incoming);
+			continue;
+			endif;
 	
-		$match_lowercase_temp = array_map('strtolower', $match_temp);
-		$match_lowercase_temp = array_map('trim', $match_lowercase_temp);
+		$match_lowercase_temp = array_map('strtolower', $temp_array);
 		$tag_check = 0;
 		foreach (["h1", "h2", "h3", "h4", "h6", "h6"] as $tag_temp):
 			$tag_check = in_array($tag_temp, $match_lowercase_temp);
@@ -484,64 +500,91 @@ function body_process($body_incoming) {
 			$tag_check = 0;
 			endforeach;
 	
+		// Re-index the array
+		$match_temp = array_values($match_temp);	
+	
+		$link_url = $contents_string = null;
+	
 		if (filter_var($temp_array[0], FILTER_VALIDATE_URL) !== FALSE):
 			$link_url = $temp_array[0];
-			$link_string = $temp_array[0];
-			if (!(empty($temp_array[1]))): $link_string = $temp_array[1]; endif;
-		else:
-
-			$anchor_temp = null;
-			if (strpos($temp_array[0], "#") !== FALSE):
-				$temp_array[0] = explode("#", $temp_array[0]);
-				if (!(empty($temp_array[0][1]))): $anchor_temp = "#".$temp_array[0][1]; endif;
-				$temp_array[0] = $temp_array[0][0];
-				endif;
+			if (!(empty($temp_array[1]))): $contents_string = $temp_array[1];
+			else: $contents_string = $temp_array[0]; endif;
+			endif;
 	
-			if (strpos($temp_array[0], "_") !== FALSE): $link_info = nesty_media($temp_array[0], "short");
-			else: $link_info = nesty_page($temp_array[0]); endif; // check if the page exists
-	
-			$link_id_temp = $temp_array[0];
-			if (strpos($temp_array[0], "|")):
-				$domain_id_temp = explode("|", $temp_array[0]);
-				if (strpos($domain_id_temp[0], ".")): $link_id_temp = $domain_id_temp[1];
-				else: $link_id_temp = $domain_id_temp[0]; endif;
+		if (empty($contents_string)):
+			$link_info = nesty_page($temp_array[0]);
+			if ($link_info == null):
+				$link_info = nesty_media($temp_array[0], "short");
 				endif;
+			if ($link_info !== null):
+				$link_id_temp = array_key_first($link_info);
+				if (!(empty($temp_array[1]))): $contents_string = $temp_array[1];
+				elseif (!(empty($link_info[$link_id_temp]['header']))): $contents_string = $link_info[$link_id_temp]['header'];
+				else: $contents_string = "<i class='material-icons'>link</i>"; endif;
 
-			if (!(empty($temp_array[1]))): $link_string = $temp_array[1];
-			elseif (!(empty($link_info[$link_id_temp]['header']))): $link_string = $link_info[$link_id_temp]['header']; endif;
+//				$anchor_temp = null;
+//				if (strpos($temp_array[0], "#") !== FALSE):
+//					$temp_array[0] = explode("#", $temp_array[0]);
+//					if (!(empty($temp_array[0][1]))): $anchor_temp = "#".$temp_array[0][1]; endif;
+//					$temp_array[0] = $temp_array[0][0];
+//					endif;
+//				$link_id_temp = $temp_array[0];
+//				if (strpos($temp_array[0], "|")):
+//					$domain_id_temp = explode("|", $temp_array[0]);
+//					if (strpos($domain_id_temp[0], ".")): $link_id_temp = $domain_id_temp[1];
+//					else: $link_id_temp = $domain_id_temp[0]; endif;
+//					endif;
+//				if (strpos($temp_array[0], "_") !== FALSE): $link_info = nesty_media($temp_array[0], "short");
+//				else: $link_info = ; endif; // check if the page exists
+	
+				$link_url = $link_info[$link_id_temp]['link'].$anchor_temp;
+				endif;
+			endif;
 
-			if (empty($link_info[$link_id_temp])):
-				$body_incoming = str_replace("{{{".$match_temp."}}}", $link_string, $body_incoming);
-				continue; endif; // page id does not exist so skip it
+		if (empty($contents_string));
+			$contents_string = $temp_array[0];
+			endif;
+	
+//			continue; endif; // page id does not exist so skip it
 
-			if (empty($link_string)): $link_string = "<i class='material-icons'>link</i>"; endif;
+//			if (empty($link_string)): $link_string =  endif;
 	
 //			if ($link_type == "button"): $link_type = "tile"; endif;
 			
-			$link_url = $link_info[$link_id_temp]['link'].$anchor_temp;
+//			$link_url = $link_info[$link_id_temp]['link'].$anchor_temp;
 			
-			endif;
+//			endif;
 	
 		// remove all images inside links
-		preg_match_all("/(?<=\[\[\[)(.*?)(?=\]\]\])/is", $link_string, $matches_temp);
+		preg_match_all("/(?<=\[\[\[)(.*?)(?=\]\]\])/is", $contents_string, $matches_temp);
 		if (empty($matches_temp)): $matches_temp = [ [], [] ]; endif;
-		foreach ($matches_temp[0] as $temp): $link_string = str_replace("[[[".$temp."]]]", null, $link_string); endforeach;
+		foreach ($matches_temp[0] as $temp): $contents_string = str_replace("[[[".$temp."]]]", null, $contents_string); endforeach;
 
 		// remove all citations inside links
-		preg_match_all("/(?<=\(\(\()(.*?)(?=\)\)\))/is", $link_string, $matches_temp);
+		preg_match_all("/(?<=\(\(\()(.*?)(?=\)\)\))/is", $contents-string, $matches_temp);
 		if (empty($matches_temp)): $matches_temp = [ [], [] ]; endif;
-		foreach ($matches_temp[0] as $temp): $link_string = str_replace("(((".$temp.")))", null, $link_string); endforeach;
+		foreach ($matches_temp[0] as $temp): $contents_string = str_replace("(((".$temp.")))", null, $contents_string); endforeach;
 		
 		// Replace with hyphen that does not break lines
-		$link_string = str_replace("-", "&#8209;", $link_string);
+//		$link_string = str_replace("-", "&#8209;", $link_string);
 
-		if ($tag_check == 1):
-			$link_string = "<".$tag_temp.">".$link_string."</".$tag_temp.">";
+//		if ($tag_check == 1):
+//			$link_string = "<".$tag_temp.">".$link_string."</".$tag_temp.">";
+//			endif;
+
+		if (empty($link_url)):
+			$contents_string = "<a href='".$link_url."'>".$contents_string."</a>";
 			endif;
 	
-		$link_string = "<a href='".$link_url."'>".$link_string."</a>";
+		if ($tag_check == 1):
+			$contents_string = "<".$tag_temp.">".$contents_string."</".$tag_temp.">";
+			endif;
+
+		$body_incoming = str_replace("{{{".$match_temp."}}}", $contents_string, $body_incoming);
+	
+//		$link_string = "<a href='".$link_url."'>".$link_string."</a>";
 			
-		$body_incoming = str_replace("{{{".$match_temp."}}}", $link_string, $body_incoming);
+//		$body_incoming = str_replace("{{{".$match_temp."}}}", $link_string, $body_incoming);
 	
 		endforeach;
 	
