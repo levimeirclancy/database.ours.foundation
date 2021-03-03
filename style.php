@@ -445,7 +445,7 @@ $style_array = [
 	"css_tags" => "blockquote:before",
 	"css_contents" =>
 		[
-		"content"		=> "'”'",
+		"content"		=> "'“   ”'",
 		"font-weight"		=> "700",
 //		"position"		=> "absolute",
 //		"top"			=> "-8px",
@@ -463,7 +463,7 @@ $style_array = [
 		"display"		=> "block",
 //		"width"			=> "40px",
 //		"height"		=> "40px",
-		"margin"		=> "0 10px 10px",
+		"margin"		=> "0 10px 20px",
 //		"border-radius"		=> "100px",
 		], ],
 
