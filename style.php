@@ -466,6 +466,7 @@ $style_array = [
 		"box-sizing"		=> "border-box",
 //		"padding"		=> "10px 0",
 		"margin"		=> "0",
+		"vertical-align"	=> "top",
 		"border"		=> "1px solid ".output_rgba($font_color, 1),
 		], ],
 	
