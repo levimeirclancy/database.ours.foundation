@@ -516,11 +516,13 @@ function body_process($body_incoming) {
 			else: $contents_string = $temp_array[0]; endif;
 			endif;
 	
+		$link_check = 0;
 		if (empty($contents_string)):
 			if (NULL == $link_info = nesty_page($temp_array[0])):
 				$link_info = nesty_media($temp_array[0], "short");
 				endif;
 			if ($link_info !== NULL):
+				$link_check = 1;
 				$link_id_temp = array_key_first($link_info);
 				if (!(empty($temp_array[1]))): $contents_string = $temp_array[1];
 				elseif (!(empty($link_info[$link_id_temp]['header']))): $contents_string = $link_info[$link_id_temp]['header'];
@@ -560,7 +562,7 @@ function body_process($body_incoming) {
 //			$link_string = "<".$tag_temp.">".$link_string."</".$tag_temp.">";
 //			endif;
 
-		if (empty($link_url)):
+		if ($link_check == 1):
 			$contents_string = "<a href='".$link_url."'>".$contents_string."</a>";
 			endif;
 	
