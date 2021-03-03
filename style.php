@@ -441,7 +441,7 @@ $style_array = [
 		"display"		=> "block",
 //		"width"			=> "40px",
 //		"height"		=> "40px",
-		"margin"		=> "0 20px 20px",
+		"margin"		=> "0 20px 16px",
 //		"border-radius"		=> "100px",
 		], ],
 
