@@ -81,7 +81,7 @@ $style_array = [
 		"box-sizing"		=> "border-box",
 		"width"			=> "100%",
 //		"background"		=> output_rgba($background_color, 1),
-		"padding"		=> "10px",
+		"padding"		=> "10px 0",
 		"z-index"		=> "100",
 		"margin"		=> "0 0 50px 0",
 		], ],
@@ -102,20 +102,6 @@ $style_array = [
 		"color"			=> output_rgba($font_color, 1),
 		"font-weight"		=> "400",
 		"font-family"		=> "Arial, Helvetica, 'Sans Serif'",
-		], ],
-
-	
-	[
-	"css_tags" => 
-		[
-		"#entries-list-alphabetical .navigation-header-item",
-		"#entries-list-hierarchical .navigation-header-item",
-		],
-	"css_contents" =>
-		[
-		"top"			=> "0",
-		"right"			=> "0",
-		"position"		=> "absolute",
 		], ],
 	
 	
