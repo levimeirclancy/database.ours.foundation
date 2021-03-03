@@ -219,7 +219,7 @@ $style_array = [
 	"css_tags" => "h1",
 	"css_contents" =>
 		[
-		"margin-top"		=> "100px",
+		"margin"		=> "100px 20px 40px",
 		"font-size"		=> "2em",
 		"line-height"		=> "140%",
 		"text-align"		=> "left",
