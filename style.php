@@ -360,7 +360,7 @@ $style_array = [
 	[ // Text only
 	"css_tags" => [
 		"* + table",
-		"* blockquote",
+		"* + blockquote",
 		"* + h2",
 		"* + h3",
 		"* + h4",
