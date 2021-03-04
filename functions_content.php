@@ -828,7 +828,7 @@ function json_output ($json_array) {
 	       
 	exit; }
 
-function sanitize_temp_array($temp_array, $count)
+function sanitize_temp_array($temp_array, $count) {
 	$count_temp = $content_check = 0;
 	while ($count_temp < $count):
 		if (empty($temp_array[$count_temp])):
