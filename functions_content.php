@@ -475,29 +475,17 @@ function body_process($body_incoming) {
 		$temp_array = explode("}{", $match_temp."}{");
 	
 		// Set up the array
-		$content_check = 0;
-
-		// Sanitize temp array so we have three in place
-		$count_temp = 0;
-		while ($count_temp < 3):
-			if (empty($temp_array[$count_temp])):
-				$temp_array[$count_temp] = null;
-			else:
-				$temp_array[$count_temp] = trim($temp_array[$count_temp]);
-				$content_check = 1;
-				endif;
-			$count_temp++;
-			endwhile;
+		$temp_array = sanitize_temp_array($temp_array, 3);
 
 		// If there is nothing, just skip it...
-		if ($content_check == 0):
+		if ($temp_array === FALSE):
 			$body_incoming = str_replace("{{{".$match_temp."}}}", null, $body_incoming);
 			continue;
 			endif;
 	
 		$match_lowercase_temp = array_map('strtolower', $temp_array);
 		$tag_check = 0;
-		foreach (["h1", "h2", "h3", "h4", "h6", "h6"] as $tag_temp):
+		foreach ([ "h1", "h2", "h3", "h4", "h6", "h6", "aside", "cite", ] as $tag_temp):
 			if (FALSE !== $tag_check = array_search($tag_temp, $match_lowercase_temp)):	
 				unset($temp_array[$tag_check]);
 				$tag_check = 1;
@@ -675,7 +663,39 @@ function body_process($body_incoming) {
 	
 		$temp_array = explode(")(", $match_temp.")(");
 	
-		$body_incoming = str_replace("(((".$match_temp.")))", "<cite>".trim($temp_array[0])."</cite>", $body_incoming);
+		$temp_array = sanitize_temp_array($temp_array, 2);
+	
+		// If there is nothing, just skip it...
+		if ($temp_array === FALSE):
+			$body_incoming = str_replace("(((".$match_temp.")))", null, $body_incoming);
+			continue;
+			endif;
+	
+		$match_lowercase_temp = array_map('strtolower', $temp_array);
+		$tag_check = 0;
+		foreach (["aside", ] as $tag_temp):
+			if (FALSE !== $tag_check = array_search($tag_temp, $match_lowercase_temp)):	
+				unset($temp_array[$tag_check]);
+				$tag_check = 1;
+				break; endif;
+			$tag_check = 0;
+			endforeach;
+	
+		// Re-index the array
+		$temp_array = array_values($temp_array);
+	
+		$contents_string = trim($temp_array[0]);
+	
+		if (empty($contents_string)):
+			$body_incoming = str_replace("(((".$match_temp.")))", null, $body_incoming);
+			continue;
+			endif;
+	
+		if ($tag_check == 1):
+			$contents_string = "<".$tag_temp.">".$contents_string."</".$tag_temp.">";
+			endif;
+	
+		$body_incoming = str_replace("(((".$match_temp.")))", "<cite>".$contents_string."</cite>", $body_incoming);
 	
 //		$entry_info = nesty_entry($temp_array[0]); // check if the entry exists
 	
@@ -807,6 +827,20 @@ function json_output ($json_array) {
 	echo json_encode($json_array);
 	       
 	exit; }
+
+function sanitize_temp_array($temp_array, $count)
+	$count_temp = $content_check = 0;
+	while ($count_temp < $count):
+		if (empty($temp_array[$count_temp])):
+			$temp_array[$count_temp] = null;
+		else:
+			$temp_array[$count_temp] = trim($temp_array[$count_temp]);
+			$content_check = 1;
+			endif;
+		$count_temp++;
+		endwhile;
+	if ($content_check !== 1): return FALSE; endif;
+	return $temp_array; }
 
 function json_status ($status, $message=null, $redirect=null) {
 	
