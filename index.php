@@ -220,6 +220,14 @@ if ($page_temp == "edit-xhr"):
 			else:
 				$value_temp = str_replace("[[[", "\n\n[[[", $value_temp);
 				$value_temp = str_replace("]]]", "]]]\n\n", $value_temp);
+				$value_temp = str_replace("<cite>", "(((", $value_temp);
+				$value_temp = str_replace("</cite>", ")))", $value_temp);
+				$value_temp = str_replace("<h2>", "{{{h2}{", $value_temp);
+				$value_temp = str_replace("</h2>", "}}}", $value_temp);
+				$value_temp = str_replace("<h3>", "{{{h3}{", $value_temp);
+				$value_temp = str_replace("</h3>", "}}}", $value_temp);
+				$value_temp = str_replace("<h4>", "{{{h4}{", $value_temp);
+				$value_temp = str_replace("</h4>", "}}}", $value_temp);
 				$value_temp = preg_replace("/\r\n/", "\n", $value_temp);
 				$value_temp = preg_replace('/(?:(?:\r\n|\r|\n)\s*){2}/s', "\n\n", $value_temp);
 				$value_temp = trim($value_temp);
