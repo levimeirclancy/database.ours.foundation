@@ -313,6 +313,8 @@ $style_array = [
 		"color"			=> output_rgba($font_color, 1),
 		"border"		=> "0",
 		"wudth"			=> "auto",
+		"overflow"		=> "hidden",
+		"text-overflow"		=> "ellipsis",
 		"min-width"		=> "0px",
 		"max-width"		=> output_width($default_width),
 		], ],
