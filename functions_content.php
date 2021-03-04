@@ -539,17 +539,18 @@ function body_process($body_incoming) {
 		if (empty($matches_temp)): $matches_temp = [ [], [] ]; endif;
 		foreach ($matches_temp[0] as $temp): $contents_string = str_replace("[[[".$temp."]]]", null, $contents_string); endforeach;
 
-		// remove all citations inside links
-		preg_match_all("/(?<=\(\(\()(.*?)(?=\)\)\))/is", $contents_string, $matches_temp);
+		// remove all links inside links
+		preg_match_all("/(?<=\{\{\{)(.*?)(?=\}\}\})/is", $contents_string, $matches_temp);
 		if (empty($matches_temp)): $matches_temp = [ [], [] ]; endif;
-		foreach ($matches_temp[0] as $temp): $contents_string = str_replace("(((".$temp.")))", null, $contents_string); endforeach;
+		foreach ($matches_temp[0] as $temp): $contents_string = str_replace("[[[".$temp."]]]", null, $contents_string); endforeach;
+
+		// remove all citations inside links
+//		preg_match_all("/(?<=\(\(\()(.*?)(?=\)\)\))/is", $contents_string, $matches_temp);
+//		if (empty($matches_temp)): $matches_temp = [ [], [] ]; endif;
+//		foreach ($matches_temp[0] as $temp): $contents_string = str_replace("(((".$temp.")))", null, $contents_string); endforeach;
 		
 		// Replace with hyphen that does not break lines
 //		$link_string = str_replace("-", "&#8209;", $link_string);
-
-//		if ($tag_check == 1):
-//			$link_string = "<".$tag_temp.">".$link_string."</".$tag_temp.">";
-//			endif;
 
 		if ($link_check == 1):
 			$contents_string = "<a href='".$link_url."'>".$contents_string."</a>";
@@ -558,12 +559,12 @@ function body_process($body_incoming) {
 		if ($tag_check == 1):
 			$contents_string = "<".$tag_temp.">".$contents_string."</".$tag_temp.">";
 			endif;
+	
+		// If $tag_temp == "cite"
+		// Then make an array to add to endnotes
+		// 
 
 		$body_incoming = str_replace("{{{".$match_temp."}}}", $contents_string, $body_incoming);
-	
-//		$link_string = "<a href='".$link_url."'>".$link_string."</a>";
-			
-//		$body_incoming = str_replace("{{{".$match_temp."}}}", $link_string, $body_incoming);
 	
 		endforeach;
 	
@@ -649,90 +650,6 @@ function body_process($body_incoming) {
 		$lightbox_temp .= "<div class='amp-lightbox-close background_2' on='tap:lightbox".$media_id_temp.".close' tabindex='1' role='button'>close</div>";
 		$lightbox_temp .= "</amp-lightbox>";
 		$image_lightbox_array[] = $lightbox_temp;
-
-		endforeach;
-	
-	// process citations
-	$matches = [];
-	preg_match_all("/(?<=\(\(\()(.*?)(?=\)\)\))/is", $body_incoming, $matches);
-	if (empty($matches)): $matches = [ [], [] ]; endif;
-	$matches = array_unique($matches[0]);
-	foreach ($matches as $match_temp):
-
-		$citation_strinng = null;
-	
-		$temp_array = explode(")(", $match_temp.")(");
-	
-		$temp_array = sanitize_temp_array($temp_array, 2);
-	
-		// If there is nothing, just skip it...
-		if ($temp_array === FALSE):
-			$body_incoming = str_replace("(((".$match_temp.")))", null, $body_incoming);
-			continue;
-			endif;
-	
-		$match_lowercase_temp = array_map('strtolower', $temp_array);
-		$tag_check = 0;
-		foreach (["aside", ] as $tag_temp):
-			if (FALSE !== $tag_check = array_search($tag_temp, $match_lowercase_temp)):	
-				unset($temp_array[$tag_check]);
-				$tag_check = 1;
-				break; endif;
-			$tag_check = 0;
-			endforeach;
-	
-		// Re-index the array
-		$temp_array = array_values($temp_array);
-	
-		$contents_string = trim($temp_array[0]);
-	
-		if (empty($contents_string)):
-			$body_incoming = str_replace("(((".$match_temp.")))", null, $body_incoming);
-			continue;
-			endif;
-	
-		if ($tag_check == 1):
-			$contents_string = "<".$tag_temp.">".$contents_string."</".$tag_temp.">";
-			endif;
-	
-		$body_incoming = str_replace("(((".$match_temp.")))", "<cite>".$contents_string."</cite>", $body_incoming);
-	
-//		$entry_info = nesty_entry($temp_array[0]); // check if the entry exists
-	
-//		$citation_id_temp = $temp_array[0];
-//		if (strpos($temp_array[0], "|")):
-//			$domain_id_temp = explode("|", $temp_array[0]);
-//			if (strpos($domain_id_temp[0], ".")): $citation_id_temp = $domain_id_temp[1];
-//			else: $citation_id_temp = $domain_id_temp[0]; endif;
-//			endif;
-	
-//		if (empty($entry_info[$citation_id_temp])):
-//			$body_incoming = str_replace("(((".$match_temp.")))", null, $body_incoming);
-//			continue; endif; // entry id does not exist so skip it
-
-//		$citation_string = [];
-//		if (!(empty($entry_info[$citation_id_temp]['name']))):
-//			$citation_string[] = "<div class='citation-name'>".$entry_info[$citation_id_temp]['name']."</div>"; endif;
-//		$citation_string[] = "<a href='https://".$entry_info[$citation_id_temp]['domain']."/e/".$citation_id_temp."/'><div class='citation-credit background_".rand(1,10)."'>".$entry_info[$citation_id_temp]['publisher']." &nbsp;|&nbsp; ".$citation_id_temp."</div></a>";
-
-//		$citation_date_string = [];
-//		if (!(empty($entry_info[$citation_id_temp]['year']))):
-//			$citation_date_string[] = $entry_info[$citation_id_temp]['year'];
-//			endif;
-//		if (!(empty($entry_info[$citation_id_temp]['month']))):
-//			$citation_date_string[] = date("F", strtotime("2000-".$entry_info[$citation_id_temp]['month']."-01"));
-//			if (!(empty($entry_info[$citation_id_temp]['day']))):
-//				$citation_date_string[] = date("jS", strtotime("2000-01-".$entry_info[$citation_id_temp]['day']));
-//				endif; endif;
-//		if (!(empty($citation_date_string))):
-//			$citation_string[] = "<div class='citation-date'>".implode(" ", $citation_date_string)."</div>";
-//			endif;
-
-//		if (!(empty(login)) && ($domain == $entry_info[$citation_id_temp]['domain'])):
-//			$citation_string[] = "<a href='/e/".$citation_id_temp."/edit/'><div class='citation-edit'>Edit</div></a>";
-//			endif;
-
-//		$entry_string = $delimiter.implode(null,$citation_string).$entry_info[$citation_id_temp]['body'].$delimiter;
 
 		endforeach;
 	
