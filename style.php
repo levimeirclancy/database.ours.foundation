@@ -443,7 +443,7 @@ $style_array = [
 //		"height"		=> "40px",
 		"margin"		=> "0 20px 16px",
 //		"border-radius"		=> "100px",
-		"box-shadow"		=> "0 5px 50px -30px ".output_rgba($font_color, 0.2);
+		"box-shadow"		=> "0 5px 50px -30px ".output_rgba($font_color, 0.2),
 		], ],
 
 	[
