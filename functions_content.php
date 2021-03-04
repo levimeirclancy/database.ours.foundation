@@ -675,42 +675,44 @@ function body_process($body_incoming) {
 	
 		$temp_array = explode(")(", $match_temp.")(");
 	
-		$entry_info = nesty_entry($temp_array[0]); // check if the entry exists
+		$body_incoming = str_replace("(((".$match_temp.")))", "<cite>".trim($temp_array[0])."</cite>", $body_incoming);
 	
-		$citation_id_temp = $temp_array[0];
-		if (strpos($temp_array[0], "|")):
-			$domain_id_temp = explode("|", $temp_array[0]);
-			if (strpos($domain_id_temp[0], ".")): $citation_id_temp = $domain_id_temp[1];
-			else: $citation_id_temp = $domain_id_temp[0]; endif;
-			endif;
+//		$entry_info = nesty_entry($temp_array[0]); // check if the entry exists
 	
-		if (empty($entry_info[$citation_id_temp])):
-			$body_incoming = str_replace("(((".$match_temp.")))", null, $body_incoming);
-			continue; endif; // entry id does not exist so skip it
+//		$citation_id_temp = $temp_array[0];
+//		if (strpos($temp_array[0], "|")):
+//			$domain_id_temp = explode("|", $temp_array[0]);
+//			if (strpos($domain_id_temp[0], ".")): $citation_id_temp = $domain_id_temp[1];
+//			else: $citation_id_temp = $domain_id_temp[0]; endif;
+//			endif;
+	
+//		if (empty($entry_info[$citation_id_temp])):
+//			$body_incoming = str_replace("(((".$match_temp.")))", null, $body_incoming);
+//			continue; endif; // entry id does not exist so skip it
 
-		$citation_string = [];
-		if (!(empty($entry_info[$citation_id_temp]['name']))):
-			$citation_string[] = "<div class='citation-name'>".$entry_info[$citation_id_temp]['name']."</div>"; endif;
-		$citation_string[] = "<a href='https://".$entry_info[$citation_id_temp]['domain']."/e/".$citation_id_temp."/'><div class='citation-credit background_".rand(1,10)."'>".$entry_info[$citation_id_temp]['publisher']." &nbsp;|&nbsp; ".$citation_id_temp."</div></a>";
+//		$citation_string = [];
+//		if (!(empty($entry_info[$citation_id_temp]['name']))):
+//			$citation_string[] = "<div class='citation-name'>".$entry_info[$citation_id_temp]['name']."</div>"; endif;
+//		$citation_string[] = "<a href='https://".$entry_info[$citation_id_temp]['domain']."/e/".$citation_id_temp."/'><div class='citation-credit background_".rand(1,10)."'>".$entry_info[$citation_id_temp]['publisher']." &nbsp;|&nbsp; ".$citation_id_temp."</div></a>";
 
-		$citation_date_string = [];
-		if (!(empty($entry_info[$citation_id_temp]['year']))):
-			$citation_date_string[] = $entry_info[$citation_id_temp]['year'];
-			endif;
-		if (!(empty($entry_info[$citation_id_temp]['month']))):
-			$citation_date_string[] = date("F", strtotime("2000-".$entry_info[$citation_id_temp]['month']."-01"));
-			if (!(empty($entry_info[$citation_id_temp]['day']))):
-				$citation_date_string[] = date("jS", strtotime("2000-01-".$entry_info[$citation_id_temp]['day']));
-				endif; endif;
-		if (!(empty($citation_date_string))):
-			$citation_string[] = "<div class='citation-date'>".implode(" ", $citation_date_string)."</div>";
-			endif;
+//		$citation_date_string = [];
+//		if (!(empty($entry_info[$citation_id_temp]['year']))):
+//			$citation_date_string[] = $entry_info[$citation_id_temp]['year'];
+//			endif;
+//		if (!(empty($entry_info[$citation_id_temp]['month']))):
+//			$citation_date_string[] = date("F", strtotime("2000-".$entry_info[$citation_id_temp]['month']."-01"));
+//			if (!(empty($entry_info[$citation_id_temp]['day']))):
+//				$citation_date_string[] = date("jS", strtotime("2000-01-".$entry_info[$citation_id_temp]['day']));
+//				endif; endif;
+//		if (!(empty($citation_date_string))):
+//			$citation_string[] = "<div class='citation-date'>".implode(" ", $citation_date_string)."</div>";
+//			endif;
 
-		if (!(empty(login)) && ($domain == $entry_info[$citation_id_temp]['domain'])):
-			$citation_string[] = "<a href='/e/".$citation_id_temp."/edit/'><div class='citation-edit'>Edit</div></a>";
-			endif;
+//		if (!(empty(login)) && ($domain == $entry_info[$citation_id_temp]['domain'])):
+//			$citation_string[] = "<a href='/e/".$citation_id_temp."/edit/'><div class='citation-edit'>Edit</div></a>";
+//			endif;
 
-		$entry_string = $delimiter.implode(null,$citation_string).$entry_info[$citation_id_temp]['body'].$delimiter;
+//		$entry_string = $delimiter.implode(null,$citation_string).$entry_info[$citation_id_temp]['body'].$delimiter;
 
 		endforeach;
 	
