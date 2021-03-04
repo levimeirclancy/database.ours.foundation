@@ -424,10 +424,7 @@ $style_array = [
 		[
 		"content"		=> "'“     ”'",
 		"font-weight"		=> "700",
-//		"position"		=> "absolute",
-//		"top"			=> "-8px",
 		"box-sizing"		=> "border-box",
-//		"left"			=> "50%",
 		"font-size"		=> "40px",
 		"white-space"		=> "pre",
 		"line-height"		=> "30px",
@@ -439,11 +436,8 @@ $style_array = [
 		"color"			=> output_rgba($font_color, 1),
 		"padding"		=> "0 0 0",
 		"display"		=> "block",
-//		"width"			=> "40px",
-//		"height"		=> "40px",
 		"margin"		=> "0 20px 16px",
-//		"border-radius"		=> "100px",
-		"box-shadow"		=> "0 30px 60px -20px ".output_rgba($font_color, 0.5),
+		"box-shadow"		=> "0 30px 60px -20px ".output_rgba($font_color, 0.9),
 		], ],
 
 	[
