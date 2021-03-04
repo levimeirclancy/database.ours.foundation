@@ -437,7 +437,7 @@ $style_array = [
 		"padding"		=> "0 0 0",
 		"display"		=> "block",
 		"margin"		=> "0 20px 16px",
-		"box-shadow"		=> "0 30px 60px -20px ".output_rgba($font_color, 0.9),
+		"box-shadow"		=> "0 30px 60px -10px ".output_rgba($font_color, 0.9),
 		], ],
 
 	[
