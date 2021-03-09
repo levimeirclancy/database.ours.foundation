@@ -485,7 +485,7 @@ function body_process($body_incoming) {
 	
 		$match_lowercase_temp = array_map('strtolower', $temp_array);
 		$tag_check = 0;
-		foreach ([ "h1", "h2", "h3", "h4", "h6", "h6", "aside", "cite", ] as $tag_temp):
+		foreach ([ "h1", "h2", "h3", "h4", "h6", "h6", "aside", "cite", "cite-tanakh" ] as $tag_temp):
 			if (FALSE !== $tag_check = array_search($tag_temp, $match_lowercase_temp)):	
 				unset($temp_array[$tag_check]);
 				$tag_check = 1;
@@ -557,6 +557,11 @@ function body_process($body_incoming) {
 			endif;
 	
 		if ($tag_check == 1):
+			if ($tag_temp == "cite-tanakh"):
+				$check_string = tanakh_check($contents_string);
+				if ($check_string !== FALSE): $contents_string = $check_string; endif;
+				$tag_temp = "cite";
+				endif;
 			$contents_string = "<".$tag_temp.">".$contents_string."</".$tag_temp.">";
 			endif;
 	
@@ -700,6 +705,7 @@ function body_process($body_incoming) {
 	$body_final .= implode(null, $image_lightbox_array);
 	$body_final = str_replace("\n", "<br>", $body_final);
 	$body_final = str_replace("><br>", ">", $body_final);
+	$body_final = str_replace("</cite><cite>", "; ", $body_final);
 	
 	// Sanitize some more
 	$body_final = str_replace("&#039;", "'", $body_final);
@@ -708,7 +714,694 @@ function body_process($body_incoming) {
 
 	return $body_final; }
 
+function tanakh_check($contents_string, $book_given=null, $chapter_given=null, $verse_given = null) {
+	$tanakh_array =
+		[
+		
+//		"parashah"			=> 
+//			[
+//			"name"			=> "פרשת השבוע Parasha",
+//			"chapters-verses"	=>
+//				[
+//				],
+			
+//			],
+		
+//		"torah"				=> "תורה Torah",
+		
+		"genesis" => 
+			[
+			"name"			=> "בראשית Genesis",
+			"chapters-verses"	=>
+				[
+				"1" => 31,
+				"2" => 25,
+				"3" => 24,
+				"4" => 26,
+				"5" => 32,
+				"6" => 22,
+				"7" => 24,
+				"8" => 22,
+				"9" => 29,
+				"10" => 32,
+				"11" => ,
+				"12" => ,
+				"13" => ,
+				"14" => ,
+				"15" => ,
+				"16" => ,
+				"17" => ,
+				"18" => ,
+				"19" => ,
+				"20" => ,
+				"21" => ,
+				"22" => ,
+				"23" => ,
+				"24" => ,
+				"25" => ,
+				"25" => ,
+				"26" => ,
+				"27" => ,
+				"28" => ,
+				"29" => ,
+				"30" => ,
+				"31" => ,
+				"32" => ,
+				"33" => ,
+				"34" => ,
+				"35" => ,
+				"36" => ,
+				"37" => ,
+				"38" => ,
+				"39" => ,
+				"40" => ,
+				"41" => ,
+				"42" => ,
+				"43" => ,
+				"44" => ,
+				"45" => ,
+				"46" => ,
+				"47" => ,
+				"48" => ,
+				"49" => ,
+				"50" => ,
+				], ],
 
+		"exodus" =>
+			[
+			"name"			=> "שמות Exodus",
+			"chapters-verses"	=>
+				[
+				"1" => ,
+				"2" => ,
+				"3" => ,
+				"4" => ,
+				"5" => ,
+				"6" => ,
+				"7" => ,
+				"8" => ,
+				"9" => ,
+				"10" => ,
+				"11" => ,
+				"12" => ,
+				"13" => ,
+				"14" => ,
+				"15" => ,
+				"16" => ,
+				"17" => ,
+				"18" => ,
+				"19" => ,
+				"20" => ,
+				"21" => ,
+				"22" => ,
+				"23" => ,
+				"24" => ,
+				"25" => ,
+				"25" => ,
+				"26" => ,
+				"27" => ,
+				"28" => ,
+				"29" => ,
+				"30" => ,
+				"31" => ,
+				"32" => ,
+				"33" => ,
+				"34" => ,
+				"35" => ,
+				"36" => ,
+				"37" => ,
+				"38" => ,
+				"39" => ,
+				"40" => ,
+				], ],
+
+		"leviticus" => 
+			[
+			"name"			=> "ויקרא Leviticus"
+			"chapters-verses"	=>
+				[
+				"1" => ,
+				"2" => ,
+				"3" => ,
+				"4" => ,
+				"5" => ,
+				"6" => ,
+				"7" => ,
+				"8" => ,
+				"9" => ,
+				"10" => ,
+				"11" => ,
+				"12" => ,
+				"13" => ,
+				"14" => ,
+				"15" => ,
+				"16" => ,
+				"17" => ,
+				"18" => ,
+				"19" => ,
+				"20" => ,
+				"21" => ,
+				"22" => ,
+				"23" => ,
+				"24" => ,
+				"25" => ,
+				"25" => ,
+				"26" => ,
+				"27" => ,
+				], ],
+		
+		"numbers" => 
+			[
+			"name"			=> "במדבר Numbers",
+			"chapters-verses"	=>
+				[
+				"1" => ,
+				"2" => ,
+				"3" => ,
+				"4" => ,
+				"5" => ,
+				"6" => ,
+				"7" => ,
+				"8" => ,
+				"9" => ,
+				"10" => ,
+				"11" => ,
+				"12" => ,
+				"13" => ,
+				"14" => ,
+				"15" => ,
+				"16" => ,
+				"17" => ,
+				"18" => ,
+				"19" => ,
+				"20" => ,
+				"21" => ,
+				"22" => ,
+				"23" => ,
+				"24" => ,
+				"25" => ,
+				"25" => ,
+				"26" => ,
+				"27" => ,
+				"28" => ,
+				"29" => ,
+				"30" => ,
+				"31" => ,
+				"32" => ,
+				"33" => ,
+				"34" => ,
+				"35" => ,
+				"36" => ,
+				], ],
+
+		"deuteronomy" =>
+			[
+			"name"			=> "דברים Deuteronomy",
+			"chapters-verses"	=>
+				[
+				"1" => ,
+				"2" => ,
+				"3" => ,
+				"4" => ,
+				"5" => ,
+				"6" => ,
+				"7" => ,
+				"8" => ,
+				"9" => ,
+				"10" => ,
+				"11" => ,
+				"12" => ,
+				"13" => ,
+				"14" => ,
+				"15" => ,
+				"16" => ,
+				"17" => ,
+				"18" => ,
+				"19" => ,
+				"20" => ,
+				"21" => ,
+				"22" => ,
+				"23" => ,
+				"24" => ,
+				"25" => ,
+				"25" => ,
+				"26" => ,
+				"27" => ,
+				"28" => ,
+				"29" => ,
+				"30" => ,
+				"31" => ,
+				"32" => ,
+				"33" => ,
+				"34" => ,
+				], ],
+
+//		"prophets"			=> "נביאים Prophets",
+		
+		"joshua" =>
+			[
+			"name"			=> "יהושע Joshua",
+			"chapters-verses"	=>
+				[
+				"1" => ,
+				"2" => ,
+				"3" => ,
+				"4" => ,
+				"5" => ,
+				"6" => ,
+				"7" => ,
+				"8" => ,
+				"9" => ,
+				"10" => ,
+				"11" => ,
+				"12" => ,
+				"13" => ,
+				"14" => ,
+				"15" => ,
+				"16" => ,
+				"17" => ,
+				"18" => ,
+				"19" => ,
+				"20" => ,
+				"21" => ,
+				"22" => ,
+				"23" => ,
+				"24" => ,
+				], ],
+
+		"judges" => 
+			[
+			"name"			=> "שופטים Judges",
+			"chapters-verses"	=>
+				[
+				"1" => ,
+				"2" => ,
+				"3" => ,
+				"4" => ,
+				"5" => ,
+				"6" => ,
+				"7" => ,
+				"8" => ,
+				"9" => ,
+				"10" => ,
+				"11" => ,
+				"12" => ,
+				"13" => ,
+				"14" => ,
+				"15" => ,
+				"16" => ,
+				"17" => ,
+				"18" => ,
+				"19" => ,
+				"20" => ,
+				"21" => ,
+				], ],
+		
+		"ruth" => 
+			[
+			"name"			=> "רות Ruth",
+			"chapters-verses"	=>
+				[
+				"1" => ,
+				"2" => ,
+				"3" => ,
+				"4" => ,
+				], ],
+
+		"i samuel" => 
+			[
+			"name"			=> "שמואל Samuel I",
+			"chapters-verses"	=>
+				[
+				"1" => ,
+				"2" => ,
+				"3" => ,
+				"4" => ,
+				"5" => ,
+				"6" => ,
+				"7" => ,
+				"8" => ,
+				"9" => ,
+				"10" => ,
+				"11" => ,
+				"12" => ,
+				"13" => ,
+				"14" => ,
+				"15" => ,
+				"16" => ,
+				"17" => ,
+				"18" => ,
+				"19" => ,
+				"20" => ,
+				"21" => ,
+				"22" => ,
+				"23" => ,
+				"24" => ,
+				"25" => ,
+				"25" => ,
+				"26" => ,
+				"27" => ,
+				"28" => ,
+				"29" => ,
+				"30" => ,
+				"31" => ,
+				], ],
+
+		"ii samuel" => 
+			[
+			"name"			=> "שמואל Samuel II",
+			"chapters-verses"	=>
+				[
+				"1" => ,
+				"2" => ,
+				"3" => ,
+				"4" => ,
+				"5" => ,
+				"6" => ,
+				"7" => ,
+				"8" => ,
+				"9" => ,
+				"10" => ,
+				"11" => ,
+				"12" => ,
+				"13" => ,
+				"14" => ,
+				"15" => ,
+				"16" => ,
+				"17" => ,
+				"18" => ,
+				"19" => ,
+				"20" => ,
+				"21" => ,
+				"22" => ,
+				"23" => ,
+				"24" => ,
+				], ],
+
+		"i kings" => 
+			[
+			"name"			=> "מלכים Kings I",
+			"chapters-verses"	=>
+				[
+				"1" => ,
+				"2" => ,
+				"3" => ,
+				"4" => ,
+				"5" => ,
+				"6" => ,
+				"7" => ,
+				"8" => ,
+				"9" => ,
+				"10" => ,
+				"11" => ,
+				"12" => ,
+				"13" => ,
+				"14" => ,
+				"15" => ,
+				"16" => ,
+				"17" => ,
+				"18" => ,
+				"19" => ,
+				"20" => ,
+				"21" => ,
+				"22" => ,
+				], ],
+
+		"ii kings" => 
+			[
+			"name"			=> "מלכים Kings II",
+			"chapters-verses"	=>
+				[
+				"1" => ,
+				"2" => ,
+				"3" => ,
+				"4" => ,
+				"5" => ,
+				"6" => ,
+				"7" => ,
+				"8" => ,
+				"9" => ,
+				"10" => ,
+				"11" => ,
+				"12" => ,
+				"13" => ,
+				"14" => ,
+				"15" => ,
+				"16" => ,
+				"17" => ,
+				"18" => ,
+				"19" => ,
+				"20" => ,
+				"21" => ,
+				"22" => ,
+				"23" => ,
+				"24" => ,
+				"25" => ,
+				], ],
+		
+		"isaiah"	=> "ישעיה Isaiah",
+		"jeremiah"	=> "ירמיה Jeremiah",
+		"ezekiel"	=> "יחזקאל Ezekiel",
+		
+//		"minor prophets"	=> "תרי עשר The Twelve",
+		
+		"i chronicles" => 
+			[
+			"name"			=> "דברי הימים Chronicles I",
+			"chapters-verses"	=>
+				[
+				"1" => ,
+				"2" => ,
+				"3" => ,
+				"4" => ,
+				"5" => ,
+				"6" => ,
+				"7" => ,
+				"8" => ,
+				"9" => ,
+				"10" => ,
+				"11" => ,
+				"12" => ,
+				"13" => ,
+				"14" => ,
+				"15" => ,
+				"16" => ,
+				"17" => ,
+				"18" => ,
+				"19" => ,
+				"20" => ,
+				"21" => ,
+				"22" => ,
+				"23" => ,
+				"24" => ,
+				"25" => ,
+				"26" => ,
+				"27" => ,
+				"28" => ,
+				"29" => ,
+				], ],
+		
+		"ii chronicles" =>
+			[
+			"name"			=> "דברי הימים Chronicles II",
+			"chapters-verses"	=>
+				[
+				"1" => ,
+				"2" => ,
+				"3" => ,
+				"4" => ,
+				"5" => ,
+				"6" => ,
+				"7" => ,
+				"8" => ,
+				"9" => ,
+				"10" => ,
+				"11" => ,
+				"12" => ,
+				"13" => ,
+				"14" => ,
+				"15" => ,
+				"16" => ,
+				"17" => ,
+				"18" => ,
+				"19" => ,
+				"20" => ,
+				"21" => ,
+				"22" => ,
+				"23" => ,
+				"24" => ,
+				"25" => ,
+				"26" => ,
+				"27" => ,
+				"28" => ,
+				"29" => ,
+				"30" => ,
+				"31" => ,
+				"32" => ,
+				"33" => ,
+				"34" => ,
+				"35" => ,
+				"36" => ,
+				], ],
+		
+		"ezra" => 
+			[
+			"name"			=> "עזרא Ezra ",
+			"chapters-verses"	=>
+				[
+				"1" => ,
+				"2" => ,
+				"3" => ,
+				"4" => ,
+				"5" => ,
+				"6" => ,
+				"7" => ,
+				"8" => ,
+				"9" => ,
+				"10" => ,
+				], ],		
+		
+		
+		"nehemiah"	=> 
+			[
+			"name"			=> "נחמיה Nechemiah",
+			"chapters-verses"	=>
+				[
+				"1" => ,
+				"2" => ,
+				"3" => ,
+				"4" => ,
+				"5" => ,
+				"6" => ,
+				"7" => ,
+				"8" => ,
+				"9" => ,
+				"10" => ,
+				"11" => ,
+				"12" => ,
+				"13" => ,
+				], ],
+
+		"esther" =>
+			[
+			"name"			=>  "אסתר Esther",
+			"chapters-verses"	=>
+				[
+				"1" => ,
+				"2" => ,
+				"3" => ,
+				"4" => ,
+				"5" => ,
+				"6" => ,
+				"7" => ,
+				"8" => ,
+				"9" => ,
+				"10" => ,
+				], ],	
+		
+//		"writings"	=> "כתובים Writings",
+		
+		];
+
+	$return_string = null;
+	
+	$check_string = strtolower($contents_string);
+	$check_string = str_replace("1 ", "i", $check_string);
+	$check_string = str_replace("2 ", "ii", $check_string);
+	$check_string = trim($check_string);
+	
+	$book_found = null;
+	
+	foreach ($tanakh_array as $tanakh_key => $tanakh_info):
+		if (strpos($check_string, substr($tanakh_key, 0, 3)) !== FALSE):
+			$book_found => $tanakh_key;
+			break; endif;
+		$tanakh_info = null;
+		endforeach;
+
+	if (empty($book_found) && !(empty($book_given)) && isset($tanakh_array[$book_given])):
+		$book_found = $book_given;
+		$tanakh_info = $tanakh_array[$book_given];
+		endif;
+	
+	if (empty($book_found)):
+		return FALSE;
+		endif;
+	
+	// Remove book name
+	$check_string = substr($check_string, 2)
+	$check_array = explode(" ", $check_string);
+	unset($check_array[0]); // Remove the book name
+	foreach ($check_array as $key_temp => $value_temp):
+		if (!(empty($value_temp)): continue; endif;
+		unset($check_array[$key_temp]);
+		endforeach;
+	$check_string = trim(implode(" ", $check_array));
+
+	foreach(["-", ",", ] as $punctuation_temp):
+		if (strpos($check_string, "-") === 0):
+			$check_string = tanakh_check(substr($check_string, 1), $book_found);
+		    	endif;
+		if ($check_string !== FALSE):
+			$return_string = $return_string.$punctuation_temp." ".$check_string;
+		    	endif;
+		endforeach;
+		    
+	$chapter_found = null;
+
+	foreach(array_reverse($tanakh_info['chapters-verses']) as $chapter_number => $verse_count):
+		if (strpos($check_string, $chapter_number) !== 0): continue; endif;
+		$chapter_found = $chapter_number;
+		endforeach;
+
+	if (empty($chapter_found) && !(empty($chapter_given)) && isset($tanakh_info['chapters-verses'][$chapter_given])):
+		$chapter_found = $chapter_given;
+		endif;
+
+//	if (empty($chapter_found) && ($book_found == $book_given)):
+//		return FALSE;
+//		endif;
+
+	if (empty($chapter_found) && ($book_found !== $book_given)):
+		$return_string = $tanakh_info['name']." ".$return_string;
+		return $return_string;
+		endif;
+		    
+	foreach(["-", ",", ] as $punctuation_temp):
+		if (strpos($check_string, "-") === 0):
+			$check_string = tanakh_check(substr($check_string, 1), $book_found, $chapter_found);
+		    	endif;
+		if ($check_string !== FALSE):
+			$return_string = $return_string.$punctuation_temp." ".$check_string;
+		    	endif;
+		endforeach;
+
+	if (strpos($check_string, ":") !== 0):
+		$return_string = $tanakh_info['name']." ".$chapter_found." ".$return_string;
+		return $return_string;
+		endif;
+		    
+	$verse_found = null;
+
+	$verse_temp = 1;
+	while($verse_temp <= $tanakh_info['chapters-verses'][$chapter_found]):
+		if (strpos($check_string, $chapter_number.":".$verse_temp) !== 0): continue; endif;
+		$verse_found = $verse_temp;
+		endwhile;
+		    
+	if (empty($verse_found) && !(empty($verse_given)) && ($verse_given <= $tanakh_info['chapters-verses'][$chapter_found])):
+		$verse_found = $verse_given;
+		endif;
+		    
+	if (!(empty($verse_found))):
+		$return_string = $tanakh_info['name']." ".$chapter_found.": ".$verse_found.$return_string;
+		return $return_string;
+		endif;
+	
+	$return_string = $tanakh_info['name']." ".$chapter_found.$return_string;
+	return $return_string;
+
+	}
  
 function clip_length($content=null,$length=140,$ellipsis=null,$breaks=null) {
 	if ($breaks == null): $content = str_replace(array("\r", "\n", "\r\n", "\v", "\t", "\0","\x"), " ", $content);
