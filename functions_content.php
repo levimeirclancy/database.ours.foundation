@@ -837,7 +837,7 @@ function tanakh_check($contents_string, $book_given=null, $chapter_given=null, $
 
 		"leviticus" => 
 			[
-			"name"			=> "ויקרא Leviticus"
+			"name"			=> "ויקרא Leviticus",
 			"chapters-verses"	=>
 				[
 				"1" => null,
