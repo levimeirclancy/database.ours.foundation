@@ -1122,7 +1122,7 @@ $style_array = [
 		[
 		"position"		=> "relative",
 		"width"			=> output_width($site_info['dimensions']['width']*1),
-		"heifght"		=> "100%",
+		"height"		=> "100%",
 		], ],
 	
 	[
