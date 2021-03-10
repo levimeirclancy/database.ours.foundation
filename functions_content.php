@@ -708,13 +708,15 @@ function body_process($body_incoming) {
 	$body_final .= implode(null, $image_lightbox_array);
 	$body_final = str_replace("\n", "<br>", $body_final);
 	$body_final = str_replace("><br>", ">", $body_final);
-	$body_final = str_replace("</cite><cite>", "; ", $body_final);
 	
 	// Sanitize some more
 	$body_final = str_replace("&#039;", "'", $body_final);
 //	$link_string = str_replace("'", $apostrophe_temp, $link_string);
 	$body_final = preg_replace('!\s+!', ' ', $body_final);
 
+	$body_final = str_replace("</cite> <cite>", "; ", $body_final);
+	$body_final = str_replace("</cite><cite>", "; ", $body_final);
+	
 	return $body_final; }
  
 function clip_length($content=null,$length=140,$ellipsis=null,$breaks=null) {
