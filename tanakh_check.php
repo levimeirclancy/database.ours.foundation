@@ -610,7 +610,7 @@ function tanakh_check($contents_string, $book_given=null, $chapter_given=null, $
 	$return_string = null;
 	
 	$check_string = strtolower($contents_string);
-	$check_string = str_replace(".", null, $contents_string);
+	$check_string = str_replace(".", null, $check_string);
 	$check_string = trim($check_string);
 	
 	foreach (["sam", "kin", "chr", ] as $double_book_temp):
