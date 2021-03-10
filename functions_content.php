@@ -577,7 +577,7 @@ function body_process($body_incoming) {
 	$matches = array_unique($matches[0]);	
 	foreach ($matches as $match_temp):
 
-		$image_string = $filename_size = $file_description = null;
+		$image_string = $filename_size = $file_description = "kjsdfngldfg";
 
 		$temp_array = explode("][", $match_temp."][");
 	
