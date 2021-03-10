@@ -486,7 +486,7 @@ function body_process($body_incoming) {
 	
 		$match_lowercase_temp = array_map('strtolower', $temp_array);
 		$tag_check = 0;
-		foreach ([ "h1", "h2", "h3", "h4", "h6", "h6", "aside", "cite", "strong", "emphasis" ] as $tag_temp):
+		foreach ([ "h1", "h2", "h3", "h4", "h6", "h6", "aside", "cite", "strong", "em", "emphasis" ] as $tag_temp):
 			if (FALSE !== $tag_check = array_search($tag_temp, $match_lowercase_temp)):	
 				unset($temp_array[$tag_check]);
 				$tag_check = 1;
@@ -558,11 +558,7 @@ function body_process($body_incoming) {
 			endif;
 	
 		if ($tag_check == 1):
-			if ($tag_temp == "cite-tanakh"):
-				$check_string = tanakh_check($contents_string);
-				if ($check_string !== FALSE): $contents_string = $check_string; endif;
-				$tag_temp = "cite";
-				endif;
+			if ($tag_temp == "emphasis"): $tag_temp = "em"; endif;
 			$contents_string = "<".$tag_temp.">".$contents_string."</".$tag_temp.">";
 			endif;
 	
