@@ -1139,6 +1139,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"display"		=> "inline-block",
+		"text-align"		=> "left",
 		], ],
 	
 	[
