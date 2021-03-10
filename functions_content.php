@@ -1,6 +1,4 @@
 <?
-include_once('tanakh_check.php');
-
 // body_process, nesty_page, nesty_media, nesty_entry, clip_length, number_condense
 
 // prepare for nesty_page
