@@ -619,10 +619,7 @@ function tanakh_check($contents_string, $book_given=null, $chapter_given=null, $
 	if (empty($book_found)):
 		return FALSE;
 		endif;
-	
-	return "test".$book_found;
-
-	
+		
 	// Remove book name
 	$check_string = substr($check_string, 2);
 	$check_array = explode(" ", $check_string);
@@ -641,6 +638,8 @@ function tanakh_check($contents_string, $book_given=null, $chapter_given=null, $
 			$return_string = $return_string.$punctuation_temp." ".$check_string;
 		    	endif;
 		endforeach;
+	
+	return "test".$tanakh_info['name'];
 		    
 	$chapter_found = null;
 
