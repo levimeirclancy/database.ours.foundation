@@ -34,7 +34,7 @@ $style_array = [
 		"white-space"		=> "pre-line",
 		"overflow"		=> "hidden",
 		"text-decoration"	=> "none",
-		"color"			=> output_rgba($font_color, 01),
+		"color"			=> output_rgba($font_color, 1),
 		], ],
 	
 	[ // But in the articles, we want an underline
@@ -46,6 +46,32 @@ $style_array = [
 		[
 		"text-decoration"	=> "underline",
 		], ],
+	
+	
+	[ // Emphasis is italic
+	"css_tags" =>
+		[
+		"em",
+		".emphasis",
+		],
+	"css_contents" =>
+		[
+		"font-style"		=> "italic",
+		], ],
+	
+	[ // "Strong" is small caps
+	"css_tags" =>
+		[
+		"strong",
+		".strong",
+		],
+	"css_contents" =>
+		[
+		"font-style"		=> "normal",
+		"text-transform"	=> "small-caps",
+		"font-weight"		=> "400",
+		"font-size"		=> ".9em",
+		], ],	
 	
 	[
 	"css_tags" => 
