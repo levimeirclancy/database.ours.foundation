@@ -678,11 +678,11 @@ function tanakh_check($contents_string, $book_given=null, $chapter_given=null, $
 		$return_string = $tanakh_info['name']." ".$return_string;
 		return $return_string;
 		endif;
-
-	return "test".$tanakh_info['name']." ".$chapter_found." chapters";
+	
+	$check_string = substr($check_string, strlen($chapter_found));
 		    
 	foreach(["-", ",", ] as $punctuation_temp):
-		if (strpos($check_string, "-") === 0):
+		if (strpos($check_string, $punctuation_temp) === 0):
 			$check_string = tanakh_check(substr($check_string, 1), $book_found, $chapter_found);
 		    	endif;
 		if ($check_string !== FALSE):
