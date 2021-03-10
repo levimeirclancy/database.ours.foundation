@@ -1126,7 +1126,7 @@ $style_array = [
 		"max-width"		=> "100%",
 		"height"		=> output_width($site_info['dimensions']['width']*.7),
 		"max-height"		=> "70%",
-		"margin"		=> "20px",
+//		"margin"		=> "20px",
 		"box-sizing"		=> "border-box",
 		"text-align"		=> "left",
 		], ],
