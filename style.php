@@ -1112,7 +1112,22 @@ $style_array = [
 		"overflow"		=> "hidden",
 		], ],	
 	
-
+	[
+	"css_tags" => 
+		[
+		".amp-img-large-wrapper",
+		".amp-img-thumb-wrapper",
+		],
+	"css_contents" =>
+		[
+		"display"		=> "block",
+		"position"		=> "relative",
+		"max-width"		=> "100%",
+		"max-height"		=> "70%",
+		"box-sizing"		=> "border-box",
+		"text-align"		=> "center",
+		], ],
+	
 	[
 	"css_tags" => 
 		[
@@ -1120,15 +1135,19 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-		"display"		=> "block",
-		"position"		=> "relative",
 		"width"			=> output_width($site_info['dimensions']['width']*.7),
-		"max-width"		=> "100%",
 		"height"		=> output_width($site_info['dimensions']['width']*.7),
-		"max-height"		=> "70%",
-//		"margin"		=> "20px",
-		"box-sizing"		=> "border-box",
-		"text-align"		=> "center",
+		], ],
+	
+	[
+	"css_tags" => 
+		[
+		".amp-img-thumb-wrapper",
+		],
+	"css_contents" =>
+		[
+		"width"			=> output_width($site_info['dimensions']['width']*.3),
+		"height"		=> output_width($site_info['dimensions']['width']*.3),
 		], ],
 	
 	[
@@ -1147,6 +1166,7 @@ $style_array = [
 	"css_tags" => 
 		[
 		"amp-img.amp-img-large img",
+		"amp-img.amp-img-thumb img",
 		],
 	"css_contents" =>
 		[
