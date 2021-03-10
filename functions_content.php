@@ -581,6 +581,13 @@ function body_process($body_incoming) {
 
 		$temp_array = explode("][", $match_temp."][");
 	
+		$image_size = "large";
+		if (in_array($temp_array[0], ["large", "thumb"])):
+			$image_size = $temp_array[0];
+			unset($temp_array[0]);
+			endif;
+		$temp_array = array_values($temp_array);
+	
 		if (filter_var($temp_array[0], FILTER_VALIDATE_URL) !== FALSE):
 			$link_check = 1;
 			$image_url = $temp_array[0];
@@ -597,8 +604,8 @@ function body_process($body_incoming) {
 	
 			$image_string .= "<figure>";
 	
-			$image_string .= "<div class='amp-img-large-wrapper'>";
-			$image_string .= "<amp-img src='".$image_url."' role='button' tabindex='1' layout='fill' class='amp-img-large'></amp-img>";
+			$image_string .= "<div class='amp-img-".$image_size."-wrapper'>";
+			$image_string .= "<amp-img src='".$image_url."' role='button' tabindex='1' layout='fill' class='amp-img-".$image_size."'></amp-img>";
 			$image_string .= "</div>";
 
 			$image_string .= "<figcaption>". mb_substr(strip_tags($file_description),0,200) ."</figcaption>";
