@@ -1112,6 +1112,30 @@ $style_array = [
 		"overflow"		=> "hidden",
 		], ],	
 	
+
+		[
+	"css_tags" => 
+		[
+		".amp-img-large-wrapper",
+		],
+	"css_contents" =>
+		[
+		"position"		=> "relative",
+		"width"			=> output_width($site_info['dimensions']['width']*1),
+		"heifght"		=> "100%",
+		], ],
+	
+	[
+	"css_tags" => 
+		[
+		"amp-img.amp-img-large img",
+		],
+	"css_contents" =>
+		[
+		"object-fit"		=> "contain",
+		], ],
+			
+
 		[
 	"css_tags" => "amp-lightbox, amp-sidebar",
 	"css_contents" =>
