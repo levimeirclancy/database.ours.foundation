@@ -1120,6 +1120,7 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
+		"display"		=> "block",
 		"position"		=> "relative",
 		"width"			=> output_width($site_info['dimensions']['width']*.7),
 		"max-width"		=> "100%",
