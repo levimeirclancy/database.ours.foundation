@@ -602,6 +602,8 @@
 			break; endif;
 		$tanakh_info = null;
 		endforeach;
+	
+	return $book_found;
 
 	if (empty($book_found) && !(empty($book_given)) && isset($tanakh_array[$book_given])):
 		$book_found = $book_given;
