@@ -1113,7 +1113,7 @@ $style_array = [
 		], ],	
 	
 
-		[
+	[
 	"css_tags" => 
 		[
 		".amp-img-large-wrapper",
@@ -1124,10 +1124,20 @@ $style_array = [
 		"position"		=> "relative",
 		"width"			=> output_width($site_info['dimensions']['width']*.7),
 		"max-width"		=> "100%",
+		"height"		=> output_width($site_info['dimensions']['width']*.7),
 		"margin"		=> "20px",
 		"box-sizing"		=> "border-box",
 		"text-align"		=> "left",
-		"height"		=> output_width($site_info['dimensions']['width']*.7),
+		], ],
+	
+	[
+	"css_tags" => 
+		[
+		"amp-img",
+		],
+	"css_contents" =>
+		[
+		"display"		=> "inline-block",
 		], ],
 	
 	[
