@@ -486,7 +486,7 @@ function body_process($body_incoming) {
 	
 		$match_lowercase_temp = array_map('strtolower', $temp_array);
 		$tag_check = 0;
-		foreach ([ "h1", "h2", "h3", "h4", "h6", "h6", "aside", "cite", "cite-tanakh" ] as $tag_temp):
+		foreach ([ "h1", "h2", "h3", "h4", "h6", "h6", "aside", "cite", "strong", "emphasis" ] as $tag_temp):
 			if (FALSE !== $tag_check = array_search($tag_temp, $match_lowercase_temp)):	
 				unset($temp_array[$tag_check]);
 				$tag_check = 1;
