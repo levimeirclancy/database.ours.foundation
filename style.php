@@ -31,7 +31,7 @@ $style_array = [
 		"white-space"		=> "pre-line",
 		"overflow"		=> "hidden",
 		"text-decoration"	=> "none",
-		"color"			=> output_rgba($site_info['colors']['font'], 1),
+		"color"			=> output_rgba($site_info['colors']['offset'], 1),
 		], ],
 	
 	[ // But in the articles, we want an underline
