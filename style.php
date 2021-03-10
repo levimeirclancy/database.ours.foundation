@@ -68,7 +68,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"font-style"		=> "normal",
-		"text-transform"	=> "small-caps",
+		"text-transform"	=> "uppercase",
 		"font-weight"		=> "400",
 		"font-size"		=> ".9em",
 		], ],	
