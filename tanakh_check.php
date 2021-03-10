@@ -610,9 +610,10 @@ function tanakh_check($contents_string, $book_given=null, $chapter_given=null, $
 	$return_string = null;
 	
 	$check_string = strtolower($contents_string);
+	$check_string = str_replace(".", null, $contents_string);
 	$check_string = trim($check_string);
 	
-	foreach (["s", "k", "c", ] as $double_book_temp):
+	foreach (["sam", "kin", "chr", ] as $double_book_temp):
 		$check_string = str_replace("1 ".$double_book_temp, "1".$double_book_temp, $check_string);
 		$check_string = str_replace("i ".$double_book_temp, "1".$double_book_temp, $check_string);
 		$check_string = str_replace("2 ".$double_book_temp, "2".$double_book_temp, $check_string);
@@ -625,17 +626,17 @@ function tanakh_check($contents_string, $book_given=null, $chapter_given=null, $
 		if (strpos($check_string, substr($tanakh_key, 0, 3)) !== FALSE):
 			$book_found = $tanakh_key;
 			break; endif;
-		$tanakh_info = null;
 		endforeach;
 	
 	if (empty($book_found) && !(empty($book_given)) && isset($tanakh_array[$book_given])):
 		$book_found = $book_given;
-		$tanakh_info = $tanakh_array[$book_given];
 		endif;
 	
 	if (empty($book_found)):
 		return FALSE;
 		endif;
+	
+	$tanakh_info = $tanakh_array[$book_found];
 		
 	// Remove book name
 	$check_string = substr($check_string, 2);
@@ -659,8 +660,7 @@ function tanakh_check($contents_string, $book_given=null, $chapter_given=null, $
 	$chapter_found = null;
 
 	foreach(array_reverse($tanakh_info['chapters-verses']) as $chapter_number => $verse_count):
-		if (strpos("*".$check_string, $chapter_number) !== 1): continue; endif;
-		$chapter_found = $chapter_number;
+		if (strpos($check_string, $chapter_number) === 0): $chapter_found = $chapter_number; endif;
 		endforeach;
 
 	if (empty($chapter_found) && !(empty($chapter_given)) && isset($tanakh_info['chapters-verses'][$chapter_given])):
