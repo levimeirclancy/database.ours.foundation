@@ -442,10 +442,27 @@
 				"25" => null,
 				], ],
 		
-		"isaiah"	=> "ישעיה Isaiah",
-		"jeremiah"	=> "ירמיה Jeremiah",
-		"ezekiel"	=> "יחזקאל Ezekiel",
-		
+		"isaiah" => 
+			[
+			"name"			=> "ישעיה Isaiah",
+			"chapters-verses"	=>
+				[
+				], ],
+	
+		"jeremiah" => 
+			[
+			"name"			=> "ירמיה Jeremiah",
+			"chapters-verses"	=>
+				[
+				], ],
+
+		"ezekiel" => 
+			[
+			"name"			=> "יחזקאל Ezekiel",
+			"chapters-verses"	=>
+				[
+				], ],	
+	
 //		"minor prophets"	=> "תרי עשר The Twelve",
 		
 		"1chronicles" => 
