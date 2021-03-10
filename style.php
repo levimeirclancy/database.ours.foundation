@@ -1121,8 +1121,8 @@ $style_array = [
 	"css_contents" =>
 		[
 		"position"		=> "relative",
-//		"width"			=> output_width($site_info['dimensions']['width']*.75),
-		"width"			=> "100%",
+		"width"			=> output_width($site_info['dimensions']['width']*.7),
+//		"width"			=> "100%",
 		"padding"		=> "20px",
 		"height"		=> output_width($site_info['dimensions']['width']*.7),
 		], ],
