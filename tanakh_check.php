@@ -611,8 +611,6 @@ function tanakh_check($contents_string, $book_given=null, $chapter_given=null, $
 		$tanakh_info = null;
 		endforeach;
 	
-	return "test".$book_found;
-
 	if (empty($book_found) && !(empty($book_given)) && isset($tanakh_array[$book_given])):
 		$book_found = $book_given;
 		$tanakh_info = $tanakh_array[$book_given];
@@ -621,6 +619,9 @@ function tanakh_check($contents_string, $book_given=null, $chapter_given=null, $
 	if (empty($book_found)):
 		return FALSE;
 		endif;
+	
+	return "test".$book_found;
+
 	
 	// Remove book name
 	$check_string = substr($check_string, 2);
