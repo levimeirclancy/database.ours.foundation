@@ -577,7 +577,7 @@ function body_process($body_incoming) {
 	$matches = array_unique($matches[0]);	
 	foreach ($matches as $match_temp):
 
-		$image_string = $filename_size = $file_description = "kjsdfngldfg";
+		$image_string = $filename_size = $file_description = null;
 
 		$temp_array = explode("][", $match_temp."][");
 	
@@ -594,9 +594,10 @@ function body_process($body_incoming) {
 //		$image_string .= "</figure>";
 
 		if ($link_check == 1):
-			$image_string .= "<figure><amp-img src='".$image_url."' role='button' tabindex='1'></amp-img>";
+			$image_string .= "<div class='amp-img-large-wrapper'>";
+			$image_string .= "<figure><amp-img src='".$image_url."' role='button' tabindex='1' layout='fill' class='amp-img-large'></amp-img>";
 			$image_string .= "<figcaption>". mb_substr(strip_tags($file_description),0,200) ."</figcaption>";
-			$image_string .= "</figure>";
+			$image_string .= "</figure></div>";
 			endif;
 
 //		$media_info = nesty_media($temp_array[0]);
