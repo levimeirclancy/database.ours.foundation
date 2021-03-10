@@ -660,9 +660,8 @@ function tanakh_check($contents_string, $book_given=null, $chapter_given=null, $
 			    
 	$chapter_found = null;
 
-	foreach(array_reverse($tanakh_info['chapters-verses'], TRUE) as $chapter_number => $verse_count):
-		if (strpos($check_string, (string)$chapter_number) == 1):
-			return "check ".strpos("*".$check_string, $chapter_number);
+	foreach(array_reverse($tanakh_info['chapters-verses'], TRUE) as (string)$chapter_number => $verse_count):
+		if (strpos($check_string, $chapter_number) === 0):
 			$chapter_found = $chapter_number;
 			break; endif;
 		endforeach;
@@ -679,8 +678,7 @@ function tanakh_check($contents_string, $book_given=null, $chapter_given=null, $
 		$return_string = $tanakh_info['name']." ".$return_string;
 		return $return_string;
 		endif;
-	
-	
+
 	return "test".$tanakh_info['name']." ".$chapter_found." chapters";
 		    
 	foreach(["-", ",", ] as $punctuation_temp):
