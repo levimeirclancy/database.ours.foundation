@@ -18,6 +18,16 @@ $site_info = [
 		[
 		"english", "hebrew", "sorani", "arabic"
 		],
+	"colors"		=>
+		[
+		"background"	=> [255,255,255],
+		"font"		=> [20,20,20],
+		"offset"	=> [50,115,165],
+		],
+	"dimensions"		=>
+		[
+		"width"		=> 850,
+		],
 	"category_array"	=> 
 		[
 		"offices-units"	=> "Offices and units",
