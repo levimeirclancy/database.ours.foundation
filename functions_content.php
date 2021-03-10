@@ -1329,11 +1329,11 @@ function tanakh_check($contents_string, $book_given=null, $chapter_given=null, $
 		endif;
 	
 	// Remove book name
-	$check_string = substr($check_string, 2)
+	$check_string = substr($check_string, 2);
 	$check_array = explode(" ", $check_string);
 	unset($check_array[0]); // Remove the book name
 	foreach ($check_array as $key_temp => $value_temp):
-		if (!(empty($value_temp)): continue; endif;
+		if (!(empty($value_temp))): continue; endif;
 		unset($check_array[$key_temp]);
 		endforeach;
 	$check_string = trim(implode(" ", $check_array));
