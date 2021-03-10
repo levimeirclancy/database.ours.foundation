@@ -1,7 +1,4 @@
-<? if (empty($background_color)): $background_color = [255,255,255]; endif;
-if (empty($font_color)): $font_color = [20,20,20]; endif;
-if (empty($default_width)): $default_width = 850; endif;
-
+<? // Site CSS parameters
 $style_array = [
 	
 	[
@@ -15,7 +12,7 @@ $style_array = [
 		"font-family"		=> "Times, Serif",
 		"font-size"		=> "17px",
 		"line-height"		=> "1.3",
-		"background"		=> output_rgba($background_color, 1),
+		"background"		=> output_rgba($site_info['colors']['background'], 1),
 		"margin"		=> "0",
 		"padding"		=> "0",
 		], ],
@@ -34,7 +31,7 @@ $style_array = [
 		"white-space"		=> "pre-line",
 		"overflow"		=> "hidden",
 		"text-decoration"	=> "none",
-		"color"			=> output_rgba($font_color, 1),
+		"color"			=> output_rgba($site_info['colors']['font'], 1),
 		], ],
 	
 	[ // But in the articles, we want an underline
@@ -81,7 +78,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"box-shadow"		=> "0 0 40px -5px rgba(30,30,30,0.15)",
-		"background"		=> output_rgba($background_color, 1),
+		"background"		=> output_rgba($site_info['colors']['background'], 1),
 		"padding"		=> "50px 0",
 		"margin"		=> "50px 0",
 		], ],
@@ -106,7 +103,7 @@ $style_array = [
 		[
 		"box-sizing"		=> "border-box",
 		"width"			=> "100%",
-//		"background"		=> output_rgba($background_color, 1),
+//		"background"		=> output_rgba($site_info['colors']['background'], 1),
 		"padding"		=> "10px 0",
 		"z-index"		=> "100",
 		"margin"		=> "0 0 50px 0",
@@ -121,11 +118,11 @@ $style_array = [
 		"margin"		=> "5px 10px",
 		"padding"		=> "8px 10px",
 		"border-radius"		=> "100px",
-//		"background"		=> output_rgba($background_color, 1),
+//		"background"		=> output_rgba($site_info['colors']['background'], 1),
 		"display"		=> "inline-block",
 		"cursor"		=> "pointer",
 		"text-align"		=> "center",
-		"color"			=> output_rgba($font_color, 1),
+		"color"			=> output_rgba($site_info['colors']['font'], 1),
 		"font-weight"		=> "400",
 		"font-family"		=> "Arial, Helvetica, 'Sans Serif'",
 		], ],
@@ -162,13 +159,13 @@ $style_array = [
 	"css_contents" =>
 		[
 		"display"		=> "table",
-		"max-width"		=> output_width($default_width/2),
+		"max-width"		=> output_width($site_info['dimensions']['width']/2),
 		"margin"		=> "30px 50px",
 		"padding"		=> "10px 60px",
 		"border"		=> "0",
 		"border-radius"		=> "100px",
-		"background"		=> output_rgba($font_color, 1),
-		"color"			=> output_rgba($background_color, 1),
+		"background"		=> output_rgba($site_info['colors']['font'], 1),
+		"color"			=> output_rgba($site_info['colors']['background'], 1),
 		"box-shadow"		=> "none",
 		"box-sizing"		=> "border-box",
 		"opacity"		=> "0.8",
@@ -220,9 +217,9 @@ $style_array = [
 	"css_tags" => "h1, h2, h3, h4, h5, h6",
 	"css_contents" =>
 		[
-		"color"			=> output_rgba($font_color, 1),
+		"color"			=> output_rgba($site_info['colors']['font'], 1),
 		"width"			=> "auto",
-		"max-width"		=> output_width($default_width), 
+		"max-width"		=> output_width($site_info['dimensions']['width']), 
 		"border"		=> "0",
 		"display"		=> "block",
 		"clear"			=> "both",
@@ -293,7 +290,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"position"		=> "relative",
-		"color"			=> output_rgba($font_color, 1),
+		"color"			=> output_rgba($site_info['colors']['font'], 1),
 		], ],
 	
 	[
@@ -312,7 +309,7 @@ $style_array = [
 		"text-align"		=> "center",
 		"margin"		=> "60px 20px 70px",
 		"height"		=> "2px",
-		"background"		=> output_rgba($font_color, 1),
+		"background"		=> output_rgba($site_info['colors']['font'], 1),
 		"border"		=> "0",
 		], ],
 	
@@ -336,13 +333,13 @@ $style_array = [
 		"text-align"		=> "left",
 		"clear"			=> "both",
 		"position"		=> "relative",
-		"color"			=> output_rgba($font_color, 1),
+		"color"			=> output_rgba($site_info['colors']['font'], 1),
 		"border"		=> "0",
 		"wudth"			=> "auto",
 		"overflow"		=> "hidden",
 		"text-overflow"		=> "ellipsis",
 		"min-width"		=> "0px",
-		"max-width"		=> output_width($default_width),
+		"max-width"		=> output_width($site_info['dimensions']['width']),
 		], ],
 	
 	[ // Text only
@@ -389,14 +386,14 @@ $style_array = [
 	"css_contents" =>
 		[
 		"padding"		=> "0 20px",
-		"border"		=> "1px dotted ".output_rgba($font_color, 0.5),
+		"border"		=> "1px dotted ".output_rgba($site_info['colors']['font'], 0.5),
 		], ],
 	
 	[
 	"css_tags" => "dd",
 	"css_contents" =>
 		[
-		"border-bottom"		=> "1px dotted ".output_rgba($font_color, 0.5),
+		"border-bottom"		=> "1px dotted ".output_rgba($site_info['colors']['font'], 0.5),
 		], ],
 	
 	[
@@ -407,20 +404,20 @@ $style_array = [
 		"vertical-align"	=> "top",
 		"clear"			=> "both",
 		"position"		=> "relative",
-		"background"		=> output_rgba($background_color, 1),
+		"background"		=> output_rgba($site_info['colors']['background'], 1),
 		"border-width"		=> "1px",
 		"border-style"		=> "solid",
-		"border-color"		=> output_rgba($font_color, 0.8),
+		"border-color"		=> output_rgba($site_info['colors']['font'], 0.8),
 		"border-radius"		=> "15px",
 		"padding"		=> "15px 0 0",
-		"max-width"		=> output_width($default_width,-150),
+		"max-width"		=> output_width($site_info['dimensions']['width'],-150),
 		], ],
 		
 	[
 	"css_tags" => "cite",
 	"css_contents" =>
 		[
-		"color"			=> output_rgba($font_color, 1),
+		"color"			=> output_rgba($site_info['colors']['font'], 1),
 		"font-style"		=> "normal",
 		"opacity"		=> "0.6",
 		], ],
@@ -459,9 +456,9 @@ $style_array = [
 		"vertical-align"	=> "middle",
 		"text-align"		=> "center",
 		"font-family"		=> "Times",
-		"background"		=> output_rgba($background_color, 1),
-		"border-bottom"		=> "1px solid ".output_rgba($font_color, 0.6),
-		"color"			=> output_rgba($font_color, 1),
+		"background"		=> output_rgba($site_info['colors']['background'], 1),
+		"border-bottom"		=> "1px solid ".output_rgba($site_info['colors']['font'], 0.6),
+		"color"			=> output_rgba($site_info['colors']['font'], 1),
 		"padding"		=> "0 0 0",
 		"display"		=> "block",
 		"margin"		=> "0 20px 16px",
@@ -475,7 +472,7 @@ $style_array = [
 		"table-layout"		=> "auto",
 		"border-collapse"	=> "collapse",
 		"border"		=> "0",
-		"min-width"		=> output_width($default_width),
+		"min-width"		=> output_width($site_info['dimensions']['width']),
 		], ],	
 
 	[
@@ -489,7 +486,7 @@ $style_array = [
 //		"padding"		=> "10px 0",
 		"margin"		=> "0",
 		"vertical-align"	=> "top",
-		"border"		=> "1px solid ".output_rgba($font_color, 1),
+		"border"		=> "1px solid ".output_rgba($site_info['colors']['font'], 1),
 		], ],
 	
 	[
@@ -518,8 +515,8 @@ $style_array = [
 		"margin"		=> "0",
 		"font-size"		=> "1em",
 		"padding"		=> "6px 20px",
-//		"background"		=> output_rgba($background_color, 1),
-		"border"		=> output_rgba($font_color, 1),
+//		"background"		=> output_rgba($site_info['colors']['background'], 1),
+		"border"		=> output_rgba($site_info['colors']['font'], 1),
 		"border-radius"		=> "100px",
 		], ],
 	
@@ -529,7 +526,7 @@ $style_array = [
 		[
 		"font-style"		=> "normal",
 		"margin"		=> "8px 20px",
-		"border"		=> "1px solid ".output_rgba($font_color, 1),
+		"border"		=> "1px solid ".output_rgba($site_info['colors']['font'], 1),
 		"cursor"		=> "pointer",
 		], ],
 
@@ -549,7 +546,7 @@ $style_array = [
 		"display"		=> "block",
 		"margin"		=> "5px 20px",
 		"padding"		=> "8px",
-		"width"			=> output_width($default_width),
+		"width"			=> output_width($site_info['dimensions']['width']),
 		"max-width"		=> "91%",
 		"text-align"		=> "left",
 		"border"		=> "0",
@@ -583,10 +580,10 @@ $style_array = [
 		[
 		"font-family"		=> "Arial, Helvetica, 'Sans Serif'",
 		"border-radius"		=> "10px",
-		"color"			=> output_rgba($font_color, 0.7),
+		"color"			=> output_rgba($site_info['colors']['font'], 0.7),
 		"padding"		=> "15px",
-		"background"		=> output_rgba($background_color, 1),
-		"border"		=> "1px solid ".output_rgba($font_color, 1),
+		"background"		=> output_rgba($site_info['colors']['background'], 1),
+		"border"		=> "1px solid ".output_rgba($site_info['colors']['font'], 1),
 		"box-shadow"		=> "3px 12px 15px -9px rgba(50,50,50,0.1)",
 		], ],
 	
@@ -602,7 +599,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"font-style"		=> "italic",
-		"color"			=> output_rgba($font_color, 1),
+		"color"			=> output_rgba($site_info['colors']['font'], 1),
 		"padding"		=> "40px 16px 5px",
 		"opacity"		=> "0.8",
 		], ],
@@ -619,10 +616,10 @@ $style_array = [
 	"css_contents" =>
 		[
 		"cursor"		=> "pointer",
-		"color"			=> output_rgba($font_color, 1),
+		"color"			=> output_rgba($site_info['colors']['font'], 1),
 		"opacity"		=> "0.8",
 		"padding"		=> "7px 16px",
-		"border"		=> "1px solid ".output_rgba($font_color, 1),
+		"border"		=> "1px solid ".output_rgba($site_info['colors']['font'], 1),
 		"border-radius"		=> "100px",
 		"display"		=> "inline-block",
 		], ],
@@ -642,7 +639,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"height"		=> "250px",
-		"max-width"		=> output_width($default_width,-200),
+		"max-width"		=> output_width($site_info['dimensions']['width'],-200),
 		"max-height"		=> "80%",
 		"overflow-y"		=> "scroll",
 		"resize"		=> "none",
@@ -684,8 +681,8 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-		"background"		=> output_rgba($font_color, 1),
-		"color"			=> output_rgba($background_color, 1),
+		"background"		=> output_rgba($site_info['colors']['font'], 1),
+		"color"			=> output_rgba($site_info['colors']['background'], 1),
 		"border"		=> "0 none rgba(255,255,255,0)",
 		"outline"		=> "0 none rgba(255,255,255,0)",
 		], ],
@@ -695,7 +692,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"font-weight"		=> "400",
-		"color"			=> output_rgba($font_color, 1),
+		"color"			=> output_rgba($site_info['colors']['font'], 1),
 		"opacity"		=> "0.6",
 		], ],
 
@@ -716,7 +713,7 @@ $style_array = [
 		"border-radius"		=> "100px",
 		"vertical-align"	=> "middle",
 		"cursor"		=> "pointer",
-		"border"		=> "1px solid ".output_rgba($font_color, 0.35),
+		"border"		=> "1px solid ".output_rgba($site_info['colors']['font'], 0.35),
 //		"box-shadow"		=> "3px 3px 20px -3px rgba(50,50,50,0.35)",
 		], ],
 	
@@ -732,8 +729,8 @@ $style_array = [
 		"font-family"		=> "Arial, Helvetica, 'San Serif'",
 		"bottom"		=> "17px",
 		"padding"		=> "7px 30px",
-		"background"		=> output_rgba($background_color, 1),
-		"color"			=> output_rgba($font_color, 1),
+		"background"		=> output_rgba($site_info['colors']['background'], 1),
+		"color"			=> output_rgba($site_info['colors']['font'], 1),
 		], ],
 	
 	[
@@ -763,8 +760,8 @@ $style_array = [
 		[
 		"bottom"		=> "65px",
 		"right"			=> "120px",
-		"background"		=> output_rgba($font_color, 1),
-		"color"			=> output_rgba($background_color, 1),
+		"background"		=> output_rgba($site_info['colors']['font'], 1),
+		"color"			=> output_rgba($site_info['colors']['background'], 1),
 		"padding"		=> "7px 40px 8px",
 		], ],
 	
@@ -773,8 +770,8 @@ $style_array = [
 	"css_contents" =>
 		[
 		"bottom"		=> "65px",
-		"background"		=> output_rgba($background_color, 1),
-		"color"			=> output_rgba($font_color, 1),
+		"background"		=> output_rgba($site_info['colors']['background'], 1),
+		"color"			=> output_rgba($site_info['colors']['font'], 1),
 		"padding"		=> "7px 20px 8px",
 		], ],
 	
@@ -783,7 +780,7 @@ $style_array = [
 	"css_tags" => "#sidebar-inputs",
 	"css_contents" =>
 		[
-		"width"			=> output_width($default_width*.4),
+		"width"			=> output_width($site_info['dimensions']['width']*.4),
 		], ],
 		
 	[
@@ -802,7 +799,7 @@ $style_array = [
 	"css_tags" => "span.sidebar-inputs-toggle-button",
 	"css_contents" =>
 		[
-		"border"		=> "1px solid ".output_rgba($font_color, 1),
+		"border"		=> "1px solid ".output_rgba($site_info['colors']['font'], 1),
 		"padding"		=> "2px 11px",
 		"float"			=> "right",
 		], ],
@@ -811,7 +808,7 @@ $style_array = [
 	"css_tags" => "span.sidebar-inputs-show-button",
 	"css_contents" =>
 		[
-		"border"		=> "1px solid ".output_rgba($background_color, 1),
+		"border"		=> "1px solid ".output_rgba($site_info['colors']['background'], 1),
 		"padding"		=> "2px 0",
 		], ],
 	
@@ -819,7 +816,7 @@ $style_array = [
 	"css_tags" => "span.sidebar-inputs-hide-button",
 	"css_contents" =>
 		[
-		"border"		=> "1px solid ".output_rgba($font_color, 1),
+		"border"		=> "1px solid ".output_rgba($site_info['colors']['font'], 1),
 		"padding"		=> "2px 11px",
 		], ],
 
@@ -843,7 +840,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"display"		=> "block",
-		"max-width"		=> output_width($default_width),
+		"max-width"		=> output_width($site_info['dimensions']['width']),
 		"position"		=> "relative",
 		], ],
 
@@ -862,18 +859,18 @@ $style_array = [
 		"vertical-align"	=> "top",
 		"clear"			=> "both",
 //		"width"			=> "auto",
-//		"max-width"		=> output_width($default_width),
+//		"max-width"		=> output_width($site_info['dimensions']['width']),
 		"margin"		=> "50px 20px",
 		"padding"		=> "0 0 7px 0",
 		"list-style"		=> "none",
 //		"list-style-position"	=> "inside",
 		"line-height"		=> "1.4",
-//		"border-left"		=> "1px solid ".output_rgba($font_color, 0.2),
+//		"border-left"		=> "1px solid ".output_rgba($site_info['colors']['font'], 0.2),
 		"box-sizing"		=> "border-box",
 		"counter-reset"		=> "list-counter",
 		"border-width"		=> "0 0 1px 0",
 		"border-style"		=> "solid",
-		"border-color"		=> output_rgba($font_color, 0.35),		
+		"border-color"		=> output_rgba($site_info['colors']['font'], 0.35),		
 		], ],
 
 	[ // A table inside a table
@@ -901,7 +898,7 @@ $style_array = [
 		"padding"		=> "7px 0 0",
 		"border-width"		=> "1px 0 0",
 		"border-style"		=> "solid",
-		"border-color"		=> output_rgba($font_color, 0.35),
+		"border-color"		=> output_rgba($site_info['colors']['font'], 0.35),
 		"counter-increment"	=> "list-counter",
 		"list-style-type"	=> "none",
 		"width"			=> "auto",
@@ -998,8 +995,8 @@ $style_array = [
 		"font-size"		=> "70%",
 		"padding"		=> "0 3px 3px 5px",
 		"margin"		=> "0 0 6px 0",
-		"border-bottom"		=> "1px dotted ".output_rgba($font_color, 0.35),
-		"color"			=> output_rgba($font_color, 0.5),
+		"border-bottom"		=> "1px dotted ".output_rgba($site_info['colors']['font'], 0.35),
+		"color"			=> output_rgba($site_info['colors']['font'], 0.5),
 		"content"		=> "counter(list-counter, decimal)",
 		], ],
 	
@@ -1075,7 +1072,7 @@ $style_array = [
 		[
 		"display"		=> "block",
 		"margin"		=> "15px 0 0 0",
-		"max-width"		=> output_width($default_width*.7),
+		"max-width"		=> output_width($site_info['dimensions']['width']*.7),
 		], ],
 
 	[
@@ -1120,7 +1117,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"margin"		=> "0",
-		"background"		=> output_rgba($background_color, 1),
+		"background"		=> output_rgba($site_info['colors']['background'], 1),
 		"text-align"		=> "left",
 		"box-sizing"		=> "border-box",
 		"position"		=> "relative",
@@ -1141,7 +1138,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"max-width"		=> "90%",
-		"width"			=> output_width($default_width*.55),
+		"width"			=> output_width($site_info['dimensions']['width']*.55),
 		], ],
 	
 	[
@@ -1189,7 +1186,7 @@ $style_array = [
 		], ],
 	
 	[
-	"css_tags" => "@media only screen and (max-width: ".output_width($default_width,40).")",
+	"css_tags" => "@media only screen and (max-width: ".output_width($site_info['dimensions']['width'],40).")",
 	"css_contents" => 
 		[
 
@@ -1261,8 +1258,7 @@ function output_rgba($rgba_array, $opacity) {
 
 function output_css ($array) {
 	
-	global $background_color;
-	global $font_color;
+	global $site_info;
 	
 //	if (isset($array['css_tags'])): $array = [ $array ]; endif;
 	
