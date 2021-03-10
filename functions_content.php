@@ -580,79 +580,97 @@ function body_process($body_incoming) {
 		$image_string = $filename_size = $file_description = null;
 
 		$temp_array = explode("][", $match_temp."][");
+	
+		if (filter_var($temp_array[0], FILTER_VALIDATE_URL) !== FALSE):
+			$link_check = 1;
+			$image_url = $temp_array[0];
+//			if (!(empty($temp_array[1]))): $contents_string = $temp_array[1];
+//			else: $contents_string = $temp_array[0]; endif;
+			endif;
+	
+	
+//		$image_string .= "<figure><amp-img on='tap:lightbox".$media_id_temp."' src='".$media_info[$media_id_temp]['link']."thumb/' width='".$img_width."px' height='".$img_height."px' role='button' tabindex='1' sizes='(min-width: ".($img_width+100)."px) ".$img_width."px, 70vw'></amp-img>";
+//		$image_string .= "<amp-fit-text width='".($img_width)."px' height='30px' min-font-size='14px' max-font-size='14px' sizes='(min-width: ".($img_width+100)."px) ".($img_width)."px, 70vw'>".mb_substr(strip_tags(str_replace(["</th>", "</td>", "</div>", "</p>", "<br>", "<br />"], ' ', $file_description)),0,200)."</amp-fit-text>";
+//		$image_string .= "</figure>";
 
-		$media_info = nesty_media($temp_array[0]);
-
-		$media_id_temp = $temp_array[0];
-		if (strpos($temp_array[0], "|")):
-			$domain_id_temp = explode("|", $temp_array[0]);
-			if (strpos($domain_id_temp[0], ".")): $media_id_temp = $domain_id_temp[1];
-			else: $media_id_temp = $domain_id_temp[0]; endif;
+		if ($link_check == 1):
+			$image_string .= "<figure><amp-img src='".$image_url."' role='button' tabindex='1'></amp-img>";
+			$image_string .= "<figcaption>". mb_substr(strip_tags($file_description),0,200) ."</figcaption>";
+			$image_string .= "</figure>";
 			endif;
 
-		if (empty($media_info[$media_id_temp])):
-			$body_incoming = str_replace("[[[".$match_temp."]]]", null, $body_incoming);
-			continue; endif; // media id does not exist so skip it
-		
-		if (in_array($temp_array[1], ["full", "large", "thumb"])): $filename_size = $temp_array[1]; unset($temp_array[1]);
-		elseif (in_array($temp_array[2], ["full", "large", "thumb"])): $filename_size = $temp_array[2]; unset($temp_array[2]); endif;
+//		$media_info = nesty_media($temp_array[0]);
 
-		if (!(empty($temp_array[1]))): $file_description = $temp_array[1];
-		elseif (!(empty($temp_array[2]))): $file_description = $temp_array[2];
-		elseif (!(empty($media_info[$media_id_temp]['description']))): $file_description = $media_info[$media_id_temp]['description']; endif;
+//		$media_id_temp = $temp_array[0];
+//		if (strpos($temp_array[0], "|")):
+//			$domain_id_temp = explode("|", $temp_array[0]);
+//			if (strpos($domain_id_temp[0], ".")): $media_id_temp = $domain_id_temp[1];
+//			else: $media_id_temp = $domain_id_temp[0]; endif;
+//			endif;
+
+//		if (empty($media_info[$media_id_temp])):
+//			$body_incoming = str_replace("[[[".$match_temp."]]]", null, $body_incoming);
+//			continue; endif; // media id does not exist so skip it
+		
+//		if (in_array($temp_array[1], ["full", "large", "thumb"])): $filename_size = $temp_array[1]; unset($temp_array[1]);
+//		elseif (in_array($temp_array[2], ["full", "large", "thumb"])): $filename_size = $temp_array[2]; unset($temp_array[2]); endif;
+
+//		if (!(empty($temp_array[1]))): $file_description = $temp_array[1];
+//		elseif (!(empty($temp_array[2]))): $file_description = $temp_array[2];
+//		elseif (!(empty($media_info[$media_id_temp]['description']))): $file_description = $media_info[$media_id_temp]['description']; endif;
 	
 		// convert all images to links
-		preg_match_all("/(?<=\[\[\[)(.*?)(?=\]\]\])/is", $file_description, $matches_temp);
-		if (empty($matches_temp)): $matches_temp = [ [], [] ]; endif;
-		foreach ($matches_temp[0] as $temp): $file_description = str_replace("[[[".$temp."]]]", "{{{".str_replace("][", "}{", $temp)."}}}", $file_description); endforeach;
+//		preg_match_all("/(?<=\[\[\[)(.*?)(?=\]\]\])/is", $file_description, $matches_temp);
+//		if (empty($matches_temp)): $matches_temp = [ [], [] ]; endif;
+//		foreach ($matches_temp[0] as $temp): $file_description = str_replace("[[[".$temp."]]]", "{{{".str_replace("][", "}{", $temp)."}}}", $file_description); endforeach;
 
 		// remove all citations inside images
-		preg_match_all("/(?<=\(\(\()(.*?)(?=\)\)\))/is", $file_description, $matches_temp);
-		if (empty($matches_temp)): $matches_temp = [ [], [] ]; endif;
-		foreach ($matches_temp[0] as $temp): $file_description = str_replace("(((".$temp.")))", null, $file_description); endforeach;
+//		preg_match_all("/(?<=\(\(\()(.*?)(?=\)\)\))/is", $file_description, $matches_temp);
+//		if (empty($matches_temp)): $matches_temp = [ [], [] ]; endif;
+//		foreach ($matches_temp[0] as $temp): $file_description = str_replace("(((".$temp.")))", null, $file_description); endforeach;
 	
-		$file_description = body_process($file_description);
+//		$file_description = body_process($file_description);
 	
-		$img_height = 240;
-		$img_width = round(240*$media_info[$media_id_temp]['width']/$media_info[$media_id_temp]['height']);
-		$img_height_large = round(2.5*$img_height);
-		$img_width_large = round(2.5*$img_width);
+//		$img_height = 240;
+//		$img_width = round(240*$media_info[$media_id_temp]['width']/$media_info[$media_id_temp]['height']);
+//		$img_height_large = round(2.5*$img_height);
+//		$img_width_large = round(2.5*$img_width);
 
-		if ($filename_size == "full"):
-			$image_string = "<a href='".$media_info[$media_id_temp]['link']."' on='tap:lightbox".$media_id_temp."' role='button' tabindex='1'>view image</a>";
+//		if ($filename_size == "full"):
+//			$image_string = "<a href='".$media_info[$media_id_temp]['link']."' on='tap:lightbox".$media_id_temp."' role='button' tabindex='1'>view image</a>";
 	
-		elseif ($filename_size == "large"):
-			$image_string = "<div class='image_large'>";
-			$image_string .= "<figure><amp-img on='tap:lightbox".$media_id_temp."' src='".$media_info[$media_id_temp]['link']."large/' width='".$img_width_large."px' height='".$img_height_large."px' role='button' tabindex='1' sizes='(min-width: 1100px) 1000px, (min-width: 500px) 90vw, 90vw'></amp-img>";
-			if (!(empty($file_description))):
-				$image_string .= "<amp-fit-text width='".($img_width_large)."px' height='30px' min-font-size='14px' max-font-size='14px'>".mb_substr(strip_tags(str_replace(["</th>", "</td>", "</div>", "</p>", "<br>", "<br />"], ' ',$file_description)),0,200)."</amp-fit-text>";
-				endif;
-			$image_string .= "</figure>";
-			$image_string .= "<a href='".$media_info[$media_id_temp]['link']."' target='_blank'><div class='image-div-link-button material-icons'>link</div></a>";
-			$image_string .= "<div on='tap:lightbox".$media_id_temp."' role='button' tabindex='1' class='image-div-open-button'>Tap to open</div>";
-			$image_string .= "</div>";
+//		elseif ($filename_size == "large"):
+//			$image_string = "<div class='image_large'>";
+//			$image_string .= "<figure><amp-img on='tap:lightbox".$media_id_temp."' src='".$media_info[$media_id_temp]['link']."large/' width='".$img_width_large."px' height='".$img_height_large."px' role='button' tabindex='1' sizes='(min-width: 1100px) 1000px, (min-width: 500px) 90vw, 90vw'></amp-img>";
+//			if (!(empty($file_description))):
+//				$image_string .= "<amp-fit-text width='".($img_width_large)."px' height='30px' min-font-size='14px' max-font-size='14px'>".mb_substr(strip_tags(str_replace(["</th>", "</td>", "</div>", "</p>", "<br>", "<br />"], ' ',$file_description)),0,200)."</amp-fit-text>";
+//				endif;
+//			$image_string .= "</figure>";
+//			$image_string .= "<a href='".$media_info[$media_id_temp]['link']."' target='_blank'><div class='image-div-link-button material-icons'>link</div></a>";
+//			$image_string .= "<div on='tap:lightbox".$media_id_temp."' role='button' tabindex='1' class='image-div-open-button'>Tap to open</div>";
+//			$image_string .= "</div>";
 
-		else:
-			$image_string = "<div class='image_thumbnail'>";
-			$image_string .= "<figure><amp-img on='tap:lightbox".$media_id_temp."' src='".$media_info[$media_id_temp]['link']."thumb/' width='".$img_width."px' height='".$img_height."px' role='button' tabindex='1' sizes='(min-width: ".($img_width+100)."px) ".$img_width."px, 70vw'></amp-img>";
-			$image_string .= "<amp-fit-text width='".($img_width)."px' height='30px' min-font-size='14px' max-font-size='14px' sizes='(min-width: ".($img_width+100)."px) ".($img_width)."px, 70vw'>".mb_substr(strip_tags(str_replace(["</th>", "</td>", "</div>", "</p>", "<br>", "<br />"], ' ', $file_description)),0,200)."</amp-fit-text>";
-			$image_string .= "</figure>";
-			$image_string .= "<a href='".$media_info[$media_id_temp]['link']."' target='_blank'><div class='image-div-link-button material-icons'>link</div></a>";
-			$image_string .= "<div on='tap:lightbox".$media_id_temp."' role='button' tabindex='1' class='image-div-open-button'>Tap to open</div>";
-			$image_string .= "</div>"; endif;
+//		else:
+//			$image_string = "<div class='image_thumbnail'>";
+//			$image_string .= "<figure><amp-img on='tap:lightbox".$media_id_temp."' src='".$media_info[$media_id_temp]['link']."thumb/' width='".$img_width."px' height='".$img_height."px' role='button' tabindex='1' sizes='(min-width: ".($img_width+100)."px) ".$img_width."px, 70vw'></amp-img>";
+//			$image_string .= "<amp-fit-text width='".($img_width)."px' height='30px' min-font-size='14px' max-font-size='14px' sizes='(min-width: ".($img_width+100)."px) ".($img_width)."px, 70vw'>".mb_substr(strip_tags(str_replace(["</th>", "</td>", "</div>", "</p>", "<br>", "<br />"], ' ', $file_description)),0,200)."</amp-fit-text>";
+//			$image_string .= "</figure>";
+//			$image_string .= "<a href='".$media_info[$media_id_temp]['link']."' target='_blank'><div class='image-div-link-button material-icons'>link</div></a>";
+//			$image_string .= "<div on='tap:lightbox".$media_id_temp."' role='button' tabindex='1' class='image-div-open-button'>Tap to open</div>";
+//			$image_string .= "</div>"; endif;
 
 	
 		$body_incoming = str_replace("[[[".$match_temp."]]]", $image_string, $body_incoming);
 	
-		$lightbox_temp = "<amp-lightbox scrollable id='lightbox".$media_id_temp."' layout='nodisplay'>";
-		$lightbox_temp .= "<figure><div class='image_large' on='tap:lightbox".$media_id_temp.".close' tabindex='1' role='button'><amp-img src='".$media_info[$media_id_temp]['link']."large/' width='".$img_width_large."px' height='".$img_height_large."px' sizes='(min-width: 1100px) 1000px, (min-width: 500px) 90vw, 90vw'></amp-img></div>";
-		$lightbox_temp .= "<a href='".$media_info[$media_id_temp]['link']."' target='_blank'><div class='amp-lightbox-image-link-button'>new window</div></a>";
-		$lightbox_temp .= "<div class='amp-lightbox-media-id'>".$domain."|".$media_id_temp."</div>";
-		$lightbox_temp .= "<figcaption>".$file_description."</figcaption></figure>";
-		$lightbox_temp .= "<div class='amp-lightbox-close background_2' on='tap:lightbox".$media_id_temp.".close' tabindex='1' role='button'>close</div>";
-		$lightbox_temp .= "</amp-lightbox>";
-		$image_lightbox_array[] = $lightbox_temp;
-
+//		$lightbox_temp = "<amp-lightbox scrollable id='lightbox".$media_id_temp."' layout='nodisplay'>";
+//		$lightbox_temp .= "<figure><div class='image_large' on='tap:lightbox".$media_id_temp.".close' tabindex='1' role='button'><amp-img src='".$media_info[$media_id_temp]['link']."large/' width='".$img_width_large."px' height='".$img_height_large."px' sizes='(min-width: 1100px) 1000px, (min-width: 500px) 90vw, 90vw'></amp-img></div>";
+//		$lightbox_temp .= "<a href='".$media_info[$media_id_temp]['link']."' target='_blank'><div class='amp-lightbox-image-link-button'>new window</div></a>";
+//		$lightbox_temp .= "<div class='amp-lightbox-media-id'>".$domain."|".$media_id_temp."</div>";
+//		$lightbox_temp .= "<figcaption>".$file_description."</figcaption></figure>";
+//		$lightbox_temp .= "<div class='amp-lightbox-close background_2' on='tap:lightbox".$media_id_temp.".close' tabindex='1' role='button'>close</div>";
+//		$lightbox_temp .= "</amp-lightbox>";
+//		$image_lightbox_array[] = $lightbox_temp;
+//
 		endforeach;
 	
 	// process formulas
