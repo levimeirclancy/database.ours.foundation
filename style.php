@@ -1128,7 +1128,7 @@ $style_array = [
 		"max-height"		=> "70%",
 //		"margin"		=> "20px",
 		"box-sizing"		=> "border-box",
-		"text-align"		=> "left",
+		"text-align"		=> "center",
 		], ],
 	
 	[
@@ -1138,6 +1138,7 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
+		"margin"		=> "0 auto",
 		"display"		=> "inline-block",
 		"text-align"		=> "left",
 		], ],
