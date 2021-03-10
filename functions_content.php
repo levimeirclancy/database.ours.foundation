@@ -1314,7 +1314,7 @@ function tanakh_check($contents_string, $book_given=null, $chapter_given=null, $
 	
 	foreach ($tanakh_array as $tanakh_key => $tanakh_info):
 		if (strpos($check_string, substr($tanakh_key, 0, 3)) !== FALSE):
-			$book_found => $tanakh_key;
+			$book_found = $tanakh_key;
 			break; endif;
 		$tanakh_info = null;
 		endforeach;
