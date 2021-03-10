@@ -381,7 +381,7 @@
 				"24" => null,
 				], ],
 
-		"i kings" => 
+		"1kings" => 
 			[
 			"name"			=> "מלכים Kings I",
 			"chapters-verses"	=>
@@ -410,7 +410,7 @@
 				"22" => null,
 				], ],
 
-		"ii kings" => 
+		"2kings" => 
 			[
 			"name"			=> "מלכים Kings II",
 			"chapters-verses"	=>
@@ -448,7 +448,7 @@
 		
 //		"minor prophets"	=> "תרי עשר The Twelve",
 		
-		"i chronicles" => 
+		"1chronicles" => 
 			[
 			"name"			=> "דברי הימים Chronicles I",
 			"chapters-verses"	=>
@@ -484,7 +484,7 @@
 				"29" => null,
 				], ],
 		
-		"ii chronicles" =>
+		"2chronicles" =>
 			[
 			"name"			=> "דברי הימים Chronicles II",
 			"chapters-verses"	=>
@@ -593,9 +593,14 @@ function tanakh_check($contents_string, $book_given=null, $chapter_given=null, $
 	$return_string = null;
 	
 	$check_string = strtolower($contents_string);
-	$check_string = str_replace("1 ", "i", $check_string);
-	$check_string = str_replace("2 ", "ii", $check_string);
 	$check_string = trim($check_string);
+	
+	foreach (["s", "k", "c", ] as $double_book_temp):
+		$check_string = str_replace("1 ".$double_book_temp, "1".$double_book_temp, $check_string);
+		$check_string = str_replace("i ".$double_book_temp, "1".$double_book_temp, $check_string);
+		$check_string = str_replace("2 ".$double_book_temp, "2".$double_book_temp, $check_string);
+		$check_string = str_replace("ii ".$double_book_temp, "2".$double_book_temp, $check_string);
+		endforeach;
 	
 	$book_found = null;
 	
