@@ -1122,7 +1122,7 @@ $style_array = [
 		[
 		"position"		=> "relative",
 		"width"			=> output_width($site_info['dimensions']['width']*.7),
-//		"width"			=> "100%",
+		"max-width"		=> "100%",
 		"padding"		=> "20px",
 		"height"		=> output_width($site_info['dimensions']['width']*.7),
 		], ],
