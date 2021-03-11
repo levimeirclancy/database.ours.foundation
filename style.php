@@ -61,6 +61,7 @@ $style_array = [
 		[
 		"strong",
 		".strong",
+		"time",
 		],
 	"css_contents" =>
 		[
