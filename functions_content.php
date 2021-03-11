@@ -483,7 +483,7 @@ function body_process($body_incoming) {
 		foreach($temp_array as $temp_string):
 			if (count($contents_string) >= 3): break; endif;
 			$temp_string = trim($temp_string);
-			if (empty($temp_string))): continue; endif;
+			if (empty($temp_string)): continue; endif;
 			$contents_string_array[] = $temp_string;
 			endforeach;
 	
