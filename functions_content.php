@@ -488,7 +488,7 @@ function body_process($body_incoming) {
 			endforeach;
 	
 		if (count($contents_string_array) == 3):
-			$date_format_string = "Y M j";
+			$date_format_string = "Y M J";
 		elseif (count($contents_string_array) == 2):
 			$date_format_string = "Y M";
 		elseif (count($contents_string_array) == 1):
