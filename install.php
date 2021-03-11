@@ -142,10 +142,10 @@ $columns_array = [
 //	"column"	=> "`body` LONGTEXT",
 //	],
 	
-	[
-	"table"		=> "information_directory",
-	"column"	=> "`studies` LONGTEXT",
-	],
+//	[
+//	"table"		=> "information_directory",
+//	"column"	=> "`studies` LONGTEXT",
+//	],
 	
 	];
 
@@ -158,10 +158,10 @@ foreach ($columns_array as $column_info):
 //	execute_checkup($run_statement->errorInfo(), "adding ".$column_info['column']." to ".$column_info['table']);
 
 	// Alter column types; this is redundant with the add, intended for something already added, but needs to be modified
-	$sql_temp = "ALTER TABLE ".$database.".".$column_info['table']." MODIFY COLUMN ".$column_info['column'];
-	$run_statement = $connection_pdo->prepare($sql_temp);
-	$run_statement->execute();
-	execute_checkup($run_statement->errorInfo(), "modifying ".$column_info['column']." in ".$column_info['table']);
+//	$sql_temp = "ALTER TABLE ".$database.".".$column_info['table']." MODIFY COLUMN ".$column_info['column'];
+//	$run_statement = $connection_pdo->prepare($sql_temp);
+//	$run_statement->execute();
+//	execute_checkup($run_statement->errorInfo(), "modifying ".$column_info['column']." in ".$column_info['table']);
 
 	endforeach;
 
