@@ -140,11 +140,13 @@ $columns_array = [
 //	[
 //	"table"		=> "information_directory",
 //	"column"	=> "`body` LONGTEXT",
+//	"after"		=> "`summary`",
 //	],
 	
 	[
 	"table"		=> "information_directory",
 	"column"	=> "`studies` LONGTEXT",
+	"after"		=> "`body`",
 	],
 	
 	];
