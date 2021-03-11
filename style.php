@@ -78,7 +78,7 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-		"text-decoration"	=> "underline",
+//		"text-decoration"	=> "underline",
 		], ],
 
 	[
