@@ -469,19 +469,44 @@ function body_process($body_incoming) {
 
 		$temp_array = explode(")(", $match_temp.")(");
 
-		$contents_string_array = [];	
-
+		$before_check = 0;
+		if ($temp_array[0] == "-"):
+			$before_check = -1;
+			unset($temp_array[0]);
+		elseif ($temp_array[0] == "+"):
+			$before_check = 1;
+			unset($temp_array[0]);
+			endif;
+	
 		$count_temp = 0;
+		$temp_string = null;
 		foreach($temp_array as $temp_string):
-			if ($count_temp > 2): break; endif;
+			if (count($contents_string) >= 3): break; endif;
 			$temp_string = trim($temp_string);
 			if (empty($temp_string))): continue; endif;
-			$contents_string_array[] = "<time>".$temp_string."</time>";
-			$count_temp++;
+			$contents_string_array[] = $temp_string;
 			endforeach;
 	
-		$contents_string = implode(" to ", $contents_string_array);
+		if (count($contents_string_array) == 3):
+			$date_format_string = "Y M DD";
+		elseif (count($contents_string_array) == 2):
+			$date_format_string = "Y M";
+		elseif (count($contents_string_array) == 1):
+			$date_format_string = "Y";
+		else:
+			$body_incoming = str_replace("(((".$match_temp.")))", null, $body_incoming);
+			endif;
 	
+		$contents_string = date($date_format_string, strtotime(implode("-", $contents_string_array)));
+	
+		if ($before_check == 1):
+			$contents_string = $contents_string." CE";
+		elseif ($before_check == -1):
+			$contents_string = $contents_string." BCE";
+			endif;
+	
+		$contents_string = "<time>".$contents_string."</time>";
+
 		$body_incoming = str_replace("(((".$match_temp.")))", $contents_string, $body_incoming);
 
 		endforeach;
