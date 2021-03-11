@@ -137,29 +137,27 @@ $columns_array = [
 //	"after"		=> "`entry_id`",
 //	],
 	
-	[
-	"table"		=> "information_directory",
-	"column"	=> "`body` LONGTEXT",
-	],
+//	[
+//	"table"		=> "information_directory",
+//	"column"	=> "`body` LONGTEXT",
+//	],
 	
 	];
 
 foreach ($columns_array as $column_info):
 
-	// Add in new columns 
-//	$sql_temp = "ALTER TABLE ".$database.".".$column_info['table']." ADD COLUMN ".$column_info['column']." AFTER ".$column_info['after'];
-//	$run_statement = $connection_pdo->prepare($sql_temp);
-//	$run_statement->execute();
-//	execute_checkup($run_statement->errorInfo(), "adding ".$column_info['column']." to ".$column_info['table']);
+	// Add in new columns
+	$sql_temp = "ALTER TABLE ".$database.".".$column_info['table']." ADD COLUMN ".$column_info['column']." AFTER ".$column_info['after'];
+	$run_statement = $connection_pdo->prepare($sql_temp);
+	$run_statement->execute();
+	execute_checkup($run_statement->errorInfo(), "adding ".$column_info['column']." to ".$column_info['table']);
 
-	// Alter column types
+	// Alter column types; this is redundant with the add, intended for something already added, but needs to be modified
 	$sql_temp = "ALTER TABLE ".$database.".".$column_info['table']." MODIFY COLUMN ".$column_info['column'];
-
-echo $sql_temp;
-
 	$run_statement = $connection_pdo->prepare($sql_temp);
 	$run_statement->execute();
 	execute_checkup($run_statement->errorInfo(), "modifying ".$column_info['column']." in ".$column_info['table']);
+
 	endforeach;
 
 if (!(empty($_POST['submit']))):
