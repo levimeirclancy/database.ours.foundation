@@ -154,7 +154,7 @@ echo "<amp-sidebar id='sidebar-entry-info' layout='nodisplay' side='right'>";
 //		echo "<li><span class='sidebar-navigation-item-title'>Published: ".date("Y F d", strtotime($entry_info['date_published']))."</span></li>"; // Date published
 //		echo "<li><span class='sidebar-navigation-item-title'>Updated: ".date("Y F d, H:i:s", strtotime($entry_info['date_updated']))."</span></li>"; // Date updated
 		if (!(empty($entry_info['appendix']['latitude'])) && !(empty($entry_info['appendix']['longitude']))): // GPS
-			$list_temp .= "++++++GPS: <a href='https://".$domain."/".$entry_info['entry_id']."/map/' target='_blank' rel='nofollow'>";
+			$list_temp .= "++++++GPS: <a href='https://".$domain."/".$entry_info['entry_id']."/map/' target='_blank'>";
 			$list_temp .= substr($entry_info['appendix']['latitude'],0,6).", ".substr($entry_info['appendix']['longitude'],0,6);
 			$list_temp .= "</a>";
 			endif;
