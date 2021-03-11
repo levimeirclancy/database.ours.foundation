@@ -460,7 +460,32 @@ function body_process($body_incoming) {
 		$body_incoming = str_replace("</".$tag_temp.">", $delimiter."</".$tag_temp.">".$delimiter, $body_incoming);	
 		endforeach;
 
+	// process date-times first
+	$matches = [];
+	preg_match_all("/(?<=\(\(\()(.*?)(?=\)\)\))/is", $body_incoming, $matches);
+	if (empty($matches)): $matches = [ [], [] ]; endif;
+	$matches = array_unique($matches[0]);
+	foreach ($matches as $match_temp):
+
+		$temp_array = explode(")(", $match_temp.")(");
+
+		$contents_string_array = [];	
+
+		$count_temp = 0;
+		foreach($temp_array as $temp_string):
+			if ($count_temp > 2): break; endif;
+			$temp_string = trim($temp_string);
+			if (empty($temp_string))): continue; endif;
+			$contents_string_array[] = "<time>".$temp_string."</time>";
+			$count_temp++;
+			endforeach;
 	
+		$contents_string = implode(" to ", $contents_string_array);
+	
+		$body_incoming = str_replace("(((".$match_temp.")))", $contents_string, $body_incoming);
+
+		endforeach;
+
 	$image_lightbox_array = [];
 	
 	// process links first
