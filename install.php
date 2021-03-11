@@ -142,6 +142,11 @@ $columns_array = [
 //	"column"	=> "`body` LONGTEXT",
 //	],
 	
+	[
+	"table"		=> "information_directory",
+	"column"	=> "`studies` LONGTEXT",
+	],
+	
 	];
 
 foreach ($columns_array as $column_info):
