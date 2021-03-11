@@ -478,6 +478,8 @@ function body_process($body_incoming) {
 			unset($temp_array[0]);
 			endif;
 	
+		$temp_array = array_values($temp_array);
+	
 		$count_temp = 0;
 		$temp_string = null;
 		foreach($temp_array as $temp_string):
