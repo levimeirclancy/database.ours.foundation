@@ -140,13 +140,11 @@ $columns_array = [
 //	[
 //	"table"		=> "information_directory",
 //	"column"	=> "`body` LONGTEXT",
-//	"after"		=> "`summary`",
 //	],
 	
 	[
 	"table"		=> "information_directory",
 	"column"	=> "`studies` LONGTEXT",
-	"after"		=> "`body`",
 	],
 	
 	];
@@ -154,10 +152,10 @@ $columns_array = [
 foreach ($columns_array as $column_info):
 
 	// Add in new columns
-	$sql_temp = "ALTER TABLE ".$database.".".$column_info['table']." ADD COLUMN ".$column_info['column']." AFTER ".$column_info['after'];
-	$run_statement = $connection_pdo->prepare($sql_temp);
-	$run_statement->execute();
-	execute_checkup($run_statement->errorInfo(), "adding ".$column_info['column']." to ".$column_info['table']);
+//	$sql_temp = "ALTER TABLE ".$database.".".$column_info['table']." ADD COLUMN ".$column_info['column']." AFTER ".$column_info['after'];
+//	$run_statement = $connection_pdo->prepare($sql_temp);
+//	$run_statement->execute();
+//	execute_checkup($run_statement->errorInfo(), "adding ".$column_info['column']." to ".$column_info['table']);
 
 	// Alter column types; this is redundant with the add, intended for something already added, but needs to be modified
 	$sql_temp = "ALTER TABLE ".$database.".".$column_info['table']." MODIFY COLUMN ".$column_info['column'];
