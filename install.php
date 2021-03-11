@@ -64,8 +64,8 @@ $tables_array = [
 		"`name` VARCHAR(1000)",
 //		"`alternate_name` VARCHAR(500)",
 		"`summary` TEXT",
-		"`body` TEXT",
-		"`studies` TEXT",
+		"`body` LONGTEXT",
+		"`studies` LONGTEXT",
 		"`appendix` TEXT",
 		"`timestamp` TIMESTAMP",
 		"PRIMARY KEY (`entry_id`)",
@@ -136,14 +136,27 @@ $columns_array = [
 //	"column"	=> "`date_published` DATE",
 //	"after"		=> "`entry_id`",
 //	],
-		
+	
+	[
+	"table"		=> "information_directory",
+	"column"	=> "`body` LONGTEXT",
+	],
+	
 	];
 
 foreach ($columns_array as $column_info):
-	$sql_temp = "ALTER TABLE ".$database.".".$column_info['table']." ADD COLUMN ".$column_info['column']." AFTER ".$column_info['after'];
+
+	// Add in new columns 
+//	$sql_temp = "ALTER TABLE ".$database.".".$column_info['table']." ADD COLUMN ".$column_info['column']." AFTER ".$column_info['after'];
+//	$run_statement = $connection_pdo->prepare($sql_temp);
+//	$run_statement->execute();
+/	execute_checkup($run_statement->errorInfo(), "adding ".$column_info['column']." to ".$column_info['table']);
+
+	// Alter column types
+	$sql_temp = "ALTER TABLE ".$database.".".$column_info['table']." ALTER COLUMN ".$column_info['column'];
 	$run_statement = $connection_pdo->prepare($sql_temp);
 	$run_statement->execute();
-	execute_checkup($run_statement->errorInfo(), "adding ".$column_info['column']." to ".$column_info['table']);
+	execute_checkup($run_statement->errorInfo(), "altering ".$column_info['column']." in ".$column_info['table']);
 	endforeach;
 
 if (!(empty($_POST['submit']))):
