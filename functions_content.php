@@ -505,7 +505,7 @@ function body_process($body_incoming) {
 			$contents_string = $contents_string." BCE";
 			endif;
 	
-		$contents_string = "<time>".$contents_string."</time>";
+		$contents_string = "<time>".ltrim($contents_string, "0")."</time>";
 
 		$body_incoming = str_replace("(((".$match_temp.")))", $contents_string, $body_incoming);
 
