@@ -69,8 +69,18 @@ $style_array = [
 		"text-transform"	=> "uppercase",
 		"font-weight"		=> "400",
 		"font-size"		=> ".9em",
-		], ],	
+		], ],
 	
+	[ // Time
+	"css_tags" =>
+		[
+		"time",
+		],
+	"css_contents" =>
+		[
+		"text-decoration"	=> "underline",
+		], ],
+
 	[
 	"css_tags" => 
 		[
