@@ -150,7 +150,7 @@ foreach ($columns_array as $column_info):
 //	$sql_temp = "ALTER TABLE ".$database.".".$column_info['table']." ADD COLUMN ".$column_info['column']." AFTER ".$column_info['after'];
 //	$run_statement = $connection_pdo->prepare($sql_temp);
 //	$run_statement->execute();
-/	execute_checkup($run_statement->errorInfo(), "adding ".$column_info['column']." to ".$column_info['table']);
+//	execute_checkup($run_statement->errorInfo(), "adding ".$column_info['column']." to ".$column_info['table']);
 
 	// Alter column types
 	$sql_temp = "ALTER TABLE ".$database.".".$column_info['table']." ALTER COLUMN ".$column_info['column'];
