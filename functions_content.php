@@ -531,7 +531,7 @@ function body_process($body_incoming) {
 			endif;
 		
 	
-		$contents_string = "<time ".$datetime_temp.">".ltrim($contents_string, "0")."</time>";
+		$contents_string = "<time ".$datetime_temp.">".trim(ltrim(trim($contents_string), "0"))."</time>";
 
 		$body_incoming = str_replace("(((".$match_temp.")))", $contents_string, $body_incoming);
 
