@@ -61,14 +61,13 @@ $style_array = [
 		[
 		"strong",
 		".strong",
-		"time",
 		],
 	"css_contents" =>
 		[
 		"font-style"		=> "normal",
 		"text-transform"	=> "uppercase",
 		"font-weight"		=> "400",
-		"font-size"		=> ".9em",
+		"font-size"		=> ".95em",
 		], ],
 	
 	[ // Time
@@ -78,7 +77,10 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-//		"text-decoration"	=> "underline",
+		"font-style"		=> "normal",
+		"text-transform"	=> "uppercase",
+		"font-weight"		=> "400",
+		"font-size"		=> ".95em",
 		], ],
 
 	[
