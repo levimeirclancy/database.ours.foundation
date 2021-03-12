@@ -343,6 +343,15 @@ function body_process($body_incoming) {
 	$body_incoming = str_replace("<<<", "<q>", $body_incoming);
 	$body_incoming = str_replace(">>>", "</q>", $body_incoming);
 	
+	
+	// For markers surrounded by parentheses, etc
+	foreach ([ "(", "{", "[" ] as $marker_temp):
+		$body_final = str_replace($marker_temp.$marker_temp.$marker_temp.$marker_temp, $marker_temp." ".$marker_temp.$marker_temp.$marker_temp, $body_final);
+		endforeach;
+	foreach ([ ")", "}", "]" ] as $marker_temp):
+		$body_final = str_replace($marker_temp.$marker_temp.$marker_temp.$marker_temp, $marker_temp.$marker_temp.$marker_temp." ".$marker_temp, $body_final);
+		endforeach;
+	
 	// process links first
 	$matches = [];
 	preg_match_all("/(?<=\+\-\+\-\+)(.*?)(?=\+\-\+\-\+)/is", $body_incoming, $matches);
@@ -807,6 +816,14 @@ function body_process($body_incoming) {
 //	$link_string = str_replace("'", $apostrophe_temp, $link_string);
 	$body_final = preg_replace('!\s+!', ' ', $body_final);
 
+	// Sanitize markers
+	foreach ([ "(", "{", "[" ] as $marker_temp):
+		$body_final = str_replace($marker_temp." ", $marker_temp $body_final);
+		endforeach;
+	foreach ([ ")", "}", "]" ] as $marker_temp):
+		$body_final = str_replace(" ".$marker_temp, $marker_temp $body_final);
+		endforeach;
+	
 	$body_final = str_replace("</cite> <cite>", "; ", $body_final);
 	$body_final = str_replace("</cite><cite>", "; ", $body_final);
 	
