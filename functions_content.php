@@ -486,7 +486,7 @@ function body_process($body_incoming) {
 
 	// process date-times first
 	$approx_string = "~";
-	$millennium_string = "MIL.";
+	$millennium_string = "MILL.";
 	$century_string = "CENT.";
 	$ce_string = "C.E.";
 	$bce_string = "B.C.E.";
