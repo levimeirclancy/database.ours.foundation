@@ -84,7 +84,7 @@ $style_array = [
 	[ // Time
 	"css_tags" =>
 		[
-		"time .bc-bce",
+		".time-description",
 		],
 	"css_contents" =>
 		[
