@@ -482,7 +482,7 @@ function body_process($body_incoming) {
 		$temp_array = array_values($temp_array);
 	
 		if (count($temp_array) == 3):
-			$date_format_string = "M d";
+			$date_format_string = "M j";
 		elseif (count($temp_array) == 2):
 			$date_format_string = "M";
 		elseif (count($temp_array) == 1):
