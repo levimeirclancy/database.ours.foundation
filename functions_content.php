@@ -493,6 +493,8 @@ function body_process($body_incoming) {
 	
 		$contents_string = $temp_array[0]." ".date($date_format_string, strtotime(implode("-", $temp_array)));
 	
+	$contents_string = implode("-", $temp_array);
+	
 		if ($before_check == 1):
 			$contents_string = $contents_string." <span class='bc-bce'>C.E.</span>";
 		elseif ($before_check == -1):
