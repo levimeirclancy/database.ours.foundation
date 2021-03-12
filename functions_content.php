@@ -21,10 +21,10 @@ function ordinal_number($number) {
 	if (empty($number)): $number = 0; endif;
 	if (is_numeric($number) === FALSE): return FALSE; endif;
 	$last_number = substr($number, -1);
-	if ($last_number == "1"): return $number."ˢᵗ";
-	elseif ($last_number == "2"): return $number."ⁿᵈ";
-	elseif ($last_number == "3"): return $number."ʳᵈ";
-	else: return $number."ᵗʰ"; endif;
+	if ($last_number == "1"): return $number."st";
+	elseif ($last_number == "2"): return $number."nd";
+	elseif ($last_number == "3"): return $number."rd";
+	else: return $number."th"; endif;
 	}
 
 function sanitize_dates ($row=[], $additions_array=[]) {
@@ -491,29 +491,29 @@ function body_process($body_incoming) {
 	
 		// Check for B.C.E. or C.E.
 		$before_check = 0;
-		if ($search_temp = array_search("-", $temp_array) !== FALSE):
+		if (in_array("-", $temp_array)):
 			$before_check = -1;
-			unset($temp_array[$search_temp]);
-		elseif ($search_temp = array_search("+", $temp_array) !== FALSE):
+			$temp_array = array_diff($temp_array, ["-"]);
+		elseif (in_array("+", $temp_array)):
 			$before_check = 1;
-			unset($temp_array[$search_temp]);
+			$temp_array = array_diff($temp_array, ["+"]);
 			endif;
 	
 		// Check for approximate
 		$approximate_check = 0;
-		if ($search_temp = array_search("a", $temp_array) !== FALSE):
+		if (in_array("a", $temp_array)):
 			$approximate_check = 1;
-			unset($temp_array[$search_temp]);
+			$temp_array = array_diff($temp_array, ["a"]);
 			endif;
 
 		// Check for century
 		$epoch_check = 0;
-		if ($search_temp = array_search("c", $temp_array) !== FALSE):
+		if (in_array("c", $temp_array)):
 			$epoch_check = "c";
-			unset($temp_array[$search_temp]);
-		elseif ($search_temp = array_search("m", $temp_array) !== FALSE):
+			$temp_array = array_diff($temp_array, ["c"]);
+		elseif (in_array("m", $temp_array)):
 			$epoch_check = "m";
-			unset($temp_array[$search_temp]);
+			$temp_array = array_diff($temp_array, ["m"]);
 			endif;
 	
 		$temp_array = array_values($temp_array);
@@ -529,7 +529,7 @@ function body_process($body_incoming) {
 			$contents_string = ordinal_number($temp_array[0]);
 
 			if ($epoch_check == "m"):
-				$contents_string .= " <span class='time-description'>mill.</span>";
+				$contents_string .= " <span class='time-description'>mil.</span>";
 			elseif ($epoch_check == "c"):
 				$contents_string .= " <span class='time-description'>cent.</span>";
 				endif;
