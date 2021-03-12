@@ -523,9 +523,9 @@ function body_process($body_incoming) {
 		if ( (count($temp_array) == 0) || !(is_numeric($temp_array[0]))):
 			$body_incoming = str_replace("(((".$match_temp.")))", null, $body_incoming);
 			continue; endif;
-			$body_incoming = str_replace("(((".$match_temp.")))", $epoch_check, $body_incoming);
 	
 		if (in_array($epoch_check, ["m", "c"])):
+			$body_incoming = str_replace("(((".$match_temp.")))", $epoch_check."test", $body_incoming);
 	
 			$contents_string = ordinal_number($temp_array[0]);
 
