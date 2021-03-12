@@ -489,10 +489,10 @@ function body_process($body_incoming) {
 
 	// process date-times first
 	$approx_string = "~";
-	$millennium_string = "MILL.";
-	$century_string = "CENT.";
-	$ce_string = "C.E.";
-	$bce_string = "B.C.E.";
+	$millennium_string = "MILL";
+	$century_string = "CENT";
+	$ce_string = "CE";
+	$bce_string = "BCE";
 	$matches = [];
 	preg_match_all("/(?<=\(\(\()(.*?)(?=\)\)\))/is", $body_incoming, $matches);
 	if (empty($matches)): $matches = [ [], [] ]; endif;
