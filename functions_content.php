@@ -346,10 +346,10 @@ function body_process($body_incoming) {
 	
 	// For markers surrounded by parentheses, etc
 	foreach ([ "(", "{", "[" ] as $marker_temp):
-		$body_final = str_replace($marker_temp.$marker_temp.$marker_temp.$marker_temp, $marker_temp." ".$marker_temp.$marker_temp.$marker_temp, $body_final);
+		$body_incoming = str_replace($marker_temp.$marker_temp.$marker_temp.$marker_temp, $marker_temp." ".$marker_temp.$marker_temp.$marker_temp, $body_incoming);
 		endforeach;
 	foreach ([ ")", "}", "]" ] as $marker_temp):
-		$body_final = str_replace($marker_temp.$marker_temp.$marker_temp.$marker_temp, $marker_temp.$marker_temp.$marker_temp." ".$marker_temp, $body_final);
+		$body_incoming = str_replace($marker_temp.$marker_temp.$marker_temp.$marker_temp, $marker_temp.$marker_temp.$marker_temp." ".$marker_temp, $body_incoming);
 		endforeach;
 	
 	// process links first
