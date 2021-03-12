@@ -481,19 +481,33 @@ function body_process($body_incoming) {
 	
 		$temp_array = array_values($temp_array);
 	
-		if (count($temp_array) == 3):
-			$date_format_string = "M j";
-		elseif (count($temp_array) == 2):
-			$date_format_string = "M";
-		elseif (count($temp_array) == 1):
-			$date_format_string = "";
-		else:
+		$year_number = $month_number = $day_number = 1;
+	
+		if (count($temp_array) == 0):
 			$body_incoming = str_replace("(((".$match_temp.")))", null, $body_incoming);
+			continue;
 			endif;
+	
+	
+		if (count($temp_array) > 0):
+			$date_format_string = null;
+			$year_number = $temp_array[0];
+			endif;
+			
+		if (count($temp_array) > 1):
+			$date_format_string = "M";
+			$month_number = $temp_array[1];
+			endif;
+	
+		if (count($temp_array) > 2):
+			$date_format_string = "M j";
+			$day_number = $temp_array[2];
+			endif;
+
 	
 		// mktime = hour - minute - second - month - day - year
 		// we use a year of 2020 to handle years that are earlier than 1900/1970/etc
-		$contents_string = $temp_array[0]." ".date($date_format_string, mktime(0, 0, 0, $temp_array[1], $temp_array[2], 2020));
+		$contents_string = $year_number." ".date($date_format_string, mktime(0, 0, 0, $month_number, $day_number, 2020));
 		
 		if ($before_check == 1):
 			$contents_string = $contents_string." <span class='bc-bce'>C.E.</span>";
