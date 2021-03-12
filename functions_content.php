@@ -507,7 +507,7 @@ function body_process($body_incoming) {
 	
 		// mktime = hour - minute - second - month - day - year
 		// we use a year of 2020 to handle years that are earlier than 1900/1970/etc
-		$contents_string = $year_number." ".date($date_format_string, mktime(0, 0, 0, $month_number, $day_number, 2020));
+		$contents_string = $year_number." ".date($date_format_string, mktime(0, 0, 0, $month_number, $day_number, 2020)).count($temp_array);
 		
 		if ($before_check == 1):
 			$contents_string = $contents_string." <span class='bc-bce'>C.E.</span>";
