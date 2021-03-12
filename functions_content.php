@@ -537,7 +537,7 @@ function body_process($body_incoming) {
 		
 		if (in_array($epoch_check, ["m", "c"], TRUE)): // Must set TRUE because if $epoch_check = 0, it's a known issue it'll return TRUE
 	
-			$contents_string = ordinal_number($temp_array[0]);
+			$contents_string = "<span class='time'>".ordinal_number($temp_array[0])."</span>";
 
 			if ($epoch_check == "m"):
 				$contents_string .= " <span class='time-description'>".$millennium_string."</span>";
@@ -597,7 +597,7 @@ function body_process($body_incoming) {
 			$datetime_temp = "datetime='". date($datetime_format, strtotime($year_number."-".$month_number."-".$day_number)) ."'";
 			endif;
 		
-		$contents_string = "<time ".$datetime_temp.">".$contents_string."</time>";
+		$contents_string = "<time class='time' ".$datetime_temp.">".$contents_string."</time>";
 
 		if ($approximate_check == 1):
 			$contents_string = "<span class='time-description'>".$approx_string."</span>".$contents_string;
