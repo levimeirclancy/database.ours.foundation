@@ -491,14 +491,10 @@ function body_process($body_incoming) {
 			$body_incoming = str_replace("(((".$match_temp.")))", null, $body_incoming);
 			endif;
 	
-		$year_string = $temp_array[0];
-	
-		$temp_array[0] = 2020; // This ensures proper date handling due to year ranges outside the limit
-	
-		$contents_string = $year_string." ".date($date_format_string, strtotime(implode("-", $temp_array)));
-	
-//	$contents_string = implode("-", $temp_array);
-	
+		// mktime = hour - minute - second - month - day - year
+		// we use a year of 2020 to handle years that are earlier than 1900/1970/etc
+		$contents_string = $temp_array[0]." ".date($date_format_string, mktime(0, 0, 0, $temp_array[1], $temp_array[2], 2020));
+		
 		if ($before_check == 1):
 			$contents_string = $contents_string." <span class='bc-bce'>C.E.</span>";
 		elseif ($before_check == -1):
