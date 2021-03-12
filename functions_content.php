@@ -524,7 +524,7 @@ function body_process($body_incoming) {
 			$body_incoming = str_replace("(((".$match_temp.")))", null, $body_incoming);
 			continue; endif;
 	
-		if (in_array($epoch_check, ["m", "c", ])):
+		if (in_array($epoch_check, ["m", "c"])):
 	
 			$contents_string = ordinal_number($temp_array[0]);
 
