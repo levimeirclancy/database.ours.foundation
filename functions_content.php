@@ -18,7 +18,7 @@ $sql_temp = "SELECT * FROM $database.information_paths WHERE parent_id=:content_
 $retrieve_paths = $connection_pdo->prepare($sql_temp);
 
 function ordinal_number($number) {
-	if (empty($number)) = $number = 0; endif;
+	if (empty($number)): $number = 0; endif;
 	if (is_numeric($number) === FALSE): return FALSE; endif;
 	$last_number = substr($number, -1);
 	if ($last_number == "1"): return $number."ˢᵗ";
