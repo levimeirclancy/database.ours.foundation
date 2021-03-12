@@ -78,9 +78,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"font-style"		=> "normal",
-//		"text-transform"	=> "uppercase",
 		"font-weight"		=> "400",
-		"font-size"		=> ".95em",
 		], ],
 	
 	[ // Time
@@ -91,6 +89,7 @@ $style_array = [
 	"css_contents" =>
 		[
 		"text-transform"	=> "uppercase",
+		"font-size"		=> ".9em",
 		], ],
 
 	[
