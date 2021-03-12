@@ -17,6 +17,16 @@ $retrieve_media = $connection_pdo->prepare($sql_temp);
 $sql_temp = "SELECT * FROM $database.information_paths WHERE parent_id=:content_id OR child_id=:content_id";
 $retrieve_paths = $connection_pdo->prepare($sql_temp);
 
+function ordinal_number($number) {
+	if (empty($number)) = $number = 0; endif;
+	if (is_numeric($number) === FALSE): return FALSE; endif;
+	$last_number = substr($number, -1);
+	if ($last_number == "1"): return $number."ˢᵗ";
+	elseif ($last_number == "2"): return $number."ⁿᵈ";
+	elseif ($last_number == "3"): return $number."ʳᵈ";
+	else: return $number."ᵗʰ"; endif;
+	}
+
 function sanitize_dates ($row=[], $additions_array=[]) {
 	
 	global $domain;
@@ -479,22 +489,62 @@ function body_process($body_incoming) {
 		$temp_array = explode(")(", $match_temp.")(");
 		$temp_array = array_filter($temp_array);
 	
+		// Check for B.C.E. or C.E.
 		$before_check = 0;
-		if ($temp_array[0] == "-"):
+		if ($search_temp = array_search("-", $temp_array) !== FALSE):
 			$before_check = -1;
-			unset($temp_array[0]);
-		elseif ($temp_array[0] == "+"):
+			unset($temp_array[$search_temp]);
+		elseif ($search_temp = array_search("+", $temp_array) !== FALSE):
 			$before_check = 1;
-			unset($temp_array[0]);
+			unset($temp_array[$search_temp]);
+			endif;
+	
+		$temp_array = array_values($temp_array);
+	
+		// Check for approximate
+		$approximate_check = 0;
+		if ($search_temp = array_search("a", $temp_array) !== FALSE):
+			$approximate_check = 1;
+			unset($temp_array[$search_temp]);
+			endif;
+
+		// Check for century
+		$epoch_check = 0;
+		if ($search_temp = array_search("c", $temp_array) !== FALSE):
+			$epoch_check = "c";
+			unset($temp_array[$search_temp]);
+		elseif ($search_temp = array_search("m", $temp_array) !== FALSE):
+			$epoch_check = "m";
+			unset($temp_array[$search_temp]);
 			endif;
 	
 		$temp_array = array_values($temp_array);
 	
 		$year_number = $month_number = $day_number = 1;
 	
-		if (count($temp_array) == 0):
+		if ( (count($temp_array) == 0) || (is_numeric($temp_array[0]) === FALSE)):
 			$body_incoming = str_replace("(((".$match_temp.")))", null, $body_incoming);
 			continue; endif;
+	
+		if (in_array($epoch_check, ["m", "c", ])):
+	
+			$contents_string = ordinal_number($temp_array[0]);
+
+			if ($epoch_check == "m"):
+				$contents_string .= " <span class='time-description'>mill.</span>";
+			elseif ($epoch_check == "c"):
+				$contents_string .= " <span class='time-description'>cent.</span>";
+				endif;
+	
+			if ($approximate_check == 1):
+				$contents_string = "<span class='time-description'>approx.</span> ".$contents_string;
+				endif;
+
+			$body_incoming = str_replace("(((".$match_temp.")))", $contents_string, $body_incoming);
+			continue; endif;
+	
+			endif;
+
 	
 		if (count($temp_array) > 0):
 			$datetime_format = "Y";
@@ -519,19 +569,24 @@ function body_process($body_incoming) {
 //		$contents_string = $year_number." ".date($date_format_string, mktime(0, 0, 0, $month_number, $day_number, 2020));
 
 		$contents_string = $year_number." ".date($text_format, strtotime("2020-".$month_number."-".$day_number));
-		
+	
 		if ($before_check == 1):
-			$contents_string = $contents_string." <span class='bc-bce'>C.E.</span>";
+			$contents_string = $contents_string." <span class='time-description'>C.E.</span>";
 		elseif ($before_check == -1):
-			$contents_string = $contents_string." <span class='bc-bce'>B.C.E.</span>";
+			$contents_string = $contents_string." <span class='time-description'>B.C.E.</span>";
 			endif;
 	
-		if ($before_check !== -1):
+		$contents_string = trim(ltrim(trim($contents_string), "0"));
+	
+		if (([$approximate_check, $epoch_check] == [0,0]) && ($before_check !== -1)):
 			$datetime_temp = "datetime='". date($datetime_format, strtotime($year_number."-".$month_number."-".$day_number)) ."'";
 			endif;
 		
-	
-		$contents_string = "<time ".$datetime_temp.">".trim(ltrim(trim($contents_string), "0"))."</time>";
+		$contents_string = "<time ".$datetime_temp.">".$contents_string."</time>";
+
+		if ($approximate_check == 1):
+			$contents_string = "<span class='time-description'>approx </span>".$contents_string;
+			endif;
 
 		$body_incoming = str_replace("(((".$match_temp.")))", $contents_string, $body_incoming);
 
