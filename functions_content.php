@@ -524,10 +524,8 @@ function body_process($body_incoming) {
 			$body_incoming = str_replace("(((".$match_temp.")))", null, $body_incoming);
 			continue; endif;
 	
-		if (in_array($epoch_check, ["m", "c"])):
-	
-				$body_incoming = str_replace("(((".$match_temp.")))", in_array($epoch_check, ["m", "c"])."ok", $body_incoming); continue;
-
+		
+		if (in_array($epoch_check, ["m", "c"], TRUE)): // Must set TRUE because if $epoch_check = 0, it's a known issue it'll return TRUE
 	
 			$contents_string = ordinal_number($temp_array[0]);
 
