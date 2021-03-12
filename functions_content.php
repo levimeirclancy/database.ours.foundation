@@ -18,12 +18,17 @@ $sql_temp = "SELECT * FROM $database.information_paths WHERE parent_id=:content_
 $retrieve_paths = $connection_pdo->prepare($sql_temp);
 
 function ordinal_number($number) {
+	
 	if (empty($number)): $number = 0; endif;
+
 	if (is_numeric($number) === FALSE): return FALSE; endif;
+	
+	if ($number == 3): return $number."rd"; endif;
+	
 	$last_number = substr($number, -1);
 	if ($last_number == "1"): return $number."st";
 	elseif ($last_number == "2"): return $number."nd";
-	elseif ($last_number == "3"): return $number."rd";
+	elseif ($last_number == "3"): return $number."th";
 	else: return $number."th"; endif;
 	}
 
