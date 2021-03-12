@@ -518,7 +518,7 @@ function body_process($body_incoming) {
 			unset($temp_array[$search_temp]);
 			endif;
 	
-				$body_incoming = str_replace("(((".$match_temp.")))", $temp_array[0], $body_incoming); continue;
+				$body_incoming = str_replace("(((".$match_temp.")))", $search_temp.$temp_array[0], $body_incoming); continue;
 
 	
 		$temp_array = array_values($temp_array);
@@ -541,6 +541,12 @@ function body_process($body_incoming) {
 	
 			if ($approximate_check == 1):
 				$contents_string = "<span class='time-description'>approx.</span> ".$contents_string;
+				endif;
+
+			if ($before_check == 1):
+				$contents_string = $contents_string." <span class='time-description'>C.E.</span>";
+			elseif ($before_check == -1):
+				$contents_string = $contents_string." <span class='time-description'>B.C.E.</span>";
 				endif;
 
 			$body_incoming = str_replace("(((".$match_temp.")))", $contents_string, $body_incoming);
