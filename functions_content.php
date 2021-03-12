@@ -485,6 +485,11 @@ function body_process($body_incoming) {
 		endforeach;
 
 	// process date-times first
+	$approx_string = "~";
+	$millennium_string = "MIL.";
+	$century_string = "CENT.";
+	$ce_string = "C.E.";
+	$bce_string = "B.C.E.";
 	$matches = [];
 	preg_match_all("/(?<=\(\(\()(.*?)(?=\)\)\))/is", $body_incoming, $matches);
 	if (empty($matches)): $matches = [ [], [] ]; endif;
@@ -535,19 +540,19 @@ function body_process($body_incoming) {
 			$contents_string = ordinal_number($temp_array[0]);
 
 			if ($epoch_check == "m"):
-				$contents_string .= " <span class='time-description'>mil.</span>";
+				$contents_string .= " <span class='time-description'>".$millennium_string."</span>";
 			elseif ($epoch_check == "c"):
-				$contents_string .= " <span class='time-description'>cent.</span>";
+				$contents_string .= " <span class='time-description'>".$century_string."</span>";
 				endif;
 	
 			if ($approximate_check == 1):
-				$contents_string = "<span class='time-description'>~</span> ".$contents_string;
+				$contents_string = "<span class='time-description'>".$approx_string."</span> ".$contents_string;
 				endif;
 
 			if ($before_check == 1):
-				$contents_string = $contents_string." <span class='time-description'>C.E.</span>";
+				$contents_string = $contents_string." <span class='time-description'>".$ce_string."</span>";
 			elseif ($before_check == -1):
-				$contents_string = $contents_string." <span class='time-description'>B.C.E.</span>";
+				$contents_string = $contents_string." <span class='time-description'>".$bce_string."</span>";
 				endif;
 
 			$body_incoming = str_replace("(((".$match_temp.")))", $contents_string, $body_incoming);
@@ -581,9 +586,9 @@ function body_process($body_incoming) {
 		$contents_string = $year_number." ".date($text_format, strtotime("2020-".$month_number."-".$day_number));
 	
 		if ($before_check == 1):
-			$contents_string = $contents_string." <span class='time-description'>C.E.</span>";
+			$contents_string = $contents_string." <span class='time-description'>".$ce_string."</span>";
 		elseif ($before_check == -1):
-			$contents_string = $contents_string." <span class='time-description'>B.C.E.</span>";
+			$contents_string = $contents_string." <span class='time-description'>".$bce_string."</span>";
 			endif;
 	
 		$contents_string = trim(ltrim(trim($contents_string), "0"));
@@ -595,7 +600,7 @@ function body_process($body_incoming) {
 		$contents_string = "<time ".$datetime_temp.">".$contents_string."</time>";
 
 		if ($approximate_check == 1):
-			$contents_string = "<span class='time-description'>approx.</span> ".$contents_string;
+			$contents_string = "<span class='time-description'>".$approx_string."</span> ".$contents_string;
 			endif;
 
 		$body_incoming = str_replace("(((".$match_temp.")))", $contents_string, $body_incoming);
