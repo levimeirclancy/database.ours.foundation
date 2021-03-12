@@ -498,7 +498,7 @@ function body_process($body_incoming) {
 			endif;
 	
 		if (count($temp_array) > 2):
-			$date_format_string = "M j";
+			$date_format_string = "M d";
 			$day_number = $temp_array[2];
 			endif;
 
