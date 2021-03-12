@@ -541,7 +541,7 @@ function body_process($body_incoming) {
 				endif;
 	
 			if ($approximate_check == 1):
-				$contents_string = "<span class='time-description'>approx.</span> ".$contents_string;
+				$contents_string = "<span class='time-description'>~</span> ".$contents_string;
 				endif;
 
 			if ($before_check == 1):
