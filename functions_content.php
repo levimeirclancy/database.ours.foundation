@@ -480,20 +480,11 @@ function body_process($body_incoming) {
 	
 		$temp_array = array_values($temp_array);
 	
-		$count_temp = 0;
-		$temp_string = null;
-		foreach($temp_array as $temp_string):
-			if (count($contents_string) >= 3): break; endif;
-			$temp_string = trim($temp_string);
-			if (empty($temp_string)): continue; endif;
-			$contents_string_array[] = $temp_string;
-			endforeach;
-	
-		if (count($contents_string_array) == 3):
+		if (count($temp_array) == 3):
 			$date_format_string = "M d";
-		elseif (count($contents_string_array) == 2):
+		elseif (count($temp_array) == 2):
 			$date_format_string = "M";
-		elseif (count($contents_string_array) == 1):
+		elseif (count($temp_array) == 1):
 			$date_format_string = "";
 		else:
 			$body_incoming = str_replace("(((".$match_temp.")))", null, $body_incoming);
