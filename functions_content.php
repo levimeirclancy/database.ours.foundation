@@ -23,7 +23,10 @@ function ordinal_number($number) {
 
 	if (is_numeric($number) === FALSE): return FALSE; endif;
 	
-	if ($number == 3): return $number."rd"; endif;
+	$last_number = substr($number, -2);
+	if ($last_number == "11"): return $number."th";
+	elseif ($last_number == "12"): return $number."th";
+	elseif ($last_number == "13"): return $number."th"; endif;
 	
 	$last_number = substr($number, -1);
 	if ($last_number == "1"): return $number."st";
