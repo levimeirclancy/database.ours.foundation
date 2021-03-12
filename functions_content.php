@@ -470,8 +470,6 @@ function body_process($body_incoming) {
 		$temp_array = explode(")(", $match_temp.")(");
 		$temp_array = array_filter($temp_array);
 	
-	print_r($temp_array); exit;
-
 		$before_check = 0;
 		if ($temp_array[0] == "-"):
 			$before_check = -1;
