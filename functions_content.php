@@ -468,6 +468,7 @@ function body_process($body_incoming) {
 	foreach ($matches as $match_temp):
 
 		$temp_array = explode(")(", $match_temp.")(");
+		$temp_array = array_filter($temp_array);
 
 		$before_check = 0;
 		if ($temp_array[0] == "-"):
