@@ -585,6 +585,10 @@ function body_process($body_incoming) {
 
 		$contents_string = $year_number." ".date($text_format, strtotime("2020-".$month_number."-".$day_number));
 
+		if (($approximate_check == 0) && ($before_check !== -1)):
+			$datetime_temp = "datetime='". date($datetime_format, strtotime($year_number."-".$month_number."-".$day_number)) ."'";
+			endif;
+
 		$contents_string = "<time class='time' ".$datetime_temp.">".$contents_string."</time>";
 	
 		if ($before_check == 1):
@@ -594,11 +598,7 @@ function body_process($body_incoming) {
 			endif;
 	
 		$contents_string = trim(ltrim(trim($contents_string), "0"));
-	
-		if (($approximate_check == 0) && ($before_check !== -1)):
-			$datetime_temp = "datetime='". date($datetime_format, strtotime($year_number."-".$month_number."-".$day_number)) ."'";
-			endif;
-		
+			
 		if ($approximate_check == 1):
 			$contents_string = "<span class='time-description'>".$approx_string."</span>".$contents_string;
 			endif;
