@@ -517,9 +517,8 @@ function body_process($body_incoming) {
 			$epoch_check = "m";
 			unset($temp_array[$search_temp]);
 			endif;
-	
-				$body_incoming = str_replace("(((".$match_temp.")))", $search_temp.$temp_array[0], $body_incoming); continue;
 
+//				$body_incoming = str_replace("(((".$match_temp.")))", $search_temp.$temp_array[0], $body_incoming); continue;
 	
 		$temp_array = array_values($temp_array);
 	
