@@ -823,6 +823,8 @@ function body_process($body_incoming) {
 	foreach ([ ")", "}", "]" ] as $marker_temp):
 		$body_final = str_replace(" ".$marker_temp, $marker_temp, $body_final);
 		endforeach;
+	$body_final = str_replace("</time> )", "</time>)", $body_final);
+	
 	
 	$body_final = str_replace("</cite> <cite>", "; ", $body_final);
 	$body_final = str_replace("</cite><cite>", "; ", $body_final);
