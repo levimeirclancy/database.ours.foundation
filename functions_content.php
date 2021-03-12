@@ -582,14 +582,14 @@ function body_process($body_incoming) {
 	
 		$contents_string = trim(ltrim(trim($contents_string), "0"));
 	
-		if (([$approximate_check, $epoch_check] == [0,0]) && ($before_check !== -1)):
+		if (($approximate_check == 0) && ($before_check !== -1)):
 			$datetime_temp = "datetime='". date($datetime_format, strtotime($year_number."-".$month_number."-".$day_number)) ."'";
 			endif;
 		
 		$contents_string = "<time ".$datetime_temp.">".$contents_string."</time>";
 
 		if ($approximate_check == 1):
-			$contents_string = "<span class='time-description'>approx </span>".$contents_string;
+			$contents_string = "<span class='time-description'>approx.</span> ".$contents_string;
 			endif;
 
 		$body_incoming = str_replace("(((".$match_temp.")))", $contents_string, $body_incoming);
