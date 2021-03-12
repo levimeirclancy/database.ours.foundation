@@ -522,7 +522,7 @@ function body_process($body_incoming) {
 	
 		$year_number = $month_number = $day_number = 1;
 	
-		if ( (count($temp_array) == 0) || (is_numeric($temp_array[0]) === FALSE)):
+		if ( (count($temp_array) == 0) || !(is_numeric($temp_array[0]))):
 			$body_incoming = str_replace("(((".$match_temp.")))", null, $body_incoming);
 			continue; endif;
 	
