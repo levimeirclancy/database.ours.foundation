@@ -73,7 +73,7 @@ $style_array = [
 	[ // Time
 	"css_tags" =>
 		[
-		"time",
+		".time",
 		],
 	"css_contents" =>
 		[
