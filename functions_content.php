@@ -541,7 +541,7 @@ function body_process($body_incoming) {
 				endif;
 
 			$body_incoming = str_replace("(((".$match_temp.")))", $contents_string, $body_incoming);
-			continue; endif;
+			continue;
 	
 			endif;
 
