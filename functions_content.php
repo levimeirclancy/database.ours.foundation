@@ -546,7 +546,7 @@ function body_process($body_incoming) {
 				endif;
 	
 			if ($approximate_check == 1):
-				$contents_string = "<span class='time-description'>".$approx_string."</span> ".$contents_string;
+				$contents_string = "<span class='time-description'>".$approx_string."</span>".$contents_string;
 				endif;
 
 			if ($before_check == 1):
@@ -600,7 +600,7 @@ function body_process($body_incoming) {
 		$contents_string = "<time ".$datetime_temp.">".$contents_string."</time>";
 
 		if ($approximate_check == 1):
-			$contents_string = "<span class='time-description'>".$approx_string."</span> ".$contents_string;
+			$contents_string = "<span class='time-description'>".$approx_string."</span>".$contents_string;
 			endif;
 
 		$body_incoming = str_replace("(((".$match_temp.")))", $contents_string, $body_incoming);
