@@ -488,26 +488,28 @@ function body_process($body_incoming) {
 			continue; endif;
 	
 		if (count($temp_array) > 0):
-			$date_format_string = null;
+			$datetime_format = "Y";
+			$text_format = null;
 			$year_number = $temp_array[0];
 			endif;
 			
 		if (count($temp_array) > 1):
-			$date_format_string = "M";
+			$datetime_format = "Y-m";
+			$text_format = "M";
 			$month_number = $temp_array[1];
 			endif;
 	
 		if (count($temp_array) > 2):
-			$date_format_string = "M d";
+			$datetime_format = "Y-m-d";
+			$text_format = "M d";
 			$day_number = $temp_array[2];
 			endif;
 
-	
 		// mktime = hour - minute - second - month - day - year
 		// we use a year of 2020 to handle years that are earlier than 1900/1970/etc
 //		$contents_string = $year_number." ".date($date_format_string, mktime(0, 0, 0, $month_number, $day_number, 2020));
 
-		$contents_string = $year_number." ".date($date_format_string, strtotime("2020-".$month_number."-".$day_number));
+		$contents_string = $year_number." ".date($text_format, strtotime("2020-".$month_number."-".$day_number));
 		
 		if ($before_check == 1):
 			$contents_string = $contents_string." <span class='bc-bce'>C.E.</span>";
@@ -515,7 +517,12 @@ function body_process($body_incoming) {
 			$contents_string = $contents_string." <span class='bc-bce'>B.C.E.</span>";
 			endif;
 	
-		$contents_string = "<time>".ltrim($contents_string, "0")."</time>";
+		if ($before_check !== -1):
+			$datetime_temp = "datetime='". date($datetime_format, strtotime($year_number."-".$month_number."-".$day_number)) ."'";
+			endif;
+		
+	
+		$contents_string = "<time ".$datetime_temp.">".ltrim($contents_string, "0")."</time>";
 
 		$body_incoming = str_replace("(((".$match_temp.")))", $contents_string, $body_incoming);
 
