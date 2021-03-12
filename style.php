@@ -77,7 +77,7 @@ $style_array = [
 		],
 	"css_contents" =>
 		[
-		"font-style"		=> "normal",
+		"font-style"		=> "italic",
 		"font-weight"		=> "400",
 		], ],
 	
