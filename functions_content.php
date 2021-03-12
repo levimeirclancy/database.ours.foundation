@@ -469,6 +469,8 @@ function body_process($body_incoming) {
 
 		$temp_array = explode(")(", $match_temp.")(");
 		$temp_array = array_filter($temp_array);
+	
+	print_r($temp_array); exit;
 
 		$before_check = 0;
 		if ($temp_array[0] == "-"):
@@ -485,9 +487,7 @@ function body_process($body_incoming) {
 	
 		if (count($temp_array) == 0):
 			$body_incoming = str_replace("(((".$match_temp.")))", null, $body_incoming);
-			continue;
-			endif;
-	
+			continue; endif;
 	
 		if (count($temp_array) > 0):
 			$date_format_string = null;
