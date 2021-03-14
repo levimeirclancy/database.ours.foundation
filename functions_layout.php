@@ -119,13 +119,13 @@ function amp_header($title=null, $canonical=null) {
 	echo "<div role='button' tabindex='0' id='login-popover-launch' on='tap:login-popover.open' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'hide' : 'navigation-header-item'\" class='".$login_hidden."' >Log in</div>";
 		
 	// If you are signed in, the button for 'settings'...
-	echo "<div role='button' tabindex='0' id='settings-popover-launch' on='tap:settings-popover' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='".$logout_hidden."'>Settings</div>";
+//	echo "<div role='button' tabindex='0' id='settings-popover-launch' on='tap:settings-popover' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='".$logout_hidden."'>Settings</div>";
 
 	// If you are viewing a page but not editing it...
 	if (!(empty($page_temp)) && !(isset($site_info['category_array'][$page_temp])) && empty($command_temp)):
 	
 		// If you are signed in, the button for 'edit' will appear...
-		echo "<a href='/".$page_temp."/edit/' target='_self'><div id='settings-popover-launch' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='".$logout_hidden."'>Edit</div></a>";
+		echo "<a href='/".$page_temp."/edit/' target='_self'><div id='edit-launch' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='".$logout_hidden."'>Edit</div></a>";
 	
 		endif;
 	
@@ -133,7 +133,7 @@ function amp_header($title=null, $canonical=null) {
 	if (!(empty($page_temp)) && ($command_temp == "edit")):
 	
 		// If you are signed in, the button for 'view' will appear...
-		echo "<a href='/".$page_temp."/' target='_blank'><div id='settings-popover-launch' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='".$logout_hidden."'>View</div></a>";
+		echo "<a href='/".$page_temp."/' target='_blank'><div id='view-launch' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'navigation-header-item' : 'hide'\" class='".$logout_hidden."'>View</div></a>";
 	
 		endif;
 
@@ -151,7 +151,10 @@ function amp_header($title=null, $canonical=null) {
 			login-popover-submit.show,
 			logout-submit.hide,
 			logout-tryagain-submit.hide,
-			settings-popover-launch.hide,
+//			settings-popover-launch.hide,
+			admin-list.hide,
+			edit-launch.hide,
+			view-launch.hide,
 			new-popover-launch.hide,
 			edit-entry.hide,
 			login.clear,
@@ -169,7 +172,7 @@ function amp_header($title=null, $canonical=null) {
 
 	$navigation_lightboxes = implode(",", [
 		"login-popover.close",
-		"settings-popover.close",
+//		"settings-popover.close",
 		"new-popover.close",
 		"sidebar-navigation.close",
 		"sidebar-search.close",
@@ -180,7 +183,7 @@ function amp_header($title=null, $canonical=null) {
 	if ($command_temp == "edit"): $target_temp = "target='_blank'"; endif; // Open category page in current tab
 
 	// This is the popover for the categories
-	echo "<amp-sidebar id='sidebar-navigation' layout='nodisplay' side='left' on='sidebarOpen:login-popover.close,settings-popover.close,new-popover.close'>";
+	echo "<amp-sidebar id='sidebar-navigation' layout='nodisplay' side='left' on='sidebarOpen:login-popover.close,new-popover.close'>";
 
 		echo "<div class='sidebar-back' on='tap:".$navigation_lightboxes."' role='button' tabindex='0'>Close</div>";
 	
@@ -195,6 +198,16 @@ function amp_header($title=null, $canonical=null) {
 			endforeach;
 	
 		echo body_process("+-+-+".$list_temp."+-+-+");
+	
+		$list_temp = null;
+		$list_temp .= "+++Administrative";
+		$list_temp .= "++++++Settings";
+		$list_temp .= "++++++Media";
+		$list_temp .= "++++++Citations";
+		
+		echo "<div id='admin-list' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'list-item' : 'hide'\" class='".$logout_hidden."'>";
+		echo body_process("+-+-+".$list_temp."+-+-+");
+		echo "</div>";
 	
 		echo "</div>";
 	
@@ -225,7 +238,7 @@ function amp_header($title=null, $canonical=null) {
 		echo "</amp-sidebar>";
 	
 	// This is the popover to log in ...
-	echo "<amp-lightbox id='login-popover' on=\"lightboxClose:inputPasswordTypeText.show,inputPasswordTypePassword.hide,AMP.setState({pageState:{login: {inputPasswordType: 'password'}}});lightboxOpen:sidebar-navigation.close,settings-popover.close,new-popover.close,inputPasswordTypeText.show,inputPasswordTypePassword.hide,AMP.setState({pageState:{login: {inputPasswordType: 'password'}}})\" layout='nodisplay'>";
+	echo "<amp-lightbox id='login-popover' on=\"lightboxClose:inputPasswordTypeText.show,inputPasswordTypePassword.hide,AMP.setState({pageState:{login: {inputPasswordType: 'password'}}});lightboxOpen:sidebar-navigation.close,new-popover.close,inputPasswordTypeText.show,inputPasswordTypePassword.hide,AMP.setState({pageState:{login: {inputPasswordType: 'password'}}})\" layout='nodisplay'>";
 
 		echo "<span role='button' tabindex='0' on='tap:".$navigation_lightboxes."' class='sidebar-back'>Close</span>";
 
@@ -238,7 +251,10 @@ function amp_header($title=null, $canonical=null) {
 				login-popover.close,
 				login-popover-launch.hide,
 				logout-submit.show,
-				settings-popover-launch.show,
+//				settings-popover-launch.show,
+//				admin-list.show,
+				edit-launch.show,
+				view-launch.show,
 				new-popover-launch.show,
 				edit-entry.show,
 				login.clear,
@@ -264,24 +280,8 @@ function amp_header($title=null, $canonical=null) {
 		echo "</form>";
 		echo "</amp-lightbox>";
 	
-	// This is the popover for settings ...
-	echo "<amp-lightbox id='settings-popover' on='lightboxOpen:login-popover.close,navigation-sidebar.close,new-popover.close' layout='nodisplay'>";
-
-		echo "<span role='button' tabindex='0' on='tap:".$navigation_lightboxes."' class='sidebar-back'>Close</span>";
-
-		echo "<p>Settings coming soon: password change, account management.</p>";
-	
-		echo "<label>Enter new e-mail address</label>";
-		echo "<input name='checkpoint_newemail'>";
-
-		echo "<label>Enter new password</label>";
-		echo "<input name='checkpoint_newpassword'>";
-		echo "<input name='checkpoint_newpassword'>";
-	
-		echo "</amp-lightbox>";
-
 	// Add a new popover ... residrect if adding it works ...
-	echo "<amp-lightbox id='new-popover' on='lightboxOpen:login-popover.close,navigation-sidebar.close,settings-popover.close' layout='nodisplay'>";
+	echo "<amp-lightbox id='new-popover' on='lightboxOpen:login-popover.close,navigation-sidebar.close' layout='nodisplay'>";
 
 		echo "<span role='button' tabindex='0' on='tap:".$navigation_lightboxes."' class='sidebar-back'>Close</span>";
 
