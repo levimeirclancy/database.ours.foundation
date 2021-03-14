@@ -152,6 +152,7 @@ function amp_header($title=null, $canonical=null) {
 			logout-submit.hide,
 			logout-tryagain-submit.hide,
 			administrative-list.hide,
+			non-administrative-list.show,
 			edit-launch.hide,
 			view-launch.hide,
 			new-popover-launch.hide,
@@ -190,23 +191,26 @@ function amp_header($title=null, $canonical=null) {
 	
 		$list_temp = null;
 	
-		$list_temp .= "+++<a href='/' ".$target_temp.">".$publisher."</a>";
-		
 		foreach ($site_info['category_array'] as $header_backend => $header_frontend):
 			$list_temp .= "+++<a href='/".$header_backend."/' ".$target_temp.">". ucfirst($header_frontend) ."</a>";
 			endforeach;
 	
-		echo body_process("+-+-+".$list_temp."+-+-+");
-	
-		$list_temp = null;
-		$list_temp .= "+++Administrative";
-		$list_temp .= "++++++Settings";
-		$list_temp .= "++++++Media";
-		$list_temp .= "++++++Citations";
-		
-		echo "<div id='administrative-list' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'list-item-okay' : 'hide'\" class='".$logout_hidden."'>";
+
+		echo "<div id='administrative-list' [class]=\"pageState.login.loginStatus == 'loggedin' ? '' : 'hide'\" class='".$logout_hidden."'>";
+		$list_final = "+++<a href='/' ".$target_temp.">".$publisher."</a>";
+		$list_final .= "++++++Settings";
+		$list_final .= "++++++Media";
+		$list_final .= "++++++Citations";
+		$list_final = $list_final . $list_temp;
 		echo body_process("+-+-+".$list_temp."+-+-+");
 		echo "</div>";
+
+		echo "<div id='non-administrative-list' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'hide' : ''\" class='".$login_hidden."'>";
+		$list_final = "+++<a href='/' ".$target_temp.">".$publisher."</a>";
+		$list_final = $list_final . $list_temp;
+		echo body_process("+-+-+".$list_temp."+-+-+");
+		echo "</div>";
+
 	
 		echo "</div>";
 	
@@ -251,6 +255,7 @@ function amp_header($title=null, $canonical=null) {
 				login-popover-launch.hide,
 				logout-submit.show,
 				administrative-list.show,
+				non-administrative-list.hide,
 				edit-launch.show,
 				view-launch.show,
 				new-popover-launch.show,
