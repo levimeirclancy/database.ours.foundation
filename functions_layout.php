@@ -190,25 +190,23 @@ function amp_header($title=null, $canonical=null) {
 		$list_temp = null;
 	
 		foreach ($site_info['category_array'] as $header_backend => $header_frontend):
-			$list_temp .= "+++<a href='/".$header_backend."/' ".$target_temp.">". ucfirst($header_frontend) ."</a>";
+			$list_temp .= "+++{{{https://".$domain."/}{".$header_backend."}{". ucfirst($header_frontend) ."}{".$target_temp."}}};
 			endforeach;
 	
 		$login_hidden = $logout_hidden = "navigation-list"; // This would mean that buttons to login AND logout are shown
 		(empty($login) ? $logout_hidden = "hide" : $login_hidden = "hide");
 
-
-	
 		echo "<div id='administrative-list' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'navigation-list' : 'hide'\" class='".$logout_hidden."'>";
-		$list_final = "+++{{{https://".$domain."/}{".$publisher."}}}";
-		$list_final .= "++++++{{{https://".$domain."/settings/}{Settings}}}";
-		$list_final .= "++++++{{{https://".$domain."/media/}{Media}}}";
-		$list_final .= "++++++{{{https://".$domain."/citations/}{Citations}}}";
+		$list_final = "+++{{{https://".$domain."/}{".$publisher."}{".$target_temp."}}}";
+		$list_final .= "++++++{{{https://".$domain."/settings/}{Settings}{".$target_temp."}}}";
+		$list_final .= "++++++{{{https://".$domain."/media/}{Media}{".$target_temp."}}}";
+		$list_final .= "++++++{{{https://".$domain."/citations/}{Citations}{".$target_temp."}}}";
 		$list_final = $list_final . $list_temp;
 		echo body_process("+-+-+".$list_final."+-+-+");
 		echo "</div>";
 
 		echo "<div id='non-administrative-list' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'hide' : 'navigation-list'\" class='".$login_hidden."'>";
-		$list_final = "+++{{{https://".$domain."/}{".$publisher."}}}";
+		$list_final = "+++{{{https://".$domain."/}{".$publisher."}{".$target_temp."}}}";
 		$list_final = $list_final . $list_temp;
 		echo body_process("+-+-+".$list_final."+-+-+");
 		echo "</div>";
