@@ -194,7 +194,7 @@ function amp_header($title=null, $canonical=null) {
 			endforeach;
 	
 		echo "<div class='navigation-list' id='administrative-list' [class]=\"pageState.login.loginStatus == 'loggedin' ? '' : 'hide'\" class='".$logout_hidden."'>";
-		$list_final = "+++<a href='/' ".$target_temp.">".$publisher."</a>";
+		$list_final = "+++{{{https://".$domain."/}{".$publisher."}}}";
 		$list_final .= "++++++Settings";
 		$list_final .= "++++++Media";
 		$list_final .= "++++++Citations";
@@ -203,9 +203,9 @@ function amp_header($title=null, $canonical=null) {
 		echo "</div>";
 
 		echo "<div class='navigation-list' id='non-administrative-list' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'hide' : ''\" class='".$login_hidden."'>";
-		$list_final = "+++<a href='/' ".$target_temp.">".$publisher."</a>";
+		$list_final = "+++{{{https://".$domain."/}{".$publisher."}}}";
 		$list_final = $list_final . $list_temp;
-		echo body_process("+-+-+".$list_temp."+-+-+");
+		echo body_process("+-+-+".$list_final."+-+-+");
 		echo "</div>";
 	
 		echo "</amp-sidebar>";
