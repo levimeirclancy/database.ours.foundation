@@ -643,12 +643,20 @@ function body_process($body_incoming) {
 			$tag_check = 0;
 			endforeach;
 	
+		$target_check = "_self";
+		foreach ([ "_self", "_blank", ] as $target_temp):
+			if (FALSE !== $target_key = array_search($target_temp, $match_lowercase_temp)):	
+				unset($temp_array[$target_key]);
+				break; endif;
+			endforeach;
+	
 		// Re-index the array
 		$temp_array = array_values($temp_array);	
 	
 		$link_check = 0;
 	
 		$link_url = $contents_string = null;
+	
 	
 		if (filter_var($temp_array[0], FILTER_VALIDATE_URL) !== FALSE):
 			$link_check = 1;
@@ -703,7 +711,7 @@ function body_process($body_incoming) {
 //		$link_string = str_replace("-", "&#8209;", $link_string);
 
 		if ($link_check == 1):
-			$contents_string = "<a href='".$link_url."'>".$contents_string."</a>";
+			$contents_string = "<a href='".$link_url."' target='".$target_temp."'>".$contents_string."</a>";
 			endif;
 	
 		if ($tag_check == 1):
