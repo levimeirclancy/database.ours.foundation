@@ -193,7 +193,12 @@ function amp_header($title=null, $canonical=null) {
 			$list_temp .= "+++<a href='/".$header_backend."/' ".$target_temp.">". ucfirst($header_frontend) ."</a>";
 			endforeach;
 	
-		echo "<div class='navigation-list' id='administrative-list' [class]=\"pageState.login.loginStatus == 'loggedin' ? '' : 'hide'\" class='".$logout_hidden."'>";
+		$login_hidden = $logout_hidden = "navigation-list"; // This would mean that buttons to login AND logout are shown
+		(empty($login) ? $logout_hidden = "hide" : $login_hidden = "hide");
+
+
+	
+		echo "<div id='administrative-list' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'navigation-list' : 'hide'\" class='".$logout_hidden."'>";
 		$list_final = "+++{{{https://".$domain."/}{".$publisher."}}}";
 		$list_final .= "++++++Settings";
 		$list_final .= "++++++Media";
@@ -202,7 +207,7 @@ function amp_header($title=null, $canonical=null) {
 		echo body_process("+-+-+".$list_final."+-+-+");
 		echo "</div>";
 
-		echo "<div class='navigation-list' id='non-administrative-list' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'hide' : ''\" class='".$login_hidden."'>";
+		echo "<div id='non-administrative-list' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'hide' : 'navigation-list'\" class='".$login_hidden."'>";
 		$list_final = "+++{{{https://".$domain."/}{".$publisher."}}}";
 		$list_final = $list_final . $list_temp;
 		echo body_process("+-+-+".$list_final."+-+-+");
