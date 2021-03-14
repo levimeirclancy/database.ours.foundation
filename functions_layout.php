@@ -151,7 +151,7 @@ function amp_header($title=null, $canonical=null) {
 			login-popover-submit.show,
 			logout-submit.hide,
 			logout-tryagain-submit.hide,
-			admin-list.hide,
+			administrative-list.hide,
 			edit-launch.hide,
 			view-launch.hide,
 			new-popover-launch.hide,
@@ -204,7 +204,7 @@ function amp_header($title=null, $canonical=null) {
 		$list_temp .= "++++++Media";
 		$list_temp .= "++++++Citations";
 		
-		echo "<div id='admin-list' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'list-item' : 'hide'\" class='".$logout_hidden."'>";
+		echo "<div id='administrative-list' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'list-item-okay' : 'hide'\" class='".$logout_hidden."'>";
 		echo body_process("+-+-+".$list_temp."+-+-+");
 		echo "</div>";
 	
@@ -250,6 +250,7 @@ function amp_header($title=null, $canonical=null) {
 				login-popover.close,
 				login-popover-launch.hide,
 				logout-submit.show,
+				administrative-list.show,
 				edit-launch.show,
 				view-launch.show,
 				new-popover-launch.show,
