@@ -186,32 +186,26 @@ function amp_header($title=null, $canonical=null) {
 	echo "<amp-sidebar id='sidebar-navigation' layout='nodisplay' side='left' on='sidebarOpen:login-popover.close,new-popover.close'>";
 
 		echo "<div class='sidebar-back' on='tap:".$navigation_lightboxes."' role='button' tabindex='0'>Close</div>";
-	
-		echo "<div class='navigation-list'>";
-	
+		
 		$list_temp = null;
 	
 		foreach ($site_info['category_array'] as $header_backend => $header_frontend):
 			$list_temp .= "+++<a href='/".$header_backend."/' ".$target_temp.">". ucfirst($header_frontend) ."</a>";
 			endforeach;
 	
-
-		echo "<span id='administrative-list' [class]=\"pageState.login.loginStatus == 'loggedin' ? '' : 'hide'\" class='".$logout_hidden."'>";
+		echo "<div class='navigation-list' id='administrative-list' [class]=\"pageState.login.loginStatus == 'loggedin' ? '' : 'hide'\" class='".$logout_hidden."'>";
 		$list_final = "+++<a href='/' ".$target_temp.">".$publisher."</a>";
 		$list_final .= "++++++Settings";
 		$list_final .= "++++++Media";
 		$list_final .= "++++++Citations";
 		$list_final = $list_final . $list_temp;
 		echo body_process("+-+-+".$list_temp."+-+-+");
-		echo "</span>";
+		echo "</div>";
 
-		echo "<span id='non-administrative-list' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'hide' : ''\" class='".$login_hidden."'>";
+		echo "<div class='navigation-list' id='non-administrative-list' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'hide' : ''\" class='".$login_hidden."'>";
 		$list_final = "+++<a href='/' ".$target_temp.">".$publisher."</a>";
 		$list_final = $list_final . $list_temp;
 		echo body_process("+-+-+".$list_temp."+-+-+");
-		echo "</span>";
-
-	
 		echo "</div>";
 	
 		echo "</amp-sidebar>";
