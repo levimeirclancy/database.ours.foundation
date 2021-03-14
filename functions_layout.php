@@ -190,7 +190,7 @@ function amp_header($title=null, $canonical=null) {
 		$list_temp = null;
 	
 		foreach ($site_info['category_array'] as $header_backend => $header_frontend):
-			$list_temp .= "+++{{{https://".$domain."/}{".$header_backend."}{". ucfirst($header_frontend) ."}{".$target_temp."}}};
+			$list_temp .= "+++{{{https://".$domain."/}{".$header_backend."}{". ucfirst($header_frontend) ."}{".$target_temp."}}}";
 			endforeach;
 	
 		$login_hidden = $logout_hidden = "navigation-list"; // This would mean that buttons to login AND logout are shown
