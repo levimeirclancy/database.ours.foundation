@@ -196,20 +196,20 @@ function amp_header($title=null, $canonical=null) {
 			endforeach;
 	
 
-		echo "<div id='administrative-list' [class]=\"pageState.login.loginStatus == 'loggedin' ? '' : 'hide'\" class='".$logout_hidden."'>";
+		echo "<span id='administrative-list' [class]=\"pageState.login.loginStatus == 'loggedin' ? '' : 'hide'\" class='".$logout_hidden."'>";
 		$list_final = "+++<a href='/' ".$target_temp.">".$publisher."</a>";
 		$list_final .= "++++++Settings";
 		$list_final .= "++++++Media";
 		$list_final .= "++++++Citations";
 		$list_final = $list_final . $list_temp;
 		echo body_process("+-+-+".$list_temp."+-+-+");
-		echo "</div>";
+		echo "</span>";
 
-		echo "<div id='non-administrative-list' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'hide' : ''\" class='".$login_hidden."'>";
+		echo "<span id='non-administrative-list' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'hide' : ''\" class='".$login_hidden."'>";
 		$list_final = "+++<a href='/' ".$target_temp.">".$publisher."</a>";
 		$list_final = $list_final . $list_temp;
 		echo body_process("+-+-+".$list_temp."+-+-+");
-		echo "</div>";
+		echo "</span>";
 
 	
 		echo "</div>";
