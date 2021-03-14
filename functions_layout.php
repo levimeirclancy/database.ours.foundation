@@ -179,8 +179,8 @@ function amp_header($title=null, $canonical=null) {
 		]);		
 	
 	// Open a navigation in current or new tab
-	$target_temp = "target='_self'"; // Open category page in a new tab
-	if ($command_temp == "edit"): $target_temp = "target='_blank'"; endif; // Open category page in current tab
+	$target_temp = "_self"; // Open category page in a new tab
+	if ($command_temp == "edit"): $target_temp = "_blank"; endif; // Open category page in current tab
 
 	// This is the popover for the navigation
 	echo "<amp-sidebar id='sidebar-navigation' layout='nodisplay' side='left' on='sidebarOpen:login-popover.close,new-popover.close'>";
@@ -229,7 +229,7 @@ function amp_header($title=null, $canonical=null) {
 		echo "<span fallback>No search results.</span>";
 
 		echo "<template type='amp-mustache'>";
-			echo "<li><p><a href='/{{entry_id}}/' ".$target_temp.">{{header}}</a></p></li>";
+			echo "<li><p><a href='/{{entry_id}}/' target='".$target_temp."'>{{header}}</a></p></li>";
 			echo "</template>";
 	
 		echo "</amp-list>";
