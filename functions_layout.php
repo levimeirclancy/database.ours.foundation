@@ -199,7 +199,7 @@ function amp_header($title=null, $canonical=null) {
 		$list_final .= "++++++Media";
 		$list_final .= "++++++Citations";
 		$list_final = $list_final . $list_temp;
-		echo body_process("+-+-+".$list_temp."+-+-+");
+		echo body_process("+-+-+".$list_final."+-+-+");
 		echo "</div>";
 
 		echo "<div class='navigation-list' id='non-administrative-list' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'hide' : ''\" class='".$login_hidden."'>";
