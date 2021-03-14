@@ -476,6 +476,12 @@ if (!(empty($login)) && !(empty($_POST['create_entry']))):
 $layout_nodisplay_temp = null;
 if (!(empty($_REQUEST['view'])) && ($_REQUEST['view'] == "compact")): $layout_nodisplay_temp = "layout='nodisplay'"; endif;
 
+if (in_array($page_temp, [ "settings", "media", "citations" ])):
+	amp_header();
+	echo "Must be logged in.";
+	footer(); endif;
+
+
 // if the $page_temp is valid then go ahead and see if it exists
 if (!(empty($page_temp)) && !(isset($site_info['category_array'][$page_temp]))):
 	if (!(isset($information_array[$page_temp]))):
