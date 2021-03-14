@@ -109,8 +109,8 @@ function amp_header($title=null, $canonical=null) {
 	// The navigation backbone...
 	echo "<div id='navigation-header' amp-fx='parallax' data-parallax-factor='1.4'>";
 
-	// The categories
-	echo "<div role='button' tabindex='0' class='navigation-header-item' on='tap:sidebar-navigation.open,sidebar-navigation.changeToLayoutContainer()'>Categories</div>";
+	// The navigation
+	echo "<div role='button' tabindex='0' class='navigation-header-item' on='tap:sidebar-navigation.open,sidebar-navigation.changeToLayoutContainer()'>Navigation</div>";
 	
 	// The search
 	echo "<div role='button' tabindex='0' class='navigation-header-item' on='tap:sidebar-search.open'>Search</div>";
@@ -182,7 +182,7 @@ function amp_header($title=null, $canonical=null) {
 	$target_temp = "target='_self'"; // Open category page in a new tab
 	if ($command_temp == "edit"): $target_temp = "target='_blank'"; endif; // Open category page in current tab
 
-	// This is the popover for the categories
+	// This is the popover for the navigation
 	echo "<amp-sidebar id='sidebar-navigation' layout='nodisplay' side='left' on='sidebarOpen:login-popover.close,new-popover.close'>";
 
 		echo "<div class='sidebar-back' on='tap:".$navigation_lightboxes."' role='button' tabindex='0'>Close</div>";
