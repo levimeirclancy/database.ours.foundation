@@ -200,9 +200,9 @@ function amp_header($title=null, $canonical=null) {
 	
 		echo "<div id='administrative-list' [class]=\"pageState.login.loginStatus == 'loggedin' ? 'navigation-list' : 'hide'\" class='".$logout_hidden."'>";
 		$list_final = "+++{{{https://".$domain."/}{".$publisher."}}}";
-		$list_final .= "++++++Settings";
-		$list_final .= "++++++Media";
-		$list_final .= "++++++Citations";
+		$list_final .= "++++++{{{https://".$domain."/settings/}{Settings}}}";
+		$list_final .= "++++++{{{https://".$domain."/media/}{Media}}}";
+		$list_final .= "++++++{{{https://".$domain."/citations/}{Citations}}}";
 		$list_final = $list_final . $list_temp;
 		echo body_process("+-+-+".$list_final."+-+-+");
 		echo "</div>";
