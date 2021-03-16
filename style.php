@@ -264,6 +264,7 @@ $style_array = [
 	"css_tags" => "h1",
 	"css_contents" =>
 		[
+		"color"			=> output_rgba($site_info['colors']['font'], 0.9),
 		"margin"		=> "100px 20px 40px",
 		"font-size"		=> "2.3em",
 		"line-height"		=> "140%",
