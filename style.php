@@ -265,11 +265,11 @@ $style_array = [
 	"css_contents" =>
 		[
 		"margin"		=> "100px 20px 40px",
-		"font-size"		=> "2em",
+		"font-size"		=> "2.3em",
 		"line-height"		=> "140%",
 		"text-align"		=> "left",
 		"font-weight"		=> "400",
-		"text-shadow"		=> "4px 4px 10px  ".output_rgba($site_info['colors']['font'], 0.2),
+		"text-shadow"		=> "4px 4px 7px  ".output_rgba($site_info['colors']['font'], 0.4),
 		], ],
 	
 	[
