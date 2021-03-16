@@ -269,6 +269,7 @@ $style_array = [
 		"line-height"		=> "140%",
 		"text-align"		=> "left",
 		"font-weight"		=> "400",
+		"text-shadow"		=> "2px 2px 15px -5px ".output_rgba($site_info['colors']['font'], 0.25),
 		], ],
 	
 	[
