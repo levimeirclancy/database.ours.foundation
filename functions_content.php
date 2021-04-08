@@ -643,8 +643,7 @@ function body_process($body_incoming) {
 			$tag_check = 0;
 			endforeach;
 	
-		$target_check = "_self";
-		foreach ([ "_self", "_blank", ] as $target_temp):
+		foreach ([ "_blank", "_self", ] as $target_temp): // The last one is set as the default
 			if (FALSE !== $target_key = array_search($target_temp, $match_lowercase_temp)):	
 				unset($temp_array[$target_key]);
 				break; endif;
