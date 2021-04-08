@@ -119,9 +119,10 @@ $search_results = json_decode($search_results, true);
 if ($search_results['searchCount'] > 0):
 	$information_array[$page_temp]['mentions'] = [ ];
 	foreach($search_results['searchResults'] as $entry_info_temp):
-		if (in_array($entry_info_temp['entry_id'], $information_array[$page_temp]['grandparents'])): continue; endif;
-		if (in_array($entry_info_temp['entry_id'], $information_array[$page_temp]['parents'])): continue; endif;
-		if (in_array($entry_info_temp['entry_id'], $information_array[$page_temp]['children'])): continue; endif;
+		if ($entry_info_temp['entry_id'] == $page_temp): continue; endif; // If it's mentioning itself
+		if (in_array($entry_info_temp['entry_id'], $information_array[$page_temp]['grandparents'])): continue; endif; // If it's already displayed as a grandparent
+		if (in_array($entry_info_temp['entry_id'], $information_array[$page_temp]['parents'])): continue; endif; // If it's already displayed as a parent
+		if (in_array($entry_info_temp['entry_id'], $information_array[$page_temp]['children'])): continue; endif; // If it's already displayed as a child
 		$information_array[$page_temp]['mentions'][] = $entry_info_temp['entry_id'];
 		endforeach;
 	endif;
@@ -171,7 +172,7 @@ echo "<amp-sidebar id='sidebar-entry-info' layout='nodisplay' side='right'>";
 	$list_temp .=relationships_array($page_temp, "grandparents", "Parents of parent pages", "yes");
 	$list_temp .=relationships_array($page_temp, "parents", "Parent pages", "yes");
 	$list_temp .=relationships_array($page_temp, "children", "Subpages", "yes");
-	$list_temp .=relationships_array($page_temp, "mentions", "Mentions", "yes");
+	$list_temp .=relationships_array($page_temp, "mentions", "Additional mentions", "yes");
 
 	echo body_process("+-+-+".$list_temp."+-+-+");
 
