@@ -208,9 +208,10 @@ foreach ($languages_temp as $language_temp):
 	echo "<br><br><br>";
 	endforeach;
 
-if (!(empty($entry_info['studies']))):
+$endnotes_temp = body_process(html_entity_decode(htmlspecialchars_decode($entry_info['studies'])));
+if (!(empty($endnotes_temp))):
 	echo "<div class='studies'><h2>Endnotes</h2>";
-	echo body_process(html_entity_decode(htmlspecialchars_decode($entry_info['studies'])));
+	echo $endnotes_temp;
 	echo "</div>";
 	endif;
 
