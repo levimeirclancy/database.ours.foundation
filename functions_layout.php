@@ -5,7 +5,6 @@ function amp_header($title=null, $canonical=null) {
 	global $domain;
 	global $publisher;
 	global $google_analytics_code;
-	global $color;
 
 	// URL information
 	global $page_temp;
