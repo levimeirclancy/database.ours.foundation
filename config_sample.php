@@ -10,8 +10,6 @@ $domain = "";
 
 $publisher = $author = "";
 
-$color = "";
-
 // This is normally not changed,
 $site_info = [
 	"languages"		=> 
