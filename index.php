@@ -183,7 +183,7 @@ if (!(empty($information_array)) && ( ($command_temp !== "search") ||  ($_REQUES
 	endif;
 
 if (!(empty($order_array))):
-	asort($order_array);
+	natcasesort($order_array);
 	// we must put null values at the end
 	foreach($order_array as $key_temp => $value_temp):
 		if (!(empty($value_temp))): continue; endif;
