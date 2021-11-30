@@ -117,11 +117,16 @@ function sanitize_dates ($row=[], $additions_array=[]) {
 	// Set up the name
 	$entry_info['name'] = $name_temp;
 	
-	// Now set up the header, beginning with the raw name
-	$name_temp = array_filter($entry_info['name']);
+	// This will ensure that items with {{{SORT VALUE}}} at the beginning do not appear at the bottom of lists
+	foreach ($entry_info['name'] as $name_key => $name_value):
+		if (strpos($name_value, "{{{") === 0): continue; endif;
+		$entry_info['name'][$name_key] = "{{{}}}".$name_value;
+		endforeach;
 	
-	// Now let's get the header created
+	// Now set up the header
+	$name_temp = array_filter($entry_info['name']); // We are beginning with the raw name
 	$name_temp = implode(" • ", $name_temp); // First, we are going to combine the names
+	
 	preg_match_all("/(?<=\{\{\{)(.*?)(?=\}\}\})/is", $name_temp, $matches); // Next, we are going to prepare for removing all the {{{ }}} content
 	$matches = array_unique($matches[0]);
 	foreach ($matches as $match_temp):
