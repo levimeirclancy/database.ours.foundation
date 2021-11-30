@@ -127,7 +127,7 @@ function sanitize_dates ($row=[], $additions_array=[]) {
 	foreach ($matches as $match_temp):
 		$name_temp = str_replace("{{{".$match_temp."}}}", null, $name_temp); // {{{ }}} content is useful for sorting names, but should not be displayed 
 		endforeach;		
-	$entry_info['header'] = strip_tags($name_temp)); // Make sure there is no HTML
+	$entry_info['header'] = strip_tags($name_temp); // Make sure there is no HTML
 
 	return $entry_info; }
 
