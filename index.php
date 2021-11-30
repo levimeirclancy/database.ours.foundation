@@ -149,9 +149,12 @@ foreach($connection_pdo->query($sql_temp) as $row):
 			endforeach;
 		endif;
 
+	// We are not going to sort by the header, which is sanitized
+	// We are going to sort by the name, which may have {{{material}}}
 	$order_array[$row['entry_id']] = null;
-	if (!(empty($information_array[$row['entry_id']]['name'][$order_language]))): $order_array[$row['entry_id']] = $information_array[$row['entry_id']]['name'][$order_language];
-	elseif (isset($name_temp)): $order_array[$row['entry_id']] = reset($information_array[$row['entry_id']]['name']); endif;
+	if (!(empty($information_array[$row['entry_id']]['name'][$order_language]))):
+		$order_array[$row['entry_id']] = $information_array[$row['entry_id']]['name'][$order_language];
+		endif;
 
 	endforeach;
 
