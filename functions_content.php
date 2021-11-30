@@ -117,9 +117,17 @@ function sanitize_dates ($row=[], $additions_array=[]) {
 	// Set up the name
 	$entry_info['name'] = $name_temp;
 	
-	// Now set up the header
+	// Now set up the header, beginning with the raw name
 	$name_temp = array_filter($entry_info['name']);
-	$entry_info['header'] = strip_tags(body_process(implode(" • ", $name_temp)));
+	
+	// Now let's get the header created
+	$name_temp = implode(" • ", $name_temp); // First, we are going to combine the names
+	preg_match_all("/(?<=\{\{\{)(.*?)(?=\}\}\})/is", $name_temp, $matches); // Next, we are going to prepare for removing all the {{{ }}} content
+	$matches = array_unique($matches[0]);
+	foreach ($matches as $match_temp):
+		$name_temp = str_replace("{{{".$match_temp."}}}", null, $name_temp); // {{{ }}} content is useful for sorting names, but should not be displayed 
+		endforeach;		
+	$entry_info['header'] = strip_tags($name_temp)); // Make sure there is no HTML
 
 	return $entry_info; }
 
