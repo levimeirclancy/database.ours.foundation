@@ -119,6 +119,7 @@ function sanitize_dates ($row=[], $additions_array=[]) {
 	
 	// This will ensure that items with {{{SORT VALUE}}} at the beginning do not appear at the bottom of lists
 	foreach ($entry_info['name'] as $name_key => $name_value):
+		if (empty($name_value)): continue; endif;
 		if (strpos($name_value, "{{{") === 0): continue; endif;
 		$entry_info['name'][$name_key] = "{{{}}}".$name_value;
 		endforeach;
