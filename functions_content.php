@@ -119,7 +119,7 @@ function sanitize_dates ($row=[], $additions_array=[]) {
 	
 	// Now set up the header
 	$name_temp = array_filter($entry_info['name']);
-	$entry_info['header'] = implode(" • ", $name_temp);
+	$entry_info['header'] = strip_tags(body_process(implode(" • ", $name_temp)));
 
 	return $entry_info; }
 
