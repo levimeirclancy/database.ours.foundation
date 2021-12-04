@@ -647,6 +647,43 @@ function body_process($body_incoming) {
 			continue;
 			endif;
 	
+		// Now let's check if it's biblical
+		
+		if ($temp_array[0] == "bible"):
+	
+			$bible_check = [
+				"Genesis"	=> "Gen.",
+				"Gen"		=> "Gen.",
+				"Exodus"	=> "Ex.",
+				"Ex"		=> "Ex.",
+				"Leviticus"	=> "Lev.",
+				"Lev"		=> "Lev.",
+				"Numbers"	=> "Num.",
+				"Num"		=> "Num.",
+				"Deuteronomy"	=> "Deu.",
+				"Deut",		=> "Deu.",
+				"Deu",		=> "Deu.",
+				],
+	
+			$contents_string = null;
+	
+			$contents_string .= "<cite>";
+
+			if (empty($bible_check[$temp_array[1])):
+				$contents_string .= $temp_array[1];
+			else: 
+				$contents_string .= $bible_check[$temp_array[1];
+				if (!(empty($bible_check[$temp_array[2]))): $contents_string .= " ".$bible_check[$temp_array[2]; endif; // But validate it's ##:## and that these exist in that book
+				if (!(empty($bible_check[$temp_array[3]))): $contents_string .= " - ".$bible_check[$temp_array[3]; endif; // But validate it's ##:## and that these exist in that book
+				endif;
+														   
+			$contents_string .= "</cite>";
+					       
+			$body_incoming = str_replace("{{{".$match_temp."}}}", $contents_string, $body_incoming);
+
+			continue; endif;	
+		
+
 		$match_lowercase_temp = array_map('strtolower', $temp_array);
 		$tag_check = 0;
 		foreach ([ "h1", "h2", "h3", "h4", "h6", "h6", "aside", "cite", "strong", "em", "emphasis", "i", "b", ] as $tag_temp):
