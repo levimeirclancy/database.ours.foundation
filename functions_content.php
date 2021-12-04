@@ -661,8 +661,17 @@ function body_process($body_incoming) {
 				"Numbers"	=> "Num.",
 				"Num"		=> "Num.",
 				"Deuteronomy"	=> "Deu.",
-				"Deut",		=> "Deu.",
-				"Deu",		=> "Deu.",
+				"Deut"		=> "Deu.",
+				"Deu"		=> "Deu.",
+				"Joshua"	=> "Joshua",
+				"Judges"	=> "Judges",
+				"Ruth"		=> "Ruth",
+				"Samuel"	=> "Sam.",
+				"Sam"		=> "Sam",
+				"1 Kings"	=> "I Kings",
+				"I Kings"	=> "I Kings",
+				"2 Kings"	=> "II Kings",
+				"II Kings"	=> "II Kings",
 				];
 	
 			$contents_string = null;
