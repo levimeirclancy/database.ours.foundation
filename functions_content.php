@@ -681,9 +681,9 @@ function body_process($body_incoming) {
 			if (empty($bible_check[$temp_array[1]])):
 				$contents_string .= $temp_array[1];
 			else: 
-				$contents_string .= $bible_check[$temp_array[1];
-				if (!(empty($bible_check[$temp_array[2]))): $contents_string .= " ".$bible_check[$temp_array[2]; endif; // But validate it's ##:## and that these exist in that book
-				if (!(empty($bible_check[$temp_array[3]))): $contents_string .= " - ".$bible_check[$temp_array[3]; endif; // But validate it's ##:## and that these exist in that book
+				$contents_string .= $bible_check[$temp_array[1]];
+				if (!(empty($temp_array[2]))): $contents_string .= " ".$temp_array[2]; endif; // But validate it's ##:## and that these exist in that book
+				if (!(empty($temp_array[3]))): $contents_string .= " - ".$temp_array[3]; endif; // But validate it's ##:## and that these exist in that book
 				endif;
 														   
 			$contents_string .= "</cite>";
