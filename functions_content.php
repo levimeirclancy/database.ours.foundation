@@ -663,7 +663,7 @@ function body_process($body_incoming) {
 				"Deuteronomy"	=> "Deu.",
 				"Deut",		=> "Deu.",
 				"Deu",		=> "Deu.",
-				],
+				];
 	
 			$contents_string = null;
 	
