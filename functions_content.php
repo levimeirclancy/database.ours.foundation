@@ -678,7 +678,7 @@ function body_process($body_incoming) {
 	
 			$contents_string .= "<cite>";
 
-			if (empty($bible_check[$temp_array[1])):
+			if (empty($bible_check[$temp_array[1]])):
 				$contents_string .= $temp_array[1];
 			else: 
 				$contents_string .= $bible_check[$temp_array[1];
