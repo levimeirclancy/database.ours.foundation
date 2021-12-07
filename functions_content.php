@@ -652,8 +652,10 @@ function body_process($body_incoming) {
 		if ($temp_array[0] == "bible"):
 	
 			$bible_check = [
-				"genesis"	=> "Gen.",
-				"gen"		=> "Gen.",
+				
+				// Torah
+				"genesis"	=> "בראשית Gen.",
+				"gen"		=> "בראשית Gen.",
 				"exodus"	=> "Ex.",
 				"ex"		=> "Ex.",
 				"leviticus"	=> "Lev.",
@@ -663,19 +665,54 @@ function body_process($body_incoming) {
 				"deuteronomy"	=> "Deu.",
 				"deut"		=> "Deu.",
 				"deu"		=> "Deu.",
+				
+				// Neviim, I
 				"joshua"	=> "Joshua",
 				"judges"	=> "Judges",
 				"ruth"		=> "Ruth",
 				"samuel"	=> "Sam.",
 				"sam"		=> "Sam.",
-				"1 samuel"	=> "I Sam.",
-				"i sam"		=> "I Sam.",
+				
+				"1 samuel"	=> "I Sam.", // For Christians, Samuel is two books
+				"i samuel"	=> "I Sam.",
 				"2 samuel"	=> "II Sam.",
+				"ii samuel"	=> "II Sam.",
+				"1 sam"		=> "I Sam.",
+				"i sam"		=> "I Sam.",
+				"2 sam"		=> "II Sam.",
 				"ii sam"	=> "II Sam.",
+				
 				"1 kings"	=> "I Kings",
 				"i kings"	=> "I Kings",
 				"2 kings"	=> "II Kings",
 				"ii kings"	=> "II Kings",
+				
+				// Neviim, II
+				"isaiah"	=> "Isaiah",
+				"jeremiah"	=> "Jer.",
+				"jer"		=> "Jer.",
+				"ezekiel"	=> "Eze.",
+				"eze"		=> "Eze.",
+				
+				// The twelve
+				"hosea"		=> "הושע Hoshea",
+				"hoshea"	=> "הושע Hoshea",
+				"joel"		=> "יואל Joel",
+				"amos"		=> "עמוס Amos",
+				"obadiah"	=> "עובדיה Obadiah",
+				"obadia"	=> "עובדיה Obadiah",
+				"jonah"		=> "יונה Jonah",
+				"micah"		=> "מיכה Mikha",
+				"nahum"		=> "נחום Nahum",
+				"nachum"	=> "נחום Nahum",
+				"habakkuk"	=> "חבקוק Habaquq",
+				"zephaniah"	=> "צפניה Zephaniah",
+				"hagai"		=> "חגי Hagai",
+				"haggai"	=> "חגי Hagai",
+				"zechariah"	=> "זכריה Zechariah",
+				"malachi"	=> "מלאכי Malachi",
+								
+				// Ketuvim
 				"1 chronicles"	=> "I Chron.",
 				"i chronicles"	=> "I Chron.",
 				"1 chron"	=> "I Chron.",
