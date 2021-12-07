@@ -652,31 +652,55 @@ function body_process($body_incoming) {
 		if ($temp_array[0] == "bible"):
 	
 			$bible_check = [
-				"Genesis"	=> "Gen.",
-				"Gen"		=> "Gen.",
-				"Exodus"	=> "Ex.",
-				"Ex"		=> "Ex.",
-				"Leviticus"	=> "Lev.",
-				"Lev"		=> "Lev.",
-				"Numbers"	=> "Num.",
-				"Num"		=> "Num.",
-				"Deuteronomy"	=> "Deu.",
-				"Deut"		=> "Deu.",
-				"Deu"		=> "Deu.",
-				"Joshua"	=> "Joshua",
-				"Judges"	=> "Judges",
-				"Ruth"		=> "Ruth",
-				"Samuel"	=> "Sam.",
-				"Sam"		=> "Sam",
-				"1 Kings"	=> "I Kings",
-				"I Kings"	=> "I Kings",
-				"2 Kings"	=> "II Kings",
-				"II Kings"	=> "II Kings",
+				"genesis"	=> "Gen.",
+				"gen"		=> "Gen.",
+				"exodus"	=> "Ex.",
+				"ex"		=> "Ex.",
+				"leviticus"	=> "Lev.",
+				"lev"		=> "Lev.",
+				"numbers"	=> "Num.",
+				"num"		=> "Num.",
+				"deuteronomy"	=> "Deu.",
+				"deut"		=> "Deu.",
+				"deu"		=> "Deu.",
+				"joshua"	=> "Joshua",
+				"judges"	=> "Judges",
+				"ruth"		=> "Ruth",
+				"samuel"	=> "Sam.",
+				"sam"		=> "Sam",
+				"1 kings"	=> "I Kings",
+				"i kings"	=> "I Kings",
+				"2 kings"	=> "II Kings",
+				"ii kings"	=> "II Kings",
+				"1 chronicles"	=> "I Chron.",
+				"i chronicles"	=> "I Chron.",
+				"1 chron"	=> "I Chron.",
+				"i chron"	=> "I Chron.",
+				"2 chronicles"	=> "II Chron.",
+				"ii chronicles"	=> "II Chron.",
+				"2 chron"	=> "II Chron.",
+				"ii chron"	=> "II Chron.",
+				"ezra"		=> "Ezra",
+				"ez"		=> "Ezra",
+				"nehemiah"	=> "Neh.",
+				"neh"		=> "Neh.",
+				"esther"	=> "Esth.",
+				"esth"		=> "Esth.",
+				"job"		=> "Job",
+				"psalms"	=> "Ps.",
+				"ps"		=> "Ps.",
+				"proverbs"	=> "Prov.",
+				"prov"		=> "Prov.",
+				"ecclesiastes"	=> "Ecc.",
+				"ecc"		=> "Ecc.",
 				];
 	
 			$contents_string = null;
 	
 			$contents_string .= "<cite>";
+	
+			$temp_array[1] = strtolower($temp_array[1]);
+			$temp_array[1] = str_replace(".", null, $temp_array[1]);
 
 			if (empty($bible_check[$temp_array[1]])):
 				$contents_string .= $temp_array[1];
