@@ -375,7 +375,6 @@ function body_process($body_incoming) {
 	$body_incoming = str_replace("<<<", "<q>", $body_incoming);
 	$body_incoming = str_replace(">>>", "</q>", $body_incoming);
 	
-	
 	// For markers surrounded by parentheses, etc
 	foreach ([ "(", "{", "[" ] as $marker_temp):
 		$body_incoming = str_replace($marker_temp.$marker_temp.$marker_temp.$marker_temp, $marker_temp." ".$marker_temp.$marker_temp.$marker_temp, $body_incoming);
@@ -1000,10 +999,14 @@ function body_process($body_incoming) {
 	$body_incoming = $body_final = null;
 
 	foreach($body_temp as $content_temp):
+		if (strpos($content_temp, "///") !== FALSE):
+			$offset_temp = ( -1 * ( strlen($content_temp) - strpos($content_temp, "///") ) );
+			$content_temp = substr($content_temp, 0, $offset_temp);
+			endif;
 		$content_temp = trim($content_temp);
 		if (ctype_space($content_temp)): continue; endif;
 		if (empty($content_temp) && ($content_temp !== "0")): continue; endif;
-		if (strpos("*".$content_temp, "///") == 1): continue; endif;
+		
 		foreach ($skip_array as $skip_temp):
 			if (strpos("*".$content_temp, $skip_temp)):
 				$body_final .= $content_temp;
