@@ -563,13 +563,13 @@ function body_process($body_incoming) {
 			continue; endif;
 	
 		if ($number_check == 1):
-			$body_incoming = str_replace("(((".$match_temp.")))", number_format($temp_array[0]), $body_incoming);
+			$body_incoming = str_replace("(((".$match_temp.")))", "<span class='time'>".number_format($temp_array[0])."</span>", $body_incoming);
 			continue; endif;
 	
 		if ($percent_check == 1):
 			$temp_array[0] = 100 * $temp_array[0];
 			$temp_array[0] = round($temp_array[0], 3);
-			$body_incoming = str_replace("(((".$match_temp.")))", $temp_array[0]."%", $body_incoming);
+			$body_incoming = str_replace("(((".$match_temp.")))", "<span class='time'>".$temp_array[0]."%</span>", $body_incoming);
 			continue; endif;
 	
 		if (in_array($epoch_check, ["m", "c"], TRUE)): // Must set TRUE because if $epoch_check = 0, it's a known issue it'll return TRUE
