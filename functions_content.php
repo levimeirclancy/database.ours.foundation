@@ -515,6 +515,18 @@ function body_process($body_incoming) {
 		$temp_array = explode(")(", $match_temp.")(");
 		$temp_array = array_filter($temp_array);
 	
+		$number_check = 0;
+		if (in_array("#", $temp_array)):
+			$number_check = 1;
+			$temp_array = array_diff($temp_array, ["#"]);
+			endif;
+	
+		$percent_check = 0;
+		if (in_array("%", $temp_array)):
+			$percent_check = 1;
+			$temp_array = array_diff($temp_array, ["%"]);
+			endif;
+	
 		// Check for B.C.E. or C.E.
 		$before_check = 0;
 		if (in_array("-", $temp_array)):
@@ -550,7 +562,16 @@ function body_process($body_incoming) {
 			$body_incoming = str_replace("(((".$match_temp.")))", null, $body_incoming);
 			continue; endif;
 	
-		
+		if ($number_check == 1):
+			$body_incoming = str_replace("(((".$match_temp.")))", number_format($temp_array[0]), $body_incoming);
+			continue; endif;
+	
+		if ($percent_check == 1):
+			$temp_array[0] = 100 * $temp_array[0];
+			$temp_array[0] = round($temp_array[0], 3);
+			$body_incoming = str_replace("(((".$match_temp.")))", $temp_array[0]."%", $body_incoming);
+			continue; endif;
+	
 		if (in_array($epoch_check, ["m", "c"], TRUE)): // Must set TRUE because if $epoch_check = 0, it's a known issue it'll return TRUE
 	
 			$contents_string = "<span class='time'>".ordinal_number($temp_array[0])."</span>";
