@@ -565,7 +565,7 @@ function body_process($body_incoming) {
 		if ($number_check == 1):
 			if (strpos($temp_array[0], ".") !== FALSE):
 				$string_temp = explode(".", "0".$temp_array[0]);
-				$string_temp[0] = number_format($string_temp[0];
+				$string_temp[0] = number_format($string_temp[0]);
 				$string_temp[1] = round($string_temp[1], 3);
 				$string_temp[1] = substr($string_temp[1], 0, 3);
 				$temp_array[0] = implode(".", $string_temp);
