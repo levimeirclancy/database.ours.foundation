@@ -999,10 +999,14 @@ function body_process($body_incoming) {
 	$body_incoming = $body_final = null;
 
 	foreach($body_temp as $content_temp):
-		if (strpos($content_temp, "///") !== FALSE):
-			$offset_temp = ( -1 * ( strlen($content_temp) - strpos($content_temp, "///") ) );
-			$content_temp = substr($content_temp, 0, $offset_temp);
-			endif;
+		$content_break_temp = explode("\n", $content_temp);
+		foreach ($content_break_temp as $key_temp => $value_temp):
+			if (strpos($value_temp, "///") !== FALSE):
+				$offset_temp = ( -1 * ( strlen($value_temp) - strpos($value_temp, "///") ) );
+				$content_break_temp[$key_temp] = substr($value_temp, 0, $offset_temp);
+				endif;
+			endforeach;
+		$content_temp = implode("\n", $content_break_temp);
 		$content_temp = trim($content_temp);
 		if (ctype_space($content_temp)): continue; endif;
 		if (empty($content_temp) && ($content_temp !== "0")): continue; endif;
